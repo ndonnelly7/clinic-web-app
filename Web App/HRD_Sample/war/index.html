@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Hello App Engine</title>
+    
+    <style>
+		#test_form span {
+			padding: .2em 1em;
+			color: #fff;
+			background-color: #000;
+		}
+		
+		#test_form span:hover {
+			color: #000;
+			background-color: #fff;
+		}
+	</style>
+  </head>
+
+  <body>
+   <a href="./FindTitles.html">Find Title</a>
+   <a href="./AddTitle.html">Add Title</a>
+   
+	<form id="test_form" action="file_disp.do" method="GET">
+		<span id="test_div" onclick="divClick('test')">TEST</span>
+		<span id="other_div" onclick="divClick('other')">OTHER</span>
+		<span id="long_div" onclick="divClick('long')">LOOOOOOOONNNNNG</span>
+		
+		<input type="hidden" id="text_form" name="page"/>
+	</form>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+	function divClick(type){
+		$('#text_form').val(type);
+		$('#test_form').submit();
+	};
+	
+	</script>
+  </body>
+</html>

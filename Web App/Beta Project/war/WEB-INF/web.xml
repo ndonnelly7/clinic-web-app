@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>Beta_Project</servlet-name>
+		<servlet-class>project.beta.Beta_ProjectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Beta_Project</servlet-name>
+		<url-pattern>/beta_project</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Patient_Details</servlet-name>
+		<servlet-class>project.beta.PatDetailsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Patient_Details</servlet-name>
+		<url-pattern>/jsp/personal_details.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Patient_History</servlet-name>
+		<servlet-class>project.beta.HistoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Patient_History</servlet-name>
+		<url-pattern>/jsp/patient_history.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GP_Medical</servlet-name>
+		<servlet-class>project.beta.GPServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GP_Medical</servlet-name>
+		<url-pattern>/jsp/medical.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Patient_Concerns</servlet-name>
+		<servlet-class>project.beta.ConcernsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Patient_Concerns</servlet-name>
+		<url-pattern>/jsp/concerns.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Neuro_History</servlet-name>
+		<servlet-class>project.beta.NeuroServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Neuro_History</servlet-name>
+		<url-pattern>/jsp/neural.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Events_Activities</servlet-name>
+		<servlet-class>project.beta.EvActServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Events_Activities</servlet-name>
+		<url-pattern>/jsp/events_activities.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Living_Sit</servlet-name>
+		<servlet-class>project.beta.LivingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Living_Sit</servlet-name>
+		<url-pattern>/jsp/living.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Lifestyle</servlet-name>
+		<servlet-class>project.beta.LifestyleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Lifestyle</servlet-name>
+		<url-pattern>/jsp/lifestyle.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Memory</servlet-name>
+		<servlet-class>project.beta.MemoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Memory</servlet-name>
+		<url-pattern>/jsp/memory.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Analysis</servlet-name>
+		<servlet-class>project.beta.AnalysisServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Analysis</servlet-name>
+		<url-pattern>/jsp/analysis.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>File_Dispatch</servlet-name>
+		<servlet-class>project.beta.FileDispatchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>File_Dispatch</servlet-name>
+		<url-pattern>/jsp/form.do</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Site</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+</web-app>

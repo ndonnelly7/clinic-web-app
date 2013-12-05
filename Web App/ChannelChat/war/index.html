@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Welcome</title>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Welcome to my sample chat box thing</h1>
+    
+	<form id="join_form" action="signin.do" method="get" class="pure-form pure-form-stacked">
+		<fieldset>
+		<legend id="join_div">Join in here:</legend> 
+		
+		<input type="text" name="username" id="username_box" placeholder="Username" onchange="checkvalues()">
+		<input type="text" name="chatname" id="chatname_box" placeholder="ChatBox ID" onchange="checkvalues()">
+		<input type="text" name="choice" id="choice_box" style="display:none" value="clear">
+		<input type="submit" id="sub_button" value="Join" disabled>
+		<input type="submit" id="create_button" value="Create" disabled>
+		<input type="submit" id="clear_btn" value="Clear" style="display:none">
+		</fieldset>
+	</form>       
+  
+  <script>
+  function checkvalues() {
+	  console.log($('#username_box').val());
+	  console.log($('#chatname_box').val());
+	  
+	  if($('#username_box').val() != "" && $('chatname_box').val() != ""){	  
+		$.ajax('/namecheck.do', {
+			method:'GET',
+			dataType:'text',
+			data: {
+				chatname:$('#chatname_box').val(),
+				name:$('username_box').val(),
+				choice:$('choice_box').val()
+			},
+			success:function(response) {
+				if(response == "good"){
+					$('#sub_button').prop('disabled', false);
+					$('#create_button').prop('disabled', true);
+					$('#choice_box').val('join');
+				} else if (response == "no_box"){
+					$('#create_button').prop('disabled', false);
+					$('#sub_button').prop('disabled', true);
+					$('#choice_box').val('create');
+				} else {
+					$('#sub_button').prop('disabled', true);
+					$('#create_button').prop('disabled', true);
+					$('#choice_box').val('clear');
+				}
+				console.log(response);
+			}
+		});
+	  }
+	}
+  </script>
+  </body>
+</html>

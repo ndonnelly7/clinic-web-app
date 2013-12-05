@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	
+}
+
+#textbox {
+	width: 600px;
+	height:400px;
+	border:3px solid #192E7E;
+	padding: 5px;
+	font-family: monospace;
+}
+
+#inputbox {
+	width: 520px;
+	height: 24px;
+	border: 2px solid #192E7E;
+	padding: 4px;
+	font-family: monospace;
+	margin-top:2px;
+}
+
+#send_button {
+	width: 72px;
+	height: 24px;
+}

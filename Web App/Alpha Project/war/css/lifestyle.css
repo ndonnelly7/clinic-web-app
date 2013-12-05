@@ -1,0 +1,78 @@
+@CHARSET "ISO-8859-1";
+
+form .lifestyle_title {
+	width: 360px;	
+	margin: 18px 1% 12px 1%;
+	padding: 0.2em;
+	font-weight: bold;
+}
+
+form .lifestyle_ex_title {
+	width: 450px;	
+	margin: 18px 1% 12px 1%;
+	padding: 0.2em;
+	font-weight: bold;
+}
+
+form .lifestyle_vice_title {
+	width: 240px;
+	margin: 18px 1% 12px 1%;
+	padding: 0.2em;
+	font-weight: bold;
+}
+
+form .lifestyle_vice_subtitle {
+	width: 80px;
+	margin: 12px 2% 8px 3%;
+	padding: 0.2em; 
+}
+
+form .lifestyle_subtitle {
+	width: 160px;
+	margin: 12px 2% 8px 3%;
+	padding: 0.2em; 
+}
+
+.lifestyle_select {
+	margin: 10px 1% 8px 1%;
+	display: inline-block;
+}
+
+.life_select_tag {
+	display: inline-block;
+}
+
+.life_select_box {
+	margin: 10px 3% 10px 1%;
+	max-width: 120px;
+}
+
+form .hours_life {
+	display: inline-block;
+}
+
+#smoke_div {
+	max-width: 300px;
+}
+
+#exercise_header .header{
+	font-size:0.95em;
+	margin: 10px 0.5% 10px 0.5%;
+	color: #323232;
+	width: 10%;
+	font-weight:bold;
+}
+
+#exercise_entry .ex-1-5{
+	width:10%;
+	margin: 10px 0.5% 10px 0.5%;
+}
+
+.lifestyle_button {
+	margin-top: 18px;
+	margin-left: 1%;
+}
+
+.collat_life_div {
+	margin-left: 2%;
+}

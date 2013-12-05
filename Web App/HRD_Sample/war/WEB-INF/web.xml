@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>HRD_Sample</servlet-name>
+		<servlet-class>com.hrd.HRD_SampleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddTitle</servlet-name>
+		<servlet-class>com.hrd.AddBookServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FindTitle</servlet-name>
+		<servlet-class>com.hrd.FindBookServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RemoveTitle</servlet-name>
+		<servlet-class>com.hrd.RemoveBookServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ClearLibrary</servlet-name>
+		<servlet-class>com.hrd.ClearLibraryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FileDispatch</servlet-name>
+		<servlet-class>com.hrd.FileDispatchServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HRD_Sample</servlet-name>
+		<url-pattern>/hrd_sample</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddTitle</servlet-name>
+		<url-pattern>/add_title</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FindTitle</servlet-name>
+		<url-pattern>/find_title</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RemoveTitle</servlet-name>
+		<url-pattern>/remove_title</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClearLibrary</servlet-name>
+		<url-pattern>/clear_lib</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FileDispatch</servlet-name>
+		<url-pattern>/file_disp.do</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
