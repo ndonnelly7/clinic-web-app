@@ -35,6 +35,8 @@ public class PatDetailsServlet extends HttpServlet {
 		System.out.println("User id: " + user.getUserId());
 		System.out.println("User email: " + user.getEmail());
 		
+		PatientStore.RemovePatientStore();
+		
 		//Gets the user store and retrieves the appropriate user
 		UserStore uStore = UserStore.GetUserStore();
 		SystemUser u = uStore.getSystemUser(user);

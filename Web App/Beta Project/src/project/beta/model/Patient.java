@@ -28,7 +28,6 @@ public class Patient implements java.io.Serializable{
 	@OneToOne(cascade = CascadeType.ALL)
 	private PatientHistory patientHistory;
 	
-	
 	public Patient(int patientID, String u){
 		pID = patientID;
 		userCreatedID = u;

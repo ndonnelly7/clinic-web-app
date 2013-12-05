@@ -1,0 +1,9 @@
+INDEX VERSION 1.126
+C:\Users\Neil\Development\GitHub\clinic-web-app\Web App\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\202618093.index
+\ChannelChat\src
+C:\Users\Neil\Development\GitHub\clinic-web-app\Web App\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2444038622.index
+\HRD_Sample\src
+C:\Users\Neil\Development\GitHub\clinic-web-app\Web App\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1637105576.index
+\Beta Project\src
+C:\Users\Neil\Development\GitHub\clinic-web-app\Web App\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4047602484.index
+\Alpha Project\src

@@ -29,6 +29,7 @@
 </div> 
 </form>
 <form id="medical_form" class="pure-form pure-form-aligned" method="POST" action="medical.do">
+	<input type="hidden" name="hiddenid" id="hiddenid" value="${hiddenid}">
 	<fieldset id="med_field">
 		<legend>GP Information</legend>
 		

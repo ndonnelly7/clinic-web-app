@@ -1,0 +1,25 @@
+package project.beta.model;
+
+import javax.persistence.Entity;
+
+@Entity
+private class MedHistory {
+	String condition;
+	String time;
+	String notes;
+	
+	public MedHistory(String condition, String time, String notes)
+	{
+		this.condition = condition;
+		this.time = time;
+		this.notes = notes;
+	}
+	
+	@Override
+	public String toString() {
+		return "MedHisotry [condition=" + condition
+				+ ", time=" + time
+				+ ", notes" + notes
+				+ "]";
+	}
+}

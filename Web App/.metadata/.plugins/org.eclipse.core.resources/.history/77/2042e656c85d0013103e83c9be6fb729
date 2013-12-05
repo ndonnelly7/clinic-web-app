@@ -1,0 +1,8 @@
+package project.beta.model;
+
+public class GP_Info {
+
+	boolean discuss_gp;
+	String gp_result;
+	String gp_result;
+}

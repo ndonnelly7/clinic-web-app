@@ -11,18 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import project.beta.model.Patient;
 import project.beta.model.PatientHistory;
 import project.beta.model.PatientStore;
-import project.beta.model.PersonalDetailsPatient;
 import project.beta.model.SystemUser;
 import project.beta.model.UserStore;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class HistoryServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
+
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		System.out.println("User name: " + user.getNickname());
@@ -54,7 +55,11 @@ public class HistoryServlet extends HttpServlet {
 		if(!PatientStore.updatePatient(pat.getID(),pat))
 			PatientStore.addPatient(pat);
 		
+		pStore = PatientStore.GetPatientStore();
+		Patient test = pStore.getPatient(pat.getID());
+		
 		req.setAttribute("hiddenid", pat.getID());
+		req.setAttribute("patient", new JSONObject(pat));
 		RequestDispatcher view = req.getRequestDispatcher("/jsp/medical.jsp");
 		view.forward(req, resp);
 	}

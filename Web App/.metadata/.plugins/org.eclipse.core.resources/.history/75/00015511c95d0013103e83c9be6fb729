@@ -1,0 +1,16 @@
+package project.beta.model;
+
+public class GP_Info {
+
+	int pID;
+	boolean discuss_gp;
+	String gp_result, gp_meds, gp_notes;
+	float cholesterol, thyroid, b12, iron, calcium, sodium;
+	String test_result_notes;
+	String family_reaction, reaction_length, family_reaction_notes;
+	
+	public GP_Info(int pid)
+	{
+		pID = pid;
+	}
+}

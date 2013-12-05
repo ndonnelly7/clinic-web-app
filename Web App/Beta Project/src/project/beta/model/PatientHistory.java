@@ -3,10 +3,13 @@ package project.beta.model;
 import java.util.ArrayList;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -18,11 +21,11 @@ public class PatientHistory {
 	Key key;
 	
 	int pID;
-	@Basic
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	ArrayList<MedHistory> med_histories, med_collat_histories;
-	@Basic
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	ArrayList<DrugHistory> drug_histories, drug_collat_histories;
-	@Basic
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	ArrayList<PsychHistory> psych_histories, psych_collat_histories;
 	
 	String current_therapy_check, past_therapy_check;
@@ -149,66 +152,4 @@ public class PatientHistory {
 				+ collat_past_therapy_check + "]";
 	}
 	
-	private class MedHistory {
-		String condition;
-		String time;
-		String notes;
-		
-		public MedHistory(String condition, String time, String notes)
-		{
-			this.condition = condition;
-			this.time = time;
-			this.notes = notes;
-		}
-		
-		@Override
-		public String toString() {
-			return "MedHisotry [condition=" + condition
-					+ ", time=" + time
-					+ ", notes" + notes
-					+ "]";
-		}
-	}
-	
-	private class DrugHistory {
-		String drug;
-		String time;
-		String notes;
-		
-		public DrugHistory(String drug, String time, String notes)
-		{
-			this.drug = drug;
-			this.time = time;
-			this.notes = notes;
-		}
-		
-		@Override
-		public String toString() {
-			return "MedHisotry [condition=" + drug
-					+ ", time=" + time
-					+ ", notes" + notes
-					+ "]";
-		}
-	}
-	
-	private class PsychHistory {
-		String psych;
-		String time;
-		String notes;
-		
-		public PsychHistory(String psych, String time, String notes)
-		{
-			this.psych = psych;
-			this.time = time;
-			this.notes = notes;
-		}
-		
-		@Override
-		public String toString() {
-			return "MedHisotry [condition=" + psych
-					+ ", time=" + time
-					+ ", notes" + notes
-					+ "]";
-		}
-	}
 }

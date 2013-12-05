@@ -1,7 +1,6 @@
 package project.beta.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -11,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
@@ -26,18 +26,18 @@ public class PatientStore {
 	@Id
 	String id;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	HashSet<Patient> patients;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	ArrayList<Patient> patients;
 	@Basic
-	HashSet<Integer> patientIDs;
+	ArrayList<Integer> patientIDs;
 	
 	int nextID;
 	
 	public PatientStore(String id){
 		this.id = id;
 		nextID = 0;
-		patients = new HashSet<Patient>();
-		patientIDs = new HashSet<Integer>();
+		patients = new ArrayList<Patient>();
+		patientIDs = new ArrayList<Integer>();
 	}
 	
 	public Patient getPatient(String name)
@@ -88,7 +88,7 @@ public class PatientStore {
 		return pList;
 	}
 	
-	public HashSet<Patient> getAllPatients()
+	public ArrayList<Patient> getAllPatients()
 	{
 		return patients;
 	}
@@ -156,7 +156,7 @@ public class PatientStore {
 			if(pStore == null) {
 				result = false;
 			} else {
-				HashSet<Patient> pats = pStore.getAllPatients();
+				ArrayList<Patient> pats = pStore.getAllPatients();
 				Iterator<Patient> it = pats.iterator();
 				while(it.hasNext()){
 					Patient p = it.next();
@@ -197,7 +197,7 @@ public class PatientStore {
 			if(pStore == null) {
 				result = false;
 			} else {
-				HashSet<Patient> pats = pStore.getAllPatients();
+				ArrayList<Patient> pats = pStore.getAllPatients();
 				Iterator<Patient> it = pats.iterator();
 				while(it.hasNext()){
 					Patient p = it.next();
@@ -272,12 +272,16 @@ public class PatientStore {
 			
 			ps = em.find(PatientStore.class, patientStoreKey);
 			if(ps != null) {
-				if(ps.getPatient(id).getID() == id)
-				{
-					ps.getAllPatients().remove(ps.getPatient(id));
-					ps.getAllPatients().add(p);
-				} else {
-					result = false;
+				Patient pat = ps.getPatient(id);
+				if(pat != null) {
+					if(pat.getID() == id)
+					{
+						int ind = ps.getAllPatients().indexOf(pat);
+						ps.getAllPatients().set(ind, p);
+						
+					} else {
+						result = false;
+					}
 				}
 				txn.commit();
 				
