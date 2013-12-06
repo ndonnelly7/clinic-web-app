@@ -297,6 +297,7 @@
 		</div>
 	</fieldset>
 	<br><br>
+	<input type="submit" value="Submit"/>
 </form>
 <div class="footer">
 	<a href="./concerns_form.html">Previous Page</a>

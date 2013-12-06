@@ -54,7 +54,7 @@
 			<div id="events">
 				<div class="pure-u-1-5 title">Recent Events</div>
 				<div class="pure-u-1-5 check">
-				<input type="checkbox" name="rec_events" onclick="showHiddenRow(this, '#events')">
+				<input type="checkbox" name="rec_events_check" onclick="showHiddenRow(this, '#events')">
 				</div>
 				<div class="pure-u-1-5 want_time_frame_dis select_box">
 				</div>
@@ -226,163 +226,164 @@
 					</div>
 				</div>
 			
-				<div id="events">
+				<div id="events_collat">
 					<div class="pure-u-1-5 title">Recent Events</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="rec_events" onclick="showHiddenRow(this, '#events')">
+					<input type="checkbox" name="rec_events_check_collat" onclick="showHiddenRow(this, '#events_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box" >
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="rec_event_notes"form="concerns_form" rows="2" cols="24"></textarea>
+					<textarea name="rec_event_notes_collat"form="concerns_form" rows="2" cols="24"></textarea>
 					</div>
 				</div>
 				
-				<div id="faces">
+				<div id="faces_collat">
 					<div class="pure-u-1-5 title">Faces</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="faces_check" onclick="showHiddenRow(this,'#faces')">
+					<input type="checkbox" name="faces_check_collat" onclick="showHiddenRow(this,'#faces_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="faces_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="faces_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="names">
+				<div id="names_collat">
 					<div class="pure-u-1-5 title">Names</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="names_check" onclick="showHiddenRow(this,'#names')">
+					<input type="checkbox" name="names_check_collat" onclick="showHiddenRow(this,'#names_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="names_notes"form="concerns_form"  rows="2" cols="24"></textarea> 
+					<textarea name="names_notes_collat"form="concerns_form"  rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="losing_things">
+				<div id="losing_things_collat">
 					<div class="pure-u-1-5 title">Losing Things</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="losing_things_check" onclick="showHiddenRow(this,'#losing_things')">
+					<input type="checkbox" name="losing_things_check_collat" onclick="showHiddenRow(this,'#losing_things_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="losing_things_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="losing_things_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="follow_conv">
+				<div id="follow_conv_collat">
 					<div class="pure-u-1-5 title">Trouble Following Conversations</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="follow_conv_check" onclick="showHiddenRow(this,'#follow_conv')">
+					<input type="checkbox" name="follow_conv_check_collat" onclick="showHiddenRow(this,'#follow_conv_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="follow_conv_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="follow_conv_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="right_words">
+				<div id="right_words_collat">
 					<div class="pure-u-1-5 title">Trouble Finding the Right Words</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="right_words_check" onclick="showHiddenRow(this,'#right_words')">
+					<input type="checkbox" name="right_words_check_collat" onclick="showHiddenRow(this,'#right_words_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="right_words_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="right_words_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="decision_making">
+				<div id="decision_making_collat">
 					<div class="pure-u-1-5 title">Difficulty Making Decisions</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="decision_making_check" onclick="showHiddenRow(this,'#decision_making')">
+					<input type="checkbox" name="decision_making_check_collat" onclick="showHiddenRow(this,'#decision_making_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="decision_making_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="decision_making_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="calculatons">
+				<div id="calculatons_collat">
 					<div class="pure-u-1-5 title">Calculations</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="calculatons_check" onclick="showHiddenRow(this,'#calculatons')">
+					<input type="checkbox" name="calculatons_check_collat" onclick="showHiddenRow(this,'#calculatons_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="calculatons_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="calculatons_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="prospective">
+				<div id="prospective_collat">
 					<div class="pure-u-1-5 title">Prospective Memory</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="prospective_check" onclick="showHiddenRow(this,'#prospective')">
+					<input type="checkbox" name="prospective_check_collat" onclick="showHiddenRow(this,'#prospective_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="prospective_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="prospective_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="anxiety">
+				<div id="anxiety_collat">
 					<div class="pure-u-1-5 title">Anxious or Depressed about Forgetfulness</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="anxiety_check" onclick="showHiddenRow(this,'#anxiety')">
+					<input type="checkbox" name="anxiety_check_collat" onclick="showHiddenRow(this,'#anxiety_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="anxiety_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="anxiety_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="comments">
+				<div id="comments_collat">
 					<div class="pure-u-1-5 title">Have others commented on your Memory</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="comments_check" onclick="showHiddenRow(this,'#comments')">
+					<input type="checkbox" name="comments_check_collat" onclick="showHiddenRow(this,'#comments_collat')">
 					</div>
 					<div class="pure-u-1-5 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-5 want_frequency_dis select_box">
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="comments_notes"form="concerns_form"  rows="2" cols="24"></textarea> 
+					<textarea name="comments_notes_collat"form="concerns_form"  rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 			</div>
 		</div>
 	</fieldset>
 	<br><br>
+	<input type="submit" value="Submit"/>
 </form>
 <div class="footer">
 	<a href="./medical_form.html">Previous Page</a>

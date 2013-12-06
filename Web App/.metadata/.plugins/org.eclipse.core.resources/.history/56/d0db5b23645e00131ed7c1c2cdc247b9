@@ -1,0 +1,26 @@
+package project.beta.model;
+
+public class Concerns {
+
+	int pID;
+	
+	boolean recEventsCheck, facesCheck, namesCheck, losingThingsCheck, followConversationsCheck;
+	boolean rightWordsCheck, decisionMakingCheck, calculationsCheck, prospMemoryCheck, anxietyCheck, commentsCheck;
+	String recEventsTime, recEventsFreq, recEventsNotes;
+	String facesTime, facesFreq, facesNotes;
+	String namesTime, namesFreq, namesNotes;
+	String losingThingsTime, losingThingsFreq, losingThingsNotes;
+	String followConversationTime, followConversationFreq, followConversationNotes;
+	String rightWordsTime, rightWordsFreq, rightWordsNotes;
+	String decisionMakingTime, decisionMakingFreq, decisionMakingNotes;
+	String calculationsTime, calculationsFreq, calculationsNotes;
+	String prospMemoryTime, prospMemoryFreq, prospMemoryNotes;
+	String anxietyTime, anxietyFreq, anxietyNotes;
+	String commentsTime, commentsFreq, commentsNotes;
+	
+	
+	
+	public Concerns(int pid){
+		pID = pid;
+	}
+}

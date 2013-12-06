@@ -1,0 +1,11 @@
+package project.beta.model;
+
+public class Concerns {
+
+	int pID;
+	
+	
+	public Concerns(int pid){
+		pID = pid;
+	}
+}

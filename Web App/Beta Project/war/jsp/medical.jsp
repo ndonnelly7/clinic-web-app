@@ -83,7 +83,7 @@
 			<div id="cholest_qs" class="hide_div" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="time_frame">
+					<select name="chol_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -100,7 +100,7 @@
 			<div id="thyroid_qs" class="hide_div" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
 				<div class="pure-u-1-4 select_box" style="">
-					<select name="time_frame">
+					<select name="thyroid_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -117,7 +117,7 @@
 			<div id="b12_qs" class="hide_div" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="time_frame">
+					<select name="b12_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -134,7 +134,7 @@
 			<div id="iron_qs" class="hide_div" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="time_frame">
+					<select name="iron_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -151,7 +151,7 @@
 			<div id="calc_qs" class="hide_div" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="time_frame">
+					<select name="calc_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -168,7 +168,7 @@
 			<div id="sodium_qs" class="hide_div" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="time_frame">
+					<select name="sodium_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -194,7 +194,7 @@
 			<br>
 			<div class="pure-u-1-2 title">For how long have they been acting like this?</div>
 			<div class="pure-u-1-2 select_box">
-				<select name="time_frame">
+				<select name="response_time">
 					<option value="three_mon">1 month</option>
 					<option value="three_mon">3 months</option>
 					<option value="six_mon">6 months</option>
@@ -205,6 +205,7 @@
 		<textarea form="medical_form" name="kin_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 	</fieldset>
 	<br><br>
+	<input type="submit" value="Submit"/>
 </form>
 <br><br>
 <div class="footer">
