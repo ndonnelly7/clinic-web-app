@@ -1,0 +1,13 @@
+package project.beta.model;
+
+public class LivingSit {
+
+	private int pID;
+	String housemates, housemate_note, house_type, house_type_not, house_location, house_location_note;
+	String carer, carer_note, home_help, home_help_note;
+	
+	public LivingSit(int id)
+	{
+		pID = id;
+	}
+}

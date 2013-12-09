@@ -1,0 +1,10 @@
+package project.beta.model;
+
+public class EventsActivities {
+
+	private int pID;
+	
+	public EventsActivities(int id) {
+		pID = id;
+	}
+}

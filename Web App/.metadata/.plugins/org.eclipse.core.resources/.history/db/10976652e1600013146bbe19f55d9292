@@ -1,0 +1,11 @@
+package project.beta.model;
+
+public class LivingSit {
+
+	private int pID;
+	
+	public LivingSit(int id)
+	{
+		pID = id;
+	}
+}

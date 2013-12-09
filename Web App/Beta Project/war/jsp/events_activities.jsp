@@ -19,7 +19,7 @@
   <span onclick="spanClick('personal_details')">Patient Information</span>
   <span onclick="spanClick('history')">Patient History</span>
   <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')" class="current_page">Patient Concerns</span>
+  <span onclick="spanClick('concerns')">Patient Concerns</span>
   <span onclick="spanClick('neuro')">Neuro History</span>
   <span onclick="spanClick('events_activities')" class="current_page">Events and Activities</span>
   <span onclick="spanClick('living')">Living Situation</span>
@@ -56,19 +56,19 @@
 				<div class="pure-u-1-4 want_time_frame_dis select_box">
 				</div>
 				<div class="pure-u-1-4 notes_column">
-				<textarea name="rec_event_notes"form="events_form" rows="2" cols="24"></textarea>
+				<textarea name="divorce_notes"form="events_form" rows="2" cols="24"></textarea>
 				</div>
 			</div>
 			
 			<div id="Bereavement">
 				<div class="pure-u-1-4 title">Bereavement</div>
 				<div class="pure-u-1-4 check">
-				<input type="checkbox" name="Bereavement_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_check">
+				<input type="checkbox" name="bereavement_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_check">
 				</div>
 				<div class="pure-u-1-4 want_time_frame_dis select_box">
 				</div>
 				<div class="pure-u-1-4 notes_column">
-				<textarea name="Bereavement_notes"form="events_form" rows="2" cols="24"></textarea> 
+				<textarea name="bereavement_notes"form="events_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -99,24 +99,24 @@
 			<div id="disharmony">
 				<div class="pure-u-1-4 title">Family Disharmony</div>
 				<div class="pure-u-1-4 check">
-				<input type="checkbox" name="disharmony_check" onclick="showHiddenRowEA(this,'#disharmony')" class="event_check">
+				<input type="checkbox" name="family_disharmony_check" onclick="showHiddenRowEA(this,'#disharmony')" class="event_check">
 				</div>
 				<div class="pure-u-1-4 want_time_frame_dis select_box">
 				</div>
 				<div class="pure-u-1-4 notes_column">
-				<textarea name="disharmony_notes"form="events_form" rows="2" cols="24"></textarea> 
+				<textarea name="family_disharmony_notes"form="events_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="argument">
 				<div class="pure-u-1-4 title">Other Relationship Disharmony</div>
 				<div class="pure-u-1-4 check">
-				<input type="checkbox" name="argument_check" onclick="showHiddenRowEA(this,'#argument')" class="event_check">
+				<input type="checkbox" name="other_disharmony_check" onclick="showHiddenRowEA(this,'#argument')" class="event_check">
 				</div>
 				<div class="pure-u-1-4 want_time_frame_dis select_box">
 				</div>
 				<div class="pure-u-1-4 notes_column">
-				<textarea name="argument_notes"form="events_form" rows="2" cols="24"></textarea> 
+				<textarea name="other_disharmony_notes"form="events_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -189,120 +189,120 @@
 				<div id="divorce">
 					<div class="pure-u-1-4 title">Divorce</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="divorce_check" onclick="showHiddenRowEA(this, '#divorce')" class="event_check">
+					<input type="checkbox" name="divorce_collat_check" onclick="showHiddenRowEA(this, '#divorce')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="rec_event_notes"form="events_form" rows="2" cols="24"></textarea>
+					<textarea name="rec_event_collat_notes"form="events_form" rows="2" cols="24"></textarea>
 					</div>
 				</div>
 				
 				<div id="Bereavement">
 					<div class="pure-u-1-4 title">Bereavement</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="Bereavement_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_check">
+					<input type="checkbox" name="Bereavement_collat_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="Bereavement_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="Bereavement_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="moving_house">
 					<div class="pure-u-1-4 title">Moving House</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="moving_house_check" onclick="showHiddenRowEA(this,'#moving_house')" class="event_check">
+					<input type="checkbox" name="moving_house_collat_check" onclick="showHiddenRowEA(this,'#moving_house')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="moving_house_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="moving_house_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="redundancy">
 					<div class="pure-u-1-4 title">Redundancy</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="redundancy_check" onclick="showHiddenRowEA(this,'#redundancy')" class="event_check">
+					<input type="checkbox" name="redundancy_collat_check" onclick="showHiddenRowEA(this,'#redundancy')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="redundancy_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="redundancy_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="disharmony">
 					<div class="pure-u-1-4 title">Family Disharmony</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="disharmony_check" onclick="showHiddenRowEA(this,'#disharmony')" class="event_check">
+					<input type="checkbox" name="family_disharmony_collat_check" onclick="showHiddenRowEA(this,'#disharmony')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="disharmony_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="family_disharmony_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="argument">
 					<div class="pure-u-1-4 title">Other Relationship Disharmony</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="argument_check" onclick="showHiddenRowEA(this,'#argument')" class="event_check">
+					<input type="checkbox" name="other_disharmony_collat_check" onclick="showHiddenRowEA(this,'#argument')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="argument_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="other_disharmony_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="financial">
 					<div class="pure-u-1-4 title">Financial Issues</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="financial_check" onclick="showHiddenRowEA(this,'#financial')" class="event_check">
+					<input type="checkbox" name="financial_collat_check" onclick="showHiddenRowEA(this,'#financial')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="financial_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="financial_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="retirement">
 					<div class="pure-u-1-4 title">Retirement</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="retirement_check" onclick="showHiddenRowEA(this,'#retirement')" class="event_check">
+					<input type="checkbox" name="retirement_collat_check" onclick="showHiddenRowEA(this,'#retirement')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="retirement_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="retirement_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="job_stress">
 					<div class="pure-u-1-4 title">Job Stress</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="job_stress_check" onclick="showHiddenRowEA(this,'#job_stress')" class="event_check">
+					<input type="checkbox" name="job_stress_collat_check" onclick="showHiddenRowEA(this,'#job_stress')" class="event_collat_check">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="job_stress_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="job_stress_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="other" class="life_event">
 					<div class="pure-u-1-4 title">Other</div>
 					<div class="pure-u-1-4" id="other_text_box">
-					<input type="text" name="other_text" onchange="showHiddenRowEAText(this,'#other')" class="event_check" style="margin-right:3%">
+					<input type="text" name="other_collat_text" onchange="showHiddenRowEAText(this,'#other')" class="event_collat_check" style="margin-right:3%">
 					</div>
 					<div class="pure-u-1-4 want_time_frame_dis select_box">
 					</div>
 					<div class="pure-u-1-4 notes_column">
-					<textarea name="other_notes"form="events_form" rows="2" cols="24"></textarea> 
+					<textarea name="other_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 			</div>
@@ -394,7 +394,7 @@
 					<div id="collat_activity_entry" style="min-width:800px">
 						<div class="pure-g-r">
 							<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-								<select name="activities_list">
+								<select name="activities_collat_list">
 									<option value="dancing">Dancing</option>
 									<option value="reading">Reading</option>
 									<option value="tv">Television</option>
@@ -417,17 +417,17 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 pure-control-group events-1-5">
-								<select name="still_active_check" onclick="changeActivity(this)">
+								<select name="still_active_collat_check" onclick="changeActivity(this)">
 									<option value="no">No</option>
 									<option value="ongoing">Ongoing</option>
 									<option value="decrease">Less active</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
-								<input type="text" name="current_active_hours" class="current_hours_input" style="width:4em;">
+								<input type="text" name="current_active_hours_collat" class="current_hours_input" style="width:4em;">
 							</div>
 							<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
-								<input type="text" name="previous_active_hours" class="prev_hours_input" style="width:4em;">
+								<input type="text" name="previous_active_hours_collat" class="prev_hours_input" style="width:4em;">
 							</div>
 							
 							<div class="pure-u-1-5 events-1-5 when_stopped">
@@ -441,7 +441,7 @@
 							</div>
 							
 							<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-									<textarea form="events_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+									<textarea form="events_form" class="reason_input" name="collat_activity_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 					</div>

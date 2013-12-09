@@ -1,0 +1,22 @@
+package project.beta.model;
+
+public class LivingSit {
+
+	private int pID;
+	String housemates, housemate_note, house_type, house_type_not, house_location, house_location_note;
+	String carer_note, home_help_note;
+	String housemates_collat, housemate_note_collat, house_type_collat, house_type_note_collat;
+	String house_location_collat, house_location_note_collat, carer_note_collat, home_help_note_collat;
+	
+	boolean carer, home_help, carer_collat, home_help_collat; 
+	boolean drive, cook, shop;
+	
+	boolean unknown_arrival, lost, tips;
+	String unkown_arrival_severity, unknown_arrival_freq, unknown_arrival_notes;
+	String lost_severity, lost_freq, lost_notes;
+	
+	public LivingSit(int id)
+	{
+		pID = id;
+	}
+}

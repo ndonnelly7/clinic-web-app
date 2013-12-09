@@ -1,0 +1,152 @@
+package project.beta;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import project.beta.model.EventsActivities;
+import project.beta.model.NeuroHistory;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
+@SuppressWarnings("serial")
+public class EvActServlet extends HttpServlet {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException, ServletException {
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+		System.out.println("User name: " + user.getNickname());
+		System.out.println("User id: " + user.getUserId());
+		System.out.println("User email: " + user.getEmail());
+		
+		//TODO: Put in User Store and Patient Store stuff
+		
+		EventsActivities ea = new EventsActivities(0);
+		BuildEvAct(ea, req);
+		
+		//Add Concerns to Patient then update patient on system
+		
+		RequestDispatcher view = req.getRequestDispatcher("/jsp/events_activities.jsp");
+		view.forward(req, resp);
+	}
+	
+	private void BuildEvAct(EventsActivities ea, HttpServletRequest req)
+	{
+		String[] times = req.getParameterValues("time_frame");
+		int time_i = 0;
+		
+		String divorceCheck = req.getParameter("divorce_check");
+		if(divorceCheck != "" && divorceCheck != null) {
+			ea.setDivorce(divorceCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isDivorce()){
+				ea.setDivorce_time(times[time_i]);
+				ea.setDivorce_notes(req.getParameter("divorce_notes"));
+				time_i++;
+			}
+		}
+		
+		String bereavementCheck = req.getParameter("bereavement_check");
+		if(bereavementCheck != "" && bereavementCheck != null) {
+			ea.setBereavement(bereavementCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isBereavement()){
+				ea.setBereavement_time(times[time_i]);
+				ea.setBereavement_notes(req.getParameter("bereavement_notes"));
+				time_i++;
+			}
+		}
+		
+		String moving_houseCheck = req.getParameter("moving_house_check");
+		if(moving_houseCheck != "" && moving_houseCheck != null) {
+			ea.setMoving_house(moving_houseCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isMoving_house()){
+				ea.setMoving_house_time(times[time_i]);
+				ea.setMoving_house_notes(req.getParameter("moving_house_notes"));
+				time_i++;
+			}
+		}
+		
+		String redundancyCheck = req.getParameter("redundancy_check");
+		if(redundancyCheck != "" && redundancyCheck != null) {
+			ea.setRedundancy(redundancyCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isRedundancy()){
+				ea.setRedundancy_time(times[time_i]);
+				ea.setRedundancy_notes(req.getParameter("redundancy_notes"));
+				time_i++;
+			}
+		}
+		
+		String family_disharmonyCheck = req.getParameter("family_disharmony_check");
+		if(family_disharmonyCheck != "" && family_disharmonyCheck != null) {
+			ea.setFamily_disharmony(family_disharmonyCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isFamily_disharmony()){
+				ea.setFamily_disharmony_time(times[time_i]);
+				ea.setFamily_disharmony_notes(req.getParameter("family_disharmony_notes"));
+				time_i++;
+			}
+		}
+		
+		String other_disharmonyCheck = req.getParameter("other_disharmony_check");
+		if(other_disharmonyCheck != "" && other_disharmonyCheck != null) {
+			ea.setOther_disharmony(other_disharmonyCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isOther_disharmony()){
+				ea.setOther_disharmony_time(times[time_i]);
+				ea.setOther_disharmony_notes(req.getParameter("other_disharmony_notes"));
+				time_i++;
+			}
+		}
+		
+		String financialCheck = req.getParameter("financial_check");
+		if(financialCheck != "" && financialCheck != null) {
+			ea.setFinancial(financialCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isFinancial()){
+				ea.setFinancial_time(times[time_i]);
+				ea.setFinancial_notes(req.getParameter("financial_notes"));
+				time_i++;
+			}
+		}
+		
+		String retirementCheck = req.getParameter("retirement_check");
+		if(retirementCheck != "" && retirementCheck != null) {
+			ea.setRetirement(retirementCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isRetirement()){
+				ea.setRetirement_time(times[time_i]);
+				ea.setRetirement_notes(req.getParameter("retirement_notes"));
+				time_i++;
+			}
+		}
+		
+		String job_stressCheck = req.getParameter("job_stress_check");
+		if(job_stressCheck != "" && job_stressCheck != null) {
+			ea.setJob(job_stressCheck.equalsIgnoreCase("on") ? true : false);
+			if(ea.isJob()){
+				ea.setJob_time(times[time_i]);
+				ea.setJob_notes(req.getParameter("job_stress_notes"));
+				time_i++;
+			}
+		}
+		
+		String otherCheck = req.getParameter("other_text");
+		if(otherCheck != "" && otherCheck != null) {
+			ea.setOther(otherCheck);
+			ea.setOther_time(times[time_i]);
+			ea.setOther_notes(req.getParameter("other_notes"));
+			time_i++;
+		}
+		
+		
+		
+		String otherCollatCheck = req.getParameter("other_text");
+		if(otherCollatCheck != "" && otherCollatCheck != null) {
+			ea.setOther_collat(otherCollatCheck);
+			ea.setOther_collat_time(times[time_i]);
+			ea.setOther_collat_notes(req.getParameter("other_notes"));
+			time_i++;
+		}
+	}
+}

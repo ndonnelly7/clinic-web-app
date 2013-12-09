@@ -73,7 +73,7 @@ function showOnNo(elem) {
 function showOnDecrease(elem) {
 	$(elem).children('.current_hours').children('.current_hours_input').prop('disabled', false);
 	$(elem).children('.previous_hours').children('.prev_hours_input').prop('disabled', false);
-	$(elem).children('.when_stopped').children('.time_stopped_input').prop('disabled', true);
+	$(elem).children('.when_stopped').children('.time_stopped_input').prop('disabled', false);
 	$(elem).children('.reason_notes').children('.reason_input').prop('disabled', false);
 }
 

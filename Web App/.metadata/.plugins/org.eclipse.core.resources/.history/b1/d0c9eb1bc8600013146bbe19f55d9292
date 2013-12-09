@@ -1,0 +1,92 @@
+package project.beta.model;
+
+import java.util.ArrayList;
+
+public class EventsActivities {
+
+	private int pID;
+	
+	boolean divorce, bereavement, moving_house, redundancy, family_disharmony;
+	boolean other_disharmony, financial, retirement, job;
+	
+	boolean divorce_collat, bereavement_collat, moving_house_collat, redundancy_collat, family_disharmony_collat;
+	boolean other_disharmony_collat, financial_collat, retirement_collat, job_collat;
+	
+	String other, other_time, other_notes;
+	String divorce_time, divorce_notes;
+	String bereavement_time, bereavement_notes;
+	String moving_house_time, moving_house_notes;
+	String redundancy_time, redundancy_notes;
+	String family_disharmony_time, family_disharmony_notes;
+	String other_disharmony_time, other_disharmony_notes;
+	String financial_time, financial_notes;
+	String retirement_time, retirement_notes;
+	String job_time, job_notes;
+	
+	String other_collat, other_collat_time, other_collat_notes;
+	String divorce_collat_time, divorce_collat_notes;
+	String bereavement_collat_time, bereavement_collat_notes;
+	String moving_house_collat_time, moving_house_collat_notes;
+	String redundancy_collat_time, redundancy_collat_notes;
+	String family_disharmony_collat_time, family_disharmony_collat_notes;
+	String other_disharmony_collat_time, other_disharmony_collat_notes;
+	String financial_collat_time, financial_collat_notes;
+	String retirement_collat_time, retirement_collat_notes;
+	String job_collat_time, job_collat_notes;
+	
+	private ArrayList<Activity> activities;
+	private ArrayList<Activity> collat_activities;
+	
+	boolean anx_check, dep_check;
+	String anx_time, anx_related, anx_notes;
+	String dep_time, dep_related, dep_notes;
+	
+	public EventsActivities(int id) {
+		pID = id;
+		
+		divorce = bereavement = moving_house = redundancy = family_disharmony = false;
+		other_disharmony = financial = retirement = job = false;
+		
+		divorce_collat = bereavement_collat = moving_house_collat = redundancy_collat = family_disharmony_collat = false;
+		other_disharmony_collat = financial_collat = retirement_collat = job_collat = false;
+		
+		other = other_time = other_notes = "";
+		divorce_time = divorce_notes = "";
+		bereavement_time = bereavement_notes = "";
+		moving_house_time = moving_house_notes = "";
+		redundancy_time = redundancy_notes = "";
+		family_disharmony_time = family_disharmony_notes = "";
+		other_disharmony_time = other_disharmony_notes = "";
+		financial_time = financial_notes = "";
+		retirement_time = retirement_notes = "";
+		job_time = job_notes = "";
+		
+		other_collat = other_collat_time = other_collat_notes = "";
+		divorce_collat_time = divorce_collat_notes = "";
+		bereavement_collat_time = bereavement_collat_notes = "";
+		moving_house_collat_time = moving_house_collat_notes = "";
+		redundancy_collat_time = redundancy_collat_notes = "";
+		family_disharmony_collat_time = family_disharmony_collat_notes = "";
+		other_disharmony_collat_time = other_disharmony_collat_notes = "";
+		financial_collat_time = financial_collat_notes = "";
+		retirement_collat_time = retirement_collat_notes = "";
+		job_collat_time = job_collat_notes = "";
+		
+		activities = new ArrayList<Activity>();
+		collat_activities = new ArrayList<Activity>();
+		
+		anx_check = dep_check = false;
+		anx_time = anx_related = anx_notes;
+		dep_time = dep_related = dep_notes;
+	}
+	
+	public void addActivity(Activity a)
+	{
+		activities.add(a);
+	}
+	
+	public void addCollatActivity(Activity a)
+	{
+		collat_activities.add(a);
+	}
+}

@@ -18,7 +18,7 @@
   <span onclick="spanClick('personal_details')">Patient Information</span>
   <span onclick="spanClick('history')">Patient History</span>
   <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')" class="current_page">Patient Concerns</span>
+  <span onclick="spanClick('concerns')">Patient Concerns</span>
   <span onclick="spanClick('neuro')">Neuro History</span>
   <span onclick="spanClick('events_activities')">Events and Activities</span>
   <span onclick="spanClick('living')" class="current_page">Living Situation</span>
@@ -121,7 +121,7 @@
 							<span>Who is currently living with them at home?</span>
 						</div>
 						<div class="pure-u-1-3 homelife_select">
-							<select name="housemates">
+							<select name="housemates_collat">
 								<option value="alone" selected="selected">Alone</option>
 								<option value="spouse">Spouse</option>
 								<option value="children">Children</option>
@@ -132,7 +132,7 @@
 							</select>
 						</div>
 						<div class="pure-u-1-3 notes_column">
-							<textarea name="housemates_note" form="living_form"></textarea>
+							<textarea name="housemates_note_collat" form="living_form"></textarea>
 						</div>
 					</div>	
 					
@@ -141,7 +141,7 @@
 							<span>What type of home do they live in?</span>
 						</div>
 						<div class="pure-u-1-3 homelife_select">
-							<select name="house_type">
+							<select name="house_type_collat">
 								<option value="single">Single Storey House</option>
 								<option value="two_storey">Two Storey House</option>
 								<option value="apartment">Apartment</option>
@@ -149,7 +149,7 @@
 							</select>
 						</div>
 						<div class="pure-u-1-3 notes_column">
-							<textarea name="housetype_note" form="living_form"></textarea>
+							<textarea name="housetype_note_collat" form="living_form"></textarea>
 						</div>
 					</div>	
 					
@@ -158,14 +158,14 @@
 							<span>Where is their house located?</span>
 						</div>
 						<div class="pure-u-1-3 homelife_select">
-							<select name="house_location">
+							<select name="house_location_collat">
 								<option value="urban">Urban</option>
 								<option value="suburban">Suburban</option>
 								<option value="country">Countryside</option>
 							</select>
 						</div>
 						<div class="pure-u-1-3 notes_column">
-							<textarea name="houselocation_note" form="living_form"></textarea>
+							<textarea name="houselocation_note_collat" form="living_form"></textarea>
 						</div>
 					</div>
 			
@@ -174,10 +174,10 @@
 							<span>Are they currently caring for a loved one or someone incapacitated?</span>
 						</div>
 						<div class="pure-u-1-3 check homelife_check">
-							<input type="checkbox" name="carer_check">
+							<input type="checkbox" name="carer_check_collat">
 						</div>
 						<div class="pure-u-1-3 notes_column">
-							<textarea name="carer_note" form="living_form"></textarea>
+							<textarea name="carer_note_collat" form="living_form"></textarea>
 						</div>
 					</div>
 					
@@ -186,10 +186,10 @@
 							<span>Are they receiving Home Help?</span>
 						</div>
 						<div class="pure-u-1-3 check homelife_check">
-							<input type="checkbox" name="home_help_check" onchange="homeHelpChanged(this)">
+							<input type="checkbox" name="home_help_check_collat" onchange="homeHelpChanged(this)">
 						</div>
 						<div class="pure-u-1-3 notes_column">
-							<textarea name="home_help_note" form="living_form"></textarea>
+							<textarea name="home_help_note_collat" form="living_form"></textarea>
 						</div>
 					</div>
 				</div>
@@ -204,7 +204,7 @@
 		
 		<div id="driving init_grid" class="pure-form-aligned">
 			<div class="routine_q_check">Do you drive?</div>
-			<input type="checkbox" id="init_driving_check" onchange="showHiddenDiv(this, 'does_drive')">
+			<input type="checkbox" id="init_driving_check" onchange="revealDrive()">
 			<div id="does_drive"class="hide_div">
 				<div id="driving_problems">
 					<div class="routine_q">Do you ever have the following problems while driving?</div>
@@ -219,17 +219,17 @@
 						<div id="unknown_arrival" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Not knowing how you arrived somewhere</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="unknown_arrival_check" class="grid_check">
+								<input type="checkbox" name="unknown_arrival_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_severity">
+								<select name="grid_severity" class="hide_select">
 									<option value="minor">Minor</option>
 									<option value="moderate">Moderate</option>
 									<option value="badly">Dangerous</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="grid_freq" class="hide_select">
 									<option value="frequently">Frequently</option>
 									<option value="semi_freq">Every So Often</option>
 									<option value="rarely">Rarely</option>
@@ -244,17 +244,17 @@
 						<div id="get_lost" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Getting Lost</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="lost_check" class="grid_check">
+								<input type="checkbox" name="lost_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_severity">
+								<select name="grid_severity" class="hide_select">
 									<option value="minor">Minor</option>
 									<option value="moderate">Moderate</option>
 									<option value="badly">Dangerous</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="grid_freq" class="hide_select">
 									<option value="frequently">Frequently</option>
 									<option value="semi_freq">Every So Often</option>
 									<option value="rarely">Rarely</option>
@@ -269,17 +269,17 @@
 						<div id="tips_scrapes" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Involved in tips and scrapes</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="tips_check" class="grid_check">
+								<input type="checkbox" name="tips_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_severity">
+								<select name="grid_severity" class="hide_select">
 									<option value="minor">Minor</option>
 									<option value="moderate">Moderate</option>
 									<option value="badly">Dangerous</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="grid_freq" class="hide_select">
 									<option value="frequently">Frequently</option>
 									<option value="semi_freq">Every So Often</option>
 									<option value="rarely">Rarely</option>
@@ -307,10 +307,10 @@
 						<div id="park_big" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Only park in large spaces</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="park_big_check" class="grid_check">
+								<input type="checkbox" name="park_big_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -325,10 +325,10 @@
 						<div id="day_driving" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Only drive during the day</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="day_drive_check" class="grid_check">
+								<input type="checkbox" name="day_drive_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -343,10 +343,10 @@
 						<div id="known_places" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Only drive to places you know</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="known_places_check" class="grid_check">
+								<input type="checkbox" name="known_places_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -361,10 +361,10 @@
 						<div id="take_friend" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Take a friend with you</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="take_friend_check" class="grid_check">
+								<input type="checkbox" name="take_friend_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -379,10 +379,10 @@
 						<div id="dry_run" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Try dry runs to new places</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="dry_run_check" class="grid_check">
+								<input type="checkbox" name="dry_run_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -397,10 +397,10 @@
 						<div id="use_map" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Use a map</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="use_map_check" class="grid_check">
+								<input type="checkbox" name="use_map_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -415,10 +415,10 @@
 						<div id="take_phone" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Take a phone and call if you need help</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="take_phone_check" class="grid_check">
+								<input type="checkbox" name="take_phone_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -448,7 +448,7 @@
 							<div id="unknown_arrival" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Not knowing how they arrived somewhere</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="unknown_arrival_check" class="grid_check">
+									<input type="checkbox" name="unknown_arrival_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_severity">
@@ -473,7 +473,7 @@
 							<div id="get_lost" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Getting Lost</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="lost_check" class="grid_check">
+									<input type="checkbox" name="lost_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_severity">
@@ -498,7 +498,7 @@
 							<div id="tips_scrapes" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Involved in tips and scrapes</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="tips_check" class="grid_check">
+									<input type="checkbox" name="tips_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_severity">
@@ -536,7 +536,7 @@
 							<div id="park_big" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Only park in large spaces</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="park_big_check" class="grid_check">
+									<input type="checkbox" name="park_big_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -554,7 +554,7 @@
 							<div id="day_driving" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Only drive during the day</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="day_drive_check" class="grid_check">
+									<input type="checkbox" name="day_drive_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -572,7 +572,7 @@
 							<div id="known_places" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Only drive to places they know</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="known_places_check" class="grid_check">
+									<input type="checkbox" name="known_places_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -590,7 +590,7 @@
 							<div id="take_friend" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Takes a friend with them</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="take_friend_check" class="grid_check">
+									<input type="checkbox" name="take_friend_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -608,7 +608,7 @@
 							<div id="dry_run" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Try dry runs to new places</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="dry_run_check" class="grid_check">
+									<input type="checkbox" name="dry_run_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -626,7 +626,7 @@
 							<div id="use_map" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Use a map</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="use_map_check" class="grid_check">
+									<input type="checkbox" name="use_map_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -644,7 +644,7 @@
 							<div id="take_phone" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Take a phone and call if they need help</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="take_phone_check" class="grid_check">
+									<input type="checkbox" name="take_phone_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="grid_success">
@@ -703,7 +703,9 @@
 					</div>
 				</div>
 			</div>
+			
 			<div id="does_cook" class="hide_div">
+				
 				<div id="cooking_problems">
 					<div class="routine_q">Do you ever have the following problems with cooking?</div>
 					<div  class="living_grid">
@@ -717,10 +719,10 @@
 						<div id="forgot_cooking" class="pure-g-r">
 							<div class="pure-u-1-4 grid_entry grid_entry_type">Put something on and forgotten about it</div>
 							<div class="pure-u-1-4 grid_entry grid_check_div">
-								<input type="checkbox" name="forgot_cooking_check" class="grid_check">
+								<input type="checkbox" name="forgot_cooking_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="forgot_cookin_freq" class="hide_select">
 									<option value="frequently">Quite Often</option>
 									<option value="semi_freq">Few Times</option>
 									<option value="rarely">Rarely</option>
@@ -735,10 +737,10 @@
 						<div id="burnt_food" class="pure-g-r">
 							<div class="pure-u-1-4 grid_entry grid_entry_type">Burnt something</div>
 							<div class="pure-u-1-4 grid_entry grid_check_div">
-								<input type="checkbox" name="burnt_food_check" class="grid_check">
+								<input type="checkbox" name="burnt_food_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="burnt_food_freq" class="hide_select">
 									<option value="frequently">Quite Often</option>
 									<option value="semi_freq">Few Times</option>
 									<option value="rarely">Rarely</option>
@@ -753,10 +755,10 @@
 						<div id="started_fire" class="pure-g-r">
 							<div class="pure-u-1-4 grid_entry grid_entry_type">Set something on fire</div>
 							<div class="pure-u-1-4 grid_entry grid_check_div">
-								<input type="checkbox" name="started_fire_check" class="grid_check">
+								<input type="checkbox" name="started_fire_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="started_fire_freq" class="hide_select">
 									<option value="frequently">Quite Often</option>
 									<option value="semi_freq">Few Times</option>
 									<option value="rarely">Rarely</option>
@@ -771,10 +773,10 @@
 						<div id="smoke_alarm" class="pure-g-r">
 							<div class="pure-u-1-4 grid_entry grid_entry_type">Set off smoke alarm</div>
 							<div class="pure-u-1-4 grid_entry grid_check_div">
-								<input type="checkbox" name="smoke_alarm_check" class="grid_check">
+								<input type="checkbox" name="smoke_alarm_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="smoke_alarm_freq" class="hide_select">
 									<option value="frequently">Quite Often</option>
 									<option value="semi_freq">Few Times</option>
 									<option value="rarely">Rarely</option>
@@ -789,10 +791,10 @@
 						<div id="undercooked" class="pure-g-r">
 							<div class="pure-u-1-4 grid_entry grid_entry_type">Undercooked food</div>
 							<div class="pure-u-1-4 grid_entry grid_check_div">
-								<input type="checkbox" name="undercooked_check" class="grid_check">
+								<input type="checkbox" name="undercooked_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
-								<select name="grid_freq">
+								<select name="undercooked_freq" class="hide_select">
 									<option value="frequently">Quite Often</option>
 									<option value="semi_freq">Few Times</option>
 									<option value="rarely">Rarely</option>
@@ -818,10 +820,10 @@
 						<div id="timer" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Use a timer</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="timer_check" class="grid_check">
+								<input type="checkbox" name="timer_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -837,10 +839,10 @@
 						<div id="reminders" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Have someone remind you</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="reminders_check" class="grid_check">
+								<input type="checkbox" name="reminders_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -856,10 +858,10 @@
 						<div id="simple_cooking" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Keep cooking simple</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="simple_cooking_check" class="grid_check">
+								<input type="checkbox" name="simple_cooking_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -875,10 +877,10 @@
 						<div id="salad" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Only eat food that does not require cooking</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="salad_check" class="grid_check">
+								<input type="checkbox" name="salad_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -894,10 +896,10 @@
 						<div id="go_out" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Go out for food</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="go_out_check" class="grid_check">
+								<input type="checkbox" name="go_out_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -913,10 +915,10 @@
 						<div id="get_help" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Have someone help you</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="get_help_check" class="grid_check">
+								<input type="checkbox" name="get_help_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success">
+								<select name="grid_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -947,10 +949,10 @@
 								<div id="forgot_cooking" class="pure-g-r">
 									<div class="pure-u-1-4 grid_entry grid_entry_type">Put something on and forgotten about it</div>
 									<div class="pure-u-1-4 grid_entry grid_check_div">
-										<input type="checkbox" name="forgot_cooking_check" class="grid_check">
+										<input type="checkbox" name="forgot_cooking_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-4 grid_entry grid_entry_select">
-										<select name="grid_freq">
+										<select name="grid_freq" class="hide_select">
 											<option value="frequently">Quite Often</option>
 											<option value="semi_freq">Few Times</option>
 											<option value="rarely">Rarely</option>
@@ -965,10 +967,10 @@
 								<div id="burnt_food" class="pure-g-r">
 									<div class="pure-u-1-4 grid_entry grid_entry_type">Burnt something</div>
 									<div class="pure-u-1-4 grid_entry grid_check_div">
-										<input type="checkbox" name="burnt_food_check" class="grid_check">
+										<input type="checkbox" name="burnt_food_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-4 grid_entry grid_entry_select">
-										<select name="grid_freq">
+										<select name="grid_freq" class="hide_select">
 											<option value="frequently">Quite Often</option>
 											<option value="semi_freq">Few Times</option>
 											<option value="rarely">Rarely</option>
@@ -983,10 +985,10 @@
 								<div id="started_fire" class="pure-g-r">
 									<div class="pure-u-1-4 grid_entry grid_entry_type">Set something on fire</div>
 									<div class="pure-u-1-4 grid_entry grid_check_div">
-										<input type="checkbox" name="started_fire_check" class="grid_check">
+										<input type="checkbox" name="started_fire_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-4 grid_entry grid_entry_select">
-										<select name="grid_freq">
+										<select name="grid_freq" class="hide_select">
 											<option value="frequently">Quite Often</option>
 											<option value="semi_freq">Few Times</option>
 											<option value="rarely">Rarely</option>
@@ -1001,10 +1003,10 @@
 								<div id="smoke_alarm" class="pure-g-r">
 									<div class="pure-u-1-4 grid_entry grid_entry_type">Set off smoke alarm</div>
 									<div class="pure-u-1-4 grid_entry grid_check_div">
-										<input type="checkbox" name="smoke_alarm_check" class="grid_check">
+										<input type="checkbox" name="smoke_alarm_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-4 grid_entry grid_entry_select">
-										<select name="grid_freq">
+										<select name="grid_freq" class="hide_select">
 											<option value="frequently">Quite Often</option>
 											<option value="semi_freq">Few Times</option>
 											<option value="rarely">Rarely</option>
@@ -1019,10 +1021,10 @@
 								<div id="undercooked" class="pure-g-r">
 									<div class="pure-u-1-4 grid_entry grid_entry_type">Undercooked food</div>
 									<div class="pure-u-1-4 grid_entry grid_check_div">
-										<input type="checkbox" name="undercooked_check" class="grid_check">
+										<input type="checkbox" name="undercooked_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-4 grid_entry grid_entry_select">
-										<select name="grid_freq">
+										<select name="grid_freq" class="hide_select">
 											<option value="frequently">Quite Often</option>
 											<option value="semi_freq">Few Times</option>
 											<option value="rarely">Rarely</option>
@@ -1048,10 +1050,10 @@
 								<div id="timer" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Use a timer</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="timer_check" class="grid_check">
+										<input type="checkbox" name="timer_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
-										<select name="grid_success">
+										<select name="grid_success" class="hide_select">
 											<option value="unsuccessful">Not Helpful</option>
 											<option value="little_helpful">Little Helpful</option>
 											<option value="helpful">Helpful</option>
@@ -1067,10 +1069,10 @@
 								<div id="reminders" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Have someone remind you</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="reminders_check" class="grid_check">
+										<input type="checkbox" name="reminders_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
-										<select name="grid_success">
+										<select name="grid_success" class="hide_select">
 											<option value="unsuccessful">Not Helpful</option>
 											<option value="little_helpful">Little Helpful</option>
 											<option value="helpful">Helpful</option>
@@ -1086,10 +1088,10 @@
 								<div id="simple_cooking" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Keep cooking simple</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="simple_cooking_check" class="grid_check">
+										<input type="checkbox" name="simple_cooking_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
-										<select name="grid_success">
+										<select name="grid_success" class="hide_select">
 											<option value="unsuccessful">Not Helpful</option>
 											<option value="little_helpful">Little Helpful</option>
 											<option value="helpful">Helpful</option>
@@ -1105,10 +1107,10 @@
 								<div id="salad" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Only eat food that does not require cooking</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="salad_check" class="grid_check">
+										<input type="checkbox" name="salad_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
-										<select name="grid_success">
+										<select name="grid_success" class="hide_select">
 											<option value="unsuccessful">Not Helpful</option>
 											<option value="little_helpful">Little Helpful</option>
 											<option value="helpful">Helpful</option>
@@ -1124,10 +1126,10 @@
 								<div id="go_out" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Go out for food</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="go_out_check" class="grid_check">
+										<input type="checkbox" name="go_out_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
-										<select name="grid_success">
+										<select name="grid_success" class="hide_select">
 											<option value="unsuccessful">Not Helpful</option>
 											<option value="little_helpful">Little Helpful</option>
 											<option value="helpful">Helpful</option>
@@ -1143,10 +1145,10 @@
 								<div id="get_help" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Have someone help you</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="get_help_check" class="grid_check">
+										<input type="checkbox" name="get_help_check" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
-										<select name="grid_success">
+										<select name="grid_success" class="hide_select">
 											<option value="unsuccessful">Not Helpful</option>
 											<option value="little_helpful">Little Helpful</option>
 											<option value="helpful">Helpful</option>
@@ -1199,7 +1201,7 @@
 					
 					<div id="collat_not_shopping" class="hide_div">
 						<div id="help_shopping">
-							<div class="subtitle_q">Who helps them with your shopping?</div>
+							<div class="subtitle_q">Who helps them with their shopping?</div>
 							<div class="bills_select">
 								<select name="shop_help" id="shop_help_select">
 									<option value="family">Family</option>
@@ -1238,10 +1240,10 @@
 					<div id="list" class="pure-g-r">
 						<div class="pure-u-1-5 grid_entry grid_entry_type">Use a List</div>
 						<div class="pure-u-1-5 grid_entry grid_check_div">
-							<input type="checkbox" name="list_check" class="grid_check">
+							<input type="checkbox" name="list_check" class="grid_check" onchange="enableRow(this)">
 						</div>
 						<div class="pure-u-1-5 grid_entry grid_entry_select">
-							<select name="grid_success">
+							<select name="grid_success" class="hide_select">
 								<option value="unsuccessful">Not Helpful</option>
 								<option value="little_helpful">Little Helpful</option>
 								<option value="helpful">Helpful</option>
@@ -1257,10 +1259,10 @@
 					<div id="small_shopping" class="pure-g-r">
 						<div class="pure-u-1-5 grid_entry grid_entry_type">Only do day to day shopping</div>
 						<div class="pure-u-1-5 grid_entry grid_check_div">
-							<input type="checkbox" name="small_shopping_check" class="grid_check">
+							<input type="checkbox" name="small_shopping_check" class="grid_check" onchange="enableRow(this)">
 						</div>
 						<div class="pure-u-1-5 grid_entry grid_entry_select">
-							<select name="grid_success">
+							<select name="grid_success" class="hide_select">
 								<option value="unsuccessful">Not Helpful</option>
 								<option value="little_helpful">Little Helpful</option>
 								<option value="helpful">Helpful</option>
@@ -1289,10 +1291,10 @@
 							<div id="list" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Use a List</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="list_check" class="grid_check">
+									<input type="checkbox" name="list_check" class="grid_check" onchange="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not Helpful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -1308,10 +1310,10 @@
 							<div id="small_shopping" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Only do day to day shopping</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="small_shopping_check" class="grid_check">
+									<input type="checkbox" name="small_shopping_check" class="grid_check" onchange="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not Helpful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>

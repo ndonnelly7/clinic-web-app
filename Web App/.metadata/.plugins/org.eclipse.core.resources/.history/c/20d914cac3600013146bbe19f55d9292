@@ -1,0 +1,18 @@
+package project.beta.model;
+
+public class EventsActivities {
+
+	private int pID;
+	
+	boolean divorce, bereavement, moving, redundancy, family_disharmony;
+	boolean other_disharmony, financial, retirement, job;
+	String other, other_time, other_notes;
+	
+	String divorce_time, divorce_notes;
+	String bereavement_time, bereavement_notes;
+	String moving_time, moving_notes
+	
+	public EventsActivities(int id) {
+		pID = id;
+	}
+}

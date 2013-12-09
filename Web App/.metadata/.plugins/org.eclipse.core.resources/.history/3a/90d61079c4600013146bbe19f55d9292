@@ -1,0 +1,66 @@
+package project.beta.model;
+
+public class EventsActivities {
+
+	private int pID;
+	
+	boolean divorce, bereavement, moving_house, redundancy, family_disharmony;
+	boolean other_disharmony, financial, retirement, job;
+	
+	boolean divorce_collat, bereavement_collat, moving_house_collat, redundancy_collat, family_disharmony_collat;
+	boolean other_disharmony_collat, financial_collat, retirement_collat, job_collat;
+	
+	String other, other_time, other_notes;
+	String divorce_time, divorce_notes;
+	String bereavement_time, bereavement_notes;
+	String moving_house_time, moving_house_notes;
+	String redundancy_time, redundancy_notes;
+	String family_disharmony_time, family_disharmony_notes;
+	String other_disharmony_time, other_disharmony_notes;
+	String financial_time, financial_notes;
+	String retirement_time, retirement_notes;
+	String job_time, job_notes;
+	
+	String other_collat, other_collat_time, other_collat_notes;
+	String divorce_collat_time, divorce_collat_notes;
+	String bereavement_collat_time, bereavement_collat_notes;
+	String moving_house_collat_time, moving_house_collat_notes;
+	String redundancy_collat_time, redundancy_collat_notes;
+	String family_disharmony_collat_time, family_disharmony_collat_notes;
+	String other_disharmony_collat_time, other_disharmony_collat_notes;
+	String financial_collat_time, financial_collat_notes;
+	String retirement_collat_time, retirement_collat_notes;
+	String job_collat_time, job_collat_notes;
+	
+	public EventsActivities(int id) {
+		pID = id;
+		
+		divorce = bereavement = moving_house = redundancy = family_disharmony = false;
+		other_disharmony = financial = retirement = job = false;
+		
+		divorce_collat = bereavement_collat = moving_house_collat = redundancy_collat = family_disharmony_collat = false;
+		other_disharmony_collat = financial_collat = retirement_collat = job_collat = false;
+		
+		String other, other_time, other_notes;
+		String divorce_time, divorce_notes;
+		String bereavement_time, bereavement_notes;
+		String moving_house_time, moving_house_notes;
+		String redundancy_time, redundancy_notes;
+		String family_disharmony_time, family_disharmony_notes;
+		String other_disharmony_time, other_disharmony_notes;
+		String financial_time, financial_notes;
+		String retirement_time, retirement_notes;
+		String job_time, job_notes;
+		
+		String other_collat, other_collat_time, other_collat_notes;
+		String divorce_collat_time, divorce_collat_notes;
+		String bereavement_collat_time, bereavement_collat_notes;
+		String moving_house_collat_time, moving_house_collat_notes;
+		String redundancy_collat_time, redundancy_collat_notes;
+		String family_disharmony_collat_time, family_disharmony_collat_notes;
+		String other_disharmony_collat_time, other_disharmony_collat_notes;
+		String financial_collat_time, financial_collat_notes;
+		String retirement_collat_time, retirement_collat_notes;
+		String job_collat_time, job_collat_notes;
+	}
+}

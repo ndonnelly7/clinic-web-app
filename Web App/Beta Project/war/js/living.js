@@ -88,6 +88,7 @@ function cookingCheckChanged(elem, id){
 	if($(elem).prop('checked')) {
 		$('#does_not_cook').slideUp(250);
 		showHiddenDiv(elem, id);
+		$('.hide_select').prop('disabled', true);
 	} else {
 		showHiddenDiv(elem, id);
 		$('#does_not_cook').slideDown(250);
@@ -98,8 +99,26 @@ function shoppingCheckChanged(elem, id){
 	if($(elem).prop('checked')) {
 		$('#does_not_shop').slideUp(250);
 		showHiddenDiv(elem, id);
+		$('.hide_select').prop('disabled', true);
 	} else {
 		showHiddenDiv(elem, id);
 		$('#does_not_shop').slideDown(250);
+	}
+}
+
+function revealDrive(){
+	if($('#init_driving_check').prop('checked')){
+		$('#does_drive').slideDown(1000);
+		$('.hide_select').prop('disabled', true);
+	} else {
+		$('#does_drive').slideUp(1000);
+	}
+}
+
+function enableRow(check) {
+	if($(check).prop('checked')) {
+		$(check).parent().parent().children('.grid_entry_select').children('select').prop('disabled', false);
+	} else {
+		$(check).parent().parent().children('.grid_entry_select').children('select').prop('disabled', true);
 	}
 }

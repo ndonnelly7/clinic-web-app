@@ -1,0 +1,120 @@
+package project.beta;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import project.beta.model.NeuroHistory;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
+@SuppressWarnings("serial")
+public class NeuroServlet extends HttpServlet {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException, ServletException {
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+		System.out.println("User name: " + user.getNickname());
+		System.out.println("User id: " + user.getUserId());
+		System.out.println("User email: " + user.getEmail());
+		
+		//TODO: Put in User Store and Patient Store stuff
+		
+		NeuroHistory neuro = new NeuroHistory(0);
+		BuildNeuro(neuro, req);
+		
+		//Add Concerns to Patient then update patient on system
+		
+		RequestDispatcher view = req.getRequestDispatcher("/jsp/events_activities.jsp");
+		view.forward(req, resp);
+	}
+	
+	private void BuildNeuro(NeuroHistory n, HttpServletRequest req) {
+		String[] times = req.getParameterValues("time_frame");
+		String[] frequencies = req.getParameterValues("frequency");
+		int index = 0;
+		
+		String blackoutCheck = req.getParameter("blackout_check");
+		if(blackoutCheck != "" && blackoutCheck != null) {
+			n.setBlackout(blackoutCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isBlackout()){
+				n.setBlackout_time(times[index]);
+				n.setBlackout_freq(frequencies[index]);
+				n.setBlackout_notes(req.getParameter("blackout_notes"));
+				index++;
+			}
+		}
+		
+		String blankCheck = req.getParameter("blank_check");
+		if(blankCheck != "" && blankCheck != null) {
+			n.setBlank(blankCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isBlank()){
+				n.setBlanks_time(times[index]);
+				n.setBlanks_freq(frequencies[index]);
+				n.setBlanks_notes(req.getParameter("blank_notes"));
+				index++;
+			}
+		}
+		
+		String blurred_visionCheck = req.getParameter("vision_check");
+		if(blurred_visionCheck != "" && blurred_visionCheck != null) {
+			n.setBlurred_vision(blurred_visionCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isBlurred_vision()){
+				n.setBlurred_time(times[index]);
+				n.setBlurred_freq(frequencies[index]);
+				n.setBlurred_notes(req.getParameter("vision_notes"));
+				index++;
+			}
+		}
+		
+		String dizzinessCheck = req.getParameter("dizziness_check");
+		if(dizzinessCheck != "" && dizzinessCheck != null) {
+			n.setDizziness(dizzinessCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isDizziness()){
+				n.setDizzy_time(times[index]);
+				n.setDizzy_freq(frequencies[index]);
+				n.setDizzy_notes(req.getParameter("dizziness_notes"));
+				index++;
+			}
+		}
+		
+		String faintingCheck = req.getParameter("fainting_check");
+		if(faintingCheck != "" && faintingCheck != null) {
+			n.setFainting(faintingCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isFainting()){
+				n.setFaint_time(times[index]);
+				n.setFaint_freq(frequencies[index]);
+				n.setFaint_notes(req.getParameter("fainting_notes"));
+				index++;
+			}
+		}
+		
+		String headachesCheck = req.getParameter("headaches_check");
+		if(headachesCheck != "" && headachesCheck != null) {
+			n.setHeadaches(headachesCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isHeadaches()){
+				n.setHeadaches_time(times[index]);
+				n.setHeadaches_freq(frequencies[index]);
+				n.setHeadaches_notes(req.getParameter("headaches_notes"));
+				index++;
+			}
+		}
+		
+		String blackoutCheck = req.getParameter("blackout_check");
+		if(blackoutCheck != "" && blackoutCheck != null) {
+			n.setBlackout(blackoutCheck.equalsIgnoreCase("on") ? true : false);
+			if(n.isBlackout()){
+				n.setBlackout_time(times[index]);
+				n.setBlackout_freq(frequencies[index]);
+				n.setBlackout_notes(req.getParameter("blackout_notes"));
+				index++;
+			}
+		}
+	}
+}

@@ -39,8 +39,6 @@ public class ConcernsServlet extends HttpServlet {
 		String[] times = req.getParameterValues("time_frame");
 		String[] frequencies = req.getParameterValues("frequency");
 		int index = 0;
-		System.out.println(times.length);
-		System.out.println(frequencies.length);
 		
 		String recCheck = req.getParameter("rec_events_check");
 		if(recCheck != "" && recCheck != null) {
