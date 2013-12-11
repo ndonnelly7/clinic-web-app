@@ -5,7 +5,7 @@
 <fullyQualifiedTypeName name="project.beta.model.Patient.Part_Type"/>
 <fullyQualifiedTypeName name="project.beta.model.EventsActivities"/>
 <fullyQualifiedTypeName name="project.beta.model.LivingSit"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="project.beta.model.Activity"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 </qualifiedTypeNameHistroy>
