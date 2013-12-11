@@ -99,7 +99,7 @@
 					<div class="pure-u-1-3 outcome_col">Outcome</div>
 					<div class="pure-u-1-3">Notes</div>
 				</div>
-				<div class="pure-g-r outcome_entry">
+				<div class="pure-g-r" id="outcome_entry" style="margin-bottom:0.5em">
 					<div class="pure-u-1-3 outcome_col">
 						<select name="outcome_select">
 							<option value="counselling">Counselling</option>
@@ -114,13 +114,13 @@
 		</div>
 		<script type="text/javascript">
 			function addNewOutcome(){
-				$('.outcome_entry').clone().appendTo($('#outcome_grid'));
+				$('#outcome_entry').clone().appendTo($('#outcome_grid'));
 			}
 		</script>
 	</fieldset>
 	
 	<fieldset id="letter_field">
-		<legend>Extra Notes</legend>
+		<legend>Letter</legend>
 		<textarea form="analysis_form" name="letter_notes" rows="24" cols="60">Will have letter template</textarea>
 	</fieldset>
 	

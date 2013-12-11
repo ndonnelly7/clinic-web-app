@@ -1,0 +1,56 @@
+package project.beta.model;
+
+import java.util.ArrayList;
+
+public class Lifestyle {
+	
+	private int pID;
+	
+	//Sleep
+	boolean difficulty_sleep, night_waking, early_waking, meds_check, nap_check;
+	
+	String difficulty_sleep_notes, difficulty_reason, difficulty_freq, difficulty_time;
+	String difficulty_reason_notes, difficulty_freq_notes, difficulty_time_notes;
+	
+	String night_waking_notes, night_waking_reason, night_waking_freq, night_waking_time;
+	String night_waking_reason_notes, night_waking_freq_notes, night_waking_time_notes;
+	
+	String early_waking_notes, early_waking_reason, early_waking_freq, early_waking_time;
+	String early_waking_reason_notes, early_waking_freq_notes, early_waking_time_notes;
+	
+	String sleep_length, sleep_meds, sleep_med_notes, nap_length, nap_time, nap_notes;
+	
+	//Collateral Sleep
+	boolean difficulty_sleep_collat, night_waking_collat, early_waking_collat, meds_check_collat, nap_check_collat;
+	
+	String difficulty_sleep_notes_collat, difficulty_reason_collat, difficulty_freq_collat, difficulty_time_collat;
+	String difficulty_reason_notes_collat, difficulty_freq_notes_collat, difficulty_time_notes_collat;
+	
+	String night_waking_notes_collat, night_waking_reason_collat, night_waking_freq_collat, night_waking_time_collat;
+	String night_waking_reason_notes_collat, night_waking_freq_notes_collat, night_waking_time_notes_collat;
+	
+	String early_waking_notes_collat, early_waking_reason_collat, early_waking_freq_collat, early_waking_time_collat;
+	String early_waking_reason_notes_collat, early_waking_freq_notes_collat, early_waking_time_notes_collat;
+	
+	String sleep_length_collat, sleep_meds_collat, sleep_med_notes_collat, nap_length_collat, nap_time_collat, nap_notes_collat;
+	
+	//Exercise
+	boolean exercise;
+	ArrayList<Activity> activities;
+	ArrayList<Activity> collatActivities;
+	
+	//Diet
+	String breakfast, lunch, dinner, diet_notes;
+	boolean miss_meals, sweets, fried, takeaway, cakes;
+	String miss_meals_freq, sweets_freq, fried_freq, takeaway_freq, cakes_freq, fruit_veg_amount;
+	
+	String breakfast_collat, lunch_collat, dinner_collat, diet_notes_collat;
+	boolean miss_meals_collat, sweets_collat, fried_collat, takeaway_collat, cakes_collat;
+	String miss_meals_freq_collat, sweets_freq_collat, fried_freq_collat, takeaway_freq_collat, cakes_freq_collat, fruit_veg_amount_collat;
+	
+	
+	public Lifestyle(int id)
+	{
+		pID = id;
+	}
+}

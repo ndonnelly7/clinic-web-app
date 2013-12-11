@@ -32,7 +32,7 @@ public class EvActServlet extends HttpServlet {
 		
 		//Add Concerns to Patient then update patient on system
 		
-		RequestDispatcher view = req.getRequestDispatcher("/jsp/events_activities.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("/jsp/living.jsp");
 		view.forward(req, resp);
 	}
 	

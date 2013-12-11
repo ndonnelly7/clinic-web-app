@@ -8,63 +8,87 @@ var collatAlcohol = false;
 var collatSmoking = false;
 var collatDrugs = false;
 
-function addCollatSleep() {
+function addCollatSleep(button) {
 	if(!collatSleep){
 		$('#collat_sleep').slideDown(500);
 		collatSleep = true;
+		$('#sleep_collat').val("shown");
+		$(button).val("Remove Information from Collateral");
 	} else {
 		$('#collat_sleep').slideUp(500);
 		collatSleep = false;
+		$('#sleep_collat').val("hidden");
+		$(button).val("Add Information from Collateral");
 	}
 };
 
-function addCollatExercise() {
+function addCollatExercise(button) {
 	if(!collatExercise){
 		$('#collat_exercise').slideDown(500);
 		collatExercise = true;
+		$('#exercise_collat').val("shown");
+		$(button).val("Remove Information from Collateral");
 	} else {
 		$('#collat_exercise').slideUp(500);
 		collatExercise = false;
+		$('#exercise_collat').val("hidden");
+		$(button).val("Add Information from Collateral");
 	}
 };
 
-function addCollatDiet() {
+function addCollatDiet(button) {
 	if(!collatDiet){
 		$('#collat_diet').slideDown(500);
 		collatDiet = true;
+		$('#diet_collat').val("shown");
+		$(button).val("Remove Information from Collateral");
 	} else {
 		$('#collat_diet').slideUp(500);
 		collatDiet = false;
+		$('#diet_collat').val("hidden");
+		$(button).val("Add Information from Collateral");
 	}
 };
 
-function addCollatAlcohol() {
+function addCollatAlcohol(button) {
 	if(!collatAlcohol){
 		$('#collat_alcohol').slideDown(500);
 		collatAlcohol = true;
+		$('#alcohol_collat').val("shown");
+		$(button).val("Remove Information from Collateral");
 	} else {
 		$('#collat_alcohol').slideUp(500);
 		collatAlcohol = false;
+		$('#alcohol_collat').val("hidden");
+		$(button).val("Add Information from Collateral");
 	}
 };
 
-function addCollatSmoking() {
+function addCollatSmoking(button) {
 	if(!collatSmoking){
 		$('#collat_smoking').slideDown(500);
 		collatSmoking = true;
+		$('#smoking_collat').val("shown");
+		$(button).val("Remove Information from Collateral");
 	} else {
 		$('#collat_smoking').slideUp(500);
 		collatSmoking = false;
+		$('#smoking_collat').val("hidden");
+		$(button).val("Add Information from Collateral");
 	}
 };
 
-function addCollatDrugs() {
+function addCollatDrugs(button) {
 	if(!collatDrugs){
 		$('#collat_drugs').slideDown(500);
 		collatDrugs = true;
+		$('#drugs_collat').val("shown");
+		$(button).val("Remove Information from Collateral");
 	} else {
 		$('#collat_drugs').slideUp(500);
 		collatDrugs = false;
+		$('#drugs_collat').val("hidden");
+		$(button).val("Add Information from Collateral");
 	}
 };
 
@@ -143,7 +167,7 @@ function showOnNo(elem) {
 function showOnDecrease(elem) {
 	$(elem).children('.current_hours').children('.current_hours_input').prop('disabled', false);
 	$(elem).children('.previous_hours').children('.prev_hours_input').prop('disabled', false);
-	$(elem).children('.when_stopped').children('.time_stopped_input').prop('disabled', true);
+	$(elem).children('.when_stopped').children('.time_stopped_input').prop('disabled', false);
 	$(elem).children('.reason_notes').children('.reason_input').prop('disabled', false);
 }
 

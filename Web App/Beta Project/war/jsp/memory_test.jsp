@@ -4,27 +4,29 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Medical Test</title>
+<title>Memory Test</title>
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
 </head>
 <body>
 <h1>Please insert memory test in here</h1>
+<form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
-  <ul> 
-	<li><a href="./patient_info.html">Patient Information</a></li> 
-	<li><a href="./history_form.html">Patient History</a></li> 
-	<li><a href="./medical_form.html">GP Information</a></li>
-	<li><a href="./concerns_form.html">Patient Concerns</a></li>
-	<li><a href="./neuro_history.html">Neuro History</a></li> 
-	<li><a href="./events_activities.html">Events and Activities</a></li> 
-	<li><a href="./living_form.html">Living Situation</a></li>
-	<li><a href="./lifestyle.html">Patient Lifestyle</a></li>
-	<li class="current_page"><a href="./memory_test.html">Memory Test</a></li>
-	<li><a href="./analysis.html">Summary and Analysis</a></li> 
-  </ul> 
+  <span onclick="spanClick('personal_details')">Patient Information</span>
+  <span onclick="spanClick('history')">Patient History</span>
+  <span onclick="spanClick('medical')">GP Information</span>
+  <span onclick="spanClick('concerns')">Patient Concerns</span>
+  <span onclick="spanClick('neuro')">Neuro History</span>
+  <span onclick="spanClick('events_activities')">Events and Activities</span>
+  <span onclick="spanClick('living')">Living Situation</span>
+  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="spanClick('memory_test')" class="current_page">Memory Test</span>
+  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  
+  <input type="hidden" id="text_form" name="page"/> 
 </div> 
+</form>
 
 <div class="footer">
 	<a href="./lifestyle.html">Previous Page</a>

@@ -113,6 +113,7 @@
 		</div>
 		
 		<div class="collat_div">
+			<input type="hidden" value="hidden" id="home_collat_pressed" name="home_collat_pressed">
 			<input type="button" onclick="addNewCollatHomeLife()" class="pure-button living-button" value="Add Information from Collateral">
 			<div class="hide_div" id="collat_home_life">
 				<div id="home_life_grid">
@@ -204,7 +205,7 @@
 		
 		<div id="driving init_grid" class="pure-form-aligned">
 			<div class="routine_q_check">Do you drive?</div>
-			<input type="checkbox" id="init_driving_check" onchange="revealDrive()">
+			<input type="checkbox" id="init_driving_check" name="driving_check" onchange="revealDrive()">
 			<div id="does_drive"class="hide_div">
 				<div id="driving_problems">
 					<div class="routine_q">Do you ever have the following problems while driving?</div>
@@ -222,14 +223,14 @@
 								<input type="checkbox" name="unknown_arrival_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_severity" class="hide_select">
+								<select name="unknown_arrival_severity" class="hide_select">
 									<option value="minor">Minor</option>
 									<option value="moderate">Moderate</option>
 									<option value="badly">Dangerous</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_freq" class="hide_select">
+								<select name="unknown_arrival_freq" class="hide_select">
 									<option value="frequently">Frequently</option>
 									<option value="semi_freq">Every So Often</option>
 									<option value="rarely">Rarely</option>
@@ -238,7 +239,7 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<textarea form="living_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+								<textarea form="living_form" class="reason_input" name="unknown_arrival_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 						<div id="get_lost" class="pure-g-r">
@@ -247,14 +248,14 @@
 								<input type="checkbox" name="lost_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_severity" class="hide_select">
+								<select name="lost_severity" class="hide_select">
 									<option value="minor">Minor</option>
 									<option value="moderate">Moderate</option>
 									<option value="badly">Dangerous</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_freq" class="hide_select">
+								<select name="lost_freq" class="hide_select">
 									<option value="frequently">Frequently</option>
 									<option value="semi_freq">Every So Often</option>
 									<option value="rarely">Rarely</option>
@@ -263,7 +264,7 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<textarea form="living_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+								<textarea form="living_form" class="reason_input" name="lost_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 						<div id="tips_scrapes" class="pure-g-r">
@@ -272,14 +273,14 @@
 								<input type="checkbox" name="tips_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_severity" class="hide_select">
+								<select name="tips_severity" class="hide_select">
 									<option value="minor">Minor</option>
 									<option value="moderate">Moderate</option>
 									<option value="badly">Dangerous</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_freq" class="hide_select">
+								<select name="tips_freq" class="hide_select">
 									<option value="frequently">Frequently</option>
 									<option value="semi_freq">Every So Often</option>
 									<option value="rarely">Rarely</option>
@@ -288,7 +289,7 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<textarea form="living_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+								<textarea form="living_form" class="reason_input" name="tips_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 					</div> <!-- Driving Grid -->
@@ -310,7 +311,7 @@
 								<input type="checkbox" name="park_big_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="park_big_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -328,7 +329,7 @@
 								<input type="checkbox" name="day_drive_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="day_drive_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -346,7 +347,7 @@
 								<input type="checkbox" name="known_places_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="known_places_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -364,7 +365,7 @@
 								<input type="checkbox" name="take_friend_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="take_friend_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -382,7 +383,7 @@
 								<input type="checkbox" name="dry_run_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="dry_run_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -400,7 +401,7 @@
 								<input type="checkbox" name="use_map_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="use_map_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -418,7 +419,7 @@
 								<input type="checkbox" name="take_phone_check" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="take_phone_success" class="hide_select">
 									<option value="unsuccessful">Not successful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -433,7 +434,8 @@
 				</div><!-- Coping Strategies Driving -->	
 			
 				<div class="collat_div">
-					<input type="button" onclick="addNewCollatDriving()" class="pure-button living-button" value="Add Information from Collateral">
+					<input type="hidden" value="hidden" id="driving_collat_pressed" name="driving_collat">
+					<input type="button" onclick="addNewCollatDriving(this)" class="pure-button living-button" value="Add Information from Collateral">
 					<div id="collat_driving" class="hide_div">
 					<div id="driving_problems">
 						<div class="routine_q">Do they ever have the following problems while driving?</div>
@@ -451,14 +453,14 @@
 									<input type="checkbox" name="unknown_arrival_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_severity">
+									<select name="grid_severity" class="hide_select">
 										<option value="minor">Minor</option>
 										<option value="moderate">Moderate</option>
 										<option value="badly">Dangerous</option>
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_freq">
+									<select name="grid_freq" class="hide_select">
 										<option value="frequently">Frequently</option>
 										<option value="semi_freq">Every So Often</option>
 										<option value="rarely">Rarely</option>
@@ -476,14 +478,14 @@
 									<input type="checkbox" name="lost_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_severity">
+									<select name="grid_severity" class="hide_select">
 										<option value="minor">Minor</option>
 										<option value="moderate">Moderate</option>
 										<option value="badly">Dangerous</option>
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_freq">
+									<select name="grid_freq" class="hide_select">
 										<option value="frequently">Frequently</option>
 										<option value="semi_freq">Every So Often</option>
 										<option value="rarely">Rarely</option>
@@ -501,14 +503,14 @@
 									<input type="checkbox" name="tips_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_severity">
+									<select name="grid_severity" class="hide_select">
 										<option value="minor">Minor</option>
 										<option value="moderate">Moderate</option>
 										<option value="badly">Dangerous</option>
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_freq">
+									<select name="grid_freq" class="hide_select">
 										<option value="frequently">Frequently</option>
 										<option value="semi_freq">Every So Often</option>
 										<option value="rarely">Rarely</option>
@@ -539,7 +541,7 @@
 									<input type="checkbox" name="park_big_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -557,7 +559,7 @@
 									<input type="checkbox" name="day_drive_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -575,7 +577,7 @@
 									<input type="checkbox" name="known_places_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -593,7 +595,7 @@
 									<input type="checkbox" name="take_friend_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -611,7 +613,7 @@
 									<input type="checkbox" name="dry_run_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -629,7 +631,7 @@
 									<input type="checkbox" name="use_map_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -647,7 +649,7 @@
 									<input type="checkbox" name="take_phone_check" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success">
+									<select name="grid_success" class="hide_select">
 										<option value="unsuccessful">Not successful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -686,19 +688,20 @@
 				<div class="note_area"><textarea form="living_form" name="cook_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 			
 				<div class="collat_div">
-					<input type="button" onclick="addNewCollatNotCooking()" class="pure-button living-button" value="Add Information from Collateral">
+					<input type="hidden" id="cooking_not_collat" name="cooking_not_collat" value="hidden">
+					<input type="button" onclick="addNewCollatNotCooking(this)" class="pure-button living-button" value="Add Information from Collateral">
 					
 					<div id="collat_not_cooking" class="hide_div">
 						<div class="subtitle_q">Who cooks for you?</div>
 						<div class="bills_select">
-							<select name="cook_help" id="cook_help_select">
+							<select name="cook_help_collat" id="cook_help_select">
 								<option value="family">Family</option>
 								<option value="friend">Friend</option>
 								<option value="takeaway">Takeaway</option>
 								<option value="out">Go Out</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="cook_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="cook_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					
 					</div>
 				</div>
@@ -722,7 +725,7 @@
 								<input type="checkbox" name="forgot_cooking_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
-								<select name="forgot_cookin_freq" class="hide_select">
+								<select name="forgot_cooking_freq" class="hide_select">
 									<option value="frequently">Quite Often</option>
 									<option value="semi_freq">Few Times</option>
 									<option value="rarely">Rarely</option>
@@ -823,7 +826,7 @@
 								<input type="checkbox" name="timer_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="timer_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -842,7 +845,7 @@
 								<input type="checkbox" name="reminders_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="reminders_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -861,7 +864,7 @@
 								<input type="checkbox" name="simple_cooking_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="simple_cooking_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -880,7 +883,7 @@
 								<input type="checkbox" name="salad_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="salad_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -899,7 +902,7 @@
 								<input type="checkbox" name="go_out_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="go_out_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -918,7 +921,7 @@
 								<input type="checkbox" name="get_help_check" class="grid_check" onchange="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<select name="grid_success" class="hide_select">
+								<select name="get_help_success" class="hide_select">
 									<option value="unsuccessful">Not Helpful</option>
 									<option value="little_helpful">Little Helpful</option>
 									<option value="helpful">Helpful</option>
@@ -933,7 +936,8 @@
 				</div><!-- Coping Strategies for Cooking -->
 				
 				<div class="collat_div">
-					<input type="button" onclick="addNewCollatCooking()" class="pure-button living-button" value="Add Information from Collateral">
+					<input type="hidden" id="cooking_collat" name="cooking_collat" value="hidden">
+					<input type="button" onclick="addNewCollatCooking(this)" class="pure-button living-button" value="Add Information from Collateral">
 					
 					<div id="collat_cooking" class="hide_div">
 						<div id="cooking_problems">
@@ -1197,23 +1201,24 @@
 				</div>
 				<div class="note_area"><textarea form="living_form" name="shop_time_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 				<div class="collat_div">
-					<input type="button" onclick="addNewCollatNotShopping()" class="pure-button living-button" value="Add Information from Collateral">
+					<input type="hidden" id="shopping_not_collat" name="shopping_not_collat" value="hidden">
+					<input type="button" onclick="addNewCollatNotShopping(this)" class="pure-button living-button" value="Add Information from Collateral">
 					
 					<div id="collat_not_shopping" class="hide_div">
 						<div id="help_shopping">
 							<div class="subtitle_q">Who helps them with their shopping?</div>
 							<div class="bills_select">
-								<select name="shop_help" id="shop_help_select">
+								<select name="shop_help_collat" id="shop_help_select">
 									<option value="family">Family</option>
 									<option value="friend">Friend</option>
 								</select>
 							</div>
-							<div class="note_area"><textarea form="living_form" name="shop_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+							<div class="note_area"><textarea form="living_form" name="shop_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 						</div>
 						<div id="how_long_needed_help_shopping"></div>
 						<div class="subtitle_q">How long have they had help?</div>
 						<div class="bills_select">
-							<select name="shop_help_time" id="shop_help_time_select">
+							<select name="shop_help_time_collat" id="shop_help_time_select">
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -1221,7 +1226,7 @@
 								<option value="threep_yr">3+ years</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="shop_time_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="shop_time_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 						
 					</div>
 				</div>
@@ -1243,7 +1248,7 @@
 							<input type="checkbox" name="list_check" class="grid_check" onchange="enableRow(this)">
 						</div>
 						<div class="pure-u-1-5 grid_entry grid_entry_select">
-							<select name="grid_success" class="hide_select">
+							<select name="list_success" class="hide_select">
 								<option value="unsuccessful">Not Helpful</option>
 								<option value="little_helpful">Little Helpful</option>
 								<option value="helpful">Helpful</option>
@@ -1259,10 +1264,10 @@
 					<div id="small_shopping" class="pure-g-r">
 						<div class="pure-u-1-5 grid_entry grid_entry_type">Only do day to day shopping</div>
 						<div class="pure-u-1-5 grid_entry grid_check_div">
-							<input type="checkbox" name="small_shopping_check" class="grid_check" onchange="enableRow(this)">
+							<input type="checkbox" name="small_shop_check" class="grid_check" onchange="enableRow(this)">
 						</div>
 						<div class="pure-u-1-5 grid_entry grid_entry_select">
-							<select name="grid_success" class="hide_select">
+							<select name="small_shop_success" class="hide_select">
 								<option value="unsuccessful">Not Helpful</option>
 								<option value="little_helpful">Little Helpful</option>
 								<option value="helpful">Helpful</option>
@@ -1270,14 +1275,14 @@
 							</select>
 						</div>
 						<div class="pure-u-1-5 grid_entry grid_entry_select">
-							<textarea form="living_form" class="reason_input" name="small_shopping_notes" rows="2" cols="24"></textarea>
+							<textarea form="living_form" class="reason_input" name="small_shop_notes" rows="2" cols="24"></textarea>
 						</div>
 					</div>
 				</div>
 				
 				<div class="collat_div">
-					<input type="button" onclick="addNewCollatShopping()" class="pure-button living-button" value="Add Information from Collateral">
-					
+					<input type="button" onclick="addNewCollatShopping(this)" class="pure-button living-button" value="Add Information from Collateral">
+					<input type="hidden" id="shopping_collat" name="shopping_collat" value="hidden">
 					<div id="collat_shopping" class="hide_div">
 						<div class="routine_q">Do they use any of the following coping Strategies?</div>
 						<div class="living_grid">
@@ -1291,10 +1296,10 @@
 							<div id="list" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Use a List</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="list_check" class="grid_check" onchange="enableRow(this)">
+									<input type="checkbox" name="list_check_collat" class="grid_check" onchange="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success" class="hide_select">
+									<select name="list_success_collat" class="hide_select">
 										<option value="unsuccessful">Not Helpful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -1302,7 +1307,7 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<textarea form="living_form" class="reason_input" name="list_notes" rows="2" cols="24"></textarea>
+									<textarea form="living_form" class="reason_input" name="list_notes_collat" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 							
@@ -1310,10 +1315,10 @@
 							<div id="small_shopping" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Only do day to day shopping</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="small_shopping_check" class="grid_check" onchange="enableRow(this)">
+									<input type="checkbox" name="small_shop_check_collat" class="grid_check" onchange="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<select name="grid_success" class="hide_select">
+									<select name="small_shop_success_collat" class="hide_select">
 										<option value="unsuccessful">Not Helpful</option>
 										<option value="little_helpful">Little Helpful</option>
 										<option value="helpful">Helpful</option>
@@ -1321,7 +1326,7 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<textarea form="living_form" class="reason_input" name="small_shopping_notes" rows="2" cols="24"></textarea>
+									<textarea form="living_form" class="reason_input" name="small_shop_notes_collat" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 						</div>
@@ -1375,45 +1380,46 @@
 		</div>
 		
 		<div class="collat_div">
-			<input type="button" onclick="addNewCollatBills()" class="pure-button living-button" value="Add Information from Collateral">
+			<input type="hidden" id="bills_collat" name="bills_collat" value="hidden">
+			<input type="button" onclick="addNewCollatBills(this)" class="pure-button living-button" value="Add Information from Collateral">
 			
 			<div id="collat_bills" class="hide_div">
 				<div id="paying_bills init_grid" class="pure-form-aligned">
 					<div id="bills_method">
 						<div class="subtitle_q">How do you pay your bills?</div>
 						<div class="bills_select">
-							<select name="bills_method">
+							<select name="bills_method_collat">
 								<option value="direct_debit">Direct Debit</option>
 								<option value="post_office">Post Office</option>
 								<option value="bank">Bank</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_method_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bill_method_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 					
 					<div id="bills_help">
 						<div class="subtitle_q">Does anybody help you?</div>
 						<div class="bills_select">
-							<select name="bills_help">
+							<select name="bills_help_collat">
 								<option value="nobody">No</option>
 								<option value="family">Family Member</option>
 								<option value="friend">Friend</option>
 								<option value="home_help">Home Help</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bill_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 					
 					<div id="bills_problem">
 						<div class="subtitle_q">Have you ever had trouble with bills?</div>
 						<div class="bills_select">
-							<select name="bills_problem">
+							<select name="bills_problem_collat">
 								<option value="forgot_payment">Forgot to Pay</option>
 								<option value="income_issue">Not enough money</option>
 								<option value="other">Other</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_problem_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bill_problem_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 				</div>
 			</div>

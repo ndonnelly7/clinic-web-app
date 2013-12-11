@@ -1,0 +1,17 @@
+package project.beta.model;
+
+public class Lifestyle {
+	
+	private int pID;
+	
+	//Sleep
+	boolean difficulty_sleep, night_waking, early_waking, meds_check, naps_check;
+	
+	String difficulty_sleep_notes, difficulty_reason, difficulty_freq, difficulty_time;
+	String difficulty_reason_notes, difficulty_freq_notes, difficulty_time_notes;
+	
+	public Lifestyle(int id)
+	{
+		pID = id;
+	}
+}

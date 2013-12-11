@@ -1,0 +1,14 @@
+package project.beta;
+
+public class Analysis {
+
+	private int pID;
+	
+	String 
+	
+	public Analysis(int id)
+	{
+		pID = id;
+		
+	}
+}
