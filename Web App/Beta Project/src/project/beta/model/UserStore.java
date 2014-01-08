@@ -13,6 +13,11 @@ import javax.persistence.Id;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.users.User;
 
+/*
+ * HRD interface to retrieve the users
+ * Users stored in list then in HRD, maybe better to just store as individuals and let the HRD do the work
+ */
+
 @Entity(name="UserStore")
 public class UserStore {
 

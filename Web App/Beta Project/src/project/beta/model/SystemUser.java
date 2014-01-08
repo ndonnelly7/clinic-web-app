@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.users.User;
 
+/*
+ * Representative for the System User, will probably need to be updated and changed
+ */
+
 @Entity
 public class SystemUser implements java.io.Serializable {
 

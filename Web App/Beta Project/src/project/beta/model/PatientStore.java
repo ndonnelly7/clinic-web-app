@@ -16,7 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import com.google.appengine.api.datastore.Key;
-
+/*
+ * Temporary store for patients to HRD, will be removed and replcaed with ORM
+ */
 @Entity
 public class PatientStore {
 

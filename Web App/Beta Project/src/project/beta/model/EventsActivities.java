@@ -1,7 +1,11 @@
 package project.beta.model;
 
 import java.util.ArrayList;
+/*
+ * Class used for the representation of the Events and Activities page
+ */
 
+//TODO: Add the JPA stuff for this
 public class EventsActivities {
 
 	private int pID;

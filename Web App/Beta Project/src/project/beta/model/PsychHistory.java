@@ -7,6 +7,12 @@ import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * Used to represent PsychHistory's
+ * 
+ * This could probably just be replaced by the MedHistory as they're pretty identical
+ */
+
 @Entity
 public class PsychHistory {
 	@Id

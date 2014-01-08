@@ -1,5 +1,9 @@
 package project.beta.model;
+/*
+ * Living Situation class for form
+ */
 
+//TODO: Needs JPA Stuff
 public class LivingSit {
 
 	private int pID;

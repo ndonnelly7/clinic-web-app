@@ -1,6 +1,0 @@
-package project.beta.model;
-
-public class Lifestyle {
-	
-	private int pID;
-}

@@ -1,5 +1,10 @@
 package project.beta.model;
 
+/*
+ * Used to represent the page containing any information from patient's visit to the GP
+ */
+
+//TODO: Needs JPA Stuff
 public class GP_Info {
 
 	int pID;

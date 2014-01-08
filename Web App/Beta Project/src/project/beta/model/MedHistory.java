@@ -7,6 +7,10 @@ import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * Medical History class used for the patient's history
+ */
+
 @Entity
 public class MedHistory {
 	

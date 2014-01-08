@@ -2,7 +2,9 @@ package project.beta.model;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+/*
+ * EntityManagerFactory Singleton as only one should be used
+ */
 public final class EMF {
 	private static final EntityManagerFactory emfInstance =
 			Persistence.createEntityManagerFactory("transactions-optional");

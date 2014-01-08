@@ -1,6 +1,0 @@
-package project.beta.model;
-
-public class Activity {
-	String type, involvement, time_changed, notes;
-	int current_hours, prev_hours;
-}

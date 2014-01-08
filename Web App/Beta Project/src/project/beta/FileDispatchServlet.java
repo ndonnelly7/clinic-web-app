@@ -7,7 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/*
+ * This is used to open a jsp when a link for it is clicked
+ */
 @SuppressWarnings("serial")
 public class FileDispatchServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)

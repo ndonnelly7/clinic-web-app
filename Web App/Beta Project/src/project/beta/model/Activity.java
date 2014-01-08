@@ -1,5 +1,12 @@
 package project.beta.model;
 
+
+/*
+ * USed to represent both the social and physical activities that a patient
+ * can be involved in
+ * 
+ */
+//TODO: Needs to be an Entity for JPA
 public class Activity {
 	String type, involvement, time_changed, notes;
 	int current_hours, prev_hours;

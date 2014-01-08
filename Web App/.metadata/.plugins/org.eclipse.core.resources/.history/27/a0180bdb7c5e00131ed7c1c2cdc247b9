@@ -1,6 +1,0 @@
-package project.beta.model;
-
-public class NeuroHistory {
-
-	int pID;
-}

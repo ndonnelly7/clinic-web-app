@@ -2,6 +2,9 @@ package project.beta.model;
 
 import java.util.ArrayList;
 
+/*
+ * Representative of the Patient Analysis page of the form
+ */
 public class Analysis {
 
 	private int pID;
@@ -38,6 +41,7 @@ public class Analysis {
 				+ ", notes=" + notes + "]";
 	}
 	
+	//Getters and seeters for all the fields
 	public void addOutcome(String o) {
 		outcomes.add(o);
 	}

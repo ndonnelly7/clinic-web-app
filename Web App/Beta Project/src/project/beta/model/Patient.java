@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import com.google.appengine.api.datastore.Key;
+/*
+ * Patient Class used by Program
+ * This class is what's stored in the SQL
+ */
 
 @Entity(name="Patient")
 public class Patient implements java.io.Serializable{
@@ -23,10 +27,13 @@ public class Patient implements java.io.Serializable{
 	//TODO: will need to change this to use User ID 
 	private String userCreatedID;
 	
+	//Will needs to make parts of this field transient so sensitive info is not stored
 	@OneToOne(cascade = CascadeType.ALL)
 	private PersonalDetailsPatient personalDetails;
 	@OneToOne(cascade = CascadeType.ALL)
 	private PatientHistory patientHistory;
+	
+	//TODO: Need to add the rest of the form classes
 	
 	public Patient(int patientID, String u){
 		pID = patientID;

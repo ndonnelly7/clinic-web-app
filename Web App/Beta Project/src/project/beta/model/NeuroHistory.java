@@ -1,5 +1,10 @@
 package project.beta.model;
 
+/*
+ * Class used for the Neurological History page of the form
+ */
+
+//TODO: Needs JPA Stuff
 public class NeuroHistory {
 
 	int pID;

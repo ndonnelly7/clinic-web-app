@@ -13,6 +13,10 @@ import javax.persistence.OneToMany;
 
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * Used to represent the Patient's Medical history, including Drug History, Medical History and Psych History
+ */
+
 @Entity
 public class PatientHistory {
 

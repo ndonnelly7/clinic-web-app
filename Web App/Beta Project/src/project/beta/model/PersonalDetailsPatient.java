@@ -10,6 +10,10 @@ import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * Used to keep the personal details of the patient
+ */
+
 @Entity
 public class PersonalDetailsPatient {
 	
@@ -17,6 +21,7 @@ public class PersonalDetailsPatient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Key key;
 	
+	//TODO: Make the ID'ing info Transient here
 	private int pID;
 	private String pName, pGender, pAddress, pHomeTelNumber, pMobNumber, pEmail, pAreaOfStudy, pOccupation, pCounty;
 	private String gpName, gpAddress, gpCounty, pFamilyPresent;

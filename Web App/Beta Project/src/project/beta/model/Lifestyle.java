@@ -2,6 +2,11 @@ package project.beta.model;
 
 import java.util.ArrayList;
 
+/*
+ * Lifestyle Class for corresponding page
+ */
+
+//TODO: Needs JPA Stuff
 public class Lifestyle {
 	
 	private int pID;

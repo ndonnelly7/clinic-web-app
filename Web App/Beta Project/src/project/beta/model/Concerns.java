@@ -1,7 +1,11 @@
 package project.beta.model;
 
+/*
+ * Concerns Class for the Concerns page of the form
+ */
 public class Concerns {
 
+	//User ID used by system to keep track of everything
 	int pID;
 	
 	boolean recEventsCheck, facesCheck, namesCheck, losingThingsCheck, followConversationsCheck;
@@ -149,6 +153,7 @@ public class Concerns {
 				+ commentsCollatNotes + "]";
 	}
 
+	//Getters and Setters
 	public boolean isRecEventsCheck() {
 		return recEventsCheck;
 	}

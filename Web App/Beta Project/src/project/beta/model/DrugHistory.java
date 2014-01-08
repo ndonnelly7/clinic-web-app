@@ -6,7 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
-
+/*
+ * Used for medical history of any medication taken
+ */
 @Entity
 public class DrugHistory {
 	
