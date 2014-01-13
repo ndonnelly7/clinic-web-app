@@ -1,0 +1,9 @@
+package indexed.db;
+
+import java.util.Date;
+
+public class Customer {
+	String name,address,number,email;
+	String item,salesman,store_location;
+	Date dob;
+}

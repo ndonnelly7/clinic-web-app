@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>IndexedDB Sample</title>
+    <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
+	<link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/> 
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
+  </head>
+
+  <body>
+    <h1>Customer Details</h1>
+	
+	<form id="customer_form" class="pure-form pure-form-aligned" method="POST" action="/indexeddbsample">
+		<fieldset id="customer_field">
+			<legend>Customer Information</legend>
+			<div class="pure-control-group">
+			<label for="name">Name: </label>
+			<input id="name" name="name" type="text" value="John Doe">
+			</div>
+			<div class="pure-control-group">
+			<label for="address">Address </label>
+			<textarea name="address" rows="4" form="customer_form" id="address"></textarea>
+			</div>
+			<div class="pure-control-group">
+			<label for="dob">Date of Birth </label>
+			<input name="dob" placeholder="dd/mm/yyyy" type="text" class="suggest_form" id="pickdate">
+			</div>
+			<div class="pure-control-group">
+			<label for="number">Phone Number: </label>
+			<input id="number" name="number" type="text" value="321564987">
+			</div>
+			<div class="pure-control-group">
+			<label for="email">Email: </label>
+			<input id="email" email="email" type="text" value="foo@example.com">
+			</div>
+			<div class="pure-control-group">
+			<label for="bought_item">Item Bought: </label>
+			<input id="bought_item" name="bought_item" type="text" value="Consumerism">
+			</div>
+			<div class="pure-control-group">
+			<label for="sales_person">Sales Person: </label>
+			<input id="sales_person" name="sales_person" type="text" value="Jane Doe">
+			</div>
+			<div class="pure-control-group">
+			<label for="location">Store Location: </label>
+			<input id="location" name="location" type="text" value="Dublin">
+			</div>
+			
+			<input id="key" name="key" type="hidden" value="0">
+			<input type="button" onclick="checkAdd" value="Check">
+			<br>
+			<div id="infotext"></div>
+		</fieldset>
+   </form>
+   
+   <div id="infotext"></div>
+   
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script>window.indexedDB = {polyfill : true};</script>
+	<script src="main.js"></script>
+	<script type="text/javascript" src="Polyfill/indexedDB.polyfill.js"></script>
+	<!-- <script src = "http://axemclion.github.com/IndexedDBShim/dist/IndexedDBShim.min.js"></script> -->
+	<script>
+	function checkAdd(){
+		$("#name").prop('disabled',true);
+		$("#address").prop('disabled',true);
+		$("#pickdate").prop('disabled',true);
+		$("#number").prop('disabled',true);
+		$("#email").prop('disabled',true);
+		
+		$('#key').val(Math.floor((Math.random()*899)+100));
+		
+		var c = new Customer($("#name").val(), 
+				$("#address").val(),
+				$("#number").val(),
+				$("#email").val(),
+				$("#pickdate").val(),
+				$("#key").val());
+		console.log(c);
+		addCustomer(c);
+		
+	}
+	
+	$(function() {
+		$( "#pickdate" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "1900:" + (new Date()).getFullYear(),
+			dateFormat: "dd/MM/yy"
+		});
+		
+		$("#customer_form").submit(function () {
+			
+		});
+	});
+	</script>
+   
+  </body>
+</html>
