@@ -1,0 +1,10 @@
+package orm.model;
+
+import java.util.Date;
+
+public class Movie {
+	String title;
+	Date ReleaseDate;
+	String Director;
+	String tagline;
+}

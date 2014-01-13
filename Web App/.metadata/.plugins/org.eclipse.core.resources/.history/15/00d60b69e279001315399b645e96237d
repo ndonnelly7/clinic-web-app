@@ -1,0 +1,6 @@
+package orm.model;
+
+@Entity
+public class Movie {
+
+}

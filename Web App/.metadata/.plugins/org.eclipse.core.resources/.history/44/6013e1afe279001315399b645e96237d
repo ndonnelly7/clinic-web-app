@@ -1,0 +1,9 @@
+package orm.model;
+
+import java.util.Date;
+
+public class Actor {
+	String name;
+	Date dateOfBirth;
+	String gender;
+}

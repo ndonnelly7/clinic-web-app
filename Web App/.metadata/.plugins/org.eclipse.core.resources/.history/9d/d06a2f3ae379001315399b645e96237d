@@ -1,0 +1,16 @@
+package orm.model;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Movie {
+	String title;
+	Date releaseDate;
+	String director;
+	String tagline;
+	ArrayList<Actor> actors;
+	
+	public Movie(String title, Date release, String director, String tagline, ArrayList<Actor> actors){
+		
+	}
+}

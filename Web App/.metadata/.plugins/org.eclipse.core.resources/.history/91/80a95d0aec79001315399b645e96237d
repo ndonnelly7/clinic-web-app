@@ -1,0 +1,19 @@
+package orm.controller;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+public class AddServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		
+		String title = req.getParameter("title");
+		String director = req.getParameter("director");
+		resp.setContentType("text/plain");
+		resp.getWriter().println("Hello, world");
+	}
+}

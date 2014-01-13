@@ -1,0 +1,5 @@
+package orm.model;
+
+public class Actor {
+
+}

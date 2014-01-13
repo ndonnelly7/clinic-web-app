@@ -6,12 +6,22 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
 		<servlet-name>ORMSQLTest</servlet-name>
-		<servlet-class>test.ORMSQLTestServlet</servlet-class>
+		<servlet-class>orm.controller.ORMSQLTestServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ORMSQLTest</servlet-name>
 		<url-pattern>/ormsqltest</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddTitle</servlet-name>
+		<servlet-class>orm.controller.AddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddTitle</servlet-name>
+		<url-pattern>/add_title.do</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
