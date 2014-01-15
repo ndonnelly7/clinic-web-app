@@ -1,0 +1,8 @@
+package peerjs;
+
+import java.util.ArrayList;
+
+public class UserList {
+
+	ArrayList<MExUser> user = new ArrayList<MExUser>();
+}

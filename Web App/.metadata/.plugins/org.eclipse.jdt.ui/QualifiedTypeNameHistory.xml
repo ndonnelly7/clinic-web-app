@@ -10,7 +10,11 @@
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
+<fullyQualifiedTypeName name="peerjs.MExUser"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.memcache.MemcacheServiceFactory"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.memcache.MemcacheService"/>
 </qualifiedTypeNameHistroy>

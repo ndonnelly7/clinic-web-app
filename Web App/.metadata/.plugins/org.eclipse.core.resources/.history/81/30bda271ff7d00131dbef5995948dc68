@@ -1,0 +1,50 @@
+package peerjs;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.google.appengine.api.memcache.MemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
+
+public class UserList {
+
+	ArrayList<MExUser> users = new ArrayList<MExUser>();
+	
+	public boolean addUser(MExUser m){
+		return users.add(m);
+	}
+	
+	public boolean removeUser(String name){
+		Iterator<MExUser> it = users.iterator();
+		while(it.hasNext()) {
+			MExUser u = it.next();
+			if(u.getName().equals(name)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public MExUser getUser(String name) {
+		Iterator<MExUser> it = users.iterator();
+		while(it.hasNext()) {
+			MExUser u = it.next();
+			if(u.getName().equals(name)){
+				return u;
+			}
+		}
+		return null;
+	}
+	
+	static public UserList GetUserList(String listKey) {
+		MemcacheService cache = MemcacheServiceFactory.getMemcacheService();
+		UserList ul = (UserList) cache.get(listKey);
+		
+		if(ul == null){
+			ul = new UserList();
+			cache.put(listKey, ul);
+		}
+		
+		return ul;
+	}
+}

@@ -1,0 +1,16 @@
+package peerjs;
+
+import java.util.ArrayList;
+
+public class UserList {
+
+	ArrayList<MExUser> users = new ArrayList<MExUser>();
+	
+	public boolean addUser(MExUser m){
+		return users.add(m);
+	}
+	
+	public boolean removeUser(String name){
+		Iterator<MExUser> it = users.iterator();
+	}
+}

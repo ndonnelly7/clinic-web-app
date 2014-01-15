@@ -1,0 +1,11 @@
+package peerjs;
+
+public class MExUser {
+
+	String name, peerID;
+	
+	public MExUser(String name, String peerID) {
+		name = this.name;
+		peerID = this.peerID;
+	}
+}

@@ -1,0 +1,6 @@
+package peerjs;
+
+public class MExUser {
+
+	String name, peerID;
+}
