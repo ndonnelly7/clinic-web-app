@@ -1,0 +1,9 @@
+package indexed.db;
+
+import javax.persistence.Entity;
+
+@Entity
+public class CustomerStore {
+
+	private ArrayList<Customer> customers;
+}

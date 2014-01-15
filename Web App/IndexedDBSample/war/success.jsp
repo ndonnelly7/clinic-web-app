@@ -7,6 +7,7 @@
 <title>Success</title>
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/> 
+<link rel="stylesheet" href="/css/main.css" type="text/css"/> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
 </head>
@@ -24,6 +25,7 @@ Customer added:
 
 <input type="button" onclick="UpdateCustomer()" value="Update Customer"> 
 <input type="button" onclick="ShowAll()" value="Show All Customers">
+<input type="button" onclick="clearStore()" value="Clear Store">
 <a href="./index.html"></a>
 
 <div id="infotext"></div>

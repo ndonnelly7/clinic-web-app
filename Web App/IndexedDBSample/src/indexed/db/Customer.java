@@ -8,12 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.google.appengine.api.datastore.Key;
+
 @Entity
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long key;
+	private Key pKey;
+	
+	private int key;
 	
 	private String name,address,number,email;
 	private String item,salesman,store_location;
@@ -32,7 +36,7 @@ public class Customer {
 		this.dob = dob;
 		
 		Random random = new Random();
-		key = (long) (Math.abs(random.nextLong()));
+		key = (int) (Math.abs(random.nextInt()));
 	}
 	public String getName() {
 		return name;
@@ -82,7 +86,7 @@ public class Customer {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public long getKey() {
+	public int getKey() {
 		return key;
 	}
 	@Override

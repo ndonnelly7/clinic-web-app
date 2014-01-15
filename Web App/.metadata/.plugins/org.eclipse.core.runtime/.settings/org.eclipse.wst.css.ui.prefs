@@ -20,3 +20,4 @@ STRING=\#FFC600 | null | null | null | null | null
 UNIVERSAL=\#FFFFFF | null | null | null | null | null
 URI=\#FFC600 | null | null | null | null | null
 eclipse.preferences.version=1
+newFileTemplateName=New CSS File

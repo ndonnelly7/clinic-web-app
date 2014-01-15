@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+#infotext {
+	margin-left: 2%;
+	margin-top: 4px;
+}
+
+#infotext #customer_info {
+	
+}

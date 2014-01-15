@@ -1,0 +1,19 @@
+package indexed.db;
+
+import java.util.ArrayList;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class CustomerStore {
+
+	@Id
+	private String storeID = "customer_store";
+	
+	private ArrayList<Customer> customers;
+	
+	public CustomerStore() {
+		customers = new ArrayList<Customer>();
+	}
+}

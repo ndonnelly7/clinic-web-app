@@ -145,12 +145,59 @@ function updateCustomer(oldID, newKey) {
 }
 
 function showCustomer(c){
-	$("#infotext").append("<span>CUSTOMER: Name - " + c.name + " </span><br>");
-	$("#infotext").append("<span>CUSTOMER: Address - " + c.address + " </span><br>");
-	$("#infotext").append("<span>CUSTOMER: Number - " + c.number + " </span><br>");
-	$("#infotext").append("<span>CUSTOMER: Email - " + c.email + " </span><br>");
-	$("#infotext").append("<span>CUSTOMER: DOB - " + c.dob + " </span><br>");
-	$("#infotext").append("<span>CUSTOMER: Key - " + c.key + " </span><br>");
+	var toAppend = "<div class='customer_info' id='customer_" + c.key + "'>";
+	toAppend += "<span>CUSTOMER: Name - " + c.name + " </span><br>";
+	
+	toAppend += ("<span>CUSTOMER: Address - " + c.address + " </span><br>");
+	toAppend += ("<span>CUSTOMER: Number - " + c.number + " </span><br>");
+	toAppend += ("<span>CUSTOMER: Email - " + c.email + " </span><br>");
+	toAppend += ("<span>CUSTOMER: DOB - " + c.dob + " </span><br>");
+	toAppend += ("<span>CUSTOMER: Key - " + c.key + " </span><br>");
+	toAppend += ("<input type='button' value='More Info' onclick='getMoreInfoOn(" + c.key +")' id='button_"+c.key+"'><br>");
+	toAppend += ("</div>");
+	
+	$("#infotext").append(toAppend);
+}
+
+function getMoreInfoOn(akey) {
+	$("#infotext").append("<span>The key: " + akey + "</span><br>");
+	$("#infotext").append("<span>Key type: " + typeof akey + "</span><br>");
+	$.ajax('/retrieval.do', {
+		method: 'GET',
+		datatype:'text',
+		data: {
+			key:akey
+		},
+		success:function(response){
+			parseRetrieval(response);
+		}
+	});
+}
+
+function clearStore() {
+	$.ajax('/indexeddbsample', {
+		method: 'GET',
+		datatype:'text',
+		data: {
+			instruction:'clear'
+		},
+		success:function(response){
+			$("#infotext").append(response);
+		}
+	});
+}
+
+function parseRetrieval(json) {
+	console.log(json["salesman"]);
+	$("#infotext").append('#customer_' + json["key"]);
+	var divStr = '#customer_' + json["key"];
+	var btnStr = '#button_' + json["key"];
+	$(btnStr).remove();
+	var addString = "<span>CUSOTMER: Item Bought - " + json["item"] + "</span><br>";
+	addString += "<span>CUSOTMER: Salesperson - " + json["salesman"] + "</span><br>";
+	addString += "<span>CUSOTMER: Store Location - " + json["store_location"] + "</span><br>";
+	addString += "<span>============================</span><br><br>";
+	$(divStr).append(addString);
 }
 
 function getSpotlightCustomer(){

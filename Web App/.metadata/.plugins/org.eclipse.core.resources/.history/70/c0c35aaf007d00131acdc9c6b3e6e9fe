@@ -1,0 +1,5 @@
+package indexed.db;
+
+public class CustomerStore {
+
+}
