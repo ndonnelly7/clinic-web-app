@@ -1,0 +1,25 @@
+package peerjs;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class MovieList {
+
+	ArrayList<Movie> movies = new ArrayList<Movie>();
+	static String movieListKey = "ml_01";
+	
+	public boolean addMovie(Movie m){
+		return movies.add(m);
+	}
+	
+	public boolean removeMovie(String t){
+		Iterator<Movie> it = movies.iterator();
+		int i = 0;
+		while(it.hasNext()) {
+			Movie m = it.next();
+			if(m.getTitle().equals(t)){
+				te
+			}
+		}
+	}
+}

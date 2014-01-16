@@ -29,7 +29,7 @@ public class SignInServlet extends HttpServlet {
 		ul.addUser(u);
 		UserList.PutBackUserList(ul);
 		
-		//Send the user to the movieExchange page
+		
 		RequestDispatcher view = req.getRequestDispatcher("/MovieExchange.jsp");
 		view.forward(req, resp);
 	}

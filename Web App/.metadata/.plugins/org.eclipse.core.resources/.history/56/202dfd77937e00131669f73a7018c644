@@ -17,19 +17,14 @@ public class UserList {
 	
 	public boolean removeUser(String name){
 		Iterator<MExUser> it = users.iterator();
-		int i = 0, index = -1;;
-		boolean found = false;
-		while(it.hasNext() && !found) {
+		int i = 0;
+		while(it.hasNext()) {
 			MExUser u = it.next();
 			if(u.getName().equals(name)){
-				found = true;
-				index = i;
+				users.remove(i);
+				return true;
 			}
 			i++;
-		}
-		if(found){
-			users.remove(index);
-			return true;
 		}
 		return false;
 	}
@@ -57,7 +52,7 @@ public class UserList {
 		return ul;
 	}
 	
-	static public void PutBackUserList(UserList ul){
+	static public void PutBackChatBox(UserList ul){
 		MemcacheService cache = MemcacheServiceFactory.getMemcacheService();
 		cache.put(userListKey, ul, null, MemcacheService.SetPolicy.REPLACE_ONLY_IF_PRESENT);
 	}

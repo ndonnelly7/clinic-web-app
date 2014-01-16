@@ -27,10 +27,6 @@ public class UserList {
 			}
 			i++;
 		}
-		if(found){
-			users.remove(index);
-			return true;
-		}
 		return false;
 	}
 	
@@ -57,7 +53,7 @@ public class UserList {
 		return ul;
 	}
 	
-	static public void PutBackUserList(UserList ul){
+	static public void PutBackChatBox(UserList ul){
 		MemcacheService cache = MemcacheServiceFactory.getMemcacheService();
 		cache.put(userListKey, ul, null, MemcacheService.SetPolicy.REPLACE_ONLY_IF_PRESENT);
 	}
