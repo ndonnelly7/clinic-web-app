@@ -14,7 +14,7 @@
 <fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
 <fullyQualifiedTypeName name="peerjs.MExUser"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.memcache.MemcacheServiceFactory"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.memcache.MemcacheService"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

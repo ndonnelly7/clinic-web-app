@@ -1,0 +1,7 @@
+package webrtc.eval.model;
+
+public class Client {
+	String cName, cID;
+	Clinic cClinic;
+	ArrayList<String> cPatients;
+}

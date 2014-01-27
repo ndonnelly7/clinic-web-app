@@ -1,8 +1,0 @@
-package orm.model;
-
-import java.sql.Date;
-
-public class Movie {
-	String title;
-	Date ReleaseDate;
-}

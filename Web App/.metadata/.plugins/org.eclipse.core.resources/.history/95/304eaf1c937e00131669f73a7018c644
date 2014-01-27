@@ -1,8 +1,0 @@
-package peerjs;
-
-import java.util.ArrayList;
-
-public class MovieList {
-
-	ArrayList<Movie> movies = new ArrayList<Movie>();
-}
