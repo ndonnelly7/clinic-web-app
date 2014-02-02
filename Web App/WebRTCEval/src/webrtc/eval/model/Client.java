@@ -14,4 +14,39 @@ public class Client {
 		
 		cPatientIDs = new ArrayList<String>();
 	}
+
+	public String getcName() {
+		return cName;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public String getcID() {
+		return cID;
+	}
+
+	public void setcID(String cID) {
+		this.cID = cID;
+	}
+
+	public Clinic getcClinic() {
+		return cClinic;
+	}
+
+	public ArrayList<String> getcPatientIDs() {
+		return cPatientIDs;
+	}
+
+	public void setcPatientIDs(ArrayList<String> cPatientIDs) {
+		this.cPatientIDs = cPatientIDs;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [cName=" + cName + ", cID=" + cID + ", cClinic="
+				+ cClinic + ", cPatientIDs=" + cPatientIDs + "]";
+	}
+	
 }

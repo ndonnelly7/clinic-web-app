@@ -1,0 +1,13 @@
+package webrtc.eval.model;
+
+import java.util.ArrayList;
+
+public class Clinic {
+
+	private String name;
+	private String address;
+	private ArrayList<Client> clients;
+	
+	
+	
+}

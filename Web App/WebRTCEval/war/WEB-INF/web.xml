@@ -8,11 +8,39 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>WebRTCEval</servlet-name>
 		<servlet-class>webrtc.eval.WebRTCEvalServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>SignIn</servlet-name>
+		<servlet-class>webrtc.eval.SignInServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SignOut</servlet-name>
+		<servlet-class>webrtc.eval.SignOutServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>WebRTCEval</servlet-name>
 		<url-pattern>/webrtceval</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SignIn</servlet-name>
+		<url-pattern>/signin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SignOut</servlet-name>
+		<url-pattern>/signout</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Site</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
 </web-app>
