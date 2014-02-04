@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
 <fullyQualifiedTypeName name="project.beta.model.Patient.Patient_Part_Type"/>
 <fullyQualifiedTypeName name="project.beta.model.Patient.Part_Type"/>
 <fullyQualifiedTypeName name="project.beta.model.EventsActivities"/>
@@ -9,12 +8,18 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
-<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
-<fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
 <fullyQualifiedTypeName name="peerjs.MExUser"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.memcache.MemcacheServiceFactory"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.memcache.MemcacheService"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="webrtc.eval.model.Client"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
 </qualifiedTypeNameHistroy>

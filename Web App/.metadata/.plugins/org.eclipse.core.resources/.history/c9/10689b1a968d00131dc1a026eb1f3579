@@ -1,0 +1,8 @@
+package webrtc.eval.model;
+
+public class SimplePatient {
+
+	public SimplePatient(Patient p){
+		
+	}
+}

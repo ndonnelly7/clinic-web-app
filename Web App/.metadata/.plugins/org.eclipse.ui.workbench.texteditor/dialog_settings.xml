@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="349" key="DIALOG_Y_ORIGIN"/>
-		<item value="380" key="DIALOG_HEIGHT"/>
 		<item value="1512" key="DIALOG_X_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="true" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="ml" key="selection"/>
+		<item value="PeerData" key="selection"/>
 		<list key="findhistory">
+			<item value="AnonPatientData"/>
+			<item value="peer_data_key"/>
+			<item value="PeerData"/>
+			<item value="Patient"/>
 			<item value="ul"/>
 			<item value="UserList"/>
 			<item value="$(&quot;#infotext&quot;).append"/>
 			<item value="name"/>
-			<item value=";"/>
-			<item value=", "/>
-			<item value="_units"/>
-			<item value="(req"/>
 		</list>
 		<list key="replacehistory">
+			<item value="PeerData"/>
+			<item value="patient_data_key"/>
+			<item value="AnonPatientData"/>
+			<item value="Clinic"/>
 			<item value="ml"/>
 			<item value="MovieList"/>
 			<item value="toAppend += "/>
 			<item value="email"/>
-			<item value=" = &quot;&quot;;"/>
-			<item value=" = "/>
-			<item value="_units_collat"/>
-			<item value="_collat(req"/>
 		</list>
 	</section>
 </section>

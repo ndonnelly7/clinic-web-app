@@ -1,0 +1,8 @@
+package webrtc.eval.model;
+
+public class SimpleClient {
+	String Name;
+	String ClinicName;
+	boolean online;
+	ArrayList<Long> patientIDs;
+}

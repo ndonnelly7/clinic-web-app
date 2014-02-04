@@ -1,0 +1,61 @@
+package webrtc.eval.model;
+
+import java.util.ArrayList;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Client {
+	String cName;
+	Clinic cClinic;
+	ArrayList<String> cPatientIDs;
+	String password_hash;
+	
+	@Id @GeneratedValue
+	int id;
+	
+	public Client(String name, Clinic clinic, String password){
+		this.cName = name;
+		this.cClinic = clinic;
+		this.password_hash = password;
+		
+		cPatientIDs = new ArrayList<String>();
+	}
+
+	public String getcName() {
+		return cName;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public int getcID() {
+		return cID;
+	}
+
+	public Clinic getcClinic() {
+		return cClinic;
+	}
+
+	public ArrayList<String> getcPatientIDs() {
+		return cPatientIDs;
+	}
+
+	public void setcPatientIDs(ArrayList<String> cPatientIDs) {
+		this.cPatientIDs = cPatientIDs;
+	}
+	
+	public String getPassword(){
+		return password_hash;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [cName=" + cName + ", cID=" + cID + ", cClinic="
+				+ cClinic + ", cPatientIDs=" + cPatientIDs + "]";
+	}
+	
+}

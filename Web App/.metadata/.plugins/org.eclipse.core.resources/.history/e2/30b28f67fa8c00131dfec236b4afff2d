@@ -1,0 +1,45 @@
+package webrtc.eval.controller;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import webrtc.eval.model.PeerDataAccess;
+
+@SuppressWarnings("serial")
+public class WebRTCEvalServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		/*
+		 * Request requirements: 
+		 * Request type - ClinicsList, ClientsFromClinic, Synch, Retrieve, FindPatient, FindClient
+		 */
+		
+		String type = req.getParameter("type");
+		
+		switch(type) {
+		case "ClinicsList" :
+			getClinicsList(req.getParameter("clinic"));
+			break;
+		default:
+			resp.setContentType("text/plain");
+			resp.getWriter().println("Hello, world");
+		}
+	}
+	
+	public void doPut(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		/*
+		 * Request requirements: 
+		 * Request type - AddPatient
+		 */
+		
+		
+	}
+	
+	public void getClinicsList(String clinic_name){
+		PeerDataAccess pd = new PeerDataAccess();
+	}
+}

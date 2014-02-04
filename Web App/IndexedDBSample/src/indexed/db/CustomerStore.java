@@ -139,7 +139,6 @@ public class CustomerStore {
 		
 		EntityManagerFactory emf = EMF.get();
 		EntityManager em = null;
-		EntityTransaction txn = null;
 		CustomerStore cs = null;
 		
 		try {

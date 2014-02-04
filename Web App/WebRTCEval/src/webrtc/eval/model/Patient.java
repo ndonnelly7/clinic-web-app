@@ -2,72 +2,63 @@ package webrtc.eval.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.google.appengine.api.datastore.Key;
+
+@Entity
 public class Patient {
 
-	private String name;
-	private String email;
 	private String ppsn;
-	private int id;
-	private ArrayList<Client> clinicians;
-	private Clinic clinic;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Key key;
 	
-	public Patient(String name, String email, String ppsn, int id, Client addingClient, Clinic clinic) {
+	@ElementCollection
+	private ArrayList<Key> clinicians;
+	private Key clinicID;
+	
+	public Patient(String ppsn, Client addingClient, Key clinic) {
 		super();
-		this.name = name;
-		this.email = email;
 		this.ppsn = ppsn;
-		this.id = id;
-		clinicians = new ArrayList<Client>();
-		clinicians.add(addingClient);
+		clinicians = new ArrayList<Key>();
+		clinicians.add(addingClient.getcID());
 		
-		this.clinic = clinic;
+		this.clinicID = clinic;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public ArrayList<Client> getClinicians() {
+	public ArrayList<Key> getClinicians() {
 		return clinicians;
 	}
 
-	public void setClinicians(ArrayList<Client> clinicians) {
-		this.clinicians = clinicians;
+	public void addClinician(Client c){
+		clinicians.add(c.getcID());
 	}
 
-	public Clinic getClinic() {
-		return clinic;
+	public Key getClinicID() {
+		return clinicID;
 	}
 
-	public void setClinic(Clinic clinic) {
-		this.clinic = clinic;
+	public void setClinicID(Key clinic) {
+		this.clinicID = clinic;
 	}
 
 	public String getPpsn() {
 		return ppsn;
 	}
 
-	public int getId() {
-		return id;
+	public Key getKey() {
+		return key;
 	}
 
 	@Override
 	public String toString() {
-		return "Patient [name=" + name + ", email=" + email + ", ppsn=" + ppsn
-				+ ", id=" + id + ", clinicians=" + clinicians + ", clinic="
-				+ clinic + "]";
+		return "Patient [ppsn=" + ppsn + ", id=" + key
+				+ ", clinicians=" + clinicians + ", clinic="
+				+ clinicID + "]";
 	}
 	
 }

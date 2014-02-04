@@ -1,0 +1,14 @@
+package webrtc.eval.model;
+
+public class Security {
+
+	Random random;
+	
+	
+	public String HashPassword(String pw)
+	{
+		byte[] salt = new byte[16];
+		random.nextBytes(salt);
+		KeySpec spec = new PBEKeySpec(pw.toCharArray())
+	}
+}

@@ -1,0 +1,23 @@
+var username, clinicname, channelToken;
+$(document).ready(function() {
+	username = "<%=(String)request.getAttribute("username")%>";
+	clinicname = "<%=(String)request.getAttribute("clinic")%>";
+	channelToken = "<%=(String)request.getAttribute("channeltoken")%>";
+	
+	
+});
+
+function CheckChannel() {
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"ChannelCheck",
+			user:username,
+			clinic:clinicname
+		},
+		success:function(response) {
+			$("#infotext").append("<div>Server Received Request</div>");
+		}
+	});
+}

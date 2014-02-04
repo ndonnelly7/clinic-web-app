@@ -1,0 +1,74 @@
+package webrtc.eval.model;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Client {
+	String cName;
+	Clinic cClinic;
+	boolean online;
+	
+	@ElementCollection
+	ArrayList<Integer> cPatientIDs;
+	
+	@Id @GeneratedValue
+	private long id;
+	
+	public Client(String name, Clinic clinic){
+		this.cName = name;
+		this.cClinic = clinic;
+		cPatientIDs = new ArrayList<Integer>();
+		online = false;
+	}
+
+	public String getcName() {
+		return cName;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public long getcID() {
+		return id;
+	}
+	
+	public void setOnline(boolean on){
+		online = on;
+	}
+	
+	public boolean isOnline(){
+		return online;
+	}
+
+	public Clinic getcClinic() {
+		return cClinic;
+	}
+
+	public ArrayList<Integer> getcPatientIDs() {
+		return cPatientIDs;
+	}
+	
+	public boolean isPatientPresent(int pID){
+		Iterator<Integer> it = cPatientIDs.iterator();
+		while(it.hasNext()){
+			int p = it.next();
+			if(p == pID)
+				return true;
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [cName=" + cName + ", cID=" + id + ", cClinic="
+				+ cClinic + ", cPatientIDs=" + cPatientIDs + "]";
+	}
+	
+}

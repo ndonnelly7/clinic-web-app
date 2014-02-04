@@ -1,0 +1,17 @@
+function CheckChannel() {
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"ChannelCheck"
+		},
+		success:function(response) {
+			$("#infotext").append("<div>Response from ClinicsList Request: </div>");
+			$("#infotext").append("<div>"+response+"</div>");
+			var arr = $.parseJSON(response);
+			arr.map( function(item){
+				$("#clinic_list").append('<option value=' + item + '>' + item + '</option>');
+			});
+		}
+	});
+}

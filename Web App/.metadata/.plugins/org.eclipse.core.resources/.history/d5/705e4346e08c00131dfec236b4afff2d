@@ -1,0 +1,64 @@
+package webrtc.eval.controller;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import webrtc.eval.model.Client;
+import webrtc.eval.model.EvalSecurity;
+import webrtc.eval.model.PeerDataAccess;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
+@SuppressWarnings("serial")
+public class SignInServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException, ServletException {
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+		
+		String type_of_sign_in = req.getParameter("type");
+		String pw = req.getParameter("password");
+		
+		EvalSecurity s = new EvalSecurity();
+		String h_pw = "";
+		try {
+			s.HashPassword(pw);
+		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+			System.err.println("NoSuchAlgorithm or InvalidKeySpecException");
+			e.printStackTrace();
+			RequestDispatcher view = req.getRequestDispatcher("/jsp/error.jsp");
+			view.forward(req, resp);
+			return;
+		}
+		
+		if(type_of_sign_in.equals("Create")){
+			System.out.println("Creating new user");
+			Client c = new Client(user.getNickname(),h_pw,user.getUserId());
+			PeerDataAccess p = new PeerDataAccess();
+			p.addClinician(c);
+			RequestDispatcher view = req.getRequestDispatcher("/jsp/main.jsp");
+			view.forward(req, resp);
+			return;
+		} else if(type_of_sign_in.equals("SignIn")) {
+			PeerDataAccess p = new PeerDataAccess();
+			Client c = p.findClinician(user.getNickname());
+			if(c.getPassword().equals(h_pw)){
+				RequestDispatcher view = req.getRequestDispatcher("/jsp/main.jsp");
+				view.forward(req, resp);
+			}
+		} else {
+			RequestDispatcher view = req.getRequestDispatcher("/jsp/error.jsp");
+			view.forward(req, resp);
+			return;
+		}
+	}
+}

@@ -1,21 +1,37 @@
 package webrtc.eval.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.google.appengine.api.datastore.Key;
+
+@Entity
 public class Clinic {
 
 	private String name;
 	private String address;
-	private ArrayList<Client> clients;
-	private int clinicID;
 	
-	public Clinic(String name, String address, ArrayList<Client> clients,
-			int clinicID) {
-		super();
+	@ElementCollection
+	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="cClinic")
+	private ArrayList<Client> clients;
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Key clinicID;
+	
+	public Clinic(String name, String address) {
 		this.name = name;
 		this.address = address;
-		this.clients = clients;
-		this.clinicID = clinicID;
+		this.clients = new ArrayList<Client>();
 	}
 	public String getName() {
 		return name;
@@ -30,10 +46,50 @@ public class Clinic {
 		this.address = address;
 	}
 	public ArrayList<Client> getClients() {
+		if(clients == null){
+			clients = new ArrayList<Client>();
+		}
 		return clients;
 	}
-	public void setClients(ArrayList<Client> clients) {
-		this.clients = clients;
+	public boolean addClient(Client c) {
+		if(clients == null){
+			clients = new ArrayList<Client>();
+		}
+		return clients.add(c);
+	}
+	public boolean removeClient(Client c){
+		if(clients == null){
+			return false;
+		}
+		return clients.remove(c);
+	}
+	
+	public Client findClient(String name){
+		if(clients == null)
+			return null;
+		Iterator<Client> it = clients.iterator();
+		while(it.hasNext()){
+			Client c = it.next();
+			if(c.getcName().equals(name))
+				return c;
+		}
+		return null;
+	}
+	
+	public Client findClient(Key id){
+		if(clients == null)
+			return null;
+		Iterator<Client> it = clients.iterator();
+		while(it.hasNext()){
+			Client c = it.next();
+			if(c.getcID().getId() == id.getId())
+				return c;
+		}
+		return null;
+	}
+	
+	public Key getClinicID(){
+		return clinicID;
 	}
 	
 	@Override

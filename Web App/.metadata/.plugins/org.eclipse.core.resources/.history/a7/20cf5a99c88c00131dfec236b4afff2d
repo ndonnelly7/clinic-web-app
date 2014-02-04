@@ -1,0 +1,28 @@
+package webrtc.eval.model;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+public class PatientDataAccess {
+
+	private String patient_data_key = "Patient_Data_001";
+	
+	public void init(){
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		PeerData pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			pd = em.find(PatientData.class, patient_data_key);
+			
+			if(pd == null) {
+				pd = new PeerData(patient_data_key);
+				em.persist(pd);
+			}
+		} finally {
+			if(em != null)
+				em.close();
+		}
+	}
+}

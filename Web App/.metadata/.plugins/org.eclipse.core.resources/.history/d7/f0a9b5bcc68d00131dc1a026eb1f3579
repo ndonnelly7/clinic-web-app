@@ -1,0 +1,19 @@
+var username, clinicname;
+$(document).ready(function() {
+	
+});
+
+function CheckChannel() {
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"ChannelCheck",
+			user:username,
+			clinic:clinicname
+		},
+		success:function(response) {
+			$("#infotext").append("<div>Server Received Request</div>");
+		}
+	});
+}

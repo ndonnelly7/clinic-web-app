@@ -1,0 +1,36 @@
+var username, clinicname, channelToken;
+$(document).ready(function() {
+	username = $('#name_div').html();
+	clinicname = $('#clinic_div').html();
+	channelToken = $('#token').html();
+	
+	$("#infotext").append("<div>"+username+"</div>");
+	$("#infotext").append("<div>"+clinicname+"</div>");
+	$("#infotext").append("<div>"+channelToken+"</div>");
+	
+	var channel = new goog.appengine.Channel(channelToken);
+	socket = channel.open();
+	socket.onmessage = channelComm;
+});
+
+function CheckChannel() {
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"ChannelCheck",
+			user:username,
+			clinic:clinicname
+		},
+		success:function(response) {
+			$("#infotext").append("<div>Server Received Request</div>");
+		}
+	});
+}
+
+function channelComm(message) {
+	$("#infotext").append("<div>Google Channel:</div>");
+	$("#infotext").append("<div>"+message+"</div>");
+	
+	//Don't forget the possibility of a ping message
+}

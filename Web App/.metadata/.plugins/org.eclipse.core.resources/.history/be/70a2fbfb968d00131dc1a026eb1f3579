@@ -1,0 +1,19 @@
+package webrtc.eval.model;
+
+import java.util.ArrayList;
+
+public class SimpleClinic {
+	String name;
+	String address;
+	ArrayList<String> clients;
+	
+	public SimpleClinic(Clinic c){
+		this.name = c.getName();
+		this.address = c.getAddress();
+		clients = ArrayList<String>();
+		ArrayList<Client> clientList = c.getClients();
+		for(int i = 0; i < clients.size(); i++){
+			clients
+		}
+	}
+}
