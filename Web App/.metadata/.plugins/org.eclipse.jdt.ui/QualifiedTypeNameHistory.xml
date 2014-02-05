@@ -18,8 +18,8 @@
 <fullyQualifiedTypeName name="com.google.gson.Gson"/>
 <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="webrtc.eval.model.Client"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
 </qualifiedTypeNameHistroy>

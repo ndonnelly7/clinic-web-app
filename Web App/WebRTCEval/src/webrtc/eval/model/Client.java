@@ -67,6 +67,10 @@ public class Client {
 		return cPatientIDs;
 	}
 	
+	public boolean addPatientID(Key k){
+		return cPatientIDs.add(k);
+	}
+	
 	public boolean isPatientPresent(Key pID){
 		Iterator<Key> it = cPatientIDs.iterator();
 		while(it.hasNext()){

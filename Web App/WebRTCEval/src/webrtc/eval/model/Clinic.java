@@ -24,6 +24,9 @@ public class Clinic {
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="cClinic")
 	private ArrayList<Client> clients;
 	
+	@ElementCollection
+	private ArrayList<Key> patients;
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Key clinicID;
@@ -32,6 +35,7 @@ public class Clinic {
 		this.name = name;
 		this.address = address;
 		this.clients = new ArrayList<Client>();
+		this.patients = new ArrayList<Key>();
 	}
 	public String getName() {
 		return name;
@@ -90,6 +94,14 @@ public class Clinic {
 	
 	public Key getClinicID(){
 		return clinicID;
+	}
+	
+	public ArrayList<Key> getPatientIDs(){
+		return patients;
+	}
+	
+	public boolean addPatientID(Key k){
+		return patients.add(k);
 	}
 	
 	@Override

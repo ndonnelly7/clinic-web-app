@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+#infotext {
+	background: #000000;
+	width: 35%;
+	color: #00ff00;
+	font-family: monospace;
+	float: right;
+	height: 350px;
+	overflow: scroll;
+	border: 4px inset #00ff00; 
+}
+
+#content {
+	float: left;
+	width: 60%;
+	margin-left: 2%;
+}
+
+#infotext .customer_info {
+	margin-top: 2px;
+}
+
+form {
+	margin-left:4%;
+}
+

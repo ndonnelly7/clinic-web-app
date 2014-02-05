@@ -7,6 +7,9 @@ import javax.servlet.http.*;
 public class SignOutServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
+		
+		//Sign user out of system
+		
 		resp.setContentType("text/plain");
 		resp.getWriter().println("Hello, world");
 	}

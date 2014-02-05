@@ -1,6 +1,7 @@
 package webrtc.eval.model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -21,6 +22,8 @@ public class Patient {
 	private ArrayList<Key> clinicians;
 	private Key clinicID;
 	
+	public boolean stress, memory, alcohol, diet, sleep, dementia;
+	
 	public Patient(String ppsn, Client addingClient, Key clinic) {
 		super();
 		this.ppsn = ppsn;
@@ -28,6 +31,13 @@ public class Patient {
 		clinicians.add(addingClient.getcID());
 		
 		this.clinicID = clinic;
+		Random r = new Random(System.currentTimeMillis());
+		stress = r.nextInt(10)%2==0;
+		memory = r.nextInt(10)%2==0;
+		alcohol = r.nextInt(10)%2==0;
+		diet = r.nextInt(10)%2==0;
+		sleep = r.nextInt(10)%2==0;
+		dementia = r.nextInt(10)%2==0;
 	}
 
 	public ArrayList<Key> getClinicians() {

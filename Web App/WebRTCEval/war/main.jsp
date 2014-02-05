@@ -18,29 +18,76 @@
   <body>
     <h1>Inter Clinic Evaluation</h1>
     
+    <form id="general_form" class="pure-form pure-form-aligned" method="GET" action="/signout.do">
     <div id="name_div">${username}</div>
     
     <div id="clinic_div">${clinic}</div>
+    
+    <div id="content" class="main_div">
     <div id="token" style="display:none">${channeltoken}</div>
     
-    <div id="patient_info"></div>
+    <div id="patient_info" class="main_div">
+    	<input type="button" value="See Patients" onclick="fillPatientInfo()">
+    </div>
     
-    <div id="patient_add"></div>
+    <div id="patient_add" class="main_div">
+    	<input type="button" value="Add Patient" onclick="addPatient()" id="patDetailsButton">
+    	<div id="add_patient" style="display:none">
+    		<div class="pure-control-group">
+    		<label for="pat_name">Name:</label>
+    		<input type="text" id="pat_name" name="pat_name">
+    		</div>
+    		<div class="pure-control-group">
+    		<label for="pat_address">Address:</label>
+    		<input type="text" id="pat_address" name="pat_address">
+    		</div>
+    		<div class="pure-control-group">
+    		<label for="pat_ppsn">PPSN:</label>
+    		<input type="text" id="pat_ppsn" name="pat_ppsn">
+    		</div>
+    		<div class="pure-control-group">
+    		<label for="pat_number">Number:</label>
+    		<input type="text" id="pat_number" name="pat_number">
+    		</div>
+    		<input type="button" value="Add Patient" onclick="addPatientDetails()">
+    	</div>
+    </div>
     
-    <div id="patient_find"></div>
+    <div id="patient_get" class="main_div">
+    	<div id="retrieve_patient" style="display:none">
+	    	<div class="pure-control-group">
+	   		<label for="get_ppsn">PPSN of Patient:</label>
+	   		<input type="text" id="get_ppsn" name="get_ppsn">
+	   		</div>
+	   		<div class="pure-control-group">
+	   		<label for="get_clinic">Clinic of Patient:</label>
+	   		<input type="text" id="get_clinic" name="get_clinic">
+	   		</div>
+	   		<input type="button" value="Search for Patient" onclick="retrievePatient()">
+   		</div>
+   		<input type="button" id="retrievePatButton" value="Find a Patient from Another Clinic" onclick="retrievePatientDiv()">
+    </div>
     
-    <div id="patient_details"></div>
-    
-    <div id="extras">
+    <div id="extras" class="main_div">
     	<input type="button" value="Check Channel" onclick="CheckChannel()">
     </div>
     
-	<div id="infotext"></div>  
-	  
+    </div>
+    
+    <div id="sign_out_div" class="main_div">
+    	<input type="button" value="Sign Out" onclick="SignOut">
+    </div>
+    
+	<div id="infotext"></div> 
+	
+	<div id="clear"></div>
+	</form>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/_ah/channel/jsapi"></script>
-	<script src="js/main.js"></script>
+	<script src = "js/IDBShim.js"></script>
+	<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
 	<script src="js/IDB.js"></script>
+	<script src="js/main.js"></script>
 	<script src="js/P2P.js"></script>
   </body>
 </html>

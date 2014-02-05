@@ -1,0 +1,87 @@
+var db;
+var patient;
+
+function Patient(name,address,ppsn,number,key){
+	this.name = name;
+	this.address = address;
+	this.ppsn = ppsn;
+	this.number = number;
+	this.key = key;
+}
+
+function IDBInit() {
+	if(!window.indexedDB) {
+		$("#infotext").append("<span>ERROR: IndexedDB not in window</span><br>");
+		return;
+	}
+	
+	$("#infotext").append("<span>INFO: IndexedDB in window</span><br>");
+	openRequest = indexedDB.open("patientdb", 1);
+	
+	openRequest.onupgradeneeded = function(e){
+		db = e.target.result;
+		$("#infotext").append("<span>INFO: Upgrade required for IndexedDB; applying...</span><br>");
+		
+		if(!db.objectStoreNames.contains("patients")) {
+			var store = db.createObjectStore("patients", {keyPath: "ppsn"});
+			store.createIndex("name", "name", {unique:false});
+		}
+	}
+	
+	openRequest.onsuccess = function(e) {
+		$("#infotext").append("<span>INFO: Successful IndexedDB open</span><br>");
+		db = e.target.result;
+	}
+	
+	openRequest.onerror = function(e) {
+		$("#infotext").append("<span>ERROR: Error setting up IndexedDB</span><br>");
+	}
+	
+	openRequest.onblock = function(e) {
+		$("#infotext").append("<span>ERROR: Blocked somehow</span><br>");
+	}
+}
+
+function addPatient(p){
+	$("#infotext").append("<span>INFO: Adding Patient: " + p.name + "</span><br>");
+	if(db){
+		$("#infotext").append("<span>INFO: Creating transaction</span><br>");
+		var transaction = db.transaction(["patients"], "readwrite");
+		
+		transaction.oncomplete = function(e){
+			$("#infotext").append("<span>INFO: Transaction completed</span><br>");
+		}
+		
+		transaction.onerror = function(e){
+			$("#infotext").append("<span>ERROR: Transaction error: " + e.target.result + "</span><br>");
+		}
+		
+		transaction.onblock = function(e) {
+			$("#infotext").append("<span>Blocking</span><br>")
+		}
+		
+		var store = transaction.objectStore("patients");
+		var request = store.add(p);
+		request.onsuccess = function(e){
+			$("#infotext").append("<span>INFO: Add successful: " + e.target.result + "</span><br>");
+		}
+	}
+}
+
+function getCustomer(key){
+	$("#infotext").append("<span>INFO: Searching Patient with key: " + key + "</span><br>");
+	if(db) {
+		var transaction = db.transaction(["patients"], "readwrite");
+		var objectStore = transaction.objectStore("patients");
+		var request = objectStore.get(key);
+		
+		request.onerror = function(e) {
+			$("#infotext").append("<span>ERROR: Couldn't return patient</span><br>");
+		}
+		
+		request.onsuccess = function(e) {
+			$("#infotext").append("<span>INFO: Returned patient</span><br>");
+			patient = e.target.result;
+		}
+	}	
+}

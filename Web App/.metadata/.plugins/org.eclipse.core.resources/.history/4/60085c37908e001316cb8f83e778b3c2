@@ -1,0 +1,25 @@
+package webrtc.eval.model;
+
+import java.util.ArrayList;
+
+import com.google.appengine.api.datastore.Key;
+
+public class InterClinicService {
+
+	public void syncNewPatient(String pName, String clinicName){
+		/*
+		 * TODO: Send sync requests to other clients over Channel API
+		 * Get the list of all clients from the clinic
+		 * Check that it doesn't contain the newly added patient, then send an update to them
+		 */
+	}
+	
+	public String retrievePatient(String ppsn, String clinic){
+		PeerDataAccess pd = new PeerDataAccess();
+		Clinic c = pd.findClinic(clinic);
+		if(c == null)
+			return "Error: CLINIC NOT FOUND";
+		
+		ArrayList<Key> clinicPatients = c.getPatientIDs();
+	}
+}

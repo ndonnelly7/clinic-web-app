@@ -17,29 +17,7 @@
 
   <body>
     <h1>Inter Clinic Evaluation</h1>
-    <h2 style="color:'#ff0000'">There was a problem: sign in again</h2>
-	<form id="join_form" action="signin.do" method="get" class="pure-form pure-form-stacked">
-		<fieldset>
-		<legend id="join_div">Sign in or create:</legend> 
-		
-		<input type="text" name="username" id="username_box" placeholder="Username">
-		<input type="password" name="password" id="password" placeholder="Password">
-		<input type="button" id="create_button" value="Create" onclick="Create()">
-		<input type="button" id="sign_button" value="Sign" onclick="SignIn()">
-		<input type="text" name="type" id="type" style="display:none">
-		</fieldset>
-	</form>       
-  
-  <script>
-  function Create() {
-	  $('#id').val("Create");
-	  $('#join_form').submit();
-  }
-  
-  function SignIn() {
-	  $('#id').val("SignIn");
-	  $('#join_form').submit();
-  }
-  </script>
+    <h2 style="color:'#ff0000'">There was a problem with signing in</h2>
+	    
   </body>
 </html>

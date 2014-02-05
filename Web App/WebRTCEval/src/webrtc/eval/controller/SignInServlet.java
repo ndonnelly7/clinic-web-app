@@ -24,6 +24,7 @@ public class SignInServlet extends HttpServlet {
 		String clinic = clinic_choice + " Clinic";
 		
 		String name = "";
+		boolean signedIn = false;
 		if(client_choice.equals("new")){
 			System.out.println("New User wanted");
 			name = req.getParameter("name");
@@ -33,24 +34,32 @@ public class SignInServlet extends HttpServlet {
 			}
 			if(signInPeer(clinic, name)) {
 				System.out.println("Successfully signed in");
+				signedIn = true;
 			}
 			req.setAttribute("username", name);
 		} else {
 			name = client_choice.replace("_", " ");
 			if(signInPeer(clinic, name)) {
 				System.out.println("Successfully signed in");
+				signedIn = true;
 			}
 			req.setAttribute("username", name);
 		}
 		
-		//TODO: Create Google Channel Connection + Set online status to true
-		ChannelService channelService = ChannelServiceFactory.getChannelService();
-		String token = channelService.createChannel(getPeerChannelKey(clinic,name));
-		req.setAttribute("channeltoken", token);		
+		if(signedIn){
+			ChannelService channelService = ChannelServiceFactory.getChannelService();
+			String token = channelService.createChannel(getPeerChannelKey(clinic,name));
+			req.setAttribute("channeltoken", token);		
+			
+			req.setAttribute("clinic", clinic);
+			RequestDispatcher view = req.getRequestDispatcher("/main.jsp");
+			view.forward(req, resp);	
+		} else {
+			RequestDispatcher view = req.getRequestDispatcher("/error.jsp");
+			view.forward(req, resp);
+		}
 		
-		req.setAttribute("clinic", clinic);
-		RequestDispatcher view = req.getRequestDispatcher("/main.jsp");
-		view.forward(req, resp);		
+		//TODO Syncing - Send a sync token to client, if true client will send sync request to WebRTCServlet when main loaded
 	}
 	
 	public boolean addPeer(String clinic, String name){

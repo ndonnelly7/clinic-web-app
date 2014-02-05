@@ -144,4 +144,13 @@ public class PeerData {
 		Client c = findClinician(name, clinic);
 		return c.isOnline();
 	}
+	
+	public boolean addPatientKey(Key k, String name, String clinic){
+		Client c = findClinician(name, clinic);
+		if(c == null)
+			return false;
+		c.addPatientID(k);
+		c.getcClinic().addPatientID(k);
+		return true;
+	}
 }
