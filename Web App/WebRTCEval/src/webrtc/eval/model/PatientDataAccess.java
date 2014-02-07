@@ -29,6 +29,25 @@ public class PatientDataAccess {
 		}
 	}
 	
+	public void reInit(){
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		AnonPatientData pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			pd = em.find(AnonPatientData.class, patient_data_key);
+			em.remove(pd);
+			
+			pd = new AnonPatientData(patient_data_key);
+			em.persist(pd);
+				
+		} finally {
+			if(em != null)
+				em.close();
+		}
+	}
+	
 	public boolean addPatient(Patient p) {
 		boolean result  = false;
 		

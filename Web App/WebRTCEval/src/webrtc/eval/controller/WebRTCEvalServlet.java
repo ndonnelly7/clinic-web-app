@@ -108,6 +108,13 @@ public class WebRTCEvalServlet extends HttpServlet {
 			SynchClient(sClient, sClinic);
 			resp.setContentType("text/plain");
 			resp.getWriter().println("Attempting to sync");
+			break;
+		case "RESET":
+			PeerDataAccess pd = new PeerDataAccess();
+			pd.reInit();
+			PatientDataAccess pda = new PatientDataAccess();
+			pda.reInit();
+			break;
 		default:
 			resp.setContentType("text/plain");
 			resp.getWriter().println("Unkown Command");

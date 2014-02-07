@@ -46,6 +46,16 @@ function IDBInit() {
 	}
 }
 
+function clearObjectStore(){
+	$("#infotext").append("<span>INFO: Clearing Data Store</span><br>");
+	if(db) {
+		var transaction = db.transaction(["patients"], "readwrite");
+		var objectStore = transaction.objectStore("patients");
+		var request = objectStore.clear();
+		
+	}	
+}
+
 function addPatientToDB(p){
 	$("#infotext").append("<span>INFO: Adding Patient: " + p.name + "</span><br>");
 	if(db){

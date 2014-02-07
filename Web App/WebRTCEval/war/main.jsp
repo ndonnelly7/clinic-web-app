@@ -72,10 +72,24 @@
     	<input type="button" value="Check Channel" onclick="CheckChannel()">
     </div>
     
+    <div id="sign_out_div" class="main_div">
+    	<input type="button" value="Sign Out" onclick="SignOut()">
     </div>
     
-    <div id="sign_out_div" class="main_div">
-    	<input type="button" value="Sign Out" onclick="SignOut">
+    <div id="form_hidden" style="display:none">
+    	<input type="text" name="name" value="${username}">
+    	<input type="text" name="clinc" value="${clinic}">
+    	<input type="text" name="mode" value="form">
+    </div>
+    
+    <div id="restart_div">
+    	<input type="button" value="Reset Datastore" onclick="resetDataStore()">
+    </div>
+    
+    <div id="restart_div">
+    	<input type="button" value="Clear Local Datastore" onclick="clearObjectStore()">
+    </div>
+    
     </div>
     
 	<div id="infotext"></div> 

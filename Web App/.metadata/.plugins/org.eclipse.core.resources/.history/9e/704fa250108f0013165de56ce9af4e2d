@@ -1,0 +1,27 @@
+package webrtc.eval.controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+import webrtc.eval.model.PeerDataAccess;
+
+@SuppressWarnings("serial")
+public class SignOutServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException, ServletException {
+		
+		//Sign user out of system
+		String name = req.getParameter("name");
+		String clinic = req.getParameter("clinic");
+		
+		PeerDataAccess pd = new PeerDataAccess();
+		pd.init();
+		pd.signClinicianOut(name, clinic);
+		
+		RequestDispatcher view = req.getRequestDispatcher("/signedout.jsp");
+		view.forward(req, resp);	
+	}
+}

@@ -47,6 +47,7 @@ public class PeerDataAccess {
 		try {
 			em = emf.createEntityManager();
 			pd = em.find(PeerData.class, peer_data_key);
+			em.remove(pd);
 			
 			if(true) {
 				pd = new PeerData(peer_data_key);

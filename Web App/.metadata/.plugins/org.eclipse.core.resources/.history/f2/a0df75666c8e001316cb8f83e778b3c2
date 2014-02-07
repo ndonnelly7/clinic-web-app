@@ -1,9 +1,0 @@
-var p2pID, peer;
-function P2PInit(){
-	peer = new Peer({key: 52wkj9kt0t9ms4i});
-	
-	peer.on('open', function(id){
-		p2pID = id;
-		$("#infotext").append("<div>P2P ID: "+ p2pID + "</div>");
-	});
-}

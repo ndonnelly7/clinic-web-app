@@ -33,14 +33,14 @@ public class SignInServlet extends HttpServlet {
 				System.out.println("Successfully added Peer");
 			}
 			if(signInPeer(clinic, name)) {
-				System.out.println("Successfully signed in");
+				System.out.println("Successfully signed in: " + name);
 				signedIn = true;
 			}
 			req.setAttribute("username", name);
 		} else {
 			name = client_choice.replace("_", " ");
 			if(signInPeer(clinic, name)) {
-				System.out.println("Successfully signed in");
+				System.out.println("Successfully signed in: " + name);
 				signedIn = true;
 			}
 			req.setAttribute("username", name);

@@ -24,7 +24,7 @@ public class Clinic {
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="cClinic")
 	private ArrayList<Client> clients;
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	private ArrayList<Key> patients;
 	
 	@Id 
@@ -102,6 +102,10 @@ public class Clinic {
 	
 	public boolean addPatientID(Key k){
 		return patients.add(k);
+	}
+	
+	public void destroyClients(){
+		
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class Patient {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Key key;
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	private ArrayList<Key> clinicians;
 	private Key clinicID;
 	

@@ -14,6 +14,7 @@ $(document).ready(function() {
 	socket.onmessage = channelComm;
 	
 	IDBInit();
+	P2PInit();
 });
 
 function CheckChannel() {
@@ -41,6 +42,7 @@ function channelComm(message) {
 	
 	//PatientRequest
 	if(resp[0] == "Request"){
+		$("#infotext").append("<div>Request received for: " + resp[1] + "</div>");
 		var transaction = db.transaction(["patients"], "readwrite");
 		var objectStore = transaction.objectStore("patients");
 		var request = objectStore.get(resp[1]);
@@ -51,22 +53,11 @@ function channelComm(message) {
 		}
 		
 		request.onsuccess = function(e) {
-			$.ajax('/webrtceval.do', {
-				method:'GET',
-				dataType:'text',
-				data: {
-					type:"PatientFound",
-					ppsn:resp[1],
-					peerID:p2pID
-				},
-				success:function(response) {
-					$("#infotext").append("<div>PatientFound Response: "+response+"</div>");
-				}
-			});
+			sendPatientFromPeer(resp[1],resp[3]);
 		}
 	} else if(resp[0] == "RETRIEVAL"){
 		var toAppend = "";
-		for(int i = 1; i < toAppend.length; i++){
+		for(var i = 1; i < resp.length; i++){
 			toAppend += resp[i];
 		}
 		$("#infotext").append("<div>"+toAppend+"</div>");
@@ -136,7 +127,7 @@ function retrievePatient() {
 			type:"RetrievePatient",
 			ppsn:ppsn_pat,
 			clinic:clinic_pat,
-			client:username
+			client:p2pID
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
@@ -216,4 +207,40 @@ function SignOut() {
 	 * Put client name and clinic name in form
 	 * Submit form
 	 */
+	$("#pat_name").prop("disabled", true);
+	$("#pat_address").prop("disabled", true);
+	$("#pat_ppsn").prop("disabled", true);
+	$("#pat_number").prop("disabled", true);
+	$("#get_ppsn").prop("disabled", true);
+	$("#get_clinic").prop("disabled", true);
+	
+	p2pUnload();
+	
+	$("#general_form").submit();
+}
+
+window.onunload = window.onbeforeunload = function(e) {
+	p2pUnload();
+	
+	$.ajax('/signout.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			name:username,
+			clinic:clinicname,
+			mode:"ajax"
+		},
+	});
+};
+
+function resetDataStore(){
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"RESET"
+		},
+	});
+	clearObjectStore();
+	SignOut();
 }

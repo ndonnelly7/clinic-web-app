@@ -22,27 +22,28 @@
 		<fieldset>
 		<legend id="join_div">Sign in or create:</legend> 
 		
-		<label for="clinic_list">Clinic: </label>
-		<select id="clinic_list" name="clinic_list" onchange="newClinicChosen()">
-			<option>Choose a Clinic...</option>
-		</select>
-		<div id="clinician_options" style="display:none">
-		<select id="peer_list" name="peer_list" onchange="clientChosen()">
-			<option value="invalid">Choose the user to sing in as...</option>
-		</select>
+		<div id="content">
+			<label for="clinic_list">Clinic: </label>
+			<select id="clinic_list" name="clinic_list" onchange="newClinicChosen()">
+				<option>Choose a Clinic...</option>
+			</select>
+			<div id="clinician_options" style="display:none">
+			<select id="peer_list" name="peer_list" onchange="clientChosen()">
+				<option value="invalid">Choose the user to sing in as...</option>
+			</select>
+			</div>
+			<div id="userChosen" style="display:none" disabled>
+				<input type="submit" value="Submit">
+			</div>
+			<div id="newUser" style="display:none" disabled>
+				<label for="name_field">Name: </label>
+				<input type="text" name="name" id="name_field" disabled>
+				<input type="submit" value="Submit">
+			</div>
 		</div>
-		<div id="userChosen" style="display:none" disabled>
-			<input type="submit" value="Submit">
-		</div>
-		<div id="newUser" style="display:none" disabled>
-			<label for="name_field">Name: </label>
-			<input type="text" name="name" id="name_field" disabled>
-			<input type="submit" value="Submit">
-		</div>
+		<div id="infotext"></div>
 		</fieldset>
 	</form>       
-  
-  <div id="infotext"></div>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="js/index.js"></script>

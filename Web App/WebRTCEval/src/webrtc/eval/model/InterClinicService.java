@@ -44,6 +44,9 @@ public class InterClinicService {
 		
 		PatientDataAccess pda = new PatientDataAccess();
 		Patient p = pda.findPatient(ppsn);
+		if(p == null)
+			return "Error: Patient not found";
+		
 		if(p.getClinicID().getId() == c.getClinicID().getId()){
 			Client foundClient = null;
 			ArrayList<Client> clients = c.getClients();
@@ -59,7 +62,7 @@ public class InterClinicService {
 			}
 			if(foundClient != null){
 				ChannelService channelService = ChannelServiceFactory.getChannelService();
-				channelService.sendMessage(new ChannelMessage(Long.toString(foundClient.getcID().getId()), "Request:"+ppsn+":Client:"+requestor));
+				channelService.sendMessage(new ChannelMessage(Long.toString(foundClient.getcID().getId()), "Request:"+ppsn+":Client:"+requestor+":End"));
 			}
 			return "Info: Attempting contact with suitable peer";
 		} else {
