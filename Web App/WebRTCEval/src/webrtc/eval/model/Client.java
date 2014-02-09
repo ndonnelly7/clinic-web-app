@@ -68,6 +68,10 @@ public class Client {
 		return cPatientIDs;
 	}
 	
+	public void setcPatientIDs(ArrayList<Key> patients) {
+		cPatientIDs = patients;
+	}
+	
 	public boolean addPatientID(Key k){
 		return cPatientIDs.add(k);
 	}

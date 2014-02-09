@@ -511,4 +511,68 @@ public class PeerDataAccess {
 		
 		return result;
 	}
+	
+	public boolean replacePatientKeys(ArrayList<Key> patients, String name, String clinic) {
+		boolean result  = false;
+		
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		EntityTransaction txn = null;
+		PeerData pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			txn = em.getTransaction();
+			txn.begin();
+			pd = em.find(PeerData.class, peer_data_key);
+			
+			if(pd != null) {
+				result = pd.replacePatientKeys(clinic, name, patients);
+				txn.commit();
+			}
+		} finally {
+			if(txn != null) {
+				if(txn.isActive()) {
+					txn.rollback();
+				}
+			}
+			
+			if(em != null)
+				em.close();
+		}
+		
+		return result;
+	}
+	
+	public boolean addPatientKeyToClient(Key k, String name, String clinic){
+		boolean result  = false;
+		
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		EntityTransaction txn = null;
+		PeerData pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			txn = em.getTransaction();
+			txn.begin();
+			pd = em.find(PeerData.class, peer_data_key);
+			
+			if(pd != null) {
+				result = pd.addPatientKey(k, name, clinic);
+				txn.commit();
+			}
+		} finally {
+			if(txn != null) {
+				if(txn.isActive()) {
+					txn.rollback();
+				}
+			}
+			
+			if(em != null)
+				em.close();
+		}
+		
+		return result;
+	}
 }

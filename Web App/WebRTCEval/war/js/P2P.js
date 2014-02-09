@@ -28,7 +28,21 @@ function requestReceived(connection){
 			var p = $.parseJSON(cData)
 			addPatientToDB(p);
 			showPatient(getPatient(p["ppsn"]));
+			
 			//TODO: Send update to Server
+			$.ajax('/webrtceval.do', {
+				method:'GET',
+				dataType:'text',
+				data: {
+					type:"UpdateClient",
+					ppsn:p["ppsn"],
+					client:username,
+					clinic:clinicname
+				},
+				success:function(response) {
+					$("#infotext").append("<div>"+response+"</div>");
+				}
+			});
 			
 		}
 		
@@ -36,47 +50,6 @@ function requestReceived(connection){
 		connection.on('close', function() {
 			delete activeConnections[connection.peer];
 		});
-	}
-}
-
-function connectionReceived(connection) {
-	if(connection.label === 'request') {
-		$("#infotext").append("<div>Request from: "+ connection.peer + "</div>");
-		$("#infotext").append("<div>Request for: "+ connection.metadata + "</div>");
-		var request = connection.metadata;
-		var pIDRequested = request["patientKey"];
-		$("#infotext").append("<div>Requested Patient ID: "+ pIDRequested + "</div>");
-		activeConnections[connection.peer] = connection;
-		connection.on('data', dataReceived);		
-		connection.on('close', function() {
-			delete activeConnections[connection.peer];
-		});
-		sendPatientInfo(connection, pIDRequested);
-	} else {
-		$("#infotext").append("<div>Other connection from: "+ connection.peer + "</div>");
-		console.log(connection)
-		activeConnections[connection.peer] = connection;
-		
-		connection.on('data', function(data){
-			$("#infotext").append("<div>Received Data: "+ data + "</div>");
-			var json = $.parseJSON(data);
-			if(json["patient"]){
-				
-				var p = $.parseJSON["patient"];
-				addPatientToDB(p);
-				
-				sendThanks(connection);
-				closeConnection(connection);
-				
-			} else if(json["thanks"]) {
-				$("#infotext").append("<div>Peer (" + json["thanks"] + ") Received patient</div>");
-			}
-		});
-		
-		connection.on('close', function() {
-			delete activeConnections[connection.peer];
-		});
-
 	}
 }
 
@@ -162,49 +135,9 @@ function sendPatientFromPeer(ppsn, peerRequest){
 	}
 }
 
-function sendPatientInfo(connection, pID) {
-	if(db) {
-		$("#infotext").append("<div>Attempting to Retrieve data from database</div>");
-		var transaction = db.transaction(["patients"], "readwrite");
-		var objectStore = transaction.objectStore("patients");
-		var request = objectStore.get(pID);
-	
-		request.onsuccess = function(e) {
-			$("#infotext").append("<div>Sending the patient: "+JSON.stringify(e.target.result)+"</div>");
-			connection.send("Howdy partner");
-			connection.send("{'patient':"+JSON.stringify(e.target.result)+"}");
-			$("#infotext").append("<div>Should have send: "+"{'patient':"+JSON.stringify(e.target.result)+"}"+"</div>");
-		}
-		
-		request.onerror = function(e) {
-			$("#infotext").append("<div>Error retrieving patient: "+e.target.result+"</div>");
-		}
-	}
-}
-
-function sendThanks(connection) {
-	connection.send({thanks:p2pID});
-}
-
 function closeConnection(connection) {
 	delete activeConnections[connection.peer];
 	connection.close();
-}
-
-function dataReceived(data) {
-	$("#infotext").append("<div>Received Data: "+ data + "</div>");
-	var json = $.parseJSON(data);
-	if(json["patient"]){
-		
-		var p = $.parseJSON["patient"];
-		addPatientToDB(p);
-		
-		sendThanks(connection);
-		closeConnection(connection);
-		
-	} else if(json["thanks"]) {
-		$("#infotext").append("<div>Peer (" + json["thanks"] + ") Received patient</div>");
-	}
 }
 
 function p2pUnload(){

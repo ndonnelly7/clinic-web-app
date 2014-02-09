@@ -15,6 +15,9 @@ $(document).ready(function() {
 	
 	IDBInit();
 	P2PInit();
+	
+	//updateServer();
+	//synchMe();
 });
 
 function CheckChannel() {
@@ -26,6 +29,46 @@ function CheckChannel() {
 			type:"ChannelCheck",
 			user:username,
 			clinic:clinicname
+		},
+		success:function(response) {
+			$("#infotext").append("<div>"+response+"</div>");
+		}
+	});
+}
+
+function afterIDBInit(){
+	updateServerInit();
+	synchMe();
+}
+
+function updateServerInit(){
+	getPatientKeysForServer();
+}
+
+function updateServer(pKeys){
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"UpdatePatientList",
+			client:username,
+			clinic:clinicname,
+			keys:pKeys
+		},
+		success:function(response) {
+			$("#infotext").append("<div>"+response+"</div>");
+		}
+	});
+}
+
+function synchMe() {
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"SyncMe",
+			client:username,
+			clinic:clinicname,
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
@@ -67,6 +110,8 @@ function channelComm(message) {
 			var peer = resp[5];
 			requestPatientFromPeer(peer,ppsn);
 		}
+	} else if(resp[0] == "REMOVEPATIENT"){
+		removePatient(resp[1]);
 	}
 	
 }
@@ -243,4 +288,34 @@ function resetDataStore(){
 	});
 	clearObjectStore();
 	SignOut();
+}
+
+function AddMultiPatient(index,limit){
+	if(index < limit){
+		$("#infotext").append("<div>Adding Patient "+(index)+" of " + limit + "</div>");
+		var patName = getName();
+		var patAddress = getAddress();
+		var pat_ppsn = getPPSN();
+		var pat_number = getPhoneNumber();
+		
+		var pat = new Patient(patName, patAddress, pat_ppsn, pat_number, pat_ppsn);
+		addPatientToDB(pat);
+		
+		$.ajax('/webrtceval.do', {
+			method:'GET',
+			dataType:'text',
+			data: {
+				type:"AddPatient",
+				ppsn:pat_ppsn,
+				client:username,
+				clinic:clinicname
+			},
+			success:function(response) {
+				$("#infotext").append("<div>"+response+"</div>");
+				AddMultiPatient(index+1,limit);
+			}
+		});
+	} else {
+		$("#infotext").append("<div>Multiple Patients Added</div>");
+	}
 }

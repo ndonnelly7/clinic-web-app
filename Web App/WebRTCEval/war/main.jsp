@@ -68,6 +68,14 @@
    		<input type="button" id="retrievePatButton" value="Find a Patient from Another Clinic" onclick="retrievePatientDiv()">
     </div>
     
+    <div id="tenPats" class="main_div">
+    	<input type="button" value="Add 10 Patients" onclick="AddMultiPatient(1,10)">
+    </div>
+    
+    <div id="fiftyPats" class="main_div">
+    	<input type="button" value="Add 50 Patients" onclick="AddMultiPatient(1,50)">
+    </div>
+    
     <div id="extras" class="main_div">
     	<input type="button" value="Check Channel" onclick="CheckChannel()">
     </div>
@@ -100,6 +108,7 @@
 	<script type="text/javascript" src="/_ah/channel/jsapi"></script>
 	<script src = "js/IDBShim.js"></script>
 	<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+	<script src="js/randomGen.js"></script>
 	<script src="js/IDB.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/P2P.js"></script>

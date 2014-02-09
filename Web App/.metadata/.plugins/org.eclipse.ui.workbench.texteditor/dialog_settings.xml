@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="SignOut" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="1010"/>
+			<item value="remove"/>
 			<item value="SignOut"/>
 			<item value="getPatient"/>
 			<item value="getPAtient"/>
 			<item value="AnonPatientData"/>
 			<item value="peer_data_key"/>
 			<item value="PeerData"/>
-			<item value="Patient"/>
-			<item value="ul"/>
 		</list>
 		<list key="replacehistory">
 			<item value="PeerData"/>

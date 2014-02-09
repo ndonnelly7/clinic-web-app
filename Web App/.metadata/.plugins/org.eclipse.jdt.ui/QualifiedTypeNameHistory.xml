@@ -20,6 +20,6 @@
 <fullyQualifiedTypeName name="webrtc.eval.model.Client"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
-<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
 <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
 </qualifiedTypeNameHistroy>

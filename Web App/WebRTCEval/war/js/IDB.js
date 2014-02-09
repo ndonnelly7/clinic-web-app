@@ -35,6 +35,7 @@ function IDBInit() {
 	openRequest.onsuccess = function(e) {
 		$("#infotext").append("<span>INFO: Successful IndexedDB open</span><br>");
 		db = e.target.result;
+		afterIDBInit();
 	}
 	
 	openRequest.onerror = function(e) {
@@ -167,6 +168,31 @@ function updatePatientWithKey(ppsn, newKey){
 		requestUpdate.onsuccess = function(event){
 			$("#infotext").append("<span>INFO: Update successful: " + event.target.result + "</span><br>");
 		}
+	}
+}
+
+function getPatientKeysForServer() {
+	if(db){
+		var objectStore = db.transaction(["patients"]).objectStore("patients");
+		var keyString = "";
+		objectStore.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				keyString += cursor.value["key"] + ":";
+				cursor.continue();			
+			} else {
+				updateServer( JSON.stringify(keyString) );
+			}
+		}
+	}
+}
+
+function removePatient(ppsn){
+	var objectStore = db.transaction(["patients"], "readwrite").objectStore("patients");
+	var request = objectStore.delete(ppsn);
+	
+	request.onsucess = function(event){
+		$("#infotext").append("<span>INFO: Remove for: "+ppsn+" successful: " + event.target.result + "</span><br>");
 	}
 }
 

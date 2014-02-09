@@ -119,6 +119,15 @@ public class PeerData {
 		return null;
 	}
 	
+	public boolean replacePatientKeys(String clinic, String client, ArrayList<Key> patients){
+		Client c = findClinician(client,clinic);
+		if(c!=null){
+			c.setcPatientIDs(patients);
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean signClinicianIn(String name, String clinic){
 		boolean result = false;
 		Client c = findClinician(name, clinic);
@@ -151,6 +160,14 @@ public class PeerData {
 			return false;
 		c.addPatientID(k);
 		c.getcClinic().addPatientID(k);
+		return true;
+	}
+	
+	public boolean addPatientKeyToClient(Key k, String name, String clinic){
+		Client c = findClinician(name, clinic);
+		if(c == null)
+			return false;
+		c.addPatientID(k);
 		return true;
 	}
 }

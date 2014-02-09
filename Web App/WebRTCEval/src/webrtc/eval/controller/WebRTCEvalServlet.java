@@ -18,6 +18,7 @@ import webrtc.eval.model.SimplePatient;
 import com.google.appengine.api.channel.ChannelMessage;
 import com.google.appengine.api.channel.ChannelService;
 import com.google.appengine.api.channel.ChannelServiceFactory;
+import com.google.appengine.api.datastore.Key;
 import com.google.gson.Gson;
 
 @SuppressWarnings("serial")
@@ -57,10 +58,10 @@ public class WebRTCEvalServlet extends HttpServlet {
 			String pPPSN = req.getParameter("ppsn");
 			String cName = req.getParameter("client");
 			String cClinic = req.getParameter("clinic");
-			
+			String result = addPatient(pPPSN, cName, cClinic);
+			SynchNewPatient(cClinic);
 			resp.setContentType("text/plain");
-			resp.getWriter().println(addPatient(pPPSN, cName, cClinic));
-			//TODO: Need to add the synch stuff here as well
+			resp.getWriter().println(result);
 			break;
 		case "FindPatient":
 			System.out.println("Finding Patient");
@@ -109,6 +110,23 @@ public class WebRTCEvalServlet extends HttpServlet {
 			resp.setContentType("text/plain");
 			resp.getWriter().println("Attempting to sync");
 			break;
+		case "UpdateClient":
+			System.out.println("Updating Client with new Patient");
+			String uClinic = req.getParameter("clinic");
+			String uClient = req.getParameter("client");
+			String uPPSN = req.getParameter("ppsn");
+			resp.setContentType("text/plain");
+			resp.getWriter().println(UpdateClient(uPPSN, uClient, uClinic));
+			break;
+		case "UpdatePatientList":
+			System.out.println("Updating Client's list of Patients");
+			String upClinic = req.getParameter("clinic");
+			String upClient = req.getParameter("client");
+			String keys = req.getParameter("keys");
+			UpdatePatientList(upClinic, upClient, keys);
+			resp.setContentType("text/plain");
+			resp.getWriter().println("UPDATED");
+			break;
 		case "RESET":
 			PeerDataAccess pd = new PeerDataAccess();
 			pd.reInit();
@@ -121,18 +139,50 @@ public class WebRTCEvalServlet extends HttpServlet {
 		}
 	}
 	
-	public void doPut(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
-		/*
-		 * Request requirements: 
-		 * Request type - AddPatient
-		 */
-		
-		
+	public void UpdatePatientList(String clinic, String client, String keys){
+		PatientDataAccess pda = new PatientDataAccess();
+		if(keys == null || !(keys.contains(":"))){
+			PeerDataAccess pd = new PeerDataAccess();
+			pd.replacePatientKeys(new ArrayList<Key>(), client, clinic);
+			return;
+		}
+		String[] ppsn = keys.split(":");
+		ArrayList<Key> pKeys = new ArrayList<Key>();
+		Patient p = null;
+		for(int i = 0; i < ppsn.length-1; i++){
+			p = pda.findPatient(ppsn[i]);
+			if(p == null){
+				SendRemoveInstruction(client,ppsn[i]);
+			} else {
+				pKeys.add(p.getKey());
+			}			
+		}
+		PeerDataAccess pd = new PeerDataAccess();
+		pd.replacePatientKeys(pKeys, client, clinic);
+	}
+	
+	public void SendRemoveInstruction(String client, String ppsn){
+		PeerDataAccess pd = new PeerDataAccess();
+		Client c = pd.findClinician(client);
+		ChannelService service = ChannelServiceFactory.getChannelService();
+		service.sendMessage(new ChannelMessage(Long.toString(c.getcID().getId()), "REMOVEPATIENT:"+ppsn+":"));
 	}
 	
 	public void ClearPatientInfoFromClient(String ppsn, String client){
 		//TODO: Make sure peers can successfully find patients before we start deleting them from the record
+	}
+	
+	public String UpdateClient(String ppsn, String client, String clinic){
+		PatientDataAccess pda = new PatientDataAccess();
+		Patient p = pda.findPatient(ppsn);
+		if(p == null)
+			return "Problem finding patient";
+		
+		PeerDataAccess pd = new PeerDataAccess();
+		
+		if(pd.addPatientKeyToClient(p.getClinicID(), client, clinic))
+			return "Updated Client";
+		else return "Failed to Update Client";
 	}
 	
 	public void PatientFoundUpdate(String ppsn, String client, String peer){
@@ -152,9 +202,19 @@ public class WebRTCEvalServlet extends HttpServlet {
 		service.sendMessage(new ChannelMessage(Long.toString(c.getcID().getId()), "RETRIEVE:"+result));
 	}
 	
+	public void SynchNewPatient(String clinic){
+		InterClinicService ics = new InterClinicService();
+		PeerDataAccess pd = new PeerDataAccess();
+		Clinic c = pd.findClinic(clinic);
+		ArrayList<Client> clients = c.getClients();
+		for(int i = 0; i < clients.size(); i++){
+			ics.syncNewClient(clients.get(i).getcName(), clinic);
+		}
+	}
+	
 	public void SynchClient(String client, String clinic){
 		InterClinicService ics = new InterClinicService();
-		ics.syncNewPatient(client, clinic);
+		ics.syncNewClient(client, clinic);
 	}
 	
 	public String retrievePatient(String ppsn, String clinic, String client)
@@ -197,7 +257,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 		if(!pd.addPatientKey(p.getKey(), clientName, clinicName))
 			return "Patient couldn't be added to clinic or client";
 		
-		return "Success: " + p.getKey().getId();
+		return "Success: " + p.getPpsn();
 	}
 	
 	//Returns a list of the clinic names in a JSON object

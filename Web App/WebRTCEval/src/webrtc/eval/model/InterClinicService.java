@@ -10,7 +10,7 @@ import com.google.appengine.api.datastore.Key;
 
 public class InterClinicService {
 
-	public void syncNewPatient(String pName, String clinicName){
+	public void syncNewClient(String cName, String clinicName){
 		
 		PatientDataAccess pda = new PatientDataAccess();
 		PeerDataAccess pd = new PeerDataAccess();
@@ -20,7 +20,7 @@ public class InterClinicService {
 			System.out.println("Couldn't find Clinic");
 			return;
 		}
-		Client client = pd.findClinician(pName);
+		Client client = pd.findClinician(cName);
 		if(client == null){
 			System.out.println("Couldn't find Client");
 			return;
@@ -53,7 +53,7 @@ public class InterClinicService {
 			boolean found = false;
 			for(int i = 0; i < clients.size() && !found; i++){
 				foundClient = clients.get(i);
-				if(foundClient.isPatientPresent(p.getKey()) && foundClient.isOnline()){
+				if(foundClient.isPatientPresent(p.getKey()) && foundClient.isOnline() && !foundClient.getcName().equals(requestor)){
 					found = true;
 				}
 			}
@@ -79,7 +79,7 @@ public class InterClinicService {
 			boolean found = false;
 			for(int i = 0; i < clients.size() && !found; i++){
 				foundClient = clients.get(i);
-				if(foundClient.isPatientPresent(p.getKey()) && foundClient.isOnline()){
+				if(foundClient.isPatientPresent(p.getKey()) && foundClient.isOnline() && foundClient.getcID().getId()!=(requestor.getcID().getId())){
 					found = true;
 				}
 			}
@@ -109,7 +109,7 @@ public class InterClinicService {
 			boolean found = false;
 			for(int i = 0; i < clients.size() && !found; i++){
 				foundClient = clients.get(i);
-				if(foundClient.isPatientPresent(p.getKey()) && foundClient.isOnline()){
+				if(foundClient.isPatientPresent(p.getKey()) && foundClient.isOnline()  && foundClient.getcName()!=(requestor)){
 					found = true;
 				}
 			}
