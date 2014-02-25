@@ -38,7 +38,7 @@ function CheckChannel() {
 
 function afterIDBInit(){
 	updateServerInit();
-	synchMe();
+	$("#infotext").append("<span>Signed In Fully At: "+getTimeString()+"</span><br>");
 }
 
 function updateServerInit(){
@@ -61,7 +61,7 @@ function updateServer(pKeys){
 	});
 }
 
-function synchMe() {
+function syncMe() {
 	$.ajax('/webrtceval.do', {
 		method:'GET',
 		dataType:'text',
@@ -69,6 +69,7 @@ function synchMe() {
 			type:"SyncMe",
 			client:username,
 			clinic:clinicname,
+			peerID:p2pID
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
@@ -112,6 +113,23 @@ function channelComm(message) {
 		}
 	} else if(resp[0] == "REMOVEPATIENT"){
 		removePatient(resp[1]);
+	} else if(resp[0] == "SENDREQUEST"){
+		$("#infotext").append("<span>Sending Request for: "+resp[1]+"</span><br>");
+		var request = resp[1];
+		$.ajax('/webrtceval.do', {
+			method:'GET',
+			dataType:'text',
+			data: {
+				type:"RetrievePatient",
+				ppsn:request,
+				clinic:clinicname,
+				client:p2pID
+			},
+			success:function(response) {
+				if(response.indexOf("Error:") != -1)
+					$("#infotext").append("<div>"+response+"</div>");
+			}
+		});
 	}
 	
 }
@@ -162,6 +180,7 @@ function hideRetrieveDiv() {
 }
 
 function retrievePatient() {
+	$("#infotext").append("<span>Asking for Patient: "+getTimeString()+"</span><br>");
 	var ppsn_pat = $("#get_ppsn").val();
 	var clinic_pat = $("#get_clinic").val();
 	
@@ -175,12 +194,14 @@ function retrievePatient() {
 			client:p2pID
 		},
 		success:function(response) {
-			$("#infotext").append("<div>"+response+"</div>");
+			if(response.indexOf("Error:") != -1)
+				$("#infotext").append("<div>"+response+"</div>");
 		}
 	});
 }
 
 function addPatientDetails() {
+	$("#infotext").append("<span>Adding Patient: "+getTimeString()+"</span><br>");
 	var patName = $("#pat_name").val();
 	var patAddress = $("#pat_address").val();
 	var pat_ppsn = $("#pat_ppsn").val();
@@ -209,6 +230,7 @@ function addPatientDetails() {
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
+			$("#infotext").append("<span>Patient Added: "+getTimeString()+"</span><br>");
 		}
 	});
 }
@@ -291,8 +313,9 @@ function resetDataStore(){
 }
 
 function AddMultiPatient(index,limit){
-	if(index < limit){
+	if(index <= limit){
 		$("#infotext").append("<div>Adding Patient "+(index)+" of " + limit + "</div>");
+		$("#infotext").append("<span>Time of Add: "+getTimeString()+"</span><br>");
 		var patName = getName();
 		var patAddress = getAddress();
 		var pat_ppsn = getPPSN();
@@ -317,5 +340,16 @@ function AddMultiPatient(index,limit){
 		});
 	} else {
 		$("#infotext").append("<div>Multiple Patients Added</div>");
+		$("#infotext").append("<span>Time at final Add: "+getTimeString()+"</span><br>");
 	}
+}
+
+function getTimeString(){
+	var currentdate = new Date(); 
+	var datetime = "Time: " 
+	                + currentdate.getHours() + ":"  
+	                + currentdate.getMinutes() + ":" 
+	                + currentdate.getSeconds() + ":"
+	                + currentdate.getMilliseconds();
+	return datetime;
 }

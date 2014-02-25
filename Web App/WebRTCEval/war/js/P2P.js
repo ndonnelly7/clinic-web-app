@@ -11,6 +11,7 @@ function P2PInit(){
 	peer.on('open', function(id){
 		p2pID = id;
 		$("#infotext").append("<div>P2P ID: "+ p2pID + "</div>");
+		syncMe();
 	});	
 	
 	peer.on('connection', requestReceived);
@@ -27,7 +28,9 @@ function requestReceived(connection){
 		if(cData != null){
 			var p = $.parseJSON(cData)
 			addPatientToDB(p);
+			$("#infotext").append("<span>Received Patient: "+getTimeString()+"</span><br>");
 			showPatient(getPatient(p["ppsn"]));
+			
 			
 			//TODO: Send update to Server
 			$.ajax('/webrtceval.do', {
@@ -117,7 +120,7 @@ function sendPatientFromPeer(ppsn, peerRequest){
 			})
 			
 			conn.on("open", function() {
-				activeConnections[connect.peer] = connect;
+				activeConnections[conn.peer] = connect;
 				
 				conn.send("{'patient':"+JSON.stringify(e.target.result)+"}");
 				conn.on('data', dataReceived);

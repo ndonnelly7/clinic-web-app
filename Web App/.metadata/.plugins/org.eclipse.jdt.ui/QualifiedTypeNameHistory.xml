@@ -19,7 +19,9 @@
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
 <fullyQualifiedTypeName name="webrtc.eval.model.Client"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
 <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
 <fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.EntityNotFoundException"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.channel.ChannelServiceFactory"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
 </qualifiedTypeNameHistroy>

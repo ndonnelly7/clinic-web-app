@@ -24,7 +24,7 @@
   <span onclick="spanClick('events_activities')" class="current_page">Events and Activities</span>
   <span onclick="spanClick('living')">Living Situation</span>
   <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Memory Test</span>
+  <span onclick="spanClick('memory_test')">Test Battery</span>
   <span onclick="spanClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
@@ -311,78 +311,16 @@
 	
 	<fieldset id="social_field">
 		<legend>Changes in Social Activities</legend>
-		<div id="social_div">
-			<div class="title">What social activities have you been involved in?</div>
-			<div id="activity_header" class="pure-g-r">
-				<div class="pure-u-1-5 select_box header events-1-5" style="min-width:150px; margin: 10px 7% 10px 2%">Activity</div>
-				<div class="pure-u-1-5 pure-control-group events-1-5 header">Still Involved?</div>
-				<div class="pure-u-1-5 events-1-5 header" style="width:6.5%">Current hours per week</div>
-				<div class="pure-u-1-5 events-1-5 header" style="width:7%">Previous hours per week</div>
-				<div class="pure-u-1-5 events-1-5 header">Changed When?</div>
-				<div class="pure-u-1-5 events-1-5 header">Reason for Change</div>
-			</div>
-			<div id="activity_entry" style="min-width:800px">
-				<div class="pure-g-r">
-					<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-						<select name="activities_list">
-							<option value="dancing">Dancing</option>
-							<option value="reading">Reading</option>
-							<option value="tv">Television</option>
-							<option value="football">Football</option>
-							<option value="golf">Golf</option>
-							<option value="swimming">Swimming</option>
-							<option value="walking">Walking</option>
-							<option value="yoga">Yoga/Pilates</option>
-							<option value="cards">Card Games</option>
-							<option value="puzzles">Sudoku/Crosswords/Puzzles</option>
-							<option value="restaraunts">Visiting Restaurants/Pubs</option>
-							<option value="visiting">Visiting Friends/Family</option>
-							<option value="sailing">Sailing</option>
-							<option value="volunteering">Volunteering</option>
-							<option value="gym">Gym</option>
-							<option value="games">Computer Games</option>
-							<option value="hiking">Hiking</option>
-							<option value="cycling">Cycling</option>
-							<option value="other">Other..</option>
-						</select>
-					</div>
-					<div class="pure-u-1-5 pure-control-group events-1-5">
-						<select name="still_active_check" onclick="changeActivity(this)">
-							<option value="no">No</option>
-							<option value="ongoing">Ongoing</option>
-							<option value="decrease">Less active</option>
-						</select>
-					</div>
-					<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
-						<input type="text" name="current_active_hours" class="current_hours_input" style="width:4em;">
-					</div>
-					<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
-						<input type="text" name="previous_active_hours" class="prev_hours_input" style="width:4em;">
-					</div>
-					
-					<div class="pure-u-1-5 events-1-5 when_stopped">
-						<select name="time_frame" class="time_stopped_input" >
-							<option value="three_mon">3 months</option>
-							<option value="six_mon">6 months</option>
-							<option value="one_yr">1 year</option>
-							<option value="two_yr">2 years</option>
-							<option value="threep_yr">3+ years</option>
-						</select>
-					</div>
-					
-					<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-							<textarea form="events_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
-					</div>
-				</div>
-			</div>
-		</div>
-		<input type="button" onclick="addNewActivity()" style="margin-left:2%;" class="pure-button" value="Add Activity">
-		
-		<div class="collat_div">
-			<input type="button" onclick="showCollatActivities()" class="pure-button eaa-button" value="Add Activity from Collateral">
-			<div id="social_collat_div" class="hide_div">
-				<div id="social_collat_grid">
-					<div class="title">What social activities have they been involved in?</div>
+		<div id="full_social">
+			<div class="activity_q_check">Have you ever been involved in any social activities?</div>
+			<select name="social_yn" onchange="revealSocial(this)" style="display:inline-block">
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
+			<div id="social_reveal" class="hide_div">
+			
+				<div id="social_div">
+					<div class="title">What social activities have you been involved in?</div>
 					<div id="activity_header" class="pure-g-r">
 						<div class="pure-u-1-5 select_box header events-1-5" style="min-width:150px; margin: 10px 7% 10px 2%">Activity</div>
 						<div class="pure-u-1-5 pure-control-group events-1-5 header">Still Involved?</div>
@@ -391,10 +329,10 @@
 						<div class="pure-u-1-5 events-1-5 header">Changed When?</div>
 						<div class="pure-u-1-5 events-1-5 header">Reason for Change</div>
 					</div>
-					<div id="collat_activity_entry" style="min-width:800px">
+					<div id="activity_entry" style="min-width:800px">
 						<div class="pure-g-r">
 							<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-								<select name="activities_collat_list">
+								<select name="activities_list">
 									<option value="dancing">Dancing</option>
 									<option value="reading">Reading</option>
 									<option value="tv">Television</option>
@@ -417,17 +355,17 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 pure-control-group events-1-5">
-								<select name="still_active_collat_check" onclick="changeActivity(this)">
+								<select name="still_active_check" onclick="changeActivity(this)">
 									<option value="no">No</option>
 									<option value="ongoing">Ongoing</option>
 									<option value="decrease">Less active</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
-								<input type="text" name="current_active_hours_collat" class="current_hours_input" style="width:4em;">
+								<input type="text" name="current_active_hours" class="current_hours_input" style="width:4em;">
 							</div>
 							<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
-								<input type="text" name="previous_active_hours_collat" class="prev_hours_input" style="width:4em;">
+								<input type="text" name="previous_active_hours" class="prev_hours_input" style="width:4em;">
 							</div>
 							
 							<div class="pure-u-1-5 events-1-5 when_stopped">
@@ -441,13 +379,167 @@
 							</div>
 							
 							<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-									<textarea form="events_form" class="reason_input" name="collat_activity_notes" rows="2" cols="24"></textarea>
+									<textarea form="events_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 					</div>
-		
 				</div>
-				<input type="button" onclick="addNewCollatActivity()" style="margin-left:2%;" class="pure-button" value="Add Activity">
+				<input type="button" onclick="addNewActivity()" style="margin-left:2%;" class="pure-button" value="Add Activity">
+			
+				<div class="collat_div">
+				<input type="button" onclick="showCollatActivities()" class="pure-button eaa-button" id="showCollatActivitiesDiv" value="Add Activity from Collateral" style="margin-left:2%">
+				<div id="social_collat_div" class="hide_div">
+					<div id="social_collat_grid">
+						<div class="title">What social activities have they been involved in?</div>
+						<div id="activity_header" class="pure-g-r">
+							<div class="pure-u-1-5 select_box header events-1-5" style="min-width:150px; margin: 10px 7% 10px 2%">Activity</div>
+							<div class="pure-u-1-5 pure-control-group events-1-5 header">Still Involved?</div>
+							<div class="pure-u-1-5 events-1-5 header" style="width:6.5%">Current hours per week</div>
+							<div class="pure-u-1-5 events-1-5 header" style="width:7%">Previous hours per week</div>
+							<div class="pure-u-1-5 events-1-5 header">Changed When?</div>
+							<div class="pure-u-1-5 events-1-5 header">Reason for Change</div>
+						</div>
+						<div id="collat_activity_entry" style="min-width:800px">
+							<div class="pure-g-r">
+								<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
+									<select name="activities_collat_list">
+										<option value="dancing">Dancing</option>
+										<option value="reading">Reading</option>
+										<option value="tv">Television</option>
+										<option value="football">Football</option>
+										<option value="golf">Golf</option>
+										<option value="swimming">Swimming</option>
+										<option value="walking">Walking</option>
+										<option value="yoga">Yoga/Pilates</option>
+										<option value="cards">Card Games</option>
+										<option value="puzzles">Sudoku/Crosswords/Puzzles</option>
+										<option value="restaraunts">Visiting Restaurants/Pubs</option>
+										<option value="visiting">Visiting Friends/Family</option>
+										<option value="sailing">Sailing</option>
+										<option value="volunteering">Volunteering</option>
+										<option value="gym">Gym</option>
+										<option value="games">Computer Games</option>
+										<option value="hiking">Hiking</option>
+										<option value="cycling">Cycling</option>
+										<option value="other">Other..</option>
+									</select>
+								</div>
+								<div class="pure-u-1-5 pure-control-group events-1-5">
+									<select name="still_active_collat_check" onclick="changeActivity(this)">
+										<option value="no">No</option>
+										<option value="ongoing">Ongoing</option>
+										<option value="decrease">Less active</option>
+									</select>
+								</div>
+								<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
+									<input type="text" name="current_active_hours_collat" class="current_hours_input" style="width:4em;">
+								</div>
+								<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
+									<input type="text" name="previous_active_hours_collat" class="prev_hours_input" style="width:4em;">
+								</div>
+								
+								<div class="pure-u-1-5 events-1-5 when_stopped">
+									<select name="time_frame" class="time_stopped_input" >
+										<option value="three_mon">3 months</option>
+										<option value="six_mon">6 months</option>
+										<option value="one_yr">1 year</option>
+										<option value="two_yr">2 years</option>
+										<option value="threep_yr">3+ years</option>
+									</select>
+								</div>
+								
+								<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
+										<textarea form="events_form" class="reason_input" name="collat_activity_notes" rows="2" cols="24"></textarea>
+								</div>
+							</div>
+						</div>
+			
+					</div>
+					<input type="button" onclick="addNewCollatActivity()" style="margin-left:2%;" class="pure-button" value="Add Activity">
+				</div>
+				<div style="margin-bottom:12px;"><hr></div>
+			</div>
+			</div>
+			<div><textarea form="events_form" name="social_notes" rows="3" cols="40" style="margin-top: 2px;margin-left:1%;"></textarea></div>
+		</div>
+		<div  class="collat_div">
+			<input type="button" id="addActivityCollatButton" onclick="addActivityCollat()" style="margin-left:1%;margin-top:12px;" class="pure-button" value="Collateral Activities">
+			<div id="full_social_collat" class="hide_div">
+				<div class="activity_q_check">Have they ever been involved in any social activities?</div>
+				<select name="social_yn" onchange="revealSocialCollat(this)" style="display:inline-block">
+					<option value="no">No</option>
+					<option value="yes">Yes</option>
+				</select>
+				<div id="social_reveal_collat" class="hide_div">
+				
+					<div id="social_div_collat">
+						<div class="title">What social activities have you been involved in?</div>
+						<div id="activity_header" class="pure-g-r">
+							<div class="pure-u-1-5 select_box header events-1-5" style="min-width:150px; margin: 10px 7% 10px 2%">Activity</div>
+							<div class="pure-u-1-5 pure-control-group events-1-5 header">Still Involved?</div>
+							<div class="pure-u-1-5 events-1-5 header" style="width:6.5%">Current hours per week</div>
+							<div class="pure-u-1-5 events-1-5 header" style="width:7%">Previous hours per week</div>
+							<div class="pure-u-1-5 events-1-5 header">Changed When?</div>
+							<div class="pure-u-1-5 events-1-5 header">Reason for Change</div>
+						</div>
+						<div id="activity_entry" style="min-width:800px">
+							<div class="pure-g-r">
+								<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
+									<select name="activities_list">
+										<option value="dancing">Dancing</option>
+										<option value="reading">Reading</option>
+										<option value="tv">Television</option>
+										<option value="football">Football</option>
+										<option value="golf">Golf</option>
+										<option value="swimming">Swimming</option>
+										<option value="walking">Walking</option>
+										<option value="yoga">Yoga/Pilates</option>
+										<option value="cards">Card Games</option>
+										<option value="puzzles">Sudoku/Crosswords/Puzzles</option>
+										<option value="restaraunts">Visiting Restaurants/Pubs</option>
+										<option value="visiting">Visiting Friends/Family</option>
+										<option value="sailing">Sailing</option>
+										<option value="volunteering">Volunteering</option>
+										<option value="gym">Gym</option>
+										<option value="games">Computer Games</option>
+										<option value="hiking">Hiking</option>
+										<option value="cycling">Cycling</option>
+										<option value="other">Other..</option>
+									</select>
+								</div>
+								<div class="pure-u-1-5 pure-control-group events-1-5">
+									<select name="still_active_check" onclick="changeActivity(this)">
+										<option value="no">No</option>
+										<option value="ongoing">Ongoing</option>
+										<option value="decrease">Less active</option>
+									</select>
+								</div>
+								<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
+									<input type="text" name="current_active_hours" class="current_hours_input" style="width:4em;">
+								</div>
+								<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
+									<input type="text" name="previous_active_hours" class="prev_hours_input" style="width:4em;">
+								</div>
+								
+								<div class="pure-u-1-5 events-1-5 when_stopped">
+									<select name="time_frame" class="time_stopped_input" >
+										<option value="three_mon">3 months</option>
+										<option value="six_mon">6 months</option>
+										<option value="one_yr">1 year</option>
+										<option value="two_yr">2 years</option>
+										<option value="threep_yr">3+ years</option>
+									</select>
+								</div>
+								
+								<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
+										<textarea form="events_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<input type="button" onclick="addNewActivityToCollat()" style="margin-left:2%;" class="pure-button" value="Add Activity">
+				</div>
+				<div><textarea form="events_form" name="social_notes_collat" rows="3" cols="40" style="margin-top: 2px;margin-left:1%;"></textarea></div>
 			</div>
 		</div>
 	</fieldset>

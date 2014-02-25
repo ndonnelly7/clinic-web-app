@@ -10,7 +10,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>Welcome</title>
+	<title>PACE Healthcare</title>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
 	<link rel="stylesheet" href="css/main.css"/>
   </head>

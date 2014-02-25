@@ -1,6 +1,0 @@
-package webrtc.eval.model;
-
-public class AnonPatientData {
-
-	public String id;
-}

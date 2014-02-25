@@ -12,5 +12,17 @@
 
 form .outcome_col {
 	width: 150px;
-	margin-right: 4%;
+	margin-right: 6%;
+}
+
+.follow_up_div .follow_label {
+	text-align: left;
+	width:4.5em;
+	margin: 0 1% 0 2%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.follow_up_div {
+	margin-bottom: 0.5em;
 }

@@ -1,8 +1,0 @@
-package webrtc.eval.model;
-
-public class InterClinicService {
-
-	public void syncNewPatient(String pName, String clinicName){
-		
-	}
-}

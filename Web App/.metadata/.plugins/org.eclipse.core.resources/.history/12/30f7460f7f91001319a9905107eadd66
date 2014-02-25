@@ -1,4 +1,0 @@
-var firstNames = ["Alex","Amy","Andrew","Alison","Brad","Billy","Brienne","Baxter","Bart","Christine","Charlie","Ciara","Cassandra","David","Deandra","Dexter","Eve","Evelyn","Eimear","Fred","Frank","George","Graham","Gillian","Gabby","Henrietta","Harry","Henry","Iseult","Ian","Janine","Jake","Jerome","Jessica","Jill","Killian","Kevin","Liam","Libby","Lizzy","Madison","Max","Niall","Niamh","Owen","Paul","Patrice","Rachel","Rickie","Richard","Seve","Stephen","Stephanie","Vinny","Victoria","William","Winnie","Yvonne"];
-function getName(){
-	
-}

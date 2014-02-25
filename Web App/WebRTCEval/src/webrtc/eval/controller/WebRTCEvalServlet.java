@@ -59,7 +59,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 			String cName = req.getParameter("client");
 			String cClinic = req.getParameter("clinic");
 			String result = addPatient(pPPSN, cName, cClinic);
-			SynchNewPatient(cClinic);
+			SynchNewPatient(cClinic, pPPSN);
 			resp.setContentType("text/plain");
 			resp.getWriter().println(result);
 			break;
@@ -106,7 +106,8 @@ public class WebRTCEvalServlet extends HttpServlet {
 			System.out.println("Synching");
 			String sClinic = req.getParameter("clinic");
 			String sClient = req.getParameter("client");
-			SynchClient(sClient, sClinic);
+			String sPeer = req.getParameter("peerID");
+			SynchClient(sClient, sClinic, sPeer);
 			resp.setContentType("text/plain");
 			resp.getWriter().println("Attempting to sync");
 			break;
@@ -202,19 +203,14 @@ public class WebRTCEvalServlet extends HttpServlet {
 		service.sendMessage(new ChannelMessage(Long.toString(c.getcID().getId()), "RETRIEVE:"+result));
 	}
 	
-	public void SynchNewPatient(String clinic){
+	public void SynchNewPatient(String clinic, String ppsn){
 		InterClinicService ics = new InterClinicService();
-		PeerDataAccess pd = new PeerDataAccess();
-		Clinic c = pd.findClinic(clinic);
-		ArrayList<Client> clients = c.getClients();
-		for(int i = 0; i < clients.size(); i++){
-			ics.syncNewClient(clients.get(i).getcName(), clinic);
-		}
+		ics.syncNewPatient(clinic, ppsn);
 	}
 	
-	public void SynchClient(String client, String clinic){
+	public void SynchClient(String client, String clinic, String peer){
 		InterClinicService ics = new InterClinicService();
-		ics.syncNewClient(client, clinic);
+		ics.syncNewClient(client, clinic,peer);
 	}
 	
 	public String retrievePatient(String ppsn, String clinic, String client)

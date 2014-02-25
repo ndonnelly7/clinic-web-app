@@ -22,7 +22,7 @@
   <span onclick="spanClick('events_activities')">Events and Activities</span>
   <span onclick="spanClick('living')">Living Situation</span>
   <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Memory Test</span>
+  <span onclick="spanClick('memory_test')">Test Battery</span>
   <span onclick="spanClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
@@ -75,104 +75,200 @@
 		<div id="med_tests" class="pure-g-u">
 			<div class="title">Do you have the results of any of the following tests?</div>
 			<br>
-			<div class="pure-u-1-4 subtitle">Cholesterol</div>
+			<div class="pure-u-1-4 subtitle">Total Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4" onchange="showHiddenDivFromText(this, 'cholest_qs')">
+				<input type="text" name="cholest_test" size="4">
 				<div style="font-size:small">mmol/L</div>
 			</div>
-			<div id="cholest_qs" class="hide_div" style="display:inline;">
-				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
+			<div id="cholest_qs"style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="chol_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="pure-u-1-4 subtitle">LDL Cholesterol</div>
+			<div class="pure-u-1-4 select_box select_margin_change">
+				<input type="text" name="cholest_test" size="4">
+				<div style="font-size:small">mmol/L</div>
+			</div>
+			<div id="ldl_cholest_qs"style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
+				<div class="pure-u-1-4 select_box">
+					<select name="chol_time">
+						<option value="three_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="pure-u-1-4 subtitle">HDL Cholesterol</div>
+			<div class="pure-u-1-4 select_box select_margin_change">
+				<input type="text" name="cholest_test" size="4">
+				<div style="font-size:small">mmol/L</div>
+			</div>
+			<div id="hdl_cholest_qs"style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
+				<div class="pure-u-1-4 select_box">
+					<select name="chol_time">
+						<option value="three_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="pure-u-1-4 subtitle">Systolic Blood Pressure</div>
+			<div class="pure-u-1-4 select_box select_margin_change">
+				<input type="text" name="cholest_test" size="4">
+				<div style="font-size:small">mmHg</div>
+			</div>
+			<div id="cholest_qs"style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
+				<div class="pure-u-1-4 select_box">
+					<select name="chol_time">
+						<option value="three_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="pure-u-1-4 subtitle">Diastolic Blood Pressure</div>
+			<div class="pure-u-1-4 select_box select_margin_change">
+				<input type="text" name="cholest_test" size="4">
+				<div style="font-size:small">mmHg</div>
+			</div>
+			<div id="cholest_qs"style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
+				<div class="pure-u-1-4 select_box">
+					<select name="chol_time">
+						<option value="three_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 					</select>
 				</div>
 			</div>
 			<br>
 			<div class="pure-u-1-4 subtitle">Thyroid</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="thyroid_test" size="4" onchange="showHiddenDivFromText(this, 'thyroid_qs')">
+				<input type="text" name="thyroid_test" size="4">
 				<div style="font-size:small">pg/mL</div>
 			</div>
-			<div id="thyroid_qs" class="hide_div" style="display:inline;">
-				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
+			<div id="thyroid_qs" style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box" style="">
 					<select name="thyroid_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 					</select>
 				</div>
 			</div>
 			<br>
 			<div class="pure-u-1-4 subtitle">B12</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="b12_test" size="4" onchange="showHiddenDivFromText(this, 'b12_qs')">
+				<input type="text" name="b12_test" size="4">
 				<div style="font-size:small">mmol/L</div>
 			</div>
-			<div id="b12_qs" class="hide_div" style="display:inline;">
-				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
+			<div id="b12_qs" style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="b12_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 					</select>
 				</div>
 			</div>
 			<br>
 			<div class="pure-u-1-4 subtitle">Iron</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="iron_test" size="4" onchange="showHiddenDivFromText(this, 'iron_qs')">
+				<input type="text" name="iron_test" size="4">
 				<div style="font-size:small">mcmol/L</div>
 			</div>
-			<div id="iron_qs" class="hide_div" style="display:inline;">
-				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
+			<div id="iron_qs" style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="iron_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 					</select>
 				</div>
 			</div>
 			<br>
 			<div class="pure-u-1-4 subtitle">Calcium</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="calc_test" size="4" onchange="showHiddenDivFromText(this, 'calc_qs')">
+				<input type="text" name="calc_test" size="4">
 				<div style="font-size:small">mg/dL</div>
 			</div>
-			<div id="calc_qs" class="hide_div" style="display:inline;">
-				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
+			<div id="calc_qs" style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="calc_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 					</select>
 				</div>
 			</div>
 			<br>
 			<div class="pure-u-1-4 subtitle">Sodium</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="sodium_test" size="4" onchange="showHiddenDivFromText(this, 'sodium_qs')">
+				<input type="text" name="sodium_test" size="4">
 				<div style="font-size:small">mEq/L</div>
 			</div>
-			<div id="sodium_qs" class="hide_div" style="display:inline;">
-				<div class="pure-u-1-4 subtitle">How long ago was the test done?</div>
+			<div id="sodium_qs" style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="sodium_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="pure-u-1-4 subtitle">Weight</div>
+			<div class="pure-u-1-4 select_box select_margin_change">
+				<input type="text" name="sodium_test" size="4">
+				<div style="font-size:small">kg</div>
+			</div>
+			<div id="weight_qs" style="display:inline;">
+				<div class="pure-u-1-4 subtitle">When was the test done?</div>
+				<div class="pure-u-1-4 select_box">
+					<select name="sodium_time">
+						<option value="three_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -199,6 +295,7 @@
 					<option value="three_mon">3 months</option>
 					<option value="six_mon">6 months</option>
 					<option value="one_yr">1 year</option>
+						<option value="two_plus">2+ years</option>
 				</select>
 			</div>
 		</div>

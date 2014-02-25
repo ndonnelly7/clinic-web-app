@@ -23,7 +23,7 @@
   <span onclick="spanClick('events_activities')">Events and Activities</span>
   <span onclick="spanClick('living')">Living Situation</span>
   <span onclick="spanClick('lifestyle')" class="current_page">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Memory Test</span>
+  <span onclick="spanClick('memory_test')">Test Battery</span>
   <span onclick="spanClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
@@ -49,6 +49,7 @@
 						<select name="difficulty_reason">
 							<option value="diet">Diet</option>
 							<option value="anxiety">Anxiety</option>
+							<option value="physical">Physical</option>
 							<option value="other">Other...</option>
 						</select>
 					</div>
@@ -105,6 +106,7 @@
 						<select name="night_waking_reason">
 							<option value="diet">Diet</option>
 							<option value="anxiety">Anxiety</option>
+							<option value="physical">Physical</option>
 							<option value="other">Other...</option>
 						</select>
 					</div>
@@ -163,6 +165,7 @@
 						<select name="early_waking_reason">
 							<option value="diet">Diet</option>
 							<option value="anxiety">Anxiety</option>
+							<option value="physical">Physical</option>
 							<option value="other">Other...</option>
 						</select>
 					</div>
@@ -290,6 +293,7 @@
 							<select name="difficulty_reason_collat">
 								<option value="diet">Diet</option>
 								<option value="anxiety">Anxiety</option>
+								<option value="physical">Physical</option>
 								<option value="other">Other...</option>
 							</select>
 						</div>
@@ -346,6 +350,7 @@
 							<select name="night_waking_reason_collat">
 								<option value="diet">Diet</option>
 								<option value="anxiety">Anxiety</option>
+								<option value="physical">Physical</option>
 								<option value="other">Other...</option>
 							</select>
 						</div>
@@ -404,6 +409,7 @@
 							<select name="early_waking_reason_collat">
 								<option value="diet">Diet</option>
 								<option value="anxiety">Anxiety</option>
+								<option value="physical">Physical</option>
 								<option value="other">Other...</option>
 							</select>
 						</div>
@@ -520,8 +526,11 @@
 		<div id="exercise_div">
 			<div class="pure-g-u">
 				<div class="pure-u-1-3 title">Do you do any exercise?</div>
-				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="exercise" onclick="showHiddenDiv(this, 'does_exercise')">
+				<div class="pure-u-1-3 select_box">
+					<select name="exercise_yn" onchange="revealExercise(this)">
+						<option value="no">No</option>
+						<option value="yes">Yes</option>
+					</select>
 				</div>
 				<div id="does_exercise" class="hide_div">
 					<div id="exercise_grid">
@@ -582,73 +591,84 @@
 						</div>
 					</div>
 					<input type="button" onclick="addNewExercise()" style="margin-left:2%;" class="pure-button" value="Add Exercise">
+				</div>
+				<textarea form="lifestyle_form" name="exercise_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 				
-					<div class="collat_div">
-						<input type="hidden" value="hidden" id="exercise_collat" name="exercise_collat">
-						<input type="button" onclick="addCollatExercise(this)" class="pure-button lifestyle_button" value="Add Information from Collateral">
-					
-						<div id="collat_exercise" class="hide_div collat_life_div">
-							<div id="collat_exercise_grid">
-								<div class="title">What exercise do you do?</div>
-								<div id="exercise_header" class="pure-g-r">
-									<div class="pure-u-1-5 select_box header" style="min-width:100px; margin: 10px 5% 10px 2%">Exercise</div>
-									<div class="pure-u-1-5 pure-control-group header">Still Involved?</div>
-									<div class="pure-u-1-5 header" style="width:6.5%">Current hours per week</div>
-									<div class="pure-u-1-5 header" style="width:7%">Previous hours per week</div>
-									<div class="pure-u-1-5 header">Changed When?</div>
-									<div class="pure-u-1-5 header">Reason for Change</div>
-								</div>
-								<div id="exercise_entry" style="min-width:800px;">
-									<div class="pure-g-r">
-										<div class="pure-u-1-5 select_box" style="max-width:100px; margin: 10px 5% 10px 2%;">
-											<select name="activities_list_collat">
-												<option value="dancing">Dancing</option>
-												<option value="football">Football</option>
-												<option value="golf">Golf</option>
-												<option value="swimming">Swimming</option>
-												<option value="walking">Walking</option>
-												<option value="yoga">Yoga/Pilates</option>
-												<option value="sailing">Sailing</option>
-												<option value="gym">Gym</option>
-												<option value="hiking">Hiking</option>
-												<option value="cycling">Cycling</option>
-												<option value="other">Other..</option>
-											</select>
-										</div>
-										<div class="pure-u-1-5 pure-control-group ex-1-5">
-											<select name="still_active_check_collat" onclick="changeExercise(this)">
-												<option value="no">No</option>
-												<option value="ongoing">Ongoing</option>
-												<option value="decrease">Less active</option>
-											</select>
-										</div>
-										<div class="pure-u-1-5 ex-1-5 current_hours" style="width:7%">
-											<input type="text" name="current_active_hours_collat" class="current_hours_input" style="width:4em;">
-										</div>
-										<div class="pure-u-1-5 ex-1-5 previous_hours" style="width:7%">
-											<input type="text" name="previous_active_hours_collat" class="prev_hours_input" style="width:4em;">
-										</div>
-										
-										<div class="pure-u-1-5 ex-1-5 when_stopped">
-											<select name="exercise_hours_collat" class="time_stopped_input" >
-												<option value="three_mon">3 months</option>
-												<option value="six_mon">6 months</option>
-												<option value="one_yr">1 year</option>
-												<option value="two_yr">2 years</option>
-												<option value="threep_yr">3+ years</option>
-											</select>
-										</div>
-										
-										<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-												<textarea form="events_form" class="reason_input" name="activity_notes_collat" rows="2" cols="24"></textarea>
-										</div>
+				<div class="collat_div">
+					<input type="hidden" value="hidden" id="exercise_collat" name="exercise_collat">
+					<input type="button" onclick="addCollatExercise(this)" class="pure-button lifestyle_button" value="Add Information from Collateral">
+				
+				<div id="collat_exercise" id="collat_exercise" class="hide_div">
+					<div class="pure-u-1-3 title">Do they do any exercise?</div>
+					<div class="pure-u-1-3 select_box">
+						<select name="exercise_yn_collat" onchange="revealExerciseCollat(this)">
+							<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
+					</div>
+					<div id="collat_does_exercise" class="hide_div collat_life_div">
+						<div id="collat_exercise_grid">
+							<div class="title">What exercise do you do?</div>
+							<div id="exercise_header" class="pure-g-r">
+								<div class="pure-u-1-5 select_box header" style="min-width:100px; margin: 10px 5% 10px 2%">Exercise</div>
+								<div class="pure-u-1-5 pure-control-group header">Still Involved?</div>
+								<div class="pure-u-1-5 header" style="width:6.5%">Current hours per week</div>
+								<div class="pure-u-1-5 header" style="width:7%">Previous hours per week</div>
+								<div class="pure-u-1-5 header">Changed When?</div>
+								<div class="pure-u-1-5 header">Reason for Change</div>
+							</div>
+							<div id="exercise_entry" style="min-width:800px;">
+								<div class="pure-g-r">
+									<div class="pure-u-1-5 select_box" style="max-width:100px; margin: 10px 5% 10px 2%;">
+										<select name="activities_list_collat">
+											<option value="dancing">Dancing</option>
+											<option value="football">Football</option>
+											<option value="golf">Golf</option>
+											<option value="swimming">Swimming</option>
+											<option value="walking">Walking</option>
+											<option value="yoga">Yoga/Pilates</option>
+											<option value="sailing">Sailing</option>
+											<option value="gym">Gym</option>
+											<option value="hiking">Hiking</option>
+											<option value="cycling">Cycling</option>
+											<option value="other">Other..</option>
+										</select>
+									</div>
+									<div class="pure-u-1-5 pure-control-group ex-1-5">
+										<select name="still_active_check_collat" onclick="changeExercise(this)">
+											<option value="no">No</option>
+											<option value="ongoing">Ongoing</option>
+											<option value="decrease">Less active</option>
+										</select>
+									</div>
+									<div class="pure-u-1-5 ex-1-5 current_hours" style="width:7%">
+										<input type="text" name="current_active_hours_collat" class="current_hours_input" style="width:4em;">
+									</div>
+									<div class="pure-u-1-5 ex-1-5 previous_hours" style="width:7%">
+										<input type="text" name="previous_active_hours_collat" class="prev_hours_input" style="width:4em;">
+									</div>
+									
+									<div class="pure-u-1-5 ex-1-5 when_stopped">
+										<select name="exercise_hours_collat" class="time_stopped_input" >
+											<option value="three_mon">3 months</option>
+											<option value="six_mon">6 months</option>
+											<option value="one_yr">1 year</option>
+											<option value="two_yr">2 years</option>
+											<option value="threep_yr">3+ years</option>
+										</select>
+									</div>
+									
+									<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
+											<textarea form="events_form" class="reason_input" name="activity_notes_collat" rows="2" cols="24"></textarea>
 									</div>
 								</div>
 							</div>
-							
-							<input type="button" onclick="addNewCollatExercise()" style="margin-left:2%;" class="pure-button" value="Add Exercise">
 						</div>
+						
+						<input type="button" onclick="addNewCollatExercise()" style="margin-left:2%;" class="pure-button" value="Add Exercise">
 					</div>
+					<textarea form="lifestyle_form" name="exercise_notes_collat" rows="3" cols="40" style="margin-left:1%;"></textarea>
+				</div>
 				</div>
 			</div>			
 		</div>	
@@ -767,6 +787,30 @@
 					</div>
 				</div>
 				
+				<div id="lose_weight">
+					<div class="pure-u-1-2 title">Has anyone suggested you could lose weight?</div>
+					<div class="pure-u-1-2 check">
+						<input type="checkbox" name="weight_check" onclick="showHiddenDiv(this, 'weight_interest_qs')">
+					</div>
+					<div id="weight_interest_qs" class="hide_div">
+						<div class="pure-u-1-2 lifestyle_subtitle">When was the last time someone mentioned it?</div>
+						<div class="pure-u-1-2 select_box">
+							<select name="weight_time_collat">
+								<option value="three_plus">3+ Years Ago</option>
+								<option value="one_two">1-2 Years Ago</option>
+								<option value="six_months">Within Last Six Months</option>
+								<option value="few_week">Within Last Few Weeks</option>
+								<option value="few_days">Within Last Few Days</option>
+							</select>
+						</div>
+						<div></div>
+						<div class="pure-u-1-2 lifestyle_subtitle">Would you be interested in improving your diet?</div>
+						<div class="pure-u-1-2 check">
+							<input type="checkbox" name="weight_interest_check">
+						</div>
+					</div>
+				</div>
+				
 				<div id="fruit_veg">
 					<div class="pure-u-1-2 title">How much fruit and veg do you have?</div>
 					<div class="pure-u-1-2 life_select_box">
@@ -824,7 +868,7 @@
 								<input type="checkbox" name="sweets_check_collat" onclick="showHiddenDiv(this, 'sweets_qs')">
 							</div>
 							<div id="sweets_qs" class="hide_div">
-								<div class="pure-u-1-2 lifestyle_subtitle">How often do you have seet things?</div>
+								<div class="pure-u-1-2 lifestyle_subtitle">How often do you have sweet things?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="sweets_freq_collat">
 									<option value="few_day">Few a day</option>
@@ -897,16 +941,39 @@
 							</div>
 						</div>
 						
+						<div id="lose_weight">
+							<div class="pure-u-1-2 title">Has anyone suggested you could lose weight?</div>
+							<div class="pure-u-1-2 check">
+								<input type="checkbox" name="weight_check_collat" onclick="showHiddenDiv(this, 'weight_interest_collat')">
+							</div>
+							<div id="weight_interest_collat" class="hide_div">
+								<div class="pure-u-1-2 lifestyle_subtitle">When was the last time someone mentioned it?</div>
+								<div class="pure-u-1-2 select_box">
+									<select name="weight_time_collat">
+										<option value="three_plus">3+ Years Ago</option>
+										<option value="one_two">1-2 Years Ago</option>
+										<option value="six_months">Within Last Six Months</option>
+										<option value="few_week">Within Last Few Weeks</option>
+										<option value="few_days">Within Last Few Days</option>
+									</select>
+								</div>
+								<div></div>
+								<div class="pure-u-1-2 lifestyle_subtitle">Would you be interested in improving your diet?</div>
+								<div class="pure-u-1-2 check">
+									<input type="checkbox" name="weight_interest_check_collat">
+								</div>
+							</div>
+						</div>
+						
 						<div id="fruit_veg">
 							<div class="pure-u-1-2 title">How much fruit and veg do you have?</div>
 							<div class="pure-u-1-2 life_select_box">
 								<select name="fruit_veg_amount_collat">
 									<option value="five_plus">5+</option>
-									<option value="four">4</option>
-									<option value="three">3</option>
-									<option value="two">2</option>
-									<option value="one">1</option>
-									<option value="week">Few a week</option>
+									<option value="three_four">3-4</option>
+									<option value="one_three">1-3</option>
+									<option value="few_week">Few a week</option>
+									<option value="very_few_week">Very few a week</option>
 								</select>
 							</div>
 						</div>
@@ -923,7 +990,12 @@
 		
 		<div id="alcohol" class="pure-g-u">
 			<div class="lifestyle_vice_title pure-u-1-2">Do you drink any alcohol?</div>
-			<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="alcohol_check" value="alcohol" onclick="showHiddenDiv(this, 'alcohol_qs')"></div>
+			<div class="select_box pure-u-1-2" style="margin-left:0px;">
+				<select name="alcohol_yn" onchange="revealAlcohol(this)">
+					<option value="no">No</option>
+					<option value="yes">Yes</option>
+				</select>
+			</div>
 			
 			<div id="alcohol_qs" class="hide_div">
 				<div id="beer">
@@ -979,6 +1051,12 @@
 						<input type="text" name="total_units" placeholder="0"> Units
 					</div>
 				</div>
+				<div id="alcohol_help">
+					<div class="pure-u-1-2 subtitle">Would you be interested in reducing your alcohol intake?</div>
+					<div class="pure-u-1-2 check">
+						<input type="checkbox" name="alcohol_interest_check">
+					</div>
+				</div>
 			</div>
 			<textarea form="lifestyle_form" name="alcohol_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 			
@@ -988,7 +1066,12 @@
 			
 				<div id="collat_alcohol" class="hide_div collat_life_div">
 					<div class="lifestyle_vice_title pure-u-1-2">Do they drink any alcohol?</div>
-					<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="alcohol_check_collat" value="alcohol" onclick="showHiddenDiv(this, 'alcohol_collat_qs')"></div>
+					<div class="select_box pure-u-1-2" style="margin-left:0px;">
+						<select name="alcohol_collat_yn" onchange="revealAlcoholCollat(this)">
+							<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
+					</div>
 					
 					<div id="alcohol_collat_qs" class="hide_div">
 						<div id="beer">
@@ -1044,6 +1127,13 @@
 								<input type="text" name="total_units_collat" placeholder="0"> Units
 							</div>
 						</div>
+						
+						<div id="alcohol_help">
+							<div class="pure-u-1-2 subtitle">Would they be interested in reducing their alcohol intake?</div>
+							<div class="pure-u-1-2 check">
+								<input type="checkbox" name="alcohol_interest_check_collat">
+							</div>
+						</div>
 					</div>
 					<textarea form="lifestyle_form" name="alcohol_notes_collat" rows="3" cols="40" style="margin-left:1%;"></textarea>
 				</div>
@@ -1053,7 +1143,12 @@
 		<legend>Smoking</legend>
 		<div id="smoking" class="pure-g-u">
 			<div class="lifestyle_vice_title pure-u-1-2">Do you smoke?</div>
-			<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="smoke_check" value="smoking" onclick="showHiddenDiv(this, 'smoking_qs')"></div>
+			<div class="select_box pure-u-1-2" style="margin-left:0px;">
+				<select name="smoking_yn" onchange="revealSmoking(this)">
+					<option value="no">No</option>
+					<option value="yes">Yes</option>
+				</select>
+			</div>
 			<div id="smoking_qs" class="hide_div">
 				<div class="pure-u-1-2 lifestyle_vice_subtitle">How much:</div>
 				<div class="pure-u-1-2 life_select_box" id="smoke_div">
@@ -1067,6 +1162,12 @@
 					</div>
 					<div class="life_select_tag">Cigarettes per day</div>
 				</div>
+				<div id="smoking_help">
+					<div class="pure-u-1-2 subtitle">Would you be interested in quitting?</div>
+					<div class="pure-u-1-2 check">
+						<input type="checkbox" name="smoking_interest_check">
+					</div>
+				</div>
 			</div>
 			<textarea form="lifestyle_form" name="smoking_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 			
@@ -1076,7 +1177,12 @@
 			
 				<div id="collat_smoking" class="hide_div collat_life_div">
 					<div class="lifestyle_vice_title pure-u-1-2">Do they smoke?</div>
-					<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="smoke_check_collat" value="smoking" onclick="showHiddenDiv(this, 'smoking_collat_qs')"></div>
+					<div class="select_box pure-u-1-2" style="margin-left:0px;">
+						<select name="smoking_yn" onchange="revealSmokingCollat(this)">
+							<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
+					</div>
 					<div id="smoking_collat_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_vice_subtitle">How much:</div>
 						<div class="pure-u-1-2 life_select_box" id="smoke_div">
@@ -1089,6 +1195,12 @@
 								</select> 
 							</div>
 							<div class="life_select_tag">Cigarettes per day</div>
+						</div>
+						<div id="smoking_help">
+							<div class="pure-u-1-2 subtitle">Would they be interested in quitting?</div>
+							<div class="pure-u-1-2 check">
+								<input type="checkbox" name="smoking_interest_check_collat">
+							</div>
 						</div>
 					</div>
 					<textarea form="lifestyle_form" name="smoking_notes_collat" rows="3" cols="40" style="margin-left:1%;"></textarea>

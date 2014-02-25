@@ -102,7 +102,7 @@ function getPatient(ppsn){
 }
 
 function showPatient(p){
-	var toAppend = "<div class='patient_info' id='patient_"+p.key+"' style='background-color:"+color[colorIndex]+"'>";
+	var toAppend = "<div class='patient_info' id='patient_"+p.ppsn+"' style='background-color:"+color[colorIndex]+"'>";
 	toAppend += "<span>Name: " + p.name + " </span><br>";
 	toAppend += "<span>Address: " + p.address + " </span><br>";
 	toAppend += "<span>PPSN: " + p.ppsn + " </span><br>";
@@ -193,6 +193,10 @@ function removePatient(ppsn){
 	
 	request.onsucess = function(event){
 		$("#infotext").append("<span>INFO: Remove for: "+ppsn+" successful: " + event.target.result + "</span><br>");
+	}
+	
+	request.onerror = function(event){
+		$("#infotext").append("<span>INFO: Remove for: "+ppsn+" went wrong: " + event.target.result + "</span><br>");
 	}
 }
 

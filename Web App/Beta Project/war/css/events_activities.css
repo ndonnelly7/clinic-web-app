@@ -70,3 +70,10 @@
 .eaa-button {
 	margin-top: 18px;
 }
+
+.activity_q_check{
+	padding: 0.2em;
+	margin: 18px 3% 12px 1%;
+	display: inline-block;
+	font-weight: bold;
+}

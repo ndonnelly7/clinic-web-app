@@ -33,6 +33,10 @@ function collatAdd(){
 	};
 }
 
+function removeAddition(elem){
+	$(elem).parent().parent().remove();
+}
+
 function showHiddenDiv(box,id) 
 {
      var elm = document.getElementById(id)

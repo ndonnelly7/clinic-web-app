@@ -4,6 +4,7 @@
 var showingCollatEvents = false;
 var showingCollatActivities = false;
 var showingCollatAnxDep = false;
+var showingCollatActivityDiv = false;
 
 $(document).ready(function() {
 	$('.current_hours_input').prop('disabled', true);
@@ -23,7 +24,7 @@ function populateReactiveList(div_id){
 	$('.event_check').each(function() {
 		if($(this).prop("checked")){
 			var option_name=$(this).parent().parent().prop("id");
-			var option_val=($(this).parent().parent().children('.title').children("span").html());
+			var option_val=($(this).parent().parent().children('.title').html());
 			$(div_id+' .reactive_list select').append('<option value='+option_name+'>'+option_val+'</option>');
 		}
 	});
@@ -98,10 +99,44 @@ function showCollatActivities() {
 	if(!showingCollatActivities){
 		$('#social_collat_div').slideDown(500);
 		showingCollatActivities = true;
+		$('#showCollatActivitiesDiv').val("Remove Collateral Activities");
 	} else {
 		$('#social_collat_div').slideUp(500);
 		showingCollatActivities = false;
+		$('#showCollatActivitiesDiv').val("Add Activity from Collateral");
 	}
+};
+
+function revealSocial(elem) {
+	if(elem.value === "yes"){
+		$('#social_reveal').slideDown(1000);
+	} else {
+		$('#social_reveal').slideUp(1000);
+	}
+}
+
+function revealSocialCollat(elem) {
+	if(elem.value === "yes"){
+		$('#social_reveal_collat').slideDown(1000);
+	} else {
+		$('#social_reveal_collat').slideUp(1000);
+	}
+}
+
+function addActivityCollat() {
+	if(!showingCollatActivityDiv){
+		$("#full_social_collat").slideDown(1000);
+		$("#addActivityCollatButton").val("Remove Collateral Version");
+		showingCollatActivityDiv = true;
+	} else {
+		$("#full_social_collat").slideUp(1000);
+		$("#addActivityCollatButton").val("Collateral Activities");
+		showingCollatActivityDiv = false;
+	}
+}
+
+function addNewActivityToCollat() {
+	$('#activity_entry').clone().appendTo($('#social_div_collat'));
 };
 
 function addNewCollatActivity() {

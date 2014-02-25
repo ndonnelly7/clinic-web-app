@@ -23,7 +23,7 @@
   <span onclick="spanClick('events_activities')">Events and Activities</span>
   <span onclick="spanClick('living')">Living Situation</span>
   <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Memory Test</span>
+  <span onclick="spanClick('memory_test')">Test Battery</span>
   <span onclick="spanClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>

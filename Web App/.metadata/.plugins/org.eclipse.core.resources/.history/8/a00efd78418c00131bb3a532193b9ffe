@@ -1,9 +1,0 @@
-package webrtc.eval.model;
-
-public class Patient {
-
-	private String name;
-	private String email;
-	private String ppsn;
-	private int id;
-}

@@ -37,58 +37,40 @@ function addNewCollatDriving(button) {
 	}
 }
 
-function addNewCollatNotCooking(button) {
-	if(!showingCollatNotCooking){
-		$('#collat_not_cooking').slideDown(500);
-		showingCollatNotCooking = true;
-		$('#cooking_not_collat').val("shown");
-		$(button).val("Remove Information from Collateral");
-	} else {
-		$('#collat_not_cooking').slideUp(500);
-		showingCollatNotCooking = false;
-		$('#cooking_not_collat').val("hidden");
-		$(button).val("Add Information from Collateral");
-	}
-}
-
 function addNewCollatCooking(button) {
 	if(!showingCollatCooking){
-		$('#collat_cooking').slideDown(500);
+		$('#collat_cooking_div').slideDown(500);
 		showingCollatCooking = true;
 		$('#cooking_collat').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_cooking').slideUp(500);
+		$('#collat_cooking_div').slideUp(500);
 		showingCollatCooking = false;
 		$('#cooking_collat').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 }
 
-function addNewCollatShopping(button) {
+function cookingCheckChangedCollat(elem) {
+	if(elem.value === 'yes') {
+		$('#does_not_cook_collat').slideUp(1000);
+		$('#does_cook_collat').slideDown(1000);
+	} else {
+		$('#does_cook_collat').slideUp(1000);
+		$('#does_not_cook_collat').slideDown(1000);
+	}
+}
+
+function addCollatShopping(button) {
 	if(!showingCollatShopping){
-		$('#collat_shopping').slideDown(500);
+		$('#shopping_collat_grid').slideDown(500);
 		showingCollatShopping = true;
 		$('#shopping_collat').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_shopping').slideUp(500);
+		$('#shopping_collat_grid').slideUp(500);
 		showingCollatShopping = false;
 		$('#shopping_collat').val("hidden");
-		$(button).val("Add Information from Collateral");
-	}
-}
-
-function addNewCollatNotShopping(button) {
-	if(!showingCollatNotShopping){
-		$('#collat_not_shopping').slideDown(500);
-		showingCollatNotShopping = true;
-		$('#shopping_not_collat').val("shown");
-		$(button).val("Remove Information from Collateral");
-	} else {
-		$('#collat_not_shopping').slideUp(500);
-		showingCollatNotShopping = false;
-		$('#shopping_not_collat').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 }
@@ -113,33 +95,60 @@ function homeHelpChanged(elem) {
 }
 
 function cookingCheckChanged(elem, id){
-	if($(elem).prop('checked')) {
-		$('#does_not_cook').slideUp(250);
-		showHiddenDiv(elem, id);
+	if(elem.value === 'yes') {
+		$('#does_not_cook').slideUp(1000);
+		$('#does_cook').slideDown(1000);
 		$('.hide_select').prop('disabled', true);
 	} else {
 		showHiddenDiv(elem, id);
-		$('#does_not_cook').slideDown(250);
+		$('#does_cook').slideUp(1000);
+		$('#does_not_cook').slideDown(1000);
 	}
 }
 
 function shoppingCheckChanged(elem, id){
-	if($(elem).prop('checked')) {
-		$('#does_not_shop').slideUp(250);
-		showHiddenDiv(elem, id);
+	if(elem.value === 'yes') {
+		$('#does_not_shop').slideUp(1000);
+		$('#does_shop').slideDown(1000);
 		$('.hide_select').prop('disabled', true);
 	} else {
 		showHiddenDiv(elem, id);
-		$('#does_not_shop').slideDown(250);
+		$('#does_shop').slideUp(1000);
+		$('#does_not_shop').slideDown(1000);
 	}
 }
 
-function revealDrive(){
-	if($('#init_driving_check').prop('checked')){
-		$('#does_drive').slideDown(1000);
+function shoppingCheckChangedCollat(elem){
+	if(elem.value === 'yes') {
+		$('#does_not_shop_collat').slideUp(1000);
+		$('#does_shop_collat').slideDown(1000);
 		$('.hide_select').prop('disabled', true);
 	} else {
+		
+		$('#does_shop_collat').slideUp(1000);
+		$('#does_not_shop_collat').slideDown(1000);
+	}
+}
+
+function revealDrive(elem){
+	if(elem.value === "yes"){
+		$('#does_drive').slideDown(1000);
+		$('.hide_select').prop('disabled', true);
+		$("#driving_notes").slideUp(1000);
+	} else {
 		$('#does_drive').slideUp(1000);
+		$("#driving_notes").slideDown(1000);
+	}
+}
+
+function revealDriveCollat(elem){
+	if(elem.value === "yes"){
+		$('#does_drive_collat').slideDown(1000);
+		$('.hide_select').prop('disabled', true);
+		$("#driving_notes_collat").slideUp(1000);
+	} else {
+		$('#does_drive_collat').slideUp(1000);
+		$("#driving_notes_collat").slideDown(1000);
 	}
 }
 

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 
 public class PeerDataAccess {
@@ -33,7 +34,8 @@ public class PeerDataAccess {
 				pd.addClinic(c4);
 				em.persist(pd);
 			} 
-		} finally {
+		}
+		finally {
 			if(em != null)
 				em.close();
 		}

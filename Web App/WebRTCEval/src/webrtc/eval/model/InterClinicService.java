@@ -1,6 +1,7 @@
 package webrtc.eval.model;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.google.appengine.api.channel.ChannelMessage;
 import com.google.appengine.api.channel.ChannelService;
@@ -10,8 +11,8 @@ import com.google.appengine.api.datastore.Key;
 
 public class InterClinicService {
 
-	public void syncNewClient(String cName, String clinicName){
-		
+	public void syncNewClient(String cName, String clinicName, String peer){
+		Logger log = Logger.getLogger(InterClinicService.class.getName());
 		PatientDataAccess pda = new PatientDataAccess();
 		PeerDataAccess pd = new PeerDataAccess();
 		ChannelService service = ChannelServiceFactory.getChannelService();
@@ -25,13 +26,36 @@ public class InterClinicService {
 			System.out.println("Couldn't find Client");
 			return;
 		}
-		ArrayList<Key> intersection = intersection(clinic.getPatientIDs(), client.getcPatientIDs());
-		for(int i = 0; i < intersection.size(); i++){
-			Patient p = pda.findPatient(intersection.get(0));
+		ArrayList<Key> exclusion = exclusion(clinic.getPatientIDs(), client.getcPatientIDs());
+		for(int i = 0; i < exclusion.size(); i++){
+			Patient p = pda.findPatient(exclusion.get(i));
 			if(p!=null)
 			{
+				log.warning("Found a patient that needs to be retrieved by user: " + p.getPpsn());
 				service.sendMessage(new ChannelMessage(Long.toString(client.getcID().getId()),
-						"RETRIEVE:"+retrievePatient(p.getPpsn(),clinic,client)));
+						"SENDREQUEST:"+p.getPpsn()+":"));
+			}
+		}
+	}
+	
+	public void syncNewPatient(String clinic, String ppsn){
+		PatientDataAccess pda = new PatientDataAccess();
+		Patient patient = pda.findPatient(ppsn);
+		if(patient == null)
+			return;
+		
+		PeerDataAccess pd = new PeerDataAccess();
+		Clinic c = pd.findClinic(clinic);
+		if(c == null)
+			return;
+		
+		ChannelService service = ChannelServiceFactory.getChannelService();
+		ArrayList<Client> clients = c.getClients();
+		for(int i = 0; i < clients.size(); i++){
+			Client cl = clients.get(i);
+			if(cl.isOnline() && !cl.isPatientPresent(patient.getClinicID())){
+				service.sendMessage(new ChannelMessage(Long.toString(cl.getcID().getId()),
+						"SENDREQUEST:"+patient.getPpsn()+":"));
 			}
 		}
 	}
@@ -137,4 +161,16 @@ public class InterClinicService {
 
         return list;
     }
+	
+	public <T> ArrayList<T> exclusion(ArrayList<T> list1, ArrayList<T> list2) {
+		ArrayList<T> list = new ArrayList<T>();
+		
+		for(T t : list1) {
+			if(!(list2.contains(t))){
+				list.add(t);
+			}
+		}
+		
+		return list;
+	}
 }

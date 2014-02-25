@@ -1,9 +1,0 @@
-package webrtc.eval.model;
-
-public class Security {
-
-	public String HashPassword()
-	{
-		
-	}
-}
