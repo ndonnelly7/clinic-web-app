@@ -80,6 +80,10 @@
     	<input type="button" value="Check Channel" onclick="CheckChannel()">
     </div>
     
+    <div id="sql_test" class="main_div">
+    	<input type="button" value="Test SQL" onclick="RunTestQuery()">
+    </div>
+    
     <div id="sign_out_div" class="main_div">
     	<input type="button" value="Sign Out" onclick="SignOut()">
     </div>

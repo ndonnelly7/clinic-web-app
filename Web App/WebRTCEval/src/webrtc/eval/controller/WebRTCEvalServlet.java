@@ -128,6 +128,14 @@ public class WebRTCEvalServlet extends HttpServlet {
 			resp.setContentType("text/plain");
 			resp.getWriter().println("UPDATED");
 			break;
+		case "SQLRequest":
+			System.out.println("Received Query: ");
+			String query = req.getParameter("query");
+			System.out.println(query);
+			String sqlResult = ParseQuery(query);
+			resp.setContentType("text/plain");
+			resp.getWriter().println(sqlResult);
+			break;
 		case "RESET":
 			PeerDataAccess pd = new PeerDataAccess();
 			pd.reInit();
@@ -136,8 +144,69 @@ public class WebRTCEvalServlet extends HttpServlet {
 			break;
 		default:
 			resp.setContentType("text/plain");
-			resp.getWriter().println("Unkown Command");
+			resp.getWriter().println("Unknown Command");
 		}
+	}
+	
+	public String ParseQuery(String query){
+		String returnString = "";
+		String[] queryParts = query.split(" ");
+		for(int i = 0; i < queryParts.length; i++){
+			System.out.println("queryParts[" + i + "]: " + queryParts[i]);
+		}
+		if(queryParts[0].equalsIgnoreCase("INSERT")){
+			return parseInsert(queryParts);
+		} else if(queryParts[0].equalsIgnoreCase("SELECT")){
+			if(queryParts[1].equalsIgnoreCase("Public"))
+				return parsePublicSelect(queryParts);
+			else if(queryParts[1].equalsIgnoreCase("Private"))
+				return parsePrivateSelect(queryParts);
+			else returnString = "Invalid SELECT option: " + queryParts[1];
+		} else {
+			returnString = "Invalid Query. Query must begin with 'SELECT' or 'INSERT'";
+		}
+		return returnString;
+	}
+	
+	public String parsePublicSelect(String[] selectParts){
+		String returnString = "Parsing Select";
+		int index = 2;
+		
+		if(selectParts[2].equalsIgnoreCase("FROM")){
+			index++;
+			if(selectParts[index].equalsIgnoreCase("Global")){
+				
+			} else if(selectParts[index].startsWith("`")){
+				
+			} else {
+				returnString = "Invalid Table in query. Syntax error at :" + selectParts[index];
+			}
+			
+		}else {
+			returnString = "Invalid SELECT query. Syntax error at :" + selectParts[2];
+		}
+		
+		return returnString;
+	}
+	
+	public String parsePrivateSelect(String[] selectParts){
+		String returnString = "Parsing Select";
+		
+		if(selectParts[2].equalsIgnoreCase("FROM")){
+			
+		}else {
+			returnString = "Invalid SELECT query";
+		}
+		
+		return returnString;
+	}
+	
+	public String parseInsert(String[] insertParts){
+		String returnString = "Parsing Insert";
+		
+		
+		
+		return returnString;
 	}
 	
 	public void UpdatePatientList(String clinic, String client, String keys){

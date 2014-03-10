@@ -353,3 +353,19 @@ function getTimeString(){
 	                + currentdate.getMilliseconds();
 	return datetime;
 }
+
+function RunTestQuery() {
+	request = "SELECT public FROM `DCU Clinic` WHERE ppsn = '1'";
+	$("#infotext").append("<div>Sending SQL query "+request+"</div>");
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"SQLRequest",
+			query:request
+		},
+		success:function(response) {
+			$("#infotext").append("<div>"+response+"</div>");
+		}
+	});
+}
