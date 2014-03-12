@@ -34,7 +34,8 @@ public class WebRTCEvalServlet extends HttpServlet {
 		
 		switch(type) {
 		case "ClinicsList" :
-			String clinics = getClinicsList();
+			Gson gson = new Gson();
+			String clinics = gson.toJson(getClinicsList());
 			resp.setContentType("application/json");
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(clinics);
@@ -131,8 +132,9 @@ public class WebRTCEvalServlet extends HttpServlet {
 		case "SQLRequest":
 			System.out.println("Received Query: ");
 			String query = req.getParameter("query");
+			String client = req.getParameter("client");
 			System.out.println(query);
-			String sqlResult = ParseQuery(query);
+			String sqlResult = ParseQuery(query, client);
 			resp.setContentType("text/plain");
 			resp.getWriter().println(sqlResult);
 			break;
@@ -148,19 +150,19 @@ public class WebRTCEvalServlet extends HttpServlet {
 		}
 	}
 	
-	public String ParseQuery(String query){
+	public String ParseQuery(String query, String client){
 		String returnString = "";
 		String[] queryParts = query.split(" ");
 		for(int i = 0; i < queryParts.length; i++){
 			System.out.println("queryParts[" + i + "]: " + queryParts[i]);
 		}
 		if(queryParts[0].equalsIgnoreCase("INSERT")){
-			return parseInsert(queryParts);
+			return parseInsert(queryParts,client);
 		} else if(queryParts[0].equalsIgnoreCase("SELECT")){
 			if(queryParts[1].equalsIgnoreCase("Public"))
-				return parsePublicSelect(queryParts);
+				return parsePublicSelect(queryParts, client);
 			else if(queryParts[1].equalsIgnoreCase("Private"))
-				return parsePrivateSelect(queryParts);
+				return parsePrivateSelect(queryParts,client);
 			else returnString = "Invalid SELECT option: " + queryParts[1];
 		} else {
 			returnString = "Invalid Query. Query must begin with 'SELECT' or 'INSERT'";
@@ -168,15 +170,64 @@ public class WebRTCEvalServlet extends HttpServlet {
 		return returnString;
 	}
 	
-	public String parsePublicSelect(String[] selectParts){
+	public String parsePublicSelect(String[] selectParts, String client){
 		String returnString = "Parsing Select";
 		int index = 2;
 		
 		if(selectParts[2].equalsIgnoreCase("FROM")){
 			index++;
 			if(selectParts[index].equalsIgnoreCase("Global")){
+				//Global table chosen
+				
+				
 				
 			} else if(selectParts[index].startsWith("`")){
+				//Find the name of the clinic which acts as the table
+				String fromString = selectParts[index];
+				boolean fromFinished = false;
+				index++;
+				for(;index < selectParts.length && !fromFinished;index++){
+					fromString += (" " + selectParts[index]);
+					if(selectParts[index].endsWith("`")){
+						fromFinished = true;
+					}
+				}
+				returnString = fromString.substring(1,fromString.length()-1);
+				if(fromFinished){
+					//Check that the clinic exists
+					if(getClinicsList().contains(fromString.substring(1,fromString.length()-1))){
+						//The clinic provided exists
+						//Only looking for ppsn number if a clinic table provided
+						if(selectParts[index].equalsIgnoreCase("WHERE")){
+							index+=1;
+							if(selectParts[index].equalsIgnoreCase("ppsn")){
+								index+=2;
+								String ppsn = selectParts[index].substring(1,selectParts[index].length()-1);
+								returnString = ppsn;
+								//TODO If only PPSN and client -> findPatient(ppsn,fromString.substring(1,fromString.length()-1));
+								//Check for other WHERE stuff for dementia, sleep, memory, etc.
+							} else if(selectParts[index].startsWith("ppsn")){
+								String[] ppsnArr = selectParts[index].split("=");
+								String ppsn = ppsnArr[ppsnArr.length-1].substring(1,ppsnArr[ppsnArr.length-1].length()-1);
+								returnString = ppsn;
+								//TODO PPSN and client -> findPatient(ppsn,fromString.substring(1,fromString.length()-1));
+							} else {
+								boolean selectNotDone = true;
+								ArrayList<Patient> currentPatientList = getPatients();
+								for(; index < selectParts.length && selectNotDone; index++){
+									Str
+								}
+							}
+						}else{
+							returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
+						}
+					} else {
+						returnString = "Table does not exist: " + fromString.substring(1,fromString.length()-1);
+					}							
+					
+				}else {
+					returnString = "Invalid Table entry, missin '`': " + fromString;
+				}
 				
 			} else {
 				returnString = "Invalid Table in query. Syntax error at :" + selectParts[index];
@@ -189,7 +240,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 		return returnString;
 	}
 	
-	public String parsePrivateSelect(String[] selectParts){
+	public String parsePrivateSelect(String[] selectParts,String client){
 		String returnString = "Parsing Select";
 		
 		if(selectParts[2].equalsIgnoreCase("FROM")){
@@ -201,12 +252,23 @@ public class WebRTCEvalServlet extends HttpServlet {
 		return returnString;
 	}
 	
-	public String parseInsert(String[] insertParts){
+	public String parseInsert(String[] insertParts,String client){
 		String returnString = "Parsing Insert";
 		
 		
 		
 		return returnString;
+	}
+	
+	public ArrayList<Patient> findFilter(String filter, ArrayList<Patient> patients){
+		ArrayList<Patient>
+		if(filter.startsWith("`Dementia`")){
+			
+		} else if(filter.startsWith("`Memory`")){
+			
+		} else {
+			
+		}
 	}
 	
 	public void UpdatePatientList(String clinic, String client, String keys){
@@ -326,7 +388,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 	}
 	
 	//Returns a list of the clinic names in a JSON object
-	public String getClinicsList(){
+	public ArrayList<String> getClinicsList(){
 		PeerDataAccess pd = new PeerDataAccess();
 		pd.init();
 		ArrayList<Clinic> clinics = pd.getClinics();
@@ -335,9 +397,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 			clinic_names.add(clinics.get(i).getName());
 		}
 		
-		Gson gson = new Gson();
-		String json = gson.toJson(clinic_names);
-		return json;
+		return clinic_names;
 	}
 	
 	public String getClientsFromClinic(String clinic_name) {
@@ -361,6 +421,13 @@ public class WebRTCEvalServlet extends HttpServlet {
 		Gson gson = new Gson();
 		String json = gson.toJson(client_names);
 		return json;
+	}
+	
+	public ArrayList<Patient> getPatients() {
+		PatientDataAccess pda = new PatientDataAccess();
+		pda.init();
+		
+		return pda.getPatients();
 	}
 	
 	public String sendChannelPing(String clinic, String client){

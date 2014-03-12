@@ -1,5 +1,7 @@
 package webrtc.eval.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -154,5 +156,26 @@ public class PatientDataAccess {
 		}
 		
 		return result;
+	}
+	
+	public ArrayList<Patient> getPatients() {
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		AnonPatientData pd = null;
+		ArrayList<Patient> patients = new ArrayList<Patient>();
+		
+		try {
+			em = emf.createEntityManager();
+			pd = em.find(AnonPatientData.class, patient_data_key);
+			
+			if(pd != null) {
+				patients = pd.getPatients();
+			}
+		} finally {
+			if(em != null)
+				em.close();
+		}
+		
+		return patients;
 	}
 }

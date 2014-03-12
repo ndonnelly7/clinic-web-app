@@ -355,7 +355,7 @@ function getTimeString(){
 }
 
 function RunTestQuery() {
-	request = "SELECT public FROM `DCU Clinic` WHERE ppsn = '1'";
+	request = "SELECT public FROM `DCU Clinic` WHERE ppsn='11234373'";
 	$("#infotext").append("<div>Sending SQL query "+request+"</div>");
 	$.ajax('/webrtceval.do', {
 		method:'GET',
