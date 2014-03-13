@@ -59,6 +59,11 @@ public class Clinic {
 		if(clients == null){
 			clients = new ArrayList<Client>();
 		}
+		for(int i = 0; i < clients.size(); i++){
+			if(clients.get(i).getcName().equals(c.getcName())){
+				return false;
+			}
+		}
 		return clients.add(c);
 	}
 	public boolean removeClient(Client c){

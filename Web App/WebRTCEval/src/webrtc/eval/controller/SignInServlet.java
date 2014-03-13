@@ -31,6 +31,8 @@ public class SignInServlet extends HttpServlet {
 			
 			if(addPeer(clinic, name)){
 				System.out.println("Successfully added Peer");
+			} else {
+				System.out.println("Peer already existed... probably");
 			}
 			if(signInPeer(clinic, name)) {
 				System.out.println("Successfully signed in: " + name);

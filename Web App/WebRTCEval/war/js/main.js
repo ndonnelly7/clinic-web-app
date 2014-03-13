@@ -305,11 +305,26 @@ function resetDataStore(){
 		method:'GET',
 		dataType:'text',
 		data: {
-			type:"RESET"
+			type:"RESETPEER"
 		},
+		success:function(response) {
+			resetFinish();
+		}
 	});
-	clearObjectStore();
-	SignOut();
+}
+
+function resetFinish(){
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"RESETPATIENT"
+		},
+		success:function(response) {
+			clearObjectStore();
+			SignOut();
+		}
+	});
 }
 
 function AddMultiPatient(index,limit){
@@ -352,6 +367,14 @@ function getTimeString(){
 	                + currentdate.getSeconds() + ":"
 	                + currentdate.getMilliseconds();
 	return datetime;
+}
+
+function openQueryBox(){
+	$("#query_box").show();
+}
+
+function sendQuery(){
+	
 }
 
 function RunTestQuery() {

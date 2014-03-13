@@ -81,7 +81,12 @@
     </div>
     
     <div id="sql_test" class="main_div">
-    	<input type="button" value="Test SQL" onclick="RunTestQuery()">
+    	<div id="query_box" style="display:none">
+    		<div class="pure-control-group">
+    			<"
+    		</div>
+    	</div>
+    	<input type="button" value="Test SQL" onclick="openQueryBox()">
     </div>
     
     <div id="sign_out_div" class="main_div">

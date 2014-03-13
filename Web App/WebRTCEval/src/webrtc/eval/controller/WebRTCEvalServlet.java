@@ -138,9 +138,15 @@ public class WebRTCEvalServlet extends HttpServlet {
 			resp.setContentType("text/plain");
 			resp.getWriter().println(sqlResult);
 			break;
-		case "RESET":
+		case "RESETPEER":
+			System.out.println("Resetting Peers");
 			PeerDataAccess pd = new PeerDataAccess();
 			pd.reInit();
+			resp.setContentType("text/plain");
+			resp.getWriter().println("done");
+			break;
+		case "RESETPATIENT":
+			System.out.println("Resetting Patients");
 			PatientDataAccess pda = new PatientDataAccess();
 			pda.reInit();
 			break;
@@ -156,16 +162,14 @@ public class WebRTCEvalServlet extends HttpServlet {
 		for(int i = 0; i < queryParts.length; i++){
 			System.out.println("queryParts[" + i + "]: " + queryParts[i]);
 		}
-		if(queryParts[0].equalsIgnoreCase("INSERT")){
-			return parseInsert(queryParts,client);
-		} else if(queryParts[0].equalsIgnoreCase("SELECT")){
+		if(queryParts[0].equalsIgnoreCase("SELECT")){
 			if(queryParts[1].equalsIgnoreCase("Public"))
 				return parsePublicSelect(queryParts, client);
 			else if(queryParts[1].equalsIgnoreCase("Private"))
 				return parsePrivateSelect(queryParts,client);
 			else returnString = "Invalid SELECT option: " + queryParts[1];
 		} else {
-			returnString = "Invalid Query. Query must begin with 'SELECT' or 'INSERT'";
+			returnString = "Invalid Query. Query must begin with 'SELECT'";
 		}
 		return returnString;
 	}
@@ -178,7 +182,59 @@ public class WebRTCEvalServlet extends HttpServlet {
 			index++;
 			if(selectParts[index].equalsIgnoreCase("Global")){
 				//Global table chosen
-				
+				index++;
+				if(selectParts[index].equalsIgnoreCase("WHERE")){
+					index+=1;
+					if(selectParts[index].equalsIgnoreCase("ppsn")){
+						index+=2;
+						String ppsn = selectParts[index].substring(1,selectParts[index].length()-1);
+						String currentClinic = "";
+						ArrayList<String> Clinics = getClinicsList();
+						boolean foundPatient = false;
+						for(int i = 0; i < Clinics.size() && !foundPatient; i++){
+							currentClinic = Clinics.get(i);
+							String patient = findPatient(ppsn,currentClinic);
+							if(!(patient.equals(""))){
+								foundPatient = true;
+								returnString = "Single:" + patient;
+							}
+						}
+						if(!foundPatient){
+							returnString = "No patient found with ppsn: " + ppsn;
+						}
+					} else if(selectParts[index].startsWith("ppsn")){
+						String[] ppsnArr = selectParts[index].split("=");
+						String ppsn = ppsnArr[ppsnArr.length-1].substring(1,ppsnArr[ppsnArr.length-1].length()-1);
+						String currentClinic = "";
+						ArrayList<String> Clinics = getClinicsList();
+						boolean foundPatient = false;
+						for(int i = 0; i < Clinics.size() && !foundPatient; i++){
+							currentClinic = Clinics.get(i);
+							String patient = findPatient(ppsn,currentClinic);
+							if(!(patient.equals(""))){
+								foundPatient = true;
+								returnString = "Single:" + patient;
+							}
+						}
+						if(!foundPatient){
+							returnString = "No patient found with ppsn: " + ppsn;
+						}
+					} else {
+						boolean selectNotDone = true;
+						ArrayList<Patient> currentPatientList = getPatients();
+						for(; index < selectParts.length && selectNotDone; index++){
+							currentPatientList = applyFilter(selectParts[index], currentPatientList);
+							if(!(selectParts[index++].equalsIgnoreCase("AND"))){
+								selectNotDone = false;
+							}
+						}
+						Gson gson = new Gson();
+						String pats = gson.toJson(currentPatientList);
+						returnString = "Multiple:" + pats;
+					}
+				}else{
+					returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
+				}
 				
 				
 			} else if(selectParts[index].startsWith("`")){
@@ -192,10 +248,11 @@ public class WebRTCEvalServlet extends HttpServlet {
 						fromFinished = true;
 					}
 				}
-				returnString = fromString.substring(1,fromString.length()-1);
+				fromString = fromString.substring(1,fromString.length()-1);
+				returnString = fromString;
 				if(fromFinished){
 					//Check that the clinic exists
-					if(getClinicsList().contains(fromString.substring(1,fromString.length()-1))){
+					if(getClinicsList().contains(fromString)){
 						//The clinic provided exists
 						//Only looking for ppsn number if a clinic table provided
 						if(selectParts[index].equalsIgnoreCase("WHERE")){
@@ -203,26 +260,33 @@ public class WebRTCEvalServlet extends HttpServlet {
 							if(selectParts[index].equalsIgnoreCase("ppsn")){
 								index+=2;
 								String ppsn = selectParts[index].substring(1,selectParts[index].length()-1);
-								returnString = ppsn;
-								//TODO If only PPSN and client -> findPatient(ppsn,fromString.substring(1,fromString.length()-1));
-								//Check for other WHERE stuff for dementia, sleep, memory, etc.
+								returnString = "Single:" + findPatient(ppsn,fromString);
 							} else if(selectParts[index].startsWith("ppsn")){
 								String[] ppsnArr = selectParts[index].split("=");
 								String ppsn = ppsnArr[ppsnArr.length-1].substring(1,ppsnArr[ppsnArr.length-1].length()-1);
-								returnString = ppsn;
-								//TODO PPSN and client -> findPatient(ppsn,fromString.substring(1,fromString.length()-1));
+								returnString = "Single:" + findPatient(ppsn,fromString);
 							} else {
 								boolean selectNotDone = true;
-								ArrayList<Patient> currentPatientList = getPatients();
-								for(; index < selectParts.length && selectNotDone; index++){
-									Str
+								ArrayList<Patient> currentPatientList = applyClinicFilter(fromString, getPatients());
+								if(currentPatientList == null || currentPatientList.size() == 0){
+									returnString = "Clinic chosen has no patients: " + fromString;
+								} else {
+									for(; index < selectParts.length && selectNotDone; index++){
+										currentPatientList = applyFilter(selectParts[index], currentPatientList);
+										if(!(selectParts[index++].equalsIgnoreCase("AND"))){
+											selectNotDone = false;
+										}
+									}
+									Gson gson = new Gson();
+									String pats = gson.toJson(currentPatientList);
+									returnString = "Multiple:" + pats;
 								}
 							}
 						}else{
 							returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
 						}
 					} else {
-						returnString = "Table does not exist: " + fromString.substring(1,fromString.length()-1);
+						returnString = "Table does not exist: " + fromString;
 					}							
 					
 				}else {
@@ -243,8 +307,97 @@ public class WebRTCEvalServlet extends HttpServlet {
 	public String parsePrivateSelect(String[] selectParts,String client){
 		String returnString = "Parsing Select";
 		
-		if(selectParts[2].equalsIgnoreCase("FROM")){
-			
+		int index = 2;
+		if(selectParts[index].equalsIgnoreCase("FROM")){
+			index++;
+			if(selectParts[index].equalsIgnoreCase("Global")){
+				//Global table chosen
+				index++;
+				if(selectParts[index].equalsIgnoreCase("WHERE")){
+					index+=1;
+					if(selectParts[index].equalsIgnoreCase("ppsn")){
+						index+=2;
+						String ppsn = selectParts[index].substring(1,selectParts[index].length()-1);
+						String currentClinic = "";
+						ArrayList<String> Clinics = getClinicsList();
+						boolean foundPatient = false;
+						for(int i = 0; i < Clinics.size() && !foundPatient; i++){
+							currentClinic = Clinics.get(i);
+							String patient = retrievePatient(ppsn,currentClinic,client);
+							if(!(patient.equals(""))){
+								foundPatient = true;
+								returnString = patient;
+							}
+						}
+						if(!foundPatient){
+							returnString = "No patient found with ppsn: " + ppsn;
+						}
+					} else if(selectParts[index].startsWith("ppsn")){
+						String[] ppsnArr = selectParts[index].split("=");
+						String ppsn = ppsnArr[ppsnArr.length-1].substring(1,ppsnArr[ppsnArr.length-1].length()-1);
+						String currentClinic = "";
+						ArrayList<String> Clinics = getClinicsList();
+						boolean foundPatient = false;
+						for(int i = 0; i < Clinics.size() && !foundPatient; i++){
+							currentClinic = Clinics.get(i);
+							String patient = findPatient(ppsn,currentClinic);
+							if(!(patient.equals(""))){
+								foundPatient = true;
+								returnString = patient;
+							}
+						}
+						if(!foundPatient){
+							returnString = "No patient found with ppsn: " + ppsn;
+						}
+					} else {
+						returnString = "Expected ppsn for SELECT query from Private table: " + selectParts[index].length();
+					}
+				}
+			} else if(selectParts[index].startsWith("`")){
+				//Find the name of the clinic which acts as the table
+				String fromString = selectParts[index];
+				boolean fromFinished = false;
+				index++;
+				for(;index < selectParts.length && !fromFinished;index++){
+					fromString += (" " + selectParts[index]);
+					if(selectParts[index].endsWith("`")){
+						fromFinished = true;
+					}
+				}
+				fromString = fromString.substring(1,fromString.length()-1);
+				returnString = fromString;
+				if(fromFinished){
+					//Check that the clinic exists
+					if(getClinicsList().contains(fromString)){
+						//The clinic provided exists
+						//Only looking for ppsn number if a clinic table provided
+						if(selectParts[index].equalsIgnoreCase("WHERE")){
+							index+=1;
+							if(selectParts[index].equalsIgnoreCase("ppsn")){
+								index+=2;
+								String ppsn = selectParts[index].substring(1,selectParts[index].length()-1);
+								returnString = retrievePatient(ppsn,fromString,client);
+							} else if(selectParts[index].startsWith("ppsn")){
+								String[] ppsnArr = selectParts[index].split("=");
+								String ppsn = ppsnArr[ppsnArr.length-1].substring(1,ppsnArr[ppsnArr.length-1].length()-1);
+								returnString = retrievePatient(ppsn,fromString,client);
+							} else {
+								returnString = "Expected ppsn for SELECT query from Private table: " + selectParts[index].length();
+							}
+						}else{
+							returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
+						}
+					} else {
+						returnString = "Table does not exist: " + fromString;
+					}							
+					
+				}else {
+					returnString = "Invalid Table entry, missin '`': " + fromString;
+				}
+				
+			} else {
+				returnString = "Invalid Table in query. Syntax error at :" + selectParts[index];
+			}
 		}else {
 			returnString = "Invalid SELECT query";
 		}
@@ -252,23 +405,115 @@ public class WebRTCEvalServlet extends HttpServlet {
 		return returnString;
 	}
 	
-	public String parseInsert(String[] insertParts,String client){
-		String returnString = "Parsing Insert";
-		
-		
-		
-		return returnString;
+	//Takes the parameter of a filter to be applied to all the patients on the system
+	//Parameter takes the form of: `x`=TRUE 
+	//No Spaces are permitted, TRUE and FALSE must be capitalized
+	//Returns a new array of patients with the filter applied
+	public ArrayList<Patient> applyFilter(String filter, ArrayList<Patient> patients){
+		ArrayList<Patient> newList = new ArrayList<Patient>();
+		if(filter.startsWith("`Dementia`")){
+			if(filter.endsWith("TRUE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(p.dementia)
+						newList.add(p);
+				}
+			} else if(filter.endsWith("FALSE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(!(p.dementia))
+						newList.add(p);
+				}
+			}
+		} else if(filter.startsWith("`Memory`")){
+			if(filter.endsWith("TRUE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(p.memory)
+						newList.add(p);
+				}
+			} else if(filter.endsWith("FALSE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(!(p.memory))
+						newList.add(p);
+				}
+			}
+		} else if(filter.startsWith("`Alcohol`")){
+			if(filter.endsWith("TRUE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(p.alcohol)
+						newList.add(p);
+				}
+			} else if(filter.endsWith("FALSE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(!(p.alcohol))
+						newList.add(p);
+				}
+			}
+		} else if(filter.startsWith("`Stress`")){
+			if(filter.endsWith("TRUE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(p.stress)
+						newList.add(p);
+				}
+			} else if(filter.endsWith("FALSE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(!(p.stress))
+						newList.add(p);
+				}
+			}
+		} else if(filter.startsWith("`Sleep`")){
+			if(filter.endsWith("TRUE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(p.sleep)
+						newList.add(p);
+				}
+			} else if(filter.endsWith("FALSE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(!(p.sleep))
+						newList.add(p);
+				}
+			}
+		} else if(filter.startsWith("`Diet`")){
+			if(filter.endsWith("TRUE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(p.diet)
+						newList.add(p);
+				}
+			} else if(filter.endsWith("FALSE")){
+				for(int i = 0; i < patients.size(); i++){
+					Patient p = patients.get(i);
+					if(!(p.diet))
+						newList.add(p);
+				}
+			}
+		} 
+		return newList;
 	}
 	
-	public ArrayList<Patient> findFilter(String filter, ArrayList<Patient> patients){
-		ArrayList<Patient>
-		if(filter.startsWith("`Dementia`")){
-			
-		} else if(filter.startsWith("`Memory`")){
-			
-		} else {
-			
+	public ArrayList<Patient> applyClinicFilter(String clinic, ArrayList<Patient> patients){
+		PeerDataAccess pd = new PeerDataAccess();
+		Clinic c  = pd.findClinic(clinic);
+		if(c==null){
+			return null;
 		}
+		ArrayList<Patient> newList = new ArrayList<Patient>();
+		for(int i = 0; i < patients.size(); i++){
+			Patient p = patients.get(i);
+			if(p.getClinicID().equals(c.getClinicID())){
+				newList.add(p);
+			}
+		}
+		
+		return newList;
 	}
 	
 	public void UpdatePatientList(String clinic, String client, String keys){
