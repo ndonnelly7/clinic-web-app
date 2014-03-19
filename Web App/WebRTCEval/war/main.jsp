@@ -82,11 +82,57 @@
     
     <div id="sql_test" class="main_div">
     	<div id="query_box" style="display:none">
-    		<div class="pure-control-group">
-    			<"
+    		<div class="pure-control-group query_div">
+    			<div class="query_title">SELECT </div>
+    			<select id="selectSelect">
+    				<option value="private">Private</option>
+    				<option value="public">Public</option>
+    			</select>
     		</div>
+    		<div class="pure-control-group query_div">
+    			<div class="query_title">FROM </div>
+    			<select id="selectFrom">
+    				<option value="Global">Global</option>
+    				<option value="`DCU Clinic`">DCU Clinic</option>
+    				<option value="`Mayo Clinic`">Mayo Clinic</option>
+    			</select>
+    		</div>
+    		<div class="pure-control-group query_div">
+    			<div class="query_title">WHERE </div>
+    			<label for="ppsn_query" id="query_label">PPSN:</label>
+    			<input type="text" id="ppsn_query">
+    		</div>
+    		<div class="pure-control-group query_div">
+    			<label for="dementia_q">Dementia</label>
+    			<input type="checkbox" id="dementia_q"> 
+    		</div>
+    		<div class="pure-control-group query_div">
+    			<label for="memory_q">Memory</label>
+    			<input type="checkbox" id="memory_q"> 
+    		</div>
+    		<div class="pure-control-group query_div">
+    			<label for="exercise_q">Exercise</label>
+    			<input type="checkbox" id="exercise_q"> 
+    		</div>
+    		<div class="pure-control-group query_div">
+    			<label for="diet_q">Diet</label>
+    			<input type="checkbox" id="diet_q">
+    		</div>
+    		<div class="pure-control-group query_div"> 
+    			<label for="sleep_q">Sleep</label>
+    			<input type="checkbox" id="sleep_q"> 
+    		</div>
+    		<div class="pure-control-group query_div">
+    			<label for="stress_q">Stress</label>
+    			<input type="checkbox" id="stress_q"> 
+    		</div>
+    		<input type="button" value="Submit Query" onclick="sendQuery()">
     	</div>
     	<input type="button" value="Test SQL" onclick="openQueryBox()">
+    	
+    	<div id="patientQueryDisplay">
+    		
+    	</div>
     </div>
     
     <div id="sign_out_div" class="main_div">

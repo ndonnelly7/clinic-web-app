@@ -347,8 +347,8 @@
 </form>
 <br><br>
 <div class="footer">
-	<a href="./patient_info.html">Previous Page</a>
-	<a href="./medical_form.html">Next Page</a>
+	<span onclick="spanClick('personal_details')">Previous Page</span>
+	<span onclick="spanClick('medical')">Next Page</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

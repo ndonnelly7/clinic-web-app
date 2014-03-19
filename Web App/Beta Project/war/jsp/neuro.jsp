@@ -300,8 +300,8 @@
 	<input type="submit" value="Submit"/>
 </form>
 <div class="footer">
-	<a href="./concerns_form.html">Previous Page</a>
-	<a href="./events_activities.html">Next Page</a>
+	<span onclick="spanClick('concerns')">Previous Page</span>
+	<span onclick="spanClick('events_activities')">Next Page</span>
 </div>
 <script>
 	var showingCollat = false;

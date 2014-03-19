@@ -13,18 +13,19 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="reset" key="selection"/>
+		<item value="showAllPatients" key="selection"/>
 		<list key="findhistory">
+			<item value="showAllPatients"/>
+			<item value="fillPatientInfo"/>
+			<item value="span"/>
 			<item value="RESET"/>
 			<item value="getClinicsList"/>
 			<item value="parent"/>
 			<item value="getParent"/>
 			<item value="lose_weight"/>
-			<item value="cake"/>
-			<item value="cakes"/>
-			<item value="Add Information"/>
 		</list>
 		<list key="replacehistory">
+			<item value="div"/>
 			<item value="PeerData"/>
 			<item value="patient_data_key"/>
 			<item value="AnonPatientData"/>
@@ -32,7 +33,6 @@
 			<item value="ml"/>
 			<item value="MovieList"/>
 			<item value="toAppend += "/>
-			<item value="email"/>
 		</list>
 	</section>
 </section>

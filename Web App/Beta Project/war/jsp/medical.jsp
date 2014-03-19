@@ -306,8 +306,8 @@
 </form>
 <br><br>
 <div class="footer">
-	<a href="./history_form.html">Previous Page</a>
-	<a href="./concerns_form.html">Next Page</a>
+	<span onclick="spanClick('history')">Previous Page</span>
+	<span onclick="spanClick('concerns')">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

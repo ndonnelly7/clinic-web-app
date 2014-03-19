@@ -601,8 +601,8 @@
 </form>
 
 <div class="footer">
-	<a href="./neuro_history.html">Previous Page</a>
-	<a href="./living_form.html">Next Page</a>
+	<span onclick="spanClick('neuro')">Previous Page</span>
+	<span onclick="spanClick('living')">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

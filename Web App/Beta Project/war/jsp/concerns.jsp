@@ -386,8 +386,8 @@
 	<input type="submit" value="Submit"/>
 </form>
 <div class="footer">
-	<a href="./medical_form.html">Previous Page</a>
-	<a href="./neuro_history.html">Next Page</a>
+	<span onclick="spanClick('medical')">Previous Page</span>
+	<span onclick="spanClick('neuro')">Next Page</span>
 </div>
 
 <script>

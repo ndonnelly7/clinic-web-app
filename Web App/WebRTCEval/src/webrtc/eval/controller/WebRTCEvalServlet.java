@@ -167,9 +167,9 @@ public class WebRTCEvalServlet extends HttpServlet {
 				return parsePublicSelect(queryParts, client);
 			else if(queryParts[1].equalsIgnoreCase("Private"))
 				return parsePrivateSelect(queryParts,client);
-			else returnString = "Invalid SELECT option: " + queryParts[1];
+			else returnString = "ERROR Invalid SELECT option: " + queryParts[1];
 		} else {
-			returnString = "Invalid Query. Query must begin with 'SELECT'";
+			returnString = "ERROR Invalid Query. Query must begin with 'SELECT'";
 		}
 		return returnString;
 	}
@@ -200,7 +200,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 							}
 						}
 						if(!foundPatient){
-							returnString = "No patient found with ppsn: " + ppsn;
+							returnString = "ERROR No patient found with ppsn: " + ppsn;
 						}
 					} else if(selectParts[index].startsWith("ppsn")){
 						String[] ppsnArr = selectParts[index].split("=");
@@ -217,23 +217,23 @@ public class WebRTCEvalServlet extends HttpServlet {
 							}
 						}
 						if(!foundPatient){
-							returnString = "No patient found with ppsn: " + ppsn;
+							returnString = "ERROR No patient found with ppsn: " + ppsn;
 						}
 					} else {
 						boolean selectNotDone = true;
 						ArrayList<Patient> currentPatientList = getPatients();
 						for(; index < selectParts.length && selectNotDone; index++){
 							currentPatientList = applyFilter(selectParts[index], currentPatientList);
-							if(!(selectParts[index++].equalsIgnoreCase("AND"))){
+							if(index >= selectParts.length-1 || !(selectParts[++index].equalsIgnoreCase("AND"))){
 								selectNotDone = false;
 							}
 						}
 						Gson gson = new Gson();
-						String pats = gson.toJson(currentPatientList);
+						String pats = gson.toJson(getSimplePatientList(currentPatientList));
 						returnString = "Multiple:" + pats;
 					}
 				}else{
-					returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
+					returnString = "ERROR Incomplete Query, expecting WHERE: " + selectParts[index];
 				}
 				
 				
@@ -269,36 +269,37 @@ public class WebRTCEvalServlet extends HttpServlet {
 								boolean selectNotDone = true;
 								ArrayList<Patient> currentPatientList = applyClinicFilter(fromString, getPatients());
 								if(currentPatientList == null || currentPatientList.size() == 0){
-									returnString = "Clinic chosen has no patients: " + fromString;
+									returnString = "ERROR Clinic chosen has no patients: " + fromString;
 								} else {
 									for(; index < selectParts.length && selectNotDone; index++){
 										currentPatientList = applyFilter(selectParts[index], currentPatientList);
-										if(!(selectParts[index++].equalsIgnoreCase("AND"))){
+										index += 1;
+										if(index >= selectParts.length || (!(selectParts[index].equalsIgnoreCase("AND")))){
 											selectNotDone = false;
 										}
 									}
 									Gson gson = new Gson();
-									String pats = gson.toJson(currentPatientList);
+									String pats = gson.toJson(getSimplePatientList(currentPatientList));
 									returnString = "Multiple:" + pats;
 								}
 							}
 						}else{
-							returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
+							returnString = "ERROR Incomplete Query, expecting WHERE: " + selectParts[index];
 						}
 					} else {
-						returnString = "Table does not exist: " + fromString;
+						returnString = "ERROR Table does not exist: " + fromString;
 					}							
 					
 				}else {
-					returnString = "Invalid Table entry, missin '`': " + fromString;
+					returnString = "ERROR Invalid Table entry, missin '`': " + fromString;
 				}
 				
 			} else {
-				returnString = "Invalid Table in query. Syntax error at :" + selectParts[index];
+				returnString = "ERROR Invalid Table in query. Syntax error at :" + selectParts[index];
 			}
 			
 		}else {
-			returnString = "Invalid SELECT query. Syntax error at :" + selectParts[2];
+			returnString = "ERROR Invalid SELECT query. Syntax error at :" + selectParts[2];
 		}
 		
 		return returnString;
@@ -330,7 +331,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 							}
 						}
 						if(!foundPatient){
-							returnString = "No patient found with ppsn: " + ppsn;
+							returnString = "ERROR No patient found with ppsn: " + ppsn;
 						}
 					} else if(selectParts[index].startsWith("ppsn")){
 						String[] ppsnArr = selectParts[index].split("=");
@@ -347,10 +348,10 @@ public class WebRTCEvalServlet extends HttpServlet {
 							}
 						}
 						if(!foundPatient){
-							returnString = "No patient found with ppsn: " + ppsn;
+							returnString = "ERROR No patient found with ppsn: " + ppsn;
 						}
 					} else {
-						returnString = "Expected ppsn for SELECT query from Private table: " + selectParts[index].length();
+						returnString = "ERROR Expected ppsn for SELECT query from Private table: " + selectParts[index].length();
 					}
 				}
 			} else if(selectParts[index].startsWith("`")){
@@ -382,24 +383,24 @@ public class WebRTCEvalServlet extends HttpServlet {
 								String ppsn = ppsnArr[ppsnArr.length-1].substring(1,ppsnArr[ppsnArr.length-1].length()-1);
 								returnString = retrievePatient(ppsn,fromString,client);
 							} else {
-								returnString = "Expected ppsn for SELECT query from Private table: " + selectParts[index].length();
+								returnString = "ERROR Expected ppsn for SELECT query from Private table: " + selectParts[index].length();
 							}
 						}else{
-							returnString = "Incomplete Query, expecting WHERE: " + selectParts[index];
+							returnString = "ERROR Incomplete Query, expecting WHERE: " + selectParts[index];
 						}
 					} else {
-						returnString = "Table does not exist: " + fromString;
+						returnString = "ERROR Table does not exist: " + fromString;
 					}							
 					
 				}else {
-					returnString = "Invalid Table entry, missin '`': " + fromString;
+					returnString = "ERROR Invalid Table entry, missin '`': " + fromString;
 				}
 				
 			} else {
-				returnString = "Invalid Table in query. Syntax error at :" + selectParts[index];
+				returnString = "ERROR Invalid Table in query. Syntax error at :" + selectParts[index];
 			}
 		}else {
-			returnString = "Invalid SELECT query";
+			returnString = "ERROR Invalid SELECT query";
 		}
 		
 		return returnString;
@@ -411,7 +412,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 	//Returns a new array of patients with the filter applied
 	public ArrayList<Patient> applyFilter(String filter, ArrayList<Patient> patients){
 		ArrayList<Patient> newList = new ArrayList<Patient>();
-		if(filter.startsWith("`Dementia`")){
+		if(filter.startsWith("`DEMENTIA`")){
 			if(filter.endsWith("TRUE")){
 				for(int i = 0; i < patients.size(); i++){
 					Patient p = patients.get(i);
@@ -425,7 +426,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 						newList.add(p);
 				}
 			}
-		} else if(filter.startsWith("`Memory`")){
+		} else if(filter.startsWith("`MEMORY`")){
 			if(filter.endsWith("TRUE")){
 				for(int i = 0; i < patients.size(); i++){
 					Patient p = patients.get(i);
@@ -439,7 +440,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 						newList.add(p);
 				}
 			}
-		} else if(filter.startsWith("`Alcohol`")){
+		} else if(filter.startsWith("`ALCOHOL`")){
 			if(filter.endsWith("TRUE")){
 				for(int i = 0; i < patients.size(); i++){
 					Patient p = patients.get(i);
@@ -453,7 +454,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 						newList.add(p);
 				}
 			}
-		} else if(filter.startsWith("`Stress`")){
+		} else if(filter.startsWith("`STRESS`")){
 			if(filter.endsWith("TRUE")){
 				for(int i = 0; i < patients.size(); i++){
 					Patient p = patients.get(i);
@@ -467,7 +468,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 						newList.add(p);
 				}
 			}
-		} else if(filter.startsWith("`Sleep`")){
+		} else if(filter.startsWith("`SLEEP`")){
 			if(filter.endsWith("TRUE")){
 				for(int i = 0; i < patients.size(); i++){
 					Patient p = patients.get(i);
@@ -481,7 +482,7 @@ public class WebRTCEvalServlet extends HttpServlet {
 						newList.add(p);
 				}
 			}
-		} else if(filter.startsWith("`Diet`")){
+		} else if(filter.startsWith("`DIET`")){
 			if(filter.endsWith("TRUE")){
 				for(int i = 0; i < patients.size(); i++){
 					Patient p = patients.get(i);
@@ -514,6 +515,16 @@ public class WebRTCEvalServlet extends HttpServlet {
 		}
 		
 		return newList;
+	}
+	
+	public SimplePatient[] getSimplePatientList(ArrayList<Patient> patients){
+		SimplePatient[] simples = new SimplePatient[patients.size()];
+		
+		for(int i = 0; i < patients.size(); i++){
+			simples[i] = (new SimplePatient(patients.get(i)));
+		}
+		
+		return simples;
 	}
 	
 	public void UpdatePatientList(String clinic, String client, String keys){

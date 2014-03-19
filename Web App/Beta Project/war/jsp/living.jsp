@@ -1691,8 +1691,8 @@
 	</fieldset>
 </form>
 <div class="footer">
-	<a href="./events_activities.html">Previous Page</a>
-	<a href="./lifestyle.html">Next Page</a>
+	<span onclick="spanClick('events_activities')">Previous Page</span>
+	<span onclick="spanClick('lifestyle')">Next Page</span>
 </div>
 <script src="/js/living.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

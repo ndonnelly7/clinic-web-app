@@ -36,3 +36,20 @@ form {
 .main_div {
 	margin-top: 12px;
 }
+
+.query_div {
+	margin-left: 2%;
+}
+
+.query_div select {
+	margin-left: 1%;
+}
+
+.query_div #query_label {
+	width: 4em;
+}
+
+.query_div .query_title {
+	display: inline-block;
+	width: 90px;
+}

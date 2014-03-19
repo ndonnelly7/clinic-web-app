@@ -374,6 +374,105 @@ function openQueryBox(){
 }
 
 function sendQuery(){
+	request = "SELECT ";
+	request += $("#selectSelect").val();
+	request += " FROM ";
+	request += $("#selectFrom").val();
+	request += " WHERE ";
+	if($("#ppsn_query").val() != ""){
+		request += "ppsn='" + $("#ppsn_query").val() + "'";
+	} else {
+		prevEntered = false;
+		if($("#dementia_q").prop("checked")){
+			request += "`DEMENTIA`=" + "TRUE";
+			prevEntered = true;
+		}
+		if($("#memory_q").prop("checked")){
+			if(prevEntered)
+				request += " AND ";
+			request += "`MEMORY`=" + "TRUE";
+			prevEntered = true;
+		}
+		if($("#exercise_q").prop("checked")){
+			if(prevEntered)
+				request += " AND ";
+			request += "`EXERCISE`=" + "TRUE";
+			prevEntered = true;
+		}
+		if($("#diet_q").prop("checked")){
+			if(prevEntered)
+				request += " AND ";
+			request += "`DIET`=" + "TRUE";
+			prevEntered = true;
+		}
+		if($("#sleep_q").prop("checked")){
+			if(prevEntered)
+				request += " AND ";
+			request += "`SLEEP`=" + "TRUE";
+			prevEntered = true;
+		}
+		if($("#stress_q").prop("checked")){
+			if(prevEntered)
+				request += " AND ";
+			request += "`STRESS`=" + "TRUE";
+		}
+	}
+	$("#infotext").append("<div>Sending SQL query "+request+"</div>");
+	$("#patientQueryDisplay").html("");
+	$.ajax('/webrtceval.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"SQLRequest",
+			query:request
+		},
+		success:function(response) {
+			parseQueryResponse(response);
+		}
+	});
+}
+
+function parseQueryResponse(resp){
+	if(resp.indexOf("ERROR") == 0){
+		$("#infotext").append("<div>"+resp+"</div>");
+	} else if(resp.indexOf("Multiple:") == 0){
+		//var arrString = resp.substring(("Multiple:").length);
+		var arr = JSON.parse(resp.substring(("Multiple:").length));
+		console.log(arr);
+		for(var i = 0; i < arr.length; i++){
+			showQueryPatient(arr[i]);
+		}
+	} else if(resp.indexOf("Single:")==0){
+		$("#infotext").append("<div>Received single patient: "+resp+"</div>");
+		var p = JSON.parse(resp.substring(("Single:").length));
+		console.log(p)
+		showQueryPatient(p);
+	} else {
+		$("#infotext").append("<div>Received private patient: "+resp+"</div>");
+		var p = JSON.parse(resp);
+		console.log(p);
+		shoqQueryPatient(p);
+	}
+}
+
+function showQueryPatient(p){
+	var toAppend = "<div class='patient_info' id='patient_"+p.ppsn+"' style='background-color:"+color[colorIndex]+"'>";
+	toAppend += "<span>PPSN: " + p.ppsn + " </span><br>";
+	toAppend += "<span>Dementia: " + p.dementia + " </span><br>";
+	toAppend += "<span>Memory: " + p.memory + " </span><br>";
+	toAppend += "<span>Alcohol: " + p.alcohol + " </span><br>";
+	toAppend += "<span>Stress: " + p.stress + " </span><br>";
+	toAppend += "<span>Diet: " + p.diet + " </span><br>";
+	toAppend += "<span>Sleep: " + p.sleep + " </span><br>";
+	toAppend += ("<input type='button' value='More Info' onclick='getMoreInfoOnQuery(this)' id='button_"+p.ppsn+"'><br>");
+	toAppend += ("</div>");
+	
+	$("#patientQueryDisplay").append(toAppend);
+	
+	colorIndex =  colorIndex == 0 ? 1 : 0; 
+}
+
+function getMoreInfoOnQuery(div){
 	
 }
 

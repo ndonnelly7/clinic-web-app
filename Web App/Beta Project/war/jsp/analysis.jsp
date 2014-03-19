@@ -141,7 +141,7 @@
 	</fieldset>
 </form>
 <div class="footer">
-	<a href="./memory_test.html">Previous Page</a>
+	<span onclick="spanClick('memory_test')">Previous Page</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
