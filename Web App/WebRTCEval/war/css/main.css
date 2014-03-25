@@ -53,3 +53,12 @@ form {
 	display: inline-block;
 	width: 90px;
 }
+
+.query_div .sql_style {
+	margin-left: 1%;
+}
+
+#query_box {
+	margin-top: 4px;
+	margin-bottom: 8px;
+}

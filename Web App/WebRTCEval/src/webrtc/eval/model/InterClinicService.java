@@ -53,7 +53,7 @@ public class InterClinicService {
 		ArrayList<Client> clients = c.getClients();
 		for(int i = 0; i < clients.size(); i++){
 			Client cl = clients.get(i);
-			if(cl.isOnline() && !cl.isPatientPresent(patient.getClinicID())){
+			if(cl.isOnline() && !cl.isPatientPresent(patient.getClinicID()) && !patient.getClinicians().contains(cl.getcID())){
 				service.sendMessage(new ChannelMessage(Long.toString(cl.getcID().getId()),
 						"SENDREQUEST:"+patient.getPpsn()+":"));
 			}

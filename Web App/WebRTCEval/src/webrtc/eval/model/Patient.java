@@ -1,7 +1,6 @@
 package webrtc.eval.model;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -24,21 +23,34 @@ public class Patient {
 	private Key clinicID;
 	
 	public boolean stress, memory, alcohol, diet, sleep, dementia;
+	public String stress_cause;
+	public int weight, alcoPoints, sleep_hours, mem_score;
 	
-	public Patient(String ppsn, Client addingClient, Key clinic) {
+	public Patient(String ppsn, Client addingClient, Key clinic, String weight,
+			String alcoPoints, String stressCause, String sleepHours, String mem, String dementiaString) {
 		super();
 		this.ppsn = ppsn;
 		clinicians = new ArrayList<Key>();
 		clinicians.add(addingClient.getcID());
 		
 		this.clinicID = clinic;
-		Random r = new Random(System.currentTimeMillis());
-		stress = r.nextInt(10)%2==0;
-		memory = r.nextInt(10)%2==0;
-		alcohol = r.nextInt(10)%2==0;
-		diet = r.nextInt(10)%2==0;
-		sleep = r.nextInt(10)%2==0;
-		dementia = r.nextInt(10)%2==0;
+		
+		stress_cause = stressCause;
+		stress = !(stress_cause.equalsIgnoreCase("on"));
+		
+		mem_score = Integer.parseInt(mem);
+		memory = (mem_score < 50);
+		
+		this.alcoPoints = Integer.parseInt(alcoPoints);
+		alcohol = (this.alcoPoints > 16);
+		
+		this.weight = Integer.parseInt(weight);
+		diet = (this.weight > 90 || this.weight < 50);
+		
+		this.sleep_hours = Integer.parseInt(sleepHours);
+		sleep = (sleep_hours > 12 || sleep_hours < 5);
+		
+		this.dementia = dementiaString.equalsIgnoreCase("on");
 	}
 
 	public ArrayList<Key> getClinicians() {

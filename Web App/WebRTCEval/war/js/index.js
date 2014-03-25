@@ -1,19 +1,9 @@
 $(document).ready(function() {
-	$.ajax('/webrtceval.do', {
-		method:'GET',
-		dataType:'text',
-		data: {
-			type:"ClinicsList"
-		},
-		success:function(response) {
-			$("#infotext").append("<div>Response from ClinicsList Request: </div>");
-			$("#infotext").append("<div>"+response+"</div>");
-			var arr = $.parseJSON(response);
-			arr.map( function(item){
-				$("#clinic_list").append('<option value=' + item + '>' + item + '</option>');
-			});
-		}
-	}); 
+	 
+	$("#clinic_list").append('<option value="DCU">DCU Clinic</option>');
+	$("#clinic_list").append('<option value="Mayo">Mayo Clinic</option>');
+	$("#clinic_list").append('<option value="Waterford">Waterford Clinic</option>');
+	$("#clinic_list").append('<option value="Kerry">Kerry Clinic</option>');
 });
   
 function newClinicChosen(){

@@ -2,9 +2,9 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="538" key="DIALOG_Y_ORIGIN"/>
+		<item value="398" key="DIALOG_Y_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="725" key="DIALOG_X_ORIGIN"/>
+		<item value="1012" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="showAllPatients" key="selection"/>
+		<item value="SENDREQUEST" key="selection"/>
 		<list key="findhistory">
-			<item value="showAllPatients"/>
-			<item value="fillPatientInfo"/>
-			<item value="span"/>
-			<item value="RESET"/>
-			<item value="getClinicsList"/>
-			<item value="parent"/>
-			<item value="getParent"/>
-			<item value="lose_weight"/>
+			<item value="SENDREQUEST"/>
+			<item value="RETRIEVE"/>
+			<item value="addPatient"/>
+			<item value="PatientRetrieval"/>
+			<item value="retrieve"/>
+			<item value="See Patients"/>
+			<item value="openQuery"/>
+			<item value="open"/>
 		</list>
 		<list key="replacehistory">
 			<item value="div"/>

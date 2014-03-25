@@ -1,5 +1,5 @@
 var username, clinicname, channelToken;
-var showingPatients = false;
+var showingPatients = false, showingQuery = false;
 $(document).ready(function() {
 	username = $('#name_div').html();
 	clinicname = $('#clinic_div').html();
@@ -206,12 +206,24 @@ function addPatientDetails() {
 	var patAddress = $("#pat_address").val();
 	var pat_ppsn = $("#pat_ppsn").val();
 	var pat_number = $("#pat_number").val();
+	var pat_weight = $("#weight").val();
+	var alcohol_points = $("#alcohol_points").val();
+	var stress_cause = $("#stress_cause").val();
+	var sleep_hours = $("#sleep_hours").val();
+	var mem_score = $("#mem_score").val();
+	var dementia = $("#dementia_val").val();
 	
 	$("#infotext").append("<span>Details to be added: </span><br>");
 	$("#infotext").append("<span>Name: " + patName + "</span><br>");
 	$("#infotext").append("<span>Address: " + patAddress + "</span><br>");
 	$("#infotext").append("<span>PPSN: " + pat_ppsn + "</span><br>");
 	$("#infotext").append("<span>Number: " + pat_number + "</span><br>");
+	$("#infotext").append("<span>Name: " + pat_weight + "</span><br>");
+	$("#infotext").append("<span>Address: " + alcohol_points + "</span><br>");
+	$("#infotext").append("<span>PPSN: " + stress_cause + "</span><br>");
+	$("#infotext").append("<span>Number: " + sleep_hours + "</span><br>");
+	$("#infotext").append("<span>PPSN: " + mem_score + "</span><br>");
+	$("#infotext").append("<span>Dementia: " + dementia + "</span><br>");
 	
 	$("#patDetailsButton").val("Add Patient");
 	$("#add_patient").slideUp(500);
@@ -226,7 +238,13 @@ function addPatientDetails() {
 			type:"AddPatient",
 			ppsn:pat_ppsn,
 			client:username,
-			clinic:clinicname
+			clinic:clinicname,
+			weight:pat_weight,
+			points:alcohol_points,
+			stress:stress_cause,
+			sleep:sleep_hours,
+			memory:mem_score,
+			dementia:dementia
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
@@ -258,10 +276,15 @@ function addMoreInfo(pID, json){
 	$("#button_" + pID).remove();
 	
 	var toAppend = "<span>Stress: " + json["stress"] + " </span><br>";
+	toAppend += "<span>Cause of Stress: " + json["stress_cause"] + " </span><br>";
 	toAppend += "<span>Memory Problems: " + json["memory"] + " </span><br>";
+	toAppend += "<span>Memory Test Score: " + json["mem_score"] + " </span><br>";
 	toAppend += "<span>Alcohol: " + json["alcohol"] + " </span><br>";
+	toAppend += "<span>Points per week: " + json["alcoPoints"] + " </span><br>";
 	toAppend += "<span>Diet: " + json["diet"] + " </span><br>";
+	toAppend += "<span>Weight: " + json["weight"] + " </span><br>";
 	toAppend += "<span>Sleep: " + json["sleep"] + " </span><br>";
+	toAppend += "<span>Sleep Hours: " + json["sleep_hours"] + " </span><br>";
 	toAppend += "<span>Dementia: " + json["dementia"] + " </span><br>";
 	
 	$("#patient_" + pID).append(toAppend);
@@ -336,6 +359,13 @@ function AddMultiPatient(index,limit){
 		var pat_ppsn = getPPSN();
 		var pat_number = getPhoneNumber();
 		
+		var weight = getWeight();
+		var alcohol_points = getAlcoPoints();
+		var stress = getStress();
+		var sleep_hours = getHours();
+		var mem_score = getMemory();
+		var dementia = getDementia();
+		
 		var pat = new Patient(patName, patAddress, pat_ppsn, pat_number, pat_ppsn);
 		addPatientToDB(pat);
 		
@@ -346,7 +376,13 @@ function AddMultiPatient(index,limit){
 				type:"AddPatient",
 				ppsn:pat_ppsn,
 				client:username,
-				clinic:clinicname
+				clinic:clinicname,
+				weight:weight,
+				points:alcohol_points,
+				stress:stress,
+				sleep:sleep_hours,
+				memory:mem_score,
+				dementia:dementia
 			},
 			success:function(response) {
 				$("#infotext").append("<div>"+response+"</div>");
@@ -370,7 +406,15 @@ function getTimeString(){
 }
 
 function openQueryBox(){
-	$("#query_box").show();
+	if(!showingQuery){
+		$("#query_box").show();
+		$("#sql_button").prop("value","Close Query");
+		showingQuery = true;
+	} else {
+		$("#query_box").hide();
+		$("#sql_button").prop("value","Open Query");
+		showingQuery = false;
+	}
 }
 
 function sendQuery(){
@@ -383,38 +427,105 @@ function sendQuery(){
 		request += "ppsn='" + $("#ppsn_query").val() + "'";
 	} else {
 		prevEntered = false;
-		if($("#dementia_q").prop("checked")){
-			request += "`DEMENTIA`=" + "TRUE";
+		//DEMENTIA
+		if($("#dementia_q").val() != ("irrelevant")){
+			if($("#dementia_q").val() == "yes") {
+				request += "`DEMENTIA`=" + "TRUE";
+			} else if($("#dementia_q").val() == "no") {
+				request += "`DEMENTIA`=" + "FALSE";
+			}
 			prevEntered = true;
 		}
-		if($("#memory_q").prop("checked")){
+		
+		//MEMORY
+		if($("#memory_q").val() != ("irrelevant")){
 			if(prevEntered)
 				request += " AND ";
-			request += "`MEMORY`=" + "TRUE";
+			if($("#memory_q").val() == "yes")
+				request += "`MEMORY`=" + "TRUE";
+			else if($("#memory_q").val() == "no")
+				request += "`MEMORY`=" + "FALSE";
+			
 			prevEntered = true;
 		}
-		if($("#exercise_q").prop("checked")){
+		if($("#memory_s").val() != ""){
 			if(prevEntered)
 				request += " AND ";
-			request += "`EXERCISE`=" + "TRUE";
+			request += "`SCORE`" + getQueryOperator($("#memory_s_select").val())
+				+ $("#memory_s").val();
 			prevEntered = true;
 		}
+		
+		//ALCOHOL
+		if($("#alcohol_q").prop("checked")){
+			if(prevEntered)
+				request += " AND ";
+			if($("#alcohol_q").val() == "yes")
+				request += "`ALCOHOL`=" + "TRUE";
+			else if($("#memory_q").val() == "no")
+				request += "`ALCOHOL`=" + "FALSE";
+			
+			prevEntered = true;
+		}
+		if($("#alcohol_p").val() != ""){
+			if(prevEntered)
+				request += " AND ";
+			request += "`POINTS`" + getQueryOperator($("#alcohol_p_select").val())
+				+ $("#alcohol_p").val();
+			prevEntered = true;
+		}
+		
+		//DIET
 		if($("#diet_q").prop("checked")){
 			if(prevEntered)
 				request += " AND ";
-			request += "`DIET`=" + "TRUE";
+			if($("#diet_q").val() == "yes")
+				request += "`DIET`=" + "TRUE";
+			else if($("#alcohol_q").val() == "no")
+				request += "`DIET`=" + "FALSE";
+			
 			prevEntered = true;
 		}
+		if($("#weight_kg").val() != ""){
+			if(prevEntered)
+				request += " AND ";
+			request += "`WEIGHT`" + getQueryOperator($("#weight_kg_select").val())
+				+ $("#weight_kg").val();
+			prevEntered = true;
+		}
+		
+		//SLEEP
 		if($("#sleep_q").prop("checked")){
 			if(prevEntered)
 				request += " AND ";
-			request += "`SLEEP`=" + "TRUE";
+			if($("#sleep_q").val() == "yes")
+				request += "`SLEEP`=" + "TRUE";
+			else if($("#sleep_q").val() == "no")
+				request += "`SLEEP`=" + "FALSE";
 			prevEntered = true;
 		}
+		if($("#sleep_h").val() != ""){
+			if(prevEntered)
+				request += " AND ";
+			request += "`HOURS`" + getQueryOperator($("#sleep_h_select").val())
+				+ $("#sleep_h").val();
+			prevEntered = true;
+		}
+		
+		//STRESS
 		if($("#stress_q").prop("checked")){
 			if(prevEntered)
 				request += " AND ";
-			request += "`STRESS`=" + "TRUE";
+			if($("#sleep_q").val() == "yes")
+				request += "`STRESS`=" + "TRUE";
+			else if($("#sleep_q").val() == "no")
+				request += "`STRESS`=" + "FALSE";
+		}
+		if($("#stress_c").val() != ""){
+			if(prevEntered)
+				request += " AND ";
+			request += "`CAUSE`=" + $("#stress_c").val();
+			prevEntered = true;
 		}
 	}
 	$("#infotext").append("<div>Sending SQL query "+request+"</div>");
@@ -432,11 +543,26 @@ function sendQuery(){
 	});
 }
 
+function getQueryOperator(op){
+	switch(op){
+	case "gte":
+		return ">";
+		break;
+	case "lte":
+		return "<";
+		break;
+	case "eq":
+		return "=";
+		break;
+	default:
+		$("#infotext").append("<div>Error in operator: Received '" + op + "'</div>");
+	}
+}
+
 function parseQueryResponse(resp){
 	if(resp.indexOf("ERROR") == 0){
 		$("#infotext").append("<div>"+resp+"</div>");
 	} else if(resp.indexOf("Multiple:") == 0){
-		//var arrString = resp.substring(("Multiple:").length);
 		var arr = JSON.parse(resp.substring(("Multiple:").length));
 		console.log(arr);
 		for(var i = 0; i < arr.length; i++){
@@ -460,10 +586,15 @@ function showQueryPatient(p){
 	toAppend += "<span>PPSN: " + p.ppsn + " </span><br>";
 	toAppend += "<span>Dementia: " + p.dementia + " </span><br>";
 	toAppend += "<span>Memory: " + p.memory + " </span><br>";
+	toAppend += "<span>Memory Score:" + p.mem_score + "</span><br>"
 	toAppend += "<span>Alcohol: " + p.alcohol + " </span><br>";
+	toAppend += "<span>Alcohol Points: " + p.alcoPoints + "</span><br>";
 	toAppend += "<span>Stress: " + p.stress + " </span><br>";
+	toAppend += "<span>Stress Cause: " + p.stress_cause + " </span><br>";
 	toAppend += "<span>Diet: " + p.diet + " </span><br>";
+	toAppend += "<span>Weight: " + p.weight + " </span><br>";
 	toAppend += "<span>Sleep: " + p.sleep + " </span><br>";
+	toAppend += "<span>Sleep Hours: " + p.sleep_hours + " </span><br>";
 	toAppend += ("<input type='button' value='More Info' onclick='getMoreInfoOnQuery(this)' id='button_"+p.ppsn+"'><br>");
 	toAppend += ("</div>");
 	

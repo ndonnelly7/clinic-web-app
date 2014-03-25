@@ -25,4 +25,6 @@
 <fullyQualifiedTypeName name="java.util.logging.Logger"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="webrtc.eval.model.AnonPatientData"/>
+<fullyQualifiedTypeName name="webrtc.eval.model.ClientInterface"/>
+<fullyQualifiedTypeName name="webrtc.eval.model.QueryLanguage"/>
 </qualifiedTypeNameHistroy>
