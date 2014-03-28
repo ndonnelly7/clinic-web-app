@@ -20,9 +20,24 @@ public class QueryLanguage {
 			else if(queryParts[1].equalsIgnoreCase("Private"))
 				return parsePrivateSelect(queryParts,client);
 			else returnString = "ERROR Invalid SELECT option: " + queryParts[1];
-		} else {
+		} else if(queryParts[0].equalsIgnoreCase("UPDATE")){
+			parseUpdateQuery(query);
+		}
+		else {
 			returnString = "ERROR Invalid Query. Query must begin with 'SELECT'";
 		}
+		return returnString;
+	}
+	
+	public String parseUpdateQuery(String query){
+		String returnString = "";
+		
+		int setIndex = query.indexOf("SET");
+		int whereIndex = query.indexOf("WHERE");
+		int ppsnIndex = query.indexOf("PPSN=");
+		String ppsn = query.substring(ppsnIndex+5, query.length()-1);
+		returnString = ppsn;
+		
 		return returnString;
 	}
 	

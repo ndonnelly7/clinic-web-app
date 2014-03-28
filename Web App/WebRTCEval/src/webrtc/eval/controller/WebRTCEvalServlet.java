@@ -136,6 +136,12 @@ public class WebRTCEvalServlet extends HttpServlet {
 			resp.setContentType("text/plain");
 			resp.getWriter().println("UPDATED");
 			break;
+		case "UpdatePatient":
+			
+			break;
+		case "DeletePatient":
+			
+			break;
 		case "SQLRequest":
 			System.out.println("Received Query: ");
 			String query = req.getParameter("query");

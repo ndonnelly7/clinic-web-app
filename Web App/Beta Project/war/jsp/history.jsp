@@ -146,7 +146,7 @@
 								<option value="vitamins">Vitamins</option>
 								<option value="thyroxine">Thyroxine</option>
 								<option value="hrt">HRT</option>
-								<option value="vallium">Vallium</option>
+								<option value="valium">Valium</option>
 								<option value="parkinsons">Anti-Parkinsonian Drugs</option>
 								<option value="inhalers">Inhalers</option>
 								<option value="nebulisers">Nebulisers</option>
@@ -174,7 +174,7 @@
 					<br>
 				</div>
 			</div>
-			<input type="button" onclick="addNewOption(1)" class="pure-button history_button" value="Add History" value="Add more">
+			<input type="button" onclick="addNewOption(1)" class="pure-button history_button" value="Add Medicine" value="Add more">
 			<div class="collat_div history_collat">
 				<div id="drug_collat_adds" class="hide_div">
 					<div class="title">Are they currently taking any medicine?</div>
