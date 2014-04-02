@@ -230,8 +230,12 @@
 					<div class="pure-u-1-3 lifestyle_subtitle" id="subtitle_margin_change">What medication?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="sleep_meds">
-							<option value="med_one">Sleep Med 1</option>
-							<option value="med_two">Sleep Med 2</option>
+							<option value="none">Sleep Medicine</option>
+							<option value="zimovane">Zimovane</option>
+							<option value="stilnoct">Stilnoct</option>
+							<option value="zopiclone">Zopiclone</option>
+							<option value="zolpidem">Zolpidem</option>
+							<option value="other">Other</option>
 						</select>
 					</div>
 					<div class="pure-u-1-3 notes_column">
