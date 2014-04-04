@@ -17,6 +17,7 @@ html, body, #googft-mapCanvas {
   font-size: 12px;
   margin: 5px;
   padding: 10px 10px 8px;
+  width: 16%;
 }
 #googft-legend p {
   font-weight: bold;
@@ -109,7 +110,7 @@ html, body, #googft-mapCanvas {
       heatmap: { enabled: false },
       query: {
         select: "col2\x3e\x3e1",
-        from: "16mZGcKRf8UpuiLib0bPbXgrsiXaAzfO5GeE96Nhg",
+        from: "1mSanyFrD7NwhO92TWV-mELxuBEZudZxYFUBmPB80",
         where: ""
       },
       options: {
@@ -143,37 +144,37 @@ html, body, #googft-mapCanvas {
 <body>
   <div id="googft-mapCanvas"></div>
   <input id="googft-legend-open" style="display:none" type="button" value="Legend"></input>
-  <div id="googft-legend">
-    <p id="googft-legend-title">Fitness Level</p>
+  <div id="googft-legend" style="z-index: 0; position: absolute; bottom: 26px; left: 0px;">
+    <p id="googft-legend-title">Performance</p>
     <div>
-      <span class="googft-legend-swatch" style="background-color: #f4cccc"></span>
-      <span class="googft-legend-range">0 to 5</span>
+      <span class="googft-legend-swatch" style="background-color: #c27ba0"></span>
+      <span class="googft-legend-range">5 to 15</span>
     </div>
     <div>
-      <span class="googft-legend-swatch" style="background-color: #ea9999"></span>
-      <span class="googft-legend-range">5 to 10</span>
+      <span class="googft-legend-swatch" style="background-color: #e69138"></span>
+      <span class="googft-legend-range">15 to 30</span>
     </div>
     <div>
-      <span class="googft-legend-swatch" style="background-color: #e06666"></span>
-      <span class="googft-legend-range">10 to 20</span>
+      <span class="googft-legend-swatch" style="background-color: #6aa84f"></span>
+      <span class="googft-legend-range">30 to 35</span>
     </div>
     <div>
-      <span class="googft-legend-swatch" style="background-color: #cc0000"></span>
-      <span class="googft-legend-range">20 to 30</span>
+      <span class="googft-legend-swatch" style="background-color: #3d85c6"></span>
+      <span class="googft-legend-range">35 to 40</span>
     </div>
     <div>
-      <span class="googft-legend-swatch" style="background-color: #990000"></span>
-      <span class="googft-legend-range">30 to 40</span>
-    </div>
-    <div>
-      <span class="googft-legend-swatch" style="background-color: #660000"></span>
+      <span class="googft-legend-swatch" style="background-color: #674ea7"></span>
       <span class="googft-legend-range">40 to 50</span>
     </div>
     <div>
-      <span class="googft-legend-swatch" style="background-color: #ff0000"></span>
+      <span class="googft-legend-swatch" style="background-color: #ffff00"></span>
       <span class="googft-legend-range">50 to 60</span>
     </div>
-    <input id="googft-legend-close" style="display:none" type="button" value="Hide"></input>
+    <div>
+      <span class="googft-legend-swatch" style="background-color: #ff0000"></span>
+      <span class="googft-legend-range">60 to 70</span>
+    </div>
+    <input id="googft-legend-close" style="display:none" type="button" value="Hide">
   </div>
 </body>
 </html>

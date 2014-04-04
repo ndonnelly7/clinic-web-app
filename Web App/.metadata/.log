@@ -6293,3 +6293,168 @@ Binding(CTRL+SHIFT+ARROW_DOWN,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.wst.jsdt.ui.javaEditorScope,,,system)
+!SESSION 2014-04-03 12:36:00.541 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_10
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IE
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-04-03 12:38:13.131
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jst.jsp.core 4 4 2014-04-03 12:39:02.909
+!MESSAGE A workspace crash was detected. The previous session did not exit normally. Not using saved taglib indexes.
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2014-04-03 12:39:17.813
+!MESSAGE Registering: com.google.appengine.eclipse.sdkbundle_1.9.1
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-03 12:39:24.665
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-03 12:39:24.671
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Neil'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2014-04-03 12:39:31.506
+!MESSAGE Error while tracking project-level changes from a change in R/
+!STACK 1
+Java Model Exception: Java Model Status [Unbound classpath container: 'App Engine SDK [invalid]' in project 'Alpha Project']
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2008)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.isResourceInAnOutputPath(ProjectChangeTimestampTracker.java:121)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.visitDelta(ProjectChangeTimestampTracker.java:162)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.visitDelta(ProjectChangeTimestampTracker.java:169)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.resourceChanged(ProjectChangeTimestampTracker.java:181)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:396)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1531)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2354)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5332)
+	at com.google.gdt.eclipse.core.sdk.ClasspathContainerUpdateJob.run(ClasspathContainerUpdateJob.java:94)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.jdt.core 4 963 2014-04-03 12:39:31.620
+!MESSAGE Unbound classpath container: 'App Engine SDK [invalid]' in project 'Alpha Project'
+
+!ENTRY com.google.appengine.eclipse.core 4 0 2014-04-03 12:40:18.158
+!MESSAGE Unable to get appengine bridge.
+
+!ENTRY com.google.appengine.eclipse.core 4 0 2014-04-03 12:40:28.747
+!MESSAGE Unable to get appengine bridge.
+
+!ENTRY com.google.gdt.eclipse.drive 1 0 2014-04-03 13:30:58.729
+!MESSAGE DriveLoginListener invoked to report login
+
+!ENTRY com.google.appengine.eclipse.core 4 0 2014-04-03 13:31:11.121
+!MESSAGE The App Id you selected, avpart-fus-test, does not exist. Go to http://cloud.google.com/console to view existing App Ids or create a new App Id.
+
+!STACK 0
+com.google.appengine.tools.admin.AdminException: Unable to update app: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=avpart-fus-test&version=1&
+404 Not Found
+This application does not exist (app_id=u'avpart-fus-test').
+
+	at com.google.appengine.tools.admin.AppAdminImpl.doUpdate(AppAdminImpl.java:451)
+	at com.google.appengine.tools.admin.AppAdminImpl.update(AppAdminImpl.java:55)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.deploy(AppEngineBridgeImpl.java:433)
+	at com.google.appengine.eclipse.core.deploy.DeployProjectJob.runInWorkspace(DeployProjectJob.java:158)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: com.google.appengine.tools.admin.HttpIoException: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=avpart-fus-test&version=1&
+404 Not Found
+This application does not exist (app_id=u'avpart-fus-test').
+
+	at com.google.appengine.tools.admin.AbstractServerConnection.send1(AbstractServerConnection.java:293)
+	at com.google.appengine.tools.admin.AbstractServerConnection.send(AbstractServerConnection.java:253)
+	at com.google.appengine.tools.admin.AbstractServerConnection.post(AbstractServerConnection.java:232)
+	at com.google.appengine.tools.admin.AppVersionUpload.send(AppVersionUpload.java:973)
+	at com.google.appengine.tools.admin.AppVersionUpload.beginTransaction(AppVersionUpload.java:645)
+	at com.google.appengine.tools.admin.AppVersionUpload.doUpload(AppVersionUpload.java:147)
+	at com.google.appengine.tools.admin.AppAdminImpl.doUpdate(AppAdminImpl.java:445)
+	... 5 more
+
+!ENTRY com.google.gdt.eclipse.drive 1 0 2014-04-03 13:32:01.651
+!MESSAGE DriveLoginListener invoked to report logout
+
+!ENTRY com.google.gdt.eclipse.drive 1 0 2014-04-03 13:32:48.307
+!MESSAGE DriveLoginListener invoked to report login
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 13:33:27.432
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 13:33:27.578
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 13:33:27.636
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 13:46:04.206
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 13:46:04.277
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 13:46:04.337
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 14:57:39.957
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 14:57:40.024
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 14:57:40.068
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 15:35:13.730
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:35:13.798
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:35:13.868
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 15:41:29.635
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:41:29.711
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:41:29.751
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 15:42:33.389
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:42:33.460
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:42:33.514
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2014-04-03 15:43:16.654
+!MESSAGE BleepTest successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:43:16.722
+!MESSAGE Analytics ping request parameters: v=1&t=event&el=id%3D1380274935099%26ev%3D3.8.101.v20130717-0806%26v%3Dcom.google.gdt.eclipse.suite.e43.feature_3.5.1.v201312301723-rel-r43%26gaev%3D1.9.1%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB%26isGoogleCloudSqlUsed%3Dfalse%26isSignedIn%3Dtrue&cd1=org.eclipse.epp.package.jee.product&cd2=6A8EA419EAFE2EC9B5A0E73C365BB16294228EFB&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1&ea=DEPLOY_GAE&cid=1380274935099&ec=com.google.gdt.eclipse.core
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2014-04-03 15:43:16.761
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  €ÿ ÿÿÿ   ,       D ;

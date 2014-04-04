@@ -14,7 +14,7 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="com.google.gdt.eclipse.suite.appengineClasspathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.google.appengine.tools.development.DevAppServerMain"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--port=8888 &quot;C:\Users\Neil\Development\GitHub\clinic-web-app\Web App\BleepTest\war&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--port=8888 &quot;C:\Users\Neil\Documents\GitHub\clinic-web-app\Web App\BleepTest\war&quot;"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="BleepTest"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx512m -javaagent:C:\Users\Neil\Development\eclipse\plugins\com.google.appengine.eclipse.sdkbundle_1.9.1\appengine-java-sdk-1.9.1\lib\agent\appengine-agent.jar"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-javaagent:C:\Users\Neil\Development\EclipseEE\eclipse\plugins\com.google.appengine.eclipse.sdkbundle_1.9.1\appengine-java-sdk-1.9.1\lib\agent\appengine-agent.jar -Xmx512m"/>
 </launchConfiguration>
