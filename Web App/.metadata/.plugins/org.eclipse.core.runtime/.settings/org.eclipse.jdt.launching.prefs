@@ -9,7 +9,8 @@ PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.Stand
 PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1394800602487.java.specification.version=1.7
 PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1395222635424.java.specification.version=1.7
 PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1396525291416.java.specification.version=1.7
+PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1396865318191.java.specification.version=1.7
 eclipse.preferences.version=1
 org.eclipse.jdt.launching.PREF_CONNECT_TIMEOUT=20000
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1396525291416" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1389190615367" name\="jre7" path\="C\:\\Program Files\\Java\\jre7"/>\r\n<vm id\="1396525291416" name\="jdk1.7.0_10" path\="C\:\\Program Files\\Java\\jdk1.7.0_10"/>\r\n</vmType>\r\n</vmSettings>\r\n
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1396865318191" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1389190615367" name\="jre7" path\="C\:\\Program Files\\Java\\jre7"/>\r\n<vm id\="1396865318191" name\="jdk1.7.0_45" path\="C\:\\Program Files\\Java\\jdk1.7.0_45"/>\r\n</vmType>\r\n</vmSettings>\r\n
 org.eclipse.jdt.launching.only_include_exported_classpath_entries=false

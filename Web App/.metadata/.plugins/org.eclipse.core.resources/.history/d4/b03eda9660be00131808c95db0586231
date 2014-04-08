@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+
+var PatientForm = new Object();
+
+function addPersonal(gp_county, county, relation) {
+	
+}

@@ -1,0 +1,5 @@
+/**
+ * 
+ */
+
+var PatientForm = new Object();

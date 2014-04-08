@@ -112,7 +112,7 @@ function showPatient(p){
 	
 	$("#patient_info").append(toAppend);
 	
-	colorIndex =  colorIndex == 0 ? 1 : 0; 
+	colorIndex = colorIndex == 0 ? 1 : 0; 
 }
 
 function showAllPatients(){

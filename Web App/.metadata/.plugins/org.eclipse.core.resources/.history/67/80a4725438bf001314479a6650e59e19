@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+#infotext {
+	background: #000000;
+	width: 35%;
+	color: #00ff00;
+	font-family: monospace;
+	float: right;
+	height: 350px;
+	overflow: scroll;
+	border: 4px inset #00ff00; 
+}
+
+.button {
+	margin-left: 3%;
+}
+
+#clear {
+	clear:both;
+}
