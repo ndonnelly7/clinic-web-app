@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+var pid = 0;
+
+$(document).ready(function() {
+	IDBInit();
+});
+
+$(function() {
+    $( "#pickdate" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:" + (new Date()).getFullYear(),
+      dateFormat: "dd/MM/yy"
+    });
+  });
+
+function AddPatient() {
+	var name = $("#name").val();
+	var dob = $("#pickdate").val();
+	
+	$("#infotext").append("<span>INFO: Adding patient with name: " + name + " and DOB: " + dob + " </span><br>");
+	pid = createPatient(name, dob);
+	$("#infotext").append("<span>INFO: Created ID: " + pid + "</span><br>");
+};
+
+function AddPatientNumber() {
+	var num = $("#number").val();
+	
+	$("#infotext").append("<span>INFO: Adding patient with pid: " + pid + " and number: " + number + " </span><br>");
+	addDetail(number, pid);
+};
+
+function AddPatientParam() {
+	var param = $("#param").val();
+	var val = $("#value").val();
+}

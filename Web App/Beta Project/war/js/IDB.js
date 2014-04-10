@@ -14,6 +14,20 @@ function Patient(name, address, number, email, gp_name, gp_address, p_id){
 	this.p_id = p_id;
 }
 
+function createID(name, dob){
+	var hash = 0;
+	var str = name + dob;
+	if(str.length == 0){
+		return hash;
+	}
+	for(var i = 0; i < str.length; i++){
+		char = str.charCodeAt(i);
+		hash = ((hash << 5) - hash) + char;
+		hash = hash & hash;
+	}
+	return Math.abs(hash);
+}
+
 function IDBInit() {
 	if(!window.indexedDB) {
 		console.log("IndexedDB not available");
@@ -98,7 +112,7 @@ function updatePatient(p_id, p){
 	}
 }
 
-function getPatient(p_id){
+function getPatient(p_id, callback){
 	var objectStore = db.transaction(["patients"], "readonly").objectStore("patients");
 	
 	var req = objectStore.get(p_id);
@@ -107,14 +121,13 @@ function getPatient(p_id){
 	}
 	
 	request.onsuccess = function(event) {
-		//Need to return patient
+		callback(request.result)
 	}
 	
-	return request.result;
 }
 
 function showPatient(p){
-	
+	console.log(p);
 }
 
 function removePatient(p_id){
@@ -154,18 +167,4 @@ function getArrayAsJSONString(arr) {
 		arrString+= arr[i] + ":";
 	}
 	return JSON.stringify(arrString);
-}
-
-function createID(name, dob){
-	var hash = 0;
-	var str = name + dob;
-	if(str == ""){
-		return hash;
-	}
-	for(var i = 0; i < str.length; i++){
-		var char = str.charAt(i);
-		hash = ((hash << 5) - hash) + char;
-		hash |= 0;
-	}
-	return hash;
 }

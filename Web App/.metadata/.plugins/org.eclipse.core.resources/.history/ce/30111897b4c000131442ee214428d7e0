@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+
+function initPatientForm(p_id) {
+	PatientForm['p_id'] = p_id;
+	if(db){
+		var tran = db.transaction(["form_data"], "readwrite");
+		
+		var store = transaction.objectStore("form_data");
+		
+		var pForm = {};
+		pForm['p_id'] = p_id;
+		var request = store.add(pForm);
+		request.onsucess = function(e){
+			console.log("Added Patient Form instance");
+		}
+		
+		request.onerror = function(e){
+			console.log(e.target.error.message);
+		}
+	}
+}
+
+function addPersonal(gp_county, county, relation, p_id) {
+	PatientForm['gp_county'] = gp_county;
+	PatientForm['county'] = county;
+	PatientForm['relation'] = relation;
+}
