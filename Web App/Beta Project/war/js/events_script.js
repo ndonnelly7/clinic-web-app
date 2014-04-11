@@ -107,6 +107,14 @@ function showCollatActivities() {
 	}
 };
 
+function revealDepression(){
+	if($("#feeling_down").val() == 'yes' || $("#no_interest").val() == 'yes'){
+		$("#dep_advanced").slideDown(500);
+	} else {
+		$("#dep_advanced").slideUp(500);
+	}
+}
+
 function revealSocial(elem) {
 	if(elem.value === "yes"){
 		$('#social_reveal').slideDown(1000);

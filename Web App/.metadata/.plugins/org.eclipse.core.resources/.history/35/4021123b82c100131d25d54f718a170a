@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+
+.pure-u-1 label {
+	width: 60%;
+}

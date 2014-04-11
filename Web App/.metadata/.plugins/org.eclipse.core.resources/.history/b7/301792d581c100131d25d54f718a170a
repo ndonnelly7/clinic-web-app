@@ -1,0 +1,188 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Memory Test</title>
+<link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
+<link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
+<link rel="stylesheet" href="/css/pure-min.css"/> 
+<link rel="stylesheet" href="/css/memory.css" type="text/css" />
+</head>
+<body>
+<h1>Please insert memory test in here</h1>
+<form id="test_form" action="form.do" method="GET">
+<div id="navbar"> 
+  <span onclick="spanClick('personal_details')">Patient Information</span>
+  <span onclick="spanClick('history')">Patient History</span>
+  <span onclick="spanClick('medical')">GP Information</span>
+  <span onclick="spanClick('concerns')">Patient Concerns</span>
+  <span onclick="spanClick('neuro')">Neuro History</span>
+  <span onclick="spanClick('events_activities')">Events and Activities</span>
+  <span onclick="spanClick('living')">Living Situation</span>
+  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="spanClick('memory_test')" class="current_page">Test Battery</span>
+  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  
+  <input type="hidden" id="text_form" name="page"/> 
+</div> 
+</form>
+
+<form id="memory_form" class="pure-form pure-form-stacked" method="POST" action="memory.do">
+<fieldset id="hads_form">
+	<legend>Hospital Anxiety and Depression Scale</legend>
+	<div class="pure-g-r">
+	<div class="pure-u-1">
+		<label for="wound_up">I feel tense or wound up:</label>
+		<select name="wound_up" id="wound_up">
+			<option value="3">Most of the time</option>
+			<option value="2">A lot of the time</option>
+			<option value="1">Occasionally</option>
+			<option value="0">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="enjoy">I still enjoy the things I used to:</label>
+		<select name="enjoy" id="enjoy">
+			<option value="0">Definitely as much</option>
+			<option value="1">Not quite so much</option>
+			<option value="2">Only a little</option>
+			<option value="3">Hardly at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="frightened">I get a sort of frightened feeling as if something awful is about to happen</label>
+		<select name="frightened" id="frightened">
+			<option value="3">Very definitely and quite badly</option>
+			<option value="2">Yes, but not too badly</option>
+			<option value="1">A little, but it doesn't worry me</option>
+			<option value="0">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="funny">I can laugh and see the funny side of things</label>
+		<select name="funny" id="funny">
+			<option value="0">As much as I always could</option>
+			<option value="1">Not quite so much now</option>
+			<option value="2">Definitely not so much now</option>
+			<option value="3">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="worry">Worrying thoughts go through my mind</label>
+		<select name="worry" id="worry">
+			<option value="3">A great deal of the time</option>
+			<option value="2">A lot of the time</option>
+			<option value="1">From time to time but not too often</option>
+			<option value="0">Only occasionally</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="cheerful">I feel cheerful</label>
+		<select name="cheerful" id="cheerful">
+			<option value="3">Not at all</option>
+			<option value="2">Not often</option>
+			<option value="1">Sometimes</option>
+			<option value="0">Most of the time</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="relaxed">I can sit at ease and feel relaxed</label>
+		<select name="relaxed" id="relaxed">
+			<option value="0">Definitely</option>
+			<option value="1">Usually</option>
+			<option value="2">Not often</option>
+			<option value="3">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="slowed">I feel as if I am slowed down</label>
+		<select name="slowed" id="slowed">
+			<option value="3">Nearly all the time</option>
+			<option value="2">Very often</option>
+			<option value="1">Sometimes</option>
+			<option value="0">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="butterflies">I get a sort of frightened feeling like 'butterflies' in the stomach</label>
+		<select name="butterflies" id="butterflies">
+			<option value="0">Not at all</option>
+			<option value="1">Occasionally</option>
+			<option value="2">Quite often</option>
+			<option value="3">Very often</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="appearance">I have lost interest in my appearance</label>
+		<select name="appearance" id="appearance">
+			<option value="3">Definitely</option>
+			<option value="2">I don't take so much care as I should</option>
+			<option value="1">I may not take quite as much care</option>
+			<option value="0">I take as much care as ever</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="restless">I feel restless as if I have to be on the move</label>
+		<select name="restless" id="restless">
+			<option value="3">Very much indeed</option>
+			<option value="2">Quite a lot</option>
+			<option value="1">Not very much</option>
+			<option value="0">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="enjoyment">I look forward with enjoyment to things</label>
+		<select name="enjoyment" id="enjoyment">
+			<option value="0">As much as I ever did</option>
+			<option value="1">Rather less than I used to</option>
+			<option value="2">Definitely less than I used to</option>
+			<option value="3">Hardly at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="panic">I get sudden feelings of panic</label>
+		<select name="panic" id="panic">
+			<option value="3">Very often indeed</option>
+			<option value="2">Quite often</option>
+			<option value="1">Not very often</option>
+			<option value="0">Not at all</option>
+		</select>
+	</div>
+	
+	<div class="pure-u-1">
+		<label for="wound_up">I can enjoy a good book or radio or TV programme</label>
+		<select name="wound_up" id="wound_up">
+			<option value="0">Often</option>
+			<option value="1">Sometimes</option>
+			<option value="2">Not often</option>
+			<option value="3">Very seldom</option>
+		</select>
+	</div>
+	</div>
+</fieldset>
+
+</form>
+
+<div class="footer">
+	<span onclick="spanClick('lifestyle')">Previous Page</span>
+	<span onclick="spanClick('analysis')">Next Page</span>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -17,6 +17,7 @@ $(document).ready(function() {
 	$('.want_informal_freq_hide').load("../reuse.html #informal_frequency").hide();
 	
 	collatAdd();
+	//initDB and initFormDB
 });
 
 function spanClick(page){

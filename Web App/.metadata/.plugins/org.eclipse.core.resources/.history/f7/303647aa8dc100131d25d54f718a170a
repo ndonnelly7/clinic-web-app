@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+
+function initMemory(){
+	//check for depression and age
+}
+
+function runHADSEvaluation(){
+	var result = 0;
+	var pass = true;
+	$(".hads_select").each(function() {
+		var v = $(this).val();
+		if(v == 'na'){
+			pass = false;
+			$(this).css({"border": '#FF0000 1px solid'});
+		} else {
+			result += parseInt(v);
+		}
+	});
+	
+	if(!pass){
+		alert("Please complete all entries for the HADS quoestionnaire");
+	} else {
+		$('#hads_result').val(result);
+	}
+}

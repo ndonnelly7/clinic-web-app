@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+
+function initMemory(){
+	//check for depression and age
+}
+
+function runHADSEvaluation(){
+	var answers = $(".h_select");
+	console.log(answers);
+	for(var i = 0; i < answers.length; i++){
+		console.log(answers[i]);
+	}
+}

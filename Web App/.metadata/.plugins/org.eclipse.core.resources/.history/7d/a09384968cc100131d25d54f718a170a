@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+
+function initMemory(){
+	//check for depression and age
+}
+
+function runHADSEvaluation(){
+	var result = 0;
+	$(".hads_select").each(function() {
+		console.log($(this).val());
+	})
+}
