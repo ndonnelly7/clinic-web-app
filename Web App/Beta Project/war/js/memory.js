@@ -23,6 +23,7 @@ function runHADSEvaluation(){
 	if(!pass){
 		alert("Please complete all entries for the HADS quoestionnaire");
 	} else {
+		$("#result_hads_div").show(500);
 		$('#hads_result').val(result);
 		if(result >= 21) {
 			$('#hads_result_text').text("Severe case of depression/anxiety");
@@ -40,11 +41,50 @@ function runHADSEvaluation(){
 	}
 }
 
+function runGDSEvaluation(){
+	var result = 0;
+	var pass = true;
+	$(".gds_select").each(function() {
+		var v = $(this).val();
+		if(v == 'na'){
+			pass = false;
+			$(this).css({"border": '#FF0000 1px solid'});
+		} else {
+			result += parseInt(v);
+			$(this).css({"border": '#129FC0 1px solid'});
+		}
+	});
+	
+	if(!pass){
+		alert("Please complete all entries for the GDS quoestionnaire");
+	} else {
+		$("#result_gds_div").show(500);
+		$('#gds_result').val(result);
+		if(result >= 6) {
+			$('#gds_result_text').text("Suggestion of depression");
+			$('#gds_result_text').css({"color":"red", "margin-left":"1%"});
+		} else {
+			$('#gds_result_text').text("No real signs of depression");
+			$('#gds_result_text').css({"color":"green", "margin-left":"1%"});
+		}
+	}
+}
+
 function updateBorder(elem){
 	
 	if($(elem).css("border-color") == "rgb(255, 0, 0)" && $(elem).val() != "na"){
 		$(elem).css({"border": ''});
 	} else if($(elem).val() == "na"){
 		$(elem).css({"border": '#FF0000 1px solid'});
+	}
+}
+
+function changeMOCAForm(x){
+	if(x == 'general'){
+		$("#moca_general").hide();
+		$("#moca_blind").show();
+	} else if(x == 'blind'){
+		$("#moca_general").show();
+		$("#moca_blind").hide();
 	}
 }

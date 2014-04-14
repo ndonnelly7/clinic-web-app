@@ -34,7 +34,7 @@
 		<legend>Personal</legend>
 		<div class="pure-control-group">
 		<label for="name">Name </label>
-		<input name="name" type="text">
+		<input name="name" type="text" id="name">
 		</div>
 		<div class="pure-control-group">
 		<label for="dob">Date of Birth </label>
@@ -42,7 +42,7 @@
 		</div>
 		<div class="pure-control-group">
 		<label for="age">Age </label>
-		<input name="age" type="text" size="1">
+		<input name="age" type="text" size="1" id="age">
 		</div>
 		<div class="pure-control-group">		
 		<label for="gender_m">Male</label>
@@ -58,21 +58,21 @@
 		<legend>Contact Details</legend>
 		<div class="pure-control-group">
 		<label for="address">Address </label>
-		<textarea name="address" rows="4" form="personal_form"></textarea>
+		<textarea name="address" rows="4" form="personal_form" id="address"></textarea>
 		</div>
 		<div class="pure-control-group want_counties">
 		</div>
 		<div class="pure-control-group">
 		<label for="home_tel">Home Telephone Number </label>
-		<input name="home_tel" type="text">
+		<input name="home_tel" type="text" id="home_number">
 		</div>
 		<div class="pure-control-group">
 		<label for="mob_number">Mobile Phone Number </label>
-		<input name="mob_number" type="text">
+		<input name="mob_number" type="text" id="mob_number">
 		</div>
 		<div class="pure-control-group">
 		<label for="email">Email </label>
-		<input name="email" type="email">
+		<input name="email" type="email" id="email">
 		</div>
 	</fieldset>
 	<br><br>
@@ -112,11 +112,11 @@
 		<legend>GP Details</legend>
 		<div class="pure-control-group">
 		<label for="gp_name">GP Name</label>
-		<input type="text" name="gp_name">
+		<input type="text" name="gp_name" id="gp_name">
 		</div>
 		<div class="pure-control-group">
 		<label for="gp_address">GP Address</label>
-		<textarea name="gp_address" rows="4" form="personal_form"></textarea>
+		<textarea name="gp_address" rows="4" form="personal_form" id="gp_address"></textarea>
 		</div>
 		<div class="pure-control-group want_counties">
 		</div>
@@ -130,7 +130,7 @@
 		</div>
 		<div class="pure-control-group hide_div" id="family_pres_div">
 			<label for="who_present">Relation</label>
-			<select name="who_present">
+			<select name="who_present" id="collat_present">
 				<option value="partner">Partner</option>
 				<option value="child">Child</option>
 				<option value="sibling">Sibling</option>
@@ -148,11 +148,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
 <script>
 
 $(document).ready(function() {
 	$('#collat_check').prop("checked", checkCollateral());
 	$('#family_pres_div').show();
+	
+	
 });
 
 $(function() {
@@ -176,6 +180,36 @@ function storeCollateral(elem) {
 	} else {
 		console.log("No session storage :(")
 	}
+}
+
+function nextPage(page) {
+	var name = $("#name").val();
+	var address = $("#address").val();
+	var home_number = $("#home_number").val();
+	var mob_number = $("#mob_number").val();
+	var email = $("#email").val();
+	var gp_name = $("#gp_name").val();
+	var gp_address = $("#gp_address").val();
+	var dob = $("#pickdate").val();
+	
+	var p_id = createPatientAndAddToDB(name, address, home_number, mob_number, email, gp_name, gp_address, dob);
+	console.log("Patient ID created: " + p_id);
+	
+	if(typeOf(Storage) !== "undefined")){
+			sessionStorage.pID = p_id;
+	}
+		
+	initPatientForm(p_id);
+	getPatientForm(p_id, printPForm);
+	
+	var gp_county = $("#county")[1].val();
+	var county = $("#county")[0].val();
+	var collat = $("#collat_check").val() == 'on' ? true : false;
+	var relation = collat ? $("#collat_present").val() : 'na';
+	
+	addPersonal(gp_county, county, collat, relation, p_id);
+	
+	spanClick(page);
 }
 </script>
 </body>

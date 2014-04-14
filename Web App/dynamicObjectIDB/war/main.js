@@ -48,3 +48,10 @@ function AddPatientParam() {
 function showPat(){
 	showP(pid);
 }
+
+function checkIDThing(){
+	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text").val() + "</span><br>");
+	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text[0]").val() + "</span><br>");
+	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text[1]").val() + "</span><br>");
+	console.log($(".input_text"));
+}

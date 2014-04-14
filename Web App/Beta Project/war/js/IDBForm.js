@@ -36,7 +36,7 @@ function getPatientForm(p_id, callback){
 	}
 }
 
-function addPersonal(gp_county, county, relation, p_id) {
+function addPersonal(gp_county, county, collatPresent, relation, p_id) {
 	if(db) {
 		var tran = db.transaction(["form_data"],"readwrite");
 		var store = tran.objectStore("form_data");
@@ -46,6 +46,7 @@ function addPersonal(gp_county, county, relation, p_id) {
 			var pForm = request.result;
 			pForm['gp_county'] = gp_county;
 			pForm['county'] = county;
+			pForm['collatPresent'] = collatPresent;
 			pForm['relation'] = relation;
 			
 			var update = store.put(pForm);
@@ -61,12 +62,13 @@ function addPersonal(gp_county, county, relation, p_id) {
 	}
 }
 
-function addHistory(p_id, 
+/*function addHistory(p_id, 
 		drugs, psych, 
 		therapy, past_therapy,
 		collat_drugs,
 		collat_psych, collat_therapy,
-		collat_past_therapy){
+		collat_past_therapy){*/
+function addHistory(p_id, history)
 	
 	if(db){
 		var tran = db.transaction(["form_data"], "readwrite");
@@ -75,6 +77,7 @@ function addHistory(p_id,
 		
 		req.onsuccess = function(e) {
 			var pForm = req.result;
+			/*
 			pForm['drugs'] = drugs;
 			pForm['psychiatric'] = psych;
 			pForm['therapy'] = therapy;
@@ -83,7 +86,8 @@ function addHistory(p_id,
 			pForm['collat_psychiatric'] = collat_psych;
 			pForm['collat_therapy'] = collat_therapy;
 			pForm['collat_past_therapy'] = collat_past_therapy;
-			
+			*/
+			pForm['history'] = history;
 			var update = store.put(pForm);
 			
 			update.onsuccess = function(e){
@@ -97,8 +101,9 @@ function addHistory(p_id,
 	}
 }
 
-function addGPInfo(p_id, total_cholest, LDL, HDL, 
-		Systolic, Diastolic, Thyroid, B12, Iron, Calc, Sod, Weight){
+/*function addGPInfo(p_id, total_cholest, LDL, HDL, 
+		Systolic, Diastolic, Thyroid, B12, Iron, Calc, Sod, Weight){*/
+function addGPInfo(p_id, gp_info){
 	
 	if(db){
 		var tran = db.transaction(["form_data"], "readwrite");
@@ -107,7 +112,7 @@ function addGPInfo(p_id, total_cholest, LDL, HDL,
 		
 		req.onsuccess = function(e) {
 			var pForm = req.result;
-			pForm['total_cholesterol'] = total_cholest;
+			/*pForm['total_cholesterol'] = total_cholest;
 			pForm['ldl'] = LDL;
 			pForm['hdl'] = HDL;
 			pForm['systolic'] = Systolic;
@@ -117,7 +122,8 @@ function addGPInfo(p_id, total_cholest, LDL, HDL,
 			pForm['iron'] = Iron;
 			pForm['calcium'] = Calc;
 			pForm['sodium'] = Sod;
-			pForm['weight'] = Weight;
+			pForm['weight'] = Weight;*/
+			pForm['gp_info'] = gp_info;
 			
 			var update = store.put(pForm);
 			
@@ -183,7 +189,88 @@ function addConcerns(p_id, neuro, neuro_collat) {
 	}
 }
 
+function addEventsActivities(p_id, EventsActivities) {
+	if(db){
+		var tran = db.transaction(["form_data"], "readwrite");
+		var store = tran.objectStore("form_data");
+		var req = store.get(p_id);
+		
+		req.onsuccess = function(e) {
+			var pForm = req.result;
+			pForm['events_activities'] = EventsActivities;
+			var update = store.put(pForm);
+			update.onsuccess = function(e){
+				console.log("Patient Updated Successfully");
+			}
+			
+			update.onerror = function(e) {
+				console.error("Something went wrong, patient wasn't updated correctly: " + e.target.error.message);
+			}
+		}
+	}
+}
 
+function addLiving(p_id, living, living_collat) {
+	if(db) {
+		var tran = db.transaction(["form_data"], "readwrite");
+		var store = tran.objectStore("form_data");
+		var req = store.get(p_id);
+		
+		req.onsuccess = function(e) {
+			var pForm = req.result;
+			pForm['living'] = living;
+			pForm['living_collat'] = living_collat;
+			
+			update.onsuccess = function(e){
+				console.log("Patient updated successfully");
+			}
+			
+			update.onerror = function(e) {
+				console.error("Something went wrong, patient wsan't updated correctly: " + e.target.error.message);
+			}
+		}
+	}
+}
 
+function addLifestyle(p_id, lifestyle, lifestyle_collat) {
+	if(db) {
+		var tran = db.transaction(["form_data"], "readwrite");
+		var store = tran.objectStore("form_data");
+		var req = store.get(p_id);
+		
+		req.onsuccess = function(e) {
+			var pForm = req.result;
+			pForm['lifestyle'] = lifestyle;
+			pForm['lifestyle_collat'] = lifestyle_collat;
+			
+			update.onsuccess = function(e){
+				console.log("Patient updated successfully");
+			}
+			
+			update.onerror = function(e) {
+				console.error("Something went wrong, patient wsan't updated correctly: " + e.target.error.message);
+			}
+		}
+	}
+}
 
-
+function addBattery(p_id, battery) {
+	if(db) {
+		var tran = db.transaction(["form_data"], "readwrite");
+		var store = tran.objectStore("form_data");
+		var req = store.get(p_id);
+		
+		req.onsuccess = function(e) {
+			var pForm = req.result;
+			pForm['battery'] = battery;
+			
+			update.onsuccess = function(e){
+				console.log("Patient updated successfully");
+			}
+			
+			update.onerror = function(e) {
+				console.error("Something went wrong, patient wsan't updated correctly: " + e.target.error.message);
+			}
+		}
+	}
+}

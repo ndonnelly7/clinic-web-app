@@ -1,9 +1,0 @@
-/**
- * 
- */
-
-var PatientForm = {};
-
-function addPersonal(gp_county, county, relation) {
-	PatientForm.gp_county = gp_county
-}

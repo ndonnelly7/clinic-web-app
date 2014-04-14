@@ -18,12 +18,17 @@ $(document).ready(function() {
 	
 	collatAdd();
 	//initDB and initFormDB
+	IDBInit();
 });
 
 function spanClick(page){
 	$('#text_form').val(page);
 	$('#test_form').submit();
 };
+
+function printPForm(p){
+	console.log(p);
+}
 
 function collatAdd(){
 	var collat = checkCollateral();

@@ -5,7 +5,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Events Activities</title>
-<!--  <link rel="stylesheet" href="/css/jquery-ui.css" type="text/css"/> -->
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
 <link rel="stylesheet" href="/css/events_activities.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  

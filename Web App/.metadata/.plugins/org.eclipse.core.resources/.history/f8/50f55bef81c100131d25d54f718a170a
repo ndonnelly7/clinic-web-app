@@ -1,5 +1,0 @@
-@CHARSET "ISO-8859-1";
-
-#hads_form label {
-	width: 30%;
-}

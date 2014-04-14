@@ -4,10 +4,12 @@
 
 var db;
 
-function Patient(name, address, number, email, gp_name, gp_address, p_id){
+function Patient(name, address, dob, home_number, mob_number, email, gp_name, gp_address, p_id){
 	this.name = name;
 	this.address = address;
-	this.number = number;
+	this.dob = dob;
+	this.home_number = home_number;
+	this.mob_number = mob_number;
 	this.email = email;
 	this.gp_name = gp_name;
 	this.gp_address = gp_address;
@@ -90,9 +92,11 @@ function addPatientToDB(p){
 	}
 }
 
-function createPatientAndAddToDB(name, address, number, email, gp_name, gp_address, dob){
-	var p = new Patient(name, address, number, email, gp_name, gp_address, createID(name, dob));
+function createPatientAndAddToDB(name, address, home_number, mob_number, email, gp_name, gp_address, dob){
+	var p_id = createID(name, dob);
+	var p = new Patient(name, address, dob, home_number, mob_number, email, gp_name, gp_address, p_id);
 	addPatientToDB(p);
+	return p_id;
 }
 
 function updatePatient(p_id, p){
