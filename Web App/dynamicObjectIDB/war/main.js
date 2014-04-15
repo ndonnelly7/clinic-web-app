@@ -50,8 +50,9 @@ function showPat(){
 }
 
 function checkIDThing(){
+	var i = 0;
 	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text").val() + "</span><br>");
-	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text[0]").val() + "</span><br>");
-	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text[1]").val() + "</span><br>");
-	console.log($(".input_text"));
+	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text:eq("+i+")").val() + "</span><br>");
+	$("#infotext").append("<span>INFO: Created ID: " + $(".input_text:eq(1)").val() + "</span><br>");
+	console.log($(".input_text").size());
 }

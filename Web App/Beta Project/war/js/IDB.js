@@ -36,7 +36,7 @@ function IDBInit() {
 		return;
 	}
 	
-	openRequest = indexedDB.open("clinicDB",1);
+	openRequest = indexedDB.open("clinic_cloud",1);
 	
 	openRequest.onupgradeneeded = function(e){
 		db = e.target.result;
@@ -44,15 +44,20 @@ function IDBInit() {
 		if(!db.objectStoreNames.contains("patients")) {
 			var store = db.createObjectStore("patients", {keyPath: "p_id"});
 			store.createIndex("name", "name", {unique:false});
+			console.log("Created Object Store: Patients");
 		}
 		
 		if(!db.objectStoreNames.contains("form_data")) {
 			var store = db.createObjectStore("form_data", {keyPath: "p_id"});
+			console.log("Created Object Store: Form Data");
 		}
+		
+		console.log("Initing IndexedDB");
 	}
 	
 	openRequest.onsuccess = function(e) {
 		db = e.target.result;
+		console.log("Request successful");
 	}
 	
 	openRequest.onerror = function(e) {
@@ -81,7 +86,8 @@ function addPatientToDB(p){
 		var transaction = db.transaction(["patients"],"readwrite");
 		
 		transaction.onerror = function(e){
-			console.error("Error adding patient to database: " + e.target.result);
+			console.log("Error with transaction: ");
+			console.log(e.target.error);
 		}
 		
 		var store = transaction.objectStore("patients");
@@ -149,7 +155,7 @@ function removePatient(p_id){
 
 function getPatientKeys(){
 	if(db){
-		var store = db.transaction(["patients"]),objectStore("patients");
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
 		var keys = new Array();
 		var i = 0;
 		store.openCursor().onsuccess = function(event) {

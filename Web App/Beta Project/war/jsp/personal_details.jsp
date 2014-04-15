@@ -140,9 +140,10 @@
 	</fieldset>
 	<br><br>
 	<input type="submit" value="Submit"/>
+	<input type="button" value="Clear" onclick="clearObjectStore()"/>
 </form>
 <div class="footer">
-	<span onclick="spanClick('history')">Next Page</span>
+	<span onclick="nextPage('history')">Next Page</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -195,15 +196,15 @@ function nextPage(page) {
 	var p_id = createPatientAndAddToDB(name, address, home_number, mob_number, email, gp_name, gp_address, dob);
 	console.log("Patient ID created: " + p_id);
 	
-	if(typeOf(Storage) !== "undefined")){
-			sessionStorage.pID = p_id;
+	if(typeof(Storage) !== "undefined"){
+		sessionStorage.pID = p_id;
 	}
 		
 	initPatientForm(p_id);
 	getPatientForm(p_id, printPForm);
 	
-	var gp_county = $("#county")[1].val();
-	var county = $("#county")[0].val();
+	var gp_county = $(".county:eq(1)").val();
+	var county = $(".county:eq(0)").val();
 	var collat = $("#collat_check").val() == 'on' ? true : false;
 	var relation = collat ? $("#collat_present").val() : 'na';
 	

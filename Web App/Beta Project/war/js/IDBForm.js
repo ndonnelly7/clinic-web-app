@@ -3,11 +3,10 @@
  */
 
 function initPatientForm(p_id) {
-	PatientForm['p_id'] = p_id;
 	if(db){
 		var tran = db.transaction(["form_data"], "readwrite");
 		
-		var store = transaction.objectStore("form_data");
+		var store = tran.objectStore("form_data");
 		
 		var pForm = {};
 		pForm['p_id'] = p_id;
@@ -26,11 +25,12 @@ function getPatientForm(p_id, callback){
 	var objectStore = db.transaction(["form_data"], "readonly").objectStore("form_data");
 	
 	var req = objectStore.get(p_id);
-	request.onerror = function(e){
-		console.error("Couldn't find patient with id: " + p_id);
+	req.onerror = function(e){
+		console.log("Couldn't find patient with id: " + p_id);
+		console.log(e.target.error)
 	}
 	
-	request.onsuccess = function(e){
+	req.onsuccess = function(e){
 		//Return patient with callback
 		callback(req.result)
 	}
@@ -68,7 +68,7 @@ function addPersonal(gp_county, county, collatPresent, relation, p_id) {
 		collat_drugs,
 		collat_psych, collat_therapy,
 		collat_past_therapy){*/
-function addHistory(p_id, history)
+function addHistory(p_id, history) {
 	
 	if(db){
 		var tran = db.transaction(["form_data"], "readwrite");
