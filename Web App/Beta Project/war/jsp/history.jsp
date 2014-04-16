@@ -132,7 +132,7 @@
 				<div id="drug_row">
 					<div class="pure-g-u">
 						<div class="pure-u-1-3 select_box" style="max-width:150px">
-							<select name="drug_histories" onchange="DrugChoice(this)">
+							<select name="drug_histories" onchange="DrugChoice(this)" class="drug_select">
 								<option value="none_selected">--Medicine--</option>
 								<option value="statin">Statins</option>
 								<option value="antihypertensive">Antihypertensive Medication</option>
@@ -154,7 +154,7 @@
 							</select>
 						</div>
 						<div class="pure-u-1-3 select_box" style="max-width:150px;display:none" id="sleeping_med_div">
-							<select name="sleeping_drug">
+							<select name="sleeping_drug" id="sleeping_drug">
 								<option value="none_selected">--Sleeping Medicine--</option>
 								<option value="zimovane">Zimovane</option>
 								<option value="stilnoct">Stilnoct</option>
@@ -164,7 +164,7 @@
 							</select>
 						</div>
 						<div class="pure-u-1-3 select_box" style="max-width:150px;display:none" id="benzo_med_div">
-							<select name="benzo_drug" disabled>
+							<select name="benzo_drug" id="benzo_drug" disabled>
 								<option value="none_selected">--Benzodiazepine Medicine--</option>
 								<option value="nortem">Nortem</option>
 								<option value="mogadon">Mogadon</option>
@@ -184,7 +184,7 @@
 						</div>
 						<div class="pure-u-1-3 pure-control-group" style="margin-top:10px;">
 							<label for="drug_time">How long have you been taking it?</label>
-							<select name="drug_time">
+							<select name="drug_time" class="drug_time">
 								<option value="no_time">--Choose Time--</option>
 								<option value="one_week">Week</option>
 								<option value="two_week">Fortnight</option>
@@ -209,7 +209,7 @@
 					<div id="drug_collat_row">
 						<div class="pure-g-u">
 							<div class="pure-u-1-3 select_box" style="max-width:150px">
-								<select name="drug_collat_histories" onchange="DrugChoice(this)">
+								<select name="drug_collat_histories" onchange="DrugChoice(this)" class="collat_drug_select">
 									<option value="none_selected">--Medicine--</option>
 									<option value="statin">Statins</option>
 									<option value="antihypertensive">Antihypertensive Medication</option>
@@ -232,7 +232,7 @@
 								</select>
 							</div>
 							<div class="pure-u-1-3 select_box" style="max-width:150px;display:none" id="sleeping_med_div">
-								<select name="sleeping_collat_drug">
+								<select name="sleeping_collat_drug" id="collat_sleeping_drug">
 									<option value="none_selected">--Sleeping Medicine--</option>
 									<option value="zimovane">Zimovane</option>
 									<option value="stilnoct">Stilnoct</option>
@@ -242,7 +242,7 @@
 								</select>
 							</div>
 							<div class="pure-u-1-3 select_box" style="max-width:150px;display:none" id="benzo_med_div">
-								<select name="benzo_collat_drug" disabled>
+								<select name="benzo_collat_drug" id="collat_benzo_drug" disabled>
 									<option value="none_selected">--Benzodiazepine Medicine--</option>
 									<option value="nortem">Nortem</option>
 									<option value="mogadon">Mogadon</option>
@@ -262,7 +262,7 @@
 							</div>
 							<div class="pure-u-1-3 pure-control-group" style="margin-top:10px;">
 								<label for="drug_collat_time">How long have they been taking it?</label>
-								<select name="drug_collat_time">
+								<select name="drug_collat_time" class="collat_drug_time">
 									<option value="no_time">--Choose Time--</option>
 									<option value="one_week">Week</option>
 									<option value="two_week">Fortnight</option>
@@ -293,7 +293,7 @@
 				<div id="psych_row">
 					<div class="pure-g-u">
 						<div class="pure-u-1-3 select_box"  style="max-width:150px">
-							<select name="psych_histories">
+							<select name="psych_histories" class="psych_select">
 								<option value="none_selected">--Condition--</option>
 								<option value="depression">Depression</option>
 								<option value="anxiety">Anxiety</option>
@@ -306,7 +306,7 @@
 						</div>
 						<div class="pure-u-1-3 pure-control-group" style="margin-top:10px;">
 							<label for="psych_time">How long ago where you diagnosed?</label>
-							<select name="psych_time">
+							<select name="psych_time" class="psych_time">
 								<option value="no_time">--Choose Time--</option>
 								<option value="one_week">Week</option>
 								<option value="two_week">Fortnight</option>
@@ -331,7 +331,7 @@
 					<div id="psych_collat_row">
 						<div class="pure-g-u">
 							<div class="pure-u-1-3 select_box"  style="max-width:150px">
-								<select name="psych_collat_histories">
+								<select name="psych_collat_histories" class="collat_psych_select">
 									<option value="none_selected">--Condition--</option>
 									<option value="depression">Depression</option>
 									<option value="anxiety">Anxiety</option>
@@ -344,7 +344,7 @@
 							</div>
 							<div class="pure-u-1-3 pure-control-group" style="margin-top:10px;">
 								<label for="psych_collat_time">How long ago where they diagnosed?</label>
-								<select name="psych_collat_time">
+								<select name="psych_collat_time" class="collat_psych_time">
 									<option value="no_time">--Choose Time--</option>
 									<option value="one_week">Week</option>
 									<option value="two_week">Fortnight</option>
@@ -404,8 +404,8 @@
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="spanClick('personal_details')">Previous Page</span>
-	<span onclick="spanClick('medical')">Next Page</span>
+	<span onclick="nextPage('personal_details')">Previous Page</span>
+	<span onclick="nextPage('medical')">Next Page</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -505,6 +505,77 @@
 			child2.hide();
 			child2.children('select').prop("disabled",true);
 		}
+	}
+	
+	function nextPage(page) {
+		
+		var history = {};
+		var drugsArr = new Array();
+		var psychArr = new Array();
+		
+		for(var ind = 0; ind < $(".drug_select").size(); ind++){
+			var drug = {};
+			drug['drug'] = $(".drug_select:eq("+ind+")").val();
+			drug['time'] = $(".drug_time:eq("+ind+")").val();
+			if(drug['drug']=='sleeping'){
+				drug['sleep_med'] = $("#sleeping_drug").val();
+			} else if(drug['drug'] == 'benzo'){
+				drug['benzo_med'] = $("#benzo_drug").val();
+			}
+			
+			drugsArr[ind] = drug;
+		}
+		
+		for(var ind = 0; ind < $(".psych_select").size(); ind++){
+			var psych = {};
+			psych['psych'] = $(".psych_select:eq("+ind+")").val();
+			psych['time'] = $(".psych_time:eq("+ind+")").val();
+			
+			psychArr[ind] = drug;
+		}
+		
+		history['drugs'] = drugsArr;
+		history['psych'] = psychArr;
+		
+		var p_id;
+		var collat;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+			collat = sessionStorage.collat;
+		}
+		
+		if(collat){
+			var drugsC = new Array();
+			var psychC = new Array();
+			for(var ind = 0; ind < $(".collat_drug_select").size(); ind++){
+				var drug = {};
+				drug['drug'] = $(".collat_drug_select:eq("+ind+")").val();
+				drug['time'] = $(".collat_drug_time:eq("+ind+")").val();
+				if(drug['drug']=='sleeping'){
+					drug['sleep_med'] = $("#collat_sleeping_drug").val();
+				} else if(drug['drug'] == 'benzo'){
+					drug['benzo_med'] = $("#collat_benzo_drug").val();
+				}
+				
+				drugsC[ind] = drug;
+			}
+			
+			for(var ind = 0; ind < $(".collat_psych_select").size(); ind++){
+				var psych = {};
+				psych['psych'] = $(".collat_psych_select:eq("+ind+")").val();
+				psych['time'] = $(".collat_psych_time:eq("+ind+")").val();
+				
+				psychC[ind] = drug;
+			}
+			
+			history['DrugsCollat'] = drugsC;
+			history['PsychCollat'] = psychC;
+		}
+		
+		addHistory(p_id, history);
+		
+		//Submit
+		//spanClick(page);
 	}
 </script>
 </body>

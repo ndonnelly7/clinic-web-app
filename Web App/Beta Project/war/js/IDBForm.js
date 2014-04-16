@@ -43,6 +43,7 @@ function addPersonal(gp_county, county, collatPresent, relation, p_id) {
 		var request = store.get(p_id);
 		
 		request.onsuccess = function(e){
+			console.log("Request successful");
 			var pForm = request.result;
 			pForm['gp_county'] = gp_county;
 			pForm['county'] = county;
@@ -59,15 +60,14 @@ function addPersonal(gp_county, county, collatPresent, relation, p_id) {
 				console.error("Something went wrong, patient wasn't updated correctly: " + e.target.error.message);
 			}
 		}
+		
+		request.onerror = function(e){
+			console.error("Request failed");
+			console.log(e.target.error);
+		}
 	}
 }
 
-/*function addHistory(p_id, 
-		drugs, psych, 
-		therapy, past_therapy,
-		collat_drugs,
-		collat_psych, collat_therapy,
-		collat_past_therapy){*/
 function addHistory(p_id, history) {
 	
 	if(db){
@@ -77,16 +77,6 @@ function addHistory(p_id, history) {
 		
 		req.onsuccess = function(e) {
 			var pForm = req.result;
-			/*
-			pForm['drugs'] = drugs;
-			pForm['psychiatric'] = psych;
-			pForm['therapy'] = therapy;
-			pForm['past_therapy'] = past_therapy;
-			pForm['collat_drugs'] = collat_drugs;
-			pForm['collat_psychiatric'] = collat_psych;
-			pForm['collat_therapy'] = collat_therapy;
-			pForm['collat_past_therapy'] = collat_past_therapy;
-			*/
 			pForm['history'] = history;
 			var update = store.put(pForm);
 			
@@ -101,8 +91,6 @@ function addHistory(p_id, history) {
 	}
 }
 
-/*function addGPInfo(p_id, total_cholest, LDL, HDL, 
-		Systolic, Diastolic, Thyroid, B12, Iron, Calc, Sod, Weight){*/
 function addGPInfo(p_id, gp_info){
 	
 	if(db){
@@ -112,17 +100,6 @@ function addGPInfo(p_id, gp_info){
 		
 		req.onsuccess = function(e) {
 			var pForm = req.result;
-			/*pForm['total_cholesterol'] = total_cholest;
-			pForm['ldl'] = LDL;
-			pForm['hdl'] = HDL;
-			pForm['systolic'] = Systolic;
-			pForm['diastolic'] = Diastolic;
-			pForm['thyroid'] = Thyroid;
-			pForm['b12'] = B12;
-			pForm['iron'] = Iron;
-			pForm['calcium'] = Calc;
-			pForm['sodium'] = Sod;
-			pForm['weight'] = Weight;*/
 			pForm['gp_info'] = gp_info;
 			
 			var update = store.put(pForm);

@@ -40,7 +40,7 @@ function IDBInit() {
 	
 	openRequest.onupgradeneeded = function(e){
 		db = e.target.result;
-		
+		console.log("Update needed for IndexedDB");
 		if(!db.objectStoreNames.contains("patients")) {
 			var store = db.createObjectStore("patients", {keyPath: "p_id"});
 			store.createIndex("name", "name", {unique:false});

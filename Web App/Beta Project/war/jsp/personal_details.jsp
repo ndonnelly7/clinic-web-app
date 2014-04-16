@@ -195,10 +195,6 @@ function nextPage(page) {
 	
 	var p_id = createPatientAndAddToDB(name, address, home_number, mob_number, email, gp_name, gp_address, dob);
 	console.log("Patient ID created: " + p_id);
-	
-	if(typeof(Storage) !== "undefined"){
-		sessionStorage.pID = p_id;
-	}
 		
 	initPatientForm(p_id);
 	getPatientForm(p_id, printPForm);
@@ -208,8 +204,14 @@ function nextPage(page) {
 	var collat = $("#collat_check").val() == 'on' ? true : false;
 	var relation = collat ? $("#collat_present").val() : 'na';
 	
-	addPersonal(gp_county, county, collat, relation, p_id);
+	if(typeof(Storage) !== "undefined"){
+		sessionStorage.p_id = p_id;
+		sessionStorage.collat = collat;
+	}
 	
+	addPersonal(gp_county, county, collat, relation, p_id);	
+	
+	//Submit here instead of spanClick
 	spanClick(page);
 }
 </script>

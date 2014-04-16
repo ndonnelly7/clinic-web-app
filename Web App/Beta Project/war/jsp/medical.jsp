@@ -77,13 +77,13 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Total Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4">
+				<input type="text" name="cholest_test" size="4" id="cholesterol">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="cholest_qs"style="display:inline;">
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="chol_time">
+					<select name="cholest_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -95,13 +95,13 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">LDL Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4">
+				<input type="text" name="cholest_ldl" size="4" id="ldl">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="ldl_cholest_qs"style="display:inline;">
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="chol_time">
+					<select name="ldl_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -113,13 +113,13 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">HDL Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4">
+				<input type="text" name="cholest_hdl" size="4" id="hdl">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="hdl_cholest_qs"style="display:inline;">
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="chol_time">
+					<select name="hdl_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -131,13 +131,13 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Systolic Blood Pressure</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4">
+				<input type="text" name="systolic" size="4" id="systolic">
 				<div style="font-size:small">mmHg</div>
 			</div>
 			<div id="cholest_qs"style="display:inline;">
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="chol_time">
+					<select name="systolic_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -149,13 +149,13 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Diastolic Blood Pressure</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4">
+				<input type="text" name="diastolic" size="4" id="diastolic">
 				<div style="font-size:small">mmHg</div>
 			</div>
 			<div id="cholest_qs"style="display:inline;">
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="chol_time">
+					<select name="diastolic_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -167,7 +167,7 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Thyroid</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="thyroid_test" size="4">
+				<input type="text" name="thyroid_test" size="4" id="thyroid">
 				<div style="font-size:small">pg/mL</div>
 			</div>
 			<div id="thyroid_qs" style="display:inline;">
@@ -185,7 +185,7 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">B12</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="b12_test" size="4">
+				<input type="text" name="b12_test" size="4" id="b12">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="b12_qs" style="display:inline;">
@@ -203,7 +203,7 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Iron</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="iron_test" size="4">
+				<input type="text" name="iron_test" size="4" id="iron">
 				<div style="font-size:small">mcmol/L</div>
 			</div>
 			<div id="iron_qs" style="display:inline;">
@@ -221,7 +221,7 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Calcium</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="calc_test" size="4">
+				<input type="text" name="calc_test" size="4" id="calcium">
 				<div style="font-size:small">mg/dL</div>
 			</div>
 			<div id="calc_qs" style="display:inline;">
@@ -239,7 +239,7 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Sodium</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="sodium_test" size="4">
+				<input type="text" name="sodium_test" size="4" id="sodium">
 				<div style="font-size:small">mEq/L</div>
 			</div>
 			<div id="sodium_qs" style="display:inline;">
@@ -257,13 +257,13 @@
 			<br>
 			<div class="pure-u-1-4 subtitle">Weight</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="sodium_test" size="4">
+				<input type="text" name="weight_test" size="4" id="weight">
 				<div style="font-size:small">kg</div>
 			</div>
 			<div id="weight_qs" style="display:inline;">
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
-					<select name="sodium_time">
+					<select name="weight_time">
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -306,11 +306,41 @@
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="spanClick('history')">Previous Page</span>
-	<span onclick="spanClick('concerns')">Next Page</span>
+	<span onclick="nextPage('history')">Previous Page</span>
+	<span onclick="nextPage('concerns')">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
+<script type="text/javascript">
+
+	function nextPage(page){
+		
+		var medical = {};
+		medical['cholesterol'] = $("#cholesterol");
+		medical['ldl'] = $("#ldl");
+		medical['hdl'] = $("#hdl");
+		medical['systolic'] = $("#systolic");
+		medical['diastolic'] = $("#diastolic");
+		medical['thyroid'] = $("#thyroid");
+		medical['b12'] = $("#b12");
+		medical['iron'] = $("#iron");
+		medical['calcium'] = $("#calcium");
+		medical['sodium'] = $("#sodium");
+		medical['weight'] = $("#weight");
+		
+		var p_id;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+		}
+		
+		addGPInfo(p_id, medical);
+		
+		spanClick(page);
+	}
+
+</script>
 </body>
 </html>

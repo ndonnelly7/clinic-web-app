@@ -300,8 +300,8 @@
 	<input type="submit" value="Submit"/>
 </form>
 <div class="footer">
-	<span onclick="spanClick('concerns')">Previous Page</span>
-	<span onclick="spanClick('events_activities')">Next Page</span>
+	<span onclick="nextPage('concerns')">Previous Page</span>
+	<span onclick="nextPage('events_activities')">Next Page</span>
 </div>
 <script>
 	var showingCollat = false;
@@ -318,5 +318,10 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
+<script>
+
+</script>
 </body>
 </html>
