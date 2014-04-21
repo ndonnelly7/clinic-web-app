@@ -50,7 +50,7 @@
 				<h3>Notes</h3>
 				</div>
 			</div>
-			<div id="blackout">
+			<div id="blackout" class="issue">
 				<div class="pure-u-1-5 title">Blackouts</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="blackout_check" onclick="showHiddenRow(this, '#blackout')">
@@ -60,11 +60,11 @@
 				<div class="pure-u-1-5 want_frequency_dis select_box" >
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="blackout_notes"form="problems_form" rows="2" cols="24"></textarea>
+				<textarea name="blackout_notes" form="problems_form" rows="2" cols="24"></textarea>
 				</div>
 			</div>
 			
-			<div id="blanks">
+			<div id="blanks" class="issue">
 				<div class="pure-u-1-5 title">Blanks</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="blanks_check" onclick="showHiddenRow(this,'#blanks')">
@@ -74,11 +74,11 @@
 				<div class="pure-u-1-5 want_frequency_dis select_box">
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="blanks_notes"form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="blanks_notes" form="problems_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
-			<div id="vision">
+			<div id="vision" class="issue">
 				<div class="pure-u-1-5 title">Blurred Vision</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="vision_check" onclick="showHiddenRow(this,'#vision')">
@@ -88,11 +88,11 @@
 				<div class="pure-u-1-5 want_frequency_dis select_box">
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="vision_notes"form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="vision_notes" form="problems_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
-			<div id="dizziness">
+			<div id="dizziness" class="issue">
 				<div class="pure-u-1-5 title">Dizziness</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="dizziness_check" onclick="showHiddenRow(this,'#dizziness')">
@@ -106,7 +106,7 @@
 				</div>
 			</div>
 			
-			<div id="fainting">
+			<div id="fainting" class="issue">
 				<div class="pure-u-1-5 title">Fainting</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="fainting_check" onclick="showHiddenRow(this,'#fainting')">
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			
-			<div id="headaches">
+			<div id="headaches" class="issue">
 				<div class="pure-u-1-5 title">Headaches</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="headaches_check" onclick="showHiddenRow(this,'#headaches')">
@@ -134,7 +134,7 @@
 				</div>
 			</div>
 			
-			<div id="falling">
+			<div id="falling" class="issue">
 				<div class="pure-u-1-5 title">Loss of Balance or Falling</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="falling_check" onclick="showHiddenRow(this,'#falling')">
@@ -148,7 +148,7 @@
 				</div>
 			</div>
 			
-			<div id="calculatons">
+			<div id="calculatons" class="issue">
 				<div class="pure-u-1-5 title">Seizures</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="seizures_check" onclick="showHiddenRow(this,'#calculatons')">
@@ -182,7 +182,7 @@
 					<h3>Notes</h3>
 					</div>
 				</div>
-				<div id="blackout_collat">
+				<div id="blackout_collat" class="issue">
 					<div class="pure-u-1-5 title">Blackouts</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="blackout_collat_check" onclick="showHiddenRow(this, '#blackout_collat')">
@@ -196,7 +196,7 @@
 					</div>
 				</div>
 				
-				<div id="blanks_collat">
+				<div id="blanks_collat" class="issue">
 					<div class="pure-u-1-5 title">Blanks</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="blanks_collat_check" onclick="showHiddenRow(this,'#blanks_collat')">
@@ -210,7 +210,7 @@
 					</div>
 				</div>
 				
-				<div id="vision_collat">
+				<div id="vision_collat" class="issue">
 					<div class="pure-u-1-5 title">Blurred Vision</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="vision_collat_check" onclick="showHiddenRow(this,'#vision_collat')">
@@ -224,7 +224,7 @@
 					</div>
 				</div>
 				
-				<div id="dizziness_collat">
+				<div id="dizziness_collat" class="issue">
 					<div class="pure-u-1-5 title">Dizziness</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="dizziness_collat_check" onclick="showHiddenRow(this,'#dizziness_collat')">
@@ -238,7 +238,7 @@
 					</div>
 				</div>
 				
-				<div id="fainting_collat">
+				<div id="fainting_collat" class="issue">
 					<div class="pure-u-1-5 title">Fainting</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="fainting_collat_check" onclick="showHiddenRow(this,'#fainting_collat')">
@@ -252,7 +252,7 @@
 					</div>
 				</div>
 				
-				<div id="headaches_collat">
+				<div id="headaches_collat" class="issue">
 					<div class="pure-u-1-5 title">Headaches</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="headaches_collat_check" onclick="showHiddenRow(this,'#headaches_collat')">
@@ -266,7 +266,7 @@
 					</div>
 				</div>
 				
-				<div id="falling_collat">
+				<div id="falling_collat" class="issue">
 					<div class="pure-u-1-5 title">Loss of Balance or Falling</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="falling_collat_check" onclick="showHiddenRow(this,'#falling_collat')">
@@ -280,7 +280,7 @@
 					</div>
 				</div>
 				
-				<div id="calculatons_collat">
+				<div id="calculatons_collat" class="issue">
 					<div class="pure-u-1-5 title">Seizures</div>
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="seizures_collat_check" onclick="showHiddenRow(this,'#calculatons_collat')">
@@ -313,6 +313,43 @@
 			$('#collat_problems_grid').slideUp(500);
 			showingCollat = false;
 		}
+	}
+	
+	
+	function nextPage(page) {
+		var p_id = -1;
+		var collat = false;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+			collat = sessionStorage.collat;
+		}
+		
+		var neuro = new Array();
+		for(var i = 0; i < $("#problems_grid .issue").length; i++){
+			var iss = {};
+			iss['issue']=$("#problems_grid .issue("+i+")").attr("id");
+			iss['checked'] = $("#problems_grid div.pure-u-1-5.check input").get(i-1).checked;
+			iss['time']=$("#problems_grid .issue("+i+") .select_box:eq("+0+") select").val();
+			iss['frequency']=$("#problems_grid .issue("+i+") .select_box:eq("+1+") select").val();
+			
+			neuro[i] = iss;
+		}
+		
+		var collatNeuro = new Array();
+		if(collat){
+			for(var i = 0; i < $("#collat_problems_grid .issue").length; i++){
+				var iss = {};
+				iss['issue']=$("#collat_problems_grid .issue("+i+")").attr("id");
+				iss['checked'] = $("#collat_problems_grid div.pure-u-1-5.check input").get(i-1).checked;
+				iss['time']=$("#collat_problems_grid .issue("+i+") .select_box:eq("+0+") select").val();
+				iss['frequency']=$("#collat_problems_grid .issue("+i+") .select_box:eq("+1+") select").val();
+				
+				collatNeuro[i] = iss;
+			}
+		}
+		
+		addNeuro(p_id, neuro, collatNeuro);
+		spanClick(page);
 	}
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

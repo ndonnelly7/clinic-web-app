@@ -27,7 +27,7 @@ function createID(name, dob){
 		hash = ((hash << 5) - hash) + char;
 		hash = hash & hash;
 	}
-	return Math.abs(hash);
+	return (Math.abs(hash)).toString();
 }
 
 function IDBInit() {
@@ -126,12 +126,12 @@ function getPatient(p_id, callback){
 	var objectStore = db.transaction(["patients"], "readonly").objectStore("patients");
 	
 	var req = objectStore.get(p_id);
-	request.onerror = function(event){
+	req.onerror = function(event){
 		console.error("Couldn't find patient with id: " + p_id);
 	}
 	
-	request.onsuccess = function(event) {
-		callback(request.result)
+	req.onsuccess = function(event) {
+		callback(req.result)
 	}
 	
 }

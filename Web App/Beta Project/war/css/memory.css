@@ -71,3 +71,8 @@ form .result_title {
 	margin-top: 6px;
 	margin-left: 2px;
 }
+
+.pure-form-aligned .test_button {
+	margin-bottom: 8px;
+	display:block;
+}

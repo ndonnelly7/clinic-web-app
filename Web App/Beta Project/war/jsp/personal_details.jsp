@@ -139,7 +139,6 @@
 		</div>
 	</fieldset>
 	<br><br>
-	<input type="submit" value="Submit"/>
 	<input type="button" value="Clear" onclick="clearObjectStore()"/>
 </form>
 <div class="footer">
@@ -181,6 +180,10 @@ function storeCollateral(elem) {
 	} else {
 		console.log("No session storage :(")
 	}
+}
+
+function printPForm(pf){
+	console.log(pF);
 }
 
 function nextPage(page) {

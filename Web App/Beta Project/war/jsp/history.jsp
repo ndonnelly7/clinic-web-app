@@ -507,7 +507,19 @@
 		}
 	}
 	
+	function printPForm(pf){
+		console.log(pf);
+	}
+	
 	function nextPage(page) {
+		
+		var p_id;
+		var collat;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+			collat = sessionStorage.collat;
+		}
+		getPatientForm(p_id, printPForm);
 		
 		var history = {};
 		var drugsArr = new Array();
@@ -531,18 +543,11 @@
 			psych['psych'] = $(".psych_select:eq("+ind+")").val();
 			psych['time'] = $(".psych_time:eq("+ind+")").val();
 			
-			psychArr[ind] = drug;
+			psychArr[ind] = psych;
 		}
 		
 		history['drugs'] = drugsArr;
 		history['psych'] = psychArr;
-		
-		var p_id;
-		var collat;
-		if(typeof(Storage) !== "undefined"){
-			p_id = sessionStorage.p_id;
-			collat = sessionStorage.collat;
-		}
 		
 		if(collat){
 			var drugsC = new Array();
@@ -575,7 +580,7 @@
 		addHistory(p_id, history);
 		
 		//Submit
-		//spanClick(page);
+		spanClick(page);
 	}
 </script>
 </body>

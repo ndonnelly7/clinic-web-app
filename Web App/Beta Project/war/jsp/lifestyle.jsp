@@ -224,12 +224,12 @@
 			<div id="meds_sleep">
 				<div class="lifestyle_title pure-u-1-3">Do you ever take medication to help you sleep?</div>
 				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="meds_check" onclick="showHiddenDiv(this, 'meds_sleep_qs')">
+					<input type="checkbox" name="meds_check" onclick="showHiddenDiv(this, 'meds_sleep_qs')" id="sleep_meds_check">
 				</div>
 				<div id="meds_sleep_qs" class="hide_div">
 					<div class="pure-u-1-3 lifestyle_subtitle" id="subtitle_margin_change">What medication?</div>
 					<div class="pure-u-1-3 life_select_box">
-						<select name="sleep_meds">
+						<select name="sleep_meds" id="sleep_meds_s">
 							<option value="none">Sleep Medicine</option>
 							<option value="zimovane">Zimovane</option>
 							<option value="stilnoct">Stilnoct</option>
@@ -1241,6 +1241,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
 <script src="/js/lifestyle.js"></script>
 </body>
 </html>

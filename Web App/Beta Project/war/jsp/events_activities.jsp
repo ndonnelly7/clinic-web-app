@@ -598,7 +598,7 @@
 		<br> -->
 		<div id="depression_div">
 			<div class="pure-g-r"> 
-				<div class="pure-u-1-2" style="width:48%"> 
+				<div class="pure-u-1-2" style="width:35%"> 
 					<label for="feeling_down">During the last month have you been feeling down, depressed or hopeless?</label>
 				</div>
 				<div class="pure-u-1-2"> 
@@ -609,7 +609,7 @@
 				</div>
 			</div>
 			<div class="pure-g-r">
-				<div class="pure-u-1-2" style="width:48%">
+				<div class="pure-u-1-2" style="width:35%">
 					<label for="no_interest">During the last month have you been bothered by having little interest or pleasure in doing things?</label>
 				</div>
 				<div class="pure-u-1-2"> 
@@ -629,7 +629,7 @@
 						<label for="feeling_down">Feelings of worthlessness?</label>
 					</div>
 					<div class="pure-u-1-2"> 
-						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="feeling_down" class="dep_select">
+						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="worthless" class="dep_select">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -640,7 +640,7 @@
 						<label for="no_interest">Poor concentration?</label>
 					</div>
 					<div class="pure-u-1-2"> 
-						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="no_interest" class="dep_select">
+						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="concentration" class="dep_select">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -651,7 +651,7 @@
 						<label for="no_interest">Thoughts of death?</label>
 					</div>
 					<div class="pure-u-1-2"> 
-						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="no_interest" class="dep_select">
+						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="death" class="dep_select">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -664,8 +664,8 @@
 </form>
 
 <div class="footer">
-	<span onclick="spanClick('neuro')">Previous Page</span>
-	<span onclick="spanClick('living')">Next Page</span>
+	<span onclick="nextPage('neuro')">Previous Page</span>
+	<span onclick="nextPage('living')">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

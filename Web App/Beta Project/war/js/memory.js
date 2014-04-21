@@ -2,9 +2,10 @@
  * 
  */
 
-function initMemory(){
+$(document).ready(function(){
 	//check for depression and age
-}
+	setTimeout(addFormIfNeeded, 100);
+});
 
 function runHADSEvaluation(){
 	var result = 0;
@@ -86,5 +87,48 @@ function changeMOCAForm(x){
 	} else if(x == 'blind'){
 		$("#moca_general").show();
 		$("#moca_blind").hide();
+	}
+}
+
+function addFormIfNeeded(){
+	console.log("Entered function");
+	var p_id = -1;
+	if(typeof(Storage) !== "undefined"){
+		p_id = sessionStorage.p_id;
+	}
+	console.log("set function");
+	getPatientForm(p_id,function(pF){
+		var depression = pF['events_activities']['depression'];
+		if(depression){
+			getPatient(p_id, function(p) {
+				var year = p['dob'].split('/')[2];
+				var thisYear = new Date().getFullYear();
+				if((thisYear - year) > 65){
+					$("#gds_form").show();
+				} else {
+					$("#hads_form").show();
+				}
+			});
+		}
+	});
+}
+
+function revealMMSE(elem){
+	if($("#mmse").is(":visible")){
+		$("#mmse").hide(500);
+		elem.value = "MMSE Test";
+	} else {
+		$("#mmse").show(500);
+		elem.value = "Hide MMSE Test";
+	}
+};
+
+function revealMOCA(elem){
+	if($("#moca").is(":visible")){
+		$("#moca").hide(500);
+		elem.value = "MOCA Test";
+	} else {
+		$("#moca").show(500);
+		elem.value = "Hide MOCA Test";
 	}
 }

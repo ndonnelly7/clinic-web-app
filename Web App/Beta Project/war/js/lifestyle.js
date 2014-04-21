@@ -8,6 +8,11 @@ var collatAlcohol = false;
 var collatSmoking = false;
 var collatDrugs = false;
 
+$(document).ready(function() {
+	console.log("Working");
+	setTimeout(retrieveSleepInfo, 100);
+});
+
 function addCollatSleep(button) {
 	if(!collatSleep){
 		$('#collat_sleep').slideDown(500);
@@ -224,4 +229,27 @@ function showOngoing(elem) {
 	$(elem).children('.previous_hours').children('.prev_hours_input').prop('disabled', true);
 	$(elem).children('.when_stopped').children('.time_stopped_input').prop('disabled', true);
 	$(elem).children('.reason_notes').children('.reason_input').prop('disabled', true);
+}
+
+function retrieveSleepInfo() {
+	console.log("Entered function");
+	var p_id = -1;
+	if(typeof(Storage) !== "undefined"){
+		p_id = sessionStorage.p_id;
+	}
+	console.log("set function");
+	getPatientForm(p_id,updatePageWithLocal);
+	
+}
+
+function updatePageWithLocal(pF) {
+	console.log("Entered getpForm function");
+	console.log(pF);
+	var drugs = pF['history']['drugs'];
+	console.log(drugs[0]['drug']);
+	if(drugs[0]['drug']=='sleeping'){
+		$("#sleep_meds_check").prop("checked", "true");
+		showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
+		$("#sleep_meds_s").val(drugs[0]['sleep_med']);
+	}
 }

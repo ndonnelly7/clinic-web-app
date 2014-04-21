@@ -150,3 +150,22 @@ function addNewActivityToCollat() {
 function addNewCollatActivity() {
 	$('#collat_activity_entry').clone().appendTo($('#social_collat_grid'));
 }
+
+function nextPage(page) {
+	var p_id = -1;
+	var collat = false;
+	if(typeof(Storage) !== "undefined"){
+		p_id = sessionStorage.p_id;
+		collat = sessionStorage.collat;
+	}
+	
+	var ea = {};
+	if($("#feeling_down").val() == 'yes' || $("#no_interest").val() == 'yes'){
+		if($("#worthless").val() == 'yes' || $("#concentration").val() == 'yes' || $("#death").val() == 'yes'){
+			ea['depression'] = true;
+		}
+	}
+	
+	addEventsActivities(p_id, ea);
+	spanClick(page);
+}

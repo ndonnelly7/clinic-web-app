@@ -608,7 +608,8 @@
 	</div>
 </fieldset>
 
-<fieldset id="moca">
+<input type="button" value="MOCA Test" onclick="revealMOCA(this)" class="test_button"/>
+<fieldset id="moca" class="hide_div">
 	<legend>The Montreal Cognitive Assessment (MOCA)</legend>
 	<a href="/tests/MOCA_1.pdf" class="dl_link">MOCA Version 1</a>
 	<a href="/tests/MOCA_2.pdf" class="dl_link">MOCA Version 2</a>
@@ -741,7 +742,8 @@
 	
 </fieldset>
 
-<fieldset id="mmse">
+<input type="button" value="MMSE Test" onclick="revealMMSE(this)" class="test_button"/>
+<fieldset id="mmse" class="hide_div">
 	<legend>Mini-Mental State Examination (MMSE)</legend>
 	<a href="/tests/MMSE_1.pdf" class="dl_link">MMSE</a>
 	
@@ -813,6 +815,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
 <script src="/js/memory.js"></script>
 </body>
 </html>
