@@ -183,7 +183,7 @@ function storeCollateral(elem) {
 }
 
 function printPForm(pf){
-	console.log(pF);
+	console.log(pf);
 }
 
 function nextPage(page) {

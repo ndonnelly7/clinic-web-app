@@ -35,21 +35,21 @@
 		<legend>Test Results</legend>
 		
 		<div id="test_results">
-			<div class="pure-control-group">
+			<div class="pure-control-group" id="mmse_div">
 				<label for="mmse_result">MMSE:</label>
-				<input type="text" name="mmse_result" disabled>
+				<input type="text" name="mmse_result" id="mmse_result" disabled>
 			</div>
-			<div class="pure-control-group">
-				<label for="cdt_result">CDT:</label>
-				<input type="text" name="cdt_result" disabled>
+			<div class="pure-control-group" id="moca_div">
+				<label for="cdt_result">MOCA:</label>
+				<input type="text" name="moca_result" id="moca_result" disabled>
 			</div>
-			<div class="pure-control-group">
-				<label for="mini_cog_result">MINI-Cog:</label>
-				<input type="text" name="mini_cog_result" disabled>
-			</div>
-			<div class="pure-control-group">
+			<div class="pure-control-group" id="gds_div">
 				<label for="gds_result">GDS:</label>
-				<input type="text" name="gds_result" disabled>
+				<input type="text" name="gds_result" id="gds_result" disabled>
+			</div>
+			<div class="pure-control-group" id="hads_div">
+				<label for="hads_result">HADS:</label>
+				<input type="text" name="hads_result" id="hads_result" disabled>
 			</div>
 		</div>
 	
@@ -132,12 +132,12 @@
 	
 	<fieldset id="letter_field">
 		<legend>Letter</legend>
-		<textarea form="analysis_form" name="letter_notes" rows="24" cols="60">Will have letter template</textarea>
+		<textarea form="analysis_form" name="letter_notes" id="letter" rows="24" cols="100">Will have letter template</textarea>
 	</fieldset>
 	
 	<fieldset id="notes_field">
 		<legend>Extra Notes</legend>
-		<textarea form="analysis_form" name="extra_notes" rows="12" cols="60"></textarea>
+		<textarea form="analysis_form" name="extra_notes" id="extra" rows="12" cols="60"></textarea>
 	</fieldset>
 </form>
 <div class="footer">
@@ -147,5 +147,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
+<script src="/js/analysis.js"></script>
 </body>
 </html>

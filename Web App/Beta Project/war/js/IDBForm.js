@@ -199,7 +199,7 @@ function addLiving(p_id, living, living_collat) {
 			var pForm = req.result;
 			pForm['living'] = living;
 			pForm['living_collat'] = living_collat;
-			
+			var update = store.put(pForm);
 			update.onsuccess = function(e){
 				console.log("Patient updated successfully");
 			}
@@ -221,7 +221,7 @@ function addLifestyle(p_id, lifestyle, lifestyle_collat) {
 			var pForm = req.result;
 			pForm['lifestyle'] = lifestyle;
 			pForm['lifestyle_collat'] = lifestyle_collat;
-			
+			var update = store.put(pForm);
 			update.onsuccess = function(e){
 				console.log("Patient updated successfully");
 			}
@@ -242,7 +242,7 @@ function addBattery(p_id, battery) {
 		req.onsuccess = function(e) {
 			var pForm = req.result;
 			pForm['battery'] = battery;
-			
+			var update = store.put(pForm);
 			update.onsuccess = function(e){
 				console.log("Patient updated successfully");
 			}

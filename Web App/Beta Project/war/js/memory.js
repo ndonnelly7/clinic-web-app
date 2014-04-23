@@ -1,6 +1,11 @@
 /**
  * 
  */
+var gds = false;
+var hads = false;
+var moca_blind = false;
+var want_moca = false;
+var want_mmse = false;
 
 $(document).ready(function(){
 	//check for depression and age
@@ -84,9 +89,11 @@ function changeMOCAForm(x){
 	if(x == 'general'){
 		$("#moca_general").hide();
 		$("#moca_blind").show();
+		moca_blind = true;
 	} else if(x == 'blind'){
 		$("#moca_general").show();
 		$("#moca_blind").hide();
+		moca_blind = false;
 	}
 }
 
@@ -105,8 +112,10 @@ function addFormIfNeeded(){
 				var thisYear = new Date().getFullYear();
 				if((thisYear - year) > 65){
 					$("#gds_form").show();
+					gds = true;
 				} else {
 					$("#hads_form").show();
+					hads = true;
 				}
 			});
 		}
@@ -117,9 +126,11 @@ function revealMMSE(elem){
 	if($("#mmse").is(":visible")){
 		$("#mmse").hide(500);
 		elem.value = "MMSE Test";
+		want_moca = false;
 	} else {
 		$("#mmse").show(500);
 		elem.value = "Hide MMSE Test";
+		want_moca = true;
 	}
 };
 
@@ -127,8 +138,124 @@ function revealMOCA(elem){
 	if($("#moca").is(":visible")){
 		$("#moca").hide(500);
 		elem.value = "MOCA Test";
+		want_mmse = false;
 	} else {
 		$("#moca").show(500);
 		elem.value = "Hide MOCA Test";
+		want_mmse = true;
 	}
+};
+
+function nextPage(page) {
+	
+	var p_id = -1;
+	var collat = false;
+	if(typeof(Storage) !== "undefined"){
+		p_id = sessionStorage.p_id;
+		collat = sessionStorage.collat;
+	}
+	
+	var memory = {};
+	if(gds){
+		memory['gds'] = $("#gds_result").val();
+		memory['hads'] = {};
+	} else if(hads) {
+		memory['hads'] = $("#hads_result").val();
+		memory['gds'] = {};
+	} else {
+		memory['gds'] = {};
+		memory['hads'] = {};
+	}
+	
+	var moca = {};
+	if(want_moca){
+		if(moca_blind){
+			moca['blind'] = true;
+			
+			moca['attention'] = $("#attention").val();
+			moca['language'] = $("#language").val();
+			moca['abstract'] = $("#abstract").val();
+			moca['recall'] = $("#recall").val();
+			moca['orientation'] = $("#orientation").val();
+			moca['total'] = $("#moca_total").val();
+		} else {
+			moca['blind'] = false;
+			moca['visuo'] = $("#visuo").val();
+			moca['naming'] = $("#naming").val();
+			moca['attention'] = $("#attention").val();
+			moca['language'] = $("#language").val();
+			moca['abstract'] = $("#abstract").val();
+			moca['recall'] = $("#recall").val();
+			moca['orientation'] = $("#orientation").val();
+			moca['total'] = $("#moca_total").val();
+		}
+	}	
+	memory['moca'] = moca;
+	
+	var mmse = {};
+	if(want_mmse){
+		mmse['orientation'] = $("#mmse_orientation").val();
+		mmse['registration'] = $("#mmse_registration").val();
+		mmse['attention'] = $("#mmse_attention").val();
+		mmse['recall'] = $("#mmse_recall").val();
+		mmse['language'] = $("#mmse_language").val();
+		mmse['copying'] = $("#mmse_copying").val();
+		mmse['total'] = $("#mmse_total").val();
+	}
+	memory['mmse'] = mmse;
+	
+	addBattery(p_id, memory);	
+	spanClick(page);
 }
+
+function mmse_change(){
+	var total = 0;
+	if($("#mmse_orientation").val() != "")
+		total += parseInt($("#mmse_orientation").val());
+	if($("#mmse_registration").val() != "")
+		total += parseInt($("#mmse_registration").val());
+	if($("#mmse_attention").val() != "")
+		total += parseInt($("#mmse_attention").val());
+	if($("#mmse_recall").val() != "")
+		total += parseInt($("#mmse_recall").val());
+	if($("#mmse_language").val() != "")
+		total += parseInt($("#mmse_language").val());
+	if($("#mmse_copying").val() != "")
+		total += parseInt($("#mmse_copying").val());
+	$("#mmse_total").val(total);
+}
+
+function moca_change(elem){
+	var total = 0;
+	if($("#visuo").val() != "")
+		total += parseInt($("#visuo").val());
+	if($("#naming").val() != "")
+		total += parseInt($("#naming").val());
+	if($("#attention").val() != "")
+		total += parseInt($("#attention").val());
+	if($("#abstract").val() != "")
+		total += parseInt($("#abstract").val());
+	if($("#language").val() != "")
+		total += parseInt($("#language").val());
+	if($("#recall").val() != "")
+		total += parseInt($("#recall").val());
+	if($("#orientation").val() != "")
+		total += parseInt($("#orientation").val());
+	$("#moca_total").val(total);
+}
+
+function b_moca_change(elem){
+	var total = 0;
+	if($("#b_attention").val() != "")
+		total += parseInt($("#b_attention").val());
+	if($("#b_abstract").val() != "")
+		total += parseInt($("#b_abstract").val());
+	if($("#b_language").val() != "")
+		total += parseInt($("#b_language").val());
+	if($("#b_recall").val() != "")
+		total += parseInt($("#b_recall").val());
+	if($("#b_orientation").val() != "")
+		total += parseInt($("#b_orientation").val());
+	$("#b_moca_total").val(total);
+}
+

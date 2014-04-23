@@ -327,10 +327,10 @@
 		var neuro = new Array();
 		for(var i = 0; i < $("#problems_grid .issue").length; i++){
 			var iss = {};
-			iss['issue']=$("#problems_grid .issue("+i+")").attr("id");
+			iss['issue']=$("#problems_grid .issue:eq("+i+")").attr("id");
 			iss['checked'] = $("#problems_grid div.pure-u-1-5.check input").get(i-1).checked;
-			iss['time']=$("#problems_grid .issue("+i+") .select_box:eq("+0+") select").val();
-			iss['frequency']=$("#problems_grid .issue("+i+") .select_box:eq("+1+") select").val();
+			iss['time']=$("#problems_grid .issue:eq("+i+") .select_box:eq("+0+") select").val();
+			iss['frequency']=$("#problems_grid .issue:eq("+i+") .select_box:eq("+1+") select").val();
 			
 			neuro[i] = iss;
 		}
@@ -339,10 +339,10 @@
 		if(collat){
 			for(var i = 0; i < $("#collat_problems_grid .issue").length; i++){
 				var iss = {};
-				iss['issue']=$("#collat_problems_grid .issue("+i+")").attr("id");
+				iss['issue']=$("#collat_problems_grid .issue:eq("+i+")").attr("id");
 				iss['checked'] = $("#collat_problems_grid div.pure-u-1-5.check input").get(i-1).checked;
-				iss['time']=$("#collat_problems_grid .issue("+i+") .select_box:eq("+0+") select").val();
-				iss['frequency']=$("#collat_problems_grid .issue("+i+") .select_box:eq("+1+") select").val();
+				iss['time']=$("#collat_problems_grid .issue:eq("+i+") .select_box:eq("+0+") select").val();
+				iss['frequency']=$("#collat_problems_grid .issue:eq("+i+") .select_box:eq("+1+") select").val();
 				
 				collatNeuro[i] = iss;
 			}

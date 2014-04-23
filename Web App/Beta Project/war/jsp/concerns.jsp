@@ -439,7 +439,7 @@
 		for(var i = 0; i < $("#concerns_grid .concern").length; i++){
 			var c = {};
 			c['concern']=$("#concerns_grid .concern:eq("+i+")").attr("id");
-			c['checked']= $("#concerns_grid div.pure-u-1-5.check input").get(i-1).checked;
+			c['checked']= $("#concerns_grid div.pure-u-1-5.check input").get(i).checked;
 			c['time']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
 			c['frequency']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
 			

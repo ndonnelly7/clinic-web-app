@@ -1,0 +1,209 @@
+/**
+ * 
+ */
+
+var pat;
+
+var days = new Array("0", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th", "31st");
+var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+$(document).ready(function(){
+	//check for depression and age
+	setTimeout(initAnalysis, 100);
+});
+
+function initAnalysis(){
+	var p_id = -1;
+	var collat = false;
+	if(typeof(Storage) !== "undefined"){
+		p_id = sessionStorage.p_id;
+		collat = sessionStorage.collat;
+	}
+	
+	if(typeof p_id == 'undefined'){
+		p_id = 631355661;
+	}
+	
+	getPatient(p_id, function(p){
+		pat = p;
+	});
+	
+	getPatientForm(p_id, fillAnalysis)
+}
+
+function fillAnalysis(p){
+	if(typeof p['memory'] != 'undefined'){
+		if(typeof p['memory']['mmse_result'] != 'undefined'){
+			$("#mmse_result").val(p['memory']['mmse_result']);
+		} else {
+			$("#mmse_div").hide();
+		}
+		if(typeof p['memory']['moca_result'] != 'undefined'){
+			$("#moca_result").val(p['memory']['moca_result']);
+		} else {
+			$("#moca_div").hide();
+		}
+		if(typeof p['memory']['gds_result'] != 'undefined'){
+			$("#gds_result").val(p['memory']['gds_result']);
+		} else {
+			$("#gds_div").hide();
+		}
+		if(typeof p['memory']['hads_result'] != 'undefined'){
+			$("#hads_result").val(p['memory']['hads_result']);
+		} else {
+			$("#hads_div").hide();
+		}
+	} else {
+		$("#mmse_div").hide();
+		$("#moca_div").hide();
+		$("#gds_div").hide();
+		$("#hads_div").hide();
+		$("#mem_results_field").hide();
+	}
+	
+	createLetter(p, pat);
+}
+
+function createLetter(pForm, patient){
+	console.log(patient);
+	console.log(pForm);
+	
+	var letterString = "";
+	
+	var gp_name = patient['gp_name'];
+	var drAtStart = false;
+	if(gp_name.indexOf("Dr. ") == 0 || gp_name.indexOf("Dr ") == 0){
+		letterString += gp_name + "\n";
+		drAtStart = true;
+	} else {
+		letterString += "Dr. " + gp_name + "\n";
+	}
+	
+	letterString += "\n" + patient["dob"] + "\n";
+	letterString += "\nRE:" + patient['name'] + "\n";
+	letterString += "DOB: " + patient['dob'] + "; ";
+	
+	//Address
+	var address = patient['address'].split("\n");
+	
+	letterString += address[0];
+	for(var i = 1; i < address.length; i++){
+		letterString += ", " + address[i];
+	}
+	letterString += ".\n\n\n";
+	
+	//Letter
+	letterString += "Dear ";
+	if(!drAtStart){
+		letterString += "Dr. ";
+	}
+	var gp_name_arr = gp_name.split(" ");
+	letterString += gp_name_arr[gp_name_arr.length-1];
+	letterString += ",\n\nPatient, "+patient['name']+", attended for assessment of their memory on the ";
+	var d = new Date();
+	letterString += days[d.getDate()] + " of " + months[d.getMonth()] + ", " + d.getFullYear();
+	letterString += ". Please find below results of psychometric testing from the assessment: \n\n";
+	
+	//Results
+	if(jQuery.isEmptyObject(pForm['battery']['mmse'])){
+		letterString += "- MMSE: " + "N/A\n";
+	} else {
+		letterString += "- MMSE: " + pForm['battery']['mmse']['total'] + "/30\n";
+		letterString += "\t - Orientation: " + pForm['battery']['mmse']['orientation'] + "/10";
+		letterString += "\n\t - Registration: " + pForm['battery']['mmse']['registration'] + "/3";
+		letterString += "\n\t - Attention: " + pForm['battery']['mmse']['attention'] + "/5";
+		letterString += "\n\t - Recall: " + pForm['battery']['mmse']['recall'] + "/3";
+		letterString += "\n\t - Language: " + pForm['battery']['mmse']['language'] + "/9";
+		letterString += "\n\t - Copying: " + pForm['battery']['mmse']['copying'] + "/1\n";
+	}	
+	
+	if(jQuery.isEmptyObject(pForm['battery']['moca'])){
+		letterString += "- MOCA: " + "N/A\n";
+	} else {
+		if(pForm['battery']['moca']['blind']){
+			letterString += "- MOCA: " + pForm['battery']['moca']['total'] + "/22\n";
+			letterString += "\t - Attention: " + pForm['battery']['moca']['attention'] + "/6\n";
+			letterString += "\t - Language: " + pForm['battery']['moca']['language'] + "/3\n";
+			letterString += "\t - Abstraction: " + pForm['battery']['moca']['abstract'] + "/2\n";
+			letterString += "\t - Delayed Recall: " + pForm['battery']['moca']['recall'] + "/5\n";
+			letterString += "\t - Orientation: " + pForm['battery']['moca']['orientation'] + "/6\n";
+		} else {
+			letterString += "- MOCA: " + pForm['battery']['moca']['total'] + "/22\n";
+			letterString += "\t - Visuospatial: " + pForm['battery']['moca']['attention'] + "/5\n";
+			letterString += "\t - Naming: " + pForm['battery']['moca']['language'] + "/3\n";
+			letterString += "\t - Attention: " + pForm['battery']['moca']['attention'] + "/6\n";
+			letterString += "\t - Language: " + pForm['battery']['moca']['language'] + "/3\n";
+			letterString += "\t - Abstraction: " + pForm['battery']['moca']['abstract'] + "/2\n";
+			letterString += "\t - Delayed Recall: " + pForm['battery']['moca']['recall'] + "/5\n";
+			letterString += "\t - Orientation: " + pForm['battery']['moca']['orientation'] + "/6\n";
+		}
+	}
+	
+	if(jQuery.isEmptyObject(pForm['battery']['gds'])){
+		letterString += "- GDS: " + "N/A\n";
+	} else {
+		letterString += "- GDS: " + pForm['battery']['gds'] + "\n";
+	}
+	
+	if(jQuery.isEmptyObject(pForm['battery']['hads'])){
+		letterString += "- HADS: " + "N/A\n";
+	} else {
+		letterString += "- HADS: " + pForm['battery']['hads'] + "\n";
+	}
+	
+	//Memory concerns
+	letterString += "\nPresentation:\nPatient presented with ";
+	
+	var remember = false;
+	var trouble = false;
+	var concerns = pForm['concerns'];
+	if(concerns[0].checked){
+		letterString += "problems remembering ";
+		letterString += "recent events";
+		remember = true;
+	}
+	
+	if(concerns[1].checked){
+		if(!remember) 
+			letterString += "problems remembering ";
+		else if(!(concerns[2].checked))
+			letterString += " and ";
+		else letterString += ", ";
+		letterString += "faces,";
+		remember = true;
+	}
+	
+	if(concerns[2].checked){
+		if(!remember) 
+			letterString += "problems remembering ";
+		else 
+			letterString += " and ";
+		letterString += "names, ";
+		remember = true;
+	}
+	
+	if(concerns[3].checked){
+		letterString += "losing things, ";
+	}
+	
+	if(concerns[4].checked){
+		letterString += "trouble with following conversations";
+		trouble = true;
+		if(!(concerns[5].checked))
+			letterString += ", ";
+	}
+	
+	if(concerns[5].checked){
+		if(trouble)
+			letterString += " and ";
+		else letterString += "trouble with";
+		letterString += " finding the right words";
+	}
+	
+	if(concerns[6].checked){
+		if(!trouble)
+			letterString += "trouble with";
+	}
+	
+	$("#letter").val(letterString);
+}
