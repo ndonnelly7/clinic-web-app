@@ -1,0 +1,22 @@
+package sql.test;
+
+public class FullWork {
+
+	String title;
+	int id;
+	FilmPart film;
+	BookPart book;
+	
+	FullWork(String name, int id){
+		this.title = name;
+		this.id = id;
+	}
+	
+	public void setFilm(FilmPart f){
+		film = f;
+	}
+	
+	public void setBook(BookPart b){
+		book = b;
+	}
+}

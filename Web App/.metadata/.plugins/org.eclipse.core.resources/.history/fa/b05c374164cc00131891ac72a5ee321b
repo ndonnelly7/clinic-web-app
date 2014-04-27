@@ -1,0 +1,18 @@
+package sql.test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class FilmPart {
+
+	String title, author, publisher;
+	Date release;
+	
+	public FilmPart(String t, String a, String p, String d){
+		title = t;
+		author = a;
+		publisher = p;
+		release = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(d);
+	}
+}

@@ -1,0 +1,34 @@
+package sql.test;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+public class BookServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		String bT, date, a, p;
+		int id;
+		
+		bT = req.getParameter("title");
+		date = req.getParameter("release");
+		a = req.getParameter("author");
+		p = req.getParameter("publisher");
+		String temp = req.getParameter("id");
+		if(temp != null && temp != "")
+			id = Integer.parseInt(temp);
+		else
+			id = -1;
+		
+		FullWork work = new FullWork(bT, id);
+		work.setBook(new BookPart(bT, a, p, date));
+		
+		req.setAttribute("id", id);
+		RequestDispatcher view = req.getRequestDispatcher("/jsp/second.jsp");
+		view.forward(req, resp);
+	}
+}

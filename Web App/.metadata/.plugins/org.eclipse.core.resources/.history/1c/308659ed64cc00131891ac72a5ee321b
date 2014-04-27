@@ -1,0 +1,16 @@
+package sql.test;
+
+public class FullWork {
+
+	String title;
+	int id;
+	FilmPart film;
+	BookPart book;
+	
+	FullWork(String name, int id){
+		this.title = name;
+		this.id = id;
+	}
+	
+	
+}

@@ -1,0 +1,23 @@
+package sql.test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class BookPart {
+	
+	String title, director, production;
+	Date release;
+	
+	public BookPart(String t, String a, String p, String d){
+		title = t;
+		director = a;
+		production = p;
+		try {
+			release = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(d);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+}

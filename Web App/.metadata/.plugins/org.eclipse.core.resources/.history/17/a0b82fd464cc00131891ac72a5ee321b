@@ -1,0 +1,11 @@
+package sql.test;
+
+public class FullWork {
+
+	FilmPart film;
+	BookPart book;
+	
+	FullWork(String name, int id){
+		
+	}
+}
