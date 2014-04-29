@@ -1,25 +1,32 @@
 package sql.test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+@Entity
 public class BookPart {
 	
-	String title, director, production;
-	Date release;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "bookid", unique = true, nullable = false)
+	private Long bookID;
 	
-	public BookPart(String t, String a, String p, String d){
-		title = t;
-		director = a;
-		production = p;
-		try {
-			release = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(d);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}
+	@Transient
+	protected Object[] jdoDetachedState;
+	
+	private String title, author, publisher;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "releaseDate")
+	private Date release;
 
 	public String getTitle() {
 		return title;
@@ -29,20 +36,20 @@ public class BookPart {
 		this.title = title;
 	}
 
-	public String getDirector() {
-		return director;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setDirector(String director) {
-		this.director = director;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
-	public String getProduction() {
-		return production;
+	public String getPublisher() {
+		return publisher;
 	}
 
-	public void setProduction(String production) {
-		this.production = production;
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
 	public Date getRelease() {
@@ -51,5 +58,9 @@ public class BookPart {
 
 	public void setRelease(Date release) {
 		this.release = release;
+	}
+
+	public Long getBookID(){
+		return bookID;
 	}
 }

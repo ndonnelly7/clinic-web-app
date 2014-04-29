@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;BleepTest/war/script.js&apos; to &apos;map.html&apos;" description="Rename resource &apos;script.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="war/script.js" name="map.html" stamp="1396008638234" updateReferences="true"/>
-</session>

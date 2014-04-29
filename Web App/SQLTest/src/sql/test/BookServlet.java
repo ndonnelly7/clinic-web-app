@@ -1,30 +1,72 @@
 package sql.test;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.appengine.api.utils.SystemProperty;
+
 @SuppressWarnings("serial")
 public class BookServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 		throws IOException, ServletException {
 		
-		String bT, date, a, p;
+		Map<String, String> properties = new HashMap<String, String>();
+	    if (SystemProperty.environment.value() ==
+	    		SystemProperty.Environment.Value.Production) {
+	    	/*
+	      properties.put("javax.persistence.jdbc.driver",
+	          "com.mysql.jdbc.GoogleDriver");
+	      properties.put("javax.persistence.jdbc.url",
+	          System.getProperty("cloudsql.url"));
+	    	*/
+	    		System.out.println("In production???!!!");
+	    } else {
+	      properties.put("javax.persistence.jdbc.driver",
+	          "com.mysql.jdbc.Driver");
+	      properties.put("javax.persistence.jdbc.url",
+	          System.getProperty("cloudsql.url.dev"));
+	    }
+
+	    /*
+	    EntityManagerFactory emf = Persistence.createEntityManagerFactory(
+	        "hibernate-sql", properties);
+	    
+	    EntityManager em = emf.createEntityManager();
+		*/
+		String bT;
 		int id = 0;
 		
 		bT = req.getParameter("title");
-		date = req.getParameter("release");
-		a = req.getParameter("author");
-		p = req.getParameter("publisher");
 		
 		FullWork work = new FullWork(bT);
-		work.setBook(new BookPart(bT, a, p, date));
+		BookPart bp = new BookPart();
+		BeanPopulate.populateBean(bp, req);
+		work.setBook(bp);
+		WorkDAO dao = new WorkDAO();
+		id = dao.addFullWork(work);
 		
+		/*
 		//Once added to DB, then retrieve ID
+	    em.getTransaction().begin();
+	    em.persist(work);
+	    em.getTransaction().commit();
+	    em.close();
+		
+	    em = emf.createEntityManager();
+	    em.getTransaction().begin();
+		*/
+		
+		
 		
 		req.setAttribute("id", id);
 		RequestDispatcher view = req.getRequestDispatcher("/jsp/second.jsp");

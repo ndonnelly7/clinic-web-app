@@ -10,7 +10,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>BookServlet</servlet-name>
-		<url-pattern>book.do</url-pattern>
+		<url-pattern>/jsp/book.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>FilmServlet</servlet-name>
@@ -18,7 +18,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FilmServlet</servlet-name>
-		<url-pattern>film.do</url-pattern>
+		<url-pattern>/jsp/film.do</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

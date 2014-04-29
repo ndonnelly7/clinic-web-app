@@ -12,4 +12,24 @@
             <property name="datanucleus.ConnectionURL" value="appengine"/>
         </properties>
     </persistence-unit>
+    
+    <persistence-unit name="hibernate-sql">
+    	<description></description>
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<class>sql.test.FullWork</class>
+    	<class>sql.test.FilmPart</class>
+    	<class>sql.test.BookPart</class>
+    	<class>sql.test.Actor</class>
+    	
+    	<properties>
+    		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.GoogleDriver"/>
+    		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/gaetestdb"/>
+    		<property name="javax.persistence.jdbc.user" value="ndonnelly"/>
+    		<property name="javax.persistence.jdbc.password" value="13212223"/>
+    		
+    		<property name="hibernate.show_sql" value="true" />
+		    <property name="hibernate.hbm2ddl.auto" value="update" />
+		    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+    	</properties>
+    </persistence-unit>
 </persistence>

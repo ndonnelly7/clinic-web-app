@@ -10,10 +10,10 @@
 <h2>Retrieve Lists</h2>
 <input type="button" value="Get All" onclick="RetrieveAll()">
 <br>
-<h2>Find Work</h2>
+<h2>Review</h2>
 <input type="text" id="work_text">
 <input type="button" value="Find" onclick="FindWork()">
 <br>
-
+	<a href="/jsp/first.jsp">Return to First Page</a>
 </body>
 </html>

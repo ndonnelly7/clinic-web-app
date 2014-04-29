@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;EMF.java&apos; to &apos;PeerJSChannel/src/peerjs&apos;&#x0D;&#x0A;- Original project: &apos;IndexedDBSample&apos;&#x0D;&#x0A;- Destination element: &apos;PeerJSChannel/src/peerjs&apos;&#x0D;&#x0A;- Original element: &apos;indexed.db.EMF.java&apos;" description="Copy compilation unit" destination="=PeerJSChannel/src&lt;peerjs" element1="/src&lt;indexed.db{EMF.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1389795573519" units="1" version="1.0"/>
-</session>

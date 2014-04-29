@@ -13,20 +13,20 @@
 	<fieldset id="book_field">
 	<legend>Book Form</legend>
 	<div class="pure-control-group">
-	<label for="book_title">Title </label>
-	<input name="book_title" type="text" id="book_title">
+	<label for="title">Title </label>
+	<input name="title" type="text" id="title">
 	</div>
 	<div class="pure-control-group">
-	<label for="book_release">Release </label>
-	<input name="book_release" placeholder="dd/mm/yyyy" type="text" class="book_form" id="pickdate">
+	<label for="release">Release </label>
+	<input name="release" placeholder="dd/mm/yyyy" type="text" class="book_form" id="pickdate">
 	</div>
 	<div class="pure-control-group">
-	<label for="book_author">Author </label>
-	<input name="book_author" type="text" id="book_author">
+	<label for="author">Author </label>
+	<input name="author" type="text" id="author">
 	</div>
 	<div class="pure-control-group">
-	<label for="book_publisher">Publisher </label>
-	<input name="book_publisher" type="text" id="book_publisher">
+	<label for="publisher">Publisher </label>
+	<input name="publisher" type="text" id="publisher">
 	</div>
 	<input type="submit" value="Submit">
 	

@@ -1,37 +1,41 @@
 package sql.test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
-import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 public class FilmPart {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long filmID;
 	
-	String title, author, publisher;
-	@Basic
+	
+	@Transient
+	protected Object[] jdoDetachedState;
+	
+	String title, director, production;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "releaseDate")
 	Date release;
 	
-	public FilmPart(String t, String a, String p, String d){
-		title = t;
-		author = a;
-		publisher = p;
-		try {
-			release = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(d);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}
-
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "filmPart", cascade = CascadeType.ALL)
+	List<Actor> actors;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -40,20 +44,20 @@ public class FilmPart {
 		this.title = title;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getDirector() {
+		return director;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setDirector(String director) {
+		this.director = director;
 	}
 
-	public String getPublisher() {
-		return publisher;
+	public String getProduction() {
+		return production;
 	}
 
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
+	public void setProduction(String production) {
+		this.production = production;
 	}
 
 	public Date getRelease() {
@@ -62,5 +66,17 @@ public class FilmPart {
 
 	public void setRelease(Date release) {
 		this.release = release;
+	}
+
+	public Long getFilmID(){
+		return filmID;
+	}
+	
+	public void setActors(ArrayList<Actor> actors){
+		this.actors = actors;
+	}
+	
+	public List<Actor> getActors(){
+		return actors;
 	}
 }

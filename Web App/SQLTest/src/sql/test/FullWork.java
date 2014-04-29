@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity(name="Work")
 public class FullWork {
@@ -13,7 +14,7 @@ public class FullWork {
 	String title;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer workID;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	FilmPart film;
@@ -21,8 +22,15 @@ public class FullWork {
 	@OneToOne(cascade = CascadeType.ALL)
 	BookPart book;
 	
+	@Transient
+	protected Object[] jdoDetachedState;
+	
 	FullWork(String name){
 		this.title = name;
+	}
+	
+	FullWork(){
+		
 	}
 	
 	public void setFilm(FilmPart f){
@@ -45,7 +53,7 @@ public class FullWork {
 		return title;
 	}
 	
-	public int getID(){
-		return id;
+	public int getWorkID(){
+		return workID;
 	}
 }
