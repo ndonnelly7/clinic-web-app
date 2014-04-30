@@ -23,12 +23,6 @@ public class BookServlet extends HttpServlet {
 		Map<String, String> properties = new HashMap<String, String>();
 	    if (SystemProperty.environment.value() ==
 	    		SystemProperty.Environment.Value.Production) {
-	    	/*
-	      properties.put("javax.persistence.jdbc.driver",
-	          "com.mysql.jdbc.GoogleDriver");
-	      properties.put("javax.persistence.jdbc.url",
-	          System.getProperty("cloudsql.url"));
-	    	*/
 	    		System.out.println("In production???!!!");
 	    } else {
 	      properties.put("javax.persistence.jdbc.driver",
@@ -37,12 +31,6 @@ public class BookServlet extends HttpServlet {
 	          System.getProperty("cloudsql.url.dev"));
 	    }
 
-	    /*
-	    EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-	        "hibernate-sql", properties);
-	    
-	    EntityManager em = emf.createEntityManager();
-		*/
 		String bT;
 		int id = 0;
 		
@@ -54,19 +42,6 @@ public class BookServlet extends HttpServlet {
 		work.setBook(bp);
 		WorkDAO dao = new WorkDAO();
 		id = dao.addFullWork(work);
-		
-		/*
-		//Once added to DB, then retrieve ID
-	    em.getTransaction().begin();
-	    em.persist(work);
-	    em.getTransaction().commit();
-	    em.close();
-		
-	    em = emf.createEntityManager();
-	    em.getTransaction().begin();
-		*/
-		
-		
 		
 		req.setAttribute("id", id);
 		RequestDispatcher view = req.getRequestDispatcher("/jsp/second.jsp");

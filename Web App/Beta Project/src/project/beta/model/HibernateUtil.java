@@ -1,4 +1,4 @@
-package sql.test;
+package project.beta.model;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -32,3 +32,4 @@ public class HibernateUtil {
 		getSessionFactory().close();
 	}
 }
+

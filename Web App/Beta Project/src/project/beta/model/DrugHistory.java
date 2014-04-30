@@ -1,37 +1,64 @@
 package project.beta.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.google.appengine.api.datastore.Key;
+import javax.persistence.Transient;
 /*
  * Used for medical history of any medication taken
  */
 @Entity
-public class DrugHistory {
+public class DrugHistory implements Serializable {
+	
+	@Transient
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Key key;
+	@Column(name = "drugHistoryID", unique = true, nullable = false)
+	int	drugHistoryID;
 	
 	String drug;
 	String time;
 	String notes;
 	
-	public DrugHistory(String drug, String time, String notes)
-	{
-		this.drug = drug;
-		this.time = time;
-		this.notes = notes;
+	public DrugHistory(){
+		
 	}
-	
-	@Override
-	public String toString() {
-		return "MedHisotry [condition=" + drug
-				+ ", time=" + time
-				+ ", notes" + notes
-				+ "]";
+
+	public int getDrugHistoryID() {
+		return drugHistoryID;
+	}
+
+	public void setDrugHistoryID(int drugHistoryID) {
+		this.drugHistoryID = drugHistoryID;
+	}
+
+	public String getDrug() {
+		return drug;
+	}
+
+	public void setDrug(String drug) {
+		this.drug = drug;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 }

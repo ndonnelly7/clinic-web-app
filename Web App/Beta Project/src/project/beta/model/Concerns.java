@@ -1,12 +1,19 @@
 package project.beta.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /*
  * Concerns Class for the Concerns page of the form
  */
+@Entity
 public class Concerns {
 
-	//User ID used by system to keep track of everything
-	int pID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int concernsID;
 	
 	boolean recEventsCheck, facesCheck, namesCheck, losingThingsCheck, followConversationsCheck;
 	boolean rightWordsCheck, decisionMakingCheck, calculationsCheck, prospMemoryCheck, anxietyCheck, commentsCheck;
@@ -36,124 +43,18 @@ public class Concerns {
 	String anxietyCollatTime, anxietyCollatFreq, anxietyCollatNotes;
 	String commentsCollatTime, commentsCollatFreq, commentsCollatNotes;
 	
-	public Concerns(int pid){
-		pID = pid;
+	public Concerns(){
 		
-		recEventsCheck = facesCheck = namesCheck = losingThingsCheck = followConversationsCheck = false;
-		rightWordsCheck = decisionMakingCheck = calculationsCheck = prospMemoryCheck = anxietyCheck = commentsCheck = false;
-		recEventsCollatCheck = facesCollatCheck = namesCollatCheck = losingThingsCollatCheck = followConversationsCollatCheck = false;
-		rightWordsCollatCheck = decisionMakingCollatCheck = calculationsCollatCheck = prospMemoryCollatCheck = anxietyCollatCheck = commentsCollatCheck = false;
-	
-		recEventsTime = recEventsFreq = recEventsNotes = "";
-		facesTime = facesFreq = facesNotes = "";
-		namesTime = namesFreq = namesNotes = "";
-		losingThingsTime = losingThingsFreq = losingThingsNotes = "";
-		followConversationTime = followConversationFreq = followConversationNotes = "";
-		rightWordsTime = rightWordsFreq = rightWordsNotes = "";
-		decisionMakingTime = decisionMakingFreq = decisionMakingNotes = "";
-		calculationsTime = calculationsFreq = calculationsNotes = "";
-		prospMemoryTime = prospMemoryFreq = prospMemoryNotes = "";
-		anxietyTime = anxietyFreq = anxietyNotes = "";
-		commentsTime = commentsFreq = commentsNotes = "";
-		
-		recEventsCollatTime = recEventsCollatFreq = recEventsCollatNotes = "";
-		facesCollatTime = facesCollatFreq = facesCollatNotes = "";
-		namesCollatTime = namesCollatFreq = namesCollatNotes = "";
-		losingThingsCollatTime = losingThingsCollatFreq = losingThingsCollatNotes = "";
-		followConversationCollatTime = followConversationCollatFreq = followConversationCollatNotes = "";
-		rightWordsCollatTime = rightWordsCollatFreq = rightWordsCollatNotes = "";
-		decisionMakingCollatTime = decisionMakingCollatFreq = decisionMakingCollatNotes = "";
-		calculationsCollatTime = calculationsCollatFreq = calculationsCollatNotes = "";
-		prospMemoryCollatTime = prospMemoryCollatFreq = prospMemoryCollatNotes = "";
-		anxietyCollatTime = anxietyCollatFreq = anxietyCollatNotes = "";
-		commentsCollatTime = commentsCollatFreq = commentsCollatNotes = "";
 	}
 
-	@Override
-	public String toString() {
-		return "Concerns [pID=" + pID + ", recEventsCheck=" + recEventsCheck
-				+ ", facesCheck=" + facesCheck + ", namesCheck=" + namesCheck
-				+ ", losingThingsCheck=" + losingThingsCheck
-				+ ", followConversationsCheck=" + followConversationsCheck
-				+ ", rightWordsCheck=" + rightWordsCheck
-				+ ", decisionMakingCheck=" + decisionMakingCheck
-				+ ", calculationsCheck=" + calculationsCheck
-				+ ", prospMemoryCheck=" + prospMemoryCheck + ", anxietyCheck="
-				+ anxietyCheck + ", commentsCheck=" + commentsCheck
-				+ ", recEventsTime=" + recEventsTime + ", recEventsFreq="
-				+ recEventsFreq + ", recEventsNotes=" + recEventsNotes
-				+ ", facesTime=" + facesTime + ", facesFreq=" + facesFreq
-				+ ", facesNotes=" + facesNotes + ", namesTime=" + namesTime
-				+ ", namesFreq=" + namesFreq + ", namesNotes=" + namesNotes
-				+ ", losingThingsTime=" + losingThingsTime
-				+ ", losingThingsFreq=" + losingThingsFreq
-				+ ", losingThingsNotes=" + losingThingsNotes
-				+ ", followConversationTime=" + followConversationTime
-				+ ", followConversationFreq=" + followConversationFreq
-				+ ", followConversationNotes=" + followConversationNotes
-				+ ", rightWordsTime=" + rightWordsTime + ", rightWordsFreq="
-				+ rightWordsFreq + ", rightWordsNotes=" + rightWordsNotes
-				+ ", decisionMakingTime=" + decisionMakingTime
-				+ ", decisionMakingFreq=" + decisionMakingFreq
-				+ ", decisionMakingNotes=" + decisionMakingNotes
-				+ ", calculationsTime=" + calculationsTime
-				+ ", calculationsFreq=" + calculationsFreq
-				+ ", calculationsNotes=" + calculationsNotes
-				+ ", prospMemoryTime=" + prospMemoryTime + ", prospMemoryFreq="
-				+ prospMemoryFreq + ", prospMemoryNotes=" + prospMemoryNotes
-				+ ", anxietyTime=" + anxietyTime + ", anxietyFreq="
-				+ anxietyFreq + ", anxietyNotes=" + anxietyNotes
-				+ ", commentsTime=" + commentsTime + ", commentsFreq="
-				+ commentsFreq + ", commentsNotes=" + commentsNotes
-				+ ", recEventsCollatCheck=" + recEventsCollatCheck
-				+ ", facesCollatCheck=" + facesCollatCheck
-				+ ", namesCollatCheck=" + namesCollatCheck
-				+ ", losingThingsCollatCheck=" + losingThingsCollatCheck
-				+ ", followConversationsCollatCheck="
-				+ followConversationsCollatCheck + ", rightWordsCollatCheck="
-				+ rightWordsCollatCheck + ", decisionMakingCollatCheck="
-				+ decisionMakingCollatCheck + ", calculationsCollatCheck="
-				+ calculationsCollatCheck + ", prospMemoryCollatCheck="
-				+ prospMemoryCollatCheck + ", anxietyCollatCheck="
-				+ anxietyCollatCheck + ", commentsCollatCheck="
-				+ commentsCollatCheck + ", recEventsCollatTime="
-				+ recEventsCollatTime + ", recEventsCollatFreq="
-				+ recEventsCollatFreq + ", recEventsCollatNotes="
-				+ recEventsCollatNotes + ", facesCollatTime=" + facesCollatTime
-				+ ", facesCollatFreq=" + facesCollatFreq
-				+ ", facesCollatNotes=" + facesCollatNotes
-				+ ", namesCollatTime=" + namesCollatTime + ", namesCollatFreq="
-				+ namesCollatFreq + ", namesCollatNotes=" + namesCollatNotes
-				+ ", losingThingsCollatTime=" + losingThingsCollatTime
-				+ ", losingThingsCollatFreq=" + losingThingsCollatFreq
-				+ ", losingThingsCollatNotes=" + losingThingsCollatNotes
-				+ ", followConversationCollatTime="
-				+ followConversationCollatTime
-				+ ", followConversationCollatFreq="
-				+ followConversationCollatFreq
-				+ ", followConversationCollatNotes="
-				+ followConversationCollatNotes + ", rightWordsCollatTime="
-				+ rightWordsCollatTime + ", rightWordsCollatFreq="
-				+ rightWordsCollatFreq + ", rightWordsCollatNotes="
-				+ rightWordsCollatNotes + ", decisionMakingCollatTime="
-				+ decisionMakingCollatTime + ", decisionMakingCollatFreq="
-				+ decisionMakingCollatFreq + ", decisionMakingCollatNotes="
-				+ decisionMakingCollatNotes + ", calculationsCollatTime="
-				+ calculationsCollatTime + ", calculationsCollatFreq="
-				+ calculationsCollatFreq + ", calculationsCollatNotes="
-				+ calculationsCollatNotes + ", prospMemoryCollatTime="
-				+ prospMemoryCollatTime + ", prospMemoryCollatFreq="
-				+ prospMemoryCollatFreq + ", prospMemoryCollatNotes="
-				+ prospMemoryCollatNotes + ", anxietyCollatTime="
-				+ anxietyCollatTime + ", anxietyCollatFreq="
-				+ anxietyCollatFreq + ", anxietyCollatNotes="
-				+ anxietyCollatNotes + ", commentsCollatTime="
-				+ commentsCollatTime + ", commentsCollatFreq="
-				+ commentsCollatFreq + ", commentsCollatNotes="
-				+ commentsCollatNotes + "]";
+	public int getConcernsID() {
+		return concernsID;
 	}
 
-	//Getters and Setters
+	public void setConcernsID(int concernsID) {
+		this.concernsID = concernsID;
+	}
+
 	public boolean isRecEventsCheck() {
 		return recEventsCheck;
 	}
@@ -858,9 +759,5 @@ public class Concerns {
 
 	public void setCommentsCollatNotes(String commentsCollatNotes) {
 		this.commentsCollatNotes = commentsCollatNotes;
-	}
-
-	public int getpID() {
-		return pID;
 	}
 }

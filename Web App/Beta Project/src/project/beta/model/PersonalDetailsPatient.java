@@ -2,13 +2,14 @@ package project.beta.model;
 
 import java.util.Date;
 
-import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.google.appengine.api.datastore.Key;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /*
  * Used to keep the personal details of the patient
@@ -19,203 +20,165 @@ public class PersonalDetailsPatient {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Key key;
+	@Column(name = "detailsID", unique = true, nullable = false)
+	int detailsID;
+	
+	@Transient
+	protected Object[] jdoDetachedState;
 	
 	//TODO: Make the ID'ing info Transient here
 	private int pID;
-	private String pName, pGender, pAddress, pHomeTelNumber, pMobNumber, pEmail, pAreaOfStudy, pOccupation, pCounty;
-	private String gpName, gpAddress, gpCounty, pFamilyPresent;
+	private String gender, study_topic, occupation, county;
+	private String gp_county;
+	private boolean family_present_check;
 	
-	@Basic
-	private Date pDOB;
-	private int pAge, pAgeLeftEdu;
-	private boolean pJunior, pSenior, pThird, pIsFamilyPresent;
+	@Temporal(TemporalType.DATE)
+	private Date dob;
+	private int age, age_left;
+	
+	private boolean junior_check, senior_check, third_check, pIsFamilyPresent;
 	
 	public PersonalDetailsPatient(int pid)
 	{
 		pID = pid;
-		pName = pGender = pAddress = pHomeTelNumber = pMobNumber = pEmail = pAreaOfStudy = pOccupation = pCounty = "";
-		gpName = gpAddress = gpCounty = pFamilyPresent = "";
-		pDOB = new Date();
-		pAge = pAgeLeftEdu = 0;
-		pJunior = pSenior = pThird = pIsFamilyPresent = false;
+		gender = study_topic = occupation = county = "";
+		gp_county = "";
+		dob = new Date();
+		age = age_left = 0;
+		junior_check = senior_check = third_check = pIsFamilyPresent = family_present_check =false;
 	}
 	
-	public String getName() {
-		return pName;
-	}
-
-	public void setName(String pName) {
-		this.pName = pName;
+	public PersonalDetailsPatient(){
+		pID = 0;
+		gender = study_topic = occupation = county = "";
+		gp_county = "";
+		dob = new Date();
+		age = age_left = 0;
+		junior_check = senior_check = third_check = pIsFamilyPresent = family_present_check = false;
 	}
 	
 	public int getID() {
 		return pID;
 	}
 
+	public int getDetailsID() {
+		return detailsID;
+	}
+
+	public void setDetailsID(int detailsID) {
+		this.detailsID = detailsID;
+	}
+
+	public int getpID() {
+		return pID;
+	}
+
+	public void setpID(int pID) {
+		this.pID = pID;
+	}
+
 	public String getGender() {
-		return pGender;
+		return gender;
 	}
 
-	public void setGender(String pGender) {
-		this.pGender = pGender;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public String getAddress() {
-		return pAddress;
+	public int getAge_left() {
+		return age_left;
 	}
 
-	public void setAddress(String pAddress) {
-		this.pAddress = pAddress;
+	public void setAge_left(int age_left) {
+		this.age_left = age_left;
 	}
 
-	public String getHomeTelNumber() {
-		return pHomeTelNumber;
+	public String getStudy_topic() {
+		return study_topic;
 	}
 
-	public void setHomeTelNumber(String pHomeTelNumber) {
-		this.pHomeTelNumber = pHomeTelNumber;
-	}
-
-	public String getMobNumber() {
-		return pMobNumber;
-	}
-
-	public void setMobNumber(String pMobNumber) {
-		this.pMobNumber = pMobNumber;
-	}
-
-	public String getEmail() {
-		return pEmail;
-	}
-
-	public void setEmail(String pEmail) {
-		this.pEmail = pEmail;
-	}
-
-	public String getAreaOfStudy() {
-		return pAreaOfStudy;
-	}
-
-	public void setAreaOfStudy(String pAreaOfStudy) {
-		this.pAreaOfStudy = pAreaOfStudy;
+	public void setStudy_topic(String study_topic) {
+		this.study_topic = study_topic;
 	}
 
 	public String getOccupation() {
-		return pOccupation;
+		return occupation;
 	}
 
-	public void setOccupation(String pOccupation) {
-		this.pOccupation = pOccupation;
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
 	}
 
 	public String getCounty() {
-		return pCounty;
+		return county;
 	}
 
-	public void setCounty(String pCounty) {
-		this.pCounty = pCounty;
+	public void setCounty(String county) {
+		this.county = county;
 	}
 
-	public String getGpName() {
-		return gpName;
+	public String getGp_county() {
+		return gp_county;
 	}
 
-	public void setGpName(String gpName) {
-		this.gpName = gpName;
+	public void setGp_county(String gp_county) {
+		this.gp_county = gp_county;
 	}
 
-	public String getGpAddress() {
-		return gpAddress;
+	public boolean getFamily_present_check() {
+		return family_present_check;
 	}
 
-	public void setGpAddress(String gpAddress) {
-		this.gpAddress = gpAddress;
+	public void setFamily_present_check(boolean family_present_check) {
+		this.family_present_check = family_present_check;
 	}
 
-	public String getGpCounty() {
-		return gpCounty;
+	public Date getDob() {
+		return dob;
 	}
 
-	public void setGpCounty(String gpCounty) {
-		this.gpCounty = gpCounty;
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 
-	public String getFamilyPresent() {
-		return pFamilyPresent;
-	}
-
-	public void setFamilyPresent(String pFamilyPresent) {
-		this.pFamilyPresent = pFamilyPresent;
-	}
-
-	public Date getDOB() {
-		return pDOB;
-	}
-
-	public void setDOB(Date pDOB) {
-		this.pDOB = pDOB;
-	}
-	
 	public int getAge() {
-		return pAge;
+		return age;
 	}
 
-	public void setAge(int pAge) {
-		this.pAge = pAge;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
-	public int getAgeLeftEdu() {
-		return pAgeLeftEdu;
+	public boolean isJunior_check() {
+		return junior_check;
 	}
 
-	public void setAgeLeftEdu(int pAgeLeftEdu) {
-		this.pAgeLeftEdu = pAgeLeftEdu;
+	public void setJunior_check(boolean junior_check) {
+		this.junior_check = junior_check;
 	}
 
-	public boolean isJunior() {
-		return pJunior;
+	public boolean isSenior_check() {
+		return senior_check;
 	}
 
-	public void setJunior(boolean pJunior) {
-		this.pJunior = pJunior;
+	public void setSenior_check(boolean senior_check) {
+		this.senior_check = senior_check;
 	}
 
-	public boolean isSenior() {
-		return pSenior;
+	public boolean isThird_check() {
+		return third_check;
 	}
 
-	public void setSenior(boolean pSenior) {
-		this.pSenior = pSenior;
+	public void setThird_check(boolean third_check) {
+		this.third_check = third_check;
 	}
 
-	public boolean isThird() {
-		return pThird;
-	}
-
-	public void setThird(boolean pThird) {
-		this.pThird = pThird;
-	}
-
-	public boolean isIsFamilyPresent() {
+	public boolean ispIsFamilyPresent() {
 		return pIsFamilyPresent;
 	}
 
-	public void setIsFamilyPresent(boolean pIsFamilyPresent) {
+	public void setpIsFamilyPresent(boolean pIsFamilyPresent) {
 		this.pIsFamilyPresent = pIsFamilyPresent;
 	}
 
-	@Override
-	public String toString() {
-		return "PersonalDetailsPatient [pName=" + pName + ", pGender="
-				+ pGender + ", pAddress=" + pAddress + ", pHomeTelNumber="
-				+ pHomeTelNumber + ", pMobNumber=" + pMobNumber + ", pEmail="
-				+ pEmail + ", pAreaOfStudy=" + pAreaOfStudy + ", pOccupation="
-				+ pOccupation + ", pCounty=" + pCounty + ", gpName=" + gpName
-				+ ", gpAddress=" + gpAddress + ", gpCounty=" + gpCounty
-				+ ", pFamilyPresent=" + pFamilyPresent + ", pDOB=" + pDOB
-				+ ", pAge=" + pAge + ", pAgeLeftEdu=" + pAgeLeftEdu
-				+ ", pJunior=" + pJunior + ", pSenior=" + pSenior + ", pThird="
-				+ pThird + ", pIsFamilyPresent=" + pIsFamilyPresent + "]";
-	}
 }

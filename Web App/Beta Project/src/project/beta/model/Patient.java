@@ -6,25 +6,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
-import com.google.appengine.api.datastore.Key;
 /*
  * Patient Class used by Program
  * This class is what's stored in the SQL
  */
-
 @Entity(name="Patient")
 public class Patient implements java.io.Serializable{
 	
+	@Transient
 	private static final long serialVersionUID = 8153440730792060761L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Key pKey;
-	
-	private int pID;	
+	private int patientID;	
 	
 	//TODO: will need to change this to use User ID 
+	@Transient
 	private String userCreatedID;
 	
 	//Will needs to make parts of this field transient so sensitive info is not stored
@@ -32,55 +31,145 @@ public class Patient implements java.io.Serializable{
 	private PersonalDetailsPatient personalDetails;
 	@OneToOne(cascade = CascadeType.ALL)
 	private PatientHistory patientHistory;
+	@OneToOne(cascade = CascadeType.ALL)
+	private GP_Info gpInfo;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Concerns concerns;
+	@OneToOne(cascade = CascadeType.ALL)
+	private NeuroHistory neuroHistory;
+	@OneToOne(cascade = CascadeType.ALL)
+	private EventsActivities eventsActivities;
+	@OneToOne(cascade = CascadeType.ALL)
+	private LivingSit livingSit;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Lifestyle lifestyle;
+	@OneToOne(cascade = CascadeType.ALL)
+	private TestBattery testBattery;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Analysis analysis;
 	
-	//TODO: Need to add the rest of the form classes
-	
-	public Patient(int patientID, String u){
-		pID = patientID;
-		userCreatedID = u;
+	public Patient(){
 		
-		personalDetails = new PersonalDetailsPatient(pID);
-		patientHistory = new PatientHistory(pID);
+	}
+	
+
+	public int getPatientID() {
+		return patientID;
 	}
 
-	public String getUserCreated() {
+
+	public void setPatientID(int patientID) {
+		this.patientID = patientID;
+	}
+
+
+	public String getUserCreatedID() {
 		return userCreatedID;
 	}
 
-	public void setUserCreated(String userCreated) {
-		this.userCreatedID = userCreated;
+
+	public void setUserCreatedID(String userCreatedID) {
+		this.userCreatedID = userCreatedID;
 	}
 
-	public int getID() {
-		return pID;
-	}
 
-	public void setID(int pID) {
-		this.pID = pID;
-	}
-	
-	public PersonalDetailsPatient getPersonalDetails()
-	{
+	public PersonalDetailsPatient getPersonalDetails() {
 		return personalDetails;
 	}
-	
-	public void setPersonalDetails(PersonalDetailsPatient p)
-	{
-		personalDetails = p;
+
+
+	public void setPersonalDetails(PersonalDetailsPatient personalDetails) {
+		this.personalDetails = personalDetails;
 	}
-	
-	public Key getKey()
-	{
-		return pKey;
-	}
-	
-	public PatientHistory getHistory()
-	{
+
+
+	public PatientHistory getPatientHistory() {
 		return patientHistory;
 	}
-	
-	public void setHistory(PatientHistory history)
-	{
-		patientHistory = history;
+
+
+	public void setPatientHistory(PatientHistory patientHistory) {
+		this.patientHistory = patientHistory;
 	}
+
+
+	public GP_Info getGpInfo() {
+		return gpInfo;
+	}
+
+
+	public void setGpInfo(GP_Info gpInfo) {
+		this.gpInfo = gpInfo;
+	}
+
+
+	public Concerns getConcerns() {
+		return concerns;
+	}
+
+
+	public void setConcerns(Concerns concerns) {
+		this.concerns = concerns;
+	}
+
+
+	public NeuroHistory getNeuroHistory() {
+		return neuroHistory;
+	}
+
+
+	public void setNeuroHistory(NeuroHistory neuroHistory) {
+		this.neuroHistory = neuroHistory;
+	}
+
+
+	public EventsActivities getEventsActivities() {
+		return eventsActivities;
+	}
+
+
+	public void setEventsActivities(EventsActivities eventsActivities) {
+		this.eventsActivities = eventsActivities;
+	}
+
+
+	public LivingSit getLivingSit() {
+		return livingSit;
+	}
+
+
+	public void setLivingSit(LivingSit livingSit) {
+		this.livingSit = livingSit;
+	}
+
+
+	public Lifestyle getLifestyle() {
+		return lifestyle;
+	}
+
+
+	public void setLifestyle(Lifestyle lifestyle) {
+		this.lifestyle = lifestyle;
+	}
+
+
+	public TestBattery getTestBattery() {
+		return testBattery;
+	}
+
+
+	public void setTestBattery(TestBattery testBattery) {
+		this.testBattery = testBattery;
+	}
+
+
+	public Analysis getAnalysis() {
+		return analysis;
+	}
+
+
+	public void setAnalysis(Analysis analysis) {
+		this.analysis = analysis;
+	}
+	
 }

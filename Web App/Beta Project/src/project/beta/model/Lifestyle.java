@@ -1,15 +1,24 @@
 package project.beta.model;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /*
  * Lifestyle Class for corresponding page
  */
 
-//TODO: Needs JPA Stuff
+@Entity
 public class Lifestyle {
 	
-	private int pID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "lifestyleID", unique = true, nullable = false)
+	private int lifestyleID;
 	
 	//Sleep
 	boolean difficulty_sleep, night_waking, early_waking, meds_check, nap_check;
@@ -42,8 +51,8 @@ public class Lifestyle {
 	
 	//Exercise
 	boolean exercise;
-	ArrayList<Activity> activities;
-	ArrayList<Activity> collatActivities;
+	List<Activity> activities;
+	List<Activity> collatActivities;
 	
 	//Diet
 	String breakfast, lunch, dinner, diet_notes;
@@ -69,207 +78,17 @@ public class Lifestyle {
 	boolean drugs, drugs_collat;
 	String drug_notes, drug_notes_collat;
 	
-	public Lifestyle(int id)
+	public Lifestyle()
 	{
-		pID = id;
 		
-		//Sleep
-		difficulty_sleep = night_waking = early_waking = meds_check = nap_check = false;
-		collat_sleep = collat_exercise = collat_alcohol = collat_smoking = collat_drug = collat_diet = false;
-		
-		difficulty_sleep_notes = difficulty_reason = difficulty_freq = difficulty_time = "";
-		difficulty_reason_notes = difficulty_freq_notes = difficulty_time_notes = "";
-		
-		night_waking_notes = night_waking_reason = night_waking_freq = night_waking_time = "";
-		night_waking_reason_notes = night_waking_freq_notes = night_waking_time_notes = "";
-		
-		early_waking_notes = early_waking_reason = early_waking_freq = early_waking_time = "";
-		early_waking_reason_notes = early_waking_freq_notes = early_waking_time_notes = "";
-		
-		sleep_length = sleep_meds = sleep_med_notes = nap_length = nap_time = nap_notes = "";
-		
-		//Collateral Sleep
-		difficulty_sleep_collat = night_waking_collat = early_waking_collat = meds_check_collat = nap_check_collat = false;
-		
-		difficulty_sleep_notes_collat = difficulty_reason_collat = difficulty_freq_collat = difficulty_time_collat = "";
-		difficulty_reason_notes_collat = difficulty_freq_notes_collat = difficulty_time_notes_collat = "";
-		
-		night_waking_notes_collat = night_waking_reason_collat = night_waking_freq_collat = night_waking_time_collat = "";
-		night_waking_reason_notes_collat = night_waking_freq_notes_collat = night_waking_time_notes_collat = "";
-		
-		early_waking_notes_collat = early_waking_reason_collat = early_waking_freq_collat = early_waking_time_collat = "";
-		early_waking_reason_notes_collat = early_waking_freq_notes_collat = early_waking_time_notes_collat = "";
-		
-		sleep_length_collat = sleep_meds_collat = sleep_med_notes_collat = nap_length_collat = nap_time_collat = nap_notes_collat = "";
-		
-		//Exercise
-		exercise = false;
-		ArrayList<Activity> activities = new ArrayList<Activity>();
-		ArrayList<Activity> collatActivities = new ArrayList<Activity>();
-		
-		//Diet
-		breakfast = lunch = dinner = diet_notes = "";
-		miss_meals = sweets = fried = takeaway = cakes = false;
-		miss_meals_freq = sweets_freq = fried_freq = takeaway_freq = cakes_freq = fruit_veg_amount = "";
-		
-		breakfast_collat = lunch_collat = dinner_collat = diet_notes_collat = "";
-		miss_meals_collat = sweets_collat = fried_collat = takeaway_collat = cakes_collat = false;
-		miss_meals_freq_collat = sweets_freq_collat = fried_freq_collat = takeaway_freq_collat = cakes_freq_collat = fruit_veg_amount_collat = "";
-		
-		//Alcohol
-		alcohol = alcohol_collat = false;
-		float pint_units = bottle_units = spirits_units = wine_units = alcopop_units = -1.f;
-		float pint_units_collat = bottle_units_collat = spirits_units_collat = wine_units_collat = alcopop_units_collat = -1.f;
-		alcohol_notes = alcohol_notes_collat = "";
-		total_units = total_units_collat = 0.f;
-		
-		//Smoking
-		smoking = smoking_collat = false;
-		packets = packets_collat = smoking_notes = smoking_notes_Collat = "";
-		
-		//Drugs
-		drugs = drugs_collat = false;
-		drug_notes = drug_notes_collat = "";
-	}
-	
-	@Override
-	public String toString() {
-		return "Lifestyle [pID=" + pID + ", difficulty_sleep="
-				+ difficulty_sleep + ", night_waking=" + night_waking
-				+ ", early_waking=" + early_waking + ", meds_check="
-				+ meds_check + ", nap_check=" + nap_check + ", collat_sleep="
-				+ collat_sleep + ", collat_exercise=" + collat_exercise
-				+ ", collat_alcohol=" + collat_alcohol + ", collat_smoking="
-				+ collat_smoking + ", collat_drug=" + collat_drug
-				+ ", collat_diet=" + collat_diet + ", difficulty_sleep_notes="
-				+ difficulty_sleep_notes + ", difficulty_reason="
-				+ difficulty_reason + ", difficulty_freq=" + difficulty_freq
-				+ ", difficulty_time=" + difficulty_time
-				+ ", difficulty_reason_notes=" + difficulty_reason_notes
-				+ ", difficulty_freq_notes=" + difficulty_freq_notes
-				+ ", difficulty_time_notes=" + difficulty_time_notes
-				+ ", night_waking_notes=" + night_waking_notes
-				+ ", night_waking_reason=" + night_waking_reason
-				+ ", night_waking_freq=" + night_waking_freq
-				+ ", night_waking_time=" + night_waking_time
-				+ ", night_waking_reason_notes=" + night_waking_reason_notes
-				+ ", night_waking_freq_notes=" + night_waking_freq_notes
-				+ ", night_waking_time_notes=" + night_waking_time_notes
-				+ ", early_waking_notes=" + early_waking_notes
-				+ ", early_waking_reason=" + early_waking_reason
-				+ ", early_waking_freq=" + early_waking_freq
-				+ ", early_waking_time=" + early_waking_time
-				+ ", early_waking_reason_notes=" + early_waking_reason_notes
-				+ ", early_waking_freq_notes=" + early_waking_freq_notes
-				+ ", early_waking_time_notes=" + early_waking_time_notes
-				+ ", sleep_length=" + sleep_length + ", sleep_meds="
-				+ sleep_meds + ", sleep_med_notes=" + sleep_med_notes
-				+ ", nap_length=" + nap_length + ", nap_time=" + nap_time
-				+ ", nap_notes=" + nap_notes + ", difficulty_sleep_collat="
-				+ difficulty_sleep_collat + ", night_waking_collat="
-				+ night_waking_collat + ", early_waking_collat="
-				+ early_waking_collat + ", meds_check_collat="
-				+ meds_check_collat + ", nap_check_collat=" + nap_check_collat
-				+ ", difficulty_sleep_notes_collat="
-				+ difficulty_sleep_notes_collat + ", difficulty_reason_collat="
-				+ difficulty_reason_collat + ", difficulty_freq_collat="
-				+ difficulty_freq_collat + ", difficulty_time_collat="
-				+ difficulty_time_collat + ", difficulty_reason_notes_collat="
-				+ difficulty_reason_notes_collat
-				+ ", difficulty_freq_notes_collat="
-				+ difficulty_freq_notes_collat
-				+ ", difficulty_time_notes_collat="
-				+ difficulty_time_notes_collat + ", night_waking_notes_collat="
-				+ night_waking_notes_collat + ", night_waking_reason_collat="
-				+ night_waking_reason_collat + ", night_waking_freq_collat="
-				+ night_waking_freq_collat + ", night_waking_time_collat="
-				+ night_waking_time_collat
-				+ ", night_waking_reason_notes_collat="
-				+ night_waking_reason_notes_collat
-				+ ", night_waking_freq_notes_collat="
-				+ night_waking_freq_notes_collat
-				+ ", night_waking_time_notes_collat="
-				+ night_waking_time_notes_collat
-				+ ", early_waking_notes_collat=" + early_waking_notes_collat
-				+ ", early_waking_reason_collat=" + early_waking_reason_collat
-				+ ", early_waking_freq_collat=" + early_waking_freq_collat
-				+ ", early_waking_time_collat=" + early_waking_time_collat
-				+ ", early_waking_reason_notes_collat="
-				+ early_waking_reason_notes_collat
-				+ ", early_waking_freq_notes_collat="
-				+ early_waking_freq_notes_collat
-				+ ", early_waking_time_notes_collat="
-				+ early_waking_time_notes_collat + ", sleep_length_collat="
-				+ sleep_length_collat + ", sleep_meds_collat="
-				+ sleep_meds_collat + ", sleep_med_notes_collat="
-				+ sleep_med_notes_collat + ", nap_length_collat="
-				+ nap_length_collat + ", nap_time_collat=" + nap_time_collat
-				+ ", nap_notes_collat=" + nap_notes_collat + ", exercise="
-				+ exercise + ", activities=" + activities
-				+ ", collatActivities=" + collatActivities + ", breakfast="
-				+ breakfast + ", lunch=" + lunch + ", dinner=" + dinner
-				+ ", diet_notes=" + diet_notes + ", miss_meals=" + miss_meals
-				+ ", sweets=" + sweets + ", fried=" + fried + ", takeaway="
-				+ takeaway + ", cakes=" + cakes + ", miss_meals_freq="
-				+ miss_meals_freq + ", sweets_freq=" + sweets_freq
-				+ ", fried_freq=" + fried_freq + ", takeaway_freq="
-				+ takeaway_freq + ", cakes_freq=" + cakes_freq
-				+ ", fruit_veg_amount=" + fruit_veg_amount
-				+ ", breakfast_collat=" + breakfast_collat + ", lunch_collat="
-				+ lunch_collat + ", dinner_collat=" + dinner_collat
-				+ ", diet_notes_collat=" + diet_notes_collat
-				+ ", miss_meals_collat=" + miss_meals_collat
-				+ ", sweets_collat=" + sweets_collat + ", fried_collat="
-				+ fried_collat + ", takeaway_collat=" + takeaway_collat
-				+ ", cakes_collat=" + cakes_collat
-				+ ", miss_meals_freq_collat=" + miss_meals_freq_collat
-				+ ", sweets_freq_collat=" + sweets_freq_collat
-				+ ", fried_freq_collat=" + fried_freq_collat
-				+ ", takeaway_freq_collat=" + takeaway_freq_collat
-				+ ", cakes_freq_collat=" + cakes_freq_collat
-				+ ", fruit_veg_amount_collat=" + fruit_veg_amount_collat
-				+ ", alcohol=" + alcohol + ", alcohol_collat=" + alcohol_collat
-				+ ", pint_units=" + pint_units + ", bottle_units="
-				+ bottle_units + ", spirits_units=" + spirits_units
-				+ ", wine_units=" + wine_units + ", alcopop_units="
-				+ alcopop_units + ", pint_units_collat=" + pint_units_collat
-				+ ", bottle_units_collat=" + bottle_units_collat
-				+ ", spirits_units_collat=" + spirits_units_collat
-				+ ", wine_units_collat=" + wine_units_collat
-				+ ", alcopop_units_collat=" + alcopop_units_collat
-				+ ", total_units=" + total_units + ", total_units_collat="
-				+ total_units_collat + ", alcohol_notes=" + alcohol_notes
-				+ ", alcohol_notes_collat=" + alcohol_notes_collat
-				+ ", smoking=" + smoking + ", smoking_collat=" + smoking_collat
-				+ ", packets=" + packets + ", packets_collat=" + packets_collat
-				+ ", smoking_notes=" + smoking_notes
-				+ ", smoking_notes_Collat=" + smoking_notes_Collat + ", drugs="
-				+ drugs + ", drugs_collat=" + drugs_collat + ", drug_notes="
-				+ drug_notes + ", drug_notes_collat=" + drug_notes_collat + "]";
-	}
-	
-	public float getTotal_units(){
-		return total_units;
 	}
 
-	public void setTotal_units(float total_units) {
-		this.total_units = total_units;
-	}
-	
-	public float getTotal_units_collat(){
-		return total_units_collat;
-	}
-	
-	public void setTotal_units_collat(float total_units_collat) {
-		this.total_units_collat = total_units_collat;
+	public int getLifestyleID() {
+		return lifestyleID;
 	}
 
-	public void addActivity(Activity a){
-		activities.add(a);
-	}
-	
-	public void addCollatActivity(Activity a){
-		collatActivities.add(a);
+	public void setLifestyleID(int lifestyleID) {
+		this.lifestyleID = lifestyleID;
 	}
 
 	public boolean isDifficulty_sleep() {
@@ -848,6 +667,22 @@ public class Lifestyle {
 		this.exercise = exercise;
 	}
 
+	public List<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
+	}
+
+	public List<Activity> getCollatActivities() {
+		return collatActivities;
+	}
+
+	public void setCollatActivities(List<Activity> collatActivities) {
+		this.collatActivities = collatActivities;
+	}
+
 	public String getBreakfast() {
 		return breakfast;
 	}
@@ -1184,6 +1019,22 @@ public class Lifestyle {
 		this.alcopop_units_collat = alcopop_units_collat;
 	}
 
+	public float getTotal_units() {
+		return total_units;
+	}
+
+	public void setTotal_units(float total_units) {
+		this.total_units = total_units;
+	}
+
+	public float getTotal_units_collat() {
+		return total_units_collat;
+	}
+
+	public void setTotal_units_collat(float total_units_collat) {
+		this.total_units_collat = total_units_collat;
+	}
+
 	public String getAlcohol_notes() {
 		return alcohol_notes;
 	}
@@ -1279,19 +1130,4 @@ public class Lifestyle {
 	public void setDrug_notes_collat(String drug_notes_collat) {
 		this.drug_notes_collat = drug_notes_collat;
 	}
-
-	public int getpID() {
-		return pID;
-	}
-
-	public ArrayList<Activity> getActivities() {
-		return activities;
-	}
-
-	public ArrayList<Activity> getCollatActivities() {
-		return collatActivities;
-	}
-
-	
-	
 }

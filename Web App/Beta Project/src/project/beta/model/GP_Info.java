@@ -1,13 +1,20 @@
 package project.beta.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /*
  * Used to represent the page containing any information from patient's visit to the GP
  */
 
-//TODO: Needs JPA Stuff
+@Entity
 public class GP_Info {
 
-	int pID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int gpInfoID;
 	boolean discuss_gp;
 	String gp_result, gp_meds, gp_notes;
 	float cholesterol, thyroid, b12, iron, calcium, sodium;
@@ -15,14 +22,17 @@ public class GP_Info {
 	String test_result_notes;
 	String family_reaction, reaction_length, family_reaction_notes;
 	
-	public GP_Info(int pid)
+	public GP_Info()
 	{
-		pID = pid;
-		discuss_gp = false;
-		gp_result = gp_meds = gp_notes = "";
-		cholesterol = thyroid = b12 = iron = calcium = sodium = 0.f;
-		test_result_notes = "";
-		family_reaction = reaction_length = family_reaction_notes = "";
+		
+	}
+
+	public int getGpInfoID() {
+		return gpInfoID;
+	}
+
+	public void setGpInfoID(int gpInfoID) {
+		this.gpInfoID = gpInfoID;
 	}
 
 	public boolean isDiscuss_gp() {
@@ -184,25 +194,4 @@ public class GP_Info {
 	public void setFamily_reaction_notes(String family_reaction_notes) {
 		this.family_reaction_notes = family_reaction_notes;
 	}
-
-	public int getpID() {
-		return pID;
-	}
-
-	@Override
-	public String toString() {
-		return "GP_Info [pID=" + pID + ", discuss_gp=" + discuss_gp
-				+ ", gp_result=" + gp_result + ", gp_meds=" + gp_meds
-				+ ", gp_notes=" + gp_notes + ", cholesterol=" + cholesterol
-				+ ", thyroid=" + thyroid + ", b12=" + b12 + ", iron=" + iron
-				+ ", calcium=" + calcium + ", sodium=" + sodium
-				+ ", chol_time=" + chol_time + ", thyroid_time=" + thyroid_time
-				+ ", b12_time=" + b12_time + ", iron_time=" + iron_time
-				+ ", calcium_time=" + calcium_time + ", sodium_time="
-				+ sodium_time + ", test_result_notes=" + test_result_notes
-				+ ", family_reaction=" + family_reaction + ", reaction_length="
-				+ reaction_length + ", family_reaction_notes="
-				+ family_reaction_notes + "]";
-	}
-	
 }

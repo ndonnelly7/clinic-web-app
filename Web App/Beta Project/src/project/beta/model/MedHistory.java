@@ -1,11 +1,10 @@
 package project.beta.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.google.appengine.api.datastore.Key;
 
 /*
  * Medical History class used for the patient's history
@@ -16,24 +15,46 @@ public class MedHistory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Key key;
+	@Column(name = "medHistoryID", unique = true, nullable = false)
+	int medHistoryID;
 	
 	String condition;
 	String time;
 	String notes;
 	
-	public MedHistory(String condition, String time, String notes)
-	{
-		this.condition = condition;
-		this.time = time;
-		this.notes = notes;
+	public MedHistory() {
+		
 	}
-	
-	@Override
-	public String toString() {
-		return "MedHisotry [condition=" + condition
-				+ ", time=" + time
-				+ ", notes" + notes
-				+ "]";
+
+	public int getMedHistoryID() {
+		return medHistoryID;
+	}
+
+	public void setMedHistoryID(int medHistoryID) {
+		this.medHistoryID = medHistoryID;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 }

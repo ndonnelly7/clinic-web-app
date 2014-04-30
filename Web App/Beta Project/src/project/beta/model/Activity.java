@@ -1,5 +1,13 @@
 package project.beta.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 
 /*
  * USed to represent both the social and physical activities that a patient
@@ -7,7 +15,16 @@ package project.beta.model;
  * 
  */
 //TODO: Needs to be an Entity for JPA
-public class Activity {
+@Entity
+public class Activity implements Serializable{
+	
+	@Transient
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int activityID;	
+	
 	String type, involvement, time_changed, notes;
 	int current_hours, prev_hours;
 	
@@ -19,14 +36,6 @@ public class Activity {
 		notes = "";
 		current_hours = -1;
 		prev_hours = -1;
-	}
-
-	@Override
-	public String toString() {
-		return "Activity [type=" + type + ", involvement=" + involvement
-				+ ", time_changed=" + time_changed + ", notes=" + notes
-				+ ", current_hours=" + current_hours + ", prev_hours="
-				+ prev_hours + "]";
 	}
 
 	public String getType() {

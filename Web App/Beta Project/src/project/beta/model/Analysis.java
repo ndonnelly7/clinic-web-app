@@ -1,53 +1,39 @@
 package project.beta.model;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /*
  * Representative of the Patient Analysis page of the form
  */
 public class Analysis {
 
-	private int pID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int analysisID;
 	
 	String mmse_result, cdt_result, mini_cog_result, gds_result;
 	String impression, impression_notes, follow_up, follow_notes;
 	
-	ArrayList<String> outcomes;
-	ArrayList<String> outcome_notes;
+	List<String> outcomes;
+	List<String> outcome_notes;
 	
 	String letter, notes;
 	
-	public Analysis(int id)
+	public Analysis()
 	{
-		pID = id;
-		mmse_result = cdt_result = mini_cog_result = gds_result = "";
-		impression = impression_notes = follow_up = follow_notes = "";
-
-		outcomes = new ArrayList<String>();
-		outcome_notes = new ArrayList<String>();
 		
-		letter = notes = "";
 	}
 
-	@Override
-	public String toString() {
-		return "Analysis [pID=" + pID + ", mmse_result=" + mmse_result
-				+ ", cdt_result=" + cdt_result + ", mini_cog_result="
-				+ mini_cog_result + ", gds_result=" + gds_result
-				+ ", impression=" + impression + ", impression_notes="
-				+ impression_notes + ", follow_up=" + follow_up
-				+ ", follow_notes=" + follow_notes + ", outcomes=" + outcomes
-				+ ", outcome_notes=" + outcome_notes + ", letter=" + letter
-				+ ", notes=" + notes + "]";
+	public int getAnalysisID() {
+		return analysisID;
 	}
-	
-	//Getters and seeters for all the fields
-	public void addOutcome(String o) {
-		outcomes.add(o);
-	}
-	
-	public void addOutcomeNotes(String o) {
-		outcome_notes.add(o);
+
+	public void setAnalysisID(int analysisID) {
+		this.analysisID = analysisID;
 	}
 
 	public String getMmse_result() {
@@ -114,19 +100,19 @@ public class Analysis {
 		this.follow_notes = follow_notes;
 	}
 
-	public ArrayList<String> getOutcomes() {
+	public List<String> getOutcomes() {
 		return outcomes;
 	}
 
-	public void setOutcomes(ArrayList<String> outcomes) {
+	public void setOutcomes(List<String> outcomes) {
 		this.outcomes = outcomes;
 	}
 
-	public ArrayList<String> getOutcome_notes() {
+	public List<String> getOutcome_notes() {
 		return outcome_notes;
 	}
 
-	public void setOutcome_notes(ArrayList<String> outcome_notes) {
+	public void setOutcome_notes(List<String> outcome_notes) {
 		this.outcome_notes = outcome_notes;
 	}
 
@@ -145,9 +131,4 @@ public class Analysis {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-
-	public int getpID() {
-		return pID;
-	}
-	
 }

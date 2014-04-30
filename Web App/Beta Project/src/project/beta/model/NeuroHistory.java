@@ -1,13 +1,23 @@
 package project.beta.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /*
  * Class used for the Neurological History page of the form
  */
 
-//TODO: Needs JPA Stuff
+@Entity
 public class NeuroHistory {
 
-	int pID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "neuroHistoryID", unique = true, nullable = false)
+	int neuroHistoryID;
+	
 	boolean blackout, blank, blurred_vision, dizziness, fainting, headaches, falling, seizures;
 	boolean blackout_collat, blank_collat, blurred_vision_collat, dizziness_collat;
 	boolean fainting_collat, headaches_collat, falling_collat, seizures_collat;
@@ -30,85 +40,17 @@ public class NeuroHistory {
 	String falling_collat_time, falling_collat_freq, falling_collat_notes;
 	String seizures_collat_time, seizures_collat_freq, seizures_collat_notes;
 	
-	public NeuroHistory(int id)
+	public NeuroHistory()
 	{
-		pID = id;
-		blackout = blank = blurred_vision = dizziness = fainting = headaches = falling = seizures = false;
-		blackout_collat = blank_collat = blurred_vision_collat = dizziness_collat = false;
-		fainting_collat = headaches_collat = falling_collat = seizures_collat = false;
 		
-		blackout_time = blackout_freq = blackout_notes = "";
-		blanks_time = blanks_freq = blanks_notes = "";
-		blurred_time = blurred_freq = blurred_notes = "";
-		dizzy_time = dizzy_freq = dizzy_notes = "";
-		faint_time = faint_freq = faint_notes = "";
-		headaches_time = headaches_freq = headaches_notes = "";
-		falling_time = falling_freq = falling_notes = "";
-		seizures_time = seizures_freq = seizures_notes = "";
-		
-		blackout_collat_time = blackout_collat_freq = blackout_collat_notes = "";
-		blanks_collat_time = blanks_collat_freq = blanks_collat_notes = "";
-		blurred_collat_time = blurred_collat_freq = blurred_collat_notes = "";
-		dizzy_collat_time = dizzy_collat_freq = dizzy_collat_notes = "";
-		faint_collat_time = faint_collat_freq = faint_collat_notes = "";
-		headaches_collat_time = headaches_collat_freq = headaches_collat_notes = "";
-		falling_collat_time = falling_collat_freq = falling_collat_notes = "";
-		seizures_collat_time = seizures_collat_freq = seizures_collat_notes = "";
 	}
 
-	@Override
-	public String toString() {
-		return "NeuroHistory [pID=" + pID + ", blackout=" + blackout
-				+ ", blank=" + blank + ", blurred_vision=" + blurred_vision
-				+ ", dizziness=" + dizziness + ", fainting=" + fainting
-				+ ", headaches=" + headaches + ", balance=" + falling
-				+ ", seizures=" + seizures + ", blackout_collat="
-				+ blackout_collat + ", blank_collat=" + blank_collat
-				+ ", blurred_vision_collat=" + blurred_vision_collat
-				+ ", dizziness_collat=" + dizziness_collat
-				+ ", fainting_collat=" + fainting_collat
-				+ ", headaches_collat=" + headaches_collat
-				+ ", balance_collat=" + falling_collat + ", seizures_collat="
-				+ seizures_collat + ", blackout_time=" + blackout_time
-				+ ", blackout_freq=" + blackout_freq + ", blackout_notes="
-				+ blackout_notes + ", blanks_time=" + blanks_time
-				+ ", blanks_freq=" + blanks_freq + ", blanks_notes="
-				+ blanks_notes + ", blurred_time=" + blurred_time
-				+ ", blurred_freq=" + blurred_freq + ", blurred_notes="
-				+ blurred_notes + ", dizzy_time=" + dizzy_time
-				+ ", dizzy_freq=" + dizzy_freq + ", dizzy_notes=" + dizzy_notes
-				+ ", faint_time=" + faint_time + ", faint_freq=" + faint_freq
-				+ ", faint_notes=" + faint_notes + ", headaches_time="
-				+ headaches_time + ", headaches_freq=" + headaches_freq
-				+ ", headaches_notes=" + headaches_notes + ", falling_time="
-				+ falling_time + ", falling_freq=" + falling_freq
-				+ ", falling_notes=" + falling_notes + ", seizures_time="
-				+ seizures_time + ", seizures_freq=" + seizures_freq
-				+ ", seizures_notes=" + seizures_notes
-				+ ", blackout_collat_time=" + blackout_collat_time
-				+ ", blackout_collat_freq=" + blackout_collat_freq
-				+ ", blackout_collat_notes=" + blackout_collat_notes
-				+ ", blanks_collat_time=" + blanks_collat_time
-				+ ", blanks_collat_freq=" + blanks_collat_freq
-				+ ", blanks_collat_notes=" + blanks_collat_notes
-				+ ", blurred_collat_time=" + blurred_collat_time
-				+ ", blurred_collat_freq=" + blurred_collat_freq
-				+ ", blurred_collat_notes=" + blurred_collat_notes
-				+ ", dizzy_collat_time=" + dizzy_collat_time
-				+ ", dizzy_collat_freq=" + dizzy_collat_freq
-				+ ", dizzy_collat_notes=" + dizzy_collat_notes
-				+ ", faint_collat_time=" + faint_collat_time
-				+ ", faint_collat_freq=" + faint_collat_freq
-				+ ", faint_collat_notes=" + faint_collat_notes
-				+ ", headaches_collat_time=" + headaches_collat_time
-				+ ", headaches_collat_freq=" + headaches_collat_freq
-				+ ", headaches_collat_notes=" + headaches_collat_notes
-				+ ", falling_collat_time=" + falling_collat_time
-				+ ", falling_collat_freq=" + falling_collat_freq
-				+ ", falling_collat_notes=" + falling_collat_notes
-				+ ", seizures_collat_time=" + seizures_collat_time
-				+ ", seizures_collat_freq=" + seizures_collat_freq
-				+ ", seizures_collat_notes=" + seizures_collat_notes + "]";
+	public int getNeuroHistoryID() {
+		return neuroHistoryID;
+	}
+
+	public void setNeuroHistoryID(int neuroHistoryID) {
+		this.neuroHistoryID = neuroHistoryID;
 	}
 
 	public boolean isBlackout() {
@@ -623,7 +565,5 @@ public class NeuroHistory {
 		this.seizures_collat_notes = seizures_collat_notes;
 	}
 
-	public int getpID() {
-		return pID;
-	}
+	
 }

@@ -1,14 +1,26 @@
 package project.beta.model;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 /*
  * Class used for the representation of the Events and Activities page
  */
 
-//TODO: Add the JPA stuff for this
-public class EventsActivities {
+@Entity
+public class EventsActivities implements Serializable {
 
-	private int pID;
+	@Transient
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int eventsActivitiesID;
 	
 	boolean divorce, bereavement, moving_house, redundancy, family_disharmony;
 	boolean other_disharmony, financial, retirement, job;
@@ -38,114 +50,23 @@ public class EventsActivities {
 	String retirement_collat_time, retirement_collat_notes;
 	String job_collat_time, job_collat_notes;
 	
-	private ArrayList<Activity> activities;
-	private ArrayList<Activity> collat_activities;
+	private List<Activity> activities;
+	private List<Activity> collat_activities;
 	
 	boolean anx_check, dep_check;
 	String anx_time, anx_related, anx_notes;
 	String dep_time, dep_related, dep_notes;
 	
-	public EventsActivities(int id) {
-		pID = id;
+	public EventsActivities() {
 		
-		divorce = bereavement = moving_house = redundancy = family_disharmony = false;
-		other_disharmony = financial = retirement = job = false;
-		
-		divorce_collat = bereavement_collat = moving_house_collat = redundancy_collat = family_disharmony_collat = false;
-		other_disharmony_collat = financial_collat = retirement_collat = job_collat = false;
-		
-		other = other_time = other_notes = "";
-		divorce_time = divorce_notes = "";
-		bereavement_time = bereavement_notes = "";
-		moving_house_time = moving_house_notes = "";
-		redundancy_time = redundancy_notes = "";
-		family_disharmony_time = family_disharmony_notes = "";
-		other_disharmony_time = other_disharmony_notes = "";
-		financial_time = financial_notes = "";
-		retirement_time = retirement_notes = "";
-		job_time = job_notes = "";
-		
-		other_collat = other_collat_time = other_collat_notes = "";
-		divorce_collat_time = divorce_collat_notes = "";
-		bereavement_collat_time = bereavement_collat_notes = "";
-		moving_house_collat_time = moving_house_collat_notes = "";
-		redundancy_collat_time = redundancy_collat_notes = "";
-		family_disharmony_collat_time = family_disharmony_collat_notes = "";
-		other_disharmony_collat_time = other_disharmony_collat_notes = "";
-		financial_collat_time = financial_collat_notes = "";
-		retirement_collat_time = retirement_collat_notes = "";
-		job_collat_time = job_collat_notes = "";
-		
-		activities = new ArrayList<Activity>();
-		collat_activities = new ArrayList<Activity>();
-		
-		anx_check = dep_check = false;
-		anx_time = anx_related = anx_notes = "";
-		dep_time = dep_related = dep_notes = "";
 	}
-	
-	@Override
-	public String toString() {
-		return "EventsActivities [pID=" + pID + ", divorce=" + divorce
-				+ ", bereavement=" + bereavement + ", moving_house="
-				+ moving_house + ", redundancy=" + redundancy
-				+ ", family_disharmony=" + family_disharmony
-				+ ", other_disharmony=" + other_disharmony + ", financial="
-				+ financial + ", retirement=" + retirement + ", job=" + job
-				+ ", divorce_collat=" + divorce_collat
-				+ ", bereavement_collat=" + bereavement_collat
-				+ ", moving_house_collat=" + moving_house_collat
-				+ ", redundancy_collat=" + redundancy_collat
-				+ ", family_disharmony_collat=" + family_disharmony_collat
-				+ ", other_disharmony_collat=" + other_disharmony_collat
-				+ ", financial_collat=" + financial_collat
-				+ ", retirement_collat=" + retirement_collat + ", job_collat="
-				+ job_collat + ", other=" + other + ", other_time="
-				+ other_time + ", other_notes=" + other_notes
-				+ ", divorce_time=" + divorce_time + ", divorce_notes="
-				+ divorce_notes + ", bereavement_time=" + bereavement_time
-				+ ", bereavement_notes=" + bereavement_notes
-				+ ", moving_house_time=" + moving_house_time
-				+ ", moving_house_notes=" + moving_house_notes
-				+ ", redundancy_time=" + redundancy_time
-				+ ", redundancy_notes=" + redundancy_notes
-				+ ", family_disharmony_time=" + family_disharmony_time
-				+ ", family_disharmony_notes=" + family_disharmony_notes
-				+ ", other_disharmony_time=" + other_disharmony_time
-				+ ", other_disharmony_notes=" + other_disharmony_notes
-				+ ", financial_time=" + financial_time + ", financial_notes="
-				+ financial_notes + ", retirement_time=" + retirement_time
-				+ ", retirement_notes=" + retirement_notes + ", job_time="
-				+ job_time + ", job_notes=" + job_notes + ", other_collat="
-				+ other_collat + ", other_collat_time=" + other_collat_time
-				+ ", other_collat_notes=" + other_collat_notes
-				+ ", divorce_collat_time=" + divorce_collat_time
-				+ ", divorce_collat_notes=" + divorce_collat_notes
-				+ ", bereavement_collat_time=" + bereavement_collat_time
-				+ ", bereavement_collat_notes=" + bereavement_collat_notes
-				+ ", moving_house_collat_time=" + moving_house_collat_time
-				+ ", moving_house_collat_notes=" + moving_house_collat_notes
-				+ ", redundancy_collat_time=" + redundancy_collat_time
-				+ ", redundancy_collat_notes=" + redundancy_collat_notes
-				+ ", family_disharmony_collat_time="
-				+ family_disharmony_collat_time
-				+ ", family_disharmony_collat_notes="
-				+ family_disharmony_collat_notes
-				+ ", other_disharmony_collat_time="
-				+ other_disharmony_collat_time
-				+ ", other_disharmony_collat_notes="
-				+ other_disharmony_collat_notes + ", financial_collat_time="
-				+ financial_collat_time + ", financial_collat_notes="
-				+ financial_collat_notes + ", retirement_collat_time="
-				+ retirement_collat_time + ", retirement_collat_notes="
-				+ retirement_collat_notes + ", job_collat_time="
-				+ job_collat_time + ", job_collat_notes=" + job_collat_notes
-				+ ", activities=" + activities + ", collat_activities="
-				+ collat_activities + ", anx_check=" + anx_check
-				+ ", dep_check=" + dep_check + ", anx_time=" + anx_time
-				+ ", anx_related=" + anx_related + ", anx_notes=" + anx_notes
-				+ ", dep_time=" + dep_time + ", dep_related=" + dep_related
-				+ ", dep_notes=" + dep_notes + "]";
+
+	public int getEventsActivitiesID() {
+		return eventsActivitiesID;
+	}
+
+	public void setEventsActivitiesID(int eventsActivitiesID) {
+		this.eventsActivitiesID = eventsActivitiesID;
 	}
 
 	public boolean isDivorce() {
@@ -631,6 +552,22 @@ public class EventsActivities {
 		this.job_collat_notes = job_collat_notes;
 	}
 
+	public List<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
+	}
+
+	public List<Activity> getCollat_activities() {
+		return collat_activities;
+	}
+
+	public void setCollat_activities(List<Activity> collat_activities) {
+		this.collat_activities = collat_activities;
+	}
+
 	public boolean isAnx_check() {
 		return anx_check;
 	}
@@ -693,19 +630,5 @@ public class EventsActivities {
 
 	public void setDep_notes(String dep_notes) {
 		this.dep_notes = dep_notes;
-	}
-
-	public int getpID() {
-		return pID;
-	}
-
-	public void addActivity(Activity a)
-	{
-		activities.add(a);
-	}
-	
-	public void addCollatActivity(Activity a)
-	{
-		collat_activities.add(a);
 	}
 }

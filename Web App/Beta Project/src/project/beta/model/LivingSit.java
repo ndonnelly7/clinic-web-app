@@ -1,12 +1,21 @@
 package project.beta.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 /*
  * Living Situation class for form
  */
 
-//TODO: Needs JPA Stuff
+@Entity
 public class LivingSit {
 
-	private int pID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "livingSitID", unique = true, nullable = false)
+	private int livingSitID;
 	
 	//Lifestyle stuff
 	String housemates, housemate_note, house_type, house_type_note, house_location, house_location_note;
@@ -75,240 +84,17 @@ public class LivingSit {
 	String bills_method_collat, bills_help_collat, bill_problems_collat;
 	String bills_method_notes_collat, bills_help_notes_collat, bill_problems_notes_collat;
 	
-	public LivingSit(int id)
+	public LivingSit()
 	{
-		pID = id;
 		
-		//Lifestyle
-		housemates = housemate_note = house_type = house_type_note = house_location = house_location_note = "";
-		carer_note = home_help_note = "";
-		housemates_collat = housemate_note_collat = house_type_collat = house_type_note_collat = "";
-		house_location_collat = house_location_note_collat = carer_note_collat = home_help_note_collat = "";
-		
-		carer = home_help = carer_collat = home_help_collat = false; 
-		drive = cook = shop = false;
-		life_collat = drive_collat = cooking_collat = shopping_collat = bills_collat = false;
-		cooking_not_collat = shopping_not_collat = false;
-		
-		//Driving
-		unknown_arrival = lost = tips = false;
-		unknown_arrival_severity = unknown_arrival_freq = unknown_arrival_notes = "";
-		lost_severity = lost_freq = lost_notes = "";
-		tips_severity = tips_freq = tips_notes = "";
-		park_big = day_drive = known_places = take_friend = dry_run = map = take_phone = false;
-		park_big_success = park_big_notes = day_drive_success = day_drive_notes = "";
-		known_places_success = known_places_notes = take_friend_success = take_friend_notes = "";
-		dry_run_success = dry_run_notes = map_success = map_notes = take_phone_success = take_phone_notes = "";
-		
-		unknown_arrival_collat = lost_collat = tips_collat = false;
-		unkown_arrival_severity_collat = unknown_arrival_freq_collat = unknown_arrival_notes_collat = "";
-		lost_severity_collat = lost_freq_collat = lost_notes_collat = "";
-		tips_severity_collat = tips_freq_collat = tips_notes_collat = "";
-		park_big_collat = day_drive_collat = known_places_collat = take_friend_collat = dry_run_collat = map_collat = take_phone_collat = false;
-		park_big_success_collat = park_big_notes_collat = day_drive_success_collat = day_drive_notes_collat = "";
-		known_places_success_collat = known_places_notes_collat = take_friend_success_collat = take_friend_notes_collat = "";
-		dry_run_success_collat = dry_run_notes_collat = map_success_collat = map_notes_collat = take_phone_success_collat = take_phone_notes_collat = "";
-		
-		//cooking
-		cook_help = cook_help_notes = "";
-		cook_help_collat = cook_help_notes_collat = "";
-		forgot_cooking = burnt_food = started_fire = smoke_alarm = undercooked = false;
-		forgot_cooking_freq = forgot_cooking_notes = burnt_food_freq = burnt_food_notes = "";
-		started_fire_freq = started_fire_notes = smoke_alarm_freq = smoke_alarm_notes = "";
-		undercooked_freq = undercooked_notes = "";
-		timer = reminders = simple_cooking = salad = go_out = get_help = false;
-		timer_success = reminders_success = simple_cooking_success = salad_success = go_out_success = get_help_success = "";
-		timer_notes = reminders_notes = simple_cooking_notes = salad_notes = go_out_notes = get_help_notes = "";
-		
-		forgot_cooking_collat = burnt_food_collat = started_fire_collat = smoke_alarm_collat = undercooked_collat = false;
-		forgot_cooking_freq_collat = forgot_cooking_notes_collat = burnt_food_freq_collat = burnt_food_notes_collat = "";
-		started_fire_freq_collat = started_fire_notes_collat = smoke_alarm_freq_collat = smoke_alarm_notes_collat = "";
-		undercooked_freq_collat = undercooked_notes_collat = "";
-		timer_collat = reminders_collat = simple_cooking_collat = salad_collat = go_out_collat = get_help_collat = false;
-		timer_success_collat = reminders_success_collat = simple_cooking_success_collat = salad_success_collat = go_out_success_collat = get_help_success_collat = "";
-		timer_notes_collat = reminders_notes_collat = simple_cooking_notes_collat = salad_notes_collat = go_out_notes_collat = get_help_notes_collat = "";
-
-		//Shopping
-		shop_help = shop_help_notes = shop_help_time = shop_time_notes = "";
-		shop_help_collat = shop_help_notes_collat = shop_help_time_collat = shop_time_notes_collat = "";
-		list_check = small_shop_check = list_check_collat = small_shop_check_collat = false;
-		list_success = list_notes = small_shop_success = small_shop_notes = "";
-		list_success_collat = list_notes_collat = small_shop_success_collat = small_shop_notes_collat = "";
-		
-		//Bills
-		bills_method = bills_help = bill_problems = bill_method_notes = bill_help_notes = bill_problem_notes = "";
-		bills_method_collat = bills_help_collat = bill_problems_collat = "";
-		bills_method_notes_collat = bills_help_notes_collat = bill_problems_notes_collat = "";
 	}
 
-	@Override
-	public String toString() {
-		return "LivingSit [pID=" + pID + ", housemates=" + housemates
-				+ ", housemate_note=" + housemate_note + ", house_type="
-				+ house_type + ", house_type_note=" + house_type_note
-				+ ", house_location=" + house_location
-				+ ", house_location_note=" + house_location_note
-				+ ", carer_note=" + carer_note + ", home_help_note="
-				+ home_help_note + ", housemates_collat=" + housemates_collat
-				+ ", housemate_note_collat=" + housemate_note_collat
-				+ ", house_type_collat=" + house_type_collat
-				+ ", house_type_note_collat=" + house_type_note_collat
-				+ ", house_location_collat=" + house_location_collat
-				+ ", house_location_note_collat=" + house_location_note_collat
-				+ ", carer_note_collat=" + carer_note_collat
-				+ ", home_help_note_collat=" + home_help_note_collat
-				+ ", carer=" + carer + ", home_help=" + home_help
-				+ ", carer_collat=" + carer_collat + ", home_help_collat="
-				+ home_help_collat + ", drive=" + drive + ", cook=" + cook
-				+ ", shop=" + shop + ", life_collat=" + life_collat
-				+ ", drive_collat=" + drive_collat + ", cooking_collat="
-				+ cooking_collat + ", shopping_collat=" + shopping_collat
-				+ ", cooking_not_collat=" + cooking_not_collat
-				+ ", shopping_not_collat=" + shopping_not_collat
-				+ ", bills_collat=" + bills_collat + ", unknown_arrival="
-				+ unknown_arrival + ", lost=" + lost + ", tips=" + tips
-				+ ", unknown_arrival_severity=" + unknown_arrival_severity
-				+ ", unknown_arrival_freq=" + unknown_arrival_freq
-				+ ", unknown_arrival_notes=" + unknown_arrival_notes
-				+ ", lost_severity=" + lost_severity + ", lost_freq="
-				+ lost_freq + ", lost_notes=" + lost_notes + ", tips_severity="
-				+ tips_severity + ", tips_freq=" + tips_freq + ", tips_notes="
-				+ tips_notes + ", park_big=" + park_big + ", day_drive="
-				+ day_drive + ", known_places=" + known_places
-				+ ", take_friend=" + take_friend + ", dry_run=" + dry_run
-				+ ", map=" + map + ", take_phone=" + take_phone
-				+ ", park_big_success=" + park_big_success
-				+ ", park_big_notes=" + park_big_notes + ", day_drive_success="
-				+ day_drive_success + ", day_drive_notes=" + day_drive_notes
-				+ ", known_places_success=" + known_places_success
-				+ ", known_places_notes=" + known_places_notes
-				+ ", take_friend_success=" + take_friend_success
-				+ ", take_friend_notes=" + take_friend_notes
-				+ ", dry_run_success=" + dry_run_success + ", dry_run_notes="
-				+ dry_run_notes + ", map_success=" + map_success
-				+ ", map_notes=" + map_notes + ", take_phone_success="
-				+ take_phone_success + ", take_phone_notes=" + take_phone_notes
-				+ ", unknown_arrival_collat=" + unknown_arrival_collat
-				+ ", lost_collat=" + lost_collat + ", tips_collat="
-				+ tips_collat + ", unkown_arrival_severity_collat="
-				+ unkown_arrival_severity_collat
-				+ ", unknown_arrival_freq_collat="
-				+ unknown_arrival_freq_collat
-				+ ", unknown_arrival_notes_collat="
-				+ unknown_arrival_notes_collat + ", lost_severity_collat="
-				+ lost_severity_collat + ", lost_freq_collat="
-				+ lost_freq_collat + ", lost_notes_collat=" + lost_notes_collat
-				+ ", tips_severity_collat=" + tips_severity_collat
-				+ ", tips_freq_collat=" + tips_freq_collat
-				+ ", tips_notes_collat=" + tips_notes_collat
-				+ ", park_big_collat=" + park_big_collat
-				+ ", day_drive_collat=" + day_drive_collat
-				+ ", known_places_collat=" + known_places_collat
-				+ ", take_friend_collat=" + take_friend_collat
-				+ ", dry_run_collat=" + dry_run_collat + ", map_collat="
-				+ map_collat + ", take_phone_collat=" + take_phone_collat
-				+ ", park_big_success_collat=" + park_big_success_collat
-				+ ", park_big_notes_collat=" + park_big_notes_collat
-				+ ", day_drive_success_collat=" + day_drive_success_collat
-				+ ", day_drive_notes_collat=" + day_drive_notes_collat
-				+ ", known_places_success_collat="
-				+ known_places_success_collat + ", known_places_notes_collat="
-				+ known_places_notes_collat + ", take_friend_success_collat="
-				+ take_friend_success_collat + ", take_friend_notes_collat="
-				+ take_friend_notes_collat + ", dry_run_success_collat="
-				+ dry_run_success_collat + ", dry_run_notes_collat="
-				+ dry_run_notes_collat + ", map_success_collat="
-				+ map_success_collat + ", map_notes_collat=" + map_notes_collat
-				+ ", take_phone_success_collat=" + take_phone_success_collat
-				+ ", take_phone_notes_collat=" + take_phone_notes_collat
-				+ ", cook_help=" + cook_help + ", cook_help_notes="
-				+ cook_help_notes + ", cook_help_collat=" + cook_help_collat
-				+ ", cook_help_notes_collat=" + cook_help_notes_collat
-				+ ", forgot_cooking=" + forgot_cooking + ", burnt_food="
-				+ burnt_food + ", started_fire=" + started_fire
-				+ ", smoke_alarm=" + smoke_alarm + ", undercooked="
-				+ undercooked + ", forgot_cooking_freq=" + forgot_cooking_freq
-				+ ", forgot_cooking_notes=" + forgot_cooking_notes
-				+ ", burnt_food_freq=" + burnt_food_freq
-				+ ", burnt_food_notes=" + burnt_food_notes
-				+ ", started_fire_freq=" + started_fire_freq
-				+ ", started_fire_notes=" + started_fire_notes
-				+ ", smoke_alarm_freq=" + smoke_alarm_freq
-				+ ", smoke_alarm_notes=" + smoke_alarm_notes
-				+ ", undercooked_freq=" + undercooked_freq
-				+ ", undercooked_notes=" + undercooked_notes + ", timer="
-				+ timer + ", reminders=" + reminders + ", simple_cooking="
-				+ simple_cooking + ", salad=" + salad + ", go_out=" + go_out
-				+ ", get_help=" + get_help + ", timer_success=" + timer_success
-				+ ", reminders_success=" + reminders_success
-				+ ", simple_cooking_success=" + simple_cooking_success
-				+ ", salad_success=" + salad_success + ", go_out_success="
-				+ go_out_success + ", get_help_success=" + get_help_success
-				+ ", timer_notes=" + timer_notes + ", reminders_notes="
-				+ reminders_notes + ", simple_cooking_notes="
-				+ simple_cooking_notes + ", salad_notes=" + salad_notes
-				+ ", go_out_notes=" + go_out_notes + ", get_help_notes="
-				+ get_help_notes + ", forgot_cooking_collat="
-				+ forgot_cooking_collat + ", burnt_food_collat="
-				+ burnt_food_collat + ", started_fire_collat="
-				+ started_fire_collat + ", smoke_alarm_collat="
-				+ smoke_alarm_collat + ", undercooked_collat="
-				+ undercooked_collat + ", forgot_cooking_freq_collat="
-				+ forgot_cooking_freq_collat + ", forgot_cooking_notes_collat="
-				+ forgot_cooking_notes_collat + ", burnt_food_freq_collat="
-				+ burnt_food_freq_collat + ", burnt_food_notes_collat="
-				+ burnt_food_notes_collat + ", started_fire_freq_collat="
-				+ started_fire_freq_collat + ", started_fire_notes_collat="
-				+ started_fire_notes_collat + ", smoke_alarm_freq_collat="
-				+ smoke_alarm_freq_collat + ", smoke_alarm_notes_collat="
-				+ smoke_alarm_notes_collat + ", undercooked_freq_collat="
-				+ undercooked_freq_collat + ", undercooked_notes_collat="
-				+ undercooked_notes_collat + ", timer_collat=" + timer_collat
-				+ ", reminders_collat=" + reminders_collat
-				+ ", simple_cooking_collat=" + simple_cooking_collat
-				+ ", salad_collat=" + salad_collat + ", go_out_collat="
-				+ go_out_collat + ", get_help_collat=" + get_help_collat
-				+ ", timer_success_collat=" + timer_success_collat
-				+ ", reminders_success_collat=" + reminders_success_collat
-				+ ", simple_cooking_success_collat="
-				+ simple_cooking_success_collat + ", salad_success_collat="
-				+ salad_success_collat + ", go_out_success_collat="
-				+ go_out_success_collat + ", get_help_success_collat="
-				+ get_help_success_collat + ", timer_notes_collat="
-				+ timer_notes_collat + ", reminders_notes_collat="
-				+ reminders_notes_collat + ", simple_cooking_notes_collat="
-				+ simple_cooking_notes_collat + ", salad_notes_collat="
-				+ salad_notes_collat + ", go_out_notes_collat="
-				+ go_out_notes_collat + ", get_help_notes_collat="
-				+ get_help_notes_collat + ", shop_help=" + shop_help
-				+ ", shop_help_notes=" + shop_help_notes + ", shop_help_time="
-				+ shop_help_time + ", shop_time_notes=" + shop_time_notes
-				+ ", shop_help_collat=" + shop_help_collat
-				+ ", shop_help_notes_collat=" + shop_help_notes_collat
-				+ ", shop_help_time_collat=" + shop_help_time_collat
-				+ ", shop_time_notes_collat=" + shop_time_notes_collat
-				+ ", list_check=" + list_check + ", small_shop_check="
-				+ small_shop_check + ", list_check_collat=" + list_check_collat
-				+ ", small_shop_check_collat=" + small_shop_check_collat
-				+ ", list_success=" + list_success + ", list_notes="
-				+ list_notes + ", small_shop_success=" + small_shop_success
-				+ ", small_shop_notes=" + small_shop_notes
-				+ ", list_success_collat=" + list_success_collat
-				+ ", list_notes_collat=" + list_notes_collat
-				+ ", small_shop_success_collat=" + small_shop_success_collat
-				+ ", small_shop_notes_collat=" + small_shop_notes_collat
-				+ ", bills_method=" + bills_method + ", bills_select="
-				+ bills_help + ", bill_problems=" + bill_problems
-				+ ", bill_method_notes=" + bill_method_notes
-				+ ", bill_help_notes=" + bill_help_notes
-				+ ", bill_problem_notes=" + bill_problem_notes
-				+ ", bills_method_collat=" + bills_method_collat
-				+ ", bills_select_collat=" + bills_help_collat
-				+ ", bill_problems_collat=" + bill_problems_collat
-				+ ", bills_method_notes_collat=" + bills_method_notes_collat
-				+ ", bills_select_notes_collat=" + bills_help_notes_collat
-				+ ", bill_problems_notes_collat=" + bill_problems_notes_collat
-				+ "]";
+	public int getLivingSitID() {
+		return livingSitID;
+	}
+
+	public void setLivingSitID(int livingSitID) {
+		this.livingSitID = livingSitID;
 	}
 
 	public String getHousemates() {
@@ -1895,10 +1681,6 @@ public class LivingSit {
 
 	public void setBill_problems_notes_collat(String bill_problems_notes_collat) {
 		this.bill_problems_notes_collat = bill_problems_notes_collat;
-	}
-
-	public int getpID() {
-		return pID;
 	}
 	
 }
