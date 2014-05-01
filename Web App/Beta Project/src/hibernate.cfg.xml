@@ -19,7 +19,7 @@
 	<mapping class="project.beta.model.MedHistory"/>
 	<mapping class="project.beta.model.DrugHistory"/>
 	<mapping class="project.beta.model.NeuroHistory"/>
-	<mapping class="project.beta.model.PsychHisotry"/>
+	<mapping class="project.beta.model.PsychHistory"/>
 	<mapping class="project.beta.model.Concerns"/>
 	<mapping class="project.beta.model.EventsActivities"/>
 	<mapping class="project.beta.model.LivingSit"/>
@@ -27,5 +27,7 @@
 	<mapping class="project.beta.model.TestBattery"/>
 	<mapping class="project.beta.model.Analysis"/>
 	<mapping class="project.beta.model.Activity"/>
+	<mapping class="project.beta.model.LifestyleActivity"/>
+	<mapping class="project.beta.model.GP_Info"/>
 </session-factory>
 </hibernate-configuration>

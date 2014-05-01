@@ -1,6 +1,7 @@
 package project.beta.model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,14 +20,16 @@ public class Patient implements java.io.Serializable{
 	private static final long serialVersionUID = 8153440730792060761L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "patientID", unique = true, nullable = false)
 	private int patientID;	
 	
 	//TODO: will need to change this to use User ID 
 	@Transient
 	private String userCreatedID;
 	
-	//Will needs to make parts of this field transient so sensitive info is not stored
+	@Transient
+	protected Object[] jdoDetachedState;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private PersonalDetailsPatient personalDetails;
 	@OneToOne(cascade = CascadeType.ALL)

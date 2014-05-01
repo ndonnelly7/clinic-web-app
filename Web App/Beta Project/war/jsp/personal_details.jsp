@@ -63,7 +63,7 @@
 		</div>
 		<div id="counties_select" class="pure-control-group">
 			<label for="county">County </label>
-			<select name="county" class="county">
+			<select name="county" id="county">
 				<option value="antrim">Antrim</option>
 				<option value="armagh">Armagh</option>
 				<option value="carlow">Carlow</option>
@@ -156,7 +156,7 @@
 		</div>
 		<div id="counties_select" class="pure-control-group">
 			<label for="gp_county">County </label>
-			<select name="gp_county" class="gp_county">
+			<select name="gp_county" id="gp_county">
 				<option value="antrim">Antrim</option>
 				<option value="armagh">Armagh</option>
 				<option value="carlow">Carlow</option>
@@ -210,6 +210,7 @@
 		</div>
 	</fieldset>
 	<br><br>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 	<input type="button" value="Clear" onclick="clearObjectStore()"/>
 </form>
 <div class="footer">
@@ -243,7 +244,9 @@ function GenerateValues(){
 	$("#gp_address").val("Boroimhe Medical Center\nSwords");
 	$("#gp_county").val("dublin");
 	$("#collat_check").prop('checked', false);
-}
+	
+	submitPage();
+};
 
 $(document).ready(function() {
 	$('#collat_check').prop("checked", checkCollateral());
@@ -295,8 +298,8 @@ function nextPage(page) {
 	initPatientForm(p_id);
 	getPatientForm(p_id, printPForm);
 	
-	var gp_county = $(".county:eq(1)").val();
-	var county = $(".county:eq(0)").val();
+	var gp_county = $("#gp_county").val();
+	var county = $("#county").val();
 	var collat = $("#collat_check").val() == 'on' ? true : false;
 	var relation = collat ? $("#collat_present").val() : 'na';
 	
@@ -327,8 +330,8 @@ function submitPage() {
 	initPatientForm(p_id);
 	getPatientForm(p_id, printPForm);
 	
-	var gp_county = $(".county:eq(1)").val();
-	var county = $(".county:eq(0)").val();
+	var gp_county = $("#gp_county").val();
+	var county = $("#county").val();
 	var collat = $("#collat_check").val() == 'on' ? true : false;
 	var relation = collat ? $("#collat_present").val() : 'na';
 	
@@ -338,8 +341,12 @@ function submitPage() {
 	}
 	
 	addPersonal(gp_county, county, collat, relation, p_id);	
+	$("#hiddenID").val(p_id);
 	
-	$("#personal_form").submit();
+	setTimeout(function() {
+		$("#personal_form").submit();
+	}, 100);
+	
 }
 </script>
 </body>

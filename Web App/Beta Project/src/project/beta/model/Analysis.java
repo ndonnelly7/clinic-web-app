@@ -2,26 +2,46 @@ package project.beta.model;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /*
  * Representative of the Patient Analysis page of the form
  */
+@Entity
 public class Analysis {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "analysisID", unique = true, nullable = false)
 	private int analysisID;
+	
+	@Transient
+	protected Object[] jdoDetachedState;
 	
 	String mmse_result, cdt_result, mini_cog_result, gds_result;
 	String impression, impression_notes, follow_up, follow_notes;
 	
+	@ElementCollection
+	@CollectionTable(name = "outcomes")
+	@Column(name = "outcome")
 	List<String> outcomes;
+	
+	@ElementCollection
+	@CollectionTable(name = "outcome_notes")
+	@Column(name = "outcome_note", columnDefinition="TEXT")
 	List<String> outcome_notes;
 	
-	String letter, notes;
+	@Column(name = "letter", columnDefinition="TEXT")
+	String letter;
+	@Column(name = "notes", columnDefinition="TEXT")
+	String notes;
 	
 	public Analysis()
 	{

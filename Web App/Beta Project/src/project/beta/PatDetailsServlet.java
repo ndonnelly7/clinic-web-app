@@ -21,9 +21,10 @@ public class PatDetailsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 		
-		Integer thePatientID = 0;
+		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = new Patient();
-		PersonalDetailsPatient details = new PersonalDetailsPatient(thePatientID);
+		pat.setPatientID(thePatientID);
+		PersonalDetailsPatient details = new PersonalDetailsPatient();
 		BeanPopulate.populateBean(details, req);
 		pat.setPersonalDetails(details);
 		PatientDAO dao = new PatientDAO();

@@ -1691,8 +1691,7 @@
 	</fieldset>
 </form>
 <div class="footer">
-	<span onclick="spanClick('events_activities')">Previous Page</span>
-	<span onclick="spanClick('lifestyle')">Next Page</span>
+	<span onclick="submitPage()">Next Page</span>
 </div>
 <script src="/js/living.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -1700,5 +1699,10 @@
 <script src="/js/main.js"></script>
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
+<script>
+	function submitPage() {
+		$("#living_form").submit();
+	}
+</script>
 </body>
 </html>

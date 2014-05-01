@@ -5,11 +5,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 /*
  * Used to represent the Patient's Medical history, including Drug History, Medical History and Psych History
@@ -22,13 +22,16 @@ public class PatientHistory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "historyID", unique = true, nullable = false)
 	int historyID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
 	
 	int pID;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<MedHistory> med_histories, med_collat_histories;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<DrugHistory> drug_histories, drug_collat_histories;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<PsychHistory> psych_histories, psych_collat_histories;
 	
 	String current_therapy_check, past_therapy_check;

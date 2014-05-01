@@ -19,6 +19,7 @@ $(document).ready(function() {
 	collatAdd();
 	//initDB and initFormDB
 	IDBInit();
+	//hideCollat();
 });
 
 function spanClick(page){
@@ -95,5 +96,11 @@ function showHiddenRow(box, rowId) {
 function checkCollateral() {
 	if(typeof(sessionStorage) != 'undefined'){
 		return sessionStorage.collatPresent;
+	}
+}
+
+function hideCollat() {
+	if(!"${want_collat}"){
+		$(".collat_div").hide();
 	}
 }

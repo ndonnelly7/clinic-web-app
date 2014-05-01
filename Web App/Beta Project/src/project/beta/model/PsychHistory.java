@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 /*
@@ -25,6 +27,12 @@ public class PsychHistory implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "psychHistoryID", unique = true, nullable = false)
 	int psychHistoryID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	PatientHistory pHistory;
 	
 	String psych;
 	String time;
@@ -40,6 +48,14 @@ public class PsychHistory implements Serializable {
 
 	public void setPsychHistoryID(int psychHistoryID) {
 		this.psychHistoryID = psychHistoryID;
+	}
+	
+	public PatientHistory getpHistory() {
+		return pHistory;
+	}
+
+	public void setpHistory(PatientHistory pHistory) {
+		this.pHistory = pHistory;
 	}
 
 	public String getPsych() {

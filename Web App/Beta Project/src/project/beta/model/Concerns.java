@@ -1,9 +1,11 @@
 package project.beta.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /*
  * Concerns Class for the Concerns page of the form
@@ -13,35 +15,105 @@ public class Concerns {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "concernsID", unique = true, nullable = false)
 	int concernsID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
 	
-	boolean recEventsCheck, facesCheck, namesCheck, losingThingsCheck, followConversationsCheck;
-	boolean rightWordsCheck, decisionMakingCheck, calculationsCheck, prospMemoryCheck, anxietyCheck, commentsCheck;
-	String recEventsTime, recEventsFreq, recEventsNotes;
-	String facesTime, facesFreq, facesNotes;
-	String namesTime, namesFreq, namesNotes;
-	String losingThingsTime, losingThingsFreq, losingThingsNotes;
-	String followConversationTime, followConversationFreq, followConversationNotes;
-	String rightWordsTime, rightWordsFreq, rightWordsNotes;
-	String decisionMakingTime, decisionMakingFreq, decisionMakingNotes;
-	String calculationsTime, calculationsFreq, calculationsNotes;
-	String prospMemoryTime, prospMemoryFreq, prospMemoryNotes;
-	String anxietyTime, anxietyFreq, anxietyNotes;
-	String commentsTime, commentsFreq, commentsNotes;
+	boolean rec_events_check, faces_check, names_check, losing_things_check, follow_conv_check;
+	boolean right_words_check, decisions_check, calculations_check, prospective_check, anxiety_check, comments_check;
 	
-	boolean recEventsCollatCheck, facesCollatCheck, namesCollatCheck, losingThingsCollatCheck, followConversationsCollatCheck;
-	boolean rightWordsCollatCheck, decisionMakingCollatCheck, calculationsCollatCheck, prospMemoryCollatCheck, anxietyCollatCheck, commentsCollatCheck;
-	String recEventsCollatTime, recEventsCollatFreq, recEventsCollatNotes;
-	String facesCollatTime, facesCollatFreq, facesCollatNotes;
-	String namesCollatTime, namesCollatFreq, namesCollatNotes;
-	String losingThingsCollatTime, losingThingsCollatFreq, losingThingsCollatNotes;
-	String followConversationCollatTime, followConversationCollatFreq, followConversationCollatNotes;
-	String rightWordsCollatTime, rightWordsCollatFreq, rightWordsCollatNotes;
-	String decisionMakingCollatTime, decisionMakingCollatFreq, decisionMakingCollatNotes;
-	String calculationsCollatTime, calculationsCollatFreq, calculationsCollatNotes;
-	String prospMemoryCollatTime, prospMemoryCollatFreq, prospMemoryCollatNotes;
-	String anxietyCollatTime, anxietyCollatFreq, anxietyCollatNotes;
-	String commentsCollatTime, commentsCollatFreq, commentsCollatNotes;
+	String rec_events_time, rec_events_freq;
+	@Column(columnDefinition="TEXT")
+	String rec_events_notes;
+	
+	String faces_time, faces_freq;
+	@Column(columnDefinition="TEXT")
+	String faces_notes;
+	
+	String names_time, names_freq;
+	@Column(columnDefinition="TEXT")
+	String names_notes;
+	
+	String losing_things_time, losing_things_freq;
+	@Column(columnDefinition="TEXT")
+	String losing_things_notes;
+	
+	String follow_conv_time, follow_conv_freq;
+	@Column(columnDefinition="TEXT")
+	String follow_conv_notes;
+	
+	String right_words_time, right_words_freq;
+	@Column(columnDefinition="TEXT")
+	String right_words_notes;
+	
+	String decisions_time, decisions_freq;
+	@Column(columnDefinition="TEXT")
+	String decisions_notes;
+	
+	String calculations_time, calculations_freq;
+	@Column(columnDefinition="TEXT")
+	String calculations_notes;
+	
+	String prospective_time, prospective_freq;
+	@Column(columnDefinition="TEXT")
+	String prospective_notes;
+	
+	String anxiety_time, anxiety_freq;
+	@Column(columnDefinition="TEXT")
+	String anxiety_notes;
+	
+	String comments_time, comments_freq;
+	@Column(columnDefinition="TEXT")
+	String comments_notes;
+	
+	boolean rec_events_check_collat, faces_check_collat, names_check_collat, losing_things_check_collat, follow_conv_check_collat;
+	boolean right_words_check_collat, decisions_check_collat, calculations_check_collat, prospective_check_collat, anxiety_check_collat, comments_check_collat;
+	
+	String rec_events_time_collat, rec_events_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String rec_events_notes_collat;
+	
+	String faces_time_collat, faces_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String faces_notes_collat;
+	
+	String names_time_collat, names_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String names_notes_collat;
+	
+	String losing_things_time_collat, losing_things_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String losing_things_notes_collat;
+	
+	String follow_conv_time_collat, follow_conv_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String follow_conv_notes_collat;
+	
+	String right_words_time_collat, right_words_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String right_words_notes_collat;
+	
+	String decisions_time_collat, decisions_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String decisions_notes_collat;
+	
+	String calculations_time_collat, calculations_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String calculations_notes_collat;
+	
+	String prospective_time_collat, prospective_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String prospective_notes_collat;
+	
+	String anxiety_time_collat, anxiety_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String anxiety_notes_collat;
+	
+	String comments_time_collat, comments_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String comments_notes_collat;
 	
 	public Concerns(){
 		
@@ -55,709 +127,708 @@ public class Concerns {
 		this.concernsID = concernsID;
 	}
 
-	public boolean isRecEventsCheck() {
-		return recEventsCheck;
+	public boolean isRec_events_check() {
+		return rec_events_check;
 	}
 
-	public void setRecEventsCheck(boolean recEventsCheck) {
-		this.recEventsCheck = recEventsCheck;
+	public void setRec_events_check(boolean rec_events_check) {
+		this.rec_events_check = rec_events_check;
 	}
 
-	public boolean isFacesCheck() {
-		return facesCheck;
+	public boolean isFaces_check() {
+		return faces_check;
 	}
 
-	public void setFacesCheck(boolean facesCheck) {
-		this.facesCheck = facesCheck;
+	public void setFaces_check(boolean faces_check) {
+		this.faces_check = faces_check;
 	}
 
-	public boolean isNamesCheck() {
-		return namesCheck;
+	public boolean isNames_check() {
+		return names_check;
 	}
 
-	public void setNamesCheck(boolean namesCheck) {
-		this.namesCheck = namesCheck;
+	public void setNames_check(boolean names_check) {
+		this.names_check = names_check;
 	}
 
-	public boolean isLosingThingsCheck() {
-		return losingThingsCheck;
+	public boolean isLosing_things_check() {
+		return losing_things_check;
 	}
 
-	public void setLosingThingsCheck(boolean losingThingsCheck) {
-		this.losingThingsCheck = losingThingsCheck;
+	public void setLosing_things_check(boolean losing_things_check) {
+		this.losing_things_check = losing_things_check;
 	}
 
-	public boolean isFollowConversationsCheck() {
-		return followConversationsCheck;
+	public boolean isFollow_conv_check() {
+		return follow_conv_check;
 	}
 
-	public void setFollowConversationsCheck(boolean followConversationsCheck) {
-		this.followConversationsCheck = followConversationsCheck;
+	public void setFollow_conv_check(boolean follow_conv_check) {
+		this.follow_conv_check = follow_conv_check;
 	}
 
-	public boolean isRightWordsCheck() {
-		return rightWordsCheck;
+	public boolean isRight_words_check() {
+		return right_words_check;
 	}
 
-	public void setRightWordsCheck(boolean rightWordsCheck) {
-		this.rightWordsCheck = rightWordsCheck;
+	public void setRight_words_check(boolean right_words_check) {
+		this.right_words_check = right_words_check;
 	}
 
-	public boolean isDecisionMakingCheck() {
-		return decisionMakingCheck;
+	public boolean isDecisions_check() {
+		return decisions_check;
 	}
 
-	public void setDecisionMakingCheck(boolean decisionMakingCheck) {
-		this.decisionMakingCheck = decisionMakingCheck;
+	public void setDecisions_check(boolean decisions_check) {
+		this.decisions_check = decisions_check;
 	}
 
-	public boolean isCalculationsCheck() {
-		return calculationsCheck;
+	public boolean isCalculations_check() {
+		return calculations_check;
 	}
 
-	public void setCalculationsCheck(boolean calculationsCheck) {
-		this.calculationsCheck = calculationsCheck;
+	public void setCalculations_check(boolean calculations_check) {
+		this.calculations_check = calculations_check;
 	}
 
-	public boolean isProspMemoryCheck() {
-		return prospMemoryCheck;
+	public boolean isProspective_check() {
+		return prospective_check;
 	}
 
-	public void setProspMemoryCheck(boolean prospMemoryCheck) {
-		this.prospMemoryCheck = prospMemoryCheck;
+	public void setProspective_check(boolean prospective_check) {
+		this.prospective_check = prospective_check;
 	}
 
-	public boolean isAnxietyCheck() {
-		return anxietyCheck;
+	public boolean isAnxiety_check() {
+		return anxiety_check;
 	}
 
-	public void setAnxietyCheck(boolean anxietyCheck) {
-		this.anxietyCheck = anxietyCheck;
+	public void setAnxiety_check(boolean anxiety_check) {
+		this.anxiety_check = anxiety_check;
 	}
 
-	public boolean isCommentsCheck() {
-		return commentsCheck;
+	public boolean isComments_check() {
+		return comments_check;
 	}
 
-	public void setCommentsCheck(boolean commentsCheck) {
-		this.commentsCheck = commentsCheck;
+	public void setComments_check(boolean comments_check) {
+		this.comments_check = comments_check;
 	}
 
-	public String getRecEventsTime() {
-		return recEventsTime;
+	public String getRec_events_time() {
+		return rec_events_time;
 	}
 
-	public void setRecEventsTime(String recEventsTime) {
-		this.recEventsTime = recEventsTime;
+	public void setRec_events_time(String rec_events_time) {
+		this.rec_events_time = rec_events_time;
 	}
 
-	public String getRecEventsFreq() {
-		return recEventsFreq;
+	public String getRec_events_freq() {
+		return rec_events_freq;
 	}
 
-	public void setRecEventsFreq(String recEventsFreq) {
-		this.recEventsFreq = recEventsFreq;
+	public void setRec_events_freq(String rec_events_freq) {
+		this.rec_events_freq = rec_events_freq;
 	}
 
-	public String getRecEventsNotes() {
-		return recEventsNotes;
+	public String getRec_events_notes() {
+		return rec_events_notes;
 	}
 
-	public void setRecEventsNotes(String recEventsNotes) {
-		this.recEventsNotes = recEventsNotes;
+	public void setRec_events_notes(String rec_events_notes) {
+		this.rec_events_notes = rec_events_notes;
 	}
 
-	public String getFacesTime() {
-		return facesTime;
+	public String getFaces_time() {
+		return faces_time;
 	}
 
-	public void setFacesTime(String facesTime) {
-		this.facesTime = facesTime;
+	public void setFaces_time(String faces_time) {
+		this.faces_time = faces_time;
 	}
 
-	public String getFacesFreq() {
-		return facesFreq;
+	public String getFaces_freq() {
+		return faces_freq;
 	}
 
-	public void setFacesFreq(String facesFreq) {
-		this.facesFreq = facesFreq;
+	public void setFaces_freq(String faces_freq) {
+		this.faces_freq = faces_freq;
 	}
 
-	public String getFacesNotes() {
-		return facesNotes;
+	public String getFaces_notes() {
+		return faces_notes;
 	}
 
-	public void setFacesNotes(String facesNotes) {
-		this.facesNotes = facesNotes;
+	public void setFaces_notes(String faces_notes) {
+		this.faces_notes = faces_notes;
 	}
 
-	public String getNamesTime() {
-		return namesTime;
+	public String getNames_time() {
+		return names_time;
 	}
 
-	public void setNamesTime(String namesTime) {
-		this.namesTime = namesTime;
+	public void setNames_time(String names_time) {
+		this.names_time = names_time;
 	}
 
-	public String getNamesFreq() {
-		return namesFreq;
+	public String getNames_freq() {
+		return names_freq;
 	}
 
-	public void setNamesFreq(String namesFreq) {
-		this.namesFreq = namesFreq;
+	public void setNames_freq(String names_freq) {
+		this.names_freq = names_freq;
 	}
 
-	public String getNamesNotes() {
-		return namesNotes;
+	public String getNames_notes() {
+		return names_notes;
 	}
 
-	public void setNamesNotes(String namesNotes) {
-		this.namesNotes = namesNotes;
+	public void setNames_notes(String names_notes) {
+		this.names_notes = names_notes;
 	}
 
-	public String getLosingThingsTime() {
-		return losingThingsTime;
+	public String getLosing_things_time() {
+		return losing_things_time;
 	}
 
-	public void setLosingThingsTime(String losingThingsTime) {
-		this.losingThingsTime = losingThingsTime;
+	public void setLosing_things_time(String losing_things_time) {
+		this.losing_things_time = losing_things_time;
 	}
 
-	public String getLosingThingsFreq() {
-		return losingThingsFreq;
+	public String getLosing_things_freq() {
+		return losing_things_freq;
 	}
 
-	public void setLosingThingsFreq(String losingThingsFreq) {
-		this.losingThingsFreq = losingThingsFreq;
+	public void setLosing_things_freq(String losing_things_freq) {
+		this.losing_things_freq = losing_things_freq;
 	}
 
-	public String getLosingThingsNotes() {
-		return losingThingsNotes;
+	public String getLosing_things_notes() {
+		return losing_things_notes;
 	}
 
-	public void setLosingThingsNotes(String losingThingsNotes) {
-		this.losingThingsNotes = losingThingsNotes;
+	public void setLosing_things_notes(String losing_things_notes) {
+		this.losing_things_notes = losing_things_notes;
 	}
 
-	public String getFollowConversationTime() {
-		return followConversationTime;
+	public String getFollow_conv_time() {
+		return follow_conv_time;
 	}
 
-	public void setFollowConversationTime(String followConversationTime) {
-		this.followConversationTime = followConversationTime;
+	public void setFollow_conv_time(String follow_conv_time) {
+		this.follow_conv_time = follow_conv_time;
 	}
 
-	public String getFollowConversationFreq() {
-		return followConversationFreq;
+	public String getFollow_conv_freq() {
+		return follow_conv_freq;
 	}
 
-	public void setFollowConversationFreq(String followConversationFreq) {
-		this.followConversationFreq = followConversationFreq;
+	public void setFollow_conv_freq(String follow_conv_freq) {
+		this.follow_conv_freq = follow_conv_freq;
 	}
 
-	public String getFollowConversationNotes() {
-		return followConversationNotes;
+	public String getFollow_conv_notes() {
+		return follow_conv_notes;
 	}
 
-	public void setFollowConversationNotes(String followConversationNotes) {
-		this.followConversationNotes = followConversationNotes;
+	public void setFollow_conv_notes(String follow_conv_notes) {
+		this.follow_conv_notes = follow_conv_notes;
 	}
 
-	public String getRightWordsTime() {
-		return rightWordsTime;
+	public String getRight_words_time() {
+		return right_words_time;
 	}
 
-	public void setRightWordsTime(String rightWordsTime) {
-		this.rightWordsTime = rightWordsTime;
+	public void setRight_words_time(String right_words_time) {
+		this.right_words_time = right_words_time;
 	}
 
-	public String getRightWordsFreq() {
-		return rightWordsFreq;
+	public String getRight_words_freq() {
+		return right_words_freq;
 	}
 
-	public void setRightWordsFreq(String rightWordsFreq) {
-		this.rightWordsFreq = rightWordsFreq;
+	public void setRight_words_freq(String right_words_freq) {
+		this.right_words_freq = right_words_freq;
 	}
 
-	public String getRightWordsNotes() {
-		return rightWordsNotes;
+	public String getRight_words_notes() {
+		return right_words_notes;
 	}
 
-	public void setRightWordsNotes(String rightWordsNotes) {
-		this.rightWordsNotes = rightWordsNotes;
+	public void setRight_words_notes(String right_words_notes) {
+		this.right_words_notes = right_words_notes;
 	}
 
-	public String getDecisionMakingTime() {
-		return decisionMakingTime;
+	public String getDecisions_time() {
+		return decisions_time;
 	}
 
-	public void setDecisionMakingTime(String decisionMakingTime) {
-		this.decisionMakingTime = decisionMakingTime;
+	public void setDecisions_time(String decisions_time) {
+		this.decisions_time = decisions_time;
 	}
 
-	public String getDecisionMakingFreq() {
-		return decisionMakingFreq;
+	public String getDecisions_freq() {
+		return decisions_freq;
 	}
 
-	public void setDecisionMakingFreq(String decisionMakingFreq) {
-		this.decisionMakingFreq = decisionMakingFreq;
+	public void setDecisions_freq(String decisions_freq) {
+		this.decisions_freq = decisions_freq;
 	}
 
-	public String getDecisionMakingNotes() {
-		return decisionMakingNotes;
+	public String getDecisions_notes() {
+		return decisions_notes;
 	}
 
-	public void setDecisionMakingNotes(String decisionMakingNotes) {
-		this.decisionMakingNotes = decisionMakingNotes;
+	public void setDecisions_notes(String decisions_notes) {
+		this.decisions_notes = decisions_notes;
 	}
 
-	public String getCalculationsTime() {
-		return calculationsTime;
+	public String getCalculations_time() {
+		return calculations_time;
 	}
 
-	public void setCalculationsTime(String calculationsTime) {
-		this.calculationsTime = calculationsTime;
+	public void setCalculations_time(String calculations_time) {
+		this.calculations_time = calculations_time;
 	}
 
-	public String getCalculationsFreq() {
-		return calculationsFreq;
+	public String getCalculations_freq() {
+		return calculations_freq;
 	}
 
-	public void setCalculationsFreq(String calculationsFreq) {
-		this.calculationsFreq = calculationsFreq;
+	public void setCalculations_freq(String calculations_freq) {
+		this.calculations_freq = calculations_freq;
 	}
 
-	public String getCalculationsNotes() {
-		return calculationsNotes;
+	public String getCalculations_notes() {
+		return calculations_notes;
 	}
 
-	public void setCalculationsNotes(String calculationsNotes) {
-		this.calculationsNotes = calculationsNotes;
+	public void setCalculations_notes(String calculations_notes) {
+		this.calculations_notes = calculations_notes;
 	}
 
-	public String getProspMemoryTime() {
-		return prospMemoryTime;
+	public String getProspective_time() {
+		return prospective_time;
 	}
 
-	public void setProspMemoryTime(String prospMemoryTime) {
-		this.prospMemoryTime = prospMemoryTime;
+	public void setProspective_time(String prospective_time) {
+		this.prospective_time = prospective_time;
 	}
 
-	public String getProspMemoryFreq() {
-		return prospMemoryFreq;
+	public String getProspective_freq() {
+		return prospective_freq;
 	}
 
-	public void setProspMemoryFreq(String prospMemoryFreq) {
-		this.prospMemoryFreq = prospMemoryFreq;
+	public void setProspective_freq(String prospective_freq) {
+		this.prospective_freq = prospective_freq;
 	}
 
-	public String getProspMemoryNotes() {
-		return prospMemoryNotes;
+	public String getProspective_notes() {
+		return prospective_notes;
 	}
 
-	public void setProspMemoryNotes(String prospMemoryNotes) {
-		this.prospMemoryNotes = prospMemoryNotes;
+	public void setProspective_notes(String prospective_notes) {
+		this.prospective_notes = prospective_notes;
 	}
 
-	public String getAnxietyTime() {
-		return anxietyTime;
+	public String getAnxiety_time() {
+		return anxiety_time;
 	}
 
-	public void setAnxietyTime(String anxietyTime) {
-		this.anxietyTime = anxietyTime;
+	public void setAnxiety_time(String anxiety_time) {
+		this.anxiety_time = anxiety_time;
 	}
 
-	public String getAnxietyFreq() {
-		return anxietyFreq;
+	public String getAnxiety_freq() {
+		return anxiety_freq;
 	}
 
-	public void setAnxietyFreq(String anxietyFreq) {
-		this.anxietyFreq = anxietyFreq;
+	public void setAnxiety_freq(String anxiety_freq) {
+		this.anxiety_freq = anxiety_freq;
 	}
 
-	public String getAnxietyNotes() {
-		return anxietyNotes;
+	public String getAnxiety_notes() {
+		return anxiety_notes;
 	}
 
-	public void setAnxietyNotes(String anxietyNotes) {
-		this.anxietyNotes = anxietyNotes;
+	public void setAnxiety_notes(String anxiety_notes) {
+		this.anxiety_notes = anxiety_notes;
 	}
 
-	public String getCommentsTime() {
-		return commentsTime;
+	public String getComments_time() {
+		return comments_time;
 	}
 
-	public void setCommentsTime(String commentsTime) {
-		this.commentsTime = commentsTime;
+	public void setComments_time(String comments_time) {
+		this.comments_time = comments_time;
 	}
 
-	public String getCommentsFreq() {
-		return commentsFreq;
+	public String getComments_freq() {
+		return comments_freq;
 	}
 
-	public void setCommentsFreq(String commentsFreq) {
-		this.commentsFreq = commentsFreq;
+	public void setComments_freq(String comments_freq) {
+		this.comments_freq = comments_freq;
 	}
 
-	public String getCommentsNotes() {
-		return commentsNotes;
+	public String getComments_notes() {
+		return comments_notes;
 	}
 
-	public void setCommentsNotes(String commentsNotes) {
-		this.commentsNotes = commentsNotes;
+	public void setComments_notes(String comments_notes) {
+		this.comments_notes = comments_notes;
 	}
 
-	public boolean isRecEventsCollatCheck() {
-		return recEventsCollatCheck;
+	public boolean isRec_events_check_collat() {
+		return rec_events_check_collat;
 	}
 
-	public void setRecEventsCollatCheck(boolean recEventsCollatCheck) {
-		this.recEventsCollatCheck = recEventsCollatCheck;
+	public void setRec_events_check_collat(boolean rec_events_check_collat) {
+		this.rec_events_check_collat = rec_events_check_collat;
 	}
 
-	public boolean isFacesCollatCheck() {
-		return facesCollatCheck;
+	public boolean isFaces_check_collat() {
+		return faces_check_collat;
 	}
 
-	public void setFacesCollatCheck(boolean facesCollatCheck) {
-		this.facesCollatCheck = facesCollatCheck;
+	public void setFaces_check_collat(boolean faces_check_collat) {
+		this.faces_check_collat = faces_check_collat;
 	}
 
-	public boolean isNamesCollatCheck() {
-		return namesCollatCheck;
+	public boolean isNames_check_collat() {
+		return names_check_collat;
 	}
 
-	public void setNamesCollatCheck(boolean namesCollatCheck) {
-		this.namesCollatCheck = namesCollatCheck;
+	public void setNames_check_collat(boolean names_check_collat) {
+		this.names_check_collat = names_check_collat;
 	}
 
-	public boolean isLosingThingsCollatCheck() {
-		return losingThingsCollatCheck;
+	public boolean isLosing_things_check_collat() {
+		return losing_things_check_collat;
 	}
 
-	public void setLosingThingsCollatCheck(boolean losingThingsCollatCheck) {
-		this.losingThingsCollatCheck = losingThingsCollatCheck;
+	public void setLosing_things_check_collat(boolean losing_things_check_collat) {
+		this.losing_things_check_collat = losing_things_check_collat;
 	}
 
-	public boolean isFollowConversationsCollatCheck() {
-		return followConversationsCollatCheck;
+	public boolean isFollow_conv_check_collat() {
+		return follow_conv_check_collat;
 	}
 
-	public void setFollowConversationsCollatCheck(
-			boolean followConversationsCollatCheck) {
-		this.followConversationsCollatCheck = followConversationsCollatCheck;
+	public void setFollow_conv_check_collat(boolean follow_conv_check_collat) {
+		this.follow_conv_check_collat = follow_conv_check_collat;
 	}
 
-	public boolean isRightWordsCollatCheck() {
-		return rightWordsCollatCheck;
+	public boolean isRight_words_check_collat() {
+		return right_words_check_collat;
 	}
 
-	public void setRightWordsCollatCheck(boolean rightWordsCollatCheck) {
-		this.rightWordsCollatCheck = rightWordsCollatCheck;
+	public void setRight_words_check_collat(boolean right_words_check_collat) {
+		this.right_words_check_collat = right_words_check_collat;
 	}
 
-	public boolean isDecisionMakingCollatCheck() {
-		return decisionMakingCollatCheck;
+	public boolean isDecisions_check_collat() {
+		return decisions_check_collat;
 	}
 
-	public void setDecisionMakingCollatCheck(boolean decisionMakingCollatCheck) {
-		this.decisionMakingCollatCheck = decisionMakingCollatCheck;
+	public void setDecisions_check_collat(boolean decisions_check_collat) {
+		this.decisions_check_collat = decisions_check_collat;
 	}
 
-	public boolean isCalculationsCollatCheck() {
-		return calculationsCollatCheck;
+	public boolean isCalculations_check_collat() {
+		return calculations_check_collat;
 	}
 
-	public void setCalculationsCollatCheck(boolean calculationsCollatCheck) {
-		this.calculationsCollatCheck = calculationsCollatCheck;
+	public void setCalculations_check_collat(boolean calculations_check_collat) {
+		this.calculations_check_collat = calculations_check_collat;
 	}
 
-	public boolean isProspMemoryCollatCheck() {
-		return prospMemoryCollatCheck;
+	public boolean isProspective_check_collat() {
+		return prospective_check_collat;
 	}
 
-	public void setProspMemoryCollatCheck(boolean prospMemoryCollatCheck) {
-		this.prospMemoryCollatCheck = prospMemoryCollatCheck;
+	public void setProspective_check_collat(boolean prospective_check_collat) {
+		this.prospective_check_collat = prospective_check_collat;
 	}
 
-	public boolean isAnxietyCollatCheck() {
-		return anxietyCollatCheck;
+	public boolean isAnxiety_check_collat() {
+		return anxiety_check_collat;
 	}
 
-	public void setAnxietyCollatCheck(boolean anxietyCollatCheck) {
-		this.anxietyCollatCheck = anxietyCollatCheck;
+	public void setAnxiety_check_collat(boolean anxiety_check_collat) {
+		this.anxiety_check_collat = anxiety_check_collat;
 	}
 
-	public boolean isCommentsCollatCheck() {
-		return commentsCollatCheck;
+	public boolean isComments_check_collat() {
+		return comments_check_collat;
 	}
 
-	public void setCommentsCollatCheck(boolean commentsCollatCheck) {
-		this.commentsCollatCheck = commentsCollatCheck;
+	public void setComments_check_collat(boolean comments_check_collat) {
+		this.comments_check_collat = comments_check_collat;
 	}
 
-	public String getRecEventsCollatTime() {
-		return recEventsCollatTime;
+	public String getRec_events_time_collat() {
+		return rec_events_time_collat;
 	}
 
-	public void setRecEventsCollatTime(String recEventsCollatTime) {
-		this.recEventsCollatTime = recEventsCollatTime;
+	public void setRec_events_time_collat(String rec_events_time_collat) {
+		this.rec_events_time_collat = rec_events_time_collat;
 	}
 
-	public String getRecEventsCollatFreq() {
-		return recEventsCollatFreq;
+	public String getRec_events_freq_collat() {
+		return rec_events_freq_collat;
 	}
 
-	public void setRecEventsCollatFreq(String recEventsCollatFreq) {
-		this.recEventsCollatFreq = recEventsCollatFreq;
+	public void setRec_events_freq_collat(String rec_events_freq_collat) {
+		this.rec_events_freq_collat = rec_events_freq_collat;
 	}
 
-	public String getRecEventsCollatNotes() {
-		return recEventsCollatNotes;
+	public String getRec_events_notes_collat() {
+		return rec_events_notes_collat;
 	}
 
-	public void setRecEventsCollatNotes(String recEventsCollatNotes) {
-		this.recEventsCollatNotes = recEventsCollatNotes;
+	public void setRec_events_notes_collat(String rec_events_notes_collat) {
+		this.rec_events_notes_collat = rec_events_notes_collat;
 	}
 
-	public String getFacesCollatTime() {
-		return facesCollatTime;
+	public String getFaces_time_collat() {
+		return faces_time_collat;
 	}
 
-	public void setFacesCollatTime(String facesCollatTime) {
-		this.facesCollatTime = facesCollatTime;
+	public void setFaces_time_collat(String faces_time_collat) {
+		this.faces_time_collat = faces_time_collat;
 	}
 
-	public String getFacesCollatFreq() {
-		return facesCollatFreq;
+	public String getFaces_freq_collat() {
+		return faces_freq_collat;
 	}
 
-	public void setFacesCollatFreq(String facesCollatFreq) {
-		this.facesCollatFreq = facesCollatFreq;
+	public void setFaces_freq_collat(String faces_freq_collat) {
+		this.faces_freq_collat = faces_freq_collat;
 	}
 
-	public String getFacesCollatNotes() {
-		return facesCollatNotes;
+	public String getFaces_notes_collat() {
+		return faces_notes_collat;
 	}
 
-	public void setFacesCollatNotes(String facesCollatNotes) {
-		this.facesCollatNotes = facesCollatNotes;
+	public void setFaces_notes_collat(String faces_notes_collat) {
+		this.faces_notes_collat = faces_notes_collat;
 	}
 
-	public String getNamesCollatTime() {
-		return namesCollatTime;
+	public String getNames_time_collat() {
+		return names_time_collat;
 	}
 
-	public void setNamesCollatTime(String namesCollatTime) {
-		this.namesCollatTime = namesCollatTime;
+	public void setNames_time_collat(String names_time_collat) {
+		this.names_time_collat = names_time_collat;
 	}
 
-	public String getNamesCollatFreq() {
-		return namesCollatFreq;
+	public String getNames_freq_collat() {
+		return names_freq_collat;
 	}
 
-	public void setNamesCollatFreq(String namesCollatFreq) {
-		this.namesCollatFreq = namesCollatFreq;
+	public void setNames_freq_collat(String names_freq_collat) {
+		this.names_freq_collat = names_freq_collat;
 	}
 
-	public String getNamesCollatNotes() {
-		return namesCollatNotes;
+	public String getNames_notes_collat() {
+		return names_notes_collat;
 	}
 
-	public void setNamesCollatNotes(String namesCollatNotes) {
-		this.namesCollatNotes = namesCollatNotes;
+	public void setNames_notes_collat(String names_notes_collat) {
+		this.names_notes_collat = names_notes_collat;
 	}
 
-	public String getLosingThingsCollatTime() {
-		return losingThingsCollatTime;
+	public String getLosing_things_time_collat() {
+		return losing_things_time_collat;
 	}
 
-	public void setLosingThingsCollatTime(String losingThingsCollatTime) {
-		this.losingThingsCollatTime = losingThingsCollatTime;
+	public void setLosing_things_time_collat(String losing_things_time_collat) {
+		this.losing_things_time_collat = losing_things_time_collat;
 	}
 
-	public String getLosingThingsCollatFreq() {
-		return losingThingsCollatFreq;
+	public String getLosing_things_freq_collat() {
+		return losing_things_freq_collat;
 	}
 
-	public void setLosingThingsCollatFreq(String losingThingsCollatFreq) {
-		this.losingThingsCollatFreq = losingThingsCollatFreq;
+	public void setLosing_things_freq_collat(String losing_things_freq_collat) {
+		this.losing_things_freq_collat = losing_things_freq_collat;
 	}
 
-	public String getLosingThingsCollatNotes() {
-		return losingThingsCollatNotes;
+	public String getLosing_things_notes_collat() {
+		return losing_things_notes_collat;
 	}
 
-	public void setLosingThingsCollatNotes(String losingThingsCollatNotes) {
-		this.losingThingsCollatNotes = losingThingsCollatNotes;
+	public void setLosing_things_notes_collat(String losing_things_notes_collat) {
+		this.losing_things_notes_collat = losing_things_notes_collat;
 	}
 
-	public String getFollowConversationCollatTime() {
-		return followConversationCollatTime;
+	public String getFollow_conv_time_collat() {
+		return follow_conv_time_collat;
 	}
 
-	public void setFollowConversationCollatTime(String followConversationCollatTime) {
-		this.followConversationCollatTime = followConversationCollatTime;
+	public void setFollow_conv_time_collat(String follow_conv_time_collat) {
+		this.follow_conv_time_collat = follow_conv_time_collat;
 	}
 
-	public String getFollowConversationCollatFreq() {
-		return followConversationCollatFreq;
+	public String getFollow_conv_freq_collat() {
+		return follow_conv_freq_collat;
 	}
 
-	public void setFollowConversationCollatFreq(String followConversationCollatFreq) {
-		this.followConversationCollatFreq = followConversationCollatFreq;
+	public void setFollow_conv_freq_collat(String follow_conv_freq_collat) {
+		this.follow_conv_freq_collat = follow_conv_freq_collat;
 	}
 
-	public String getFollowConversationCollatNotes() {
-		return followConversationCollatNotes;
+	public String getFollow_conv_notes_collat() {
+		return follow_conv_notes_collat;
 	}
 
-	public void setFollowConversationCollatNotes(
-			String followConversationCollatNotes) {
-		this.followConversationCollatNotes = followConversationCollatNotes;
+	public void setFollow_conv_notes_collat(String follow_conv_notes_collat) {
+		this.follow_conv_notes_collat = follow_conv_notes_collat;
 	}
 
-	public String getRightWordsCollatTime() {
-		return rightWordsCollatTime;
+	public String getRight_words_time_collat() {
+		return right_words_time_collat;
 	}
 
-	public void setRightWordsCollatTime(String rightWordsCollatTime) {
-		this.rightWordsCollatTime = rightWordsCollatTime;
+	public void setRight_words_time_collat(String right_words_time_collat) {
+		this.right_words_time_collat = right_words_time_collat;
 	}
 
-	public String getRightWordsCollatFreq() {
-		return rightWordsCollatFreq;
+	public String getRight_words_freq_collat() {
+		return right_words_freq_collat;
 	}
 
-	public void setRightWordsCollatFreq(String rightWordsCollatFreq) {
-		this.rightWordsCollatFreq = rightWordsCollatFreq;
+	public void setRight_words_freq_collat(String right_words_freq_collat) {
+		this.right_words_freq_collat = right_words_freq_collat;
 	}
 
-	public String getRightWordsCollatNotes() {
-		return rightWordsCollatNotes;
+	public String getRight_words_notes_collat() {
+		return right_words_notes_collat;
 	}
 
-	public void setRightWordsCollatNotes(String rightWordsCollatNotes) {
-		this.rightWordsCollatNotes = rightWordsCollatNotes;
+	public void setRight_words_notes_collat(String right_words_notes_collat) {
+		this.right_words_notes_collat = right_words_notes_collat;
 	}
 
-	public String getDecisionMakingCollatTime() {
-		return decisionMakingCollatTime;
+	public String getDecisions_time_collat() {
+		return decisions_time_collat;
 	}
 
-	public void setDecisionMakingCollatTime(String decisionMakingCollatTime) {
-		this.decisionMakingCollatTime = decisionMakingCollatTime;
+	public void setDecisions_time_collat(String decisions_time_collat) {
+		this.decisions_time_collat = decisions_time_collat;
 	}
 
-	public String getDecisionMakingCollatFreq() {
-		return decisionMakingCollatFreq;
+	public String getDecisions_freq_collat() {
+		return decisions_freq_collat;
 	}
 
-	public void setDecisionMakingCollatFreq(String decisionMakingCollatFreq) {
-		this.decisionMakingCollatFreq = decisionMakingCollatFreq;
+	public void setDecisions_freq_collat(String decisions_freq_collat) {
+		this.decisions_freq_collat = decisions_freq_collat;
 	}
 
-	public String getDecisionMakingCollatNotes() {
-		return decisionMakingCollatNotes;
+	public String getDecisions_notes_collat() {
+		return decisions_notes_collat;
 	}
 
-	public void setDecisionMakingCollatNotes(String decisionMakingCollatNotes) {
-		this.decisionMakingCollatNotes = decisionMakingCollatNotes;
+	public void setDecisions_notes_collat(String decisions_notes_collat) {
+		this.decisions_notes_collat = decisions_notes_collat;
 	}
 
-	public String getCalculationsCollatTime() {
-		return calculationsCollatTime;
+	public String getCalculations_time_collat() {
+		return calculations_time_collat;
 	}
 
-	public void setCalculationsCollatTime(String calculationsCollatTime) {
-		this.calculationsCollatTime = calculationsCollatTime;
+	public void setCalculations_time_collat(String calculations_time_collat) {
+		this.calculations_time_collat = calculations_time_collat;
 	}
 
-	public String getCalculationsCollatFreq() {
-		return calculationsCollatFreq;
+	public String getCalculations_freq_collat() {
+		return calculations_freq_collat;
 	}
 
-	public void setCalculationsCollatFreq(String calculationsCollatFreq) {
-		this.calculationsCollatFreq = calculationsCollatFreq;
+	public void setCalculations_freq_collat(String calculations_freq_collat) {
+		this.calculations_freq_collat = calculations_freq_collat;
 	}
 
-	public String getCalculationsCollatNotes() {
-		return calculationsCollatNotes;
+	public String getCalculations_notes_collat() {
+		return calculations_notes_collat;
 	}
 
-	public void setCalculationsCollatNotes(String calculationsCollatNotes) {
-		this.calculationsCollatNotes = calculationsCollatNotes;
+	public void setCalculations_notes_collat(String calculations_notes_collat) {
+		this.calculations_notes_collat = calculations_notes_collat;
 	}
 
-	public String getProspMemoryCollatTime() {
-		return prospMemoryCollatTime;
+	public String getProspective_time_collat() {
+		return prospective_time_collat;
 	}
 
-	public void setProspMemoryCollatTime(String prospMemoryCollatTime) {
-		this.prospMemoryCollatTime = prospMemoryCollatTime;
+	public void setProspective_time_collat(String prospective_time_collat) {
+		this.prospective_time_collat = prospective_time_collat;
 	}
 
-	public String getProspMemoryCollatFreq() {
-		return prospMemoryCollatFreq;
+	public String getProspective_freq_collat() {
+		return prospective_freq_collat;
 	}
 
-	public void setProspMemoryCollatFreq(String prospMemoryCollatFreq) {
-		this.prospMemoryCollatFreq = prospMemoryCollatFreq;
+	public void setProspective_freq_collat(String prospective_freq_collat) {
+		this.prospective_freq_collat = prospective_freq_collat;
 	}
 
-	public String getProspMemoryCollatNotes() {
-		return prospMemoryCollatNotes;
+	public String getProspective_notes_collat() {
+		return prospective_notes_collat;
 	}
 
-	public void setProspMemoryCollatNotes(String prospMemoryCollatNotes) {
-		this.prospMemoryCollatNotes = prospMemoryCollatNotes;
+	public void setProspective_notes_collat(String prospective_notes_collat) {
+		this.prospective_notes_collat = prospective_notes_collat;
 	}
 
-	public String getAnxietyCollatTime() {
-		return anxietyCollatTime;
+	public String getAnxiety_time_collat() {
+		return anxiety_time_collat;
 	}
 
-	public void setAnxietyCollatTime(String anxietyCollatTime) {
-		this.anxietyCollatTime = anxietyCollatTime;
+	public void setAnxiety_time_collat(String anxiety_time_collat) {
+		this.anxiety_time_collat = anxiety_time_collat;
 	}
 
-	public String getAnxietyCollatFreq() {
-		return anxietyCollatFreq;
+	public String getAnxiety_freq_collat() {
+		return anxiety_freq_collat;
 	}
 
-	public void setAnxietyCollatFreq(String anxietyCollatFreq) {
-		this.anxietyCollatFreq = anxietyCollatFreq;
+	public void setAnxiety_freq_collat(String anxiety_freq_collat) {
+		this.anxiety_freq_collat = anxiety_freq_collat;
 	}
 
-	public String getAnxietyCollatNotes() {
-		return anxietyCollatNotes;
+	public String getAnxiety_notes_collat() {
+		return anxiety_notes_collat;
 	}
 
-	public void setAnxietyCollatNotes(String anxietyCollatNotes) {
-		this.anxietyCollatNotes = anxietyCollatNotes;
+	public void setAnxiety_notes_collat(String anxiety_notes_collat) {
+		this.anxiety_notes_collat = anxiety_notes_collat;
 	}
 
-	public String getCommentsCollatTime() {
-		return commentsCollatTime;
+	public String getComments_time_collat() {
+		return comments_time_collat;
 	}
 
-	public void setCommentsCollatTime(String commentsCollatTime) {
-		this.commentsCollatTime = commentsCollatTime;
+	public void setComments_time_collat(String comments_time_collat) {
+		this.comments_time_collat = comments_time_collat;
 	}
 
-	public String getCommentsCollatFreq() {
-		return commentsCollatFreq;
+	public String getComments_freq_collat() {
+		return comments_freq_collat;
 	}
 
-	public void setCommentsCollatFreq(String commentsCollatFreq) {
-		this.commentsCollatFreq = commentsCollatFreq;
+	public void setComments_freq_collat(String comments_freq_collat) {
+		this.comments_freq_collat = comments_freq_collat;
 	}
 
-	public String getCommentsCollatNotes() {
-		return commentsCollatNotes;
+	public String getComments_notes_collat() {
+		return comments_notes_collat;
 	}
 
-	public void setCommentsCollatNotes(String commentsCollatNotes) {
-		this.commentsCollatNotes = commentsCollatNotes;
+	public void setComments_notes_collat(String comments_notes_collat) {
+		this.comments_notes_collat = comments_notes_collat;
 	}
+
 }

@@ -401,11 +401,11 @@
 	</fieldset>
 	<br><br>
 	<input type="submit" value="Submit"/>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="nextPage('personal_details')">Previous Page</span>
-	<span onclick="nextPage('medical')">Next Page</span>
+	<span onclick="submitPage('medical')">Next Page</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -424,6 +424,13 @@
 				patient = <%= request.getAttribute("patient").toString() %>
 				console.log(patient);
 			}
+		}
+		if("${id}" != null)
+			$("#hiddenID").val("${id}");
+		else if(typeof(Storage) !== "undefined"){
+			$("#hiddenID").val(sessionStorage.p_id);
+			if(sessionStorage.collat)
+				hideCollat();
 		}
 	});
 
@@ -581,6 +588,77 @@
 		
 		//Submit
 		spanClick(page);
+	}
+	
+	function submitPage()
+	{
+		var p_id;
+		var collat;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+			collat = sessionStorage.collat;
+		}
+		getPatientForm(p_id, printPForm);
+		
+		var history = {};
+		var drugsArr = new Array();
+		var psychArr = new Array();
+		
+		for(var ind = 0; ind < $(".drug_select").size(); ind++){
+			var drug = {};
+			drug['drug'] = $(".drug_select:eq("+ind+")").val();
+			drug['time'] = $(".drug_time:eq("+ind+")").val();
+			if(drug['drug']=='sleeping'){
+				drug['sleep_med'] = $("#sleeping_drug").val();
+			} else if(drug['drug'] == 'benzo'){
+				drug['benzo_med'] = $("#benzo_drug").val();
+			}
+			
+			drugsArr[ind] = drug;
+		}
+		
+		for(var ind = 0; ind < $(".psych_select").size(); ind++){
+			var psych = {};
+			psych['psych'] = $(".psych_select:eq("+ind+")").val();
+			psych['time'] = $(".psych_time:eq("+ind+")").val();
+			
+			psychArr[ind] = psych;
+		}
+		
+		history['drugs'] = drugsArr;
+		history['psych'] = psychArr;
+		
+		if(collat){
+			var drugsC = new Array();
+			var psychC = new Array();
+			for(var ind = 0; ind < $(".collat_drug_select").size(); ind++){
+				var drug = {};
+				drug['drug'] = $(".collat_drug_select:eq("+ind+")").val();
+				drug['time'] = $(".collat_drug_time:eq("+ind+")").val();
+				if(drug['drug']=='sleeping'){
+					drug['sleep_med'] = $("#collat_sleeping_drug").val();
+				} else if(drug['drug'] == 'benzo'){
+					drug['benzo_med'] = $("#collat_benzo_drug").val();
+				}
+				
+				drugsC[ind] = drug;
+			}
+			
+			for(var ind = 0; ind < $(".collat_psych_select").size(); ind++){
+				var psych = {};
+				psych['psych'] = $(".collat_psych_select:eq("+ind+")").val();
+				psych['time'] = $(".collat_psych_time:eq("+ind+")").val();
+				
+				psychC[ind] = drug;
+			}
+			
+			history['DrugsCollat'] = drugsC;
+			history['PsychCollat'] = psychC;
+		}
+		
+		addHistory(p_id, history);
+		
+		$("#history_form").submit();
 	}
 </script>
 </body>

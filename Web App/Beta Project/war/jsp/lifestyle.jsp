@@ -1244,5 +1244,10 @@
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
 <script src="/js/lifestyle.js"></script>
+<script>
+	function submitPage() {
+		$("#lifestyle_form").submit();
+	}
+</script>
 </body>
 </html>

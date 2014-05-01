@@ -29,7 +29,6 @@
 </div> 
 </form>
 <form id="medical_form" class="pure-form pure-form-aligned" method="POST" action="medical.do">
-	<input type="hidden" name="hiddenid" id="hiddenid" value="${hiddenid}">
 	<fieldset id="med_field">
 		<legend>GP Information</legend>
 		
@@ -302,12 +301,12 @@
 		<textarea form="medical_form" name="kin_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 	</fieldset>
 	<br><br>
+	<input type="hidden" name="hiddenID" id="hiddenID" value="${id}">
 	<input type="submit" value="Submit"/>
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="nextPage('history')">Previous Page</span>
-	<span onclick="nextPage('concerns')">Next Page</span>
+	<span onclick="submitPage()">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -315,6 +314,15 @@
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+		if("${id}" != null)
+			$("#hiddenID").val("${id}");
+		else if(typeof(Storage) !== "undefined"){
+			$("#hiddenID").val(sessionStorage.p_id);
+			if(sessionStorage.collat)
+				hideCollat();
+		}
+	});
 
 	function nextPage(page){
 		
@@ -339,6 +347,31 @@
 		addGPInfo(p_id, medical);
 		
 		spanClick(page);
+	}
+	
+	function submitPage(){
+		
+		var medical = {};
+		medical['cholesterol'] = $("#cholesterol");
+		medical['ldl'] = $("#ldl");
+		medical['hdl'] = $("#hdl");
+		medical['systolic'] = $("#systolic");
+		medical['diastolic'] = $("#diastolic");
+		medical['thyroid'] = $("#thyroid");
+		medical['b12'] = $("#b12");
+		medical['iron'] = $("#iron");
+		medical['calcium'] = $("#calcium");
+		medical['sodium'] = $("#sodium");
+		medical['weight'] = $("#weight");
+		
+		var p_id;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+		}
+		
+		addGPInfo(p_id, medical);
+		
+		$("#medical_form").submit();
 	}
 
 </script>

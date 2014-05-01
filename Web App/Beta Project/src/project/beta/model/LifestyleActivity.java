@@ -12,34 +12,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 
-/*
- * USed to represent both the social and physical activities that a patient
- * can be involved in
- * 
- */
-
 @Entity
-public class Activity implements Serializable{
+public class LifestyleActivity implements Serializable{
 	
 	@Transient
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "activityID", unique = true, nullable = false)
-	private int activityID;	
+	@Column(name = "lifestyleActivityID", unique = true, nullable = false)
+	private int lifestyleActivityID;
+
+	@Transient
+	protected Object[] jdoDetachedState;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	EventsActivities eventActivity;
-	
-	@Transient
-	protected Object[] jdoDetachedState;
+	Lifestyle lifestyle;
 	
 	String type, involvement, time_changed, notes;
 	int current_hours, prev_hours;
 	
-	public Activity(){
-		
+	public LifestyleActivity(){
+	
 	}
 
 	public String getType() {
@@ -89,20 +83,20 @@ public class Activity implements Serializable{
 	public void setPrev_hours(int prev_hours) {
 		this.prev_hours = prev_hours;
 	}
-	
-	public void setEventActivity(EventsActivities eventActivity){
-		this.eventActivity = eventActivity;
-	}
-	
-	public EventsActivities getEventActivity(){
-		return eventActivity;
+
+	public int getLifestyleActivityID() {
+		return lifestyleActivityID;
 	}
 
-	public int getActivityID() {
-		return activityID;
+	public void setLifestyleActivityID(int lifestyleActivityID) {
+		this.lifestyleActivityID = lifestyleActivityID;
 	}
 
-	public void setActivityID(int activityID) {
-		this.activityID = activityID;
+	public Lifestyle getLifestyle() {
+		return lifestyle;
+	}
+
+	public void setLifestyle(Lifestyle lifestyle) {
+		this.lifestyle = lifestyle;
 	}
 }

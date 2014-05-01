@@ -26,8 +26,6 @@ public class PersonalDetailsPatient {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	//TODO: Make the ID'ing info Transient here
-	private int pID;
 	private String gender, study_topic, occupation, county;
 	private String gp_county;
 	private boolean family_present_check;
@@ -38,27 +36,8 @@ public class PersonalDetailsPatient {
 	
 	private boolean junior_check, senior_check, third_check, pIsFamilyPresent;
 	
-	public PersonalDetailsPatient(int pid)
-	{
-		pID = pid;
-		gender = study_topic = occupation = county = "";
-		gp_county = "";
-		dob = new Date();
-		age = age_left = 0;
-		junior_check = senior_check = third_check = pIsFamilyPresent = family_present_check =false;
-	}
-	
 	public PersonalDetailsPatient(){
-		pID = 0;
-		gender = study_topic = occupation = county = "";
-		gp_county = "";
-		dob = new Date();
-		age = age_left = 0;
-		junior_check = senior_check = third_check = pIsFamilyPresent = family_present_check = false;
-	}
-	
-	public int getID() {
-		return pID;
+		
 	}
 
 	public int getDetailsID() {
@@ -67,14 +46,6 @@ public class PersonalDetailsPatient {
 
 	public void setDetailsID(int detailsID) {
 		this.detailsID = detailsID;
-	}
-
-	public int getpID() {
-		return pID;
-	}
-
-	public void setpID(int pID) {
-		this.pID = pID;
 	}
 
 	public String getGender() {

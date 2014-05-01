@@ -1,9 +1,11 @@
 package project.beta.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /*
  * Used to represent the page containing any information from patient's visit to the GP
@@ -14,13 +16,19 @@ public class GP_Info {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "gpInfoID", unique = true, nullable = false)
 	int gpInfoID;
-	boolean discuss_gp;
-	String gp_result, gp_meds, gp_notes;
-	float cholesterol, thyroid, b12, iron, calcium, sodium;
-	String chol_time, thyroid_time, b12_time, iron_time, calcium_time, sodium_time;
-	String test_result_notes;
-	String family_reaction, reaction_length, family_reaction_notes;
+
+	@Transient
+	protected Object[] jdoDetachedState;
+	
+	boolean gp_talked;
+	String gp_results, gp_meds, gp_notes;
+	float cholest_test, cholest_ldl, cholest_hdl, thyroid, weight_test;
+	float systolic, diastolic, b12_test, iron_test, calc_test, sodium_test;
+	String cholest_time, ldl_time, hdl_time, thyroid_time, weight_time;
+	String systolic_time, diastolic_time, b12_time, iron_time, calc_time, sodium_time;
+	String med_test_notes, kin_response, response_time, kin_notes;
 	
 	public GP_Info()
 	{
@@ -35,20 +43,20 @@ public class GP_Info {
 		this.gpInfoID = gpInfoID;
 	}
 
-	public boolean isDiscuss_gp() {
-		return discuss_gp;
+	public boolean isGp_talked() {
+		return gp_talked;
 	}
 
-	public void setDiscuss_gp(boolean discuss_gp) {
-		this.discuss_gp = discuss_gp;
+	public void setGp_talked(boolean gp_talked) {
+		this.gp_talked = gp_talked;
 	}
 
-	public String getGp_result() {
-		return gp_result;
+	public String getGp_results() {
+		return gp_results;
 	}
 
-	public void setGp_result(String gp_result) {
-		this.gp_result = gp_result;
+	public void setGp_results(String gp_results) {
+		this.gp_results = gp_results;
 	}
 
 	public String getGp_meds() {
@@ -67,12 +75,28 @@ public class GP_Info {
 		this.gp_notes = gp_notes;
 	}
 
-	public float getCholesterol() {
-		return cholesterol;
+	public float getCholest_test() {
+		return cholest_test;
 	}
 
-	public void setCholesterol(float cholesterol) {
-		this.cholesterol = cholesterol;
+	public void setCholest_test(float cholest_test) {
+		this.cholest_test = cholest_test;
+	}
+
+	public float getCholest_ldl() {
+		return cholest_ldl;
+	}
+
+	public void setCholest_ldl(float cholest_ldl) {
+		this.cholest_ldl = cholest_ldl;
+	}
+
+	public float getCholest_hdl() {
+		return cholest_hdl;
+	}
+
+	public void setCholest_hdl(float cholest_hdl) {
+		this.cholest_hdl = cholest_hdl;
 	}
 
 	public float getThyroid() {
@@ -83,44 +107,84 @@ public class GP_Info {
 		this.thyroid = thyroid;
 	}
 
-	public float getB12() {
-		return b12;
+	public float getWeight_test() {
+		return weight_test;
 	}
 
-	public void setB12(float b12) {
-		this.b12 = b12;
+	public void setWeight_test(float weight_test) {
+		this.weight_test = weight_test;
 	}
 
-	public float getIron() {
-		return iron;
+	public float getSystolic() {
+		return systolic;
 	}
 
-	public void setIron(float iron) {
-		this.iron = iron;
+	public void setSystolic(float systolic) {
+		this.systolic = systolic;
 	}
 
-	public float getCalcium() {
-		return calcium;
+	public float getDiastolic() {
+		return diastolic;
 	}
 
-	public void setCalcium(float calcium) {
-		this.calcium = calcium;
+	public void setDiastolic(float diastolic) {
+		this.diastolic = diastolic;
 	}
 
-	public float getSodium() {
-		return sodium;
+	public float getB12_test() {
+		return b12_test;
 	}
 
-	public void setSodium(float sodium) {
-		this.sodium = sodium;
+	public void setB12_test(float b12_test) {
+		this.b12_test = b12_test;
 	}
 
-	public String getChol_time() {
-		return chol_time;
+	public float getIron_test() {
+		return iron_test;
 	}
 
-	public void setChol_time(String chol_time) {
-		this.chol_time = chol_time;
+	public void setIron_test(float iron_test) {
+		this.iron_test = iron_test;
+	}
+
+	public float getCalc_test() {
+		return calc_test;
+	}
+
+	public void setCalc_test(float calc_test) {
+		this.calc_test = calc_test;
+	}
+
+	public float getSodium_test() {
+		return sodium_test;
+	}
+
+	public void setSodium_test(float sodium_test) {
+		this.sodium_test = sodium_test;
+	}
+
+	public String getCholest_time() {
+		return cholest_time;
+	}
+
+	public void setCholest_time(String cholest_time) {
+		this.cholest_time = cholest_time;
+	}
+
+	public String getLdl_time() {
+		return ldl_time;
+	}
+
+	public void setLdl_time(String ldl_time) {
+		this.ldl_time = ldl_time;
+	}
+
+	public String getHdl_time() {
+		return hdl_time;
+	}
+
+	public void setHdl_time(String hdl_time) {
+		this.hdl_time = hdl_time;
 	}
 
 	public String getThyroid_time() {
@@ -129,6 +193,30 @@ public class GP_Info {
 
 	public void setThyroid_time(String thyroid_time) {
 		this.thyroid_time = thyroid_time;
+	}
+
+	public String getWeight_time() {
+		return weight_time;
+	}
+
+	public void setWeight_time(String weight_time) {
+		this.weight_time = weight_time;
+	}
+
+	public String getSystolic_time() {
+		return systolic_time;
+	}
+
+	public void setSystolic_time(String systolic_time) {
+		this.systolic_time = systolic_time;
+	}
+
+	public String getDiastolic_time() {
+		return diastolic_time;
+	}
+
+	public void setDiastolic_time(String diastolic_time) {
+		this.diastolic_time = diastolic_time;
 	}
 
 	public String getB12_time() {
@@ -147,12 +235,12 @@ public class GP_Info {
 		this.iron_time = iron_time;
 	}
 
-	public String getCalcium_time() {
-		return calcium_time;
+	public String getCal_time() {
+		return calc_time;
 	}
 
-	public void setCalcium_time(String calcium_time) {
-		this.calcium_time = calcium_time;
+	public void setCal_time(String cal_time) {
+		this.calc_time = cal_time;
 	}
 
 	public String getSodium_time() {
@@ -163,35 +251,36 @@ public class GP_Info {
 		this.sodium_time = sodium_time;
 	}
 
-	public String getTest_result_notes() {
-		return test_result_notes;
+	public String getMed_test_notes() {
+		return med_test_notes;
 	}
 
-	public void setTest_result_notes(String test_result_notes) {
-		this.test_result_notes = test_result_notes;
+	public void setMed_test_notes(String med_test_notes) {
+		this.med_test_notes = med_test_notes;
 	}
 
-	public String getFamily_reaction() {
-		return family_reaction;
+	public String getKin_response() {
+		return kin_response;
 	}
 
-	public void setFamily_reaction(String family_reaction) {
-		this.family_reaction = family_reaction;
+	public void setKin_response(String kin_response) {
+		this.kin_response = kin_response;
 	}
 
-	public String getReaction_length() {
-		return reaction_length;
+	public String getResponse_time() {
+		return response_time;
 	}
 
-	public void setReaction_length(String reaction_length) {
-		this.reaction_length = reaction_length;
+	public void setResponse_time(String response_time) {
+		this.response_time = response_time;
 	}
 
-	public String getFamily_reaction_notes() {
-		return family_reaction_notes;
+	public String getKin_notes() {
+		return kin_notes;
 	}
 
-	public void setFamily_reaction_notes(String family_reaction_notes) {
-		this.family_reaction_notes = family_reaction_notes;
+	public void setKin_notes(String kin_notes) {
+		this.kin_notes = kin_notes;
 	}
+	
 }

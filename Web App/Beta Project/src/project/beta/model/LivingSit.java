@@ -8,6 +8,7 @@ import javax.persistence.Id;
 /*
  * Living Situation class for form
  */
+import javax.persistence.Transient;
 
 @Entity
 public class LivingSit {
@@ -16,12 +17,31 @@ public class LivingSit {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "livingSitID", unique = true, nullable = false)
 	private int livingSitID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
 	
 	//Lifestyle stuff
-	String housemates, housemate_note, house_type, house_type_note, house_location, house_location_note;
-	String carer_note, home_help_note;
-	String housemates_collat, housemate_note_collat, house_type_collat, house_type_note_collat;
-	String house_location_collat, house_location_note_collat, carer_note_collat, home_help_note_collat;
+	String housemates, house_type, house_type_note, house_location;
+	String housemates_collat, house_type_collat, house_location_collat;
+	@Column(columnDefinition="TEXT")
+	String housemate_note;
+	@Column(columnDefinition="TEXT")
+	String house_location_note;
+	@Column(columnDefinition="TEXT")
+	String home_help_note;
+	@Column(columnDefinition="TEXT")
+	String carer_note;
+	@Column(columnDefinition="TEXT")
+	String housemate_note_collat;
+	@Column(columnDefinition="TEXT")
+	String house_location_note_collat;
+	@Column(columnDefinition="TEXT")
+	String carer_note_collat;
+	@Column(columnDefinition="TEXT")
+	String home_help_note_collat;
+	@Column(columnDefinition="TEXT")
+	String house_type_note_collat;
 	
 	boolean carer, home_help, carer_collat, home_help_collat; 
 	boolean drive, cook, shop;
@@ -29,60 +49,176 @@ public class LivingSit {
 	
 	//Driving stuff
 	boolean unknown_arrival, lost, tips;
-	String unknown_arrival_severity, unknown_arrival_freq, unknown_arrival_notes;
-	String lost_severity, lost_freq, lost_notes;
-	String tips_severity, tips_freq, tips_notes;
+	String unknown_arrival_severity, unknown_arrival_freq;
+	String lost_severity, lost_freq;
+	String tips_severity, tips_freq;
 	boolean park_big, day_drive, known_places, take_friend, dry_run, map, take_phone;
-	String park_big_success, park_big_notes, day_drive_success, day_drive_notes;
-	String known_places_success, known_places_notes, take_friend_success, take_friend_notes;
-	String dry_run_success, dry_run_notes, map_success, map_notes, take_phone_success, take_phone_notes;
+	String park_big_success, day_drive_success;
+	String known_places_success, take_friend_success;
+	String dry_run_success, map_success, take_phone_success;
+	@Column(columnDefinition="TEXT")
+	String unknown_arrival_notes;
+	@Column(columnDefinition="TEXT")
+	String lost_notes;
+	@Column(columnDefinition="TEXT")
+	String tips_notes;
+	@Column(columnDefinition="TEXT")
+	String park_big_notes;
+	@Column(columnDefinition="TEXT")
+	String day_drive_notes;
+	@Column(columnDefinition="TEXT")
+	String known_places_notes;
+	@Column(columnDefinition="TEXT")
+	String take_friend_notes;
+	@Column(columnDefinition="TEXT")
+	String dry_run_notes;
+	@Column(columnDefinition="TEXT")
+	String map_notes;
+	@Column(columnDefinition="TEXT")
+	String take_phone_notes;
+	
 	
 	boolean unknown_arrival_collat, lost_collat, tips_collat;
-	String unkown_arrival_severity_collat, unknown_arrival_freq_collat, unknown_arrival_notes_collat;
-	String lost_severity_collat, lost_freq_collat, lost_notes_collat;
-	String tips_severity_collat, tips_freq_collat, tips_notes_collat;
+	String unkown_arrival_severity_collat, unknown_arrival_freq_collat;
+	String lost_severity_collat, lost_freq_collat;
+	String tips_severity_collat, tips_freq_collat;
 	boolean park_big_collat, day_drive_collat, known_places_collat, take_friend_collat, dry_run_collat, map_collat, take_phone_collat;
-	String park_big_success_collat, park_big_notes_collat, day_drive_success_collat, day_drive_notes_collat;
-	String known_places_success_collat, known_places_notes_collat, take_friend_success_collat, take_friend_notes_collat;
-	String dry_run_success_collat, dry_run_notes_collat, map_success_collat, map_notes_collat, take_phone_success_collat, take_phone_notes_collat;
+	String park_big_success_collat, day_drive_success_collat;
+	String known_places_success_collat, take_friend_success_collat;
+	String dry_run_success_collat, map_success_collat, take_phone_success_collat;
+	@Column(columnDefinition="TEXT")
+	String unknown_arrival_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String lost_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String tips_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String park_big_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String day_drive_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String known_places_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String take_friend_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String dry_run_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String map_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String take_phone_notes_collat;
+	
 	
 	//Cooking
 	//If does not cook
-	String cook_help, cook_help_notes; 
-	String cook_help_collat, cook_help_notes_collat;
+	String cook_help, cook_help_collat;
+	@Column(columnDefinition="TEXT")
+	String cook_help_notes;
+	@Column(columnDefinition="TEXT")
+	String cook_help_notes_collat;
+	
 	//If cooks
 	//Problems
 	boolean forgot_cooking, burnt_food, started_fire, smoke_alarm, undercooked;
-	String forgot_cooking_freq, forgot_cooking_notes, burnt_food_freq, burnt_food_notes;
-	String started_fire_freq, started_fire_notes, smoke_alarm_freq, smoke_alarm_notes;
-	String undercooked_freq, undercooked_notes;
+	String forgot_cooking_freq, burnt_food_freq, started_fire_freq, smoke_alarm_freq;
+	String undercooked_freq;
+	@Column(columnDefinition="TEXT")
+	String forgot_cooking_notes;
+	@Column(columnDefinition="TEXT")
+	String burnt_food_notes;
+	@Column(columnDefinition="TEXT")
+	String started_fire_notes;
+	@Column(columnDefinition="TEXT")
+	String smoke_alarm_notes;
+	@Column(columnDefinition="TEXT")
+	String undercooked_notes;
+	
 	//Coping Strategies
 	boolean timer, reminders, simple_cooking, salad, go_out, get_help;
 	String timer_success, reminders_success, simple_cooking_success, salad_success, go_out_success, get_help_success;
-	String timer_notes, reminders_notes, simple_cooking_notes, salad_notes, go_out_notes, get_help_notes;
+	@Column(columnDefinition="TEXT")
+	String timer_notes;
+	@Column(columnDefinition="TEXT")
+	String reminders_notes;
+	@Column(columnDefinition="TEXT")
+	String simple_cooking_notes;
+	@Column(columnDefinition="TEXT")
+	String salad_notes;
+	@Column(columnDefinition="TEXT")
+	String go_out_notes;
+	@Column(columnDefinition="TEXT")
+	String get_help_notes;
 	
 	//Collateral
 	//Problems
 	boolean forgot_cooking_collat, burnt_food_collat, started_fire_collat, smoke_alarm_collat, undercooked_collat;
-	String forgot_cooking_freq_collat, forgot_cooking_notes_collat, burnt_food_freq_collat, burnt_food_notes_collat;
-	String started_fire_freq_collat, started_fire_notes_collat, smoke_alarm_freq_collat, smoke_alarm_notes_collat;
-	String undercooked_freq_collat, undercooked_notes_collat;
+	String forgot_cooking_freq_collat, burnt_food_freq_collat;
+	String started_fire_freq_collat, smoke_alarm_freq_collat, undercooked_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String forgot_cooking_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String burnt_food_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String started_fire_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String smoke_alarm_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String undercooked_notes_collat;
+	
 	//Coping Strategies
 	boolean timer_collat, reminders_collat, simple_cooking_collat, salad_collat, go_out_collat, get_help_collat;
 	String timer_success_collat, reminders_success_collat, simple_cooking_success_collat, salad_success_collat, go_out_success_collat, get_help_success_collat;
-	String timer_notes_collat, reminders_notes_collat, simple_cooking_notes_collat, salad_notes_collat, go_out_notes_collat, get_help_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String timer_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String reminders_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String simple_cooking_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String salad_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String go_out_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String get_help_notes_collat;
 
 	//Shopping
-	String shop_help, shop_help_notes, shop_help_time, shop_time_notes;
-	String shop_help_collat, shop_help_notes_collat, shop_help_time_collat, shop_time_notes_collat;
+	String shop_help, shop_help_time;
+	String shop_help_collat, shop_help_time_collat;
 	boolean list_check, small_shop_check, list_check_collat, small_shop_check_collat;
-	String list_success, list_notes, small_shop_success, small_shop_notes;
-	String list_success_collat, list_notes_collat, small_shop_success_collat, small_shop_notes_collat;
+	String list_success, small_shop_success;
+	String list_success_collat, small_shop_success_collat;
+	@Column(columnDefinition="TEXT")
+	String shop_help_notes;
+	@Column(columnDefinition="TEXT")
+	String shop_time_notes;
+	@Column(columnDefinition="TEXT")
+	String shop_help_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String shop_time_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String list_notes;
+	@Column(columnDefinition="TEXT")
+	String small_shop_notes;
+	@Column(columnDefinition="TEXT")
+	String list_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String small_shop_notes_collat;
 	
 	//Bills
-	String bills_method, bills_help, bill_problems, bill_method_notes, bill_help_notes, bill_problem_notes;
+	String bills_method, bills_help, bill_problems;
 	String bills_method_collat, bills_help_collat, bill_problems_collat;
 	String bills_method_notes_collat, bills_help_notes_collat, bill_problems_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String bill_method_notes;
+	@Column(columnDefinition="TEXT")
+	String bill_help_notes;
+	@Column(columnDefinition="TEXT")
+	String bill_problem_notes;
+	@Column(columnDefinition="TEXT")
+	String bill_method_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String bill_help_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String bill_problem_notes_collat;
 	
 	public LivingSit()
 	{

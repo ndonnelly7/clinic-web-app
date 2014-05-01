@@ -33,6 +33,7 @@ function initAnalysis(){
 
 function fillAnalysis(p){
 	if(typeof p['battery'] != 'undefined'){
+		
 		if(typeof p['battery']['mmse'] != 'undefined'){
 			$("#mmse_result").val(p['battery']['mmse']['total']);
 		} else {
@@ -53,6 +54,7 @@ function fillAnalysis(p){
 		} else {
 			$("#hads_div").hide();
 		}
+		
 	} else {
 		$("#mmse_div").hide();
 		$("#moca_div").hide();
@@ -294,4 +296,8 @@ function createLetter(pForm, patient){
 	letterString += "Yours sincerely,\n";
 	
 	$("#letter").val(letterString);
+}
+
+function submitPage(){
+	$("#analysis_form").submit();
 }

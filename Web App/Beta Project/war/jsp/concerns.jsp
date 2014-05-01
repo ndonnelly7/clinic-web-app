@@ -15,16 +15,16 @@
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="spanClick('personal_details')">Patient Information</span>
-  <span onclick="spanClick('history')">Patient History</span>
-  <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')" class="current_page">Patient Concerns</span>
-  <span onclick="spanClick('neuro')">Neuro History</span>
-  <span onclick="spanClick('events_activities')">Events and Activities</span>
-  <span onclick="spanClick('living')">Living Situation</span>
-  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Test Battery</span>
-  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  <span onclick="nextPage('personal_details')">Patient Information</span>
+  <span onclick="nextPage('history')">Patient History</span>
+  <span onclick="nextPage('medical')">GP Information</span>
+  <span onclick="nextPage('concerns')" class="current_page">Patient Concerns</span>
+  <span onclick="nextPage('neuro')">Neuro History</span>
+  <span onclick="nextPage('events_activities')">Events and Activities</span>
+  <span onclick="nextPage('living')">Living Situation</span>
+  <span onclick="nextPage('lifestyle')">Patient Lifestyle</span>
+  <span onclick="nextPage('memory_test')">Test Battery</span>
+  <span onclick="nextPage('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
@@ -56,9 +56,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="rec_events_check" onclick="showConcernRow(this, '#events')" id="rec_events">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="rec_events_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box" >
+				<div class="pure-u-1-5 select_box" >
+					<select name="rec_events_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="rec_event_notes" form="concerns_form" rows="2" cols="24"></textarea>
@@ -70,9 +86,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="faces_check" onclick="showConcernRow(this,'#faces')" id="faces">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="faces_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="faces_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="faces_notes" form="concerns_form" rows="2" cols="24"></textarea> 
@@ -84,9 +116,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="names_check" onclick="showConcernRow(this,'#names')" id="names">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="names_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="names_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="names_notes"form="concerns_form"  rows="2" cols="24"></textarea> 
@@ -98,9 +146,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="losing_things_check" onclick="showConcernRow(this,'#losing_things')" id="losing_things">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="losing_things_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="losing_things_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="losing_things_notes"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -112,9 +176,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="follow_conv_check" onclick="showConcernRow(this,'#follow_conv')" id="follow_conv">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="follow_conv_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="follow_conv_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="follow_conv_notes"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -126,26 +206,58 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="right_words_check" onclick="showConcernRow(this,'#right_words')" id="right_words">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="right_words_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="right_words_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="right_words_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
-			<div id="decision_making" class="concern">
+			<div id="decisions" class="concern">
 				<div class="pure-u-1-5 title">Difficulty Making Decisions</div>
 				<div class="pure-u-1-5 check">
-				<input type="checkbox" name="decision_making_check" onclick="showConcernRow(this,'#decision_making')" id="decisions">
+				<input type="checkbox" name="decisions_check" onclick="showConcernRow(this,'#decisions')" id="decisions">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="decisions_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="decisions_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="decision_making_notes"form="concerns_form" rows="2" cols="24"></textarea> 
+				<textarea name="decisions_notes" form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -154,9 +266,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="calculatons_check" onclick="showConcernRow(this,'#calculatons')" id="calculations">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="calculations_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="calculations_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="calculatons_notes"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -168,9 +296,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="prospective_check" onclick="showConcernRow(this,'#prospective')" id="prospective">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="prospective_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="prospective_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="prospective_notes"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -182,9 +326,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="anxiety_check" onclick="showConcernRow(this,'#anxiety')" id="anxiety">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="anxiety_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="anxiety_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="anxiety_notes"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -196,9 +356,25 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="comments_check" onclick="showConcernRow(this,'#comments')" id="comments">
 				</div>
-				<div class="pure-u-1-5 want_time_frame_dis select_box">
+				<div class="pure-u-1-5 select_box">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="comments_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
 				</div>
-				<div class="pure-u-1-5 want_frequency_dis select_box">
+				<div class="pure-u-1-5 select_box" >
+					<select name="comments_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="comments_notes"form="concerns_form"  rows="2" cols="24"></textarea> 
@@ -231,9 +407,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="rec_events_check_collat" onclick="showConcernRow(this, '#events_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="rec_events_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box" >
+					<div class="pure-u-1-5 select_box" >
+						<select name="rec_events_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="rec_event_notes_collat"form="concerns_form" rows="2" cols="24"></textarea>
@@ -245,9 +437,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="faces_check_collat" onclick="showConcernRow(this,'#faces_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="faces_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="faces_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="faces_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -259,9 +467,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="names_check_collat" onclick="showConcernRow(this,'#names_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="names_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="names_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="names_notes_collat"form="concerns_form"  rows="2" cols="24"></textarea> 
@@ -273,9 +497,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="losing_things_check_collat" onclick="showConcernRow(this,'#losing_things_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="losing_things_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="losing_things_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="losing_things_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -287,9 +527,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="follow_conv_check_collat" onclick="showConcernRow(this,'#follow_conv_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="follow_conv_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="follow_conv_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="follow_conv_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -301,26 +557,58 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="right_words_check_collat" onclick="showConcernRow(this,'#right_words_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="right_words_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="right_words_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="right_words_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="decision_making_collat" class="concern">
+				<div id="decisions_collat" class="concern">
 					<div class="pure-u-1-5 title" id="decisions">Difficulty Making Decisions</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="decision_making_check_collat" onclick="showConcernRow(this,'#decision_making_collat')">
+					<input type="checkbox" name="decisions_check_collat" onclick="showConcernRow(this,'#decisions_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="decisions_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="decisions_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="decision_making_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
+					<textarea name="decisions_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -329,9 +617,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="calculatons_check_collat" onclick="showConcernRow(this,'#calculatons_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="calculations_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="calculations_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="calculatons_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -343,9 +647,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="prospective_check_collat" onclick="showConcernRow(this,'#prospective_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="prospective_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="prospective_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="prospective_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
@@ -357,9 +677,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="anxiety_check_collat" onclick="showConcernRow(this,'#anxiety_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="anxiety_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="anxiety_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="anxiety_notes_collat" form="concerns_form" rows="2" cols="24"></textarea> 
@@ -371,9 +707,25 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="comments_check_collat" onclick="showConcernRow(this,'#comments_collat')">
 					</div>
-					<div class="pure-u-1-5 want_time_frame_dis select_box">
+					<div class="pure-u-1-5 select_box">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="comments_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>	
 					</div>
-					<div class="pure-u-1-5 want_frequency_dis select_box">
+					<div class="pure-u-1-5 select_box" >
+						<select name="comments_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="comments_notes_collat" form="concerns_form"  rows="2" cols="24"></textarea> 
@@ -387,8 +739,7 @@
 	<input type="button" value="Print Form" onclick="printForm()"/>
 </form>
 <div class="footer">
-	<span onclick="nextPage('medical')">Previous Page</span>
-	<span onclick="nextPage('neuro')">Next Page</span>
+	<span onclick="submitPage()">Next Page</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -465,6 +816,48 @@
 		
 		addConcerns(p_id, concernArr, collatArr);
 		spanClick(page)
+	}
+	
+	function submitPage() {
+		var p_id = -1;
+		var collat = false;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+			collat = sessionStorage.collat;
+		}
+		
+		var concerns = {};
+		var concernArr = new Array();
+		for(var i = 0; i < $("#concerns_grid .concern").length; i++){
+			var c = {};
+			c['concern']=$("#concerns_grid .concern:eq("+i+")").attr("id");
+			c['checked']= $("#concerns_grid div.pure-u-1-5.check input").get(i).checked;
+			c['time']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
+			c['frequency']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
+			
+			concernArr[i] = c;
+		}
+		concerns['array'] = concernArr;
+		
+		var collatArr = new Array();
+		if(collat){
+			for(var i = 0; i < $("#collat_concerns_grid .concern").length; i++){
+				var c = {};
+				c['concern']=$("#collat_concerns_grid .concern:eq("+i+")").attr("id");
+				c['checked']= $("#collat_concerns_grid div.pure-u-1-5.check input").get(i-1).checked;
+				c['time']=$("#collat_concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
+				c['frequency']=$("#collat_concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
+				
+				collatArr[i] = c;
+			}
+			concerns['collat'] = collatArr;
+		}
+		
+		console.log(concerns);
+		
+		addConcerns(p_id, concernArr, collatArr);
+		
+		$("#concerns_form").submit();
 	}
 </script>
 </body>

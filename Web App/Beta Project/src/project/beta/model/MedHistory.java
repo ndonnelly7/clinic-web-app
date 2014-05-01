@@ -2,9 +2,12 @@ package project.beta.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 /*
  * Medical History class used for the patient's history
@@ -17,7 +20,14 @@ public class MedHistory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "medHistoryID", unique = true, nullable = false)
 	int medHistoryID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	PatientHistory pHistory;
+
+	@Column(name = "medicine")
 	String condition;
 	String time;
 	String notes;
@@ -32,6 +42,14 @@ public class MedHistory {
 
 	public void setMedHistoryID(int medHistoryID) {
 		this.medHistoryID = medHistoryID;
+	}
+	
+	public PatientHistory getpHistory() {
+		return pHistory;
+	}
+
+	public void setpHistory(PatientHistory pHistory) {
+		this.pHistory = pHistory;
 	}
 
 	public String getCondition() {

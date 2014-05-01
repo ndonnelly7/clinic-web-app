@@ -208,6 +208,67 @@ function nextPage(page) {
 	spanClick(page);
 }
 
+function submitPage() {
+	var p_id = -1;
+	var collat = false;
+	if(typeof(Storage) !== "undefined"){
+		p_id = sessionStorage.p_id;
+		collat = sessionStorage.collat;
+	}
+	
+	var memory = {};
+	if(gds){
+		memory['gds'] = $("#gds_result").val();
+		memory['hads'] = {};
+	} else if(hads) {
+		memory['hads'] = $("#hads_result").val();
+		memory['gds'] = {};
+	} else {
+		memory['gds'] = {};
+		memory['hads'] = {};
+	}
+	
+	var moca = {};
+	if(want_moca){
+		if(moca_blind){
+			moca['blind'] = true;
+			
+			moca['attention'] = $("#attention").val();
+			moca['language'] = $("#language").val();
+			moca['abstract'] = $("#abstract").val();
+			moca['recall'] = $("#recall").val();
+			moca['orientation'] = $("#orientation").val();
+			moca['total'] = $("#moca_total").val();
+		} else {
+			moca['blind'] = false;
+			moca['visuo'] = $("#visuo").val();
+			moca['naming'] = $("#naming").val();
+			moca['attention'] = $("#attention").val();
+			moca['language'] = $("#language").val();
+			moca['abstract'] = $("#abstract").val();
+			moca['recall'] = $("#recall").val();
+			moca['orientation'] = $("#orientation").val();
+			moca['total'] = $("#moca_total").val();
+		}
+	}	
+	memory['moca'] = moca;
+	
+	var mmse = {};
+	if(want_mmse){
+		mmse['orientation'] = $("#mmse_orientation").val();
+		mmse['registration'] = $("#mmse_registration").val();
+		mmse['attention'] = $("#mmse_attention").val();
+		mmse['recall'] = $("#mmse_recall").val();
+		mmse['language'] = $("#mmse_language").val();
+		mmse['copying'] = $("#mmse_copying").val();
+		mmse['total'] = $("#mmse_total").val();
+	}
+	memory['mmse'] = mmse;
+	
+	addBattery(p_id, memory);
+	$("#memory_form").submit();
+}
+
 function mmse_change(){
 	var total = 0;
 	if($("#mmse_orientation").val() != "")

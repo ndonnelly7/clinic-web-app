@@ -2,11 +2,14 @@ package project.beta.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 /*
  * Lifestyle Class for corresponding page
@@ -19,6 +22,9 @@ public class Lifestyle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "lifestyleID", unique = true, nullable = false)
 	private int lifestyleID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
 	
 	//Sleep
 	boolean difficulty_sleep, night_waking, early_waking, meds_check, nap_check;
@@ -51,8 +57,11 @@ public class Lifestyle {
 	
 	//Exercise
 	boolean exercise;
-	List<Activity> activities;
-	List<Activity> collatActivities;
+	
+	@OneToMany(mappedBy = "lifestyle", cascade = CascadeType.ALL)
+	List<LifestyleActivity> activities;
+	@OneToMany(mappedBy = "lifestyle", cascade = CascadeType.ALL)
+	List<LifestyleActivity> collatActivities;
 	
 	//Diet
 	String breakfast, lunch, dinner, diet_notes;
@@ -667,19 +676,19 @@ public class Lifestyle {
 		this.exercise = exercise;
 	}
 
-	public List<Activity> getActivities() {
+	public List<LifestyleActivity> getActivities() {
 		return activities;
 	}
 
-	public void setActivities(List<Activity> activities) {
+	public void setActivities(List<LifestyleActivity> activities) {
 		this.activities = activities;
 	}
 
-	public List<Activity> getCollatActivities() {
+	public List<LifestyleActivity> getCollatActivities() {
 		return collatActivities;
 	}
 
-	public void setCollatActivities(List<Activity> collatActivities) {
+	public void setCollatActivities(List<LifestyleActivity> collatActivities) {
 		this.collatActivities = collatActivities;
 	}
 

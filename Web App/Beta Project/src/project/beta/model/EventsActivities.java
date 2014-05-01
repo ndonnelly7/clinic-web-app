@@ -3,10 +3,13 @@ package project.beta.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 /*
  * Class used for the representation of the Events and Activities page
@@ -20,7 +23,11 @@ public class EventsActivities implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "eventsActivitiesID", unique = true, nullable = false)
 	private int eventsActivitiesID;
+
+	@Transient
+	protected Object[] jdoDetachedState;
 	
 	boolean divorce, bereavement, moving_house, redundancy, family_disharmony;
 	boolean other_disharmony, financial, retirement, job;
@@ -50,7 +57,10 @@ public class EventsActivities implements Serializable {
 	String retirement_collat_time, retirement_collat_notes;
 	String job_collat_time, job_collat_notes;
 	
+	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> activities;
+	
+	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> collat_activities;
 	
 	boolean anx_check, dep_check;

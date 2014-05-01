@@ -15,16 +15,16 @@
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="spanClick('personal_details')">Patient Information</span>
-  <span onclick="spanClick('history')">Patient History</span>
-  <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')">Patient Concerns</span>
-  <span onclick="spanClick('neuro')">Neuro History</span>
-  <span onclick="spanClick('events_activities')" class="current_page">Events and Activities</span>
-  <span onclick="spanClick('living')">Living Situation</span>
-  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Test Battery</span>
-  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  <span onclick="nextPage('personal_details')">Patient Information</span>
+  <span onclick="nextPage('history')">Patient History</span>
+  <span onclick="nextPage('medical')">GP Information</span>
+  <span onclick="nextPage('concerns')">Patient Concerns</span>
+  <span onclick="nextPage('neuro')">Neuro History</span>
+  <span onclick="nextPage('events_activities')" class="current_page">Events and Activities</span>
+  <span onclick="nextPage('living')">Living Situation</span>
+  <span onclick="nextPage('lifestyle')">Patient Lifestyle</span>
+  <span onclick="nextPage('memory_test')">Test Battery</span>
+  <span onclick="nextPage('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
@@ -664,7 +664,6 @@
 </form>
 
 <div class="footer">
-	<span onclick="nextPage('neuro')">Previous Page</span>
 	<span onclick="nextPage('living')">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
