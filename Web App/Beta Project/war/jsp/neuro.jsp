@@ -76,7 +76,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="blackout_notes" form="problems_form" rows="2" cols="24"></textarea>
+				<textarea name="blackout_notes" form="neuro_form" rows="2" cols="24"></textarea>
 				</div>
 			</div>
 			
@@ -106,7 +106,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="blanks_notes" form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="blanks_notes" form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -136,7 +136,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="vision_notes" form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="vision_notes" form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -166,7 +166,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="dizziness_notes"form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="dizziness_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -196,7 +196,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="fainting_notes"form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="fainting_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -226,7 +226,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="headaches_notes"form="problems_form"  rows="2" cols="24"></textarea> 
+				<textarea name="headaches_notes"form="neuro_form"  rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -256,7 +256,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="falling_notes"form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="falling_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -286,7 +286,7 @@
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="seizures_notes"form="problems_form" rows="2" cols="24"></textarea> 
+				<textarea name="seizures_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 		</div>
@@ -336,7 +336,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="blackout_notes_collat"form="problems_form" rows="2" cols="24"></textarea>
+					<textarea name="blackout_notes_collat"form="neuro_form" rows="2" cols="24"></textarea>
 					</div>
 				</div>
 				
@@ -366,7 +366,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="blanks_notes_collat"form="problems_form" rows="2" cols="24"></textarea> 
+					<textarea name="blanks_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -396,7 +396,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="vision_notes_collat"form="problems_form" rows="2" cols="24"></textarea> 
+					<textarea name="vision_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -426,7 +426,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="dizziness_notes_collat"form="problems_form" rows="2" cols="24"></textarea> 
+					<textarea name="dizziness_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -456,7 +456,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="fainting_notes_collat"form="problems_form" rows="2" cols="24"></textarea> 
+					<textarea name="fainting_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -486,7 +486,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="headaches_notes_collat"form="problems_form"  rows="2" cols="24"></textarea> 
+					<textarea name="headaches_notes_collat"form="neuro_form"  rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -516,7 +516,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="falling_notes_collat"form="problems_form" rows="2" cols="24"></textarea> 
+					<textarea name="falling_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -546,7 +546,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="seizures_notes_collat"form="problems_form" rows="2" cols="24"></textarea> 
+					<textarea name="seizures_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 			</div>
@@ -554,10 +554,10 @@
 	</fieldset>
 	<br><br>
 	<input type="submit" value="Submit"/>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <div class="footer">
-	<span onclick="nextPage('concerns')">Previous Page</span>
-	<span onclick="nextPage('events_activities')">Next Page</span>
+	<span onclick="submitPage()">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -566,6 +566,16 @@
 <script src="/js/IDBForm.js"></script>
 <script>
 	var showingCollat = false;
+	$(document).ready(function() {
+		if("${id}" != "")
+			$("#hiddenID").val("${id}");
+		else if(typeof(Storage) !== "undefined"){
+			$("#hiddenID").val(sessionStorage.p_id);
+			if(sessionStorage.collat)
+				hideCollat();
+		}
+	});
+	
 	function addNewCollatOption(){
 		if(!showingCollat){
 			$('#collat_problems_grid').slideDown(500);

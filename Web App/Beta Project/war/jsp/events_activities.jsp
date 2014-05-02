@@ -52,7 +52,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="divorce_check" onclick="showHiddenRowEA(this, '#divorce')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="divorce_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="divorce_notes"form="events_form" rows="2" cols="24"></textarea>
@@ -64,7 +72,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="bereavement_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="bereavement_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="bereavement_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -76,7 +92,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="moving_house_check" onclick="showHiddenRowEA(this,'#moving_house')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="moving_house_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="moving_house_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -88,7 +112,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="redundancy_check" onclick="showHiddenRowEA(this,'#redundancy')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="redundancy_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="redundancy_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -100,7 +132,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="family_disharmony_check" onclick="showHiddenRowEA(this,'#disharmony')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="family_disharmony_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="family_disharmony_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -112,7 +152,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="other_disharmony_check" onclick="showHiddenRowEA(this,'#argument')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="other_disharmony_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="other_disharmony_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -124,7 +172,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="financial_check" onclick="showHiddenRowEA(this,'#financial')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="financial_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="financial_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -136,7 +192,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="retirement_check" onclick="showHiddenRowEA(this,'#retirement')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="retirement_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="retirement_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -148,7 +212,15 @@
 				<div class="pure-u-1-4 check">
 				<input type="checkbox" name="job_stress_check" onclick="showHiddenRowEA(this,'#job_stress')" class="event_check">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="job_stress_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="job_stress_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -160,7 +232,15 @@
 				<div class="pure-u-1-4" id="other_text_box">
 				<input type="text" name="other_text" onchange="showHiddenRowEAText(this,'#other')" class="event_check" style="margin-right:3%">
 				</div>
-				<div class="pure-u-1-4 want_time_frame_dis select_box">
+				<div class="pure-u-1-4 select_box">
+					<select name="other_time" class="time_frame">
+						<option value="none">N/A</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_yr">2 years</option>
+						<option value="threep_yr">3+ years</option>
+					</select>
 				</div>
 				<div class="pure-u-1-4 notes_column">
 				<textarea name="other_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -190,7 +270,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="divorce_collat_check" onclick="showHiddenRowEA(this, '#divorce')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="divorce_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="rec_event_collat_notes"form="events_form" rows="2" cols="24"></textarea>
@@ -200,9 +288,17 @@
 				<div id="Bereavement">
 					<div class="pure-u-1-4 title">Bereavement</div>
 					<div class="pure-u-1-4 check">
-					<input type="checkbox" name="Bereavement_collat_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_collat_check">
+					<input type="checkbox" name="bereavement_collat_check" onclick="showHiddenRowEA(this,'#Bereavement')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="bereavement_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="Bereavement_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -214,7 +310,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="moving_house_collat_check" onclick="showHiddenRowEA(this,'#moving_house')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="moving_house_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="moving_house_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -226,7 +330,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="redundancy_collat_check" onclick="showHiddenRowEA(this,'#redundancy')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="redundancy_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="redundancy_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -238,7 +350,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="family_disharmony_collat_check" onclick="showHiddenRowEA(this,'#disharmony')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="family_disharmony_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="family_disharmony_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -250,7 +370,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="other_disharmony_collat_check" onclick="showHiddenRowEA(this,'#argument')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="other_disharmony_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="other_disharmony_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -262,7 +390,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="financial_collat_check" onclick="showHiddenRowEA(this,'#financial')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="financial_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="financial_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -274,7 +410,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="retirement_collat_check" onclick="showHiddenRowEA(this,'#retirement')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="retirement_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="retirement_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -286,7 +430,15 @@
 					<div class="pure-u-1-4 check">
 					<input type="checkbox" name="job_stress_collat_check" onclick="showHiddenRowEA(this,'#job_stress')" class="event_collat_check">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="job_stress_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="job_stress_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -298,7 +450,15 @@
 					<div class="pure-u-1-4" id="other_text_box">
 					<input type="text" name="other_collat_text" onchange="showHiddenRowEAText(this,'#other')" class="event_collat_check" style="margin-right:3%">
 					</div>
-					<div class="pure-u-1-4 want_time_frame_dis select_box">
+					<div class="pure-u-1-4 select_box">
+						<select name="other_collat_time" class="time_frame">
+							<option value="none">N/A</option>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
 					</div>
 					<div class="pure-u-1-4 notes_column">
 					<textarea name="other_collat_notes"form="events_form" rows="2" cols="24"></textarea> 
@@ -331,7 +491,7 @@
 					<div id="activity_entry" style="min-width:800px">
 						<div class="pure-g-r">
 							<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-								<select name="activities_list">
+								<select name="activity">
 									<option value="dancing">Dancing</option>
 									<option value="reading">Reading</option>
 									<option value="tv">Television</option>
@@ -354,21 +514,21 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 pure-control-group events-1-5">
-								<select name="still_active_check" onclick="changeActivity(this)">
+								<select name="involvement" onclick="changeActivity(this)">
 									<option value="no">No</option>
 									<option value="ongoing">Ongoing</option>
 									<option value="decrease">Less active</option>
 								</select>
 							</div>
 							<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
-								<input type="text" name="current_active_hours" class="current_hours_input" style="width:4em;">
+								<input type="text" name="current_hours" class="current_hours_input" style="width:4em;">
 							</div>
 							<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
-								<input type="text" name="previous_active_hours" class="prev_hours_input" style="width:4em;">
+								<input type="text" name="previous_hours" class="prev_hours_input" style="width:4em;">
 							</div>
 							
 							<div class="pure-u-1-5 events-1-5 when_stopped">
-								<select name="time_frame" class="time_stopped_input" >
+								<select name="time_changed" class="time_stopped_input" >
 									<option value="three_mon">3 months</option>
 									<option value="six_mon">6 months</option>
 									<option value="one_yr">1 year</option>
@@ -385,79 +545,6 @@
 				</div>
 				<input type="button" onclick="addNewActivity()" style="margin-left:2%;" class="pure-button" value="Add Activity">
 			
-				<div class="collat_div">
-				<input type="button" onclick="showCollatActivities()" class="pure-button eaa-button" id="showCollatActivitiesDiv" value="Add Activity from Collateral" style="margin-left:2%">
-				<div id="social_collat_div" class="hide_div">
-					<div id="social_collat_grid">
-						<div class="title">What social activities have they been involved in?</div>
-						<div id="activity_header" class="pure-g-r">
-							<div class="pure-u-1-5 select_box header events-1-5" style="min-width:150px; margin: 10px 7% 10px 2%">Activity</div>
-							<div class="pure-u-1-5 pure-control-group events-1-5 header">Still Involved?</div>
-							<div class="pure-u-1-5 events-1-5 header" style="width:6.5%">Current hours per week</div>
-							<div class="pure-u-1-5 events-1-5 header" style="width:7%">Previous hours per week</div>
-							<div class="pure-u-1-5 events-1-5 header">Changed When?</div>
-							<div class="pure-u-1-5 events-1-5 header">Reason for Change</div>
-						</div>
-						<div id="collat_activity_entry" style="min-width:800px">
-							<div class="pure-g-r">
-								<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-									<select name="activities_collat_list">
-										<option value="dancing">Dancing</option>
-										<option value="reading">Reading</option>
-										<option value="tv">Television</option>
-										<option value="football">Football</option>
-										<option value="golf">Golf</option>
-										<option value="swimming">Swimming</option>
-										<option value="walking">Walking</option>
-										<option value="yoga">Yoga/Pilates</option>
-										<option value="cards">Card Games</option>
-										<option value="puzzles">Sudoku/Crosswords/Puzzles</option>
-										<option value="restaraunts">Visiting Restaurants/Pubs</option>
-										<option value="visiting">Visiting Friends/Family</option>
-										<option value="sailing">Sailing</option>
-										<option value="volunteering">Volunteering</option>
-										<option value="gym">Gym</option>
-										<option value="games">Computer Games</option>
-										<option value="hiking">Hiking</option>
-										<option value="cycling">Cycling</option>
-										<option value="other">Other..</option>
-									</select>
-								</div>
-								<div class="pure-u-1-5 pure-control-group events-1-5">
-									<select name="still_active_collat_check" onclick="changeActivity(this)">
-										<option value="no">No</option>
-										<option value="ongoing">Ongoing</option>
-										<option value="decrease">Less active</option>
-									</select>
-								</div>
-								<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
-									<input type="text" name="current_active_hours_collat" class="current_hours_input" style="width:4em;">
-								</div>
-								<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
-									<input type="text" name="previous_active_hours_collat" class="prev_hours_input" style="width:4em;">
-								</div>
-								
-								<div class="pure-u-1-5 events-1-5 when_stopped">
-									<select name="time_frame" class="time_stopped_input" >
-										<option value="three_mon">3 months</option>
-										<option value="six_mon">6 months</option>
-										<option value="one_yr">1 year</option>
-										<option value="two_yr">2 years</option>
-										<option value="threep_yr">3+ years</option>
-									</select>
-								</div>
-								
-								<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-										<textarea form="events_form" class="reason_input" name="collat_activity_notes" rows="2" cols="24"></textarea>
-								</div>
-							</div>
-						</div>
-			
-					</div>
-					<input type="button" onclick="addNewCollatActivity()" style="margin-left:2%;" class="pure-button" value="Add Activity">
-				</div>
-				<div style="margin-bottom:12px;"><hr></div>
-			</div>
 			</div>
 			<div><textarea form="events_form" name="social_notes" rows="3" cols="40" style="margin-top: 2px;margin-left:1%;"></textarea></div>
 		</div>
@@ -484,7 +571,7 @@
 						<div id="activity_entry" style="min-width:800px">
 							<div class="pure-g-r">
 								<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-									<select name="activities_list">
+									<select name="activity_collat">
 										<option value="dancing">Dancing</option>
 										<option value="reading">Reading</option>
 										<option value="tv">Television</option>
@@ -507,21 +594,21 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 pure-control-group events-1-5">
-									<select name="still_active_check" onclick="changeActivity(this)">
+									<select name="involvement_collat" onclick="changeActivity(this)">
 										<option value="no">No</option>
 										<option value="ongoing">Ongoing</option>
 										<option value="decrease">Less active</option>
 									</select>
 								</div>
 								<div class="pure-u-1-5 events-1-5 current_hours" style="width:7%">
-									<input type="text" name="current_active_hours" class="current_hours_input" style="width:4em;">
+									<input type="text" name="current_hours_collat" class="current_hours_input" style="width:4em;">
 								</div>
 								<div class="pure-u-1-5 events-1-5 previous_hours" style="width:7%">
-									<input type="text" name="previous_active_hours" class="prev_hours_input" style="width:4em;">
+									<input type="text" name="previous_hours_collat" class="prev_hours_input" style="width:4em;">
 								</div>
 								
 								<div class="pure-u-1-5 events-1-5 when_stopped">
-									<select name="time_frame" class="time_stopped_input" >
+									<select name="time_changed_collat" class="time_stopped_input" >
 										<option value="three_mon">3 months</option>
 										<option value="six_mon">6 months</option>
 										<option value="one_yr">1 year</option>
@@ -531,7 +618,7 @@
 								</div>
 								
 								<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-										<textarea form="events_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+										<textarea form="events_form" class="reason_input" name="activity_notes_collat" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 						</div>
@@ -602,7 +689,7 @@
 					<label for="feeling_down">During the last month have you been feeling down, depressed or hopeless?</label>
 				</div>
 				<div class="pure-u-1-2"> 
-					<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="feeling_down" class="dep_select">
+					<select name="depression_yn" onchange="revealDepression(this)" style="display:inline-block" id="feeling_down" class="dep_select">
 						<option value="no">No</option>
 						<option value="yes">Yes</option>
 					</select>
@@ -613,7 +700,7 @@
 					<label for="no_interest">During the last month have you been bothered by having little interest or pleasure in doing things?</label>
 				</div>
 				<div class="pure-u-1-2"> 
-					<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="no_interest" class="dep_select">
+					<select name="pleasure_yn" onchange="revealDepression(this)" style="display:inline-block" id="no_interest" class="dep_select">
 						<option value="no">No</option>
 						<option value="yes">Yes</option>
 					</select>
@@ -629,7 +716,7 @@
 						<label for="feeling_down">Feelings of worthlessness?</label>
 					</div>
 					<div class="pure-u-1-2"> 
-						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="worthless" class="dep_select">
+						<select name="worthless_yn" onchange="revealDepression(this)" style="display:inline-block" id="worthless" class="dep_select">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -640,7 +727,7 @@
 						<label for="no_interest">Poor concentration?</label>
 					</div>
 					<div class="pure-u-1-2"> 
-						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="concentration" class="dep_select">
+						<select name="concentration_yn" onchange="revealDepression(this)" style="display:inline-block" id="concentration" class="dep_select">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -651,7 +738,7 @@
 						<label for="no_interest">Thoughts of death?</label>
 					</div>
 					<div class="pure-u-1-2"> 
-						<select name="dep_yn" onchange="revealDepression(this)" style="display:inline-block" id="death" class="dep_select">
+						<select name="death_yn" onchange="revealDepression(this)" style="display:inline-block" id="death" class="dep_select">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -659,12 +746,12 @@
 				</div>
 			</div>
 		</div>
-	</fieldset>
-	
+	</fieldset>	
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 
 <div class="footer">
-	<span onclick="nextPage('living')">Next Page</span>
+	<span onclick="submitPage('living')">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -672,5 +759,16 @@
 <script src="/js/events_script.js"></script>
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
+<script>
+$(document).ready(function() {
+	if("${id}" != "")
+		$("#hiddenID").val("${id}");
+	else if(typeof(Storage) !== "undefined"){
+		$("#hiddenID").val(sessionStorage.p_id);
+		if(sessionStorage.collat)
+			hideCollat();
+	}
+});
+</script>
 </body>
 </html>

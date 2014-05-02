@@ -29,11 +29,11 @@ public class EventsActivities implements Serializable {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	boolean divorce, bereavement, moving_house, redundancy, family_disharmony;
-	boolean other_disharmony, financial, retirement, job;
+	boolean divorce_check, bereavement_check, moving_house_check, redundancy_check, family_disharmony_check;
+	boolean other_disharmony_check, financial_check, retirement_check, job_check;
 	
-	boolean divorce_collat, bereavement_collat, moving_house_collat, redundancy_collat, family_disharmony_collat;
-	boolean other_disharmony_collat, financial_collat, retirement_collat, job_collat;
+	boolean divorce_collat_check, bereavement_collat_check, moving_house_collat_check, redundancy_collat_check_check, family_disharmony_collat_check;
+	boolean other_disharmony_collat_check, financial_collat_check, retirement_collat_check, job_collat_check;
 	
 	String other, other_time, other_notes;
 	String divorce_time, divorce_notes;
@@ -63,9 +63,8 @@ public class EventsActivities implements Serializable {
 	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> collat_activities;
 	
-	boolean anx_check, dep_check;
-	String anx_time, anx_related, anx_notes;
-	String dep_time, dep_related, dep_notes;
+	String depression_yn, pleasure_yn;
+	String worthless_yn, concentration_yn, death_yn;
 	
 	public EventsActivities() {
 		
@@ -79,148 +78,151 @@ public class EventsActivities implements Serializable {
 		this.eventsActivitiesID = eventsActivitiesID;
 	}
 
-	public boolean isDivorce() {
-		return divorce;
+	public boolean isDivorce_check() {
+		return divorce_check;
 	}
 
-	public void setDivorce(boolean divorce) {
-		this.divorce = divorce;
+	public void setDivorce_check(boolean divorce_check) {
+		this.divorce_check = divorce_check;
 	}
 
-	public boolean isBereavement() {
-		return bereavement;
+	public boolean isBereavement_check() {
+		return bereavement_check;
 	}
 
-	public void setBereavement(boolean bereavement) {
-		this.bereavement = bereavement;
+	public void setBereavement_check(boolean bereavement_check) {
+		this.bereavement_check = bereavement_check;
 	}
 
-	public boolean isMoving_house() {
-		return moving_house;
+	public boolean isMoving_house_check() {
+		return moving_house_check;
 	}
 
-	public void setMoving_house(boolean moving_house) {
-		this.moving_house = moving_house;
+	public void setMoving_house_check(boolean moving_house_check) {
+		this.moving_house_check = moving_house_check;
 	}
 
-	public boolean isRedundancy() {
-		return redundancy;
+	public boolean isRedundancy_check() {
+		return redundancy_check;
 	}
 
-	public void setRedundancy(boolean redundancy) {
-		this.redundancy = redundancy;
+	public void setRedundancy_check(boolean redundancy_check) {
+		this.redundancy_check = redundancy_check;
 	}
 
-	public boolean isFamily_disharmony() {
-		return family_disharmony;
+	public boolean isFamily_disharmony_check() {
+		return family_disharmony_check;
 	}
 
-	public void setFamily_disharmony(boolean family_disharmony) {
-		this.family_disharmony = family_disharmony;
+	public void setFamily_disharmony_check(boolean family_disharmony_check) {
+		this.family_disharmony_check = family_disharmony_check;
 	}
 
-	public boolean isOther_disharmony() {
-		return other_disharmony;
+	public boolean isOther_disharmony_check() {
+		return other_disharmony_check;
 	}
 
-	public void setOther_disharmony(boolean other_disharmony) {
-		this.other_disharmony = other_disharmony;
+	public void setOther_disharmony_check(boolean other_disharmony_check) {
+		this.other_disharmony_check = other_disharmony_check;
 	}
 
-	public boolean isFinancial() {
-		return financial;
+	public boolean isFinancial_check() {
+		return financial_check;
 	}
 
-	public void setFinancial(boolean financial) {
-		this.financial = financial;
+	public void setFinancial_check(boolean financial_check) {
+		this.financial_check = financial_check;
 	}
 
-	public boolean isRetirement() {
-		return retirement;
+	public boolean isRetirement_check() {
+		return retirement_check;
 	}
 
-	public void setRetirement(boolean retirement) {
-		this.retirement = retirement;
+	public void setRetirement_check(boolean retirement_check) {
+		this.retirement_check = retirement_check;
 	}
 
-	public boolean isJob() {
-		return job;
+	public boolean isJob_check() {
+		return job_check;
 	}
 
-	public void setJob(boolean job) {
-		this.job = job;
+	public void setJob_check(boolean job_check) {
+		this.job_check = job_check;
 	}
 
-	public boolean isDivorce_collat() {
-		return divorce_collat;
+	public boolean isDivorce_collat_check() {
+		return divorce_collat_check;
 	}
 
-	public void setDivorce_collat(boolean divorce_collat) {
-		this.divorce_collat = divorce_collat;
+	public void setDivorce_collat_check(boolean divorce_collat_check) {
+		this.divorce_collat_check = divorce_collat_check;
 	}
 
-	public boolean isBereavement_collat() {
-		return bereavement_collat;
+	public boolean isBereavement_collat_check() {
+		return bereavement_collat_check;
 	}
 
-	public void setBereavement_collat(boolean bereavement_collat) {
-		this.bereavement_collat = bereavement_collat;
+	public void setBereavement_collat_check(boolean bereavement_collat_check) {
+		this.bereavement_collat_check = bereavement_collat_check;
 	}
 
-	public boolean isMoving_house_collat() {
-		return moving_house_collat;
+	public boolean isMoving_house_collat_check() {
+		return moving_house_collat_check;
 	}
 
-	public void setMoving_house_collat(boolean moving_house_collat) {
-		this.moving_house_collat = moving_house_collat;
+	public void setMoving_house_collat_check(boolean moving_house_collat_check) {
+		this.moving_house_collat_check = moving_house_collat_check;
 	}
 
-	public boolean isRedundancy_collat() {
-		return redundancy_collat;
+	public boolean isRedundancy_collat_check_check() {
+		return redundancy_collat_check_check;
 	}
 
-	public void setRedundancy_collat(boolean redundancy_collat) {
-		this.redundancy_collat = redundancy_collat;
+	public void setRedundancy_collat_check_check(
+			boolean redundancy_collat_check_check) {
+		this.redundancy_collat_check_check = redundancy_collat_check_check;
 	}
 
-	public boolean isFamily_disharmony_collat() {
-		return family_disharmony_collat;
+	public boolean isFamily_disharmony_collat_check() {
+		return family_disharmony_collat_check;
 	}
 
-	public void setFamily_disharmony_collat(boolean family_disharmony_collat) {
-		this.family_disharmony_collat = family_disharmony_collat;
+	public void setFamily_disharmony_collat_check(
+			boolean family_disharmony_collat_check) {
+		this.family_disharmony_collat_check = family_disharmony_collat_check;
 	}
 
-	public boolean isOther_disharmony_collat() {
-		return other_disharmony_collat;
+	public boolean isOther_disharmony_collat_check() {
+		return other_disharmony_collat_check;
 	}
 
-	public void setOther_disharmony_collat(boolean other_disharmony_collat) {
-		this.other_disharmony_collat = other_disharmony_collat;
+	public void setOther_disharmony_collat_check(
+			boolean other_disharmony_collat_check) {
+		this.other_disharmony_collat_check = other_disharmony_collat_check;
 	}
 
-	public boolean isFinancial_collat() {
-		return financial_collat;
+	public boolean isFinancial_collat_check() {
+		return financial_collat_check;
 	}
 
-	public void setFinancial_collat(boolean financial_collat) {
-		this.financial_collat = financial_collat;
+	public void setFinancial_collat_check(boolean financial_collat_check) {
+		this.financial_collat_check = financial_collat_check;
 	}
 
-	public boolean isRetirement_collat() {
-		return retirement_collat;
+	public boolean isRetirement_collat_check() {
+		return retirement_collat_check;
 	}
 
-	public void setRetirement_collat(boolean retirement_collat) {
-		this.retirement_collat = retirement_collat;
+	public void setRetirement_collat_check(boolean retirement_collat_check) {
+		this.retirement_collat_check = retirement_collat_check;
 	}
 
-	public boolean isJob_collat() {
-		return job_collat;
+	public boolean isJob_collat_check() {
+		return job_collat_check;
 	}
 
-	public void setJob_collat(boolean job_collat) {
-		this.job_collat = job_collat;
+	public void setJob_collat_check(boolean job_collat_check) {
+		this.job_collat_check = job_collat_check;
 	}
 
 	public String getOther() {
@@ -578,67 +580,43 @@ public class EventsActivities implements Serializable {
 		this.collat_activities = collat_activities;
 	}
 
-	public boolean isAnx_check() {
-		return anx_check;
+	public String getDepression_yn() {
+		return depression_yn;
 	}
 
-	public void setAnx_check(boolean anx_check) {
-		this.anx_check = anx_check;
+	public void setDepression_yn(String depression_yn) {
+		this.depression_yn = depression_yn;
 	}
 
-	public boolean isDep_check() {
-		return dep_check;
+	public String getPleasure_yn() {
+		return pleasure_yn;
 	}
 
-	public void setDep_check(boolean dep_check) {
-		this.dep_check = dep_check;
+	public void setPleasure_yn(String pleasure_yn) {
+		this.pleasure_yn = pleasure_yn;
 	}
 
-	public String getAnx_time() {
-		return anx_time;
+	public String getWorthless_yn() {
+		return worthless_yn;
 	}
 
-	public void setAnx_time(String anx_time) {
-		this.anx_time = anx_time;
+	public void setWorthless_yn(String worthless_yn) {
+		this.worthless_yn = worthless_yn;
 	}
 
-	public String getAnx_related() {
-		return anx_related;
+	public String getConcentration_yn() {
+		return concentration_yn;
 	}
 
-	public void setAnx_related(String anx_related) {
-		this.anx_related = anx_related;
+	public void setConcentration_yn(String concentration_yn) {
+		this.concentration_yn = concentration_yn;
 	}
 
-	public String getAnx_notes() {
-		return anx_notes;
+	public String getDeath_yn() {
+		return death_yn;
 	}
 
-	public void setAnx_notes(String anx_notes) {
-		this.anx_notes = anx_notes;
-	}
-
-	public String getDep_time() {
-		return dep_time;
-	}
-
-	public void setDep_time(String dep_time) {
-		this.dep_time = dep_time;
-	}
-
-	public String getDep_related() {
-		return dep_related;
-	}
-
-	public void setDep_related(String dep_related) {
-		this.dep_related = dep_related;
-	}
-
-	public String getDep_notes() {
-		return dep_notes;
-	}
-
-	public void setDep_notes(String dep_notes) {
-		this.dep_notes = dep_notes;
+	public void setDeath_yn(String death_yn) {
+		this.death_yn = death_yn;
 	}
 }

@@ -22,28 +22,73 @@ public class NeuroHistory {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	boolean blackout_check, blank_check, blurred_vision_check, dizziness_check, fainting_check, headaches_check, falling_check, seizures_check;
-	boolean blackout_check_collat, blank_check_collat, blurred_vision_check_collat, dizziness_check_collat;
+	boolean blackout_check, blanks_check, blurred_vision_check, dizziness_check, fainting_check, headaches_check, falling_check, seizures_check;
+	boolean blackout_check_collat, blanks_check_collat, blurred_vision_check_collat, dizziness_check_collat;
 	boolean fainting_check_collat, headaches_check_collat, falling_check_collat, seizures_check_collat;
 	
-	String blackout_time, blackout_freq, blackout_notes;
-	String blanks_time, blanks_freq, blanks_notes;
-	String blurred_time, blurred_freq, blurred_notes;
-	String dizzy_time, dizzy_freq, dizzy_notes;
-	String faint_time, faint_freq, faint_notes;
-	String headaches_time, headaches_freq, headaches_notes;
-	String falling_time, falling_freq, falling_notes;
-	String seizures_time, seizures_freq, seizures_notes;
+	String blackout_time, blackout_freq;
+	@Column(columnDefinition="TEXT")
+	String blackout_notes;
 	
-	String blackout_time_collat, blackout_freq_collat, blackout_notes_collat;
-	String blanks_time_collat, blanks_freq_collat, blanks_notes_collat;
-	String blurred_time_collat, blurred_freq_collat, blurred_notes_collat;
-	String dizzy_time_collat, dizzy_freq_collat, dizzy_notes_collat;
-	String faint_time_collat, faint_freq_collat, faint_notes_collat;
-	String headaches_time_collat, headaches_freq_collat, headaches_notes_collat;
-	String falling_time_collat, falling_freq_collat, falling_notes_collat;
-	String seizures_time_collat, seizures_freq_collat, seizures_notes_collat;
+	String blanks_time, blanks_freq;
+	@Column(columnDefinition="TEXT")
+	String blanks_notes;
 	
+	String blurred_time, blurred_freq;
+	@Column(columnDefinition="TEXT")
+	String blurred_notes;
+	
+	String dizzy_time, dizzy_freq;
+	@Column(columnDefinition="TEXT")
+	String dizzy_notes;
+	
+	String faint_time, faint_freq;
+	@Column(columnDefinition="TEXT")
+	String faint_notes;
+	
+	String headaches_time, headaches_freq;
+	@Column(columnDefinition="TEXT")
+	String headaches_notes;
+	
+	String falling_time, falling_freq;
+	@Column(columnDefinition="TEXT")
+	String falling_notes;
+	
+	String seizures_time, seizures_freq;
+	@Column(columnDefinition="TEXT")
+	String seizures_notes;
+	
+	String blackout_time_collat, blackout_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String blackout_notes_collat;
+	
+	String blanks_time_collat, blanks_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String blanks_notes_collat;
+	
+	String blurred_time_collat, blurred_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String blurred_notes_collat;
+	
+	String dizzy_time_collat, dizzy_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String dizzy_notes_collat;
+	
+	String faint_time_collat, faint_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String faint_notes_collat;
+	
+	String headaches_time_collat, headaches_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String headaches_notes_collat;
+	
+	String falling_time_collat, falling_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String falling_notes_collat;
+	
+	String seizures_time_collat, seizures_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String seizures_notes_collat;	
 	
 	public NeuroHistory()
 	{
@@ -71,13 +116,13 @@ public class NeuroHistory {
 	}
 
 
-	public boolean isBlank_check() {
-		return blank_check;
+	public boolean isBlanks_check() {
+		return blanks_check;
 	}
 
 
-	public void setBlank_check(boolean blank_check) {
-		this.blank_check = blank_check;
+	public void setBlanks_check(boolean blanks_check) {
+		this.blanks_check = blanks_check;
 	}
 
 
@@ -152,12 +197,12 @@ public class NeuroHistory {
 
 
 	public boolean isBlank_check_collat() {
-		return blank_check_collat;
+		return blanks_check_collat;
 	}
 
 
 	public void setBlank_check_collat(boolean blank_check_collat) {
-		this.blank_check_collat = blank_check_collat;
+		this.blanks_check_collat = blank_check_collat;
 	}
 
 

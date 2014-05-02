@@ -1232,11 +1232,11 @@
 			</div>
 		</div>
 	</fieldset>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="spanClick('living')">Previous Page</span>
-	<span onclick="spanClick('memory_test')">Next Page</span>
+	<span onclick="submitPage()">Next Page</span>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -1248,6 +1248,15 @@
 	function submitPage() {
 		$("#lifestyle_form").submit();
 	}
+	$(document).ready(function() {
+		if("${id}" != "")
+			$("#hiddenID").val("${id}");
+		else if(typeof(Storage) !== "undefined"){
+			$("#hiddenID").val(sessionStorage.p_id);
+			if(sessionStorage.collat)
+				hideCollat();
+		}
+	});
 </script>
 </body>
 </html>

@@ -735,8 +735,7 @@
 		</div>
 	</fieldset>
 	<br><br>
-	<input type="submit" value="Submit"/>
-	<input type="button" value="Print Form" onclick="printForm()"/>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <div class="footer">
 	<span onclick="submitPage()">Next Page</span>
@@ -749,6 +748,16 @@
 <script src="/js/IDBForm.js"></script>
 <script>
 	var showingCollat = false;
+	$(document).ready(function() {
+		if("${id}" != null)
+			$("#hiddenID").val("");
+		else if(typeof(Storage) !== "undefined"){
+			$("#hiddenID").val(sessionStorage.p_id);
+			if(sessionStorage.collat)
+				hideCollat();
+		}
+	});
+	
 	function addNewCollatOption(){
 		if(!showingCollat){
 			$('#collat_concerns_grid').slideDown(500);

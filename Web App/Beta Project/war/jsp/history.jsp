@@ -400,7 +400,6 @@
 		</div>
 	</fieldset>
 	<br><br>
-	<input type="submit" value="Submit"/>
 	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <br><br>
@@ -425,7 +424,7 @@
 				console.log(patient);
 			}
 		}
-		if("${id}" != null)
+		if("${id}" != "")
 			$("#hiddenID").val("${id}");
 		else if(typeof(Storage) !== "undefined"){
 			$("#hiddenID").val(sessionStorage.p_id);

@@ -29,8 +29,7 @@
 </form>
 Patient Information Collected:
 <div class="footer">
-	<a href="./lifestyle.html">Previous Page</a>
-	<a href="./analysis.html">Next Page</a>
+	
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

@@ -1689,6 +1689,7 @@
 			</div>
 		</div>
 	</fieldset>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <div class="footer">
 	<span onclick="submitPage()">Next Page</span>
@@ -1703,6 +1704,16 @@
 	function submitPage() {
 		$("#living_form").submit();
 	}
+	
+	$(document).ready(function() {
+		if("${id}" != "")
+			$("#hiddenID").val("${id}");
+		else if(typeof(Storage) !== "undefined"){
+			$("#hiddenID").val(sessionStorage.p_id);
+			if(sessionStorage.collat)
+				hideCollat();
+		}
+	});
 </script>
 </body>
 </html>

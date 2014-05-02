@@ -139,9 +139,10 @@
 		<legend>Extra Notes</legend>
 		<textarea form="analysis_form" name="extra_notes" id="extra" rows="12" cols="60"></textarea>
 	</fieldset>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <div class="footer">
-	<span onclick="spanClick('memory_test')">Previous Page</span>
+	<span onclick="submitPage()">Finish Form</span>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -150,5 +151,16 @@
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
 <script src="/js/analysis.js"></script>
+<script>
+$(document).ready(function() {
+	if("${id}" != "")
+		$("#hiddenID").val("${id}");
+	else if(typeof(Storage) !== "undefined"){
+		$("#hiddenID").val(sessionStorage.p_id);
+		if(sessionStorage.collat)
+			hideCollat();
+	}
+});
+</script>
 </body>
 </html>

@@ -83,6 +83,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="cholest_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -101,6 +102,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="ldl_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -119,6 +121,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="hdl_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -137,6 +140,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="systolic_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -155,6 +159,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="diastolic_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -173,6 +178,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box" style="">
 					<select name="thyroid_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -191,6 +197,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="b12_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -209,6 +216,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="iron_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -227,6 +235,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="calc_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -245,6 +254,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="sodium_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -263,6 +273,7 @@
 				<div class="pure-u-1-4 subtitle">When was the test done?</div>
 				<div class="pure-u-1-4 select_box">
 					<select name="weight_time">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
@@ -280,6 +291,7 @@
 			<div class="pure-u-1-2 title">How has your family reacted to this?</div>
 			<div class="pure-u-1-2 select_box">
 				<select name="kin_response">
+					<option value="none_selected">Reaction</option>
 					<option value="not_noticed">Haven't Noticed</option>
 					<option value="joke">Joking</option>
 					<option value="make_light">Made Light of</option>
@@ -290,6 +302,7 @@
 			<div class="pure-u-1-2 title">For how long have they been acting like this?</div>
 			<div class="pure-u-1-2 select_box">
 				<select name="response_time">
+						<option value="unknown">Unknown</option>
 					<option value="three_mon">1 month</option>
 					<option value="three_mon">3 months</option>
 					<option value="six_mon">6 months</option>
@@ -315,7 +328,7 @@
 <script src="/js/IDBForm.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		if("${id}" != null)
+		if("${id}" != "")
 			$("#hiddenID").val("${id}");
 		else if(typeof(Storage) !== "undefined"){
 			$("#hiddenID").val(sessionStorage.p_id);
