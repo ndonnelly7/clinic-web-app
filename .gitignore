@@ -8,9 +8,7 @@ classes/
 pom.xml.versionsBackup
 .idea
 .DS_Store
-.classpath
 .settings
-.project
 .metadata
 *~
 *.jar
