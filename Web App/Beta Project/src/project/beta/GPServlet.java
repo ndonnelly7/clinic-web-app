@@ -1,6 +1,7 @@
 package project.beta;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.collection.internal.PersistentBag;
+
 import project.beta.model.BeanPopulate;
 import project.beta.model.GP_Info;
+import project.beta.model.MedHistory;
 import project.beta.model.Patient;
 import project.beta.model.PatientDAO;
 
@@ -26,6 +30,12 @@ public class GPServlet extends HttpServlet {
 		
 		GP_Info info = new GP_Info();
 		BeanPopulate.populateBean(info, req);
+		
+		GP_Info temp = pat.getGpInfo();
+		if(temp != null){
+			info.setGpInfoID(temp.getGpInfoID());
+		}
+		
 		pat.setGpInfo(info);
 		dao.update(pat);
 

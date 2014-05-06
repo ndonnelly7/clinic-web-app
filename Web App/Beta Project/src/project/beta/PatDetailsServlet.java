@@ -22,13 +22,22 @@ public class PatDetailsServlet extends HttpServlet {
 			throws IOException, ServletException {
 		
 		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
-		Patient pat = new Patient();
-		pat.setPatientID(thePatientID);
 		PersonalDetailsPatient details = new PersonalDetailsPatient();
 		BeanPopulate.populateBean(details, req);
-		pat.setPersonalDetails(details);
 		PatientDAO dao = new PatientDAO();
-		thePatientID = dao.create(pat);		
+		
+		Patient pat = dao.get(thePatientID);
+		if(thePatientID < 1 || pat == null){
+			pat = new Patient();
+			pat.setPatientID(thePatientID);
+			pat.setPersonalDetails(details);
+			thePatientID = dao.create(pat);	
+		} else {
+			PersonalDetailsPatient d = pat.getPersonalDetails();
+			details.setDetailsID(d.getDetailsID());
+			pat.setPersonalDetails(details);
+			dao.update(pat);
+		}
 		
 		req.setAttribute("id", thePatientID);
 		req.setAttribute("patient", new JSONObject(pat));

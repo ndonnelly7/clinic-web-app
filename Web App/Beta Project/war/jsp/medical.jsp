@@ -315,7 +315,6 @@
 	</fieldset>
 	<br><br>
 	<input type="hidden" name="hiddenID" id="hiddenID" value="${id}">
-	<input type="submit" value="Submit"/>
 </form>
 <br><br>
 <div class="footer">
@@ -334,6 +333,8 @@
 			$("#hiddenID").val(sessionStorage.p_id);
 			if(sessionStorage.collat)
 				hideCollat();
+		} else {
+			$("#hiddenID").val("0");
 		}
 	});
 

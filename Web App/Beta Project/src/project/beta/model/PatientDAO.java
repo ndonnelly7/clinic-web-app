@@ -2,6 +2,7 @@ package project.beta.model;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -26,6 +27,8 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 
 	@Override
 	public Patient get(Integer id) {
+		if(id < 0)
+			return null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		
@@ -86,6 +89,19 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 		
 		session.close();
 		return list;
+	}
+
+	@Override
+	public void runQuery(String hql) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		Transaction tx = session.beginTransaction();
+		Query query = session.createQuery(hql);
+		query.executeUpdate();
+		
+		tx.commit();
+		session.close();
+		
 	}
 
 	

@@ -2,13 +2,13 @@ package project.beta.model;
 
 import java.util.List;
 
-import javax.persistence.CollectionTable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 /*
@@ -25,18 +25,11 @@ public class Analysis {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	String mmse_result, cdt_result, mini_cog_result, gds_result;
+	String mmse_result, moca_result, gds_result, hads_result;
 	String impression, impression_notes, follow_up, follow_notes;
 	
-	@ElementCollection
-	@CollectionTable(name = "outcomes")
-	@Column(name = "outcome")
-	List<String> outcomes;
-	
-	@ElementCollection
-	@CollectionTable(name = "outcome_notes")
-	@Column(name = "outcome_note", columnDefinition="TEXT")
-	List<String> outcome_notes;
+	@OneToMany(mappedBy = "analysis", cascade = CascadeType.ALL)
+	List<Outcome> outcomes;
 	
 	@Column(name = "letter", columnDefinition="TEXT")
 	String letter;
@@ -64,20 +57,12 @@ public class Analysis {
 		this.mmse_result = mmse_result;
 	}
 
-	public String getCdt_result() {
-		return cdt_result;
+	public String getMoca_result() {
+		return moca_result;
 	}
 
-	public void setCdt_result(String cdt_result) {
-		this.cdt_result = cdt_result;
-	}
-
-	public String getMini_cog_result() {
-		return mini_cog_result;
-	}
-
-	public void setMini_cog_result(String mini_cog_result) {
-		this.mini_cog_result = mini_cog_result;
+	public void setMoca_result(String moca_result) {
+		this.moca_result = moca_result;
 	}
 
 	public String getGds_result() {
@@ -86,6 +71,14 @@ public class Analysis {
 
 	public void setGds_result(String gds_result) {
 		this.gds_result = gds_result;
+	}
+
+	public String getHads_result() {
+		return hads_result;
+	}
+
+	public void setHads_result(String hads_result) {
+		this.hads_result = hads_result;
 	}
 
 	public String getImpression() {
@@ -120,24 +113,16 @@ public class Analysis {
 		this.follow_notes = follow_notes;
 	}
 
-	public List<String> getOutcomes() {
+	public String getLetter() {
+		return letter;
+	}
+
+	public List<Outcome> getOutcomes() {
 		return outcomes;
 	}
 
-	public void setOutcomes(List<String> outcomes) {
+	public void setOutcomes(List<Outcome> outcomes) {
 		this.outcomes = outcomes;
-	}
-
-	public List<String> getOutcome_notes() {
-		return outcome_notes;
-	}
-
-	public void setOutcome_notes(List<String> outcome_notes) {
-		this.outcome_notes = outcome_notes;
-	}
-
-	public String getLetter() {
-		return letter;
 	}
 
 	public void setLetter(String letter) {
@@ -151,4 +136,5 @@ public class Analysis {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+
 }

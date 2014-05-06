@@ -26,6 +26,12 @@ public class NeuroServlet extends HttpServlet {
 		
 		NeuroHistory neuro = new NeuroHistory();
 		BeanPopulate.populateBean(neuro, req);
+		
+		NeuroHistory temp = pat.getNeuroHistory();
+		if(temp != null){
+			neuro.setNeuroHistoryID(temp.getNeuroHistoryID());
+		}
+		
 		pat.setNeuroHistory(neuro);
 		dao.update(pat);
 

@@ -10,5 +10,5 @@ public interface DAOInterface <T, PK> {
 	void remove(T t);
 	void removeWithID(PK id);
 	List<T> getAll();
-	
+	void runQuery(String sql);
 }

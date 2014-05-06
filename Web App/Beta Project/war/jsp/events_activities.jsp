@@ -767,6 +767,8 @@ $(document).ready(function() {
 		$("#hiddenID").val(sessionStorage.p_id);
 		if(sessionStorage.collat)
 			hideCollat();
+	} else {
+		$("#hiddenID").val("0");
 	}
 });
 </script>

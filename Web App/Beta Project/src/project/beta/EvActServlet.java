@@ -30,7 +30,15 @@ public class EvActServlet extends HttpServlet {
 		BeanPopulate.populateBean(ea, req);
 		ea.setActivities(loadActivitiesList(req, ea));
 		ea.setCollat_activities(loadActivitiesCollatList(req, ea));
-		pat.setEventsActivities(ea);
+		
+		EventsActivities temp = pat.getEventsActivities();
+		if(temp != null){
+			ea.setEventsActivitiesID(temp.getEventsActivitiesID());
+			
+			dao.runQuery("delete from Activity where eventActivity= " + String.valueOf(temp.getEventsActivitiesID()));
+		}
+		
+		pat.setEventsActivities(ea);		
 		dao.update(pat);
 		
 		req.setAttribute("id", patientID);
@@ -49,52 +57,71 @@ public class EvActServlet extends HttpServlet {
 		String[] notes = req.getParameterValues("activity_notes");
 		int current_ind = 0, previous_ind = 0, notes_ind = 0, times_ind = 0;
 		
+		if(types == null)
+			return as;
+		
 		for(int i =0; i < types.length; i++){
 			Activity a = new Activity();
 			a.setType(types[i]);
-			a.setInvolvement(involvements[i]);
-			if(involvements[i].equalsIgnoreCase("no")){
-				
-				if(previous[previous_ind] != "")
-					a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
-				else
-					a.setPrev_hours(0);
-				previous_ind++;
-				
-				a.setNotes(notes[notes_ind]);
-				notes_ind++;
-				
-				a.setTime_changed(times[times_ind]);
-				times_ind++;
-				
-			} else if(involvements[i].equalsIgnoreCase("ongoing")) {
-				
-				if(currents[current_ind] != "")
-					a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
-				else
-					a.setCurrent_hours(0);
-				current_ind++;
-				
-				
-			} else if(involvements[i].equalsIgnoreCase("decrease")) {
-				
-				if(currents[current_ind] != "")
-					a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
-				else
-					a.setCurrent_hours(0);
-				current_ind++;
-				
-				if(previous[previous_ind] != "")
-					a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
-				else
-					a.setPrev_hours(0);
-				previous_ind++;
-				
-				a.setNotes(notes[notes_ind]);
-				notes_ind++;
-				
-				a.setTime_changed(times[times_ind]);
-				times_ind++;				
+			if(involvements != null) {
+				a.setInvolvement(involvements[i]);
+				if(involvements[i].equalsIgnoreCase("no")){
+					
+					if(previous != null) {
+						if(previous[previous_ind] != "")
+							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
+						else
+							a.setPrev_hours(0);
+						previous_ind++;
+					}
+					
+					if(notes != null) {
+						a.setNotes(notes[notes_ind]);
+						notes_ind++;
+					}
+					
+					if(times != null) {
+						a.setTime_changed(times[times_ind]);
+						times_ind++;
+					}
+					
+				} else if(involvements[i].equalsIgnoreCase("ongoing")) {
+					
+					if(currents != null){
+						if(currents[current_ind] != "")
+							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
+						else
+							a.setCurrent_hours(0);
+						current_ind++;
+					}
+					
+				} else if(involvements[i].equalsIgnoreCase("decrease")) {
+					
+					if(currents != null){
+						if(currents[current_ind] != "")
+							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
+						else
+							a.setCurrent_hours(0);
+						current_ind++;
+					}
+					if(previous != null) {
+						if(previous[previous_ind] != "")
+							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
+						else
+							a.setPrev_hours(0);
+						previous_ind++;
+					}
+					
+					if(notes != null) {
+						a.setNotes(notes[notes_ind]);
+						notes_ind++;
+					}
+					
+					if(times != null) {
+						a.setTime_changed(times[times_ind]);
+						times_ind++;		
+					}
+				}
 			}
 			a.setEventActivity(ea);
 			as.add(a);
@@ -113,53 +140,71 @@ public class EvActServlet extends HttpServlet {
 		String[] notes = req.getParameterValues("activity_notes_collat");
 		int current_ind = 0, previous_ind = 0, notes_ind = 0, times_ind = 0;
 		
+		if(types == null)
+			return as;
+		
 		for(int i =0; i < types.length; i++){
 			Activity a = new Activity();
 			a.setType(types[i]);
-			a.setTime_changed(times[i]);
-			a.setInvolvement(involvements[i]);
-			if(involvements[i].equalsIgnoreCase("no")){
-				
-				if(previous[previous_ind] != "")
-					a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
-				else
-					a.setPrev_hours(0);
-				previous_ind++;
-				
-				a.setNotes(notes[notes_ind]);
-				notes_ind++;
-				
-				a.setTime_changed(times[times_ind]);
-				times_ind++;
-				
-			} else if(involvements[i].equalsIgnoreCase("ongoing")) {
-				
-				if(currents[current_ind] != "")
-					a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
-				else
-					a.setCurrent_hours(0);
-				current_ind++;
-				
-				
-			} else if(involvements[i].equalsIgnoreCase("decrease")) {
-				
-				if(currents[current_ind] != "")
-					a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
-				else
-					a.setCurrent_hours(0);
-				current_ind++;
-				
-				if(previous[previous_ind] != "")
-					a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
-				else
-					a.setPrev_hours(0);
-				previous_ind++;
-				
-				a.setNotes(notes[notes_ind]);
-				notes_ind++;
-				
-				a.setTime_changed(times[times_ind]);
-				times_ind++;				
+			if(involvements != null) {
+				a.setInvolvement(involvements[i]);
+				if(involvements[i].equalsIgnoreCase("no")){
+					
+					if(previous != null) {
+						if(previous[previous_ind] != "")
+							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
+						else
+							a.setPrev_hours(0);
+						previous_ind++;
+					}
+					
+					if(notes != null) {
+						a.setNotes(notes[notes_ind]);
+						notes_ind++;
+					}
+					
+					if(times != null) {
+						a.setTime_changed(times[times_ind]);
+						times_ind++;
+					}
+					
+				} else if(involvements[i].equalsIgnoreCase("ongoing")) {
+					
+					if(currents != null){
+						if(currents[current_ind] != "")
+							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
+						else
+							a.setCurrent_hours(0);
+						current_ind++;
+					}
+					
+				} else if(involvements[i].equalsIgnoreCase("decrease")) {
+					
+					if(currents != null){
+						if(currents[current_ind] != "")
+							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
+						else
+							a.setCurrent_hours(0);
+						current_ind++;
+					}
+					if(previous != null) {
+						if(previous[previous_ind] != "")
+							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
+						else
+							a.setPrev_hours(0);
+						previous_ind++;
+					}
+					
+					if(notes != null) {
+						a.setNotes(notes[notes_ind]);
+						notes_ind++;
+					}
+					
+					if(times != null) {
+						a.setTime_changed(times[times_ind]);
+						times_ind++;		
+					}
+				}
 			}
 			a.setEventActivity(ea);
 			as.add(a);

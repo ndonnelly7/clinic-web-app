@@ -749,12 +749,14 @@
 <script>
 	var showingCollat = false;
 	$(document).ready(function() {
-		if("${id}" != null)
-			$("#hiddenID").val("");
+		if("${id}" != "")
+			$("#hiddenID").val("${id}");
 		else if(typeof(Storage) !== "undefined"){
 			$("#hiddenID").val(sessionStorage.p_id);
 			if(sessionStorage.collat)
 				hideCollat();
+		} else {
+			$("#hiddenID").val("0");
 		}
 	});
 	

@@ -34,22 +34,22 @@ function initAnalysis(){
 function fillAnalysis(p){
 	if(typeof p['battery'] != 'undefined'){
 		
-		if(typeof p['battery']['mmse'] != 'undefined'){
+		if(!(jQuery.isEmptyObject(p['battery']['mmse']))){
 			$("#mmse_result").val(p['battery']['mmse']['total']);
 		} else {
 			$("#mmse_div").hide();
 		}
-		if(typeof p['battery']['moca'] != 'undefined'){
+		if(!(jQuery.isEmptyObject(p['battery']['moca']))){
 			$("#moca_result").val(p['battery']['moca']['total']);
 		} else {
 			$("#moca_div").hide();
 		}
-		if(typeof p['battery']['gds'] != 'undefined'){
+		if(!(jQuery.isEmptyObject(p['battery']['gds']))){
 			$("#gds_result").val(p['battery']['gds']);
 		} else {
 			$("#gds_div").hide();
 		}
-		if(typeof p['battery']['hads'] != 'undefined'){
+		if(!(jQuery.isEmptyObject(p['battery']['hads']))){
 			$("#hads_result").val(p['battery']['hads']);
 		} else {
 			$("#hads_div").hide();
@@ -130,9 +130,9 @@ function createLetter(pForm, patient){
 			letterString += "\t - Delayed Recall: " + pForm['battery']['moca']['recall'] + "/5\n";
 			letterString += "\t - Orientation: " + pForm['battery']['moca']['orientation'] + "/6\n";
 		} else {
-			letterString += "- MOCA: " + pForm['battery']['moca']['total'] + "/22\n";
-			letterString += "\t - Visuospatial: " + pForm['battery']['moca']['attention'] + "/5\n";
-			letterString += "\t - Naming: " + pForm['battery']['moca']['language'] + "/3\n";
+			letterString += "- MOCA: " + pForm['battery']['moca']['total'] + "/30\n";
+			letterString += "\t - Visuospatial: " + pForm['battery']['moca']['visuo'] + "/5\n";
+			letterString += "\t - Naming: " + pForm['battery']['moca']['naming'] + "/3\n";
 			letterString += "\t - Attention: " + pForm['battery']['moca']['attention'] + "/6\n";
 			letterString += "\t - Language: " + pForm['battery']['moca']['language'] + "/3\n";
 			letterString += "\t - Abstraction: " + pForm['battery']['moca']['abstract'] + "/2\n";

@@ -35,27 +35,85 @@ public class EventsActivities implements Serializable {
 	boolean divorce_collat_check, bereavement_collat_check, moving_house_collat_check, redundancy_collat_check_check, family_disharmony_collat_check;
 	boolean other_disharmony_collat_check, financial_collat_check, retirement_collat_check, job_collat_check;
 	
-	String other, other_time, other_notes;
-	String divorce_time, divorce_notes;
-	String bereavement_time, bereavement_notes;
-	String moving_house_time, moving_house_notes;
-	String redundancy_time, redundancy_notes;
-	String family_disharmony_time, family_disharmony_notes;
-	String other_disharmony_time, other_disharmony_notes;
-	String financial_time, financial_notes;
-	String retirement_time, retirement_notes;
-	String job_time, job_notes;
+	String other, other_time;
+	@Column(columnDefinition="TEXT")
+	String other_notes;
 	
-	String other_collat, other_collat_time, other_collat_notes;
-	String divorce_collat_time, divorce_collat_notes;
-	String bereavement_collat_time, bereavement_collat_notes;
-	String moving_house_collat_time, moving_house_collat_notes;
-	String redundancy_collat_time, redundancy_collat_notes;
-	String family_disharmony_collat_time, family_disharmony_collat_notes;
-	String other_disharmony_collat_time, other_disharmony_collat_notes;
-	String financial_collat_time, financial_collat_notes;
-	String retirement_collat_time, retirement_collat_notes;
-	String job_collat_time, job_collat_notes;
+	String divorce_time;
+	@Column(columnDefinition="TEXT")
+	String divorce_notes;
+	
+	String bereavement_time;
+	@Column(columnDefinition="TEXT")
+	String bereavement_notes;
+	
+	String moving_house_time;
+	@Column(columnDefinition="TEXT")
+	String moving_house_notes;
+	
+	String redundancy_time;
+	@Column(columnDefinition="TEXT")
+	String redundancy_notes;
+	
+	String family_disharmony_time;
+	@Column(columnDefinition="TEXT")
+	String family_disharmony_notes;
+	
+	String other_disharmony_time;
+	@Column(columnDefinition="TEXT")
+	String other_disharmony_notes;
+	
+	String financial_time;
+	@Column(columnDefinition="TEXT")
+	String financial_notes;
+	
+	String retirement_time;
+	@Column(columnDefinition="TEXT")
+	String retirement_notes;
+	
+	String job_time;
+	@Column(columnDefinition="TEXT")
+	String job_notes;
+	
+	String other_collat, other_collat_time;
+	@Column(columnDefinition="TEXT")
+	String other_collat_notes;
+	
+	String divorce_collat_time;
+	@Column(columnDefinition="TEXT")
+	String divorce_collat_notes;
+	
+	String bereavement_collat_time;
+	@Column(columnDefinition="TEXT")
+	String bereavement_collat_notes;
+	
+	String moving_house_collat_time;
+	@Column(columnDefinition="TEXT")
+	String moving_house_collat_notes;
+	
+	String redundancy_collat_time;
+	@Column(columnDefinition="TEXT")
+	String redundancy_collat_notes;
+	
+	String family_disharmony_collat_time;
+	@Column(columnDefinition="TEXT")
+	String family_disharmony_collat_notes;
+	
+	String other_disharmony_collat_time;
+	@Column(columnDefinition="TEXT")
+	String other_disharmony_collat_notes;
+	
+	String financial_collat_time;
+	@Column(columnDefinition="TEXT")
+	String financial_collat_notes;
+	
+	String retirement_collat_time;
+	@Column(columnDefinition="TEXT")
+	String retirement_collat_notes;
+	
+	String job_collat_time;
+	@Column(columnDefinition="TEXT")
+	String job_collat_notes;
 	
 	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> activities;

@@ -26,6 +26,14 @@ public class AnalysisServlet extends HttpServlet {
 		
 		Analysis a = new Analysis();
 		BeanPopulate.populateBean(a, req);
+		
+		Analysis temp = pat.getAnalysis();
+		if(temp != null){
+			a.setAnalysisID(temp.getAnalysisID());
+			
+			dao.runQuery("delete from Outcome where analysis= " + String.valueOf(temp.getAnalysisID()));
+		}
+		
 		pat.setAnalysis(a);
 		dao.update(pat);
 		

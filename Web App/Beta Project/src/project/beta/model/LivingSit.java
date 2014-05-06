@@ -22,10 +22,13 @@ public class LivingSit {
 	protected Object[] jdoDetachedState;
 	
 	//Lifestyle stuff
-	String housemates, house_type, house_type_note, house_location;
+	String housemates, house_type, house_location;
 	String housemates_collat, house_type_collat, house_location_collat;
+	boolean carer, home_help, carer_collat, home_help_collat; 
 	@Column(columnDefinition="TEXT")
-	String housemate_note;
+	String housemates_note;
+	@Column(columnDefinition="TEXT")
+	String house_type_note;
 	@Column(columnDefinition="TEXT")
 	String house_location_note;
 	@Column(columnDefinition="TEXT")
@@ -33,7 +36,7 @@ public class LivingSit {
 	@Column(columnDefinition="TEXT")
 	String carer_note;
 	@Column(columnDefinition="TEXT")
-	String housemate_note_collat;
+	String housemates_note_collat;
 	@Column(columnDefinition="TEXT")
 	String house_location_note_collat;
 	@Column(columnDefinition="TEXT")
@@ -42,10 +45,9 @@ public class LivingSit {
 	String home_help_note_collat;
 	@Column(columnDefinition="TEXT")
 	String house_type_note_collat;
-	
-	boolean carer, home_help, carer_collat, home_help_collat; 
-	boolean drive, cook, shop;
-	boolean life_collat, drive_collat, cooking_collat, shopping_collat, cooking_not_collat, shopping_not_collat, bills_collat;
+
+	String drive, cook, shop, drive_collat, cooking_collat, shopping_collat;
+	boolean life_collat, cooking_not_collat, shopping_not_collat, bills_collat;
 	
 	//Driving stuff
 	boolean unknown_arrival, lost, tips;
@@ -242,11 +244,11 @@ public class LivingSit {
 	}
 
 	public String getHousemate_note() {
-		return housemate_note;
+		return housemates_note;
 	}
 
 	public void setHousemate_note(String housemate_note) {
-		this.housemate_note = housemate_note;
+		this.housemates_note = housemate_note;
 	}
 
 	public String getHouse_type() {
@@ -306,11 +308,11 @@ public class LivingSit {
 	}
 
 	public String getHousemate_note_collat() {
-		return housemate_note_collat;
+		return housemates_note_collat;
 	}
 
 	public void setHousemate_note_collat(String housemate_note_collat) {
-		this.housemate_note_collat = housemate_note_collat;
+		this.housemates_note_collat = housemate_note_collat;
 	}
 
 	public String getHouse_type_collat() {
@@ -393,27 +395,27 @@ public class LivingSit {
 		this.home_help_collat = home_help_collat;
 	}
 
-	public boolean isDrive() {
+	public String isDrive() {
 		return drive;
 	}
 
-	public void setDrive(boolean drive) {
+	public void setDrive(String drive) {
 		this.drive = drive;
 	}
 
-	public boolean isCook() {
+	public String isCook() {
 		return cook;
 	}
 
-	public void setCook(boolean cook) {
+	public void setCook(String cook) {
 		this.cook = cook;
 	}
 
-	public boolean isShop() {
+	public String isShop() {
 		return shop;
 	}
 
-	public void setShop(boolean shop) {
+	public void setShop(String shop) {
 		this.shop = shop;
 	}
 
@@ -425,27 +427,27 @@ public class LivingSit {
 		this.life_collat = life_collat;
 	}
 
-	public boolean isDrive_collat() {
+	public String isDrive_collat() {
 		return drive_collat;
 	}
 
-	public void setDrive_collat(boolean drive_collat) {
+	public void setDrive_collat(String drive_collat) {
 		this.drive_collat = drive_collat;
 	}
 
-	public boolean isCooking_collat() {
+	public String isCooking_collat() {
 		return cooking_collat;
 	}
 
-	public void setCooking_collat(boolean cooking_collat) {
+	public void setCooking_collat(String cooking_collat) {
 		this.cooking_collat = cooking_collat;
 	}
 
-	public boolean isShopping_collat() {
+	public String isShopping_collat() {
 		return shopping_collat;
 	}
 
-	public void setShopping_collat(boolean shopping_collat) {
+	public void setShopping_collat(String shopping_collat) {
 		this.shopping_collat = shopping_collat;
 	}
 

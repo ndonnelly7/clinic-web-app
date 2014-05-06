@@ -508,7 +508,7 @@
 		<div class="mem_num pure-u-1-8">23. </div>
 		<div class="mem_label pure-u-1-2">Do you think that most people are better off then you are?</div>
 		<div class="pure-u-1-2 g_select">
-			<select name="wound_up" id="wound_up" class="gds_select" onchange="updateBorder(this)">
+			<select name="better_off" id="better_off" class="gds_select" onchange="updateBorder(this)">
 				<option value="na">-- --</option>
 				<option value="1">Yes</option>
 				<option value="0">No</option>
@@ -620,49 +620,49 @@
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Visuospatial/Executive Score</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="visuo" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="visuo" name="visuo" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/5</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Naming</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="naming" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="naming" name="naming" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/3</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Attention</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="attention" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="attention" name="attention" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/6</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Language</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="language" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="language" name="language" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/3</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Abstraction</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="abstract" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="abstract" name="abstraction" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/2</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Delayed Recall</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="recall" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="recall" name="recall" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/5</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Orientation</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="orientation" class="moca_input" onchange="moca_change(this)">
+				<input type="text" id="orientation" name="orientation" class="moca_input" onchange="moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/6</span>
 		</div>
@@ -670,7 +670,7 @@
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Total</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="moca_total" class="moca_input" readonly>
+				<input type="text" id="moca_total" name="moca_total" class="moca_input" readonly>
 			</div>
 			<span class="post_input pure-u-1-8">/30</span>
 		</div>
@@ -689,35 +689,35 @@
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Attention</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="b_attention" class="moca_input" onchange="b_moca_change(this)">
+				<input type="text" id="b_attention" name="b_attention" class="moca_input" onchange="b_moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/6</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Language</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="b_language" class="moca_input" onchange="b_moca_change(this)">
+				<input type="text" id="b_language" name="b_language" class="moca_input" onchange="b_moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/3</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Abstraction</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="b_abstract" class="moca_input" onchange="b_moca_change(this)">
+				<input type="text" id="b_abstract" name="b_abstract" class="moca_input" onchange="b_moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/2</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Delayed Recall</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="b_recall" class="moca_input" onchange="b_moca_change(this)">
+				<input type="text" id="b_recall" name="b_recall" class="moca_input" onchange="b_moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/5</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Orientation</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="b_orientation" class="moca_input" onchange="b_moca_change(this)">
+				<input type="text" id="b_orientation" name="b_orientation" class="moca_input" onchange="b_moca_change(this)">
 			</div>
 			<span class="post_input pure-u-1-8">/6</span>
 		</div>
@@ -725,14 +725,14 @@
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Total</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="b_moca_total" class="moca_input" readonly>
+				<input type="text" id="b_moca_total" name="b_moca_total" class="moca_input" readonly>
 			</div>
 			<span class="post_input pure-u-1-8">/22</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Upload Test Sheet</div>
 			<div class="pure-u-1-2">
-				<input type="file" name="MOCA_Upload" accept="image/*|application/pdf">
+				<input type="file" name="b_MOCA_Upload" accept="image/*|application/pdf">
 			</div>
 		</div>
 		<div class="m_div pure-g-r">
@@ -751,42 +751,42 @@
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Orientation</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_orientation" class="moca_input" onchange="mmse_change()">
+				<input type="text" id="mmse_orientation" name="mmse_orientation" class="moca_input" onchange="mmse_change()">
 			</div>
 			<span class="post_input pure-u-1-8">/10</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Registration</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_registration" class="moca_input" onchange="mmse_change()">
+				<input type="text" id="mmse_registration" name="mmse_registration" class="moca_input" onchange="mmse_change()">
 			</div>
 			<span class="post_input pure-u-1-8">/3</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Attention and Calculation</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_attention" class="moca_input" onchange="mmse_change()">
+				<input type="text" id="mmse_attention" name="mmse_attention" class="moca_input" onchange="mmse_change()">
 			</div>
 			<span class="post_input pure-u-1-8">/5</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Recall</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_recall" class="moca_input" onchange="mmse_change()">
+				<input type="text" id="mmse_recall" name="mmse_recall" class="moca_input" onchange="mmse_change()">
 			</div>
 			<span class="post_input pure-u-1-8">/3</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Language</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_language" class="moca_input" onchange="mmse_change()">
+				<input type="text" id="mmse_language" name="mmse_language" class="moca_input" onchange="mmse_change()">
 			</div>
 			<span class="post_input pure-u-1-8">/8</span>
 		</div>
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Copying</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_copying" class="moca_input" onchange="mmse_change()">
+				<input type="text" id="mmse_copying" name="mmse_copying" class="moca_input" onchange="mmse_change()">
 			</div>
 			<span class="post_input pure-u-1-8">/1</span>
 		</div>
@@ -794,7 +794,7 @@
 		<div class="m_div pure-g-r">
 			<div class="moca_label pure-u-1-3">Total</div>
 			<div class="pure-u-1-2 moca_input">
-				<input type="text" id="mmse_total" class="moca_input" readonly>
+				<input type="text" id="mmse_total" name="mmse_total" class="moca_input" readonly>
 			</div>
 			<span class="post_input pure-u-1-8">/30</span>
 		</div>
@@ -826,6 +826,8 @@ $(document).ready(function() {
 		$("#hiddenID").val(sessionStorage.p_id);
 		if(sessionStorage.collat)
 			hideCollat();
+	} else {
+		$("#hiddenID").val("0");
 	}
 });
 </script>

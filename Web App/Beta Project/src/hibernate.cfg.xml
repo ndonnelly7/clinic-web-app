@@ -29,5 +29,6 @@
 	<mapping class="project.beta.model.Activity"/>
 	<mapping class="project.beta.model.LifestyleActivity"/>
 	<mapping class="project.beta.model.GP_Info"/>
+	<mapping class="project.beta.model.Outcome"/>
 </session-factory>
 </hibernate-configuration>

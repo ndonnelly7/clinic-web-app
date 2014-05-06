@@ -266,7 +266,9 @@ function submitPage() {
 	memory['mmse'] = mmse;
 	
 	addBattery(p_id, memory);
-	$("#memory_form").submit();
+	setTimeout(function() {
+		$("#memory_form").submit();
+	}, 100);
 }
 
 function mmse_change(){

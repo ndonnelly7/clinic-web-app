@@ -78,7 +78,7 @@
 							<option value="social">Social Adjustment</option>
 						</select>
 					</div>
-					<div class="pure-u-1-3 notes_colum"><textarea form="analysis_form" name="impression_entry_notes" rows="2" cols="32"></textarea></div>
+					<div class="pure-u-1-3 notes_colum"><textarea form="analysis_form" name="impression_notes" rows="2" cols="32"></textarea></div>
 				</div>
 			</div>
 			<input type="button" onclick="addNewImpression()" class="pure-button" value="Add Impression">
@@ -132,12 +132,12 @@
 	
 	<fieldset id="letter_field">
 		<legend>Letter</legend>
-		<textarea form="analysis_form" name="letter_notes" id="letter" rows="24" cols="100">Will have letter template</textarea>
+		<textarea form="analysis_form" name="letter" id="letter" rows="24" cols="100">Will have letter template</textarea>
 	</fieldset>
 	
 	<fieldset id="notes_field">
 		<legend>Extra Notes</legend>
-		<textarea form="analysis_form" name="extra_notes" id="extra" rows="12" cols="60"></textarea>
+		<textarea form="analysis_form" name="notes" id="extra" rows="12" cols="60"></textarea>
 	</fieldset>
 	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
@@ -159,6 +159,8 @@ $(document).ready(function() {
 		$("#hiddenID").val(sessionStorage.p_id);
 		if(sessionStorage.collat)
 			hideCollat();
+	} else {
+		$("#hiddenID").val("0");
 	}
 });
 </script>

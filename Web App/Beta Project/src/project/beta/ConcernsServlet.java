@@ -26,6 +26,12 @@ public class ConcernsServlet extends HttpServlet {
 		
 		Concerns cons = new Concerns();
 		BeanPopulate.populateBean(cons, req);
+		
+		Concerns temp = pat.getConcerns();
+		if(temp != null){
+			cons.setConcernsID(temp.getConcernsID());
+		}
+		
 		pat.setConcerns(cons);
 		dao.update(pat);
 		
