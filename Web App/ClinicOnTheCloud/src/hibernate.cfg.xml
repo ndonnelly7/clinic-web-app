@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-      "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+      "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd" >
       
 <hibernate-configuration>
 <session-factory>
@@ -13,22 +13,22 @@
 	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 	<property name="show_sql">true</property>
 	
-	<mapping class="project.beta.model.Patient"/>
-	<mapping class="project.beta.model.PersonalDetailsPatient"/>
-	<mapping class="project.beta.model.PatientHistory"/>
-	<mapping class="project.beta.model.MedHistory"/>
-	<mapping class="project.beta.model.DrugHistory"/>
-	<mapping class="project.beta.model.NeuroHistory"/>
-	<mapping class="project.beta.model.PsychHistory"/>
-	<mapping class="project.beta.model.Concerns"/>
-	<mapping class="project.beta.model.EventsActivities"/>
-	<mapping class="project.beta.model.LivingSit"/>
-	<mapping class="project.beta.model.Lifestyle"/>
-	<mapping class="project.beta.model.TestBattery"/>
-	<mapping class="project.beta.model.Analysis"/>
-	<mapping class="project.beta.model.Activity"/>
-	<mapping class="project.beta.model.LifestyleActivity"/>
-	<mapping class="project.beta.model.GP_Info"/>
-	<mapping class="project.beta.model.Outcome"/>
+	<mapping class="com.cloud.clinic.model.Patient"/>
+	<mapping class="com.cloud.clinic.model.PersonalDetails"/>
+	<mapping class="com.cloud.clinic.model.PatientHistory"/>
+	<mapping class="com.cloud.clinic.model.MedHistory"/>
+	<mapping class="com.cloud.clinic.model.DrugHistory"/>
+	<mapping class="com.cloud.clinic.model.NeuroHistory"/>
+	<mapping class="com.cloud.clinic.model.PsychHistory"/>
+	<mapping class="com.cloud.clinic.model.Concerns"/>
+	<mapping class="com.cloud.clinic.model.EventsActivities"/>
+	<mapping class="com.cloud.clinic.model.LivingSit"/>
+	<mapping class="com.cloud.clinic.model.Lifestyle"/>
+	<mapping class="com.cloud.clinic.model.TestBattery"/>
+	<mapping class="com.cloud.clinic.model.Analysis"/>
+	<mapping class="com.cloud.clinic.model.Activity"/>
+	<mapping class="com.cloud.clinic.model.LifestyleActivity"/>
+	<mapping class="com.cloud.clinic.model.GP_Info"/>
+	<mapping class="com.cloud.clinic.model.Outcome"/>
 </session-factory>
 </hibernate-configuration>

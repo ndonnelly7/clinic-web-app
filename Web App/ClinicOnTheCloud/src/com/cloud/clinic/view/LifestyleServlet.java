@@ -39,6 +39,7 @@ public class LifestyleServlet extends HttpServlet {
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
 		l.setPatient(pat);
+		l.setTimestamp(c);
 		pat = addOrUpdateLifestyle(c, pat, l);
 		dao.update(pat);
 		
@@ -51,17 +52,20 @@ public class LifestyleServlet extends HttpServlet {
 	private Patient addOrUpdateLifestyle(Calendar c, Patient p, Lifestyle l) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from lifestyle where patient = :pid order by timestamp desc";
+		String hql = "from Lifestyle where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		@SuppressWarnings("unchecked")
 		List<Lifestyle> list = (List<Lifestyle>) q.list();
 		if(list.size() == 0)
 			p.addLifestyle(l);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			l.setLifestyleID(list.get(0).getLifestyleID());
 			Query r = session.createQuery("delete from lifestyleActivity where lifestyle= " + String.valueOf(list.get(0).getLifestyleID()));
 			r.executeUpdate();
+			list.set(0, l);
+			p.setLifestyle(list);
 		} else {
 			p.addLifestyle(l);
 		}

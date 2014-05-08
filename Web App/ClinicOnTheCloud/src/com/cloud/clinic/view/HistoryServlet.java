@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.cloud.clinic.model.BeanPopulate;
 import com.cloud.clinic.model.DrugHistory;
@@ -49,6 +50,7 @@ public class HistoryServlet extends HttpServlet {
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		pHistory.setTimestamp(c);
 		pHistory.setPatient(pat);
 		pat = addOrUpdateHistory(c, pat, pHistory);
 		dao.update(pat);
@@ -62,14 +64,19 @@ public class HistoryServlet extends HttpServlet {
 	public Patient addOrUpdateHistory(Calendar c, Patient p, PatientHistory ph){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from patienthistory where patient = :pid order by timestamp desc";
+		String hql = "from PatientHistory where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		@SuppressWarnings("unchecked")
 		List<PatientHistory> list = (List<PatientHistory>) q.list();
-		if(list.size() == 0)
-			p.addHistory(ph);
-		else if(list.get(0).getTimestamp().equals(c)){
+		
+		Transaction txn = session.beginTransaction();
+		if(list.size() == 0){
+			List<PatientHistory> hList = p.getPatientHistory();
+			hList.add(ph);
+		}
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			ph.setHistoryID(list.get(0).getHistoryID());
 			Query r = session.createQuery("delete from MedHistory where pHistory= " + String.valueOf(list.get(0).getHistoryID()));
 			r.executeUpdate();
@@ -77,10 +84,13 @@ public class HistoryServlet extends HttpServlet {
 			r2.executeUpdate();
 			Query r3 = session.createQuery("delete from MedHistory where pHistory= " + String.valueOf(list.get(0).getHistoryID()));
 			r3.executeUpdate();
+			list.set(0, ph);
+			p.setPatientHistory(list);
 		} else {
 			p.addHistory(ph);
 		}
 		
+		txn.commit();
 		session.close();
 		return p;
 	}

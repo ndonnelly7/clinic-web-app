@@ -1052,7 +1052,7 @@
 					<div class="pure-u-1-3 life_select_box">
 					</div>
 					<div class="pure-u-1-3 life_select_box">
-						<input type="text" name="total_units" placeholder="0"> Units
+						<input type="text" name="total_units" id="total_units" placeholder="0"> Units
 					</div>
 				</div>
 				<div id="alcohol_help">
@@ -1081,7 +1081,7 @@
 						<div id="beer">
 							<div class="pure-u-1-3 lifestyle_vice_subtitle">Beer:</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="beer_pints" onchange="updateThisUnit(this, 'beer_pint_units')"> Pints
+								<input type="text" name="beer_pints" onchange="updateThisUnit(this, 'beer_pint_units_collat')"> Pints
 							</div>
 							<div class="pure-u-1-3 life_select_box">
 								<input type="text" name="beer_pint_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
@@ -1090,7 +1090,7 @@
 						<div id="beer">
 							<div class="pure-u-1-3 lifestyle_vice_subtitle">Beer:</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="beer_bottles" onchange="updateThisUnit(this, 'beer_bottle_units')"> Bottles
+								<input type="text" name="beer_bottles" onchange="updateThisUnit(this, 'beer_bottle_units_collat')"> Bottles
 							</div>
 							<div class="pure-u-1-3 life_select_box">
 								<input type="text" name="beer_bottle_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
@@ -1099,7 +1099,7 @@
 						<div id="spirit">
 							<div class="pure-u-1-3 lifestyle_vice_subtitle">Spirits:</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="spirit_glasses" onchange="updateThisUnit(this, 'spirit_units')"> Glasses
+								<input type="text" name="spirit_glasses" onchange="updateThisUnit(this, 'spirit_units_collat')"> Glasses
 							</div>
 							<div class="pure-u-1-3 life_select_box">
 								<input type="text" name="spirit_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
@@ -1108,7 +1108,7 @@
 						<div id="wine">
 							<div class="pure-u-1-3 lifestyle_vice_subtitle">Wine:</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="wine_glasses" onchange="updateThisUnit(this, 'wine_glass_units')"> Glasses
+								<input type="text" name="wine_glasses" onchange="updateThisUnit(this, 'wine_glass_units_collat')"> Glasses
 							</div>
 							<div class="pure-u-1-3 life_select_box">
 								<input type="text" name="wine_glass_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
@@ -1117,18 +1117,18 @@
 						<div id="alcopop">
 							<div class="pure-u-1-3 lifestyle_vice_subtitle">Alcopop:</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="pop_bottles" onchange="updateThisUnit(this, 'pop_units')"> Bottles
+								<input type="text" name="pop_bottles" onchange="updateThisUnit(this, 'pop_units_collat')"> Bottles
 							</div>
 							<div class="pure-u-1-3 life_select_box">
 								<input type="text" name="pop_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
 							</div>
 						</div>
-						<div id="total">
+						<div id="total_collat">
 							<div class="pure-u-1-3 lifestyle_vice_subtitle">Total:</div>
 							<div class="pure-u-1-3 life_select_box">
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="total_units_collat" placeholder="0"> Units
+								<input type="text" name="total_units_collat" id="total_units_collat" placeholder="0"> Units
 							</div>
 						</div>
 						

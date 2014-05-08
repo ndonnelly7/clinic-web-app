@@ -34,6 +34,7 @@ public class ConcernsServlet extends HttpServlet {
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		cons.setTimestamp(c);
 		cons.setPatient(pat);
 		pat = addOrUpdateConcern(c, pat, cons);		
 		dao.update(pat);
@@ -47,17 +48,20 @@ public class ConcernsServlet extends HttpServlet {
 	private Patient addOrUpdateConcern(Calendar c, Patient p, Concerns co) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from concerns where patient = :pid order by timestamp desc";
+		String hql = "from Concerns where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		
 		@SuppressWarnings("unchecked")
 		List<Concerns> list = (List<Concerns>) q.list();
 		
 		if(list.size() == 0)
 			p.addConcern(co);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			co.setConcernsID(list.get(0).getConcernsID());
+			list.set(0, co);
+			p.setConcerns(list);
 		} else {
 			p.addConcern(co);
 		}

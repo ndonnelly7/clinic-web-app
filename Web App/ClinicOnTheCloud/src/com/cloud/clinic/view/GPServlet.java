@@ -34,6 +34,7 @@ public class GPServlet extends HttpServlet {
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		info.setTimestamp(c);
 		info.setPatient(pat);
 		pat = addOrUpdateGP(c, pat, info);
 		dao.update(pat);
@@ -48,17 +49,20 @@ public class GPServlet extends HttpServlet {
 	private Patient addOrUpdateGP(Calendar c, Patient p, GP_Info gp){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from gp_info where patient = :pid order by timestamp desc";
+		String hql = "from GP_Info where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		
 		@SuppressWarnings("unchecked")
 		List<GP_Info> list = (List<GP_Info>) q.list();
 		
 		if(list.size() == 0)
 			p.addGPInfo(gp);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			gp.setGpInfoID(list.get(0).getGpInfoID());
+			list.set(0, gp);
+			p.setGpInfo(list);
 		} else 
 			p.addGPInfo(gp);
 		

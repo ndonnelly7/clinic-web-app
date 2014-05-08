@@ -40,6 +40,7 @@ public class EvActServlet extends HttpServlet {
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
 		ea.setPatient(pat);
+		ea.setTimestamp(c);
 		pat = addOrUpdateEvAct(c, pat, ea);
 		dao.update(pat);
 		
@@ -52,17 +53,20 @@ public class EvActServlet extends HttpServlet {
 	private Patient addOrUpdateEvAct(Calendar c, Patient p, EventsActivities ea) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from eventsactivities where patient = :pid order by timestamp desc";
+		String hql = "from EventsActivities where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		@SuppressWarnings("unchecked")
 		List<EventsActivities> list = (List<EventsActivities>) q.list();
 		if(list.size() == 0)
 			p.addEventsActivities(ea);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			ea.setEventsActivitiesID(list.get(0).getEventsActivitiesID());
 			Query r = session.createQuery("delete from activity where eventActivity= " + String.valueOf(list.get(0).getEventsActivitiesID()));
 			r.executeUpdate();
+			list.set(0, ea);
+			p.setEventsActivities(list);
 		} else {
 			p.addEventsActivities(ea);
 		}

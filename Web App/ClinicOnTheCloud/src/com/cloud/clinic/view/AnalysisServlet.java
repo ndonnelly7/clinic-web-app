@@ -38,12 +38,13 @@ public class AnalysisServlet extends HttpServlet {
 		a.setPatient(pat);
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		a.setTimestamp(c);
 		pat = addOrUpdateAnalysis(c, pat, a);
 		dao.update(pat);
 		
 		req.setAttribute("id", pID);
 		req.setAttribute("patient", new JSONObject(pat));
-		RequestDispatcher view = req.getRequestDispatcher("/jsp/results.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("/patientform/results.jsp");
 		view.forward(req, resp);
 	}
 	
@@ -66,17 +67,20 @@ public class AnalysisServlet extends HttpServlet {
 	private Patient addOrUpdateAnalysis(Calendar c, Patient p, Analysis a){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from Analysis where patient = :pid order by timestamp desc";
+		String hql = "from Analysis where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		@SuppressWarnings("unchecked")
 		List<Analysis> list = (List<Analysis>) q.list();
 		if(list.size() == 0)
 			p.addAnalysis(a);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			a.setAnalysisID(list.get(0).getAnalysisID());
 			Query r = session.createQuery("delete from Outcome where analysis= " + String.valueOf(list.get(0).getAnalysisID()));
 			r.executeUpdate();
+			list.set(0, a);
+			p.setAnalysis(list);
 		} else {
 			p.addAnalysis(a);
 		}

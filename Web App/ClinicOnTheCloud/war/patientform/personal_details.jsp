@@ -304,6 +304,7 @@ function nextPage(page) {
 	if(typeof(Storage) !== "undefined"){
 		sessionStorage.p_id = p_id;
 		sessionStorage.collat = collat;
+		sessionStorage.gender = $("input[name=gender]:checked").val();
 	}
 	
 	addPersonal(gp_county, county, collat, relation, p_id);	
@@ -336,6 +337,7 @@ function submitPage() {
 	if(typeof(Storage) !== "undefined"){
 		sessionStorage.p_id = p_id;
 		sessionStorage.collat = collat;
+		sessionStorage.gender = $("input[name=gender]:checked").val();
 	}
 	
 	addPersonal(gp_county, county, collat, relation, p_id);	

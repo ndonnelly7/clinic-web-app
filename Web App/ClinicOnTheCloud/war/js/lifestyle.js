@@ -158,6 +158,43 @@ function updateUnits() {
 		}
 	});
 	document.getElementsByName("total_units")[0].value=totalUnits;
+	
+	if(typeof(Storage) !== "undefined"){
+		
+		if((sessionStorage == "female" && totalUnits > 14) || totalUnits > 21){
+			$("#total_units").css({'border': '2px solid #FF0000'});
+			$("#total .warning_span").remove();
+			$("#total").append("<div class='warning_span' >Warning: Exceeding recommended weekly alcohol intake</div>")
+			sessionStorage.alcohol_problem = true;
+		} else {
+			$("#total_units").removeAttr('style');
+			$("#total .warning_span").remove();
+		}
+	}
+}
+
+function updateUnitsCollat() {
+	var totalUnits = 0;
+	$('.units_box').each(function () {
+		var temp = parseFloat($(this).val());
+		if(temp > 0 ){
+			totalUnits += temp;
+		}
+	});
+	document.getElementsByName("total_units_collat")[0].value=totalUnits;
+	
+	if(typeof(Storage) !== "undefined"){
+		
+		if((sessionStorage == "female" && totalUnits > 14) || totalUnits > 21){
+			$("#total_units_collat").css({'border': '2px solid #FF0000'});
+			$("#total_collat .warning_span").remove();
+			$("#total_collat").append("<div class='warning_span' >Warning: Exceeding recommended weekly alcohol intake</div>")
+			sessionStorage.alcohol_problem = true;
+		} else {
+			$("#total_units_collat").removeAttr('style');
+			$("#total_collat .warning_span").remove();
+		}
+	}
 }
 
 function updateThisUnit(text, name) {
@@ -183,7 +220,11 @@ function updateThisUnit(text, name) {
 	}
 	units = units.toFixed(1);
 	document.getElementsByName(name)[0].value=units;
-	updateUnits();
+	if(name.indexOf("collat") < 0) {
+		updateUnits();
+	} else {
+		updateUnitsCollat();
+	}
 }
 
 function addNewExercise() {

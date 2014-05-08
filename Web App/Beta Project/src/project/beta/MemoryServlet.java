@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import project.beta.model.BeanPopulate;
-import project.beta.model.Concerns;
 import project.beta.model.Patient;
 import project.beta.model.PatientDAO;
 import project.beta.model.TestBattery;

@@ -34,6 +34,7 @@ public class MemoryServlet extends HttpServlet {
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		battery.setTimestamp(c);
 		battery.setPatient(pat);
 		pat = addOrUpdateBattery(c, pat, battery);
 		dao.update(pat);
@@ -47,17 +48,20 @@ public class MemoryServlet extends HttpServlet {
 	private Patient addOrUpdateBattery(Calendar c, Patient p, TestBattery tb){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from TestBattery where patient = :pid order by timestamp desc";
+		String hql = "from TestBattery where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		
 		@SuppressWarnings("unchecked")
 		List<TestBattery> list = (List<TestBattery>) q.list();
 		
 		if(list.size() == 0)
 			p.addTestBattery(tb);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			tb.setTestBatteryID(list.get(0).getTestBatteryID());
+			list.set(0, tb);
+			p.setTestBattery(list);
 		} else 
 			p.addTestBattery(tb);
 		

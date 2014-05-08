@@ -35,6 +35,7 @@ public class NeuroServlet extends HttpServlet {
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		neuro.setTimestamp(c);
 		neuro.setPatient(pat);
 		pat = addOrUpdateNeuro(c, pat, neuro);
 		dao.update(pat);
@@ -48,17 +49,20 @@ public class NeuroServlet extends HttpServlet {
 	private Patient addOrUpdateNeuro(Calendar c, Patient p, NeuroHistory nh){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from NeuroHistory where patient = :pid order by timestamp desc";
+		String hql = "from NeuroHistory where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		
 		@SuppressWarnings("unchecked")
 		List<NeuroHistory> list = (List<NeuroHistory>) q.list();
 		
 		if(list.size() == 0)
 			p.addNeuroHistory(nh);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			nh.setNeuroHistoryID(list.get(0).getNeuroHistoryID());
+			list.set(0, nh);
+			p.setNeuroHistory(list);
 		} else 
 			p.addNeuroHistory(nh);
 		

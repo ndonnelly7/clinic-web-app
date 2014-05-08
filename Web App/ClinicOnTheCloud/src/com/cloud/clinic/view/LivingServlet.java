@@ -34,6 +34,7 @@ public class LivingServlet extends HttpServlet {
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
+		ls.setTimestamp(c);
 		ls.setPatient(pat);
 		pat = addOrUpdateLiving(c, pat, ls);
 		dao.update(pat);		
@@ -47,17 +48,20 @@ public class LivingServlet extends HttpServlet {
 	public Patient addOrUpdateLiving(Calendar c, Patient p, LivingSit l) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		String hql = "from livingsit where patient = :pid order by timestamp desc";
+		String hql = "from LivingSit where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
 		Query q = session.createQuery(hql);
-		q.setParameter("pid", String.valueOf(p.getPatientID()));
 		
 		@SuppressWarnings("unchecked")
 		List<LivingSit> list = (List<LivingSit>) q.list();
 		
 		if(list.size() == 0)
 			p.addLivingSit(l);
-		else if(list.get(0).getTimestamp().equals(c)){
+		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
 			l.setLivingSitID(list.get(0).getLivingSitID());
+			list.set(0, l);
+			p.setLivingSit(list);
 		} else 
 			p.addLivingSit(l);
 		

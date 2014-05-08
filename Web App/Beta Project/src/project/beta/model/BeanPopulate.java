@@ -20,7 +20,7 @@ public class BeanPopulate {
 			Map propertyMap) {
 		try {
 			DateTimeConverter converter = new DateConverter();
-			converter.setPattern("dd/MM/yyyy");
+			converter.setPattern("dd/MMMM/yyyy");
 			ConvertUtils.register(converter, java.util.Date.class);
 			BeanUtils.populate(formBean, propertyMap);
 		} catch (Exception e) {

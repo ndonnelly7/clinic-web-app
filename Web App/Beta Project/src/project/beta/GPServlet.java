@@ -1,7 +1,6 @@
 package project.beta;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.collection.internal.PersistentBag;
-
 import project.beta.model.BeanPopulate;
 import project.beta.model.GP_Info;
-import project.beta.model.MedHistory;
 import project.beta.model.Patient;
 import project.beta.model.PatientDAO;
 

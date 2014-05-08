@@ -51,6 +51,13 @@ form .hours_life {
 	display: inline-block;
 }
 
+.warning_span {
+	color: #ff0000;
+	margin-top: 20px;
+	margin-left:1%;
+	display: inline-block;
+}
+
 #smoke_div {
 	max-width: 300px;
 }
