@@ -23,9 +23,8 @@ public class Patient implements java.io.Serializable{
 	@Column(name = "patientID", unique = true, nullable = false)
 	private int patientID;	
 	
-	//TODO: will need to change this to use User ID 
-	@Transient
 	private String userCreatedID;
+	private String originalClinic;
 	
 	@Transient
 	protected Object[] jdoDetachedState;
@@ -63,6 +62,16 @@ public class Patient implements java.io.Serializable{
 
 	public void setPatientID(int patientID) {
 		this.patientID = patientID;
+	}
+
+	
+	public String getOriginalClinic() {
+		return originalClinic;
+	}
+
+
+	public void setOriginalClinic(String originalClinic) {
+		this.originalClinic = originalClinic;
 	}
 
 

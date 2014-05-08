@@ -1,0 +1,91 @@
+@CHARSET "ISO-8859-1";
+
+#activity_entry .events-1-5{
+	width:10%;
+	margin: 10px 0.5% 10px 0.5%;
+}
+
+#collat_activity_entry .events-1-5{
+	width:10%;
+	margin: 10px 0.5% 10px 0.5%;
+}
+
+#activity_header .header{
+	font-size:0.95em;
+	margin: 10px 0.5% 10px 0.5%;
+	color: #323232;
+	width: 10%;
+	font-weight:bold;
+}
+
+.anx_dep_title {
+	text-align: left;
+	display: inline-block;
+	margin: 12px 3% 8px 1%;
+	font-weight: bold;
+}
+
+.anx_dep_subtitle {
+	text-align: left;
+	display: inline-block;
+	margin: 12px 3% 8px 2%;
+}
+
+.exer_check {
+	max-width:160px;
+}
+
+#alcohol_qs .subtitle{
+	max-width:100px;
+}
+
+#events_grid .select_box {
+	margin-right: 30px;
+}
+
+#events_grid #header_row .select_box{
+	margin-top:0px;
+}
+
+#events_grid .check {
+	max-width: 180px;
+}
+
+#events_collat_grid .select_box {
+	margin-right: 30px;
+}
+
+#events_collat_grid #header_row .select_box{
+	margin-top:0px;
+}
+
+#events_collat_grid .check {
+	max-width: 180px;
+}
+
+#depression_div .pure-g-r .pure-u-1-2 .dep_select {
+	margin-top: -3px;
+}
+
+#depression_div .pure-g-r {
+	margin-bottom: 8px;
+}
+
+#dep_advanced .pure-g-r {
+	margin-left: 1%;
+}
+
+#events_collat_grid{
+	margin-left: 2%;
+}
+
+.eaa-button {
+	margin-top: 18px;
+}
+
+.activity_q_check{
+	padding: 0.2em;
+	margin: 18px 3% 12px 1%;
+	display: inline-block;
+	font-weight: bold;
+}

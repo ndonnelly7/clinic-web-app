@@ -39,10 +39,10 @@ function runHADSEvaluation(){
 			$('#hads_result_text').css({"color":"orange", "margin-left":"1%"});
 		} else if(result >= 11) {
 			$('#hads_result_text').text("Mild case of depression/anxiety");
-			$('#hads_result_text').css({"color":"yellow", "margin-left":"1%"});
+			$('#hads_result_text').css({"color":"green", "margin-left":"1%"});
 		} else {
 			$('#hads_result_text').text("No real signs of depression/anxiety");
-			$('#hads_result_text').css({"color":"green", "margin-left":"1%"});
+			$('#hads_result_text').css({"color":"blue", "margin-left":"1%"});
 		}
 	}
 }
@@ -126,11 +126,11 @@ function revealMMSE(elem){
 	if($("#mmse").is(":visible")){
 		$("#mmse").hide(500);
 		elem.value = "MMSE Test";
-		want_moca = false;
+		want_mmse = false;
 	} else {
 		$("#mmse").show(500);
 		elem.value = "Hide MMSE Test";
-		want_moca = true;
+		want_mmse = true;
 	}
 };
 
@@ -138,11 +138,11 @@ function revealMOCA(elem){
 	if($("#moca").is(":visible")){
 		$("#moca").hide(500);
 		elem.value = "MOCA Test";
-		want_mmse = false;
+		want_moca = false;
 	} else {
 		$("#moca").show(500);
 		elem.value = "Hide MOCA Test";
-		want_mmse = true;
+		want_moca = true;
 	}
 };
 

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>ClinicOnTheCloud</servlet-name>
+		<servlet-class>com.cloud.clinic.view.ClinicOnTheCloudServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClinicOnTheCloud</servlet-name>
+		<url-pattern>/cliniconthecloud</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Patient_Details</servlet-name>
+		<servlet-class>com.cloud.clinic.view.PatDetailsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Patient_Details</servlet-name>
+		<url-pattern>/patientform/personal_details.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Patient_History</servlet-name>
+		<servlet-class>com.cloud.clinic.view.HistoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Patient_History</servlet-name>
+		<url-pattern>/patientform/patient_history.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GP_Medical</servlet-name>
+		<servlet-class>com.cloud.clinic.view.GPServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GP_Medical</servlet-name>
+		<url-pattern>/patientform/medical.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Patient_Concerns</servlet-name>
+		<servlet-class>com.cloud.clinic.view.ConcernsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Patient_Concerns</servlet-name>
+		<url-pattern>/patientform/concerns.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Neuro_History</servlet-name>
+		<servlet-class>com.cloud.clinic.view.NeuroServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Neuro_History</servlet-name>
+		<url-pattern>/patientform/neural.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Events_Activities</servlet-name>
+		<servlet-class>com.cloud.clinic.view.EvActServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Events_Activities</servlet-name>
+		<url-pattern>/patientform/events_activities.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Living_Sit</servlet-name>
+		<servlet-class>com.cloud.clinic.view.LivingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Living_Sit</servlet-name>
+		<url-pattern>/patientform/living.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Lifestyle</servlet-name>
+		<servlet-class>com.cloud.clinic.view.LifestyleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Lifestyle</servlet-name>
+		<url-pattern>/patientform/lifestyle.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Memory</servlet-name>
+		<servlet-class>com.cloud.clinic.view.MemoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Memory</servlet-name>
+		<url-pattern>/patientform/memory.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Analysis</servlet-name>
+		<servlet-class>com.cloud.clinic.view.AnalysisServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Analysis</servlet-name>
+		<url-pattern>/patientform/analysis.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>File_Dispatch</servlet-name>
+		<servlet-class>com.cloud.clinic.view.FileDispatchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>File_Dispatch</servlet-name>
+		<url-pattern>/patientform/form.do</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Site</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint> -->
+</web-app>

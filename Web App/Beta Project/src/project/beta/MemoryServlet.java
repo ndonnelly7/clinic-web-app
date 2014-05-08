@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import project.beta.model.BeanPopulate;
+import project.beta.model.Concerns;
 import project.beta.model.Patient;
 import project.beta.model.PatientDAO;
 import project.beta.model.TestBattery;
@@ -26,6 +27,12 @@ public class MemoryServlet extends HttpServlet {
 		
 		TestBattery battery = new TestBattery();
 		BeanPopulate.populateBean(battery, req);
+		
+		TestBattery temp = pat.getTestBattery();
+		if(temp != null){
+			battery.setTestBatteryID(temp.getTestBatteryID());
+		}
+		
 		pat.setTestBattery(battery);
 		dao.update(pat);
 

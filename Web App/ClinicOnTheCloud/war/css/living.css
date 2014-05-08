@@ -1,0 +1,105 @@
+@CHARSET "ISO-8859-1";
+
+.homelife_select {
+	margin: 10px 3% 10px 3%;
+	max-width: 160px;
+}
+
+.homelife_check {
+	max-width: 160px;
+	margin: 10px 3% 10px 3%;
+}
+
+.homelife_check input{
+	margin-left: 40%;
+}
+
+#routine_title{
+	margin: 12px 2% 12px 0%;
+	font-weight: bold;
+	font-size: larger;
+}
+
+.routine_q_check{
+	padding: 0.2em;
+	margin: 18px 3% 12px 1%;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.routine_q{
+	padding: 0.2em;
+	margin: 18px 3% 12px 1%;
+	font-weight: bold;
+}
+
+.living_grid{
+	margin-left: 1%;
+	padding-left: 4px;	
+}
+
+.header{
+	font-size:0.95em;
+	margin: 10px 0.5% 10px 0.5%;
+	color: #323232;
+	width: 10%;
+	font-weight:bold;
+}
+
+.grid_entry {
+	margin: 10px 0.5% 10px 0.5%;
+}
+
+.living_grid .grid_entry_type {
+	min-width: 25%
+}
+
+.grid_check_div {
+	max-width: 48px;
+}
+
+.grid_check {
+	width: 45%;
+}
+
+.grid_entry_select{
+	max-width: 144px; 
+}
+
+.grid_entry select {
+	margin-top:-6px;
+}
+
+.reason_input {
+	margin-top: -12px;
+}
+
+.subtitle_q {
+	padding: 0.2em;
+	margin: 12px 3% 12px 2%;
+	font-weight: bold;
+	color: #323232;
+	font-size: 0.95em;
+	min-width: 265px;
+	display: inline-block;
+}
+
+.note_area {
+	display: inline-block;
+	margin-left: 2%;
+	margin-top: 12px;
+}
+
+.bills_select {
+	display: inline-block;
+	width: 150px;
+	margin-right: 2%;
+}
+
+.living-button {
+	margin-top: 18px;	
+}
+
+#collat_home_life {
+	margin-left: 2%;
+}

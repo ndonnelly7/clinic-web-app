@@ -9,12 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import project.beta.model.BeanPopulate;
 import project.beta.model.DrugHistory;
-import project.beta.model.HibernateUtil;
 import project.beta.model.MedHistory;
 import project.beta.model.Patient;
 import project.beta.model.PatientDAO;

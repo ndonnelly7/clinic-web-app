@@ -1,6 +1,7 @@
 package project.beta;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import project.beta.model.Analysis;
 import project.beta.model.BeanPopulate;
+import project.beta.model.Outcome;
 import project.beta.model.Patient;
 import project.beta.model.PatientDAO;
 
@@ -34,6 +36,7 @@ public class AnalysisServlet extends HttpServlet {
 			dao.runQuery("delete from Outcome where analysis= " + String.valueOf(temp.getAnalysisID()));
 		}
 		
+		a.setOutcomes(getOutcomeList(req, a));
 		pat.setAnalysis(a);
 		dao.update(pat);
 		
@@ -43,4 +46,19 @@ public class AnalysisServlet extends HttpServlet {
 		view.forward(req, resp);
 	}
 	
+	private ArrayList<Outcome> getOutcomeList(HttpServletRequest req, Analysis a){
+		ArrayList<Outcome> outs = new ArrayList<Outcome>();
+		
+		String[] outcomes = req.getParameterValues("outcome");
+		String[] outcome_notes = req.getParameterValues("outcome_notes");
+		for(int i = 0; i < outcomes.length; i++){
+			Outcome o = new Outcome();
+			o.setOutcome(outcomes[i]);
+			o.setOutcome_notes(outcome_notes[i]);
+			o.setAnalysis(a);
+			outs.add(o);
+		}
+		
+		return outs;
+	}
 }

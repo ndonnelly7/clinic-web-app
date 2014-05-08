@@ -26,6 +26,12 @@ public class LivingServlet extends HttpServlet {
 		
 		LivingSit ls = new LivingSit();
 		BeanPopulate.populateBean(ls, req);
+		
+		LivingSit temp = pat.getLivingSit();
+		if(temp != null){
+			ls.setLivingSitID(temp.getLivingSitID());
+		}
+		
 		pat.setLivingSit(ls);
 		dao.update(pat);		
 

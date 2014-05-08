@@ -108,7 +108,7 @@ function createLetter(pForm, patient){
 	
 	//Results
 	if(jQuery.isEmptyObject(pForm['battery']['mmse'])){
-		letterString += "- MMSE: " + "N/A\n";
+		
 	} else {
 		letterString += "- MMSE: " + pForm['battery']['mmse']['total'] + "/30\n";
 		letterString += "\t - Orientation: " + pForm['battery']['mmse']['orientation'] + "/10";
@@ -120,7 +120,7 @@ function createLetter(pForm, patient){
 	}	
 	
 	if(jQuery.isEmptyObject(pForm['battery']['moca'])){
-		letterString += "- MOCA: " + "N/A\n";
+		
 	} else {
 		if(pForm['battery']['moca']['blind']){
 			letterString += "- MOCA: " + pForm['battery']['moca']['total'] + "/22\n";
@@ -142,13 +142,13 @@ function createLetter(pForm, patient){
 	}
 	
 	if(jQuery.isEmptyObject(pForm['battery']['gds'])){
-		letterString += "- GDS: " + "N/A\n";
+		
 	} else {
 		letterString += "- GDS: " + pForm['battery']['gds'] + "\n";
 	}
 	
 	if(jQuery.isEmptyObject(pForm['battery']['hads'])){
-		letterString += "- HADS: " + "N/A\n";
+		
 	} else {
 		letterString += "- HADS: " + pForm['battery']['hads'] + "\n";
 	}
