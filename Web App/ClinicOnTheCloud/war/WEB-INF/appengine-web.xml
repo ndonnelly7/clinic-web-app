@@ -36,6 +36,7 @@
 	<include path="/**.html"/>
 	<include path="/favicon.ico"/>
 	<include path="/patient_form/**.html"/>
+	<include path="/tests/**.**"/>
   </static-files>
   
 </appengine-web-app>

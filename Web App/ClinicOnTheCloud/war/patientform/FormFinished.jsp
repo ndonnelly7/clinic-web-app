@@ -8,6 +8,21 @@
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="/css/pure-min.css"/>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
+
+<style>
+#pNameDiv{
+	margin-left: 2%;
+	font-size: 24px;
+	margin-top: 42px;
+}
+
+#pNameDiv div{
+	margin-top: 16px;
+}
+</style>
+
 </head>
 <body>
 <h1>Finished Form</h1>
@@ -27,12 +42,35 @@
   <input type="hidden" id="text_form" name="page"/> 
 </div> 
 </form>
-Patient Information Collected:
+
+<div class="pure-control-group" id="pNameDiv">
+<label for="name">Patient Information successfuly added for: </label>
+</div>
+
+<div class="pure-control-group">
+	<div>Would you now like to:</div>
+	<a href="/admin/home.jsp">Return to the Homepage</a>
+	<a href="/admin/review.jsp">Review the Patient Information</a>
+</div>
+
 <div class="footer">
 	
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/IDB.js"></script>
+<script src="/js/IDBForm.js"></script>
+<script>
+var patient;
+$(document).ready(function () {
+	window.setTimeout(function(){getPatient('${id}', printpForm);}, 500);
+});
+
+function printpForm(p) {
+	$("#pNameDiv").append("<div>"+p['name']+"</div>");
+}
+
+</script>
 </body>
 </html>

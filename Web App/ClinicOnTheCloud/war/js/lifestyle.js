@@ -169,6 +169,7 @@ function updateUnits() {
 		} else {
 			$("#total_units").removeAttr('style');
 			$("#total .warning_span").remove();
+			sessionStorage.alcohol_problem = false;
 		}
 	}
 }
@@ -193,6 +194,7 @@ function updateUnitsCollat() {
 		} else {
 			$("#total_units_collat").removeAttr('style');
 			$("#total_collat .warning_span").remove();
+			sessionStorage.alcohol_problem = false;
 		}
 	}
 }

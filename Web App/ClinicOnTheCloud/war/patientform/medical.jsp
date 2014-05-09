@@ -74,9 +74,11 @@
 		<div id="med_tests" class="pure-g-u">
 			<div class="title">Do you have the results of any of the following tests?</div>
 			<br>
+			
+			<div>
 			<div class="pure-u-1-4 subtitle">Total Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_test" size="4" id="cholesterol">
+				<input type="text" name="cholest_test" size="4" id="cholesterol" onchange="cholestChanged()">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="cholest_qs"style="display:inline;">
@@ -92,10 +94,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">LDL Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_ldl" size="4" id="ldl">
+				<input type="text" name="cholest_ldl" size="4" id="ldl" onchange="ldlChanged()">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="ldl_cholest_qs"style="display:inline;">
@@ -111,10 +117,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">HDL Cholesterol</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="cholest_hdl" size="4" id="hdl">
+				<input type="text" name="cholest_hdl" size="4" id="hdl" onchange="hdlChanged()">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="hdl_cholest_qs"style="display:inline;">
@@ -130,10 +140,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">Systolic Blood Pressure</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="systolic" size="4" id="systolic">
+				<input type="text" name="systolic" size="4" id="systolic" onchange="systolicChanged()">
 				<div style="font-size:small">mmHg</div>
 			</div>
 			<div id="cholest_qs"style="display:inline;">
@@ -149,10 +163,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">Diastolic Blood Pressure</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="diastolic" size="4" id="diastolic">
+				<input type="text" name="diastolic" size="4" id="diastolic" onchange="diastolicChanged()">
 				<div style="font-size:small">mmHg</div>
 			</div>
 			<div id="cholest_qs"style="display:inline;">
@@ -168,10 +186,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">Thyroid</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="thyroid_test" size="4" id="thyroid">
+				<input type="text" name="thyroid_test" size="4" id="thyroid" onchange="thyroidChanged()">
 				<div style="font-size:small">pg/mL</div>
 			</div>
 			<div id="thyroid_qs" style="display:inline;">
@@ -187,10 +209,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">B12</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="b12_test" size="4" id="b12">
+				<input type="text" name="b12_test" size="4" id="b12" onchange="b12Changed()">
 				<div style="font-size:small">mmol/L</div>
 			</div>
 			<div id="b12_qs" style="display:inline;">
@@ -206,10 +232,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">Iron</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="iron_test" size="4" id="iron">
+				<input type="text" name="iron_test" size="4" id="iron" onchange="ironChanged()">
 				<div style="font-size:small">mcmol/L</div>
 			</div>
 			<div id="iron_qs" style="display:inline;">
@@ -225,10 +255,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">Calcium</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="calc_test" size="4" id="calcium">
+				<input type="text" name="calc_test" size="4" id="calcium" onchange="calciumChanged()">
 				<div style="font-size:small">mg/dL</div>
 			</div>
 			<div id="calc_qs" style="display:inline;">
@@ -244,10 +278,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
+			<div>
 			<div class="pure-u-1-4 subtitle">Sodium</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="sodium_test" size="4" id="sodium">
+				<input type="text" name="sodium_test" size="4" id="sodium" onchange="sodiumChanged()">
 				<div style="font-size:small">mEq/L</div>
 			</div>
 			<div id="sodium_qs" style="display:inline;">
@@ -263,6 +301,9 @@
 					</select>
 				</div>
 			</div>
+			<div class="warning_span hide_div" style="display:inline-block;color:red;margin-top:18px;">Unhealthy levels</div>
+			</div>
+			
 			<br>
 			<div class="pure-u-1-4 subtitle">Weight</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
@@ -389,6 +430,126 @@
 		addGPInfo(p_id, medical);
 		
 		$("#medical_form").submit();
+	}
+	
+	function cholestChanged(){
+		var c = parseFloat($("#cholesterol").val());
+		if(c > 5){
+			addWarning($("#cholesterol"));
+			sessionStorage.cholesterol = true;
+		} else {
+			removeWarning($("#cholesterol"));
+			sessionStorage.cholesterol = false;
+		}
+	}
+	
+	function ldlChanged(){
+		var l = parseFloat($('#ldl').val());
+		if(l > 3){
+			addWarning($('#ldl'));
+			sessionStorage.ldl = true;
+		} else {
+			removeWarning($('#ldl'));
+			sessionStorage.ldl = false;
+		}
+	}
+	
+	function hdlChanged(){
+		var l = parseFloat($('#hdl').val());
+		if(l < 1){
+			addWarning($('#hdl'));
+			sessionStorage.hdl = true;
+		} else {
+			removeWarning($('#hdl'));
+			sessionStorage.hdl = false;
+		}
+	}
+	
+	function systolicChanged(){
+		var l = parseInt($('#systolic').val());
+		if(l < 140){
+			addWarning($('#systolic'));
+			sessionStorage.systolic = true;
+		} else {
+			removeWarning($('#systolic'));
+			sessionStorage.systolic = false;
+		}
+	}
+	
+	function diastolicChanged(){
+		var l = parseInt($('#diastolic').val());
+		if(l < 90){
+			addWarning($('#diastolic'));
+			sessionStorage.diastolic = true;
+		} else {
+			removeWarning($('#diastolic'));
+			sessionStorage.diastolic = false;
+		}
+	}
+	
+	function thyroidChanged(){
+		var l = parseFloat($('#thyroid').val());
+		if(l < 0.1 || l > 2.0){
+			addWarning($('#thyroid'));
+			sessionStorage.thyroid = true;
+		} else {
+			removeWarning($('#thyroid'));
+			sessionStorage.thyroid = false;
+		}
+	}
+	
+	function b12Changed(){
+		var l = parseInt($('#b12').val());
+		if(l < 100 || l > 520){
+			addWarning($('#b12'));
+			sessionStorage.b12 = true;
+		} else {
+			removeWarning($('#b12'));
+			sessionStorage.b12 = false;
+		}
+	}
+	
+	function ironChanged(){
+		var l = parseInt($('#iron').val());
+		if(l < 30 || l > 560){
+			addWarning($('#iron'));
+			sessionStorage.iron = true;
+		} else {
+			removeWarning($('#iron'));
+			sessionStorage.iron = false;
+		}
+	}
+	
+	function calciumChanged(){
+		var l = parseFloat($('#calcium').val());
+		if(l < 2.18 || l > 2.6){
+			addWarning($('#calcium'));
+			sessionStorage.calcium = true;
+		} else {
+			removeWarning($('#calcium'));
+			sessionStorage.calcium = false;
+		}
+	}
+	
+	function sodiumChanged(){
+		var l = parseFloat($('#sodium').val());
+		if(l < 135 || l > 145){
+			addWarning($('#sodium'));
+			sessionStorage.sodium = true;
+		} else {
+			removeWarning($('#sodium'));
+			sessionStorage.sodium = false;
+		}
+	}
+	
+	function addWarning(elem){
+		elem.css({'border':'2px solid #FF0000'});
+		elem.parent().parent().children('.warning_span').show();
+	}
+	
+	function removeWarning(elem){
+		elem.removeAttr('style');
+		elem.parent().parent().children('.warning_span').hide();
 	}
 
 </script>

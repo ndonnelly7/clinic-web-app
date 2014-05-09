@@ -37,19 +37,19 @@
 		<div id="test_results">
 			<div class="pure-control-group" id="mmse_div">
 				<label for="mmse_result">MMSE:</label>
-				<input type="text" name="mmse_result" id="mmse_result" disabled>
+				<input type="number" name="mmse_result" id="mmse_result">
 			</div>
 			<div class="pure-control-group" id="moca_div">
-				<label for="cdt_result">MOCA:</label>
-				<input type="text" name="moca_result" id="moca_result" disabled>
+				<label for="moca_result">MOCA:</label>
+				<input type="number" name="moca_result" id="moca_result">
 			</div>
 			<div class="pure-control-group" id="gds_div">
 				<label for="gds_result">GDS:</label>
-				<input type="text" name="gds_result" id="gds_result" disabled>
+				<input type="number" name="gds_result" id="gds_result">
 			</div>
 			<div class="pure-control-group" id="hads_div">
 				<label for="hads_result">HADS:</label>
-				<input type="text" name="hads_result" id="hads_result" disabled>
+				<input type="number" name="hads_result" id="hads_result">
 			</div>
 		</div>
 	

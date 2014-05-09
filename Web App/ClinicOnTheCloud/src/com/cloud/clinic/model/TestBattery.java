@@ -28,19 +28,21 @@ public class TestBattery {
 	Patient patient;
 	
 	//HADS
-	String wound_up, enjoy, frightened, funny, worry, cheerful, relaxed;
-	String slowed, butterflies, appearance, restless, enjoyment, pasttime, panic;
+	String hads_wound_up, hads_enjoy, hads_frightened, hads_funny, hads_worry, hads_cheerful, hads_relaxed;
+	String hads_slowed, hads_butterflies, hads_appearance, hads_restless, hads_enjoyment, hads_pasttime, hads_panic;
+	String hads_total;
 	
 	
 	//GDS
-	String satisfied, dropping_interests, life_empty, bored, future, thoughts, spirits;
-	String afraid, happy, helpless, fidgety, stay_home, future_worry, mem_problems, alive;
-	String blue, worthless, exciting, new_projects, energy, hopeless, better_off, little_things;
-	String crying, concentrating, morning, social_occasions, decisions, clear_mind;
+	String gds_satisfied, gds_dropping_interests, gds_life_empty, gds_bored, gds_future, gds_thoughts, gds_spirits;
+	String gds_afraid, gds_happy, gds_helpless, gds_fidgety, gds_stay_home, gds_future_worry, gds_mem_problems, gds_alive;
+	String gds_blue, gds_worthless, gds_exciting, gds_new_projects, gds_energy, gds_hopeless, gds_better_off, gds_little_things;
+	String gds_crying, gds_concentrating, gds_morning, gds_social_occasions, gds_decisions, gds_clear_mind;
+	String gds_total;
 	
 	//MOCA
-	String visuo, attention, language, abstraction;
-	String naming, recall, orientation, moca_total;
+	String moca_visuo, moca_attention, moca_language, moca_abstraction;
+	String moca_naming, moca_recall, moca_orientation, moca_total;
 	String MOCA_Upload;
 	
 	//MOCA_Blind
@@ -82,404 +84,420 @@ public class TestBattery {
 		this.patient = patient;
 	}
 
-	public String getWound_up() {
-		return wound_up;
+	public String getHads_wound_up() {
+		return hads_wound_up;
 	}
 
-	public void setWound_up(String wound_up) {
-		this.wound_up = wound_up;
+	public void setHads_wound_up(String hads_wound_up) {
+		this.hads_wound_up = hads_wound_up;
 	}
 
-	public String getEnjoy() {
-		return enjoy;
+	public String getHads_enjoy() {
+		return hads_enjoy;
 	}
 
-	public void setEnjoy(String enjoy) {
-		this.enjoy = enjoy;
+	public void setHads_enjoy(String hads_enjoy) {
+		this.hads_enjoy = hads_enjoy;
 	}
 
-	public String getFrightened() {
-		return frightened;
+	public String getHads_frightened() {
+		return hads_frightened;
 	}
 
-	public void setFrightened(String frightened) {
-		this.frightened = frightened;
+	public void setHads_frightened(String hads_frightened) {
+		this.hads_frightened = hads_frightened;
 	}
 
-	public String getFunny() {
-		return funny;
+	public String getHads_funny() {
+		return hads_funny;
 	}
 
-	public void setFunny(String funny) {
-		this.funny = funny;
+	public void setHads_funny(String hads_funny) {
+		this.hads_funny = hads_funny;
 	}
 
-	public String getWorry() {
-		return worry;
+	public String getHads_worry() {
+		return hads_worry;
 	}
 
-	public void setWorry(String worry) {
-		this.worry = worry;
+	public void setHads_worry(String hads_worry) {
+		this.hads_worry = hads_worry;
 	}
 
-	public String getCheerful() {
-		return cheerful;
+	public String getHads_cheerful() {
+		return hads_cheerful;
 	}
 
-	public void setCheerful(String cheerful) {
-		this.cheerful = cheerful;
+	public void setHads_cheerful(String hads_cheerful) {
+		this.hads_cheerful = hads_cheerful;
 	}
 
-	public String getRelaxed() {
-		return relaxed;
+	public String getHads_relaxed() {
+		return hads_relaxed;
 	}
 
-	public void setRelaxed(String relaxed) {
-		this.relaxed = relaxed;
+	public void setHads_relaxed(String hads_relaxed) {
+		this.hads_relaxed = hads_relaxed;
 	}
 
-	public String getSlowed() {
-		return slowed;
+	public String getHads_slowed() {
+		return hads_slowed;
 	}
 
-	public void setSlowed(String slowed) {
-		this.slowed = slowed;
+	public void setHads_slowed(String hads_slowed) {
+		this.hads_slowed = hads_slowed;
 	}
 
-	public String getButterflies() {
-		return butterflies;
+	public String getHads_butterflies() {
+		return hads_butterflies;
 	}
 
-	public void setButterflies(String butterflies) {
-		this.butterflies = butterflies;
+	public void setHads_butterflies(String hads_butterflies) {
+		this.hads_butterflies = hads_butterflies;
 	}
 
-	public String getAppearance() {
-		return appearance;
+	public String getHads_appearance() {
+		return hads_appearance;
 	}
 
-	public void setAppearance(String appearance) {
-		this.appearance = appearance;
+	public void setHads_appearance(String hads_appearance) {
+		this.hads_appearance = hads_appearance;
 	}
 
-	public String getRestless() {
-		return restless;
+	public String getHads_restless() {
+		return hads_restless;
 	}
 
-	public void setRestless(String restless) {
-		this.restless = restless;
+	public void setHads_restless(String hads_restless) {
+		this.hads_restless = hads_restless;
 	}
 
-	public String getEnjoyment() {
-		return enjoyment;
+	public String getHads_enjoyment() {
+		return hads_enjoyment;
 	}
 
-	public void setEnjoyment(String enjoyment) {
-		this.enjoyment = enjoyment;
+	public void setHads_enjoyment(String hads_enjoyment) {
+		this.hads_enjoyment = hads_enjoyment;
 	}
 
-	public String getPasttime() {
-		return pasttime;
+	public String getHads_pasttime() {
+		return hads_pasttime;
 	}
 
-	public void setPasttime(String pasttime) {
-		this.pasttime = pasttime;
+	public void setHads_pasttime(String hads_pasttime) {
+		this.hads_pasttime = hads_pasttime;
 	}
 
-	public String getPanic() {
-		return panic;
+	public String getHads_panic() {
+		return hads_panic;
 	}
 
-	public void setPanic(String panic) {
-		this.panic = panic;
+	public void setHads_panic(String hads_panic) {
+		this.hads_panic = hads_panic;
 	}
 
-	public String getSatisfied() {
-		return satisfied;
+	public String getHads_total() {
+		return hads_total;
 	}
 
-	public void setSatisfied(String satisfied) {
-		this.satisfied = satisfied;
+	public void setHads_total(String hads_total) {
+		this.hads_total = hads_total;
 	}
 
-	public String getDropping_interests() {
-		return dropping_interests;
+	public String getGds_satisfied() {
+		return gds_satisfied;
 	}
 
-	public void setDropping_interests(String dropping_interests) {
-		this.dropping_interests = dropping_interests;
+	public void setGds_satisfied(String gds_satisfied) {
+		this.gds_satisfied = gds_satisfied;
 	}
 
-	public String getLife_empty() {
-		return life_empty;
+	public String getGds_dropping_interests() {
+		return gds_dropping_interests;
 	}
 
-	public void setLife_empty(String life_empty) {
-		this.life_empty = life_empty;
+	public void setGds_dropping_interests(String gds_dropping_interests) {
+		this.gds_dropping_interests = gds_dropping_interests;
 	}
 
-	public String getBored() {
-		return bored;
+	public String getGds_life_empty() {
+		return gds_life_empty;
 	}
 
-	public void setBored(String bored) {
-		this.bored = bored;
+	public void setGds_life_empty(String gds_life_empty) {
+		this.gds_life_empty = gds_life_empty;
 	}
 
-	public String getFuture() {
-		return future;
+	public String getGds_bored() {
+		return gds_bored;
 	}
 
-	public void setFuture(String future) {
-		this.future = future;
+	public void setGds_bored(String gds_bored) {
+		this.gds_bored = gds_bored;
 	}
 
-	public String getThoughts() {
-		return thoughts;
+	public String getGds_future() {
+		return gds_future;
 	}
 
-	public void setThoughts(String thoughts) {
-		this.thoughts = thoughts;
+	public void setGds_future(String gds_future) {
+		this.gds_future = gds_future;
 	}
 
-	public String getSpirits() {
-		return spirits;
+	public String getGds_thoughts() {
+		return gds_thoughts;
 	}
 
-	public void setSpirits(String spirits) {
-		this.spirits = spirits;
+	public void setGds_thoughts(String gds_thoughts) {
+		this.gds_thoughts = gds_thoughts;
 	}
 
-	public String getAfraid() {
-		return afraid;
+	public String getGds_spirits() {
+		return gds_spirits;
 	}
 
-	public void setAfraid(String afraid) {
-		this.afraid = afraid;
+	public void setGds_spirits(String gds_spirits) {
+		this.gds_spirits = gds_spirits;
 	}
 
-	public String getHappy() {
-		return happy;
+	public String getGds_afraid() {
+		return gds_afraid;
 	}
 
-	public void setHappy(String happy) {
-		this.happy = happy;
+	public void setGds_afraid(String gds_afraid) {
+		this.gds_afraid = gds_afraid;
 	}
 
-	public String getHelpless() {
-		return helpless;
+	public String getGds_happy() {
+		return gds_happy;
 	}
 
-	public void setHelpless(String helpless) {
-		this.helpless = helpless;
+	public void setGds_happy(String gds_happy) {
+		this.gds_happy = gds_happy;
 	}
 
-	public String getFidgety() {
-		return fidgety;
+	public String getGds_helpless() {
+		return gds_helpless;
 	}
 
-	public void setFidgety(String fidgety) {
-		this.fidgety = fidgety;
+	public void setGds_helpless(String gds_helpless) {
+		this.gds_helpless = gds_helpless;
 	}
 
-	public String getStay_home() {
-		return stay_home;
+	public String getGds_fidgety() {
+		return gds_fidgety;
 	}
 
-	public void setStay_home(String stay_home) {
-		this.stay_home = stay_home;
+	public void setGds_fidgety(String gds_fidgety) {
+		this.gds_fidgety = gds_fidgety;
 	}
 
-	public String getFuture_worry() {
-		return future_worry;
+	public String getGds_stay_home() {
+		return gds_stay_home;
 	}
 
-	public void setFuture_worry(String future_worry) {
-		this.future_worry = future_worry;
+	public void setGds_stay_home(String gds_stay_home) {
+		this.gds_stay_home = gds_stay_home;
 	}
 
-	public String getMem_problems() {
-		return mem_problems;
+	public String getGds_future_worry() {
+		return gds_future_worry;
 	}
 
-	public void setMem_problems(String mem_problems) {
-		this.mem_problems = mem_problems;
+	public void setGds_future_worry(String gds_future_worry) {
+		this.gds_future_worry = gds_future_worry;
 	}
 
-	public String getAlive() {
-		return alive;
+	public String getGds_mem_problems() {
+		return gds_mem_problems;
 	}
 
-	public void setAlive(String alive) {
-		this.alive = alive;
+	public void setGds_mem_problems(String gds_mem_problems) {
+		this.gds_mem_problems = gds_mem_problems;
 	}
 
-	public String getBlue() {
-		return blue;
+	public String getGds_alive() {
+		return gds_alive;
 	}
 
-	public void setBlue(String blue) {
-		this.blue = blue;
+	public void setGds_alive(String gds_alive) {
+		this.gds_alive = gds_alive;
 	}
 
-	public String getWorthless() {
-		return worthless;
+	public String getGds_blue() {
+		return gds_blue;
 	}
 
-	public void setWorthless(String worthless) {
-		this.worthless = worthless;
+	public void setGds_blue(String gds_blue) {
+		this.gds_blue = gds_blue;
 	}
 
-	public String getExciting() {
-		return exciting;
+	public String getGds_worthless() {
+		return gds_worthless;
 	}
 
-	public void setExciting(String exciting) {
-		this.exciting = exciting;
+	public void setGds_worthless(String gds_worthless) {
+		this.gds_worthless = gds_worthless;
 	}
 
-	public String getNew_projects() {
-		return new_projects;
+	public String getGds_exciting() {
+		return gds_exciting;
 	}
 
-	public void setNew_projects(String new_projects) {
-		this.new_projects = new_projects;
+	public void setGds_exciting(String gds_exciting) {
+		this.gds_exciting = gds_exciting;
 	}
 
-	public String getEnergy() {
-		return energy;
+	public String getGds_new_projects() {
+		return gds_new_projects;
 	}
 
-	public void setEnergy(String energy) {
-		this.energy = energy;
+	public void setGds_new_projects(String gds_new_projects) {
+		this.gds_new_projects = gds_new_projects;
 	}
 
-	public String getHopeless() {
-		return hopeless;
+	public String getGds_energy() {
+		return gds_energy;
 	}
 
-	public void setHopeless(String hopeless) {
-		this.hopeless = hopeless;
+	public void setGds_energy(String gds_energy) {
+		this.gds_energy = gds_energy;
 	}
 
-	public String getBetter_off() {
-		return better_off;
+	public String getGds_hopeless() {
+		return gds_hopeless;
 	}
 
-	public void setBetter_off(String better_off) {
-		this.better_off = better_off;
+	public void setGds_hopeless(String gds_hopeless) {
+		this.gds_hopeless = gds_hopeless;
 	}
 
-	public String getLittle_things() {
-		return little_things;
+	public String getGds_better_off() {
+		return gds_better_off;
 	}
 
-	public void setLittle_things(String little_things) {
-		this.little_things = little_things;
+	public void setGds_better_off(String gds_better_off) {
+		this.gds_better_off = gds_better_off;
 	}
 
-	public String getCrying() {
-		return crying;
+	public String getGds_little_things() {
+		return gds_little_things;
 	}
 
-	public void setCrying(String crying) {
-		this.crying = crying;
+	public void setGds_little_things(String gds_little_things) {
+		this.gds_little_things = gds_little_things;
 	}
 
-	public String getConcentrating() {
-		return concentrating;
+	public String getGds_crying() {
+		return gds_crying;
 	}
 
-	public void setConcentrating(String concentrating) {
-		this.concentrating = concentrating;
+	public void setGds_crying(String gds_crying) {
+		this.gds_crying = gds_crying;
 	}
 
-	public String getMorning() {
-		return morning;
+	public String getGds_concentrating() {
+		return gds_concentrating;
 	}
 
-	public void setMorning(String morning) {
-		this.morning = morning;
+	public void setGds_concentrating(String gds_concentrating) {
+		this.gds_concentrating = gds_concentrating;
 	}
 
-	public String getSocial_occasions() {
-		return social_occasions;
+	public String getGds_morning() {
+		return gds_morning;
 	}
 
-	public void setSocial_occasions(String social_occasions) {
-		this.social_occasions = social_occasions;
+	public void setGds_morning(String gds_morning) {
+		this.gds_morning = gds_morning;
 	}
 
-	public String getDecisions() {
-		return decisions;
+	public String getGds_social_occasions() {
+		return gds_social_occasions;
 	}
 
-	public void setDecisions(String decisions) {
-		this.decisions = decisions;
+	public void setGds_social_occasions(String gds_social_occasions) {
+		this.gds_social_occasions = gds_social_occasions;
 	}
 
-	public String getClear_mind() {
-		return clear_mind;
+	public String getGds_decisions() {
+		return gds_decisions;
 	}
 
-	public void setClear_mind(String clear_mind) {
-		this.clear_mind = clear_mind;
+	public void setGds_decisions(String gds_decisions) {
+		this.gds_decisions = gds_decisions;
 	}
 
-	public String getVisuo() {
-		return visuo;
+	public String getGds_clear_mind() {
+		return gds_clear_mind;
 	}
 
-	public void setVisuo(String visuo) {
-		this.visuo = visuo;
+	public void setGds_clear_mind(String gds_clear_mind) {
+		this.gds_clear_mind = gds_clear_mind;
 	}
 
-	public String getAttention() {
-		return attention;
+	public String getGds_total() {
+		return gds_total;
 	}
 
-	public void setAttention(String attention) {
-		this.attention = attention;
+	public void setGds_total(String gds_total) {
+		this.gds_total = gds_total;
 	}
 
-	public String getLanguage() {
-		return language;
+	public String getMoca_visuo() {
+		return moca_visuo;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setMoca_visuo(String moca_visuo) {
+		this.moca_visuo = moca_visuo;
 	}
 
-	public String getAbstraction() {
-		return abstraction;
+	public String getMoca_attention() {
+		return moca_attention;
 	}
 
-	public void setAbstraction(String abstraction) {
-		this.abstraction = abstraction;
+	public void setMoca_attention(String moca_attention) {
+		this.moca_attention = moca_attention;
 	}
 
-	public String getNaming() {
-		return naming;
+	public String getMoca_language() {
+		return moca_language;
 	}
 
-	public void setNaming(String naming) {
-		this.naming = naming;
+	public void setMoca_language(String moca_language) {
+		this.moca_language = moca_language;
 	}
 
-	public String getRecall() {
-		return recall;
+	public String getMoca_abstraction() {
+		return moca_abstraction;
 	}
 
-	public void setRecall(String recall) {
-		this.recall = recall;
+	public void setMoca_abstraction(String moca_abstraction) {
+		this.moca_abstraction = moca_abstraction;
 	}
 
-	public String getOrientation() {
-		return orientation;
+	public String getMoca_naming() {
+		return moca_naming;
 	}
 
-	public void setOrientation(String orientation) {
-		this.orientation = orientation;
+	public void setMoca_naming(String moca_naming) {
+		this.moca_naming = moca_naming;
+	}
+
+	public String getMoca_recall() {
+		return moca_recall;
+	}
+
+	public void setMoca_recall(String moca_recall) {
+		this.moca_recall = moca_recall;
+	}
+
+	public String getMoca_orientation() {
+		return moca_orientation;
+	}
+
+	public void setMoca_orientation(String moca_orientation) {
+		this.moca_orientation = moca_orientation;
 	}
 
 	public String getMoca_total() {
