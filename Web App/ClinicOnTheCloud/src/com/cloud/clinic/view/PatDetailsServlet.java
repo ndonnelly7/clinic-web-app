@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
@@ -14,11 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-
 import com.cloud.clinic.model.BeanPopulate;
-import com.cloud.clinic.model.HibernateUtil;
+import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
 import com.cloud.clinic.model.PersonalDetails;
@@ -33,7 +29,6 @@ public class PatDetailsServlet extends HttpServlet {
 		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
 		PersonalDetails details = new PersonalDetails();
 		BeanPopulate.populateBean(details, req);
-		System.out.println("Gender: " + req.getParameter("gender"));
 		details.setGender(req.getParameter("gender"));
 		String dateStr = req.getParameter("dob");
 		try {
@@ -46,19 +41,31 @@ public class PatDetailsServlet extends HttpServlet {
 		
 		PatientDAO dao = new PatientDAO();		
 		Patient pat = dao.get(thePatientID);
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		details.setTimestamp(c);
+		
 		
 		if(pat != null){
-			details.setPatient(pat);
-			pat = addOrUpdateDetails(c, pat, details);
+			Form f = dao.getLatestForm(pat);
+			if(f.isNew()){
+				pat.addForm(f);
+				if(f.getPersonalDetails() != null)
+					details.setDetailsID(f.getPersonalDetails().getDetailsID());
+			}
+			f.setPersonalDetails(details);
+			details.setForm(f);
 			dao.update(pat);	
 		} else {
 			pat = new Patient();
 			pat.setPatientID(thePatientID);
-			details.setPatient(pat);
-			pat.addPersonalDetails(details);
+			
+			Form f = new Form();
+			f.setPatient(pat);
+			Calendar c = Calendar.getInstance();
+			c.setTime(new Date());
+			f.setTimestamp(c);			
+
+			f.setPersonalDetails(details);
+			details.setForm(f);
+			pat.addForm(f);
 			dao.create(pat);
 		}
 		
@@ -72,29 +79,5 @@ public class PatDetailsServlet extends HttpServlet {
 			throws IOException, ServletException
 	{
 		doPost(req, resp);
-	}
-	
-	private Patient addOrUpdateDetails(Calendar c, Patient p, PersonalDetails pd) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		
-		String hql = "from PersonalDetails where patient= "+String.valueOf(p.getOriginalClinic())+" order by timestamp desc";
-		Query q = session.createQuery(hql);
-		
-		@SuppressWarnings("unchecked")
-		List<PersonalDetails> list = (List<PersonalDetails>) q.list();
-		
-		if(list == null || list.size() == 0)
-			p.addPersonalDetails(pd);
-		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
-				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
-				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
-			pd.setDetailsID(list.get(0).getDetailsID());
-			list.set(0, pd);
-			p.setPersonalDetails(list);
-		} else 
-			p.addPersonalDetails(pd);
-		
-		session.close();
-		return p;
 	}
 }

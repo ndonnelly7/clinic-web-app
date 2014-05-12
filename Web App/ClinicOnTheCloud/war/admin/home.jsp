@@ -8,10 +8,23 @@
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="/css/pure-min.css"/> 
+<link rel="stylesheet" href="/css/home.css"/> 
 </head>
 <body>
-<h3></h3>
+<div id="navbar">
+<h2>Welcome to Clinic on the Cloud</h2>
+</div>
 
+<div id="content">
+
+	<div id="open_message">Would you like to...</div>
+	
+	<a href="/patientform/personal_details.jsp">Add A Patient</a>
+	<a href="/admin/SeeAllPatients.jsp">View Your Stored Patients</a>
+	<a href="/admin/FindPatient.jsp">Find a Patient</a>
+	<a href="/admin/ChangeClinic.jsp">Change Clinic</a>
+	
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

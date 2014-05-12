@@ -30,6 +30,7 @@
 
 <form id="memory_form" class="pure-form pure-form-aligned" method="POST" action="memory.do">
 
+<input type="button" value="HADS Test" onclick="revealHADS(this)" class="test_button"/>
 <fieldset id="hads_form" class="hide_div">
 	<legend>Hospital Anxiety and Depression Scale</legend>
 	
@@ -236,6 +237,7 @@
 	</div>
 </fieldset>
 
+<input type="button" value="GDS Test" onclick="revealGDS(this)" class="test_button"/>
 <fieldset id="gds_form" class="hide_div">
 	<legend>Geriatric Depression Scale</legend>
 	

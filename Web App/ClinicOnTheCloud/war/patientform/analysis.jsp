@@ -96,6 +96,7 @@
 							<option value="counselling">Counselling</option>
 							<option value="leaflets">Leaflets</option>
 							<option value="gp_letter">Letter to GP</option>
+							<option value="has_diagnosis">Has Diagnosis</option>
 						</select>
 					</div>
 					<div class="pure-u-1-3 notes_colum"><textarea form="analysis_form" name="outcome_notes" rows="2" cols="32"></textarea></div>

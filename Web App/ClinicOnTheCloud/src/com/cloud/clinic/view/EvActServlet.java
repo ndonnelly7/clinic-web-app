@@ -2,9 +2,6 @@ package com.cloud.clinic.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,13 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-
 import com.cloud.clinic.model.Activity;
 import com.cloud.clinic.model.BeanPopulate;
 import com.cloud.clinic.model.EventsActivities;
-import com.cloud.clinic.model.HibernateUtil;
+import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
@@ -31,48 +25,33 @@ public class EvActServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		
+		Form f = dao.getLatestForm(pat);
 		EventsActivities ea = new EventsActivities();
 		BeanPopulate.populateBean(ea, req);
 		ea.setActivities(loadActivitiesList(req, ea));
 		ea.setCollat_activities(loadActivitiesCollatList(req, ea));
 		
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		ea.setPatient(pat);
-		ea.setTimestamp(c);
-		pat = addOrUpdateEvAct(c, pat, ea);
+		if(f.isNew()){
+			ea.setForm(f);
+			f.setEventsActivities(ea);
+			pat.addForm(f);
+		} else {
+			if(f.getEventsActivities() != null){
+				dao.runQuery("delete from Activity where Lifestyle= " + String.valueOf(ea.getEventsActivitiesID()));
+				ea.setEventsActivitiesID(f.getEventsActivities().getEventsActivitiesID());
+				ea.setForm(f);
+				f.setEventsActivities(ea);
+			} else {
+				ea.setForm(f);
+				f.setEventsActivities(ea);
+			}
+		}
 		dao.update(pat);
 		
 		req.setAttribute("id", patientID);
 		req.setAttribute("patient", new JSONObject(pat));
 		RequestDispatcher view = req.getRequestDispatcher("/patientform/living.jsp");
 		view.forward(req, resp);
-	}
-	
-	private Patient addOrUpdateEvAct(Calendar c, Patient p, EventsActivities ea) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		
-		String hql = "from EventsActivities where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
-		Query q = session.createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<EventsActivities> list = (List<EventsActivities>) q.list();
-		if(list.size() == 0)
-			p.addEventsActivities(ea);
-		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
-				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
-				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
-			ea.setEventsActivitiesID(list.get(0).getEventsActivitiesID());
-			Query r = session.createQuery("delete from activity where eventActivity= " + String.valueOf(list.get(0).getEventsActivitiesID()));
-			r.executeUpdate();
-			list.set(0, ea);
-			p.setEventsActivities(list);
-		} else {
-			p.addEventsActivities(ea);
-		}
-		
-		session.close();
-		return p;
 	}
 	
 	public ArrayList<Activity> loadActivitiesList(HttpServletRequest req, EventsActivities ea){

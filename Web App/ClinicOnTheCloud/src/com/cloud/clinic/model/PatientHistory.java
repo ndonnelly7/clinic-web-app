@@ -1,6 +1,5 @@
 package com.cloud.clinic.model;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,10 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /*
@@ -27,15 +24,12 @@ public class PatientHistory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "historyID", unique = true, nullable = false)
 	int historyID;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar timestamp;
 
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	Patient patient;
+	@OneToOne(fetch = FetchType.LAZY)
+	private Form form;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<MedHistory> med_histories, med_collat_histories;
@@ -58,20 +52,12 @@ public class PatientHistory {
 		this.historyID = historyID;
 	}
 
-	public Patient getPatient() {
-		return patient;
+	public Form getForm() {
+		return form;
 	}
 
-	public void setPatient(Patient patient) {
-		this.patient = patient;
-	}
-
-	public Calendar getTimestamp() {
-		return timestamp;
-	}
-
-	public void setTimestamp(Calendar timestamp) {
-		this.timestamp = timestamp;
+	public void setForm(Form form) {
+		this.form = form;
 	}
 
 	public List<MedHistory> getMed_histories() {

@@ -2,9 +2,6 @@ package com.cloud.clinic.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,14 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import com.cloud.clinic.model.Activity;
 import com.cloud.clinic.model.BeanPopulate;
-import com.cloud.clinic.model.EventsActivities;
-import com.cloud.clinic.model.HibernateUtil;
+import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Lifestyle;
+import com.cloud.clinic.model.LifestyleActivity;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
@@ -32,15 +25,25 @@ public class LifestyleServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		
+		Form f = dao.getLatestForm(pat);
 		Lifestyle l = new Lifestyle();
 		BeanPopulate.populateBean(l, req);
+		l.setActivities(loadActivitiesList(req, l));
 		
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		l.setPatient(pat);
-		l.setTimestamp(c);
-		pat = addOrUpdateLifestyle(c, pat, l);
+		if(f.isNew()){
+			l.setForm(f);
+			f.setLifestyle(l);
+			pat.addForm(f);
+		} else {
+			if(f.getLifestyle() != null){
+				dao.runQuery("delete from lifestyleActivity where lifestyle= " + String.valueOf(l.getLifestyleID()));
+				l.setLifestyleID(f.getLifestyle().getLifestyleID());
+			}
+			
+			l.setForm(f);
+			f.setLifestyle(l);
+		}
+		
 		dao.update(pat);
 		
 		req.setAttribute("id", patientID);
@@ -49,33 +52,8 @@ public class LifestyleServlet extends HttpServlet {
 		view.forward(req, resp);
 	}
 	
-	private Patient addOrUpdateLifestyle(Calendar c, Patient p, Lifestyle l) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		
-		String hql = "from Lifestyle where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
-		Query q = session.createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Lifestyle> list = (List<Lifestyle>) q.list();
-		if(list.size() == 0)
-			p.addLifestyle(l);
-		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
-				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
-				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
-			l.setLifestyleID(list.get(0).getLifestyleID());
-			Query r = session.createQuery("delete from lifestyleActivity where lifestyle= " + String.valueOf(list.get(0).getLifestyleID()));
-			r.executeUpdate();
-			list.set(0, l);
-			p.setLifestyle(list);
-		} else {
-			p.addLifestyle(l);
-		}
-		
-		session.close();
-		return p;
-	}
-	
-	public ArrayList<Activity> loadActivitiesList(HttpServletRequest req, EventsActivities ea){
-		ArrayList<Activity> as = new ArrayList<Activity>();
+	public ArrayList<LifestyleActivity> loadActivitiesList(HttpServletRequest req, Lifestyle l){
+		ArrayList<LifestyleActivity> as = new ArrayList<LifestyleActivity>();
 		String[] types = req.getParameterValues("exercise");
 		String[] involvements = req.getParameterValues("still_active");
 		String[] times = req.getParameterValues("exercise_time");
@@ -88,7 +66,7 @@ public class LifestyleServlet extends HttpServlet {
 			return as;
 		
 		for(int i =0; i < types.length; i++){
-			Activity a = new Activity();
+			LifestyleActivity a = new LifestyleActivity();
 			a.setType(types[i]);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
@@ -150,28 +128,28 @@ public class LifestyleServlet extends HttpServlet {
 					}
 				}
 			}
-			a.setEventActivity(ea);
+			a.setLifestyle(l);
 			as.add(a);
 		}
 		
 		return as;
 	}
 	
-	public ArrayList<Activity> loadActivitiesCollatList(HttpServletRequest req, EventsActivities ea){
-		ArrayList<Activity> as = new ArrayList<Activity>();
-		String[] types = req.getParameterValues("exercise_collat");
-		String[] involvements = req.getParameterValues("still_active_collat");
-		String[] times = req.getParameterValues("exercise_time_collat");
-		String[] currents = req.getParameterValues("current_hours_collat");
-		String[] previous = req.getParameterValues("previous_hours_collat");
-		String[] notes = req.getParameterValues("exercise_notes_collat");
+	public ArrayList<LifestyleActivity> loadActivitiesCollatList(HttpServletRequest req, Lifestyle l){
+		ArrayList<LifestyleActivity> as = new ArrayList<LifestyleActivity>();
+		String[] types = req.getParameterValues("exercise");
+		String[] involvements = req.getParameterValues("still_active");
+		String[] times = req.getParameterValues("exercise_time");
+		String[] currents = req.getParameterValues("current_hours");
+		String[] previous = req.getParameterValues("previous_hours");
+		String[] notes = req.getParameterValues("exercise_notes");
 		int current_ind = 0, previous_ind = 0, notes_ind = 0, times_ind = 0;
 		
 		if(types == null)
 			return as;
 		
 		for(int i =0; i < types.length; i++){
-			Activity a = new Activity();
+			LifestyleActivity a = new LifestyleActivity();
 			a.setType(types[i]);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
@@ -233,7 +211,7 @@ public class LifestyleServlet extends HttpServlet {
 					}
 				}
 			}
-			a.setEventActivity(ea);
+			a.setLifestyle(l);
 			as.add(a);
 		}
 		

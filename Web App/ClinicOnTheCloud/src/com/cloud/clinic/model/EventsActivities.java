@@ -1,7 +1,6 @@
 package com.cloud.clinic.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,10 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 /*
  * Class used for the representation of the Events and Activities page
@@ -31,11 +28,8 @@ public class EventsActivities implements Serializable {
 	@Column(name = "eventsActivitiesID", unique = true, nullable = false)
 	private int eventsActivitiesID;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar timestamp;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	Patient patient;
+	@OneToOne(fetch = FetchType.LAZY)
+	private Form form;
 
 	@Transient
 	protected Object[] jdoDetachedState;
@@ -146,21 +140,13 @@ public class EventsActivities implements Serializable {
 	public void setEventsActivitiesID(int eventsActivitiesID) {
 		this.eventsActivitiesID = eventsActivitiesID;
 	}
-
-	public Calendar getTimestamp() {
-		return timestamp;
+	
+	public Form getForm() {
+		return form;
 	}
 
-	public void setTimestamp(Calendar timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	public Patient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setForm(Form form) {
+		this.form = form;
 	}
 
 	public boolean isDivorce_check() {

@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -24,8 +24,8 @@ public class TestBattery {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar timestamp;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	Patient patient;
+	@OneToOne(fetch = FetchType.LAZY)
+	private Form form;
 	
 	//HADS
 	String hads_wound_up, hads_enjoy, hads_frightened, hads_funny, hads_worry, hads_cheerful, hads_relaxed;
@@ -76,12 +76,12 @@ public class TestBattery {
 		this.timestamp = timestamp;
 	}
 
-	public Patient getPatient() {
-		return patient;
+	public Form getForm() {
+		return form;
 	}
 
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setForm(Form form) {
+		this.form = form;
 	}
 
 	public String getHads_wound_up() {

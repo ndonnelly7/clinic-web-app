@@ -2,8 +2,6 @@ package com.cloud.clinic.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,13 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import com.cloud.clinic.model.BeanPopulate;
 import com.cloud.clinic.model.DrugHistory;
-import com.cloud.clinic.model.HibernateUtil;
+import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.MedHistory;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
@@ -34,10 +28,9 @@ public class HistoryServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		
+		Form f = dao.getLatestForm(pat);
 		PatientHistory pHistory = new PatientHistory();
 		BeanPopulate.populateBean(pHistory, req);
-		pHistory.setPatient(pat);
 		
 		pHistory.setMed_histories(loadMedsList(req, pHistory));
 		pHistory.setMed_collat_histories(loadMedsCollatList(req, pHistory));
@@ -48,11 +41,29 @@ public class HistoryServlet extends HttpServlet {
 		pHistory.setPsych_histories(loadPsychList(req, pHistory));
 		pHistory.setPsych_collat_histories(loadPsychCollatList(req, pHistory));
 		
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		pHistory.setTimestamp(c);
-		pHistory.setPatient(pat);
-		pat = addOrUpdateHistory(c, pat, pHistory);
+		if(f.isNew()){
+			pHistory.setForm(f);
+			f.setPatientHistory(pHistory);
+			pat.addForm(f);
+		} else {
+			if(f.getPatientHistory() != null){
+				dao.runQuery("delete from MedHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
+				dao.runQuery("delete from DrugHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
+				dao.runQuery("delete from PsychHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
+				pHistory.setHistoryID(f.getPatientHistory().getHistoryID());
+			}
+			pHistory.setForm(f);
+			f.setPatientHistory(pHistory);
+			List<Form> fList =  pat.getForms();
+			for(int i = 0; i < fList.size(); i++){
+				if(fList.get(i).getFormID() == f.getFormID())
+				{
+					fList.set(i, f);
+					break;
+				}
+			}
+			pat.setForms(fList);
+		}
 		dao.update(pat);
 
 		req.setAttribute("id", patientID);
@@ -61,39 +72,6 @@ public class HistoryServlet extends HttpServlet {
 		view.forward(req, resp);
 	}
 	
-	public Patient addOrUpdateHistory(Calendar c, Patient p, PatientHistory ph){
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		
-		String hql = "from PatientHistory where patient = "+String.valueOf(p.getPatientID())+" order by timestamp desc";
-		Query q = session.createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<PatientHistory> list = (List<PatientHistory>) q.list();
-		
-		Transaction txn = session.beginTransaction();
-		if(list.size() == 0){
-			List<PatientHistory> hList = p.getPatientHistory();
-			hList.add(ph);
-		}
-		else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
-				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
-				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
-			ph.setHistoryID(list.get(0).getHistoryID());
-			Query r = session.createQuery("delete from MedHistory where pHistory= " + String.valueOf(list.get(0).getHistoryID()));
-			r.executeUpdate();
-			Query r2 = session.createQuery("delete from MedHistory where pHistory= " + String.valueOf(list.get(0).getHistoryID()));
-			r2.executeUpdate();
-			Query r3 = session.createQuery("delete from MedHistory where pHistory= " + String.valueOf(list.get(0).getHistoryID()));
-			r3.executeUpdate();
-			list.set(0, ph);
-			p.setPatientHistory(list);
-		} else {
-			p.addHistory(ph);
-		}
-		
-		txn.commit();
-		session.close();
-		return p;
-	}
 	
 	public ArrayList<MedHistory> loadMedsList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<MedHistory> meds = new ArrayList<MedHistory>();

@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+h2 {
+	color: white;
+}
+
+#content {
+	margin-top:	12px;
+	margin-left: 3%;
+	font-weight:bold;
+	font-size: 18px;
+}
+
+#content #open_message {
+	margin-bottom: 8px;
+	
+}
+
+#content a{
+	display: block;
+	margin-bottom: 4px;
+}

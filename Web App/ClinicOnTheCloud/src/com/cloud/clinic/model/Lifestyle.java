@@ -1,6 +1,5 @@
 package com.cloud.clinic.model;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,10 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /*
@@ -27,12 +24,9 @@ public class Lifestyle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "lifestyleID", unique = true, nullable = false)
 	private int lifestyleID;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar timestamp;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	Patient patient;
+	@OneToOne(fetch = FetchType.LAZY)
+	private Form form;
 	
 	@Transient
 	protected Object[] jdoDetachedState;
@@ -179,20 +173,12 @@ public class Lifestyle {
 		this.lifestyleID = lifestyleID;
 	}
 
-	public Calendar getTimestamp() {
-		return timestamp;
+	public Form getForm() {
+		return form;
 	}
 
-	public void setTimestamp(Calendar timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	public Patient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setForm(Form form) {
+		this.form = form;
 	}
 
 	public boolean isDifficulty_sleep() {

@@ -1,16 +1,12 @@
 package com.cloud.clinic.model;
 
-import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /*
@@ -24,15 +20,12 @@ public class GP_Info {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "gpInfoID", unique = true, nullable = false)
 	int gpInfoID;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar timestamp;
 
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	Patient patient;
+	@OneToOne(fetch = FetchType.LAZY)
+	private Form form;
 	
 	boolean gp_talked;
 	String gp_results, gp_meds, gp_notes;
@@ -55,20 +48,12 @@ public class GP_Info {
 		this.gpInfoID = gpInfoID;
 	}
 
-	public Calendar getTimestamp() {
-		return timestamp;
+	public Form getForm() {
+		return form;
 	}
 
-	public void setTimestamp(Calendar timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	public Patient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setForm(Form form) {
+		this.form = form;
 	}
 
 	public String getCalc_time() {

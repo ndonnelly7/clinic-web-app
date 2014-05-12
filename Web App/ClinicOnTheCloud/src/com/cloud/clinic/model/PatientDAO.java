@@ -1,5 +1,7 @@
 package com.cloud.clinic.model;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -105,6 +107,37 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 		
 	}
 
-	
+	public Form getLatestForm(Patient p) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		String hql = "from Form where patient = " + String.valueOf(p.getPatientID()) + " order by timestamp desc";
+		Query q = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Form> list = (List<Form>) q.list();
+		if(list.size() == 0){
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;
+		} else if((list.get(0).getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+				&& (list.get(0).getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+				&& (list.get(0).getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
+			Form f = list.get(0);
+			f.setNew(false);
+			session.close();
+			return f;
+		} else {
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;
+		}
+	}
 
 }

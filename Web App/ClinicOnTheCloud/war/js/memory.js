@@ -122,6 +122,30 @@ function addFormIfNeeded(){
 	});
 }
 
+function revealGDS(elem){
+	if($("#gds_form").is(":visible")){
+		$("#gds_form").hide(500);
+		elem.value = "GDS Test";
+		want_moca = false;
+	} else {
+		$("#gds_form").show(500);
+		elem.value = "Remove GDS Test";
+		want_moca = true;
+	}
+}
+
+function revealHADS(elem){
+	if($("#hads_form").is(":visible")){
+		$("#hads_form").hide(500);
+		elem.value = "HADS Test";
+		want_moca = false;
+	} else {
+		$("#hads_form").show(500);
+		elem.value = "Remove HADS Test";
+		want_moca = true;
+	}
+}
+
 function revealMMSE(elem){
 	if($("#mmse").is(":visible")){
 		$("#mmse").hide(500);
@@ -129,7 +153,7 @@ function revealMMSE(elem){
 		want_moca = false;
 	} else {
 		$("#mmse").show(500);
-		elem.value = "Hide MMSE Test";
+		elem.value = "Remove MMSE Test";
 		want_moca = true;
 	}
 };
@@ -141,7 +165,7 @@ function revealMOCA(elem){
 		want_mmse = false;
 	} else {
 		$("#moca").show(500);
-		elem.value = "Hide MOCA Test";
+		elem.value = "Remove MOCA Test";
 		want_mmse = true;
 	}
 };

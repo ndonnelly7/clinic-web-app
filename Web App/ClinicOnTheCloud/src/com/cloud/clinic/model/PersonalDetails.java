@@ -1,6 +1,5 @@
 package com.cloud.clinic.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -26,24 +25,21 @@ public class PersonalDetails {
 	@Column(name = "detailsID", unique = true, nullable = false)
 	int detailsID;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar timestamp;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	Patient patient;
+	@OneToOne(fetch = FetchType.LAZY)
+	Form form;
 	
 	@Transient
 	protected Object[] jdoDetachedState;
 	
 	private String gender, study_topic, occupation, county;
-	private String gp_county;
-	private boolean family_present_check;
+	private String gp_county, who_present;
+	private boolean family_present;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 	private int age, age_left;
 	
-	private boolean junior_check, senior_check, third_check, pIsFamilyPresent;
+	private boolean junior_check, senior_check, third_check;
 	
 	public PersonalDetails(){
 		
@@ -57,20 +53,12 @@ public class PersonalDetails {
 		this.detailsID = detailsID;
 	}
 
-	public Calendar getTimestamp() {
-		return timestamp;
+	public Form getForm() {
+		return form;
 	}
 
-	public void setTimestamp(Calendar timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	public Patient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setForm(Form form) {
+		this.form = form;
 	}
 
 	public String getGender() {
@@ -121,12 +109,12 @@ public class PersonalDetails {
 		this.gp_county = gp_county;
 	}
 
-	public boolean getFamily_present_check() {
-		return family_present_check;
+	public boolean getFamily_present() {
+		return family_present;
 	}
 
-	public void setFamily_present_check(boolean family_present_check) {
-		this.family_present_check = family_present_check;
+	public void setFamily_present(boolean family_present) {
+		this.family_present = family_present;
 	}
 
 	public Date getDob() {
@@ -169,12 +157,12 @@ public class PersonalDetails {
 		this.third_check = third_check;
 	}
 
-	public boolean ispIsFamilyPresent() {
-		return pIsFamilyPresent;
+	public String getWho_present() {
+		return who_present;
 	}
 
-	public void setpIsFamilyPresent(boolean pIsFamilyPresent) {
-		this.pIsFamilyPresent = pIsFamilyPresent;
+	public void setWho_present(String who_present) {
+		this.who_present = who_present;
 	}
 
 }

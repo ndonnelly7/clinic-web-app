@@ -30,5 +30,6 @@
 	<mapping class="com.cloud.clinic.model.LifestyleActivity"/>
 	<mapping class="com.cloud.clinic.model.GP_Info"/>
 	<mapping class="com.cloud.clinic.model.Outcome"/>
+	<mapping class="com.cloud.clinic.model.Form"/>
 </session-factory>
 </hibernate-configuration>

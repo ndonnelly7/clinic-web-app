@@ -129,7 +129,7 @@
 		<input type="checkbox" name="senior_check" id="senior_check"><br>
 		</div>
 		<div id="leaving_done" class="pure-control-group">
-		<label for="third_check">Third Level</label>
+		<label for="third_check">Third Level (Equivalent)</label>
 		<input type="checkbox" name="third_check" id="third_check" onclick="showHiddenDiv(this,'third_done')"><br>
 		</div>
 		<div id="third_done" class="hide_div pure-control-group">
@@ -196,7 +196,7 @@
 		<legend>Others present</legend>
 		<div class="pure-control-group">
 			<label for="family_present_check">Are any family or friends present?</label>
-			<input type="checkbox" name="family_present_check" id="collat_check" value="ff_present" onclick="collatChecked(this, 'family_pres_div')">
+			<input type="checkbox" name="family_present" id="collat_check" onclick="collatChecked(this, 'family_pres_div')">
 		</div>
 		<div class="pure-control-group hide_div" id="family_pres_div">
 			<label for="who_present">Relation</label>
