@@ -7,3 +7,39 @@
 .collat_div {
 	margin-top: 36px;
 }
+
+.concerns_column {
+	margin: 10px 0.5% 10px 0.5%;
+	max-width:100px;
+}
+
+.concerns_column .severity {
+	margin-left: -12%;
+	margin-right: 5%;
+}
+
+.concerns_column .severity_title {
+	margin-left: 15%;
+	margin-right: 5%;
+}
+
+.concerns_column .worse {
+	margin-left: 24%;
+}
+
+.worse_title {
+	max-width: 140px;
+}
+
+form .concerns_check {
+	width: 1%;
+	margin: 24px 1% 0px 0%;
+}
+
+.concern_notes {
+	margin-left: 6.5%;
+}
+
+#header_row h4 {
+	margin-bottom: 12px;
+}

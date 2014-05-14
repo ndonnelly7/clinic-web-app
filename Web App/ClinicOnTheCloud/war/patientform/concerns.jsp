@@ -38,25 +38,31 @@
 				<div class="pure-u-1-5 title">
 					<h3>Concern</h3>
 				</div>
-				<div class="pure-u-1-5" style="max-width:3%;margin: 0px 1% 0px 1%">
+				<div class="pure-u-1-5 concerns_check">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 				<h4>Time Since Began</h4>
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 				<h3>Frequency</h3>
 				</div>
-				<div class="pure-u-1-5 notes_column" style="max-width:160px;text-align:center">
+				<div class="pure-u-1-5 concerns_column">
+				<h3 class="severity_title">Severity</h3>
+				</div>
+				<div class="pure-u-1-5 concerns_column worse_title">
+				<h4 class="worse">Has it been Worsening?</h4>
+				</div>
+				<div class="pure-u-1-5 concern_notes" style="max-width:90px;text-align:center">
 				<h3>Notes</h3>
 				</div>
 			</div>
 		
 			<div id="events" class="concern">
 				<div class="pure-u-1-5 title">Recent Events</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="rec_events_check" onclick="showConcernRow(this, '#events')" id="rec_events">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="rec_events_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -67,7 +73,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="rec_events_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -76,17 +82,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="rec_events_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="rec_events_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="rec_event_notes" form="concerns_form" rows="2" cols="24"></textarea>
 				</div>
 			</div>
 			
 			<div id="faces" class="concern">
 				<div class="pure-u-1-5 title">Faces</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="faces_check" onclick="showConcernRow(this,'#faces')" id="faces">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="faces_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -97,7 +125,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="faces_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -106,17 +134,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="faces_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="faces_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="faces_notes" form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="names" class="concern">
 				<div class="pure-u-1-5 title">Names</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="names_check" onclick="showConcernRow(this,'#names')" id="names">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="names_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -127,7 +177,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="names_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -136,17 +186,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="names_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="names_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="names_notes"form="concerns_form"  rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="losing_things" class="concern">
 				<div class="pure-u-1-5 title">Losing Things</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="losing_things_check" onclick="showConcernRow(this,'#losing_things')" id="losing_things">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="losing_things_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -157,7 +229,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="losing_things_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -166,17 +238,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="losing_things_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="losing_things_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="losing_things_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="follow_conv" class="concern">
 				<div class="pure-u-1-5 title">Trouble Following Conversations</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="follow_conv_check" onclick="showConcernRow(this,'#follow_conv')" id="follow_conv">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="follow_conv_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -187,7 +281,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="follow_conv_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -196,17 +290,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="follow_conv_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="follow_conv_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="follow_conv_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="right_words" class="concern">
 				<div class="pure-u-1-5 title">Trouble Finding the Right Words</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="right_words_check" onclick="showConcernRow(this,'#right_words')" id="right_words">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="right_words_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -217,7 +333,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="right_words_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -226,17 +342,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="right_words_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="right_words_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="right_words_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="decisions" class="concern">
 				<div class="pure-u-1-5 title">Difficulty Making Decisions</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="decisions_check" onclick="showConcernRow(this,'#decisions')" id="decisions">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="decisions_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -247,7 +385,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="decisions_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -256,17 +394,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="decisions_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="decisions_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="decisions_notes" form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="calculatons" class="concern">
 				<div class="pure-u-1-5 title">Calculations</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="calculatons_check" onclick="showConcernRow(this,'#calculatons')" id="calculations">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="calculations_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -277,7 +437,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="calculations_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -286,17 +446,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="calculations_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="calculations_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="calculatons_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="prospective" class="concern">
 				<div class="pure-u-1-5 title">Prospective Memory</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="prospective_check" onclick="showConcernRow(this,'#prospective')" id="prospective">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="prospective_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -307,7 +489,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="prospective_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -316,17 +498,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="prospective_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="prospective_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="prospective_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="anxiety" class="concern">
 				<div class="pure-u-1-5 title">Anxious or Depressed about Forgetfulness</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="anxiety_check" onclick="showConcernRow(this,'#anxiety')" id="anxiety">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="anxiety_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -337,7 +541,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="anxiety_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -346,17 +550,39 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="anxiety_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="anxiety_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="anxiety_notes"form="concerns_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
 			<div id="comments" class="concern">
 				<div class="pure-u-1-5 title">Have others commented on your Memory</div>
-				<div class="pure-u-1-5 check">
+				<div class="pure-u-1-5 concerns_check">
 				<input type="checkbox" name="comments_check" onclick="showConcernRow(this,'#comments')" id="comments">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="comments_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -367,7 +593,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 concerns_column" >
 					<select name="comments_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -376,7 +602,29 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
-				<div class="pure-u-1-5 notes_column">
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="comments_severity" class="severity" disabled>
+						<option value="one">1 - Not Bad at all</option>
+						<option value="two">2</option>
+						<option value="three">3</option>
+						<option value="four">4</option>
+						<option value="five">5</option>
+						<option value="six">6</option>
+						<option value="seven">7</option>
+						<option value="eight">8</option>
+						<option value="nine">9</option>
+						<option value="ten">10 - Very Bad</option>
+						<option value="little_worse">Little worse
+					</select>
+				</div>
+				<div class="pure-u-1-5 concerns_column" >
+					<select name="comments_worsening" class="worse" disabled>
+						<option value="same">Stayed the same</option>
+						<option value="little_worse">Little worse</option>
+						<option value="Much worse">Much worse</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 concern_notes">
 				<textarea name="comments_notes"form="concerns_form"  rows="2" cols="24"></textarea> 
 				</div>
 			</div>
@@ -391,23 +639,23 @@
 					</div>
 					<div class="pure-u-1-5" style="max-width:3%;margin: 0px 1% 0px 1%">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 					<h4>Time Since Began</h4>
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 					<h3>Frequency</h3>
 					</div>
-					<div class="pure-u-1-5 notes_column" style="max-width:160px;text-align:center">
+					<div class="pure-u-1-5 concern_notes" style="max-width:90px;text-align:center">
 					<h3>Notes</h3>
 					</div>
 				</div>
 			
 				<div id="events_collat" class="concern">
 					<div class="pure-u-1-5 title" id="rec_events">Recent Events</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="rec_events_check_collat" onclick="showConcernRow(this, '#events_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="rec_events_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -418,7 +666,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="rec_events_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -427,17 +675,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="rec_events_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="rec_events_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="rec_event_notes_collat"form="concerns_form" rows="2" cols="24"></textarea>
 					</div>
 				</div>
 				
 				<div id="faces_collat" class="concern">
 					<div class="pure-u-1-5 title" id="faces">Faces</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="faces_check_collat" onclick="showConcernRow(this,'#faces_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="faces_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -448,7 +718,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="faces_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -457,17 +727,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="faces_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="faces_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="faces_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="names_collat" class="concern">
 					<div class="pure-u-1-5 title" id="names">Names</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="names_check_collat" onclick="showConcernRow(this,'#names_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="names_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -478,7 +770,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="names_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -487,17 +779,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="names_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="names_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="names_notes_collat"form="concerns_form"  rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="losing_things_collat" class="concern">
 					<div class="pure-u-1-5 title" id="losing_things">Losing Things</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="losing_things_check_collat" onclick="showConcernRow(this,'#losing_things_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="losing_things_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -508,7 +822,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="losing_things_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -517,17 +831,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="losing_things_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="losing_things_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="losing_things_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="follow_conv_collat" class="concern">
 					<div class="pure-u-1-5 title" id="conversations">Trouble Following Conversations</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="follow_conv_check_collat" onclick="showConcernRow(this,'#follow_conv_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="follow_conv_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -538,7 +874,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="follow_conv_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -547,17 +883,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="follow_conv_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="follow_conv_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="follow_conv_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="right_words_collat" class="concern">
 					<div class="pure-u-1-5 title" id="right_words">Trouble Finding the Right Words</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="right_words_check_collat" onclick="showConcernRow(this,'#right_words_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="right_words_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -568,7 +926,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="right_words_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -577,17 +935,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="right_words_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="right_words_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="right_words_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="decisions_collat" class="concern">
 					<div class="pure-u-1-5 title" id="decisions">Difficulty Making Decisions</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="decisions_check_collat" onclick="showConcernRow(this,'#decisions_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="decisions_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -598,7 +978,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="decisions_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -607,17 +987,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="decisions_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="decisions_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="decisions_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="calculatons_collat" class="concern">
 					<div class="pure-u-1-5 title" id="calculations">Calculations</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="calculatons_check_collat" onclick="showConcernRow(this,'#calculatons_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="calculations_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -628,7 +1030,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="calculations_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -637,17 +1039,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="calculations_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="calculations_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="calculatons_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="prospective_collat" class="concern">
 					<div class="pure-u-1-5 title" id="prospective">Prospective Memory</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="prospective_check_collat" onclick="showConcernRow(this,'#prospective_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="prospective_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -658,7 +1082,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="prospective_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -667,17 +1091,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="prospective_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="prospective_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="prospective_notes_collat"form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="anxiety_collat" class="concern">
 					<div class="pure-u-1-5 title" id="forgetfulness">Anxious or Depressed about Forgetfulness</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="anxiety_check_collat" onclick="showConcernRow(this,'#anxiety_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="anxiety_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -688,7 +1134,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="anxiety_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -697,17 +1143,39 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="anxiety_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="anxiety_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="anxiety_notes_collat" form="concerns_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
 				<div id="comments_collat" class="concern">
 					<div class="pure-u-1-5 title" id="comments">Have others commented on your Memory</div>
-					<div class="pure-u-1-5 check">
+					<div class="pure-u-1-5 concerns_check">
 					<input type="checkbox" name="comments_check_collat" onclick="showConcernRow(this,'#comments_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="comments_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -718,7 +1186,7 @@
 							</select>
 						</div>	
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 concerns_column" >
 						<select name="comments_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -727,7 +1195,29 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
-					<div class="pure-u-1-5 notes_column">
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="comments_severity_collat" class="severity" disabled>
+							<option value="one">1 - Not Bad at all</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10 - Very Bad</option>
+							<option value="little_worse">Little worse
+						</select>
+					</div>
+					<div class="pure-u-1-5 concerns_column" >
+						<select name="comments_worsening_collat" class="worse" disabled>
+							<option value="same">Stayed the same</option>
+							<option value="little_worse">Little worse</option>
+							<option value="Much worse">Much worse</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 concern_notes">
 					<textarea name="comments_notes_collat" form="concerns_form"  rows="2" cols="24"></textarea> 
 					</div>
 				</div>
@@ -804,9 +1294,11 @@
 		for(var i = 0; i < $("#concerns_grid .concern").length; i++){
 			var c = {};
 			c['concern']=$("#concerns_grid .concern:eq("+i+")").attr("id");
-			c['checked']= $("#concerns_grid div.pure-u-1-5.check input").get(i).checked;
-			c['time']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
-			c['frequency']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
+			c['checked']= $("#concerns_grid div.pure-u-1-5.concerns_check input").get(i).checked;
+			c['time']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+0+") select").val();
+			c['frequency']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+1+") select").val();
+			c['severity']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+2+") select").val();
+			c['worsening']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+3+") select").val();
 			
 			concernArr[i] = c;
 		}
@@ -817,9 +1309,11 @@
 			for(var i = 0; i < $("#collat_concerns_grid .concern").length; i++){
 				var c = {};
 				c['concern']=$("#collat_concerns_grid .concern:eq("+i+")").attr("id");
-				c['checked']= $("#collat_concerns_grid div.pure-u-1-5.check input").get(i-1).checked;
-				c['time']=$("#collat_concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
-				c['frequency']=$("#collat_concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
+				c['checked']= $("#collat_concerns_grid div.pure-u-1-5.concerns_check input").get(i-1).checked;
+				c['time']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+0+") select").val();
+				c['frequency']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+1+") select").val();
+				c['severity']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+2+") select").val();
+				c['worsening']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+3+") select").val();
 				
 				collatArr[i] = c;
 			}
@@ -845,9 +1339,11 @@
 		for(var i = 0; i < $("#concerns_grid .concern").length; i++){
 			var c = {};
 			c['concern']=$("#concerns_grid .concern:eq("+i+")").attr("id");
-			c['checked']= $("#concerns_grid div.pure-u-1-5.check input").get(i).checked;
-			c['time']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
-			c['frequency']=$("#concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
+			c['checked']= $("#concerns_grid div.pure-u-1-5.concerns_check input").get(i).checked;
+			c['time']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+0+") select").val();
+			c['frequency']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+1+") select").val();
+			c['severity']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+2+") select").val();
+			c['worsening']=$("#concerns_grid .concern:eq("+i+") .concerns_column:eq("+3+") select").val();
 			
 			concernArr[i] = c;
 		}
@@ -858,9 +1354,11 @@
 			for(var i = 0; i < $("#collat_concerns_grid .concern").length; i++){
 				var c = {};
 				c['concern']=$("#collat_concerns_grid .concern:eq("+i+")").attr("id");
-				c['checked']= $("#collat_concerns_grid div.pure-u-1-5.check input").get(i-1).checked;
-				c['time']=$("#collat_concerns_grid .concern:eq("+i+") .select_box:eq("+0+") select").val();
-				c['frequency']=$("#collat_concerns_grid .concern:eq("+i+") .select_box:eq("+1+") select").val();
+				c['checked']= $("#collat_concerns_grid div.pure-u-1-5.concerns_check input").get(i-1).checked;
+				c['time']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+0+") select").val();
+				c['frequency']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+1+") select").val();
+				c['severity']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+2+") select").val();
+				c['worsening']=$("#collat_concerns_grid .concern:eq("+i+") .concerns_column:eq("+3+") select").val();
 				
 				collatArr[i] = c;
 			}

@@ -1464,6 +1464,15 @@
 			</div>
 			
 			<div id="does_shop" class="hide_div">
+				<div class="subtitle_q">Have you been finding it tougher to cook recently?</div>
+				<div class="bills_select">
+					<select name="shopping_tougher" id="shop_tough_select">
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
+				<div class="note_area"><textarea form="living_form" name="shop_tough_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+				
 				<div class="routine_q">Do you use any of the following coping Strategies?</div>
 				<div class="living_grid">
 					<div id="shopping_c_headers" class="pure-g-r">
@@ -1550,6 +1559,15 @@
 				</div>
 				
 				<div id="does_shop_collat" class="hide_div">
+					<div class="subtitle_q">Have they been finding it tougher to cook recently?</div>
+					<div class="bills_select">
+						<select name="shopping_tougher_collat" id="shop_tough_select">
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+					<div class="note_area"><textarea form="living_form" name="shop_tough_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+					
 					<div class="routine_q">Do they use any of the following coping Strategies?</div>
 					<div class="living_grid">
 						<div id="shopping_c_headers" class="pure-g-r">

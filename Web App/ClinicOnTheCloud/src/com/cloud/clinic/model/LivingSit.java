@@ -191,6 +191,7 @@ public class LivingSit {
 	String shop_help, shop_help_time;
 	String shop_help_collat, shop_help_time_collat;
 	boolean list_check, small_shop_check, list_check_collat, small_shop_check_collat;
+	String shopping_tougher, shopping_tougher_collat;
 	String list_success, small_shop_success;
 	String list_success_collat, small_shop_success_collat;
 	@Column(columnDefinition="TEXT")
@@ -209,6 +210,10 @@ public class LivingSit {
 	String list_notes_collat;
 	@Column(columnDefinition="TEXT")
 	String small_shop_notes_collat;
+	@Column(columnDefinition="TEXT")
+	String shop_tough_notes;
+	@Column(columnDefinition="TEXT")
+	String shop_tough_notes_collat;
 	
 	//Bills
 	String bills_method, bills_help, bill_problems;
@@ -1896,6 +1901,38 @@ public class LivingSit {
 
 	public void setBill_problems_notes_collat(String bill_problems_notes_collat) {
 		this.bill_problems_notes_collat = bill_problems_notes_collat;
+	}
+
+	public String getShopping_tougher() {
+		return shopping_tougher;
+	}
+
+	public void setShopping_tougher(String shopping_tougher) {
+		this.shopping_tougher = shopping_tougher;
+	}
+
+	public String getShopping_tougher_collat() {
+		return shopping_tougher_collat;
+	}
+
+	public void setShopping_tougher_collat(String shopping_tougher_collat) {
+		this.shopping_tougher_collat = shopping_tougher_collat;
+	}
+
+	public String getShop_tough_notes() {
+		return shop_tough_notes;
+	}
+
+	public void setShop_tough_notes(String shop_tough_notes) {
+		this.shop_tough_notes = shop_tough_notes;
+	}
+
+	public String getShop_tough_notes_collat() {
+		return shop_tough_notes_collat;
+	}
+
+	public void setShop_tough_notes_collat(String shop_tough_notes_collat) {
+		this.shop_tough_notes_collat = shop_tough_notes_collat;
 	}
 	
 }

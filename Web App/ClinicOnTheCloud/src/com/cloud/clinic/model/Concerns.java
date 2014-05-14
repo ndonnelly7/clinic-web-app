@@ -29,94 +29,94 @@ public class Concerns {
 	boolean rec_events_check, faces_check, names_check, losing_things_check, follow_conv_check;
 	boolean right_words_check, decisions_check, calculations_check, prospective_check, anxiety_check, comments_check;
 	
-	String rec_events_time, rec_events_freq;
+	String rec_events_time, rec_events_freq, rec_events_severity, rec_events_worsening;
 	@Column(columnDefinition="TEXT")
 	String rec_events_notes;
 	
-	String faces_time, faces_freq;
+	String faces_time, faces_freq, faces_severity, faces_worsening;
 	@Column(columnDefinition="TEXT")
 	String faces_notes;
 	
-	String names_time, names_freq;
+	String names_time, names_freq, names_severity, names_worsening;
 	@Column(columnDefinition="TEXT")
 	String names_notes;
 	
-	String losing_things_time, losing_things_freq;
+	String losing_things_time, losing_things_freq, losing_things_severity, losing_things_worsening;
 	@Column(columnDefinition="TEXT")
 	String losing_things_notes;
 	
-	String follow_conv_time, follow_conv_freq;
+	String follow_conv_time, follow_conv_freq, follow_conv_severity, follow_conv_worsening;
 	@Column(columnDefinition="TEXT")
 	String follow_conv_notes;
 	
-	String right_words_time, right_words_freq;
+	String right_words_time, right_words_freq, right_words_severity, right_words_worsening;
 	@Column(columnDefinition="TEXT")
 	String right_words_notes;
 	
-	String decisions_time, decisions_freq;
+	String decisions_time, decisions_freq, decisions_severity, decisions_worsening;
 	@Column(columnDefinition="TEXT")
 	String decisions_notes;
 	
-	String calculations_time, calculations_freq;
+	String calculations_time, calculations_freq, calculations_severity, calculations_worsening;
 	@Column(columnDefinition="TEXT")
 	String calculations_notes;
 	
-	String prospective_time, prospective_freq;
+	String prospective_time, prospective_freq, prospective_severity, prospective_worsening;
 	@Column(columnDefinition="TEXT")
 	String prospective_notes;
 	
-	String anxiety_time, anxiety_freq;
+	String anxiety_time, anxiety_freq, anxiety_severity, anxiety_worsening;
 	@Column(columnDefinition="TEXT")
 	String anxiety_notes;
 	
-	String comments_time, comments_freq;
+	String comments_time, comments_freq, comments_severity, comments_worsening;
 	@Column(columnDefinition="TEXT")
 	String comments_notes;
 	
 	boolean rec_events_check_collat, faces_check_collat, names_check_collat, losing_things_check_collat, follow_conv_check_collat;
 	boolean right_words_check_collat, decisions_check_collat, calculations_check_collat, prospective_check_collat, anxiety_check_collat, comments_check_collat;
 	
-	String rec_events_time_collat, rec_events_freq_collat;
+	String rec_events_time_collat, rec_events_freq_collat, rec_events_severity_collat, rec_events_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String rec_events_notes_collat;
 	
-	String faces_time_collat, faces_freq_collat;
+	String faces_time_collat, faces_freq_collat, faces_severity_collat, faces_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String faces_notes_collat;
 	
-	String names_time_collat, names_freq_collat;
+	String names_time_collat, names_freq_collat, names_severity_collat, names_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String names_notes_collat;
 	
-	String losing_things_time_collat, losing_things_freq_collat;
+	String losing_things_time_collat, losing_things_freq_collat, losing_things_severity_collat, losing_things_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String losing_things_notes_collat;
 	
-	String follow_conv_time_collat, follow_conv_freq_collat;
+	String follow_conv_time_collat, follow_conv_freq_collat, follow_conv_severity_collat, follow_conv_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String follow_conv_notes_collat;
 	
-	String right_words_time_collat, right_words_freq_collat;
+	String right_words_time_collat, right_words_freq_collat, right_words_severity_collat, right_words_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String right_words_notes_collat;
 	
-	String decisions_time_collat, decisions_freq_collat;
+	String decisions_time_collat, decisions_freq_collat, decisions_severity_collat, decisions_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String decisions_notes_collat;
 	
-	String calculations_time_collat, calculations_freq_collat;
+	String calculations_time_collat, calculations_freq_collat, calculations_severity_collat, calculations_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String calculations_notes_collat;
 	
-	String prospective_time_collat, prospective_freq_collat;
+	String prospective_time_collat, prospective_freq_collat, prospective_severity_collat, prospective_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String prospective_notes_collat;
 	
-	String anxiety_time_collat, anxiety_freq_collat;
+	String anxiety_time_collat, anxiety_freq_collat, anxiety_severity_collat, anxiety_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String anxiety_notes_collat;
 	
-	String comments_time_collat, comments_freq_collat;
+	String comments_time_collat, comments_freq_collat, comments_severity_collat, comments_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String comments_notes_collat;
 	
@@ -142,6 +142,361 @@ public class Concerns {
 
 	public boolean isRec_events_check() {
 		return rec_events_check;
+	}
+
+	public String getRec_events_severity() {
+		return rec_events_severity;
+	}
+
+	public void setRec_events_severity(String rec_events_severity) {
+		this.rec_events_severity = rec_events_severity;
+	}
+
+	public String getRec_events_worsening() {
+		return rec_events_worsening;
+	}
+
+	public void setRec_events_worsening(String rec_events_worsening) {
+		this.rec_events_worsening = rec_events_worsening;
+	}
+
+	public String getFaces_severity() {
+		return faces_severity;
+	}
+
+	public void setFaces_severity(String faces_severity) {
+		this.faces_severity = faces_severity;
+	}
+
+	public String getFaces_worsening() {
+		return faces_worsening;
+	}
+
+	public void setFaces_worsening(String faces_worsening) {
+		this.faces_worsening = faces_worsening;
+	}
+
+	public String getNames_severity() {
+		return names_severity;
+	}
+
+	public void setNames_severity(String names_severity) {
+		this.names_severity = names_severity;
+	}
+
+	public String getNames_worsening() {
+		return names_worsening;
+	}
+
+	public void setNames_worsening(String names_worsening) {
+		this.names_worsening = names_worsening;
+	}
+
+	public String getLosing_things_severity() {
+		return losing_things_severity;
+	}
+
+	public void setLosing_things_severity(String losing_things_severity) {
+		this.losing_things_severity = losing_things_severity;
+	}
+
+	public String getLosing_things_worsening() {
+		return losing_things_worsening;
+	}
+
+	public void setLosing_things_worsening(String losing_things_worsening) {
+		this.losing_things_worsening = losing_things_worsening;
+	}
+
+	public String getFollow_conv_severity() {
+		return follow_conv_severity;
+	}
+
+	public void setFollow_conv_severity(String follow_conv_severity) {
+		this.follow_conv_severity = follow_conv_severity;
+	}
+
+	public String getFollow_conv_worsening() {
+		return follow_conv_worsening;
+	}
+
+	public void setFollow_conv_worsening(String follow_conv_worsening) {
+		this.follow_conv_worsening = follow_conv_worsening;
+	}
+
+	public String getRight_words_severity() {
+		return right_words_severity;
+	}
+
+	public void setRight_words_severity(String right_words_severity) {
+		this.right_words_severity = right_words_severity;
+	}
+
+	public String getRight_words_worsening() {
+		return right_words_worsening;
+	}
+
+	public void setRight_words_worsening(String right_words_worsening) {
+		this.right_words_worsening = right_words_worsening;
+	}
+
+	public String getDecisions_severity() {
+		return decisions_severity;
+	}
+
+	public void setDecisions_severity(String decisions_severity) {
+		this.decisions_severity = decisions_severity;
+	}
+
+	public String getDecisions_worsening() {
+		return decisions_worsening;
+	}
+
+	public void setDecisions_worsening(String decisions_worsening) {
+		this.decisions_worsening = decisions_worsening;
+	}
+
+	public String getCalculations_severity() {
+		return calculations_severity;
+	}
+
+	public void setCalculations_severity(String calculations_severity) {
+		this.calculations_severity = calculations_severity;
+	}
+
+	public String getCalculations_worsening() {
+		return calculations_worsening;
+	}
+
+	public void setCalculations_worsening(String calculations_worsening) {
+		this.calculations_worsening = calculations_worsening;
+	}
+
+	public String getProspective_severity() {
+		return prospective_severity;
+	}
+
+	public void setProspective_severity(String prospective_severity) {
+		this.prospective_severity = prospective_severity;
+	}
+
+	public String getProspective_worsening() {
+		return prospective_worsening;
+	}
+
+	public void setProspective_worsening(String prospective_worsening) {
+		this.prospective_worsening = prospective_worsening;
+	}
+
+	public String getAnxiety_severity() {
+		return anxiety_severity;
+	}
+
+	public void setAnxiety_severity(String anxiety_severity) {
+		this.anxiety_severity = anxiety_severity;
+	}
+
+	public String getAnxiety_worsening() {
+		return anxiety_worsening;
+	}
+
+	public void setAnxiety_worsening(String anxiety_worsening) {
+		this.anxiety_worsening = anxiety_worsening;
+	}
+
+	public String getComments_severity() {
+		return comments_severity;
+	}
+
+	public void setComments_severity(String comments_severity) {
+		this.comments_severity = comments_severity;
+	}
+
+	public String getComments_worsening() {
+		return comments_worsening;
+	}
+
+	public void setComments_worsening(String comments_worsening) {
+		this.comments_worsening = comments_worsening;
+	}
+
+	public String getRec_events_severity_collat() {
+		return rec_events_severity_collat;
+	}
+
+	public void setRec_events_severity_collat(String rec_events_severity_collat) {
+		this.rec_events_severity_collat = rec_events_severity_collat;
+	}
+
+	public String getRec_events_worsening_collat() {
+		return rec_events_worsening_collat;
+	}
+
+	public void setRec_events_worsening_collat(String rec_events_worsening_collat) {
+		this.rec_events_worsening_collat = rec_events_worsening_collat;
+	}
+
+	public String getFaces_severity_collat() {
+		return faces_severity_collat;
+	}
+
+	public void setFaces_severity_collat(String faces_severity_collat) {
+		this.faces_severity_collat = faces_severity_collat;
+	}
+
+	public String getFaces_worsening_collat() {
+		return faces_worsening_collat;
+	}
+
+	public void setFaces_worsening_collat(String faces_worsening_collat) {
+		this.faces_worsening_collat = faces_worsening_collat;
+	}
+
+	public String getNames_severity_collat() {
+		return names_severity_collat;
+	}
+
+	public void setNames_severity_collat(String names_severity_collat) {
+		this.names_severity_collat = names_severity_collat;
+	}
+
+	public String getNames_worsening_collat() {
+		return names_worsening_collat;
+	}
+
+	public void setNames_worsening_collat(String names_worsening_collat) {
+		this.names_worsening_collat = names_worsening_collat;
+	}
+
+	public String getLosing_things_severity_collat() {
+		return losing_things_severity_collat;
+	}
+
+	public void setLosing_things_severity_collat(
+			String losing_things_severity_collat) {
+		this.losing_things_severity_collat = losing_things_severity_collat;
+	}
+
+	public String getLosing_things_worsening_collat() {
+		return losing_things_worsening_collat;
+	}
+
+	public void setLosing_things_worsening_collat(
+			String losing_things_worsening_collat) {
+		this.losing_things_worsening_collat = losing_things_worsening_collat;
+	}
+
+	public String getFollow_conv_severity_collat() {
+		return follow_conv_severity_collat;
+	}
+
+	public void setFollow_conv_severity_collat(String follow_conv_severity_collat) {
+		this.follow_conv_severity_collat = follow_conv_severity_collat;
+	}
+
+	public String getFollow_conv_worsening_collat() {
+		return follow_conv_worsening_collat;
+	}
+
+	public void setFollow_conv_worsening_collat(String follow_conv_worsening_collat) {
+		this.follow_conv_worsening_collat = follow_conv_worsening_collat;
+	}
+
+	public String getRight_words_severity_collat() {
+		return right_words_severity_collat;
+	}
+
+	public void setRight_words_severity_collat(String right_words_severity_collat) {
+		this.right_words_severity_collat = right_words_severity_collat;
+	}
+
+	public String getRight_words_worsening_collat() {
+		return right_words_worsening_collat;
+	}
+
+	public void setRight_words_worsening_collat(String right_words_worsening_collat) {
+		this.right_words_worsening_collat = right_words_worsening_collat;
+	}
+
+	public String getDecisions_severity_collat() {
+		return decisions_severity_collat;
+	}
+
+	public void setDecisions_severity_collat(String decisions_severity_collat) {
+		this.decisions_severity_collat = decisions_severity_collat;
+	}
+
+	public String getDecisions_worsening_collat() {
+		return decisions_worsening_collat;
+	}
+
+	public void setDecisions_worsening_collat(String decisions_worsening_collat) {
+		this.decisions_worsening_collat = decisions_worsening_collat;
+	}
+
+	public String getCalculations_severity_collat() {
+		return calculations_severity_collat;
+	}
+
+	public void setCalculations_severity_collat(String calculations_severity_collat) {
+		this.calculations_severity_collat = calculations_severity_collat;
+	}
+
+	public String getCalculations_worsening_collat() {
+		return calculations_worsening_collat;
+	}
+
+	public void setCalculations_worsening_collat(
+			String calculations_worsening_collat) {
+		this.calculations_worsening_collat = calculations_worsening_collat;
+	}
+
+	public String getProspective_severity_collat() {
+		return prospective_severity_collat;
+	}
+
+	public void setProspective_severity_collat(String prospective_severity_collat) {
+		this.prospective_severity_collat = prospective_severity_collat;
+	}
+
+	public String getProspective_worsening_collat() {
+		return prospective_worsening_collat;
+	}
+
+	public void setProspective_worsening_collat(String prospective_worsening_collat) {
+		this.prospective_worsening_collat = prospective_worsening_collat;
+	}
+
+	public String getAnxiety_severity_collat() {
+		return anxiety_severity_collat;
+	}
+
+	public void setAnxiety_severity_collat(String anxiety_severity_collat) {
+		this.anxiety_severity_collat = anxiety_severity_collat;
+	}
+
+	public String getAnxiety_worsening_collat() {
+		return anxiety_worsening_collat;
+	}
+
+	public void setAnxiety_worsening_collat(String anxiety_worsening_collat) {
+		this.anxiety_worsening_collat = anxiety_worsening_collat;
+	}
+
+	public String getComments_severity_collat() {
+		return comments_severity_collat;
+	}
+
+	public void setComments_severity_collat(String comments_severity_collat) {
+		this.comments_severity_collat = comments_severity_collat;
+	}
+
+	public String getComments_worsening_collat() {
+		return comments_worsening_collat;
+	}
+
+	public void setComments_worsening_collat(String comments_worsening_collat) {
+		this.comments_worsening_collat = comments_worsening_collat;
 	}
 
 	public void setRec_events_check(boolean rec_events_check) {

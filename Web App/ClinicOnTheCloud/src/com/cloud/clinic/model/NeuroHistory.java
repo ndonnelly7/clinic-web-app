@@ -27,73 +27,81 @@ public class NeuroHistory {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
-	boolean blackout_check, blanks_check, blurred_vision_check, dizziness_check, fainting_check, headaches_check, falling_check, seizures_check;
+	boolean blackout_check, blanks_check, blurred_vision_check, dizziness_check, fainting_check, headaches_check, falling_check, seizures_check, dexterity_check;
 	boolean blackout_check_collat, blanks_check_collat, blurred_vision_check_collat, dizziness_check_collat;
-	boolean fainting_check_collat, headaches_check_collat, falling_check_collat, seizures_check_collat;
+	boolean fainting_check_collat, headaches_check_collat, falling_check_collat, seizures_check_collat, dexterity_check_collat;
 	
-	String blackout_time, blackout_freq;
+	String blackout_time, blackout_freq, blackout_investigated;
 	@Column(columnDefinition="TEXT")
 	String blackout_notes;
 	
-	String blanks_time, blanks_freq;
+	String blanks_time, blanks_freq, blanks_investigated;
 	@Column(columnDefinition="TEXT")
 	String blanks_notes;
 	
-	String blurred_time, blurred_freq;
+	String blurred_vision_time, blurred_vision_freq, blurred_vision_investigated;
 	@Column(columnDefinition="TEXT")
-	String blurred_notes;
+	String blurred_vision_notes;
 	
-	String dizzy_time, dizzy_freq;
+	String dizziness_time, dizziness_freq, dizziness_investigated;
 	@Column(columnDefinition="TEXT")
-	String dizzy_notes;
+	String dizziness_notes;
 	
-	String faint_time, faint_freq;
+	String fainting_time, fainting_freq, fainting_investigated;
 	@Column(columnDefinition="TEXT")
-	String faint_notes;
+	String fainting_notes;
 	
-	String headaches_time, headaches_freq;
+	String headaches_time, headaches_freq, headaches_investigated;
 	@Column(columnDefinition="TEXT")
 	String headaches_notes;
 	
-	String falling_time, falling_freq;
+	String falling_time, falling_freq, falling_investigated;
 	@Column(columnDefinition="TEXT")
 	String falling_notes;
 	
-	String seizures_time, seizures_freq;
+	String seizures_time, seizures_freq, seizures_investigated;
 	@Column(columnDefinition="TEXT")
 	String seizures_notes;
 	
-	String blackout_time_collat, blackout_freq_collat;
+	String dexterity_time, dexterity_freq, dexterity_investigated;
+	@Column(columnDefinition="TEXT")
+	String dexterity_notes;
+	
+	String blackout_time_collat, blackout_freq_collat, blackout_investigated_collat;
 	@Column(columnDefinition="TEXT")
 	String blackout_notes_collat;
 	
-	String blanks_time_collat, blanks_freq_collat;
+	String blanks_time_collat, blanks_freq_collat, blanks_investigated_collat;
 	@Column(columnDefinition="TEXT")
 	String blanks_notes_collat;
 	
-	String blurred_time_collat, blurred_freq_collat;
+	String blurred_vision_time_collat, blurred_vision_freq_collat, blurred_vision_investigated_collat;
 	@Column(columnDefinition="TEXT")
-	String blurred_notes_collat;
+	String blurred_vision_notes_collat;
 	
-	String dizzy_time_collat, dizzy_freq_collat;
+	String dizziness_time_collat, dizziness_freq_collat, dizziness_investigated_collat;
 	@Column(columnDefinition="TEXT")
-	String dizzy_notes_collat;
+	String dizziness_notes_collat;
 	
-	String faint_time_collat, faint_freq_collat;
+	String fainting_time_collat, fainting_freq_collat, fainting_investigated_collat;
 	@Column(columnDefinition="TEXT")
-	String faint_notes_collat;
+	String fainting_notes_collat;
 	
-	String headaches_time_collat, headaches_freq_collat;
+	String headaches_time_collat, headaches_freq_collat, headaches_investigated_collat;
 	@Column(columnDefinition="TEXT")
 	String headaches_notes_collat;
 	
-	String falling_time_collat, falling_freq_collat;
+	String falling_time_collat, falling_freq_collat, falling_investigated_collat;
 	@Column(columnDefinition="TEXT")
 	String falling_notes_collat;
 	
-	String seizures_time_collat, seizures_freq_collat;
+	String seizures_time_collat, seizures_freq_collat, seizures_investigated_collat;
 	@Column(columnDefinition="TEXT")
-	String seizures_notes_collat;	
+	String seizures_notes_collat;
+	
+	String dexterity_time_collat, dexterity_freq_collat, dexterity_investigated_collat;
+	@Column(columnDefinition="TEXT")
+	String dexterity_notes_collat;
 	
 	public NeuroHistory()
 	{
@@ -351,93 +359,93 @@ public class NeuroHistory {
 	}
 
 
-	public String getBlurred_time() {
-		return blurred_time;
+	public String getblurred_vision_time() {
+		return blurred_vision_time;
 	}
 
 
-	public void setBlurred_time(String blurred_time) {
-		this.blurred_time = blurred_time;
+	public void setblurred_vision_time(String blurred_vision_time) {
+		this.blurred_vision_time = blurred_vision_time;
 	}
 
 
-	public String getBlurred_freq() {
-		return blurred_freq;
+	public String getblurred_vision_freq() {
+		return blurred_vision_freq;
 	}
 
 
-	public void setBlurred_freq(String blurred_freq) {
-		this.blurred_freq = blurred_freq;
+	public void setblurred_vision_freq(String blurred_vision_freq) {
+		this.blurred_vision_freq = blurred_vision_freq;
 	}
 
 
-	public String getBlurred_notes() {
-		return blurred_notes;
+	public String getblurred_vision_notes() {
+		return blurred_vision_notes;
 	}
 
 
-	public void setBlurred_notes(String blurred_notes) {
-		this.blurred_notes = blurred_notes;
+	public void setblurred_vision_notes(String blurred_vision_notes) {
+		this.blurred_vision_notes = blurred_vision_notes;
 	}
 
 
-	public String getDizzy_time() {
-		return dizzy_time;
+	public String getdizziness_time() {
+		return dizziness_time;
 	}
 
 
-	public void setDizzy_time(String dizzy_time) {
-		this.dizzy_time = dizzy_time;
+	public void setdizziness_time(String dizziness_time) {
+		this.dizziness_time = dizziness_time;
 	}
 
 
-	public String getDizzy_freq() {
-		return dizzy_freq;
+	public String getdizziness_freq() {
+		return dizziness_freq;
 	}
 
 
-	public void setDizzy_freq(String dizzy_freq) {
-		this.dizzy_freq = dizzy_freq;
+	public void setdizziness_freq(String dizziness_freq) {
+		this.dizziness_freq = dizziness_freq;
 	}
 
 
-	public String getDizzy_notes() {
-		return dizzy_notes;
+	public String getdizziness_notes() {
+		return dizziness_notes;
 	}
 
 
-	public void setDizzy_notes(String dizzy_notes) {
-		this.dizzy_notes = dizzy_notes;
+	public void setdizziness_notes(String dizziness_notes) {
+		this.dizziness_notes = dizziness_notes;
 	}
 
 
-	public String getFaint_time() {
-		return faint_time;
+	public String getfainting_time() {
+		return fainting_time;
 	}
 
 
-	public void setFaint_time(String faint_time) {
-		this.faint_time = faint_time;
+	public void setfainting_time(String fainting_time) {
+		this.fainting_time = fainting_time;
 	}
 
 
-	public String getFaint_freq() {
-		return faint_freq;
+	public String getfainting_freq() {
+		return fainting_freq;
 	}
 
 
-	public void setFaint_freq(String faint_freq) {
-		this.faint_freq = faint_freq;
+	public void setfainting_freq(String fainting_freq) {
+		this.fainting_freq = fainting_freq;
 	}
 
 
-	public String getFaint_notes() {
-		return faint_notes;
+	public String getfainting_notes() {
+		return fainting_notes;
 	}
 
 
-	public void setFaint_notes(String faint_notes) {
-		this.faint_notes = faint_notes;
+	public void setfainting_notes(String fainting_notes) {
+		this.fainting_notes = fainting_notes;
 	}
 
 
@@ -591,93 +599,93 @@ public class NeuroHistory {
 	}
 
 
-	public String getBlurred_time_collat() {
-		return blurred_time_collat;
+	public String getblurred_vision_time_collat() {
+		return blurred_vision_time_collat;
 	}
 
 
-	public void setBlurred_time_collat(String blurred_time_collat) {
-		this.blurred_time_collat = blurred_time_collat;
+	public void setblurred_vision_time_collat(String blurred_vision_time_collat) {
+		this.blurred_vision_time_collat = blurred_vision_time_collat;
 	}
 
 
-	public String getBlurred_freq_collat() {
-		return blurred_freq_collat;
+	public String getblurred_vision_freq_collat() {
+		return blurred_vision_freq_collat;
 	}
 
 
-	public void setBlurred_freq_collat(String blurred_freq_collat) {
-		this.blurred_freq_collat = blurred_freq_collat;
+	public void setblurred_vision_freq_collat(String blurred_vision_freq_collat) {
+		this.blurred_vision_freq_collat = blurred_vision_freq_collat;
 	}
 
 
-	public String getBlurred_notes_collat() {
-		return blurred_notes_collat;
+	public String getblurred_vision_notes_collat() {
+		return blurred_vision_notes_collat;
 	}
 
 
-	public void setBlurred_notes_collat(String blurred_notes_collat) {
-		this.blurred_notes_collat = blurred_notes_collat;
+	public void setblurred_vision_notes_collat(String blurred_vision_notes_collat) {
+		this.blurred_vision_notes_collat = blurred_vision_notes_collat;
 	}
 
 
-	public String getDizzy_time_collat() {
-		return dizzy_time_collat;
+	public String getdizziness_time_collat() {
+		return dizziness_time_collat;
 	}
 
 
-	public void setDizzy_time_collat(String dizzy_time_collat) {
-		this.dizzy_time_collat = dizzy_time_collat;
+	public void setdizziness_time_collat(String dizziness_time_collat) {
+		this.dizziness_time_collat = dizziness_time_collat;
 	}
 
 
-	public String getDizzy_freq_collat() {
-		return dizzy_freq_collat;
+	public String getdizziness_freq_collat() {
+		return dizziness_freq_collat;
 	}
 
 
-	public void setDizzy_freq_collat(String dizzy_freq_collat) {
-		this.dizzy_freq_collat = dizzy_freq_collat;
+	public void setdizziness_freq_collat(String dizziness_freq_collat) {
+		this.dizziness_freq_collat = dizziness_freq_collat;
 	}
 
 
-	public String getDizzy_notes_collat() {
-		return dizzy_notes_collat;
+	public String getdizziness_notes_collat() {
+		return dizziness_notes_collat;
 	}
 
 
-	public void setDizzy_notes_collat(String dizzy_notes_collat) {
-		this.dizzy_notes_collat = dizzy_notes_collat;
+	public void setdizziness_notes_collat(String dizziness_notes_collat) {
+		this.dizziness_notes_collat = dizziness_notes_collat;
 	}
 
 
-	public String getFaint_time_collat() {
-		return faint_time_collat;
+	public String getfainting_time_collat() {
+		return fainting_time_collat;
 	}
 
 
-	public void setFaint_time_collat(String faint_time_collat) {
-		this.faint_time_collat = faint_time_collat;
+	public void setfainting_time_collat(String fainting_time_collat) {
+		this.fainting_time_collat = fainting_time_collat;
 	}
 
 
-	public String getFaint_freq_collat() {
-		return faint_freq_collat;
+	public String getfainting_freq_collat() {
+		return fainting_freq_collat;
 	}
 
 
-	public void setFaint_freq_collat(String faint_freq_collat) {
-		this.faint_freq_collat = faint_freq_collat;
+	public void setfainting_freq_collat(String fainting_freq_collat) {
+		this.fainting_freq_collat = fainting_freq_collat;
 	}
 
 
-	public String getFaint_notes_collat() {
-		return faint_notes_collat;
+	public String getfainting_notes_collat() {
+		return fainting_notes_collat;
 	}
 
 
-	public void setFaint_notes_collat(String faint_notes_collat) {
-		this.faint_notes_collat = faint_notes_collat;
+	public void setfainting_notes_collat(String fainting_notes_collat) {
+		this.fainting_notes_collat = fainting_notes_collat;
 	}
 
 

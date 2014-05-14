@@ -40,11 +40,14 @@
 				</div>
 				<div class="pure-u-1-5" style="max-width:3%;margin: 0px 1% 0px 1%">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 				<h4>Time Since First Occurrence</h4>
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 				<h3>Frequency</h3>
+				</div>
+				<div class="pure-u-1-5 neuro_column">
+				<h4>Has This Been Investigated</h4>
 				</div>
 				<div class="pure-u-1-5 notes_column" style="max-width:160px;text-align:center">
 				<h3>Notes</h3>
@@ -55,7 +58,7 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="blackout_check" onclick="showHiddenRow(this, '#blackout')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="blackout_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -66,13 +69,19 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="blackout_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
 						<option value="yearly">Yearly</option>
 						<option value="once">One off</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="blackout_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
@@ -85,7 +94,7 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="blanks_check" onclick="showHiddenRow(this,'#blanks')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="blanks_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -96,7 +105,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="blanks_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -105,19 +114,25 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="blanks_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="blanks_notes" form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
-			<div id="vision" class="issue">
-				<div class="pure-u-1-5 title">Blurred Vision</div>
+			<div id="blurred_vision" class="issue">
+				<div class="pure-u-1-5 title">Blurred blurred_vision</div>
 				<div class="pure-u-1-5 check">
-				<input type="checkbox" name="vision_check" onclick="showHiddenRow(this,'#vision')">
+				<input type="checkbox" name="blurred_vision_check" onclick="showHiddenRow(this,'#blurred_vision')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
-						<select name="vision_time" class="time_frame" disabled>
+						<select name="blurred_vision_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -126,8 +141,8 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
-					<select name="vision_freq" class="frequency" disabled>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="blurred_vision_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -135,8 +150,50 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="blurred_vision_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
 				<div class="pure-u-1-5 notes_column">
-				<textarea name="vision_notes" form="neuro_form" rows="2" cols="24"></textarea> 
+				<textarea name="blurred_vision_notes" form="neuro_form" rows="2" cols="24"></textarea> 
+				</div>
+			</div>
+			
+			<div id="dexterity" class="issue">
+				<div class="pure-u-1-5 title">Issues with Dexterity (buttons, zips, etc.)</div>
+				<div class="pure-u-1-5 check">
+				<input type="checkbox" name="dexterity_check" onclick="showHiddenRow(this,'#dexterity')">
+				</div>
+				<div class="pure-u-1-5 neuro_column">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="dexterity_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="dexterity_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="dexterity_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 notes_column">
+				<textarea name="dexterity_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
@@ -145,7 +202,7 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="dizziness_check" onclick="showHiddenRow(this,'#dizziness')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="dizziness_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -156,13 +213,19 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="dizziness_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
 						<option value="yearly">Yearly</option>
 						<option value="once">One off</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="dizziness_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
@@ -175,7 +238,7 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="fainting_check" onclick="showHiddenRow(this,'#fainting')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="fainting_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -186,13 +249,19 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="fainting_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
 						<option value="yearly">Yearly</option>
 						<option value="once">One off</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="fainting_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
@@ -205,7 +274,7 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="headaches_check" onclick="showHiddenRow(this,'#headaches')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="headaches_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -216,13 +285,19 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="headaches_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
 						<option value="yearly">Yearly</option>
 						<option value="once">One off</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="headaches_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
 					</select>
 				</div>
 				<div class="pure-u-1-5 notes_column">
@@ -235,7 +310,7 @@
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="falling_check" onclick="showHiddenRow(this,'#falling')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="falling_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -246,7 +321,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="falling_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -255,17 +330,23 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="falling_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="falling_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
 			
-			<div id="calculatons" class="issue">
+			<div id="seizures" class="issue">
 				<div class="pure-u-1-5 title">Seizures</div>
 				<div class="pure-u-1-5 check">
-				<input type="checkbox" name="seizures_check" onclick="showHiddenRow(this,'#calculatons')">
+				<input type="checkbox" name="seizures_check" onclick="showHiddenRow(this,'#seizures')">
 				</div>
-				<div class="pure-u-1-5 select_box">
+				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="seizures_time" class="time_frame" disabled>
 							<option value="three_mon">3 months</option>
@@ -276,7 +357,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="pure-u-1-5 select_box" >
+				<div class="pure-u-1-5 neuro_column" >
 					<select name="seizures_freq" class="frequency" disabled>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
@@ -285,10 +366,53 @@
 						<option value="once">One off</option>
 					</select>
 				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="seizures_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
 				<div class="pure-u-1-5 notes_column">
 				<textarea name="seizures_notes"form="neuro_form" rows="2" cols="24"></textarea> 
 				</div>
 			</div>
+			
+			<div id="dexterity" class="issue">
+				<div class="pure-u-1-5 title">Issues with Dexterity (buttons, zips, etc.)</div>
+				<div class="pure-u-1-5 check">
+				<input type="checkbox" name="dexterity_check" onclick="showHiddenRow(this,'#dexterity')">
+				</div>
+				<div class="pure-u-1-5 neuro_column">
+					<div id="timeframe_1m_3pyr_dis">
+						<select name="dexterity_time" class="time_frame" disabled>
+							<option value="three_mon">3 months</option>
+							<option value="six_mon">6 months</option>
+							<option value="one_yr">1 year</option>
+							<option value="two_yr">2 years</option>
+							<option value="threep_yr">3+ years</option>
+						</select>
+					</div>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="dexterity_freq" class="frequency" disabled>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="monthly">Monthly</option>
+						<option value="yearly">Yearly</option>
+						<option value="once">One off</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 neuro_column" >
+					<select name="dexterity_investigated" class="investigated" disabled>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
+				<div class="pure-u-1-5 notes_column">
+				<textarea name="dexterity_notes"form="neuro_form" rows="2" cols="24"></textarea> 
+				</div>
+			</div>
+			
 		</div>
 	
 		<div class="collat_div">
@@ -300,10 +424,10 @@
 					</div>
 					<div class="pure-u-1-5" style="max-width:3%;margin: 0px 1% 0px 1%">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 					<h4>Time Since First Occurrence</h4>
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 					<h3>Frequency</h3>
 					</div>
 					<div class="pure-u-1-5 notes_column" style="max-width:160px;text-align:center">
@@ -315,7 +439,7 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="blackout_check_collat" onclick="showHiddenRow(this, '#blackout_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="blackout_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -326,13 +450,19 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="blackout_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
 							<option value="yearly">Yearly</option>
 							<option value="once">One off</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="blackout_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
@@ -345,7 +475,7 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="blanks_check_collat" onclick="showHiddenRow(this,'#blanks_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="blanks_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -356,7 +486,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="blanks_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -365,19 +495,25 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="blanks_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="blanks_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="vision_collat" class="issue">
-					<div class="pure-u-1-5 title">Blurred Vision</div>
+				<div id="blurred_vision_collat" class="issue">
+					<div class="pure-u-1-5 title">Blurred blurred_vision</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="vision_check_collat" onclick="showHiddenRow(this,'#vision_collat')">
+					<input type="checkbox" name="blurred_vision_check_collat" onclick="showHiddenRow(this,'#blurred_vision_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
-							<select name="vision_time_collat" class="time_frame" disabled>
+							<select name="blurred_vision_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -386,8 +522,8 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
-						<select name="vision_freq_collat" class="frequency" disabled>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="blurred_vision_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -395,8 +531,50 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="blurred_vision_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
 					<div class="pure-u-1-5 notes_column">
-					<textarea name="vision_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
+					<textarea name="blurred_vision_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
+					</div>
+				</div>
+				
+				<div id="dexterity_collat" class="issue">
+					<div class="pure-u-1-5 title">Issues with dexterity (buttons, zips, etc.)</div>
+					<div class="pure-u-1-5 check">
+					<input type="checkbox" name="dexterity_check_collat" onclick="showHiddenRow(this,'#dexterity_collat')">
+					</div>
+					<div class="pure-u-1-5 neuro_column">
+						<div id="timeframe_1m_3pyr_dis">
+							<select name="dexterity_time_collat" class="time_frame" disabled>
+								<option value="three_mon">3 months</option>
+								<option value="six_mon">6 months</option>
+								<option value="one_yr">1 year</option>
+								<option value="two_yr">2 years</option>
+								<option value="threep_yr">3+ years</option>
+							</select>
+						</div>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="dexterity_freq_collat" class="frequency" disabled>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+							<option value="once">One off</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="dexterity_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 notes_column">
+					<textarea name="dexterity_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
@@ -405,7 +583,7 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="dizziness_check_collat" onclick="showHiddenRow(this,'#dizziness_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="dizziness_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -416,13 +594,19 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="dizziness_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
 							<option value="yearly">Yearly</option>
 							<option value="once">One off</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="dizziness_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
@@ -435,7 +619,7 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="fainting_check_collat" onclick="showHiddenRow(this,'#fainting_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="fainting_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -446,13 +630,19 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="fainting_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
 							<option value="yearly">Yearly</option>
 							<option value="once">One off</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="fainting_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
@@ -465,7 +655,7 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="headaches_check_collat" onclick="showHiddenRow(this,'#headaches_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="headaches_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -476,13 +666,19 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="headaches_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
 							<option value="yearly">Yearly</option>
 							<option value="once">One off</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="headaches_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
@@ -495,7 +691,7 @@
 					<div class="pure-u-1-5 check">
 					<input type="checkbox" name="falling_check_collat" onclick="showHiddenRow(this,'#falling_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="falling_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -506,7 +702,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="falling_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
@@ -515,17 +711,23 @@
 							<option value="once">One off</option>
 						</select>
 					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="falling_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
 					<div class="pure-u-1-5 notes_column">
 					<textarea name="falling_notes_collat"form="neuro_form" rows="2" cols="24"></textarea> 
 					</div>
 				</div>
 				
-				<div id="calculatons_collat" class="issue">
+				<div id="seizures_collat" class="issue">
 					<div class="pure-u-1-5 title">Seizures</div>
 					<div class="pure-u-1-5 check">
-					<input type="checkbox" name="seizures_check_collat" onclick="showHiddenRow(this,'#calculatons_collat')">
+					<input type="checkbox" name="seizures_check_collat" onclick="showHiddenRow(this,'#seizures_collat')">
 					</div>
-					<div class="pure-u-1-5 select_box">
+					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="seizures_time_collat" class="time_frame" disabled>
 								<option value="three_mon">3 months</option>
@@ -536,13 +738,19 @@
 							</select>
 						</div>
 					</div>
-					<div class="pure-u-1-5 select_box" >
+					<div class="pure-u-1-5 neuro_column" >
 						<select name="seizures_freq_collat" class="frequency" disabled>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
 							<option value="yearly">Yearly</option>
 							<option value="once">One off</option>
+						</select>
+					</div>
+					<div class="pure-u-1-5 neuro_column" >
+						<select name="seizures_investigated_collat" class="investigated" disabled>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
 					</div>
 					<div class="pure-u-1-5 notes_column">
@@ -604,8 +812,9 @@
 			var iss = {};
 			iss['issue']=$("#problems_grid .issue:eq("+i+")").attr("id");
 			iss['checked'] = $("#problems_grid div.pure-u-1-5.check input").get(i-1).checked;
-			iss['time']=$("#problems_grid .issue:eq("+i+") .select_box:eq("+0+") select").val();
-			iss['frequency']=$("#problems_grid .issue:eq("+i+") .select_box:eq("+1+") select").val();
+			iss['time']=$("#problems_grid .issue:eq("+i+") .neuro_column:eq("+0+") select").val();
+			iss['frequency']=$("#problems_grid .issue:eq("+i+") .neuro_column:eq("+1+") select").val();
+			iss['investigated']=$("#problems_grid .issue:eq("+i+") .neuro_column:eq("+2+") select").val();
 			
 			neuro[i] = iss;
 		}
@@ -616,8 +825,9 @@
 				var iss = {};
 				iss['issue']=$("#collat_problems_grid .issue:eq("+i+")").attr("id");
 				iss['checked'] = $("#collat_problems_grid div.pure-u-1-5.check input").get(i-1).checked;
-				iss['time']=$("#collat_problems_grid .issue:eq("+i+") .select_box:eq("+0+") select").val();
-				iss['frequency']=$("#collat_problems_grid .issue:eq("+i+") .select_box:eq("+1+") select").val();
+				iss['time']=$("#collat_problems_grid .issue:eq("+i+") .neuro_column:eq("+0+") select").val();
+				iss['frequency']=$("#collat_problems_grid .issue:eq("+i+") .neuro_column:eq("+1+") select").val();
+				iss['investigated']=$("#collat_problems_grid .issue:eq("+i+") .neuro_column:eq("+2+") select").val();
 				
 				collatNeuro[i] = iss;
 			}
@@ -640,8 +850,9 @@
 			var iss = {};
 			iss['issue']=$("#problems_grid .issue:eq("+i+")").attr("id");
 			iss['checked'] = $("#problems_grid div.pure-u-1-5.check input").get(i-1).checked;
-			iss['time']=$("#problems_grid .issue:eq("+i+") .select_box:eq("+0+") select").val();
-			iss['frequency']=$("#problems_grid .issue:eq("+i+") .select_box:eq("+1+") select").val();
+			iss['time']=$("#problems_grid .issue:eq("+i+") .neuro_column:eq("+0+") select").val();
+			iss['frequency']=$("#problems_grid .issue:eq("+i+") .neuro_column:eq("+1+") select").val();
+			iss['investigated']=$("#problems_grid .issue:eq("+i+") .neuro_column:eq("+2+") select").val();
 			
 			neuro[i] = iss;
 		}
@@ -652,8 +863,9 @@
 				var iss = {};
 				iss['issue']=$("#collat_problems_grid .issue:eq("+i+")").attr("id");
 				iss['checked'] = $("#collat_problems_grid div.pure-u-1-5.check input").get(i-1).checked;
-				iss['time']=$("#collat_problems_grid .issue:eq("+i+") .select_box:eq("+0+") select").val();
-				iss['frequency']=$("#collat_problems_grid .issue:eq("+i+") .select_box:eq("+1+") select").val();
+				iss['time']=$("#collat_problems_grid .issue:eq("+i+") .neuro_column:eq("+0+") select").val();
+				iss['frequency']=$("#collat_problems_grid .issue:eq("+i+") .neuro_column:eq("+1+") select").val();
+				iss['investigated']=$("#collat_problems_grid .issue:eq("+i+") .neuro_column:eq("+2+") select").val();
 				
 				collatNeuro[i] = iss;
 			}
@@ -662,6 +874,10 @@
 		addNeuro(p_id, neuro, collatNeuro);
 		$("#neuro_form").submit();
 	}
+	
+	function addToReactive(){
+		
+	};
 </script>
 </body>
 </html>
