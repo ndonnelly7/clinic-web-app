@@ -32,7 +32,7 @@
   <static-files>
 	<include path="/js/**.js"/>
 	<include path="/css/**.css"/>
-	<include path="/images/**.gif"/>
+	<include path="/images/**.png"/>
 	<include path="/**.html"/>
 	<include path="/favicon.ico"/>
 	<include path="/patient_form/**.html"/>

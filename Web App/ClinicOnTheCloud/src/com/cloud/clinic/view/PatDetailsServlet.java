@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cloud.clinic.model.BeanPopulate;
 import com.cloud.clinic.model.Clinic;
-import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
 import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.Form;

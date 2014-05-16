@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="/css/pure-min.css"/> 
 <link rel="stylesheet" href="/css/home.css"/> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
 <div id="navbar">

@@ -129,7 +129,7 @@
 		<input type="checkbox" name="senior_check" id="senior_check"><br>
 		</div>
 		<div id="leaving_done" class="pure-control-group">
-		<label for="third_check">Third Level (Equivalent)</label>
+		<label for="third_check">Third Level (or Equivalent)</label>
 		<input type="checkbox" name="third_check" id="third_check" onclick="showHiddenDiv(this,'third_done')"><br>
 		</div>
 		<div id="third_done" class="hide_div pure-control-group">

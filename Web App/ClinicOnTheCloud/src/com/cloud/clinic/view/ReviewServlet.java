@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
+import com.cloud.clinic.model.PersonalDetails;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @SuppressWarnings("serial")
 public class ReviewServlet extends HttpServlet {
@@ -41,7 +43,10 @@ public class ReviewServlet extends HttpServlet {
 			resp.getWriter().println("null_patient");
 			return;
 		}
-		Gson gson = new Gson();
+		GsonBuilder builder = new GsonBuilder();
+		builder.excludeFieldsWithModifiers();
+		builder.excludeFieldsWithoutExposeAnnotation();
+		Gson gson = builder.create();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yy");
 		
 		//Directs to review.jsp and builds date and sends Patient Details
@@ -87,7 +92,8 @@ public class ReviewServlet extends HttpServlet {
 		
 		switch(page) {
 		case "DETAILS":
-			String details = gson.toJson(f.getPersonalDetails());
+			PersonalDetails det = f.getPersonalDetails();
+			String details = gson.toJson(det);
 			resp.setContentType("application/json");
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(details);

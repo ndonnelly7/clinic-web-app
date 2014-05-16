@@ -13,6 +13,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Used to keep the personal details of the patient
  */
@@ -21,6 +23,7 @@ import javax.persistence.Transient;
 public class PersonalDetails {
 	
 	@Id
+	@Expose
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "detailsID", unique = true, nullable = false)
 	int detailsID;
@@ -31,22 +34,22 @@ public class PersonalDetails {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
+	@Expose
 	private String gender, study_topic, occupation, county;
+	@Expose
 	private String gp_county, who_present, testing_reason;
-	public String getTesting_reason() {
-		return testing_reason;
-	}
 
-	public void setTesting_reason(String testing_reason) {
-		this.testing_reason = testing_reason;
-	}
-
+	@Expose
 	private boolean family_present;
 	
+	@Expose
 	@Temporal(TemporalType.DATE)
 	private Date dob;
+	
+	@Expose
 	private int age, age_left;
 	
+	@Expose
 	private boolean junior_check, senior_check, third_check;
 	
 	public PersonalDetails(){
@@ -69,6 +72,21 @@ public class PersonalDetails {
 		this.form = form;
 	}
 
+	public Object[] getJdoDetachedState() {
+		return jdoDetachedState;
+	}
+
+	public void setJdoDetachedState(Object[] jdoDetachedState) {
+		this.jdoDetachedState = jdoDetachedState;
+	}
+	
+	public String getTesting_reason() {
+		return testing_reason;
+	}
+
+	public void setTesting_reason(String testing_reason) {
+		this.testing_reason = testing_reason;
+	}
 	public String getGender() {
 		return gender;
 	}
