@@ -30,6 +30,20 @@
 </div> 
 </form>
 <form id="concerns_form" class="pure-form pure-form-stacked" method="POST" action="concerns.do">
+	<fieldset id="invest_field">
+		<div>
+			<div class="concern_q">If we do find a problem with your memory, would you want to investigate it further at this point?</div>
+			<div class="concern_a">
+				<select id="wants_memory_investigation" name="wants_memory_investigation">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+					<option value="not_sure">Not sure</option>
+				</select> 
+			</div>
+		</div>
+	</fieldset>
+	
+	
 	<fieldset id="med_field">
 		<legend style="margin-bottom:-0.65em">What are the patient's concerns about their memory?</legend>
 		
@@ -47,7 +61,7 @@
 				<h3>Frequency</h3>
 				</div>
 				<div class="pure-u-1-5 concerns_column">
-				<h3 class="severity_title">Severity</h3>
+				<h4 class="severity_title">Severity (Scale 1- 10)</h4>
 				</div>
 				<div class="pure-u-1-5 concerns_column worse_title">
 				<h4 class="worse">Has it been Worsening?</h4>

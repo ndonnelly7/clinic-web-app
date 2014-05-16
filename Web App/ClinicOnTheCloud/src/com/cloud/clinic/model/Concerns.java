@@ -26,97 +26,186 @@ public class Concerns {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
+	String wants_memory_investigation;
 	boolean rec_events_check, faces_check, names_check, losing_things_check, follow_conv_check;
 	boolean right_words_check, decisions_check, calculations_check, prospective_check, anxiety_check, comments_check;
 	
-	String rec_events_time, rec_events_freq, rec_events_severity, rec_events_worsening;
+	String rec_events_time, rec_events_freq;
+	@Column(columnDefinition="TEXT")
+	String rec_events_severity;
+	@Column(columnDefinition="TEXT")
+	String rec_events_worsening;
 	@Column(columnDefinition="TEXT")
 	String rec_events_notes;
 	
-	String faces_time, faces_freq, faces_severity, faces_worsening;
+	String faces_time, faces_freq;
+	@Column(columnDefinition="TEXT")
+	String faces_severity;
+	@Column(columnDefinition="TEXT")
+	String faces_worsening;
 	@Column(columnDefinition="TEXT")
 	String faces_notes;
 	
-	String names_time, names_freq, names_severity, names_worsening;
+	String names_time, names_freq;
+	@Column(columnDefinition="TEXT")
+	String names_severity;
+	@Column(columnDefinition="TEXT")
+	String names_worsening;
 	@Column(columnDefinition="TEXT")
 	String names_notes;
 	
-	String losing_things_time, losing_things_freq, losing_things_severity, losing_things_worsening;
+	String losing_things_time, losing_things_freq;
+	@Column(columnDefinition="TEXT")
+	String losing_things_severity;
+	@Column(columnDefinition="TEXT")
+	String losing_things_worsening;
 	@Column(columnDefinition="TEXT")
 	String losing_things_notes;
 	
-	String follow_conv_time, follow_conv_freq, follow_conv_severity, follow_conv_worsening;
+	String follow_conv_time, follow_conv_freq;
+	@Column(columnDefinition="TEXT")
+	String follow_conv_severity;
+	@Column(columnDefinition="TEXT")
+	String follow_conv_worsening;
 	@Column(columnDefinition="TEXT")
 	String follow_conv_notes;
 	
-	String right_words_time, right_words_freq, right_words_severity, right_words_worsening;
+	String right_words_time, right_words_freq;
+	@Column(columnDefinition="TEXT")
+	String right_words_severity;
+	@Column(columnDefinition="TEXT")
+	String right_words_worsening;
 	@Column(columnDefinition="TEXT")
 	String right_words_notes;
 	
-	String decisions_time, decisions_freq, decisions_severity, decisions_worsening;
+	String decisions_time, decisions_freq;
+	@Column(columnDefinition="TEXT")
+	String decisions_severity;
+	@Column(columnDefinition="TEXT")
+	String decisions_worsening;
 	@Column(columnDefinition="TEXT")
 	String decisions_notes;
 	
-	String calculations_time, calculations_freq, calculations_severity, calculations_worsening;
+	String calculations_time, calculations_freq;
+	@Column(columnDefinition="TEXT")
+	String calculations_severity;
+	@Column(columnDefinition="TEXT")
+	String calculations_worsening;
 	@Column(columnDefinition="TEXT")
 	String calculations_notes;
 	
-	String prospective_time, prospective_freq, prospective_severity, prospective_worsening;
+	String prospective_time, prospective_freq;
+	@Column(columnDefinition="TEXT")
+	String prospective_severity;
+	@Column(columnDefinition="TEXT")
+	String prospective_worsening;
 	@Column(columnDefinition="TEXT")
 	String prospective_notes;
 	
-	String anxiety_time, anxiety_freq, anxiety_severity, anxiety_worsening;
+	String anxiety_time, anxiety_freq;
+	@Column(columnDefinition="TEXT")
+	String anxiety_severity;
+	@Column(columnDefinition="TEXT")
+	String anxiety_worsening;
 	@Column(columnDefinition="TEXT")
 	String anxiety_notes;
 	
-	String comments_time, comments_freq, comments_severity, comments_worsening;
+	String comments_time, comments_freq;
+	@Column(columnDefinition="TEXT")
+	String comments_severity;
+	@Column(columnDefinition="TEXT")
+	String comments_worsening;
 	@Column(columnDefinition="TEXT")
 	String comments_notes;
 	
 	boolean rec_events_check_collat, faces_check_collat, names_check_collat, losing_things_check_collat, follow_conv_check_collat;
 	boolean right_words_check_collat, decisions_check_collat, calculations_check_collat, prospective_check_collat, anxiety_check_collat, comments_check_collat;
 	
-	String rec_events_time_collat, rec_events_freq_collat, rec_events_severity_collat, rec_events_worsening_collat;
+	String rec_events_time_collat, rec_events_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String rec_events_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String rec_events_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String rec_events_notes_collat;
 	
-	String faces_time_collat, faces_freq_collat, faces_severity_collat, faces_worsening_collat;
+	String faces_time_collat, faces_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String faces_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String faces_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String faces_notes_collat;
 	
-	String names_time_collat, names_freq_collat, names_severity_collat, names_worsening_collat;
+	String names_time_collat, names_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String names_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String names_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String names_notes_collat;
 	
-	String losing_things_time_collat, losing_things_freq_collat, losing_things_severity_collat, losing_things_worsening_collat;
+	String losing_things_time_collat, losing_things_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String losing_things_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String losing_things_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String losing_things_notes_collat;
 	
-	String follow_conv_time_collat, follow_conv_freq_collat, follow_conv_severity_collat, follow_conv_worsening_collat;
+	String follow_conv_time_collat, follow_conv_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String follow_conv_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String follow_conv_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String follow_conv_notes_collat;
 	
-	String right_words_time_collat, right_words_freq_collat, right_words_severity_collat, right_words_worsening_collat;
+	String right_words_time_collat, right_words_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String right_words_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String right_words_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String right_words_notes_collat;
 	
-	String decisions_time_collat, decisions_freq_collat, decisions_severity_collat, decisions_worsening_collat;
+	String decisions_time_collat, decisions_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String decisions_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String decisions_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String decisions_notes_collat;
 	
-	String calculations_time_collat, calculations_freq_collat, calculations_severity_collat, calculations_worsening_collat;
+	String calculations_time_collat, calculations_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String calculations_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String calculations_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String calculations_notes_collat;
 	
-	String prospective_time_collat, prospective_freq_collat, prospective_severity_collat, prospective_worsening_collat;
+	String prospective_time_collat, prospective_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String prospective_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String prospective_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String prospective_notes_collat;
 	
-	String anxiety_time_collat, anxiety_freq_collat, anxiety_severity_collat, anxiety_worsening_collat;
+	String anxiety_time_collat, anxiety_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String anxiety_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String anxiety_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String anxiety_notes_collat;
 	
-	String comments_time_collat, comments_freq_collat, comments_severity_collat, comments_worsening_collat;
+	String comments_time_collat, comments_freq_collat;
+	@Column(columnDefinition="TEXT")
+	String comments_severity_collat;
+	@Column(columnDefinition="TEXT")
+	String comments_worsening_collat;
 	@Column(columnDefinition="TEXT")
 	String comments_notes_collat;
 	
@@ -138,6 +227,14 @@ public class Concerns {
 
 	public void setForm(Form form) {
 		this.form = form;
+	}
+	
+	public String getWants_memory_investigation() {
+		return wants_memory_investigation;
+	}
+
+	public void setWants_memory_investigation(String wants_memory_investigation) {
+		this.wants_memory_investigation = wants_memory_investigation;
 	}
 
 	public boolean isRec_events_check() {

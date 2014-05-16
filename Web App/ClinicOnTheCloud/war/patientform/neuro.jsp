@@ -377,42 +377,6 @@
 				</div>
 			</div>
 			
-			<div id="dexterity" class="issue">
-				<div class="pure-u-1-5 title">Issues with Dexterity (buttons, zips, etc.)</div>
-				<div class="pure-u-1-5 check">
-				<input type="checkbox" name="dexterity_check" onclick="showHiddenRow(this,'#dexterity')">
-				</div>
-				<div class="pure-u-1-5 neuro_column">
-					<div id="timeframe_1m_3pyr_dis">
-						<select name="dexterity_time" class="time_frame" disabled>
-							<option value="three_mon">3 months</option>
-							<option value="six_mon">6 months</option>
-							<option value="one_yr">1 year</option>
-							<option value="two_yr">2 years</option>
-							<option value="threep_yr">3+ years</option>
-						</select>
-					</div>
-				</div>
-				<div class="pure-u-1-5 neuro_column" >
-					<select name="dexterity_freq" class="frequency" disabled>
-						<option value="daily">Daily</option>
-						<option value="weekly">Weekly</option>
-						<option value="monthly">Monthly</option>
-						<option value="yearly">Yearly</option>
-						<option value="once">One off</option>
-					</select>
-				</div>
-				<div class="pure-u-1-5 neuro_column" >
-					<select name="dexterity_investigated" class="investigated" disabled>
-						<option value="yes">Yes</option>
-						<option value="no">No</option>
-					</select>
-				</div>
-				<div class="pure-u-1-5 notes_column">
-				<textarea name="dexterity_notes"form="neuro_form" rows="2" cols="24"></textarea> 
-				</div>
-			</div>
-			
 		</div>
 	
 		<div class="collat_div">

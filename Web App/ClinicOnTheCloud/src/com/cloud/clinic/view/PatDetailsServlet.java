@@ -14,10 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cloud.clinic.model.BeanPopulate;
+import com.cloud.clinic.model.Clinic;
+import com.cloud.clinic.model.ClinicDAO;
+import com.cloud.clinic.model.Clinician;
+import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
 import com.cloud.clinic.model.PersonalDetails;
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 
@@ -25,6 +32,12 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 public class PatDetailsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
+		UserService service = UserServiceFactory.getUserService();
+		User user = service.getCurrentUser();
+		
+		ClinicianDAO cDAO = new ClinicianDAO();
+		Clinician cl = cDAO.get(user.getUserId());
+		Clinic clinic = cDAO.getClinic(cl);
 		
 		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
 		PersonalDetails details = new PersonalDetails();
@@ -56,7 +69,8 @@ public class PatDetailsServlet extends HttpServlet {
 		} else {
 			pat = new Patient();
 			pat.setPatientID(thePatientID);
-			
+			pat.setClinic(clinic);
+			pat.setClinician(cl);
 			Form f = new Form();
 			f.setPatient(pat);
 			Calendar c = Calendar.getInstance();

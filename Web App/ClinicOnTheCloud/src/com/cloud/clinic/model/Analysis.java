@@ -31,10 +31,13 @@ public class Analysis {
 	protected Object[] jdoDetachedState;
 	
 	String mmse_result, moca_result, gds_result, hads_result;
-	String impression, impression_notes, follow_up, follow_notes;
+	String follow_up, follow_notes;
 	
 	@OneToMany(mappedBy = "analysis", cascade = CascadeType.ALL)
 	List<Outcome> outcomes;
+	
+	@OneToMany(mappedBy = "analysis", cascade = CascadeType.ALL)
+	List<Impression> impressions;
 	
 	@Column(name = "letter", columnDefinition="TEXT")
 	String letter;
@@ -94,20 +97,12 @@ public class Analysis {
 		this.hads_result = hads_result;
 	}
 
-	public String getImpression() {
-		return impression;
+	public List<Impression> getImpressions() {
+		return impressions;
 	}
 
-	public void setImpression(String impression) {
-		this.impression = impression;
-	}
-
-	public String getImpression_notes() {
-		return impression_notes;
-	}
-
-	public void setImpression_notes(String impression_notes) {
-		this.impression_notes = impression_notes;
+	public void setImpressions(List<Impression> impressions) {
+		this.impressions = impressions;
 	}
 
 	public String getFollow_up() {

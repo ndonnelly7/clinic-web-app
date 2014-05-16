@@ -32,7 +32,15 @@ public class PersonalDetails {
 	protected Object[] jdoDetachedState;
 	
 	private String gender, study_topic, occupation, county;
-	private String gp_county, who_present;
+	private String gp_county, who_present, testing_reason;
+	public String getTesting_reason() {
+		return testing_reason;
+	}
+
+	public void setTesting_reason(String testing_reason) {
+		this.testing_reason = testing_reason;
+	}
+
 	private boolean family_present;
 	
 	@Temporal(TemporalType.DATE)

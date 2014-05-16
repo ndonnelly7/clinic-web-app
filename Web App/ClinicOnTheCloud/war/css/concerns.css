@@ -43,3 +43,13 @@ form .concerns_check {
 #header_row h4 {
 	margin-bottom: 12px;
 }
+
+form .concern_q {
+	width: 50%;
+	display: inline-block;
+}
+
+form .concern_a {
+	width: 25%;
+	display: inline-block;
+}

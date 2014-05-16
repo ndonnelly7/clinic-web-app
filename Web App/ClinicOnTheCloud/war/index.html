@@ -9,14 +9,17 @@
 
 <div id="navbar"> 
 </div> 
-
+<form id="form" method="GET" action="auth.do">
+</form>
 <script>
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	window.location.assign("http://localhost:8888/admin/home.jsp");
-	//window.location.assign("http://cloud-clinic.appspot.com/admin/home.jsp");
+	
+	$("#form").submit();
+	
 });
 </script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 </body>
 </html>

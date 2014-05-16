@@ -50,7 +50,6 @@
 <div class="pure-control-group">
 	<div>Would you now like to:</div>
 	<a href="/admin/home.jsp">Return to the Homepage</a>
-	<a href="/admin/review.jsp">Review the Patient Information</a>
 </div>
 
 <div class="footer">

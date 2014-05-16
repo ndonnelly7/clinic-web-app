@@ -10,7 +10,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ClinicOnTheCloud</servlet-name>
-		<url-pattern>/cliniconthecloud</url-pattern>
+		<url-pattern>/cliniconthecloud.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -104,6 +104,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>Authenticate</servlet-name>
+		<servlet-class>com.cloud.clinic.view.AuthenticateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Authenticate</servlet-name>
+		<url-pattern>/auth.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Review</servlet-name>
+		<servlet-class>com.cloud.clinic.view.ReviewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Review</servlet-name>
+		<url-pattern>/review.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>File_Dispatch</servlet-name>
 		<servlet-class>com.cloud.clinic.view.FileDispatchServlet</servlet-class>
 	</servlet>
@@ -116,7 +134,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	
-	<!-- <security-constraint>
+	<security-constraint>
         <web-resource-collection>
             <web-resource-name>Site</web-resource-name>
             <url-pattern>/*</url-pattern>
@@ -124,5 +142,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
         <auth-constraint>
             <role-name>*</role-name>
         </auth-constraint>
-    </security-constraint> -->
+        <user-data-constraint>
+        	<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
 </web-app>

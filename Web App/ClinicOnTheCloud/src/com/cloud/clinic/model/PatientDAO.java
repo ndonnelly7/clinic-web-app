@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -140,4 +141,51 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 		}
 	}
 
+	public PatientHistory loadHistory(Form f){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		PatientHistory history = f.getPatientHistory();
+		Hibernate.initialize(history.med_histories);
+		Hibernate.initialize(history.med_collat_histories);
+		Hibernate.initialize(history.drug_histories);
+		Hibernate.initialize(history.drug_collat_histories);
+		Hibernate.initialize(history.psych_histories);
+		Hibernate.initialize(history.psych_collat_histories);
+		
+		session.close();
+		return history;
+	}
+	
+	public EventsActivities loadEventsActivities(Form f){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		EventsActivities ea = f.getEventsActivities();
+		Hibernate.initialize(ea.getActivities());
+		Hibernate.initialize(ea.getCollat_activities());
+		
+		session.close();
+		return ea;
+	}
+	
+	public Lifestyle loadLifestyle(Form f){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		Lifestyle l = f.getLifestyle();
+		Hibernate.initialize(l.getActivities());
+		Hibernate.initialize(l.getCollatActivities());
+		
+		session.close();
+		return l;
+	}
+	
+	public Analysis loadAnalysis(Form f){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		Analysis a = f.getAnalysis();
+		Hibernate.initialize(a.getOutcomes());
+		Hibernate.initialize(a.getImpressions());
+		
+		session.close();
+		return a;
+	}
 }

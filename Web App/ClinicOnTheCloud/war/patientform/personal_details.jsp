@@ -193,7 +193,15 @@
 	</fieldset>
 	<br><br>
 	<fieldset id="family_pres_field">
-		<legend>Others present</legend>
+		<legend>Other questions</legend>
+		<div class="pure-control-group">
+			<label for="testing_reason">Why are you taking this test?</label>
+			<select id="testing_reason" name="testing_reason">
+				<option value="reassurance">Reassurance</option>
+				<option value="assessment">Assessment</option>
+				<option value="information">Information</option>
+			</select> 
+		</div>
 		<div class="pure-control-group">
 			<label for="family_present_check">Are any family or friends present?</label>
 			<input type="checkbox" name="family_present" id="collat_check" onclick="collatChecked(this, 'family_pres_div')">
@@ -298,7 +306,7 @@ function nextPage(page) {
 	
 	var gp_county = $("#gp_county").val();
 	var county = $("#county").val();
-	var collat = $("#collat_check").val() == 'on' ? true : false;
+	var collat = $("#collat_check").is(":checked") ? true : false;
 	var relation = collat ? $("#collat_present").val() : 'na';
 	
 	if(typeof(Storage) !== "undefined"){
@@ -331,7 +339,7 @@ function submitPage() {
 	
 	var gp_county = $("#gp_county").val();
 	var county = $("#county").val();
-	var collat = $("#collat_check").val() == 'on' ? true : false;
+	var collat = $("#collat_check").is(":checked") ? true : false;
 	var relation = collat ? $("#collat_present").val() : 'na';
 	
 	if(typeof(Storage) !== "undefined"){

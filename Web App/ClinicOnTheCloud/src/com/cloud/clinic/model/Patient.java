@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
@@ -28,8 +29,11 @@ public class Patient implements java.io.Serializable{
 	@Column(name = "patientID", unique = true, nullable = false)
 	private int patientID;	
 	
-	private String userCreatedID;
-	private String originalClinic;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Clinician clinician;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Clinic clinic;
 	
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
@@ -52,24 +56,24 @@ public class Patient implements java.io.Serializable{
 		this.patientID = patientID;
 	}
 
-	
-	public String getOriginalClinic() {
-		return originalClinic;
+
+	public Clinician getClinician() {
+		return clinician;
 	}
 
 
-	public void setOriginalClinic(String originalClinic) {
-		this.originalClinic = originalClinic;
+	public void setClinician(Clinician clinician) {
+		this.clinician = clinician;
 	}
 
 
-	public String getUserCreatedID() {
-		return userCreatedID;
+	public Clinic getClinic() {
+		return clinic;
 	}
 
 
-	public void setUserCreatedID(String userCreatedID) {
-		this.userCreatedID = userCreatedID;
+	public void setClinic(Clinic clinic) {
+		this.clinic = clinic;
 	}
 
 

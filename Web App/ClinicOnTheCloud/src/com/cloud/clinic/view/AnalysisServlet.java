@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cloud.clinic.model.Analysis;
 import com.cloud.clinic.model.BeanPopulate;
 import com.cloud.clinic.model.Form;
+import com.cloud.clinic.model.Impression;
 import com.cloud.clinic.model.Outcome;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
@@ -31,6 +32,7 @@ public class AnalysisServlet extends HttpServlet {
 		Analysis a = new Analysis();
 		BeanPopulate.populateBean(a, req);
 		a.setOutcomes(getOutcomeList(req, a));
+		a.setImpressions(getImpressionList(req, a));
 		
 		if(f.isNew()){
 			a.setForm(f);
@@ -39,6 +41,7 @@ public class AnalysisServlet extends HttpServlet {
 		} else {
 			if(f.getAnalysis() != null) {
 				dao.runQuery("delete from Outcome where Analysis= " + String.valueOf(a.getAnalysisID()));
+				dao.runQuery("delete from Impression where Analysis= " + String.valueOf(a.getAnalysisID()));
 				a.setAnalysisID(f.getAnalysis().getAnalysisID());
 				a.setForm(f);
 				f.setAnalysis(a);
@@ -52,7 +55,7 @@ public class AnalysisServlet extends HttpServlet {
 		
 		req.setAttribute("id", pID);
 		req.setAttribute("patient", new JSONObject(pat));
-		RequestDispatcher view = req.getRequestDispatcher("/patientform/results.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("/patientform/FormFinished.jsp");
 		view.forward(req, resp);
 	}
 	
@@ -70,5 +73,21 @@ public class AnalysisServlet extends HttpServlet {
 		}
 		
 		return outs;
+	}
+	
+	private ArrayList<Impression> getImpressionList(HttpServletRequest req, Analysis a){
+		ArrayList<Impression> imps = new ArrayList<Impression>();
+		
+		String[] impressions = req.getParameterValues("impression");
+		String[] impression_notes = req.getParameterValues("impression_notes");
+		for(int i = 0; i < impressions.length; i++){
+			Impression impression = new Impression();
+			impression.setImpression(impressions[i]);
+			impression.setImpression_notes(impression_notes[i]);
+			impression.setAnalysis(a);
+			imps.add(impression);
+		}
+		
+		return imps;
 	}
 }

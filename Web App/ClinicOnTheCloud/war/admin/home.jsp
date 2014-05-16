@@ -23,11 +23,28 @@
 	<a href="/admin/SeeAllPatients.jsp">View Your Stored Patients</a>
 	<a href="/admin/FindPatient.jsp">Find a Patient</a>
 	<a href="/admin/ChangeClinic.jsp">Change Clinic</a>
+	<input type="button" value="Review Patient" onclick="revealReviewDiv()">
+	<form class="hide_div pure-form pure-form-aligned" id="review" method="GET" action="/review.do">
+		<div class="pure-control-group">
+			<label for="name">Patient Name:</label>
+			<input type="text" id="name">
+		</div>
+		<div class="pure-control-group">
+			<label for="dob">Patient DOB: </label>
+		<input name="dob" placeholder="dd/mm/yyyy" type="text" id="pickdate">
+		</div>
+		<div class="pure-control-group">
+			<input type="button" value="Submit" onclick="sendReview()">
+		</div>
+		<input type="hidden" id="id" name="id"/>
+		<input type="hidden" name="page" value="SETUP"/>
+	</form>
 	
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="/js/main.js"></script>
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
 <script src="/js/home.js"></script>

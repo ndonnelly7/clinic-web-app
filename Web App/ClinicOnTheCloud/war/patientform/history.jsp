@@ -588,8 +588,9 @@
 		
 		addHistory(p_id, history);
 		
-		//Submit
-		spanClick(page);
+		setTimeout(function() {
+			$("#history_form").submit();
+		}, 100);
 	}
 	
 	function submitPage()
@@ -660,7 +661,9 @@
 		
 		addHistory(p_id, history);
 		
-		$("#history_form").submit();
+		setTimeout(function() {
+			$("#history_form").submit();
+		}, 100);
 	}
 </script>
 </body>
