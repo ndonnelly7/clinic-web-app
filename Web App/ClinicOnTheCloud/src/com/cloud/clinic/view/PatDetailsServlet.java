@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
@@ -64,6 +65,15 @@ public class PatDetailsServlet extends HttpServlet {
 			}
 			f.setPersonalDetails(details);
 			details.setForm(f);
+			List<Form> fList =  pat.getForms();
+			for(int i = 0; i < fList.size(); i++){
+				if(fList.get(i).getFormID() == f.getFormID())
+				{
+					fList.set(i, f);
+					break;
+				}
+			}
+			pat.setForms(fList);
 			dao.update(pat);	
 		} else {
 			pat = new Patient();

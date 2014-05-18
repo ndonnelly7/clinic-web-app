@@ -126,11 +126,11 @@ function revealGDS(elem){
 	if($("#gds_form").is(":visible")){
 		$("#gds_form").hide(500);
 		elem.value = "GDS Test";
-		want_moca = false;
+		gds = false;
 	} else {
 		$("#gds_form").show(500);
 		elem.value = "Remove GDS Test";
-		want_moca = true;
+		gds = true;
 	}
 }
 
@@ -138,11 +138,11 @@ function revealHADS(elem){
 	if($("#hads_form").is(":visible")){
 		$("#hads_form").hide(500);
 		elem.value = "HADS Test";
-		want_moca = false;
+		hads = false;
 	} else {
 		$("#hads_form").show(500);
 		elem.value = "Remove HADS Test";
-		want_moca = true;
+		hads = true;
 	}
 }
 
@@ -150,11 +150,11 @@ function revealMMSE(elem){
 	if($("#mmse").is(":visible")){
 		$("#mmse").hide(500);
 		elem.value = "MMSE Test";
-		want_moca = false;
+		want_mmse = false;
 	} else {
 		$("#mmse").show(500);
 		elem.value = "Remove MMSE Test";
-		want_moca = true;
+		want_mmse = true;
 	}
 };
 
@@ -162,11 +162,11 @@ function revealMOCA(elem){
 	if($("#moca").is(":visible")){
 		$("#moca").hide(500);
 		elem.value = "MOCA Test";
-		want_mmse = false;
+		want_moca = false;
 	} else {
 		$("#moca").show(500);
 		elem.value = "Remove MOCA Test";
-		want_mmse = true;
+		want_moca = true;
 	}
 };
 

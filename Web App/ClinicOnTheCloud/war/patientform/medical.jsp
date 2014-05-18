@@ -378,7 +378,7 @@
 			$("#hiddenID").val("0");
 		}
 		if(typeof(Storage) !== "undefined")
-			if(sessionStorage.collat)
+			if(!(sessionStorage.collat))
 				hideCollat();
 	});
 

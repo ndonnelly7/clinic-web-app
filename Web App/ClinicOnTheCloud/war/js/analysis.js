@@ -9,7 +9,7 @@ var months = new Array("January", "February", "March", "April", "May", "June", "
 
 $(document).ready(function(){
 	//check for depression and age
-	setTimeout(initAnalysis, 100);
+	setTimeout(initAnalysis, 150);
 });
 
 function initAnalysis(){

@@ -2,6 +2,7 @@ package com.cloud.clinic.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,6 +50,15 @@ public class AnalysisServlet extends HttpServlet {
 				a.setForm(f);
 				f.setAnalysis(a);
 			}
+			List<Form> fList =  pat.getForms();
+			for(int i = 0; i < fList.size(); i++){
+				if(fList.get(i).getFormID() == f.getFormID())
+				{
+					fList.set(i, f);
+					break;
+				}
+			}
+			pat.setForms(fList);
 				
 		}
 		dao.update(pat);
