@@ -13,6 +13,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class TestBattery {
 
@@ -28,29 +30,44 @@ public class TestBattery {
 	private Form form;
 	
 	//HADS
+	@Expose
 	String hads_wound_up, hads_enjoy, hads_frightened, hads_funny, hads_worry, hads_cheerful, hads_relaxed;
+	@Expose
 	String hads_slowed, hads_butterflies, hads_appearance, hads_restless, hads_enjoyment, hads_pasttime, hads_panic;
+	@Expose
 	String hads_total;
 	
 	
 	//GDS
+	@Expose
 	String gds_satisfied, gds_dropping_interests, gds_life_empty, gds_bored, gds_future, gds_thoughts, gds_spirits;
+	@Expose
 	String gds_afraid, gds_happy, gds_helpless, gds_fidgety, gds_stay_home, gds_future_worry, gds_mem_problems, gds_alive;
+	@Expose
 	String gds_blue, gds_worthless, gds_exciting, gds_new_projects, gds_energy, gds_hopeless, gds_better_off, gds_little_things;
+	@Expose
 	String gds_crying, gds_concentrating, gds_morning, gds_social_occasions, gds_decisions, gds_clear_mind;
+	@Expose
 	String gds_total;
 	
 	//MOCA
+	@Expose
 	String moca_visuo, moca_attention, moca_language, moca_abstraction;
+	@Expose
 	String moca_naming, moca_recall, moca_orientation, moca_total;
+	@Expose
 	String MOCA_Upload;
 	
 	//MOCA_Blind
+	@Expose
 	String b_attention, b_language, b_abstract, b_recall;
+	@Expose
 	String b_orientation, b_moca_total, b_MOCA_Upload;
 	
 	//MMSE
+	@Expose
 	String mmse_orientation, mmse_registration, mmse_attention, mmse_recall;
+	@Expose
 	String mmse_language, mmse_copying, mmse_total, MMSE_Upload;
 
 	@Transient

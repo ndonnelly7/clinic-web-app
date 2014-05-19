@@ -66,7 +66,40 @@
 			
 			</div>
 			
+			<!-- CONCERNS -->
+			<div class="sec" id="concerns">
+				
+			</div>
 			
+			<!-- NEURO -->
+			<div class="sec" id="neuro">
+			
+			</div>
+			
+			<!-- EVACT -->
+			<div class="sec" id="events">
+			
+			</div>
+			
+			<!-- LIVING -->
+			<div class="sec" id="living">
+				
+			</div>
+			
+			<!-- LIFESTYLE -->
+			<div class="sec" id="lifestyle">
+			
+			</div>
+			
+			<!-- TEST -->
+			<div class="sec" id="tests">
+			
+			</div>
+			
+			<!-- ANALYSIS -->
+			<div class="sec" id="analysis">
+			
+			</div>
 		</div>
 	</div>
 </div>

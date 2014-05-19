@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
  */
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class LivingSit {
 
@@ -27,208 +29,319 @@ public class LivingSit {
 	protected Object[] jdoDetachedState;
 	
 	//Lifestyle stuff
+	@Expose
 	String housemates, house_type, house_location;
+	@Expose
 	String housemates_collat, house_type_collat, house_location_collat;
+	@Expose
 	boolean carer, home_help, carer_collat, home_help_collat; 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String housemates_note;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String house_type_note;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String house_location_note;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String home_help_note;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String carer_note;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String housemates_note_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String house_location_note_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String carer_note_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String home_help_note_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String house_type_note_collat;
 
+	@Expose
 	String drive, cook, shop, drive_collat, cooking_collat, shopping_collat;
+	@Expose
 	boolean life_collat, cooking_not_collat, shopping_not_collat, bills_collat;
 	
 	//Driving stuff
+	@Expose
 	boolean unknown_arrival, lost, tips;
+	@Expose
 	String unknown_arrival_severity, unknown_arrival_freq;
+	@Expose
 	String lost_severity, lost_freq;
+	@Expose
 	String tips_severity, tips_freq;
+	@Expose
 	boolean park_big, day_drive, known_places, take_friend, dry_run, map, take_phone;
+	@Expose
 	String park_big_success, day_drive_success;
+	@Expose
 	String known_places_success, take_friend_success;
+	@Expose
 	String dry_run_success, map_success, take_phone_success;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String unknown_arrival_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String lost_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String tips_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String park_big_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String day_drive_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String known_places_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String take_friend_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String dry_run_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String map_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String take_phone_notes;
 	
-	
+
+	@Expose
 	boolean unknown_arrival_collat, lost_collat, tips_collat;
+	@Expose
 	String unkown_arrival_severity_collat, unknown_arrival_freq_collat;
+	@Expose
 	String lost_severity_collat, lost_freq_collat;
+	@Expose
 	String tips_severity_collat, tips_freq_collat;
+	@Expose
 	boolean park_big_collat, day_drive_collat, known_places_collat, take_friend_collat, dry_run_collat, map_collat, take_phone_collat;
+	@Expose
 	String park_big_success_collat, day_drive_success_collat;
+	@Expose
 	String known_places_success_collat, take_friend_success_collat;
+	@Expose
 	String dry_run_success_collat, map_success_collat, take_phone_success_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String unknown_arrival_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String lost_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String tips_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String park_big_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String day_drive_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String known_places_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String take_friend_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String dry_run_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String map_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String take_phone_notes_collat;
 	
 	
 	//Cooking
 	//If does not cook
+	@Expose
 	String cook_help, cook_help_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String cook_help_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String cook_help_notes_collat;
 	
 	//If cooks
 	//Problems
+	@Expose
 	boolean forgot_cooking, burnt_food, started_fire, smoke_alarm, undercooked;
+	@Expose
 	String forgot_cooking_freq, burnt_food_freq, started_fire_freq, smoke_alarm_freq;
+	@Expose
 	String undercooked_freq;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String forgot_cooking_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String burnt_food_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String started_fire_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String smoke_alarm_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String undercooked_notes;
 	
 	//Coping Strategies
+	@Expose
 	boolean timer, reminders, simple_cooking, salad, go_out, get_help;
+	@Expose
 	String timer_success, reminders_success, simple_cooking_success, salad_success, go_out_success, get_help_success;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String timer_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String reminders_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String simple_cooking_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String salad_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String go_out_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String get_help_notes;
 	
 	//Collateral
 	//Problems
+	@Expose
 	boolean forgot_cooking_collat, burnt_food_collat, started_fire_collat, smoke_alarm_collat, undercooked_collat;
+	@Expose
 	String forgot_cooking_freq_collat, burnt_food_freq_collat;
+	@Expose
 	String started_fire_freq_collat, smoke_alarm_freq_collat, undercooked_freq_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String forgot_cooking_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String burnt_food_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String started_fire_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String smoke_alarm_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String undercooked_notes_collat;
 	
 	//Coping Strategies
+	@Expose
 	boolean timer_collat, reminders_collat, simple_cooking_collat, salad_collat, go_out_collat, get_help_collat;
+	@Expose
 	String timer_success_collat, reminders_success_collat, simple_cooking_success_collat, salad_success_collat, go_out_success_collat, get_help_success_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String timer_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String reminders_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String simple_cooking_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String salad_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String go_out_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String get_help_notes_collat;
 
 	//Shopping
+	@Expose
 	String shop_help, shop_help_time;
+	@Expose
 	String shop_help_collat, shop_help_time_collat;
+	@Expose
 	boolean list_check, small_shop_check, list_check_collat, small_shop_check_collat;
+	@Expose
 	String shopping_tougher, shopping_tougher_collat;
+	@Expose
 	String list_success, small_shop_success;
+	@Expose
 	String list_success_collat, small_shop_success_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String shop_help_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String shop_time_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String shop_help_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String shop_time_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String list_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String small_shop_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String list_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String small_shop_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String shop_tough_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String shop_tough_notes_collat;
 	
 	//Bills
+	@Expose
 	String bills_method, bills_help, bill_problems;
+	@Expose
 	String bills_method_collat, bills_help_collat, bill_problems_collat;
+	@Expose
 	String bills_method_notes_collat, bills_help_notes_collat, bill_problems_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_method_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_help_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_problem_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_method_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_help_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_problem_notes_collat;
 	

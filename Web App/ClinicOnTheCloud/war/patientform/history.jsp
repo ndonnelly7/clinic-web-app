@@ -373,24 +373,24 @@
 			<div id="ther_adds">
 				<div id="current_ther">
 					<label for="current_therapy_check" class="title">Are you currently going through any counselling or therapy?</label>
-					<input type="checkbox" name="current_therapy_check" value="current_therapy_check" />
+					<input type="checkbox" name="current_therapy_check" />
 				</div>
 				<br>
 				<div id="past_ther">
 					<label for="past_therapy_check" class="title">Have you ever been to any counselling or therapy?</label>
-					<input type="checkbox" name="past_therapy_check" value="past_therapy_check" />
+					<input type="checkbox" name="past_therapy_check" />
 				</div>
 				<div class="collat_div history_collat">
 					<input type="button" onclick="showCollatPsych()" class="pure-button history_button collat_button" value="Difference from Collateral">
 					<div class="hide_div" id="collat_psych">
 						<div id="current_ther">
 							<label for="collat_current_therapy_check" class="title">Are they currently going through any counselling or therapy?</label>
-							<input type="checkbox" name="collat_current_therapy_check" value="collat_current_therapy_check" />
+							<input type="checkbox" name="collat_current_therapy_check"/>
 						</div>
 						<br>
 						<div id="past_ther">
 							<label for="collat_past_therapy_check" class="title">Have they ever been to any counselling or therapy?</label>
-							<input type="checkbox" name="collat_past_therapy_check" value="collat_past_therapy_check" />
+							<input type="checkbox" name="collat_past_therapy_check"/>
 						</div>
 					</div>
 				</div>

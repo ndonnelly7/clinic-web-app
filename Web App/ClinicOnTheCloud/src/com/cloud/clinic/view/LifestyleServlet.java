@@ -26,7 +26,7 @@ public class LifestyleServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		Lifestyle l = new Lifestyle();
 		BeanPopulate.populateBean(l, req);
 		l.setActivities(loadActivitiesList(req, l));
@@ -78,6 +78,7 @@ public class LifestyleServlet extends HttpServlet {
 		for(int i =0; i < types.length; i++){
 			LifestyleActivity a = new LifestyleActivity();
 			a.setType(types[i]);
+			a.setCollat(false);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
 				if(involvements[i].equalsIgnoreCase("no")){
@@ -161,6 +162,7 @@ public class LifestyleServlet extends HttpServlet {
 		for(int i =0; i < types.length; i++){
 			LifestyleActivity a = new LifestyleActivity();
 			a.setType(types[i]);
+			a.setCollat(true);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
 				if(involvements[i].equalsIgnoreCase("no")){

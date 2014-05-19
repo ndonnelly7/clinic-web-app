@@ -28,7 +28,7 @@ public class AnalysisServlet extends HttpServlet {
 		Integer pID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(pID);
 		
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		
 		Analysis a = new Analysis();
 		BeanPopulate.populateBean(a, req);

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 
 @Entity
 public class LifestyleActivity implements Serializable{
@@ -28,9 +30,13 @@ public class LifestyleActivity implements Serializable{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	Lifestyle lifestyle;
-	
+
+	@Expose
 	String type, involvement, time_changed, notes;
+	@Expose
 	int current_hours, prev_hours;
+	@Expose
+	boolean collat;
 	
 	public LifestyleActivity(){
 	
@@ -42,6 +48,14 @@ public class LifestyleActivity implements Serializable{
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public boolean isCollat() {
+		return collat;
+	}
+
+	public void setCollat(boolean collat) {
+		this.collat = collat;
 	}
 
 	public String getInvolvement() {

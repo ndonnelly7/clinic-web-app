@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Representative of the Patient Analysis page of the form
  */
@@ -30,17 +32,23 @@ public class Analysis {
 	@Transient
 	protected Object[] jdoDetachedState;
 	
+	@Expose
 	String mmse_result, moca_result, gds_result, hads_result;
+	@Expose
 	String follow_up, follow_notes;
 	
+	@Expose
 	@OneToMany(mappedBy = "analysis", cascade = CascadeType.ALL)
 	List<Outcome> outcomes;
 	
+	@Expose
 	@OneToMany(mappedBy = "analysis", cascade = CascadeType.ALL)
 	List<Impression> impressions;
 	
+	@Expose
 	@Column(name = "letter", columnDefinition="TEXT")
 	String letter;
+	@Expose
 	@Column(name = "notes", columnDefinition="TEXT")
 	String notes;
 	

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Used to represent the page containing any information from patient's visit to the GP
  */
@@ -26,13 +28,20 @@ public class GP_Info {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Form form;
-	
+
+	@Expose
 	boolean gp_talked;
+	@Expose
 	String gp_results, gp_meds, gp_notes;
+	@Expose
 	float cholest_test, cholest_ldl, cholest_hdl, thyroid, weight_test;
+	@Expose
 	float systolic, diastolic, b12_test, iron_test, calc_test, sodium_test;
+	@Expose
 	String cholest_time, ldl_time, hdl_time, thyroid_time, weight_time;
+	@Expose
 	String systolic_time, diastolic_time, b12_time, iron_time, calc_time, sodium_time;
+	@Expose
 	String med_test_notes, kin_response, response_time, kin_notes;
 	
 	public GP_Info()

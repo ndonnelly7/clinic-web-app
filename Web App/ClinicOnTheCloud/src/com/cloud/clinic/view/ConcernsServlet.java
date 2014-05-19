@@ -24,7 +24,7 @@ public class ConcernsServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer pID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(pID);	
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		Concerns cons = new Concerns();
 		BeanPopulate.populateBean(cons, req);
 		
@@ -34,6 +34,8 @@ public class ConcernsServlet extends HttpServlet {
 				cons.setConcernsID(f.getConcerns().getConcernsID());
 		} 
 		cons.setForm(f);
+		if(f.getConcerns() != null)
+			cons.setConcernsID(f.getConcerns().getConcernsID());
 		f.setConcerns(cons);
 		List<Form> fList =  pat.getForms();
 		for(int i = 0; i < fList.size(); i++){

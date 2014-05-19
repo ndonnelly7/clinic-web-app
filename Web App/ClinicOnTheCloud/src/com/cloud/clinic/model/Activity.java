@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 
 /*
  * USed to represent both the social and physical activities that a patient
@@ -35,8 +37,12 @@ public class Activity implements Serializable{
 	@Transient
 	protected Object[] jdoDetachedState;
 	
+	@Expose
 	String type, involvement, time_changed, notes;
+	@Expose
 	int current_hours, prev_hours;
+	@Expose
+	boolean collat;
 	
 	public Activity(){
 		
@@ -48,6 +54,14 @@ public class Activity implements Serializable{
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public boolean isCollat() {
+		return collat;
+	}
+
+	public void setCollat(boolean collat) {
+		this.collat = collat;
 	}
 
 	public String getInvolvement() {

@@ -26,7 +26,7 @@ public class EvActServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		EventsActivities ea = new EventsActivities();
 		BeanPopulate.populateBean(ea, req);
 		ea.setActivities(loadActivitiesList(req, ea));
@@ -81,6 +81,7 @@ public class EvActServlet extends HttpServlet {
 		for(int i =0; i < types.length; i++){
 			Activity a = new Activity();
 			a.setType(types[i]);
+			a.setCollat(false);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
 				if(involvements[i].equalsIgnoreCase("no")){
@@ -164,6 +165,7 @@ public class EvActServlet extends HttpServlet {
 		for(int i =0; i < types.length; i++){
 			Activity a = new Activity();
 			a.setType(types[i]);
+			a.setCollat(true);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
 				if(involvements[i].equalsIgnoreCase("no")){

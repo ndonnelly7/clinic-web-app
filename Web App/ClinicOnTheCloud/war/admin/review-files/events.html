@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="events_form" class="form_entry pure-form pure-form-aligned">
+
+<div id="events" class="row_div">
+	<div class="header">Life Events</div>
+	<div id="divorce_row" class="row">
+		<div class="subheader">Divorces</div>
+		<div class="eve_time">
+			<label for="divorce_time">When:</label>
+			<input type="text" id="divorce_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="divorce_notes">Notes:</label>
+			<textarea rows="3" id="divorce_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="bereavement_row" class="row">
+		<div class="subheader">Bereavement</div>
+		<div class="eve_time">
+			<label for="bereavement_time">When:</label>
+			<input type="text" id="bereavement_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="bereavement_notes">Notes:</label>
+			<textarea rows="3" id="bereavement_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="moving_house_row" class="row">
+		<div class="subheader">Moving House</div>
+		<div class="eve_time">
+			<label for="moving_house_time">When:</label>
+			<input type="text" id="moving_house_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="moving_house_notes">Notes:</label>
+			<textarea rows="3" id="moving_house_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="redundancy_row" class="row">
+		<div class="subheader">Redundancy</div>
+		<div class="eve_time">
+			<label for="redundancy_time">When:</label>
+			<input type="text" id="redundancy_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="redundancy_notes">Notes:</label>
+			<textarea rows="3" id="redundancy_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="family_disharmony_row" class="row">
+		<div class="subheader">Family Disharmony</div>
+		<div class="eve_time">
+			<label for="family_disharmony_time">When:</label>
+			<input type="text" id="family_disharmony_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="family_disharmony_notes">Notes:</label>
+			<textarea rows="3" id="family_disharmony_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="other_disharmony_row" class="row">
+		<div class="subheader">Other Disharmony</div>
+		<div class="eve_time">
+			<label for="other_disharmony_time">When:</label>
+			<input type="text" id="other_disharmony_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="other_disharmony_notes">Notes:</label>
+			<textarea rows="3" id="other_disharmony_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="financial_row" class="row">
+		<div class="subheader">Financial Issues</div>
+		<div class="eve_time">
+			<label for="financial_time">When:</label>
+			<input type="text" id="financial_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="financial_notes">Notes:</label>
+			<textarea rows="3" id="financial_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="retirement_row" class="row">
+		<div class="subheader">Retirement</div>
+		<div class="eve_time">
+			<label for="retirement_time">When:</label>
+			<input type="text" id="retirement_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="retirement_notes">Notes:</label>
+			<textarea rows="3" id="retirement_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="job_stress_row" class="row">
+		<div class="subheader">Job Stress</div>
+		<div class="eve_time">
+			<label for="job_stress_time">When:</label>
+			<input type="text" id="job_stress_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="job_stress_notes">Notes:</label>
+			<textarea rows="3" id="job_stress_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="other_row" class="row">
+		<div class="subheader">Other</div>
+		<div>
+			<input type="text" id="other_text" readonly>
+		</div>
+		<div class="eve_time">
+			<label for="other_time">When:</label>
+			<input type="text" id="other_time" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="other_notes">Notes:</label>
+			<textarea rows="3" id="other_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<!-- Collat Events -->
+	<div class="header">Collateral Life Events</div>
+	<div id="divorce_row_collat" class="row">
+		<div class="subheader">Divorces</div>
+		<div class="eve_time_collat">
+			<label for="divorce_time_collat">When:</label>
+			<input type="text" id="divorce_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="divorce_notes_collat">Notes:</label>
+			<textarea rows="3" id="divorce_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="bereavement_row_collat" class="row">
+		<div class="subheader">Bereavement</div>
+		<div class="eve_time_collat">
+			<label for="bereavement_time_collat">When:</label>
+			<input type="text" id="bereavement_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="bereavement_notes_collat">Notes:</label>
+			<textarea rows="3" id="bereavement_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="moving_house_row_collat" class="row">
+		<div class="subheader">Moving House</div>
+		<div class="eve_time_collat">
+			<label for="moving_house_time_collat">When:</label>
+			<input type="text" id="moving_house_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="moving_house_notes_collat">Notes:</label>
+			<textarea rows="3" id="moving_house_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="redundancy_row_collat" class="row">
+		<div class="subheader">Redundancy</div>
+		<div class="eve_time_collat">
+			<label for="redundancy_time_collat">When:</label>
+			<input type="text" id="redundancy_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="redundancy_notes_collat">Notes:</label>
+			<textarea rows="3" id="redundancy_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="family_disharmony_row_collat" class="row">
+		<div class="subheader">Family Disharmony</div>
+		<div class="eve_time_collat">
+			<label for="family_disharmony_time_collat">When:</label>
+			<input type="text" id="family_disharmony_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="family_disharmony_notes_collat">Notes:</label>
+			<textarea rows="3" id="family_disharmony_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="other_disharmony_row_collat" class="row">
+		<div class="subheader">Other Disharmony</div>
+		<div class="eve_time_collat">
+			<label for="other_disharmony_time_collat">When:</label>
+			<input type="text" id="other_disharmony_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="other_disharmony_notes_collat">Notes:</label>
+			<textarea rows="3" id="other_disharmony_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="financial_row_collat" class="row">
+		<div class="subheader">Financial Issues</div>
+		<div class="eve_time_collat">
+			<label for="financial_time_collat">When:</label>
+			<input type="text" id="financial_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="financial_notes_collat">Notes:</label>
+			<textarea rows="3" id="financial_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="retirement_row_collat" class="row">
+		<div class="subheader">Retirement</div>
+		<div class="eve_time_collat">
+			<label for="retirement_time_collat">When:</label>
+			<input type="text" id="retirement_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="retirement_notes_collat">Notes:</label>
+			<textarea rows="3" id="retirement_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="job_stress_row_collat" class="row">
+		<div class="subheader">Job Stress</div>
+		<div class="eve_time_collat">
+			<label for="job_stress_time_collat">When:</label>
+			<input type="text" id="job_stress_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="job_stress_notes_collat">Notes:</label>
+			<textarea rows="3" id="job_stress_notes_collat" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="other_row_collat" class="row">
+		<div class="subheader">Other</div>
+		<div>
+			<input type="text" id="other_collat_text" readonly>
+		</div>
+		<div class="eve_time_collat">
+			<label for="other_time_collat">When:</label>
+			<input type="text" id="other_time_collat" readonly>
+		</div>
+		<div class="eve_notes_collat">
+			<label for="other_notes_collat">Notes:</label>
+			<textarea rows="3" id="other_notes_collat" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="activities" class="row_div">
+	<div class="header">Social Activities</div>
+	<div id="soc_row" class="row">
+		<div class="act_col">
+			<label for="type">Activity:</label>
+			<input type="text" id="type" readonly>
+		</div>
+		<div class="inv_col" hidden="true">
+			<label for="involvement">Involvement:</label>
+			<input type="text" id="involvement" readonly>
+		</div>
+		<div class="cur_col" hidden="true">
+			<label for="current_hours">Current Hours:</label>
+			<input type="text" id="current_hours" class="num" readonly>
+		</div>
+		<div class="pre_col">
+			<label for="prev_hours">Previous Hours:</label>
+			<input type="text" id="prev_hours" class="num" readonly>
+		</div>
+		<div class="tim_col">
+			<label for="time_changed">When Changed:</label>
+			<input type="text" id="time_changed" readonly>
+		</div>
+		<div class="collat_col">
+			<label for="collat">From Collateral:</label>
+			<input type="text" id="collat" class="bool" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="notes">Notes:</label>
+			<textarea rows="3" id="notes" readonly></textarea>
+		</div>
+	</div>
+</div>
+<div class="eve_notes_collat pure-control-group">
+	<label for="social_notes">Notes on Activities:</label>
+	<textarea rows="3" id="social_notes" readonly></textarea>
+</div>
+<div class="eve_notes_collat pure-control-group">
+	<label for="social_notes_collat">Notes on Collateral Activities:</label>
+	<textarea rows="3" id="social_notes_collat" readonly></textarea>
+</div>
+
+
+<div id="dep" class="row_div">
+	<div class="header">Depression</div>
+	<div class="pure-control-group">
+	<label for="depression_yn">Feeling down or depressed:</label>
+	<input type="text" id="depression_yn" readonly>
+	</div>
+	
+	<div class="pure-control-group">
+	<label for="pleasure_yn">Little Interest in things:</label>
+	<input id="pleasure_yn" type="text" readonly>
+	</div>
+	
+	<div class="pure-control-group">
+	<label for="worthless_yn">Feelings of Worthlessness:</label>
+	<input id="worthless_yn" type="text" readonly>
+	</div>
+	
+	<div  class="pure-control-group">
+	<label for="concentration_yn">Poor Concentration:</label>
+	<input id="concentration_yn" type="text" readonly>
+	</div>
+	
+	<div  class="pure-control-group">
+	<label for="death_yn">Feelings of Death:</label>
+	<input type="text" id="death_yn" readonly>
+	</div>
+</div>
+
+</form>
+</body>
+</html>

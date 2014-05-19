@@ -43,8 +43,8 @@
 				<div class="pure-u-1-2 subtitle">With what result?</div>
 				<div class="pure-u-1-2 select_box select_margin_change">
 					<select name="gp_results">
-						<option value="referral_us">Referral to Us</option>
-						<option value="referral_other">Referral to other</option>
+						<option value="referral_to_us">Referral to Us</option>
+						<option value="referral_to_other">Referral to other</option>
 						<option value="socialize">Socialize More</option>
 						<option value="test">Tests</option>
 						<option value="blood_test">Blood Tests</option>
@@ -57,9 +57,9 @@
 						<option value="unsure">Not Sure</option>
 						<option value="anxiolytic">Anxiolytic</option>
 						<option value="antidepressant">Antidepressant</option>
-						<option value="nmda">NMDA Receptors</option>
-						<option value="blood_test">Acetylcholinesterase Inhibitor</option>
-						<option value="medication">Other</option>			
+						<option value="nmda_receptors">NMDA Receptors</option>
+						<option value="acetyl_inhibitor">Acetylcholinesterase Inhibitor</option>
+						<option value="other">Other</option>			
 					</select>
 				</div>
 				<br>
@@ -86,11 +86,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="cholest_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -109,11 +109,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="ldl_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -132,11 +132,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="hdl_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -155,11 +155,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="systolic_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -178,11 +178,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="diastolic_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -193,7 +193,7 @@
 			<div>
 			<div class="pure-u-1-4 subtitle">Thyroid</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="thyroid_test" size="4" id="thyroid" onchange="thyroidChanged()">
+				<input type="text" name="thyroid" size="4" id="thyroid" onchange="thyroidChanged()">
 				<div style="font-size:small">pg/mL</div>
 			</div>
 			<div id="thyroid_qs" style="display:inline;">
@@ -201,11 +201,11 @@
 				<div class="pure-u-1-4 select_box" style="">
 					<select name="thyroid_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -224,11 +224,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="b12_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -247,11 +247,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="iron_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -270,11 +270,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="calc_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -293,11 +293,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="sodium_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -315,11 +315,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="weight_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -344,11 +344,11 @@
 			<div class="pure-u-1-2 select_box">
 				<select name="response_time">
 						<option value="unknown">Unknown</option>
-					<option value="three_mon">1 month</option>
-					<option value="three_mon">3 months</option>
-					<option value="six_mon">6 months</option>
-					<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="one_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus_yrs">2+ years</option>
 				</select>
 			</div>
 		</div>

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Medical History class used for the patient's history
  */
@@ -27,10 +29,14 @@ public class MedHistory {
 	@ManyToOne(fetch = FetchType.LAZY)
 	PatientHistory pHistory;
 
-	@Column(name = "medicine")
+	@Expose
+	@Column(name = "ailment")
 	String condition;
-	String time;
-	String notes;
+	@Expose
+	String time, notes;
+	
+	@Expose
+	boolean collat;
 	
 	public MedHistory() {
 		
@@ -50,6 +56,14 @@ public class MedHistory {
 
 	public void setpHistory(PatientHistory pHistory) {
 		this.pHistory = pHistory;
+	}
+
+	public boolean isCollat() {
+		return collat;
+	}
+
+	public void setCollat(boolean collat) {
+		this.collat = collat;
 	}
 
 	public String getCondition() {

@@ -286,13 +286,26 @@ function retrieveSleepInfo() {
 }
 
 function updatePageWithLocal(pF) {
-	console.log("Entered getpForm function");
-	console.log(pF);
 	var drugs = pF['history']['drugs'];
-	console.log(drugs[0]['drug']);
-	if(drugs[0]['drug']=='sleeping'){
-		$("#sleep_meds_check").prop("checked", "true");
-		showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
-		$("#sleep_meds_s").val(drugs[0]['sleep_med']);
+	var nosleep = true;
+	for(var i = 0; i < drugs.length && nosleep; i++){
+		if(drugs[i]['drug']=='sleeping'){
+			$("#sleep_meds_check").prop("checked", "true");
+			showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
+			$("#sleep_meds_s").val(drugs[0]['sleep_med']);
+			nosleep = false;
+		}
+	}
+	
+	if(nosleep){
+		var drugs_c = pF['history']['DrugsCollat'];
+		for(var i = 0; i < drugs_c.length && nosleep; i++){
+			if(drugs_c[i]['drug']=='sleeping'){
+				$("#sleep_meds_check").prop("checked", "true");
+				showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
+				$("#sleep_meds_s").val(drugs_c[0]['sleep_med']);
+				nosleep = false;
+			}
+		}
 	}
 }

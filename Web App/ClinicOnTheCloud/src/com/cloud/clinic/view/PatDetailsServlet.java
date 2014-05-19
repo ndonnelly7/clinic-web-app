@@ -57,14 +57,16 @@ public class PatDetailsServlet extends HttpServlet {
 		
 		
 		if(pat != null){
-			Form f = dao.getLatestForm(pat);
+			Form f = dao.getTodaysForm(pat);
 			if(f.isNew()){
 				pat.addForm(f);
 				if(f.getPersonalDetails() != null)
 					details.setDetailsID(f.getPersonalDetails().getDetailsID());
 			}
-			f.setPersonalDetails(details);
 			details.setForm(f);
+			if(f.getPersonalDetails() != null)
+				details.setDetailsID(f.getPersonalDetails().getDetailsID());
+			f.setPersonalDetails(details);
 			List<Form> fList =  pat.getForms();
 			for(int i = 0; i < fList.size(); i++){
 				if(fList.get(i).getFormID() == f.getFormID())

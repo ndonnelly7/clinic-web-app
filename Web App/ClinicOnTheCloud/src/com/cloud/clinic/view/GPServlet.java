@@ -24,7 +24,7 @@ public class GPServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		GP_Info info = new GP_Info();
 		BeanPopulate.populateBean(info, req);
 
@@ -34,6 +34,8 @@ public class GPServlet extends HttpServlet {
 				info.setGpInfoID(f.getGpInfo().getGpInfoID());
 		} 
 		info.setForm(f);
+		if(f.getGpInfo() != null)
+			info.setGpInfoID(f.getGpInfo().getGpInfoID());
 		f.setGpInfo(info);
 		List<Form> fList =  pat.getForms();
 		for(int i = 0; i < fList.size(); i++){

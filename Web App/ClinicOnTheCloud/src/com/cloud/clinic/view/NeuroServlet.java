@@ -24,7 +24,7 @@ public class NeuroServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		NeuroHistory neuro = new NeuroHistory();
 		BeanPopulate.populateBean(neuro, req);
 		
@@ -34,6 +34,8 @@ public class NeuroServlet extends HttpServlet {
 				neuro.setNeuroHistoryID(f.getNeuroHistory().getNeuroHistoryID());
 		}
 		neuro.setForm(f);
+		if(f.getNeuroHistory() != null)
+			neuro.setNeuroHistoryID(f.getNeuroHistory().getNeuroHistoryID());
 		f.setNeuroHistory(neuro);
 		List<Form> fList =  pat.getForms();
 		for(int i = 0; i < fList.size(); i++){

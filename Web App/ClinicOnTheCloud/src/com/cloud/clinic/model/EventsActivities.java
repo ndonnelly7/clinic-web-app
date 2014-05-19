@@ -17,6 +17,8 @@ import javax.persistence.Transient;
  * Class used for the representation of the Events and Activities page
  */
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class EventsActivities implements Serializable {
 
@@ -33,100 +35,156 @@ public class EventsActivities implements Serializable {
 
 	@Transient
 	protected Object[] jdoDetachedState;
-	
+
+	@Expose
 	boolean divorce_check, bereavement_check, moving_house_check, redundancy_check, family_disharmony_check;
-	boolean other_disharmony_check, financial_check, retirement_check, job_check;
-	
+
+	@Expose
+	boolean other_disharmony_check, financial_check, retirement_check, job_stress_check;
+
+	@Expose
 	boolean divorce_collat_check, bereavement_collat_check, moving_house_collat_check, redundancy_collat_check_check, family_disharmony_collat_check;
-	boolean other_disharmony_collat_check, financial_collat_check, retirement_collat_check, job_collat_check;
-	
-	String other, other_time;
+
+	@Expose
+	boolean other_disharmony_collat_check, financial_collat_check, retirement_collat_check, job_stress_collat_check;
+
+	@Expose
+	String other_text, other_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String other_notes;
-	
+
+	@Expose
 	String divorce_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String divorce_notes;
-	
+
+	@Expose
 	String bereavement_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bereavement_notes;
-	
+
+	@Expose
 	String moving_house_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String moving_house_notes;
-	
+
+	@Expose
 	String redundancy_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String redundancy_notes;
-	
+
+	@Expose
 	String family_disharmony_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String family_disharmony_notes;
-	
+
+	@Expose
 	String other_disharmony_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String other_disharmony_notes;
-	
+
+	@Expose
 	String financial_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String financial_notes;
-	
+
+	@Expose
 	String retirement_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String retirement_notes;
-	
-	String job_time;
+
+	@Expose
+	String job_stress_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
-	String job_notes;
-	
-	String other_collat, other_collat_time;
+	String job_stress_notes;
+
+	@Expose
+	String other_collat_text, other_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String other_collat_notes;
-	
+
+	@Expose
 	String divorce_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String divorce_collat_notes;
-	
+
+	@Expose
 	String bereavement_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String bereavement_collat_notes;
-	
+
+	@Expose
 	String moving_house_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String moving_house_collat_notes;
-	
+
+	@Expose
 	String redundancy_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String redundancy_collat_notes;
-	
+
+	@Expose
 	String family_disharmony_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String family_disharmony_collat_notes;
-	
+
+	@Expose
 	String other_disharmony_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String other_disharmony_collat_notes;
-	
+
+	@Expose
 	String financial_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String financial_collat_notes;
-	
+
+	@Expose
 	String retirement_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String retirement_collat_notes;
-	
-	String job_collat_time;
+
+	@Expose
+	String job_stress_collat_time;
+	@Expose
 	@Column(columnDefinition="TEXT")
-	String job_collat_notes;
-	
+	String job_stress_collat_notes;
+
+	@Expose
 	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> activities;
-	
+
+	@Expose
 	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> collat_activities;
+
+	@Column(columnDefinition="TEXT")
+	String social_notes;
 	
+	@Column(columnDefinition="TEXT")
+	String social_notes_collat;
+	
+	@Expose
 	String depression_yn, pleasure_yn;
+	@Expose
 	String worthless_yn, concentration_yn, death_yn;
 	
 	public EventsActivities() {
@@ -213,12 +271,52 @@ public class EventsActivities implements Serializable {
 		this.retirement_check = retirement_check;
 	}
 
-	public boolean isJob_check() {
-		return job_check;
+	public boolean isJob_stress_check() {
+		return job_stress_check;
 	}
 
-	public void setJob_check(boolean job_check) {
-		this.job_check = job_check;
+	public void setJob_stress_check(boolean job_stress_check) {
+		this.job_stress_check = job_stress_check;
+	}
+
+	public boolean isJob_stress_collat_check() {
+		return job_stress_collat_check;
+	}
+
+	public void setJob_stress_collat_check(boolean job_stress_collat_check) {
+		this.job_stress_collat_check = job_stress_collat_check;
+	}
+
+	public String getJob_stress_time() {
+		return job_stress_time;
+	}
+
+	public void setJob_stress_time(String job_stress_time) {
+		this.job_stress_time = job_stress_time;
+	}
+
+	public String getJob_stress_notes() {
+		return job_stress_notes;
+	}
+
+	public void setJob_stress_notes(String job_stress_notes) {
+		this.job_stress_notes = job_stress_notes;
+	}
+
+	public String getJob_stress_collat_time() {
+		return job_stress_collat_time;
+	}
+
+	public void setJob_stress_collat_time(String job_stress_collat_time) {
+		this.job_stress_collat_time = job_stress_collat_time;
+	}
+
+	public String getJob_stress_collat_notes() {
+		return job_stress_collat_notes;
+	}
+
+	public void setJob_stress_collat_notes(String job_stress_collat_notes) {
+		this.job_stress_collat_notes = job_stress_collat_notes;
 	}
 
 	public boolean isDivorce_collat_check() {
@@ -288,20 +386,12 @@ public class EventsActivities implements Serializable {
 		this.retirement_collat_check = retirement_collat_check;
 	}
 
-	public boolean isJob_collat_check() {
-		return job_collat_check;
+	public String getOther_text() {
+		return other_text;
 	}
 
-	public void setJob_collat_check(boolean job_collat_check) {
-		this.job_collat_check = job_collat_check;
-	}
-
-	public String getOther() {
-		return other;
-	}
-
-	public void setOther(String other) {
-		this.other = other;
+	public void setOther_text(String other_text) {
+		this.other_text = other_text;
 	}
 
 	public String getOther_time() {
@@ -448,28 +538,12 @@ public class EventsActivities implements Serializable {
 		this.retirement_notes = retirement_notes;
 	}
 
-	public String getJob_time() {
-		return job_time;
+	public String getOther_collat_text() {
+		return other_collat_text;
 	}
 
-	public void setJob_time(String job_time) {
-		this.job_time = job_time;
-	}
-
-	public String getJob_notes() {
-		return job_notes;
-	}
-
-	public void setJob_notes(String job_notes) {
-		this.job_notes = job_notes;
-	}
-
-	public String getOther_collat() {
-		return other_collat;
-	}
-
-	public void setOther_collat(String other_collat) {
-		this.other_collat = other_collat;
+	public void setOther_collat_text(String other_collat_text) {
+		this.other_collat_text = other_collat_text;
 	}
 
 	public String getOther_collat_time() {
@@ -617,22 +691,6 @@ public class EventsActivities implements Serializable {
 
 	public void setRetirement_collat_notes(String retirement_collat_notes) {
 		this.retirement_collat_notes = retirement_collat_notes;
-	}
-
-	public String getJob_collat_time() {
-		return job_collat_time;
-	}
-
-	public void setJob_collat_time(String job_collat_time) {
-		this.job_collat_time = job_collat_time;
-	}
-
-	public String getJob_collat_notes() {
-		return job_collat_notes;
-	}
-
-	public void setJob_collat_notes(String job_collat_notes) {
-		this.job_collat_notes = job_collat_notes;
 	}
 
 	public List<Activity> getActivities() {

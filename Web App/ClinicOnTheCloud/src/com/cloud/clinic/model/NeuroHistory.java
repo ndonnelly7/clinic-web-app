@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Class used for the Neurological History page of the form
  */
@@ -26,80 +28,119 @@ public class NeuroHistory {
 
 	@Transient
 	protected Object[] jdoDetachedState;
-	
+
+	@Expose
 	boolean blackout_check, blanks_check, blurred_vision_check, dizziness_check, fainting_check, headaches_check, falling_check, seizures_check, dexterity_check;
+	@Expose
 	boolean blackout_check_collat, blanks_check_collat, blurred_vision_check_collat, dizziness_check_collat;
+	@Expose
 	boolean fainting_check_collat, headaches_check_collat, falling_check_collat, seizures_check_collat, dexterity_check_collat;
-	
+
+	@Expose
 	String blackout_time, blackout_freq, blackout_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String blackout_notes;
-	
+
+	@Expose
 	String blanks_time, blanks_freq, blanks_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String blanks_notes;
-	
+
+	@Expose
 	String blurred_vision_time, blurred_vision_freq, blurred_vision_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String blurred_vision_notes;
-	
+
+	@Expose
 	String dizziness_time, dizziness_freq, dizziness_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String dizziness_notes;
-	
+
+	@Expose
 	String fainting_time, fainting_freq, fainting_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String fainting_notes;
-	
+
+	@Expose
 	String headaches_time, headaches_freq, headaches_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String headaches_notes;
-	
+
+	@Expose
 	String falling_time, falling_freq, falling_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String falling_notes;
-	
+
+	@Expose
 	String seizures_time, seizures_freq, seizures_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String seizures_notes;
-	
+
+	@Expose
 	String dexterity_time, dexterity_freq, dexterity_investigated;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String dexterity_notes;
-	
+
+	@Expose
 	String blackout_time_collat, blackout_freq_collat, blackout_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String blackout_notes_collat;
-	
+
+	@Expose
 	String blanks_time_collat, blanks_freq_collat, blanks_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String blanks_notes_collat;
-	
+
+	@Expose
 	String blurred_vision_time_collat, blurred_vision_freq_collat, blurred_vision_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String blurred_vision_notes_collat;
-	
+
+	@Expose
 	String dizziness_time_collat, dizziness_freq_collat, dizziness_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String dizziness_notes_collat;
-	
+
+	@Expose
 	String fainting_time_collat, fainting_freq_collat, fainting_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String fainting_notes_collat;
-	
+
+	@Expose
 	String headaches_time_collat, headaches_freq_collat, headaches_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String headaches_notes_collat;
-	
+
+	@Expose
 	String falling_time_collat, falling_freq_collat, falling_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String falling_notes_collat;
-	
+
+	@Expose
 	String seizures_time_collat, seizures_freq_collat, seizures_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String seizures_notes_collat;
-	
+
+	@Expose
 	String dexterity_time_collat, dexterity_freq_collat, dexterity_investigated_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String dexterity_notes_collat;
 	

@@ -5,6 +5,103 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="test">Hello World</div>
+<form id="history_form" class="form_entry pure-form pure-form-aligned">
+
+<div id="med_history" class="row_div">
+	<div class="header">Medical History</div>
+	<div id="med_row" class="row">
+		<div class="cod_col">
+			<label for="condition">Condition:</label>
+			<input type="text" id="condition" readonly>
+		</div>
+		<div class="time_col">
+			<label for="time">Diagnosis Time:</label>
+			<input type="text" id="time" readonly>
+		</div>
+		<div class="collat_col">
+			<label for="collat">From Collateral:</label>
+			<input type="text" id="collat" class="bool" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="notes">Notes:</label>
+			<textarea rows="3" id="notes" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="drug_history" class="row_div">
+	<div class="header">Medicinal History</div>
+	<div id="drug_row" class="row">
+		<div class="drug_col">
+			<label for="drug">Drug:</label>
+			<input type="text" id="drug" readonly>
+		</div>
+		<div class="sleep_col" hidden="true">
+			<label for="sleep_med">Sleep Med:</label>
+			<input type="text" id="sleep_med" readonly>
+		</div>
+		<div class="benzo_col" hidden="true">
+			<label for="benzo_med">Benzo Med:</label>
+			<input type="text" id="benzo_med" readonly>
+		</div>
+		<div class="time_col">
+			<label for="time">Prescription Time:</label>
+			<input type="text" id="time" readonly>
+		</div>
+		<div class="collat_col">
+			<label for="collat">From Collateral:</label>
+			<input type="text" id="collat" class="bool" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="notes">Notes:</label>
+			<textarea rows="3" id="notes" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="psych_history" class="row_div">
+	<div class="header">Psychiatric History</div>
+	<div id="psych_row" class="row">
+		<div class="drug_col">
+			<label for="psych">Psychiatric Condition:</label>
+			<input type="text" id="psych" readonly>
+		</div>
+		<div class="time_col">
+			<label for="time">Prescription Time:</label>
+			<input type="text" id="time" readonly>
+		</div>
+		<div class="collat_col">
+			<label for="collat">From Collateral:</label>
+			<input type="text" id="collat" class="bool" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="notes">Notes:</label>
+			<textarea rows="3" id="notes" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+<div class="header" class="row_div">Therapy/Counselling</div>
+<div  class="pure-control-group">
+	<label for="current_therapy_check">Attending Therapy: </label>
+	<input type="text" id="current_therapy_check" readonly>
+</div>
+
+<div  class="pure-control-group">
+	<label for="past_therapy_check">Attended Therapy: </label>
+	<input type="text" id="past_therapy_check" readonly>
+</div>
+
+<div  class="pure-control-group">
+	<label for="collat_current_therapy_check">Collateral Attending Therapy: </label>
+	<input type="text" id="collat_current_therapy_check" readonly>
+</div>
+
+<div  class="pure-control-group">
+	<label for="collat_past_therapy_check">Collateral Attended Therapy: </label>
+	<input type="text" id="collat_past_therapy_check" readonly>
+</div>
+
+</form>
 </body>
 </html>

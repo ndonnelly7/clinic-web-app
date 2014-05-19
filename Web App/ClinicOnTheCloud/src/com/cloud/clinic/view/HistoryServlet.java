@@ -28,7 +28,7 @@ public class HistoryServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		Form f = dao.getTodaysForm(pat);
 		PatientHistory pHistory = new PatientHistory();
 		BeanPopulate.populateBean(pHistory, req);
 		
@@ -85,6 +85,7 @@ public class HistoryServlet extends HttpServlet {
 				med.setTime(times[i]);
 				med.setNotes(notes[i]);
 				med.setpHistory(pH);
+				med.setCollat(false);
 				meds.add(med);
 			}
 		}
@@ -107,6 +108,7 @@ public class HistoryServlet extends HttpServlet {
 				DrugHistory drug = new DrugHistory();
 				drug.setDrug(names[i]);
 				drug.setTime(time[i]);
+				drug.setCollat(false);
 				drug.setNotes(notes[i]);
 				if(drug.getDrug().equalsIgnoreCase("sleeping")){
 					drug.setSleep_med(sleeping_drugs[sleepIndex]);
@@ -134,6 +136,7 @@ public class HistoryServlet extends HttpServlet {
 				psych.setPsych(names[i]);
 				psych.setTime(times[i]);
 				psych.setNotes(notes[i]);
+				psych.setCollat(false);
 				psych.setpHistory(pH);
 				psychs.add(psych);
 			}
@@ -153,6 +156,7 @@ public class HistoryServlet extends HttpServlet {
 				med.setTime(times[i]);
 				med.setNotes(notes[i]);
 				med.setpHistory(pH);
+				med.setCollat(true);
 				meds.add(med);
 			}
 		}
@@ -175,6 +179,7 @@ public class HistoryServlet extends HttpServlet {
 				DrugHistory drug = new DrugHistory();
 				drug.setDrug(names[i]);
 				drug.setTime(time[i]);
+				drug.setCollat(true);
 				drug.setNotes(notes[i]);
 				if(drug.getDrug().equalsIgnoreCase("sleeping")){
 					drug.setSleep_med(sleeping_drugs[sleepIndex]);
@@ -201,6 +206,7 @@ public class HistoryServlet extends HttpServlet {
 				PsychHistory psych = new PsychHistory();
 				psych.setPsych(names[i]);
 				psych.setTime(times[i]);
+				psych.setCollat(true);
 				psych.setNotes(notes[i]);
 				psych.setpHistory(pH);
 				psychs.add(psych);

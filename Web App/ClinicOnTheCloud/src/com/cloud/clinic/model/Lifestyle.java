@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Lifestyle Class for corresponding page
  */
@@ -32,131 +34,198 @@ public class Lifestyle {
 	protected Object[] jdoDetachedState;
 	
 	//Sleep
+	@Expose
 	boolean difficulty_sleep, night_waking, early_waking, meds_check, nap_check;
+	@Expose
 	boolean collat_sleep, collat_exercise, collat_alcohol, collat_smoking, collat_drug, collat_diet;
-	
+
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_sleep_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_reason_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_freq_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_time_notes;
+	@Expose
 	String difficulty_reason, difficulty_freq, difficulty_time;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_reason_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_freq_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_time_notes;
+	@Expose
 	String night_waking_reason, night_waking_freq, night_waking_time;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_reason_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_freq_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_time_notes;
+	@Expose
 	String early_waking_reason, early_waking_freq, early_waking_time;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String sleep_med_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String nap_notes;
+	@Expose
 	String sleep_length, sleep_meds, nap_length, nap_time;
 	
 	//Collateral Sleep
+	@Expose
 	boolean difficulty_sleep_collat, night_waking_collat, early_waking_collat, meds_check_collat, nap_check_collat;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_sleep_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_reason_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_freq_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String difficulty_time_notes_collat;
+	@Expose
 	String difficulty_reason_collat, difficulty_freq_collat, difficulty_time_collat;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_reason_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_freq_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String night_waking_time_notes_collat;
+	@Expose
 	String night_waking_reason_collat, night_waking_freq_collat, night_waking_time_collat;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_reason_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_freq_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String early_waking_time_notes_collat;
+	@Expose
 	String early_waking_reason_collat, early_waking_freq_collat, early_waking_time_collat;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String sleep_med_notes_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String nap_notes_collat;
+	@Expose
 	String sleep_length_collat, sleep_meds_collat, nap_length_collat, nap_time_collat;
 	
 	//Exercise
+	@Expose
 	String exercise;
-	
+
+	@Expose
 	@OneToMany(mappedBy = "lifestyle", cascade = CascadeType.ALL)
 	List<LifestyleActivity> activities;
+	@Expose
 	@OneToMany(mappedBy = "lifestyle", cascade = CascadeType.ALL)
 	List<LifestyleActivity> collatActivities;
 	
 	//Diet
+	@Expose
 	String breakfast, lunch, dinner;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String diet_notes;
+	@Expose
 	boolean miss_meals, sweets, fried, takeaway, cakes, weight, weight_interest;
+	@Expose
 	String weight_time;
+	@Expose
 	String miss_meals_freq, sweets_freq, fried_freq, takeaway_freq, cakes_freq, fruit_veg_amount;
-	
+
+	@Expose
 	String breakfast_collat, lunch_collat, dinner_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String diet_notes_collat;
+	@Expose
 	boolean miss_meals_collat, sweets_collat, fried_collat, takeaway_collat, cakes_collat, weight_collat, weight_interest_collat;
+	@Expose
 	String weight_time_collat;
+	@Expose
 	String miss_meals_freq_collat, sweets_freq_collat, fried_freq_collat, takeaway_freq_collat, cakes_freq_collat, fruit_veg_amount_collat;
 	
 	//Alcohol
+	@Expose
 	String alcohol, alcohol_collat;
+	@Expose
 	float beer_pint_units, beer_bottle_units, spirits_units, wine_glass_units, pop_units;
+	@Expose
 	float beer_pint_units_collat, beer_bottle_units_collat, spirits_units_collat, wine_glass_units_collat, pop_units_collat;
+	@Expose
 	float total_units, total_units_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String alcohol_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String alcohol_notes_collat;
+	@Expose
 	boolean alcohol_reduce_interest, alcohol_reduce_interest_collat;
 	
 	//Smoking
+	@Expose
 	String smoking, smoking_collat;
+	@Expose
 	String packets, packets_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String smoking_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String smoking_notes_Collat;
+	@Expose
 	boolean smoking_reduce_interest, smoking_reduce_interest_collat;
 	
 	//Drugs
+	@Expose
 	boolean drugs, drugs_collat;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String drugs_notes;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String drugs_notes_collat;
 	

@@ -23,7 +23,6 @@ import com.google.gson.annotations.Expose;
 public class PersonalDetails {
 	
 	@Id
-	@Expose
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "detailsID", unique = true, nullable = false)
 	int detailsID;
