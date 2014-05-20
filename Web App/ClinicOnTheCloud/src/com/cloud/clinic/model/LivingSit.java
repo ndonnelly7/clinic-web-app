@@ -119,6 +119,13 @@ public class LivingSit {
 	@Column(columnDefinition="TEXT")
 	String take_phone_notes;
 	
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String driving_notes;
+	
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String driving_notes_collat;
 
 	@Expose
 	boolean unknown_arrival_collat, lost_collat, tips_collat;
@@ -325,7 +332,13 @@ public class LivingSit {
 	@Expose
 	String bills_method_collat, bills_help_collat, bill_problems_collat;
 	@Expose
-	String bills_method_notes_collat, bills_help_notes_collat, bill_problems_notes_collat;
+	String bills_method_notes_collat;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String  bills_help_notes_collat;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String bill_problems_notes_collat;
 	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_method_notes;
@@ -344,6 +357,9 @@ public class LivingSit {
 	@Expose
 	@Column(columnDefinition="TEXT")
 	String bill_problem_notes_collat;
+	
+	@Expose
+	String collat_drive, collat_cook, collat_shop, collat_bills, collat_homelife;
 	
 	public LivingSit()
 	{
@@ -366,6 +382,62 @@ public class LivingSit {
 		this.form = form;
 	}
 
+	public String getCollat_homelife() {
+		return collat_homelife;
+	}
+
+	public void setCollat_homelife(String collat_homelife) {
+		this.collat_homelife = collat_homelife;
+	}
+
+	public String getCollat_drive() {
+		return collat_drive;
+	}
+
+	public String getCollat_cook() {
+		return collat_cook;
+	}
+
+	public String getCollat_shop() {
+		return collat_shop;
+	}
+
+	public String getCollat_bills() {
+		return collat_bills;
+	}
+
+	public String isCollat_drive() {
+		return collat_drive;
+	}
+
+	public void setCollat_drive(String collat_drive) {
+		this.collat_drive = collat_drive;
+	}
+
+	public String isCollat_cook() {
+		return collat_cook;
+	}
+
+	public void setCollat_cook(String collat_cook) {
+		this.collat_cook = collat_cook;
+	}
+
+	public String isCollat_shop() {
+		return collat_shop;
+	}
+
+	public void setCollat_shop(String collat_shop) {
+		this.collat_shop = collat_shop;
+	}
+
+	public String isCollat_bills() {
+		return collat_bills;
+	}
+
+	public void setCollat_bills(String collat_bills) {
+		this.collat_bills = collat_bills;
+	}
+
 	public String getHousemates_note() {
 		return housemates_note;
 	}
@@ -380,6 +452,22 @@ public class LivingSit {
 
 	public void setHousemates_note_collat(String housemates_note_collat) {
 		this.housemates_note_collat = housemates_note_collat;
+	}
+
+	public String getDriving_notes() {
+		return driving_notes;
+	}
+
+	public void setDriving_notes(String driving_notes) {
+		this.driving_notes = driving_notes;
+	}
+
+	public String getDriving_notes_collat() {
+		return driving_notes_collat;
+	}
+
+	public void setDriving_notes_collat(String driving_notes_collat) {
+		this.driving_notes_collat = driving_notes_collat;
 	}
 
 	public String getBill_method_notes_collat() {

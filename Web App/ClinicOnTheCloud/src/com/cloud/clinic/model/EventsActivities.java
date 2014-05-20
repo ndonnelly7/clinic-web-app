@@ -176,9 +176,11 @@ public class EventsActivities implements Serializable {
 	@OneToMany(mappedBy = "eventActivity", cascade = CascadeType.ALL)
 	private List<Activity> collat_activities;
 
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String social_notes;
 	
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String social_notes_collat;
 	

@@ -126,7 +126,7 @@
 			</div>
 			
 			<div id="blurred_vision" class="issue">
-				<div class="pure-u-1-5 title">Blurred blurred_vision</div>
+				<div class="pure-u-1-5 title">Blurred Vision</div>
 				<div class="pure-u-1-5 check">
 				<input type="checkbox" name="blurred_vision_check" onclick="showHiddenRow(this,'#blurred_vision')">
 				</div>

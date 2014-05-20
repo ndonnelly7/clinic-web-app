@@ -5,6 +5,395 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form id="living_form" class="form_entry pure-form pure-form-aligned">
 
+<div id="homelife" class="row_div">
+	<div class="header">Home Life</div>
+	<div id="housemates_row" class="row">
+		<div class="housemates">
+			<label for="housemates">Any housemates?</label>
+			<input type="text" id="housemates" readonly>
+		</div>
+		<div class="eve_notes">
+			<label for="housemates_note">Notes:</label>
+			<textarea rows="3" id="housemates_note" readonly></textarea>
+		</div>
+	</div>
+	<div id="hometype_row" class="row">
+		<div class="hometype">
+			<label for="house_type">Type of House?</label>
+			<input type="text" id="house_type" readonly>
+		</div>
+		<div class="type_notes">
+			<label for="house_type_note">Notes:</label>
+			<textarea rows="3" id="house_type_note" readonly></textarea>
+		</div>
+	</div>
+	<div id="homeloc_row" class="row">
+		<div class="homeloc">
+			<label for="house_location">Location of House?</label>
+			<input type="text" id="house_location" readonly>
+		</div>
+		<div class="location_notes">
+			<label for="house_location_note">Notes:</label>
+			<textarea rows="3" id="house_location_note" readonly></textarea>
+		</div>
+	</div>
+	<div id="carer_row" class="row">
+		<div class="carer">
+			<label for="carer">Is the patient a carer?</label>
+			<input type="text" id="carer" readonly>
+		</div>
+		<div class="location_notes">
+			<label for="carer_note">Notes:</label>
+			<textarea rows="3" id="carer_note" readonly></textarea>
+		</div>
+	</div>
+	<div id="home_help_row" class="row">
+		<div class="home_help">
+			<label for="home_help">Receiving Home Help?</label>
+			<input type="text" id="home_help" readonly>
+		</div>
+		<div class="location_notes">
+			<label for="home_help_note">Notes:</label>
+			<textarea rows="3" id="home_help_note" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="homelife_collat" class="row_div" style="display:none;">
+		<div class="header">Collateral Home Life</div>
+		<div id="housemates_row" class="row">
+			<div class="housemates">
+				<label for="housemates_collat">Any housemates?</label>
+				<input type="text" id="housemates_collat" readonly>
+			</div>
+			<div class="eve_notes">
+				<label for="housemates_note_collat">Notes:</label>
+				<textarea rows="3" id="housemates_note_collat" readonly></textarea>
+			</div>
+		</div>
+		<div id="hometype_row" class="row">
+			<div class="hometype">
+				<label for="house_type_collat">Type of House?</label>
+				<input type="text" id="house_type_collat" readonly>
+			</div>
+			<div class="type_notes">
+				<label for="house_type_note_collat">Notes:</label>
+				<textarea rows="3" id="house_type_note_collat" readonly></textarea>
+			</div>
+		</div>
+		<div id="homeloc_row" class="row">
+			<div class="homeloc">
+				<label for="house_location_collat">Location of House?</label>
+				<input type="text" id="house_location_collat" readonly>
+			</div>
+			<div class="location_notes">
+				<label for="house_location_note_collat">Notes:</label>
+				<textarea rows="3" id="house_location_note_collat" readonly></textarea>
+			</div>
+		</div>
+		<div id="carer_row" class="row">
+			<div class="carer">
+				<label for="carer_collat">Is the patient a carer?</label>
+				<input type="text" id="carer_collat" readonly>
+			</div>
+			<div class="location_notes">
+				<label for="carer_note_collat">Notes:</label>
+				<textarea rows="3" id="carer_note_collat" readonly></textarea>
+			</div>
+		</div>
+		<div id="home_help_row" class="row">
+			<div class="home_help">
+				<label for="home_help_collat">Receiving Home Help?</label>
+				<input type="text" id="home_help_collat" readonly>
+			</div>
+			<div class="location_notes">
+				<label for="home_help_note_collat">Notes:</label>
+				<textarea rows="3" id="home_help_note_collat" readonly></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="driving" class="row_div">
+	<div class="header">Driving</div>
+	<div class="pure-control-group">
+		<label for="drive">Drive:</label>
+		<input type="text" id="drive" readonly>
+	</div>
+	<div id="do_drive">
+		<div class="header">Incidents</div>
+		<div id="unknown_arrival_row" class="row">
+			<div class="subheader">Not knowing how they arrived somewhere</div>
+			<div class="liv_severity">
+				<label for="unknown_arrival_severity">Severity:</label>
+				<input type="text" id="unknown_arrival_severity" readonly>
+			</div>
+			<div class="liv_freq">
+				<label for="unknown_arrival_freq">Frequency:</label>
+				<input type="text" id="unknown_arrival_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="unknown_arrival_notes">Notes:</label>
+				<textarea rows="3" id="unknown_arrival_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="lost_row" class="row">
+			<div class="subheader">Getting lost</div>
+			<div class="liv_severity">
+				<label for="lost_severity">Severity:</label>
+				<input type="text" id="lost_severity" readonly>
+			</div>
+			<div class="liv_freq">
+				<label for="lost_freq">Frequency:</label>
+				<input type="text" id="lost_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="lost_notes">Notes:</label>
+				<textarea rows="3" id="lost_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="tips_row" class="row">
+			<div class="subheader">Involved in tips and scrapes</div>
+			<div class="liv_severity">
+				<label for="tips_severity">Severity:</label>
+				<input type="text" id="tips_severity" readonly>
+			</div>
+			<div class="liv_freq">
+				<label for="tips_freq">Frequency:</label>
+				<input type="text" id="tips_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="tips_notes">Notes:</label>
+				<textarea rows="3" id="tips_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div class="header">Strategies</div>		
+		<div id="park_big_row" class="row">
+			<div class="subheader">Only park in big spaces</div>
+			<div class="liv_suc">
+				<label for="park_big_success">Success:</label>
+				<input type="text" id="park_big_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="park_big_notes">Notes:</label>
+				<textarea rows="3" id="park_big_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="day_driving_row" class="row">
+			<div class="subheader">Only drive during the day</div>
+			<div class="liv_suc">
+				<label for="day_driving_success">Success:</label>
+				<input type="text" id="day_driving_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="day_driving_notes">Notes:</label>
+				<textarea rows="3" id="day_driving_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="known_driving_row" class="row">
+			<div class="subheader">Only drive to known places</div>
+			<div class="liv_suc">
+				<label for="known_driving_success">Success:</label>
+				<input type="text" id="known_driving_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="known_driving_notes">Notes:</label>
+				<textarea rows="3" id="known_driving_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="take_friend_row" class="row">
+			<div class="subheader">Takes friends on drives</div>
+			<div class="liv_suc">
+				<label for="take_friend_success">Success:</label>
+				<input type="text" id="take_friend_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="take_friend_notes">Notes:</label>
+				<textarea rows="3" id="take_friend_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="dry_run_row" class="row">
+			<div class="subheader">Uses dry runs</div>
+			<div class="liv_suc">
+				<label for="dry_run_success">Success:</label>
+				<input type="text" id="dry_run_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="dry_run_notes">Notes:</label>
+				<textarea rows="3" id="dry_run_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="use_map_row" class="row">
+			<div class="subheader">Uses maps</div>
+			<div class="liv_suc">
+				<label for="use_map_success">Success:</label>
+				<input type="text" id="use_map_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="use_map_notes">Notes:</label>
+				<textarea rows="3" id="use_map_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="take_phone_row" class="row">
+			<div class="subheader">Takes a phone</div>
+			<div class="liv_suc">
+				<label for="take_phone_success">Success:</label>
+				<input type="text" id="take_phone_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="take_phone_notes">Notes:</label>
+				<textarea rows="3" id="take_phone_notes" readonly></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="pure-control-group">
+		<label for="driving_notes">Notes on driving:</label>
+		<textarea rows="3" id="driving_notes" readonly></textarea>
+	</div>
+	
+	<!-- COLLAT DRIVING -->
+	<div id="collateral_driving" style="display:none">
+		<div class="header">Collateral Driving</div>
+		<div class="pure-control-group">
+			<label for="drive_collat">Drive:</label>
+			<input type="text" id="drive_collat" readonly>
+		</div>
+		<div id="do_drive">
+			<div class="header">Incidents</div>
+			<div id="unknown_arrival_row" class="row">
+				<div class="subheader">Not knowing how they arrived somewhere</div>
+				<div class="liv_severity">
+					<label for="unknown_arrival_severity_collat">Severity:</label>
+					<input type="text" id="unknown_arrival_severity_collat" readonly>
+				</div>
+				<div class="liv_freq_collat">
+					<label for="unknown_arrival_freq_collat">Frequency:</label>
+					<input type="text" id="unknown_arrival_freq_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="unknown_arrival_notes_collat">Notes:</label>
+					<textarea rows="3" id="unknown_arrival_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="lost_row" class="row">
+				<div class="subheader">Getting lost</div>
+				<div class="liv_time">
+					<label for="lost_severity_collat">Severity:</label>
+					<input type="text" id="lost_severity_collat" readonly>
+				</div>
+				<div class="liv_freq_collat">
+					<label for="lost_freq_collat">Frequency:</label>
+					<input type="text" id="lost_freq_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="lost_notes_collat">Notes:</label>
+					<textarea rows="3" id="lost_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="tips_row" class="row">
+				<div class="subheader">Involved in tips and scrapes</div>
+				<div class="liv_time">
+					<label for="tips_severity_collat">Severity:</label>
+					<input type="text" id="tips_severity_collat" readonly>
+				</div>
+				<div class="liv_freq_collat">
+					<label for="tips_freq_collat">Frequency:</label>
+					<input type="text" id="tips_freq_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="tips_notes_collat">Notes:</label>
+					<textarea rows="3" id="tips_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div class="header">Strategies</div>		
+			<div id="park_big_row" class="row">
+				<div class="subheader">Only park in big spaces</div>
+				<div class="liv_suc">
+					<label for="park_big_success_collat">Success:</label>
+					<input type="text" id="park_big_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="park_big_notes_collat">Notes:</label>
+					<textarea rows="3" id="park_big_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="day_driving_row" class="row">
+				<div class="subheader">Only drive during the day</div>
+				<div class="liv_suc">
+					<label for="day_driving_success_collat">Success:</label>
+					<input type="text" id="day_driving_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="day_driving_notes_collat">Notes:</label>
+					<textarea rows="3" id="day_driving_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="known_driving_row" class="row">
+				<div class="subheader">Only drive to known places</div>
+				<div class="liv_suc">
+					<label for="known_driving_success_collat">Success:</label>
+					<input type="text" id="known_driving_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="known_driving_notes_collat">Notes:</label>
+					<textarea rows="3" id="known_driving_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="take_friend_row" class="row">
+				<div class="subheader">Takes friends on drives</div>
+				<div class="liv_suc">
+					<label for="take_friend_success_collat">Success:</label>
+					<input type="text" id="take_friend_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="take_friend_notes_collat">Notes:</label>
+					<textarea rows="3" id="take_friend_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="dry_run_row" class="row">
+				<div class="subheader">Uses dry runs</div>
+				<div class="liv_suc">
+					<label for="dry_run_success_collat">Success:</label>
+					<input type="text" id="dry_run_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="dry_run_notes_collat">Notes:</label>
+					<textarea rows="3" id="dry_run_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="use_map_row" class="row">
+				<div class="subheader">Uses maps</div>
+				<div class="liv_suc">
+					<label for="use_map_success_collat">Success:</label>
+					<input type="text" id="use_map_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="use_map_notes_collat">Notes:</label>
+					<textarea rows="3" id="use_map_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="take_phone_row" class="row">
+				<div class="subheader">Takes a phone</div>
+				<div class="liv_suc">
+					<label for="take_phone_success_collat">Success:</label>
+					<input type="text" id="take_phone_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="take_phone_notes_collat">Notes:</label>
+					<textarea rows="3" id="take_phone_notes_collat" readonly></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="pure-control-group">
+			<label for="driving_notes_collat">Notes on driving:</label>
+			<textarea rows="3" id="driving_notes_collat" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+</form>
 </body>
 </html>

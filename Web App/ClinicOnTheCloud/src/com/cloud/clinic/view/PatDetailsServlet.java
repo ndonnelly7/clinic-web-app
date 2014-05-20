@@ -42,6 +42,8 @@ public class PatDetailsServlet extends HttpServlet {
 		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
 		PersonalDetails details = new PersonalDetails();
 		BeanPopulate.populateBean(details, req);
+		if(req.getParameter("third_check") != null)
+			details.setThird_check(req.getParameter("third_check").equals("on"));
 		details.setGender(req.getParameter("gender"));
 		String dateStr = req.getParameter("dob");
 		try {
@@ -69,7 +71,10 @@ public class PatDetailsServlet extends HttpServlet {
 			f.setPersonalDetails(details);
 			List<Form> fList =  pat.getForms();
 			for(int i = 0; i < fList.size(); i++){
-				if(fList.get(i).getFormID() == f.getFormID())
+				Calendar c = fList.get(i).getTimestamp();
+				if(c.get(Calendar.YEAR) == f.getTimestamp().get(Calendar.YEAR)
+						&& c.get(Calendar.MONTH) == f.getTimestamp().get(Calendar.MONTH)
+						&& c.get(Calendar.DAY_OF_MONTH) == f.getTimestamp().get(Calendar.DAY_OF_MONTH))
 				{
 					fList.set(i, f);
 					break;

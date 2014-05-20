@@ -88,6 +88,7 @@ function addPatientToDB(p){
 		transaction.onerror = function(e){
 			console.log("Error with transaction: ");
 			console.log(e.target.error);
+			updatePatient(p.p_id, p);
 		}
 		
 		var store = transaction.objectStore("patients");

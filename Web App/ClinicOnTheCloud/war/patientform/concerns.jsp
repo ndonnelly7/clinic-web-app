@@ -108,7 +108,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -160,7 +159,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -212,7 +210,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -264,7 +261,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -316,7 +312,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -368,7 +363,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -420,7 +414,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -472,7 +465,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -524,7 +516,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -576,7 +567,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -628,7 +618,6 @@
 						<option value="eight">8</option>
 						<option value="nine">9</option>
 						<option value="ten">10 - Very Bad</option>
-						<option value="little_worse">Little worse
 					</select>
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
@@ -701,7 +690,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -753,7 +741,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -805,7 +792,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -857,7 +843,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -909,7 +894,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -961,7 +945,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -1013,7 +996,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -1065,7 +1047,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -1117,7 +1098,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -1169,7 +1149,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
@@ -1221,7 +1200,6 @@
 							<option value="eight">8</option>
 							<option value="nine">9</option>
 							<option value="ten">10 - Very Bad</option>
-							<option value="little_worse">Little worse
 						</select>
 					</div>
 					<div class="pure-u-1-5 concerns_column" >

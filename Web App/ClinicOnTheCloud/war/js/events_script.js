@@ -45,7 +45,9 @@ function showHiddenRowEA(box, rowId) {
 };
 
 function addNewActivity() {
-	$('#activity_entry').clone().appendTo($('#social_div'));
+	var elem = $('#activity_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("input").val("");
+	elem.appendTo($('#social_div'));
 };
 
 function changeActivity(elem) {
@@ -144,7 +146,9 @@ function addActivityCollat() {
 }
 
 function addNewActivityToCollat() {
-	$('#activity_entry').clone().appendTo($('#social_div_collat'));
+	var elem = $('#activity_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("input").val("");
+	elem.appendTo($('#social_div_collat'));
 };
 
 function addNewCollatActivity() {

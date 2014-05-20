@@ -182,13 +182,14 @@ function nextPage(page) {
 	var memory = {};
 	if(gds){
 		memory['gds'] = $("#gds_result").val();
-		memory['hads'] = {};
-	} else if(hads) {
-		memory['hads'] = $("#hads_result").val();
-		memory['gds'] = {};
+		
 	} else {
 		memory['gds'] = {};
-		memory['hads'] = {};
+	}
+	if(hads) {
+		memory['hads'] = $("#hads_result").val();
+	}else {
+		memory['gds'] = {};		
 	}
 	
 	var moca = {};

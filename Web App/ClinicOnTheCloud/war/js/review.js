@@ -488,7 +488,7 @@ function loadEvents(json){
 		var elem = document.getElementById(key);
 		if(elem != null){
 			if(typeof events[key] == "string")
-				elem.value=events[key].replace("_", " ");
+				elem.value=events[key].replace("_", " ").replace("mon", "months").replace("yr", "years");
 			else
 				elem.value=events[key];
 		}
@@ -515,7 +515,17 @@ function loadEvents(json){
 }
 
 function loadLiving(json){
-	
+	var liv = JSON.parse(json);
+	console.log(liv);
+	for(var key in liv){
+		console.log(key);
+		var elem = document.getElementById(key);
+		if(elem != null)
+			if(typeof liv[key] == "string")
+				elem.value=(liv[key].replace("_", " ").replace("mon","months").replace("yr", "year"));
+			else
+				elem.value=liv[key];
+	}
 }
 
 function loadLifestyle(json){

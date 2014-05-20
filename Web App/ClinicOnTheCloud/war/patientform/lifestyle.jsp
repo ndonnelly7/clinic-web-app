@@ -211,7 +211,7 @@
 				<div class="lifestyle_title pure-u-1-3">How many hours do you usually sleep a night?</div>
 				<div class="lifestyle_select pure-u-1-3">
 					<select name="sleep_length" class="hours_life">
-						<option value="two">&gt; 2</option>
+						<option value="two">&lt; 2</option>
 						<option value="five">2 - 5</option>
 						<option value="eight">6 - 8</option>
 						<option value="ten">8 - 10</option>
@@ -478,8 +478,12 @@
 						<div class="pure-u-1-3 lifestyle_subtitle" id="subtitle_margin_change">What medication?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="sleep_meds_collat">
-								<option value="med_one">Sleep Med 1</option>
-								<option value="med_two">Sleep Med 2</option>
+								<option value="none">Sleep Medicine</option>
+								<option value="zimovane">Zimovane</option>
+								<option value="stilnoct">Stilnoct</option>
+								<option value="zopiclone">Zopiclone</option>
+								<option value="zolpidem">Zolpidem</option>
+								<option value="other">Other</option>
 							</select>
 						</div>
 						<div class="pure-u-1-3 notes_column">
@@ -589,7 +593,7 @@
 								</div>
 								
 								<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-										<textarea form="events_form" class="reason_input" name="exercise_notes" rows="2" cols="24"></textarea>
+										<textarea form="events_form" class="reason_input" name="exercise_act_notes" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 						</div>
@@ -663,7 +667,7 @@
 									</div>
 									
 									<div class="pure-u-1-5 events-1-5 reason_notes notes_column">
-											<textarea form="events_form" class="reason_input" name="exercise_notes_collat" rows="2" cols="24"></textarea>
+											<textarea form="events_form" class="reason_input" name="exercise_act_notes_collat" rows="2" cols="24"></textarea>
 									</div>
 								</div>
 							</div>
@@ -851,9 +855,9 @@
 						<div id="miss_meals">
 							<div class="pure-u-1-2 title">Do they ever miss meals?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="miss_meals_collat" onclick="showHiddenDiv(this, 'miss_qs')">
+								<input type="checkbox" name="miss_meals_collat" onclick="showHiddenDiv(this, 'miss_qs_collat')">
 							</div>
-							<div id="miss_qs" class="hide_div">
+							<div id="miss_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="miss_meals_freq_collat">
@@ -869,9 +873,9 @@
 						<div id="sweets">
 							<div class="pure-u-1-2 title">Do they have a sweet tooth?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="sweets_collat" onclick="showHiddenDiv(this, 'sweets_qs')">
+								<input type="checkbox" name="sweets_collat" onclick="showHiddenDiv(this, 'sweets_qs_collat')">
 							</div>
-							<div id="sweets_qs" class="hide_div">
+							<div id="sweets_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often do you have sweet things?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="sweets_freq_collat">
@@ -889,9 +893,9 @@
 						<div id="fried_food">
 							<div class="pure-u-1-2 title">Do they eat any fried food?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="fried_collat" onclick="showHiddenDiv(this, 'fried_qs')">
+								<input type="checkbox" name="fried_collat" onclick="showHiddenDiv(this, 'fried_qs_collat')">
 							</div>
-							<div id="fried_qs" class="hide_div">
+							<div id="fried_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="fried_freq_collat">
@@ -909,9 +913,9 @@
 						<div id="takeaway">
 							<div class="pure-u-1-2 title">Do they ever have a takeaway?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="takeaway_collat" onclick="showHiddenDiv(this, 'takeaway_qs')">
+								<input type="checkbox" name="takeaway_collat" onclick="showHiddenDiv(this, 'takeaway_qs_collat')">
 							</div>
-							<div id="takeaway_qs" class="hide_div">
+							<div id="takeaway_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="takeaway_freq_collat">
@@ -928,9 +932,9 @@
 						<div id="cakes_biscuits">
 							<div class="pure-u-1-2 title">Do they ever have cakes or biscuits?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="cakes_collat" onclick="showHiddenDiv(this, 'cakes_qs')">
+								<input type="checkbox" name="cakes_collat" onclick="showHiddenDiv(this, 'cakes_qs_collat')">
 							</div>
-							<div id="cakes_qs" class="hide_div">
+							<div id="cakes_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="cakes_freq_collat">
@@ -1084,7 +1088,7 @@
 								<input type="text" name="beer_pints" onchange="updateThisUnit(this, 'beer_pint_units_collat')"> Pints
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="beer_pint_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
+								<input type="text" name="beer_pint_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
 							</div>
 						</div>
 						<div id="beer">
@@ -1093,7 +1097,7 @@
 								<input type="text" name="beer_bottles" onchange="updateThisUnit(this, 'beer_bottle_units_collat')"> Bottles
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="beer_bottle_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
+								<input type="text" name="beer_bottle_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
 							</div>
 						</div>
 						<div id="spirit">
@@ -1102,7 +1106,7 @@
 								<input type="text" name="spirit_glasses" onchange="updateThisUnit(this, 'spirit_units_collat')"> Glasses
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="spirit_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
+								<input type="text" name="spirit_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
 							</div>
 						</div>
 						<div id="wine">
@@ -1111,7 +1115,7 @@
 								<input type="text" name="wine_glasses" onchange="updateThisUnit(this, 'wine_glass_units_collat')"> Glasses
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="wine_glass_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
+								<input type="text" name="wine_glass_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
 							</div>
 						</div>
 						<div id="alcopop">
@@ -1120,7 +1124,7 @@
 								<input type="text" name="pop_bottles" onchange="updateThisUnit(this, 'pop_units_collat')"> Bottles
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="pop_units_collat" placeholder="0" class="units_box" onchange="updateUnits()"> Units
+								<input type="text" name="pop_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
 							</div>
 						</div>
 						<div id="total_collat">

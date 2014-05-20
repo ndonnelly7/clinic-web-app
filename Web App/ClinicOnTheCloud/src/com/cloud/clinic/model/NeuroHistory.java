@@ -170,6 +170,450 @@ public class NeuroHistory {
 	}
 
 
+	public boolean isDexterity_check() {
+		return dexterity_check;
+	}
+
+
+	public void setDexterity_check(boolean dexterity_check) {
+		this.dexterity_check = dexterity_check;
+	}
+
+
+	public boolean isDexterity_check_collat() {
+		return dexterity_check_collat;
+	}
+
+
+	public void setDexterity_check_collat(boolean dexterity_check_collat) {
+		this.dexterity_check_collat = dexterity_check_collat;
+	}
+
+
+	public String getBlackout_investigated() {
+		return blackout_investigated;
+	}
+
+
+	public void setBlackout_investigated(String blackout_investigated) {
+		this.blackout_investigated = blackout_investigated;
+	}
+
+
+	public String getBlanks_investigated() {
+		return blanks_investigated;
+	}
+
+
+	public void setBlanks_investigated(String blanks_investigated) {
+		this.blanks_investigated = blanks_investigated;
+	}
+
+
+	public String getBlurred_vision_time() {
+		return blurred_vision_time;
+	}
+
+
+	public void setBlurred_vision_time(String blurred_vision_time) {
+		this.blurred_vision_time = blurred_vision_time;
+	}
+
+
+	public String getBlurred_vision_freq() {
+		return blurred_vision_freq;
+	}
+
+
+	public void setBlurred_vision_freq(String blurred_vision_freq) {
+		this.blurred_vision_freq = blurred_vision_freq;
+	}
+
+
+	public String getBlurred_vision_investigated() {
+		return blurred_vision_investigated;
+	}
+
+
+	public void setBlurred_vision_investigated(String blurred_vision_investigated) {
+		this.blurred_vision_investigated = blurred_vision_investigated;
+	}
+
+
+	public String getBlurred_vision_notes() {
+		return blurred_vision_notes;
+	}
+
+
+	public void setBlurred_vision_notes(String blurred_vision_notes) {
+		this.blurred_vision_notes = blurred_vision_notes;
+	}
+
+
+	public String getDizziness_time() {
+		return dizziness_time;
+	}
+
+
+	public void setDizziness_time(String dizziness_time) {
+		this.dizziness_time = dizziness_time;
+	}
+
+
+	public String getDizziness_freq() {
+		return dizziness_freq;
+	}
+
+
+	public void setDizziness_freq(String dizziness_freq) {
+		this.dizziness_freq = dizziness_freq;
+	}
+
+
+	public String getDizziness_investigated() {
+		return dizziness_investigated;
+	}
+
+
+	public void setDizziness_investigated(String dizziness_investigated) {
+		this.dizziness_investigated = dizziness_investigated;
+	}
+
+
+	public String getDizziness_notes() {
+		return dizziness_notes;
+	}
+
+
+	public void setDizziness_notes(String dizziness_notes) {
+		this.dizziness_notes = dizziness_notes;
+	}
+
+
+	public String getFainting_time() {
+		return fainting_time;
+	}
+
+
+	public void setFainting_time(String fainting_time) {
+		this.fainting_time = fainting_time;
+	}
+
+
+	public String getFainting_freq() {
+		return fainting_freq;
+	}
+
+
+	public void setFainting_freq(String fainting_freq) {
+		this.fainting_freq = fainting_freq;
+	}
+
+
+	public String getFainting_investigated() {
+		return fainting_investigated;
+	}
+
+
+	public void setFainting_investigated(String fainting_investigated) {
+		this.fainting_investigated = fainting_investigated;
+	}
+
+
+	public String getFainting_notes() {
+		return fainting_notes;
+	}
+
+
+	public void setFainting_notes(String fainting_notes) {
+		this.fainting_notes = fainting_notes;
+	}
+
+
+	public String getHeadaches_investigated() {
+		return headaches_investigated;
+	}
+
+
+	public void setHeadaches_investigated(String headaches_investigated) {
+		this.headaches_investigated = headaches_investigated;
+	}
+
+
+	public String getFalling_investigated() {
+		return falling_investigated;
+	}
+
+
+	public void setFalling_investigated(String falling_investigated) {
+		this.falling_investigated = falling_investigated;
+	}
+
+
+	public String getSeizures_investigated() {
+		return seizures_investigated;
+	}
+
+
+	public void setSeizures_investigated(String seizures_investigated) {
+		this.seizures_investigated = seizures_investigated;
+	}
+
+
+	public String getDexterity_time() {
+		return dexterity_time;
+	}
+
+
+	public void setDexterity_time(String dexterity_time) {
+		this.dexterity_time = dexterity_time;
+	}
+
+
+	public String getDexterity_freq() {
+		return dexterity_freq;
+	}
+
+
+	public void setDexterity_freq(String dexterity_freq) {
+		this.dexterity_freq = dexterity_freq;
+	}
+
+
+	public String getDexterity_investigated() {
+		return dexterity_investigated;
+	}
+
+
+	public void setDexterity_investigated(String dexterity_investigated) {
+		this.dexterity_investigated = dexterity_investigated;
+	}
+
+
+	public String getDexterity_notes() {
+		return dexterity_notes;
+	}
+
+
+	public void setDexterity_notes(String dexterity_notes) {
+		this.dexterity_notes = dexterity_notes;
+	}
+
+
+	public String getBlackout_investigated_collat() {
+		return blackout_investigated_collat;
+	}
+
+
+	public void setBlackout_investigated_collat(String blackout_investigated_collat) {
+		this.blackout_investigated_collat = blackout_investigated_collat;
+	}
+
+
+	public String getBlanks_investigated_collat() {
+		return blanks_investigated_collat;
+	}
+
+
+	public void setBlanks_investigated_collat(String blanks_investigated_collat) {
+		this.blanks_investigated_collat = blanks_investigated_collat;
+	}
+
+
+	public String getBlurred_vision_time_collat() {
+		return blurred_vision_time_collat;
+	}
+
+
+	public void setBlurred_vision_time_collat(String blurred_vision_time_collat) {
+		this.blurred_vision_time_collat = blurred_vision_time_collat;
+	}
+
+
+	public String getBlurred_vision_freq_collat() {
+		return blurred_vision_freq_collat;
+	}
+
+
+	public void setBlurred_vision_freq_collat(String blurred_vision_freq_collat) {
+		this.blurred_vision_freq_collat = blurred_vision_freq_collat;
+	}
+
+
+	public String getBlurred_vision_investigated_collat() {
+		return blurred_vision_investigated_collat;
+	}
+
+
+	public void setBlurred_vision_investigated_collat(
+			String blurred_vision_investigated_collat) {
+		this.blurred_vision_investigated_collat = blurred_vision_investigated_collat;
+	}
+
+
+	public String getBlurred_vision_notes_collat() {
+		return blurred_vision_notes_collat;
+	}
+
+
+	public void setBlurred_vision_notes_collat(String blurred_vision_notes_collat) {
+		this.blurred_vision_notes_collat = blurred_vision_notes_collat;
+	}
+
+
+	public String getDizziness_time_collat() {
+		return dizziness_time_collat;
+	}
+
+
+	public void setDizziness_time_collat(String dizziness_time_collat) {
+		this.dizziness_time_collat = dizziness_time_collat;
+	}
+
+
+	public String getDizziness_freq_collat() {
+		return dizziness_freq_collat;
+	}
+
+
+	public void setDizziness_freq_collat(String dizziness_freq_collat) {
+		this.dizziness_freq_collat = dizziness_freq_collat;
+	}
+
+
+	public String getDizziness_investigated_collat() {
+		return dizziness_investigated_collat;
+	}
+
+
+	public void setDizziness_investigated_collat(
+			String dizziness_investigated_collat) {
+		this.dizziness_investigated_collat = dizziness_investigated_collat;
+	}
+
+
+	public String getDizziness_notes_collat() {
+		return dizziness_notes_collat;
+	}
+
+
+	public void setDizziness_notes_collat(String dizziness_notes_collat) {
+		this.dizziness_notes_collat = dizziness_notes_collat;
+	}
+
+
+	public String getFainting_time_collat() {
+		return fainting_time_collat;
+	}
+
+
+	public void setFainting_time_collat(String fainting_time_collat) {
+		this.fainting_time_collat = fainting_time_collat;
+	}
+
+
+	public String getFainting_freq_collat() {
+		return fainting_freq_collat;
+	}
+
+
+	public void setFainting_freq_collat(String fainting_freq_collat) {
+		this.fainting_freq_collat = fainting_freq_collat;
+	}
+
+
+	public String getFainting_investigated_collat() {
+		return fainting_investigated_collat;
+	}
+
+
+	public void setFainting_investigated_collat(String fainting_investigated_collat) {
+		this.fainting_investigated_collat = fainting_investigated_collat;
+	}
+
+
+	public String getFainting_notes_collat() {
+		return fainting_notes_collat;
+	}
+
+
+	public void setFainting_notes_collat(String fainting_notes_collat) {
+		this.fainting_notes_collat = fainting_notes_collat;
+	}
+
+
+	public String getHeadaches_investigated_collat() {
+		return headaches_investigated_collat;
+	}
+
+
+	public void setHeadaches_investigated_collat(
+			String headaches_investigated_collat) {
+		this.headaches_investigated_collat = headaches_investigated_collat;
+	}
+
+
+	public String getFalling_investigated_collat() {
+		return falling_investigated_collat;
+	}
+
+
+	public void setFalling_investigated_collat(String falling_investigated_collat) {
+		this.falling_investigated_collat = falling_investigated_collat;
+	}
+
+
+	public String getSeizures_investigated_collat() {
+		return seizures_investigated_collat;
+	}
+
+
+	public void setSeizures_investigated_collat(String seizures_investigated_collat) {
+		this.seizures_investigated_collat = seizures_investigated_collat;
+	}
+
+
+	public String getDexterity_time_collat() {
+		return dexterity_time_collat;
+	}
+
+
+	public void setDexterity_time_collat(String dexterity_time_collat) {
+		this.dexterity_time_collat = dexterity_time_collat;
+	}
+
+
+	public String getDexterity_freq_collat() {
+		return dexterity_freq_collat;
+	}
+
+
+	public void setDexterity_freq_collat(String dexterity_freq_collat) {
+		this.dexterity_freq_collat = dexterity_freq_collat;
+	}
+
+
+	public String getDexterity_investigated_collat() {
+		return dexterity_investigated_collat;
+	}
+
+
+	public void setDexterity_investigated_collat(
+			String dexterity_investigated_collat) {
+		this.dexterity_investigated_collat = dexterity_investigated_collat;
+	}
+
+
+	public String getDexterity_notes_collat() {
+		return dexterity_notes_collat;
+	}
+
+
+	public void setDexterity_notes_collat(String dexterity_notes_collat) {
+		this.dexterity_notes_collat = dexterity_notes_collat;
+	}
+
+
 	public boolean isBlanks_check_collat() {
 		return blanks_check_collat;
 	}

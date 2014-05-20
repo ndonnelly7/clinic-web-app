@@ -421,7 +421,7 @@
 						<div id="take_phone" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Take a phone and call if you need help</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="take_phone_check" class="grid_check" onclick="enableRow(this)">
+								<input type="checkbox" name="take_phone" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
 								<select name="take_phone_success" class="hide_select">
@@ -444,6 +444,7 @@
 			</div>
 			
 			<div class="collat_div">
+				<input type="hidden" value="hidden" id="collat_drive" name="collat_drive">
 				<input type="button" onclick="addNewCollatDriving(this)" class="pure-button living-button" value="Add Information from Collateral">
 				<div id="collat_driving" class="hide_div">
 					<div class="routine_q_check">Do they drive?</div>
@@ -516,7 +517,7 @@
 							<div id="tips_scrapes" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Involved in tips and scrapes</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="tips" class="grid_check" onclick="enableRow(this)">
+									<input type="checkbox" name="tips_collat" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="tips_severity_collat" class="hide_select">
@@ -1196,6 +1197,7 @@
 					</div> <!-- Coping Grid -->
 				</div><!-- Coping Strategies for Cooking -->
 					<div id="collat_cooking" class="hide_div">
+						<input type="hidden" value="hidden" id="collat_cook" name="collat_cook">
 						<div id="cooking_problems">
 							<div class="routine_q">Do you ever have the following problems with cooking?</div>
 							<div  class="living_grid">
@@ -1522,6 +1524,7 @@
 		</div>
 		
 		<div class="collat_div">
+			<input type="hidden" value="hidden" id="collat_shop" name="collat_shop">
 			<input type="hidden" id="shopping_not_collat" name="shopping_not_collat" value="hidden">
 			<input type="button" onclick="addCollatShopping(this)" class="pure-button living-button" value="Add Information from Collateral">
 					
@@ -1651,7 +1654,7 @@
 			<div id="bills_problem">
 				<div class="subtitle_q">Have you ever had trouble with bills?</div>
 				<div class="bills_select">
-					<select name="bill_problem">
+					<select name="bill_problems">
 						<option value="forgot_payment">Forgot to Pay</option>
 						<option value="income_issue">Not enough money</option>
 						<option value="other">Other</option>
@@ -1662,10 +1665,11 @@
 		</div>
 		
 		<div class="collat_div">
+			<input type="hidden" value="hidden" id="collat_bills" name="collat_bills">
 			<input type="hidden" id="bills_collat" name="bills_collat" value="hidden">
 			<input type="button" onclick="addNewCollatBills(this)" class="pure-button living-button" value="Add Information from Collateral">
 			
-			<div id="collat_bills" class="hide_div">
+			<div id="collat_bill" class="hide_div">
 				<div id="paying_bills init_grid" class="pure-form-aligned">
 					<div id="bills_method">
 						<div class="subtitle_q">How do you pay your bills?</div>
@@ -1677,7 +1681,7 @@
 								<option value="bank">Bank</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_method_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bills_method_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 					
 					<div id="bills_help">
@@ -1690,20 +1694,20 @@
 								<option value="home_help">Home Help</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bills_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 					
 					<div id="bills_problem">
 						<div class="subtitle_q">Have you ever had trouble with bills?</div>
 						<div class="bills_select">
-							<select name="bills_problem_collat">
+							<select name="bill_problems_collat">
 								<option value="no_problems">No Problems</option>
 								<option value="forgot_payment">Forgot to Pay</option>
 								<option value="income_issue">Not enough money</option>
 								<option value="other">Other</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_problem_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bill_problems_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 				</div>
 			</div>

@@ -37,7 +37,7 @@ public class LifestyleServlet extends HttpServlet {
 			pat.addForm(f);
 		} else {
 			if(f.getLifestyle() != null){
-				dao.runQuery("delete from lifestyleActivity where lifestyle= " + String.valueOf(l.getLifestyleID()));
+				dao.runQuery("delete from LifestyleActivity where lifestyle= " + String.valueOf(l.getLifestyleID()));
 				l.setLifestyleID(f.getLifestyle().getLifestyleID());
 			}
 			
@@ -69,7 +69,7 @@ public class LifestyleServlet extends HttpServlet {
 		String[] times = req.getParameterValues("exercise_time");
 		String[] currents = req.getParameterValues("current_hours");
 		String[] previous = req.getParameterValues("previous_hours");
-		String[] notes = req.getParameterValues("exercise_notes");
+		String[] notes = req.getParameterValues("exercise_act_notes");
 		int current_ind = 0, previous_ind = 0, notes_ind = 0, times_ind = 0;
 		
 		if(types == null)
@@ -91,12 +91,12 @@ public class LifestyleServlet extends HttpServlet {
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes[notes_ind] != null) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times[times_ind] != null) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;
 					}
@@ -128,12 +128,12 @@ public class LifestyleServlet extends HttpServlet {
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes[notes_ind] != null) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times[times_ind] != null) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;		
 					}
@@ -148,12 +148,12 @@ public class LifestyleServlet extends HttpServlet {
 	
 	public ArrayList<LifestyleActivity> loadActivitiesCollatList(HttpServletRequest req, Lifestyle l){
 		ArrayList<LifestyleActivity> as = new ArrayList<LifestyleActivity>();
-		String[] types = req.getParameterValues("exercise");
-		String[] involvements = req.getParameterValues("still_active");
-		String[] times = req.getParameterValues("exercise_time");
-		String[] currents = req.getParameterValues("current_hours");
-		String[] previous = req.getParameterValues("previous_hours");
-		String[] notes = req.getParameterValues("exercise_notes");
+		String[] types = req.getParameterValues("exercise_collat");
+		String[] involvements = req.getParameterValues("still_active_collat");
+		String[] times = req.getParameterValues("exercise_time_collat");
+		String[] currents = req.getParameterValues("current_hours_collat");
+		String[] previous = req.getParameterValues("previous_hours_collat");
+		String[] notes = req.getParameterValues("exercise_act_notes_collat");
 		int current_ind = 0, previous_ind = 0, notes_ind = 0, times_ind = 0;
 		
 		if(types == null)

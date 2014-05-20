@@ -10,7 +10,7 @@ var collatDrugs = false;
 
 $(document).ready(function() {
 	console.log("Working");
-	setTimeout(retrieveSleepInfo, 100);
+	setTimeout(function() {retrieveSleepInfo();}, 150);
 });
 
 function addCollatSleep(button) {
@@ -157,6 +157,7 @@ function updateUnits() {
 			totalUnits += temp;
 		}
 	});
+	totalUnits = totalUnits.toFixed(1);
 	document.getElementsByName("total_units")[0].value=totalUnits;
 	
 	if(typeof(Storage) !== "undefined"){
@@ -176,12 +177,13 @@ function updateUnits() {
 
 function updateUnitsCollat() {
 	var totalUnits = 0;
-	$('.units_box').each(function () {
+	$('.units_box_collat').each(function () {
 		var temp = parseFloat($(this).val());
 		if(temp > 0 ){
 			totalUnits += temp;
 		}
 	});
+	totalUnits = totalUnits.toFixed(1);
 	document.getElementsByName("total_units_collat")[0].value=totalUnits;
 	
 	if(typeof(Storage) !== "undefined"){
@@ -219,6 +221,21 @@ function updateThisUnit(text, name) {
 	case 'pop_units':
 		units = 1.3*val;
 		break;
+	case 'wine_glass_units_collat':
+		units = 2.2*val;
+		break;
+	case 'spirit_units_collat':
+		units = 1.3*val;
+		break;
+	case 'beer_bottle_units_collat':
+		units = 1.6*val;
+		break;
+	case 'beer_pint_units_collat':
+		units = 2.8*val;
+		break;
+	case 'pop_units_collat':
+		units = 1.3*val;
+		break;
 	}
 	units = units.toFixed(1);
 	document.getElementsByName(name)[0].value=units;
@@ -230,11 +247,15 @@ function updateThisUnit(text, name) {
 }
 
 function addNewExercise() {
-	$('#exercise_entry').clone().appendTo($('#exercise_grid'));
+	var elem = $('#exercise_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("input").val("");
+	elem.appendTo($('#exercise_grid'));
 };
 
 function addNewCollatExercise() {
-	$('#exercise_entry').clone().appendTo($('#collat_exercise_grid'));
+	var elem = $('#exercise_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("input").val("");
+	elem.appendTo($('#collat_exercise_grid'));
 }
 
 function changeExercise(elem) {
