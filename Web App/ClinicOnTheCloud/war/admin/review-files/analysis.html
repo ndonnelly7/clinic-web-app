@@ -5,6 +5,58 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form id="analysis_form" class="form_entry pure-form pure-form-aligned">
 
+<div id="impressions" class="row_div">
+	<div class="header">Impressions</div>
+	<div id="imp_row" class="row">
+		<div class="imp_col">
+			<label for="impression">Impression:</label>
+			<input type="text" id="impression" readonly>
+		</div>
+		<div class="notes_col" hidden="true">
+			<label for="impression_notes">Notes:</label>
+			<textarea id="impression_notes" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="outcomes" class="row_div">
+	<div class="header">Outcomes</div>
+	<div id="out_row" class="row">
+		<div class="out_col">
+			<label for="outcome">Outcome:</label>
+			<input type="text" id="outcome" readonly>
+		</div>
+		<div class="notes_col" hidden="true">
+			<label for="outcome_notes">Notes:</label>
+			<textarea id="outcome_notes" readonly></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="follow" class="row_div">
+	<div class="header">Follow Up</div>	
+	<div class="pure-control-group">
+		<label for="follow_up">Time to follow up:</label>
+		<input id="follow_up" type="text" readonly>
+	</div>
+	<div class="pure-control-group">
+		<label for="follow_notes">Follow up notes:</label>
+		<input id="follow_notes" type="text" readonly>
+	</div>
+</div>
+
+<div id="letter_div" class="row_div">
+	<div class="header">Letter</div>
+	<textarea id="letter" rows="24" cols="80"></textarea>
+</div>
+
+<div id="extra_notes" class="row_div">
+	<div class="header">Extra Notes</div>
+	<textarea id="notes" rows="12" cols="60"></textarea>
+</div>
+
+</form>
 </body>
 </html>

@@ -29,6 +29,7 @@ h2 {
 .footer span:hover {
 	background-color:#fff;
 	color:#000;
+	cursor:pointer;
 }
 
 #test_form {

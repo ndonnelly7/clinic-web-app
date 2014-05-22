@@ -467,7 +467,7 @@
 	
 	function systolicChanged(){
 		var l = parseInt($('#systolic').val());
-		if(l < 140){
+		if(l > 140){
 			addWarning($('#systolic'));
 			sessionStorage.systolic = true;
 		} else {
@@ -478,7 +478,7 @@
 	
 	function diastolicChanged(){
 		var l = parseInt($('#diastolic').val());
-		if(l < 90){
+		if(l > 90){
 			addWarning($('#diastolic'));
 			sessionStorage.diastolic = true;
 		} else {

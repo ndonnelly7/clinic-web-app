@@ -197,12 +197,12 @@ function nextPage(page) {
 		if(moca_blind){
 			moca['blind'] = true;
 			
-			moca['attention'] = $("#attention").val();
-			moca['language'] = $("#language").val();
-			moca['abstract'] = $("#abstract").val();
-			moca['recall'] = $("#recall").val();
-			moca['orientation'] = $("#orientation").val();
-			moca['total'] = $("#moca_total").val();
+			moca['attention'] = $("#b_attention").val();
+			moca['language'] = $("#b_language").val();
+			moca['abstract'] = $("#b_abstract").val();
+			moca['recall'] = $("#b_recall").val();
+			moca['orientation'] = $("#b_orientation").val();
+			moca['total'] = $("#b_moca_total").val();
 		} else {
 			moca['blind'] = false;
 			moca['visuo'] = $("#visuo").val();
@@ -258,12 +258,12 @@ function submitPage() {
 		if(moca_blind){
 			moca['blind'] = true;
 			
-			moca['attention'] = $("#attention").val();
-			moca['language'] = $("#language").val();
-			moca['abstract'] = $("#abstract").val();
-			moca['recall'] = $("#recall").val();
-			moca['orientation'] = $("#orientation").val();
-			moca['total'] = $("#moca_total").val();
+			moca['attention'] = $("#b_attention").val();
+			moca['language'] = $("#b_language").val();
+			moca['abstract'] = $("#b_abstract").val();
+			moca['recall'] = $("#b_recall").val();
+			moca['orientation'] = $("#b_orientation").val();
+			moca['total'] = $("#b_moca_total").val();
 		} else {
 			moca['blind'] = false;
 			moca['visuo'] = $("#visuo").val();

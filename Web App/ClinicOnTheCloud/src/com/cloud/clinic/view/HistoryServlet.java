@@ -47,10 +47,11 @@ public class HistoryServlet extends HttpServlet {
 			pat.addForm(f);
 		} else {
 			if(f.getPatientHistory() != null){
+				pHistory.setHistoryID(f.getPatientHistory().getHistoryID());
 				dao.runQuery("delete from MedHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
 				dao.runQuery("delete from DrugHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
 				dao.runQuery("delete from PsychHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
-				pHistory.setHistoryID(f.getPatientHistory().getHistoryID());
+				
 			}
 			pHistory.setForm(f);
 			f.setPatientHistory(pHistory);

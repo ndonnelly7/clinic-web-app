@@ -403,7 +403,7 @@
 						<div id="use_map" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Use a map</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="use_map" class="grid_check" onclick="enableRow(this)">
+								<input type="checkbox" name="map" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
 								<select name="use_map_success" class="hide_select">
@@ -414,7 +414,7 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<textarea form="living_form" class="reason_input" name="use_map_notes" rows="2" cols="24"></textarea>
+								<textarea form="living_form" class="reason_input" name="map_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 						<!-- Phone for Help -->
@@ -511,7 +511,7 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<textarea form="living_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+									<textarea form="living_form" class="reason_input" name="lost_notes" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 							<div id="tips_scrapes" class="pure-g-r">
@@ -645,7 +645,7 @@
 							<div id="use_map" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Use a map</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="use_map_collat" class="grid_check" onclick="enableRow(this)">
+									<input type="checkbox" name="map_collat" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="use_map_success_collat" class="hide_select">
@@ -656,7 +656,7 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<textarea form="living_form" class="reason_input" name="use_map_notes_collat" rows="2" cols="24"></textarea>
+									<textarea form="living_form" class="reason_input" name="map_notes_collat" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 							<!-- Phone for Help -->
@@ -713,7 +713,6 @@
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="cook_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
-				<div><textarea form="living_form" name="cooking_notes" rows="3" cols="40" style="margin-top: 2px;margin-left:2%;"></textarea></div>
 			</div>
 			
 			<div id="does_cook" class="hide_div">
@@ -944,13 +943,14 @@
 					</div> <!-- Coping Grid -->
 				</div><!-- Coping Strategies for Cooking -->
 			</div>
+			<div><textarea form="living_form" name="cooking_notes" rows="3" cols="40" style="margin-top: 2px;margin-left:2%;"></textarea></div>
 		</div>
 		
 		<input type="button" onclick="addNewCollatCooking(this)" class="pure-button living-button collat_button" value="Add Information from Collateral">
 		<div id="collat_cooking_div" class="hide_div">
 			<div class="routine_q_check">Do they cook for themselves?</div>
 			<!-- <input type="checkbox" id="init_cooking_check" onchange="cookingCheckChanged(this, 'does_cook')"> -->
-			<select name="cook_collat" onchange="cookingCheckChangedCollat(this)">
+			<select name="cooking_collat" onchange="cookingCheckChangedCollat(this)">
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
 			</select>
@@ -1530,7 +1530,7 @@
 					
 			<div id="shopping_collat_grid" class="hide_div">
 				<div class="routine_q_check">Do they shop for themselves?</div>
-				<select name="shopping_yn" onchange="shoppingCheckChangedCollat(this)">
+				<select name="shopping_collat" onchange="shoppingCheckChangedCollat(this)">
 					<option value="no">No</option>
 					<option value="yes">Yes</option>
 				</select>

@@ -118,7 +118,7 @@
 <div id="driving" class="row_div">
 	<div class="header">Driving</div>
 	<div class="pure-control-group">
-		<label for="drive">Drive:</label>
+		<label for="drive">Does the patient drive:</label>
 		<input type="text" id="drive" readonly>
 	</div>
 	<div id="do_drive">
@@ -181,26 +181,26 @@
 				<textarea rows="3" id="park_big_notes" readonly></textarea>
 			</div>
 		</div>
-		<div id="day_driving_row" class="row">
+		<div id="day_drive_row" class="row">
 			<div class="subheader">Only drive during the day</div>
 			<div class="liv_suc">
-				<label for="day_driving_success">Success:</label>
-				<input type="text" id="day_driving_success" readonly>
+				<label for="day_drive_success">Success:</label>
+				<input type="text" id="day_drive_success" readonly>
 			</div>
 			<div class="liv_notes">
-				<label for="day_driving_notes">Notes:</label>
-				<textarea rows="3" id="day_driving_notes" readonly></textarea>
+				<label for="day_drive_notes">Notes:</label>
+				<textarea rows="3" id="day_drive_notes" readonly></textarea>
 			</div>
 		</div>
-		<div id="known_driving_row" class="row">
+		<div id="known_places_row" class="row">
 			<div class="subheader">Only drive to known places</div>
 			<div class="liv_suc">
-				<label for="known_driving_success">Success:</label>
-				<input type="text" id="known_driving_success" readonly>
+				<label for="known_places_success">Success:</label>
+				<input type="text" id="known_places_success" readonly>
 			</div>
 			<div class="liv_notes">
-				<label for="known_driving_notes">Notes:</label>
-				<textarea rows="3" id="known_driving_notes" readonly></textarea>
+				<label for="known_places_notes">Notes:</label>
+				<textarea rows="3" id="known_places_notes" readonly></textarea>
 			</div>
 		</div>
 		<div id="take_friend_row" class="row">
@@ -320,26 +320,26 @@
 					<textarea rows="3" id="park_big_notes_collat" readonly></textarea>
 				</div>
 			</div>
-			<div id="day_driving_row" class="row">
+			<div id="day_drive_row" class="row">
 				<div class="subheader">Only drive during the day</div>
 				<div class="liv_suc">
-					<label for="day_driving_success_collat">Success:</label>
-					<input type="text" id="day_driving_success_collat" readonly>
+					<label for="day_drive_success_collat">Success:</label>
+					<input type="text" id="day_drive_success_collat" readonly>
 				</div>
 				<div class="liv_notes_collat">
-					<label for="day_driving_notes_collat">Notes:</label>
-					<textarea rows="3" id="day_driving_notes_collat" readonly></textarea>
+					<label for="day_drive_notes_collat">Notes:</label>
+					<textarea rows="3" id="day_drive_notes_collat" readonly></textarea>
 				</div>
 			</div>
-			<div id="known_driving_row" class="row">
+			<div id="known_places_row" class="row">
 				<div class="subheader">Only drive to known places</div>
 				<div class="liv_suc">
-					<label for="known_driving_success_collat">Success:</label>
-					<input type="text" id="known_driving_success_collat" readonly>
+					<label for="known_places_success_collat">Success:</label>
+					<input type="text" id="known_places_success_collat" readonly>
 				</div>
 				<div class="liv_notes_collat">
-					<label for="known_driving_notes_collat">Notes:</label>
-					<textarea rows="3" id="known_driving_notes_collat" readonly></textarea>
+					<label for="known_places_notes_collat">Notes:</label>
+					<textarea rows="3" id="known_places_notes_collat" readonly></textarea>
 				</div>
 			</div>
 			<div id="take_friend_row" class="row">
@@ -394,6 +394,529 @@
 	</div>
 </div>
 
+<div id="cooking" class="row_div">
+
+	<div class="header">Cooking</div>
+	<div class="pure-control-group">
+		<label for="cook">Does the patient cook:</label>
+		<input type="text" id="cook" readonly>
+	</div>
+	
+	<div id="do_not_cook">
+		<div class="liv_suc pure-control-group">
+			<label for="cook_help">Who cooks for the Patient:</label>
+			<input type="text" id="cook_help" readonly>
+		</div>
+		<div class="liv_notes pure-control-group">
+			<label for="cook_help_notes">Notes:</label>
+			<textarea rows="3" id="cook_help_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="do_cook">
+		<div class="header">Incidents</div>
+		<div id="forgot_cooking_row" class="row">
+			<div class="subheader">Forgotten about something cooking:</div>
+			<div class="liv_freq">
+				<label for="forgot_cooking_freq">Frequency:</label>
+				<input type="text" id="forgot_cooking_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="forgot_cooking_notes">Notes:</label>
+				<textarea rows="3" id="forgot_cooking_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="burnt_food_row" class="row">
+			<div class="subheader">Burnt something:</div>
+			<div class="liv_freq">
+				<label for="burnt_food_freq">Frequency:</label>
+				<input type="text" id="burnt_food_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="burnt_food_notes">Notes:</label>
+				<textarea rows="3" id="burnt_food_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="started_fire_row" class="row">
+			<div class="subheader">Set something on fire:</div>
+			<div class="liv_freq">
+				<label for="started_fire_freq">Frequency:</label>
+				<input type="text" id="started_fire_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="started_fire_notes">Notes:</label>
+				<textarea rows="3" id="started_fire_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="smoke_alarm_row" class="row">
+			<div class="subheader">Set off smoke alarm:</div>
+			<div class="liv_freq">
+				<label for="smoke_alarm_freq">Frequency:</label>
+				<input type="text" id="smoke_alarm_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="smoke_alarm_notes">Notes:</label>
+				<textarea rows="3" id="smoke_alarm_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="undercooked_row" class="row">
+			<div class="subheader">Undercooked food:</div>
+			<div class="liv_freq">
+				<label for="undercooked_freq">Frequency:</label>
+				<input type="text" id="undercooked_freq" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="undercooked_notes">Notes:</label>
+				<textarea rows="3" id="undercooked_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div class="header">Coping Strategies</div>
+		<div id="timer_row" class="row">
+			<div class="subheader">Use a timer:</div>
+			<div class="liv_success">
+				<label for="timer_success">Success:</label>
+				<input type="text" id="timer_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="timer_notes">Notes:</label>
+				<textarea rows="3" id="timer_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="reminders_row" class="row">
+			<div class="subheader">Have someone remind you:</div>
+			<div class="liv_success">
+				<label for="reminders_success">Success:</label>
+				<input type="text" id="reminders_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="reminders_notes">Notes:</label>
+				<textarea rows="3" id="reminders_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="simple_cooking_row" class="row">
+			<div class="subheader">Keep cooking simple:</div>
+			<div class="liv_success">
+				<label for="simple_cooking_success">Success:</label>
+				<input type="text" id="simple_cooking_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="simple_cooking_notes">Notes:</label>
+				<textarea rows="3" id="simple_cooking_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="salad_row" class="row">
+			<div class="subheader">Only eat food that does not require cooking:</div>
+			<div class="liv_success">
+				<label for="salad_success">Success:</label>
+				<input type="text" id="salad_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="salad_notes">Notes:</label>
+				<textarea rows="3" id="salad_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="go_out_row" class="row">
+			<div class="subheader">Go out for food:</div>
+			<div class="liv_success">
+				<label for="go_out_success">Success:</label>
+				<input type="text" id="go_out_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="go_out_notes">Notes:</label>
+				<textarea rows="3" id="go_out_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="get_help_row" class="row">
+			<div class="subheader">Have someone help you:</div>
+			<div class="liv_success">
+				<label for="get_help_success">Success:</label>
+				<input type="text" id="get_help_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="get_help_notes">Notes:</label>
+				<textarea rows="3" id="get_help_notes" readonly></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div id="collateral_cooking" style="display:none">
+		<div class="header">Collateral Cooking</div>
+		<div class="pure-control-group">
+			<label for="cooking_collat">Does the patient cook:</label>
+			<input type="text" id="cooking_collat" readonly>
+		</div>
+		
+		<div id="do_not_cook">
+			<div class="liv_suc pure-control-group">
+				<label for="cook_help_collat">Who cooks for the Patient:</label>
+				<input type="text" id="cook_help_collat" readonly>
+			</div>
+			<div class="liv_notes pure-control-group">
+				<label for="cook_help_notes_collat">Notes:</label>
+				<textarea rows="3" id="cook_help_notes_collat" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="do_cook">
+			<div class="header">Incidents</div>
+			<div id="forgot_cooking_row_collat" class="row">
+				<div class="subheader">Forgotten about something cooking:</div>
+				<div class="liv_freq">
+					<label for="forgot_cooking_freq">Frequency:</label>
+					<input type="text" id="forgot_cooking_freq" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="forgot_cooking_notes_collat">Notes:</label>
+					<textarea rows="3" id="forgot_cooking_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="burnt_food_row_collat" class="row">
+				<div class="subheader">Burnt something:</div>
+				<div class="liv_freq">
+					<label for="burnt_food_freq">Frequency:</label>
+					<input type="text" id="burnt_food_freq" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="burnt_food_notes_collat">Notes:</label>
+					<textarea rows="3" id="burnt_food_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="started_fire_row_collat" class="row">
+				<div class="subheader">Set something on fire:</div>
+				<div class="liv_freq">
+					<label for="started_fire_freq">Frequency:</label>
+					<input type="text" id="started_fire_freq" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="started_fire_notes_collat">Notes:</label>
+					<textarea rows="3" id="started_fire_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="smoke_alarm_row_collat" class="row">
+				<div class="subheader">Set off smoke alarm:</div>
+				<div class="liv_freq">
+					<label for="smoke_alarm_freq">Frequency:</label>
+					<input type="text" id="smoke_alarm_freq" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="smoke_alarm_notes_collat">Notes:</label>
+					<textarea rows="3" id="smoke_alarm_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="undercooked_row_collat" class="row">
+				<div class="subheader">Undercooked food:</div>
+				<div class="liv_freq">
+					<label for="undercooked_freq">Frequency:</label>
+					<input type="text" id="undercooked_freq" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="undercooked_notes_collat">Notes:</label>
+					<textarea rows="3" id="undercooked_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div class="header">Coping Strategies</div>
+			<div id="timer_row_collat" class="row">
+				<div class="subheader">Use a timer:</div>
+				<div class="liv_success_collat">
+					<label for="timer_success_collat">Success:</label>
+					<input type="text" id="timer_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="timer_notes_collat">Notes:</label>
+					<textarea rows="3" id="timer_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="reminders_row_collat" class="row">
+				<div class="subheader">Have someone remind you:</div>
+				<div class="liv_success_collat">
+					<label for="reminders_success_collat">Success:</label>
+					<input type="text" id="reminders_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="reminders_notes_collat">Notes:</label>
+					<textarea rows="3" id="reminders_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="simple_cooking_row_collat" class="row">
+				<div class="subheader">Keep cooking simple:</div>
+				<div class="liv_success_collat">
+					<label for="simple_cooking_success_collat">Success:</label>
+					<input type="text" id="simple_cooking_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="simple_cooking_notes_collat">Notes:</label>
+					<textarea rows="3" id="simple_cooking_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="salad_row_collat" class="row">
+				<div class="subheader">Only eat food that does not require cooking:</div>
+				<div class="liv_success_collat">
+					<label for="salad_success_collat">Success:</label>
+					<input type="text" id="salad_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="salad_notes_collat">Notes:</label>
+					<textarea rows="3" id="salad_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="go_out_row_collat" class="row">
+				<div class="subheader">Go out for food:</div>
+				<div class="liv_success_collat">
+					<label for="go_out_success_collat">Success:</label>
+					<input type="text" id="go_out_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="go_out_notes_collat">Notes:</label>
+					<textarea rows="3" id="go_out_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="get_help_row_collat" class="row">
+				<div class="subheader">Have someone help you:</div>
+				<div class="liv_success_collat">
+					<label for="get_help_success_collat">Success:</label>
+					<input type="text" id="get_help_success_collat" readonly>
+				</div>
+				<div class="liv_notes_collat">
+					<label for="get_help_notes_collat">Notes:</label>
+					<textarea rows="3" id="get_help_notes_collat" readonly></textarea>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div id="shopping" class="row_div">
+
+	<div class="header">Shopping</div>
+	<div class="pure-control-group">
+		<label for="shop">Does the patient shop for themselves:</label>
+		<input type="text" id="shop" readonly>
+	</div>
+
+	<div id="do_not_shop">
+		<div class="liv_suc pure-control-group">
+			<label for="shop_help">Who helps with shopping:</label>
+			<input type="text" id="shop_help" readonly>
+		</div>
+		<div class="liv_notes pure-control-group">
+			<label for="shop_help_notes">Notes on shopping help:</label>
+			<textarea rows="3" id="shop_help_notes" readonly></textarea>
+		</div>
+		
+		<div class="liv_suc pure-control-group">
+			<label for="shop_help_time">How long have they had help:</label>
+			<input type="text" id="shop_help_time" readonly>
+		</div>
+		<div class="liv_notes pure-control-group">
+			<label for="shop_time_notes">Notes:</label>
+			<textarea rows="3" id="shop_time_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="do_shop">
+		<div class="liv_suc pure-control-group">
+			<label for="shopping_tougher">Has shopping been tougher recently:</label>
+			<input type="text" id="shopping_tougher" readonly>
+		</div>
+		<div class="liv_notes pure-control-group">
+			<label for="shop_tough_notes">Notes:</label>
+			<textarea rows="3" id="shop_tough_notes" readonly></textarea>
+		</div>
+		
+		<div class="header">Coping Strategies</div>
+		<div id="list_row" class="row">
+			<div class="subheader">Uses a list:</div>
+			<div class="liv_success">
+				<label for="list_success">Success:</label>
+				<input type="text" id="list_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="list_notes">Notes:</label>
+				<textarea rows="3" id="list_notes" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="small_shop_row" class="row">
+			<div class="subheader">Uses a small_shop:</div>
+			<div class="liv_success">
+				<label for="small_shop_success">Success:</label>
+				<input type="text" id="small_shop_success" readonly>
+			</div>
+			<div class="liv_notes">
+				<label for="small_shop_notes">Notes:</label>
+				<textarea rows="3" id="small_shop_notes" readonly></textarea>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<!--  COLLATERAL -->
+	<div id="collateral_shopping" style="display:none">
+		<div class="header">Collateral Shopping</div>
+		<div class="pure-control-group">
+			<label for="shop">Does the patient shop for themselves:</label>
+			<input type="text" id="shop" readonly>
+		</div>
+	
+		<div id="do_not_shop">
+			<div class="liv_suc pure-control-group">
+				<label for="shop_help_collat">Who helps with shopping:</label>
+				<input type="text" id="shop_help_collat" readonly>
+			</div>
+			<div class="liv_notes pure-control-group">
+				<label for="shop_help_notes_collat">Notes on shopping help:</label>
+				<textarea rows="3" id="shop_help_notes_collat" readonly></textarea>
+			</div>
+			<div class="liv_suc pure-control-group">
+				<label for="shop_help_time_collat">How long have they had help:</label>
+				<input type="text" id="shop_help_time_collat" readonly>
+			</div>
+			<div class="liv_notes pure-control-group">
+				<label for="shop_time_notes_collat">Notes:</label>
+				<textarea rows="3" id="shop_time_notes_collat" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="do_shop">
+			<div class="liv_suc pure-control-group">
+				<label for="shopping_tougher_collat">Has shopping been tougher recently:</label>
+				<input type="text" id="shopping_tougher_collat" readonly>
+			</div>
+			<div class="liv_notes pure-control-group">
+				<label for="shop_tough_notes_collat">Notes:</label>
+				<textarea rows="3" id="shop_tough_notes_collat" readonly></textarea>
+			</div>
+			
+			<div class="header">Coping Strategies</div>
+			<div id="list_row_collat" class="row">
+				<div class="subheader">Uses a list:</div>
+				<div class="liv_success">
+					<label for="list_success_collat">Success:</label>
+					<input type="text" id="list_success_collat" readonly>
+				</div>
+				<div class="liv_notes">
+					<label for="list_notes_collat">Notes:</label>
+					<textarea rows="3" id="list_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="small_shop_row_collat" class="row">
+				<div class="subheader">Uses a small_shop:</div>
+				<div class="liv_success">
+					<label for="small_shop_success_collat">Success:</label>
+					<input type="text" id="small_shop_success_collat" readonly>
+				</div>
+				<div class="liv_notes">
+					<label for="small_shop_notes_collat">Notes:</label>
+					<textarea rows="3" id="small_shop_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div id="bills" class="row_div">
+
+	<div class="header">Paying Bills</div>
+	<div id="liv_row" class="row">
+		<div class="subheader">How do they pay their bills</div>
+		<div class="act_col">
+			<label for="bills_method">Method:</label>
+			<input type="text" id="bills_method" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="bill_method_notes">Notes:</label>
+			<textarea rows="3" id="bill_method_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="liv_row" class="row">
+		<div class="subheader">Do they need any help?</div>
+		<div class="act_col">
+			<label for="bills_help">Help:</label>
+			<input type="text" id="bills_help" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="bill_help_notes">Notes:</label>
+			<textarea rows="3" id="bill_help_notes" readonly></textarea>
+		</div>
+	</div>
+	
+	<div id="liv_row" class="row">
+		<div class="subheader">Any problems with paying bills</div>
+		<div class="act_col">
+			<label for="bill_problems">Problem:</label>
+			<input type="text" id="bill_problems" readonly>
+		</div>
+		<div class="notes_col">
+			<label for="bill_problem_notes">Notes:</label>
+			<textarea rows="3" id="bill_problem_notes" readonly></textarea>
+		</div>
+	</div>
+
+	<div id="collateral_bills" style="display:none">
+		<div class="header">Collateral Bills</div>
+		<div id="liv_row" class="row">
+			<div class="subheader">How do they pay their bills</div>
+			<div class="act_col">
+				<label for="bills_method_collat">Method:</label>
+				<input type="text" id="bills_method_collat" readonly>
+			</div>
+			<div class="notes_col">
+				<label for="bill_method_notes_collat">Notes:</label>
+				<textarea rows="3" id="bill_method_notes_collat" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="liv_row" class="row">
+			<div class="subheader">Do they need any help?</div>
+			<div class="act_col">
+				<label for="bills_help_collat">Help:</label>
+				<input type="text" id="bills_help_collat" readonly>
+			</div>
+			<div class="notes_col">
+				<label for="bill_help_notes_collat">Notes:</label>
+				<textarea rows="3" id="bill_help_notes_collat" readonly></textarea>
+			</div>
+		</div>
+		
+		<div id="liv_row" class="row">
+			<div class="subheader">Any problems with paying bills</div>
+			<div class="act_col">
+				<label for="bill_problems_collat">Problem:</label>
+				<input type="text" id="bill_problems_collat" readonly>
+			</div>
+			<div class="notes_col">
+				<label for="bill_problems_notes_collat">Notes:</label>
+				<textarea rows="3" id="bill_problems_notes_collat" readonly></textarea>
+			</div>
+		</div>
+	</div>
+
+</div>
 </form>
 </body>
 </html>

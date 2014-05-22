@@ -141,6 +141,51 @@ function showPatient(p){
 	console.log(p);
 }
 
+function getPatientsByName(name, callback){
+	if(db){
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
+		var keys = new Array();
+		var i = 0;
+		var index  = store.index(name);
+		index.openKeyCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				keys[i] = cursor.value;
+				i++;
+				cursor.continue();
+			} else {
+				callback(keys);
+			}
+		}
+	}
+}
+
+function getArrayAsJSONString(arr) {
+	var arrString = "";
+	for(var i = 0; i < arr.length; i++){
+		arrString+= arr[i] + ":";
+	}
+	return JSON.stringify(arrString);
+}
+
+function getPatientKeys(callback){
+	if(db){
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
+		var keys = new Array();
+		var i = 0;
+		store.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				keys[i] = cursor.value;
+				i++;
+				cursor.continue();
+			} else {
+				callback(keys);
+			}
+		}
+	}
+}
+
 function removePatient(p_id){
 	var objectStore = db.transaction(["patients"], "readwrite").objectStore("patients");
 	var request = objectStore.delete(p_id);
@@ -154,28 +199,3 @@ function removePatient(p_id){
 	}
 }
 
-function getPatientKeys(){
-	if(db){
-		var store = db.transaction(["patients"], "readonly").objectStore("patients");
-		var keys = new Array();
-		var i = 0;
-		store.openCursor().onsuccess = function(event) {
-			var cursor = event.target.result;
-			if(cursor){
-				keys[i] = cursor;
-				i++;
-				cursor.continue();
-			} else {
-				return keys;
-			}
-		}
-	}
-}
-
-function getArrayAsJSONString(arr) {
-	var arrString = "";
-	for(var i = 0; i < arr.length; i++){
-		arrString+= arr[i] + ":";
-	}
-	return JSON.stringify(arrString);
-}

@@ -28,9 +28,10 @@
 
 <div id="content">
 <input type="hidden" id="id_from_attr" value="${id}">
+<input type="hidden" id="current_date">
 <ul class="tabs date-tabs">
 	<c:forEach items="${dates}" var="date">
-		<li><a href="#"><c:out value="${date}"/></a></li>
+		<li onclick="loadNewDate(this);"><a href="#"><c:out value="${date}"/></a></li>
 	</c:forEach>
 </ul>
 

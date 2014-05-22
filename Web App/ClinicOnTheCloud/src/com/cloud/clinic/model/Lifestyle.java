@@ -37,7 +37,7 @@ public class Lifestyle {
 	@Expose
 	boolean difficulty_sleep, night_waking, early_waking, meds_check, nap_check;
 	@Expose
-	boolean collat_sleep, collat_exercise, collat_alcohol, collat_smoking, collat_drug, collat_diet;
+	String collat_sleep, collat_exercise, alcohol_collat, smoking_collat, drug_collat, collat_diet;
 
 	@Expose
 	@Column(columnDefinition="TEXT")
@@ -153,7 +153,16 @@ public class Lifestyle {
 	
 	//Exercise
 	@Expose
-	String exercise;
+	String exercise_yn;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String exercise_notes;
+	
+	@Expose
+	String exercise_yn_collat;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String exercise_notes_collat;
 
 	@Expose
 	@OneToMany(mappedBy = "lifestyle", cascade = CascadeType.ALL)
@@ -189,7 +198,7 @@ public class Lifestyle {
 	
 	//Alcohol
 	@Expose
-	String alcohol, alcohol_collat;
+	String alcohol, alcohol_collat_yn;
 	@Expose
 	float beer_pint_units, beer_bottle_units, spirits_units, wine_glass_units, pop_units;
 	@Expose
@@ -207,7 +216,7 @@ public class Lifestyle {
 	
 	//Smoking
 	@Expose
-	String smoking, smoking_collat;
+	String smoking, smoking_collat_yn;
 	@Expose
 	String packets, packets_collat;
 	@Expose
@@ -290,51 +299,27 @@ public class Lifestyle {
 		this.nap_check = nap_check;
 	}
 
-	public boolean isCollat_sleep() {
+	public String isCollat_sleep() {
 		return collat_sleep;
 	}
 
-	public void setCollat_sleep(boolean collat_sleep) {
+	public void setCollat_sleep(String collat_sleep) {
 		this.collat_sleep = collat_sleep;
 	}
 
-	public boolean isCollat_exercise() {
+	public String isCollat_exercise() {
 		return collat_exercise;
 	}
 
-	public void setCollat_exercise(boolean collat_exercise) {
+	public void setCollat_exercise(String collat_exercise) {
 		this.collat_exercise = collat_exercise;
 	}
-
-	public boolean isCollat_alcohol() {
-		return collat_alcohol;
-	}
-
-	public void setCollat_alcohol(boolean collat_alcohol) {
-		this.collat_alcohol = collat_alcohol;
-	}
-
-	public boolean isCollat_smoking() {
-		return collat_smoking;
-	}
-
-	public void setCollat_smoking(boolean collat_smoking) {
-		this.collat_smoking = collat_smoking;
-	}
-
-	public boolean isCollat_drug() {
-		return collat_drug;
-	}
-
-	public void setCollat_drug(boolean collat_drug) {
-		this.collat_drug = collat_drug;
-	}
-
-	public boolean isCollat_diet() {
+	
+	public String isCollat_diet() {
 		return collat_diet;
 	}
 
-	public void setCollat_diet(boolean collat_diet) {
+	public void setCollat_diet(String collat_diet) {
 		this.collat_diet = collat_diet;
 	}
 
@@ -818,12 +803,36 @@ public class Lifestyle {
 		this.nap_time_collat = nap_time_collat;
 	}
 
-	public String getExercise() {
-		return exercise;
+	public String getExercise_yn() {
+		return exercise_yn;
 	}
 
-	public void setExercise(String exercise) {
-		this.exercise = exercise;
+	public void setExercise_yn(String exercise_yn) {
+		this.exercise_yn = exercise_yn;
+	}
+
+	public String getExercise_notes() {
+		return exercise_notes;
+	}
+
+	public void setExercise_notes(String exercise_notes) {
+		this.exercise_notes = exercise_notes;
+	}
+
+	public String getExercise_yn_collat() {
+		return exercise_yn_collat;
+	}
+
+	public void setExercise_yn_collat(String exercise_yn_collat) {
+		this.exercise_yn_collat = exercise_yn_collat;
+	}
+
+	public String getExercise_notes_collat() {
+		return exercise_notes_collat;
+	}
+
+	public void setExercise_notes_collat(String exercise_notes_collat) {
+		this.exercise_notes_collat = exercise_notes_collat;
 	}
 
 	public List<LifestyleActivity> getActivities() {
@@ -1138,14 +1147,6 @@ public class Lifestyle {
 		this.alcohol = alcohol;
 	}
 
-	public String getAlcohol_collat() {
-		return alcohol_collat;
-	}
-
-	public void setAlcohol_collat(String alcohol_collat) {
-		this.alcohol_collat = alcohol_collat;
-	}
-
 	public float getBeer_pint_units() {
 		return beer_pint_units;
 	}
@@ -1283,12 +1284,44 @@ public class Lifestyle {
 		this.smoking = smoking;
 	}
 
-	public String getSmoking_collat() {
+	public String isAlcohol_collat() {
+		return alcohol_collat;
+	}
+
+	public void setAlcohol_collat(String alcohol_collat) {
+		this.alcohol_collat = alcohol_collat;
+	}
+
+	public String isSmoking_collat() {
 		return smoking_collat;
 	}
 
 	public void setSmoking_collat(String smoking_collat) {
 		this.smoking_collat = smoking_collat;
+	}
+
+	public String isDrug_collat() {
+		return drug_collat;
+	}
+
+	public void setDrug_collat(String drug_collat) {
+		this.drug_collat = drug_collat;
+	}
+
+	public String getAlcohol_collat_yn() {
+		return alcohol_collat_yn;
+	}
+
+	public void setAlcohol_collat_yn(String alcohol_collat_yn) {
+		this.alcohol_collat_yn = alcohol_collat_yn;
+	}
+
+	public String getSmoking_collat_yn() {
+		return smoking_collat_yn;
+	}
+
+	public void setSmoking_collat_yn(String smoking_collat_yn) {
+		this.smoking_collat_yn = smoking_collat_yn;
 	}
 
 	public String getPackets() {

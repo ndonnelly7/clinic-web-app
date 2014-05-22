@@ -239,7 +239,7 @@
 						</select>
 					</div>
 					<div class="pure-u-1-3 notes_column">
-						<textarea name="sleep_meds_notes" form="lifestyle_form" rows="2"></textarea>
+						<textarea name="sleep_med_notes" form="lifestyle_form" rows="2"></textarea>
 					</div>
 				</div>
 			</div>
@@ -277,10 +277,10 @@
 		</div>		
 	
 		<div class="collat_div">
-			<input type="hidden" value="hidden" id="sleep_collat" name="sleep_collat">
+			<input type="hidden" value="hidden" id="collat_sleep" name="collat_sleep">
 			<input type="button" onclick="addCollatSleep(this)" class="pure-button lifestyle_button" value="Add Information from Collateral">
 			
-			<div id="collat_sleep" class="hide_div">
+			<div id="sleep_collat" class="hide_div">
 			<div id="sleep_difficulty" class="pure-g-u">
 				<div class="pure-u-1-3 lifestyle_title">Do you generally find it difficult to fall asleep?</div>
 				<div class="pure-u-1-3 check">
@@ -603,10 +603,10 @@
 				<textarea form="lifestyle_form" name="exercise_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 				
 				<div class="collat_div">
-					<input type="hidden" value="hidden" id="exercise_collat" name="exercise_collat">
+					<input type="hidden" value="hidden" id="collat_exercise" name="collat_exercise">
 					<input type="button" onclick="addCollatExercise(this)" class="pure-button lifestyle_button" value="Add Information from Collateral">
 				
-				<div id="collat_exercise" id="collat_exercise" class="hide_div">
+				<div id="exercise_collat" class="hide_div">
 					<div class="pure-u-1-3 title">Do they do any exercise?</div>
 					<div class="pure-u-1-3 select_box">
 						<select name="exercise_yn_collat" onchange="revealExerciseCollat(this)">
@@ -837,18 +837,18 @@
 			<textarea form="lifestyle_form" name="diet_notes" rows="3" cols="40" style="margin-left:3%;"></textarea>
 			
 			<div class="collat_div">
-				<input type="hidden" value="hidden" id="diet_collat" name="diet_collat">
+				<input type="hidden" value="hidden" id="collat_diet" name="collat_diet">
 				<input type="button" onclick="addCollatDiet(this)" class="pure-button lifestyle_button" value="Add Information from Collateral">
 			
-				<div id="collat_diet" class="hide_div collat_life_div">
+				<div id="diet_collat" class="hide_div collat_life_div">
 					<div class="title">What do they typically have for each meal on a normal day?</div>
 					<div class="pure-g-u">
 						<div class="pure-u-1-2 lifestyle_subtitle">Breakfast:</div>
-						<div class="pure-u-1-2"><textarea name="diet_breakfast_notes" form="lifestyle_form" rows="2"></textarea></div><br>
+						<div class="pure-u-1-2"><textarea name="breakfast_collat" form="lifestyle_form" rows="2"></textarea></div><br>
 						<div class="pure-u-1-2 lifestyle_subtitle">Lunch:</div>
-						<div class="pure-u-1-2"><textarea name="diet_lunch_notes" form="lifestyle_form" rows="2"></textarea></div><br>
+						<div class="pure-u-1-2"><textarea name="lunch_collat" form="lifestyle_form" rows="2"></textarea></div><br>
 						<div class="pure-u-1-2 lifestyle_subtitle">Dinner:</div>
-						<div class="pure-u-1-2"><textarea name="diet_dinner_notes" form="lifestyle_form" rows="2"></textarea></div><br>
+						<div class="pure-u-1-2"><textarea name="dinner_collat" form="lifestyle_form" rows="2"></textarea></div><br>
 					</div>
 					<br>
 					<div class="pure-g-u">
@@ -1186,7 +1186,7 @@
 				<div id="collat_smoking" class="hide_div collat_life_div">
 					<div class="lifestyle_vice_title pure-u-1-2">Do they smoke?</div>
 					<div class="select_box pure-u-1-2" style="margin-left:0px;">
-						<select name="smoking_collat" onchange="revealSmokingCollat(this)">
+						<select name="smoking_collat_yn" onchange="revealSmokingCollat(this)">
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -1219,7 +1219,7 @@
 		<legend>Drugs</legend>
 		<div id="drugs" class="pure-g-u">
 			<div class="lifestyle_vice_title pure-u-1-2">Any history of taking illicit substances?</div>
-			<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="drug_check" value="drugs" onclick="showHiddenDiv(this, 'drugs_qs')"></div>
+			<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="drugs" value="drugs" onclick="showHiddenDiv(this, 'drugs_qs')"></div>
 			<div id="drugs_qs"></div>
 			<textarea form="lifestyle_form" name="drugs_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 			

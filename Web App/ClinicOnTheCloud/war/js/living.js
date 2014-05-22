@@ -108,12 +108,12 @@ function cookingCheckChanged(elem, id){
 	if(elem.value === 'yes') {
 		$('#does_not_cook').slideUp(1000);
 		$('#does_cook').slideDown(1000);
-		$('.hide_select').prop('disabled', true);
+		$('.hide_select').prop('disabled', false);
 	} else {
 		showHiddenDiv(elem, id);
 		$('#does_cook').slideUp(1000);
 		$('#does_not_cook').slideDown(1000);
-		$('.hide_select').prop('disabled', false);
+		$('.hide_select').prop('disabled', true);
 	}
 }
 
@@ -121,12 +121,12 @@ function shoppingCheckChanged(elem, id){
 	if(elem.value === 'yes') {
 		$('#does_not_shop').slideUp(1000);
 		$('#does_shop').slideDown(1000);
-		$('.hide_select').prop('disabled', true);
+		$('.hide_select').prop('disabled', false);
 	} else {
 		showHiddenDiv(elem, id);
 		$('#does_shop').slideUp(1000);
 		$('#does_not_shop').slideDown(1000);
-		$('.hide_select').prop('disabled', false);
+		$('.hide_select').prop('disabled', true);
 	}
 }
 
@@ -134,36 +134,36 @@ function shoppingCheckChangedCollat(elem){
 	if(elem.value === 'yes') {
 		$('#does_not_shop_collat').slideUp(1000);
 		$('#does_shop_collat').slideDown(1000);
-		$('.hide_select').prop('disabled', true);
+		$('.hide_select').prop('disabled', false);
 	} else {
 		
 		$('#does_shop_collat').slideUp(1000);
 		$('#does_not_shop_collat').slideDown(1000);
-		$('.hide_select').prop('disabled', false);
+		$('.hide_select').prop('disabled', true);
 	}
 }
 
 function revealDrive(elem){
 	if(elem.value === "yes"){
 		$('#does_drive').slideDown(1000);
-		$('.hide_select').prop('disabled', true);
+		$('.hide_select').prop('disabled', false);
 		$("#driving_notes").slideUp(1000);
 	} else {
 		$('#does_drive').slideUp(1000);
 		$("#driving_notes").slideDown(1000);
-		$('.hide_select').prop('disabled', false);
+		$('.hide_select').prop('disabled', true);
 	}
 }
 
 function revealDriveCollat(elem){
 	if(elem.value === "yes"){
 		$('#does_drive_collat').slideDown(1000);
-		$('.hide_select').prop('disabled', true);
+		$('.hide_select').prop('disabled', false);
 		$("#driving_notes_collat").slideUp(1000);
 	} else {
 		$('#does_drive_collat').slideUp(1000);
 		$("#driving_notes_collat").slideDown(1000);
-		$('.hide_select').prop('disabled', false);
+		$('.hide_select').prop('disabled', true);
 	}
 }
 

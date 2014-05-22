@@ -37,8 +37,8 @@ public class LifestyleServlet extends HttpServlet {
 			pat.addForm(f);
 		} else {
 			if(f.getLifestyle() != null){
-				dao.runQuery("delete from LifestyleActivity where lifestyle= " + String.valueOf(l.getLifestyleID()));
 				l.setLifestyleID(f.getLifestyle().getLifestyleID());
+				dao.runQuery("delete from LifestyleActivity where lifestyle= " + String.valueOf(l.getLifestyleID()));
 			}
 			
 			l.setForm(f);

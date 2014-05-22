@@ -257,7 +257,7 @@
 		<div class="mem_num pure-u-1-8">2. </div>
 		<div class="mem_label pure-u-1-2">Have you dropped many of your activities and interests?</div>
 		<div class="pure-u-1-2 g_select">
-			<select name="gds_dropped_interests" id="dropped_interests" class="gds_select" onchange="updateBorder(this)">
+			<select name="gds_dropping_interests" id="dropped_interests" class="gds_select" onchange="updateBorder(this)">
 				<option value="na">-- --</option>
 				<option value="1">Yes</option>
 				<option value="0">No</option>
@@ -604,7 +604,7 @@
 	<input type="button" value="Submit GDS Results" onclick="runGDSEvaluation()" style="margin-bottom:6px;"/>
 	<div class="pure-g-r" id="result_gds_div" class="hide_div">
 		<div class="result_title pure-u-1-2">GDS Result</div>
-		<input type="text" id="gds_result" name="gds_result" style="width:3em; margin-top:-4px;" readonly>
+		<input type="text" id="gds_result" name="gds_total" style="width:3em; margin-top:-4px;" readonly>
 		<span id="gds_result_text" class="pure-u-1-2"></span>
 	</div>
 </fieldset>

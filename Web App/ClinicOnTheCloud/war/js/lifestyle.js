@@ -15,28 +15,28 @@ $(document).ready(function() {
 
 function addCollatSleep(button) {
 	if(!collatSleep){
-		$('#collat_sleep').slideDown(500);
+		$('#sleep_collat').slideDown(500);
 		collatSleep = true;
-		$('#sleep_collat').val("shown");
+		$('#collat_sleep').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_sleep').slideUp(500);
+		$('#sleep_collat').slideUp(500);
 		collatSleep = false;
-		$('#sleep_collat').val("hidden");
+		$('#collat_sleep').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 };
 
 function addCollatExercise(button) {
 	if(!collatExercise){
-		$('#collat_exercise').slideDown(500);
+		$('#exercise_collat').slideDown(500);
 		collatExercise = true;
-		$('#exercise_collat').val("shown");
+		$('#collat_exercise').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_exercise').slideUp(500);
+		$('#exercise_collat').slideUp(500);
 		collatExercise = false;
-		$('#exercise_collat').val("hidden");
+		$('#collat_exercise').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 };
@@ -91,14 +91,14 @@ function revealSmokingCollat(elem){
 
 function addCollatDiet(button) {
 	if(!collatDiet){
-		$('#collat_diet').slideDown(500);
+		$('#diet_collat').slideDown(500);
 		collatDiet = true;
-		$('#diet_collat').val("shown");
+		$('#collat_diet').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_diet').slideUp(500);
+		$('#diet_collat').slideUp(500);
 		collatDiet = false;
-		$('#diet_collat').val("hidden");
+		$('#collat_diet').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 };

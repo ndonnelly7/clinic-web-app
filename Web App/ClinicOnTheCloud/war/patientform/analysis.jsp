@@ -66,7 +66,7 @@
 				</div>
 				<div id="impression_entry" class="pure-g-r" style="margin-bottom:0.5em">
 					<div class="pure-u-1-3 outcome_col">
-						<select name="impression">
+						<select name="impression" class="imp">
 							<option value="norm_neg">Normal Negative Screen</option>
 							<option value="ab_neg">Abnormal Negative Screen</option>
 							<option value="dementia">Possible for Dementia</option>
@@ -92,7 +92,7 @@
 				</div>
 				<div class="pure-g-r" id="outcome_entry" style="margin-bottom:0.5em">
 					<div class="pure-u-1-3 outcome_col">
-						<select name="outcome">
+						<select name="outcome" onchange="updateOutcome(this)" id="outcome">
 							<option value="counselling">Counselling</option>
 							<option value="leaflets">Leaflets</option>
 							<option value="gp_letter">Letter to GP</option>
@@ -133,7 +133,7 @@
 	
 	<fieldset id="letter_field">
 		<legend>Letter</legend>
-		<textarea form="analysis_form" name="letter" id="letter" rows="24" cols="100">Will have letter template</textarea>
+		<textarea form="analysis_form" name="letter" id="letter" rows="24" cols="100"></textarea>
 	</fieldset>
 	
 	<fieldset id="notes_field">
