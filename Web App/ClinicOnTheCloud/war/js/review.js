@@ -496,7 +496,7 @@ function loadEvents(json){
 				var x = document.getElementById(key.substring(0, key.indexOf("_collat_check")) + "_row_collat");
 			else
 				var x = document.getElementById(key.substring(0, key.indexOf("_check")) + "_row");
-			if(!(events[key]))
+			if(!(events[key]) && x != null && !(typeof x === 'undefined'))
 				x.parentNode.removeChild(x);
 		} else if(key == "other_text" || key == "other_collat_text"){
 			if(events[key] == ""){

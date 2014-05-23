@@ -107,6 +107,12 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 		session.close();
 		
 	}
+	
+	public void init(){
+		Session s = HibernateUtil.getSessionFactory().openSession();
+		
+		s.close();
+	}
 
 	public Form getTodaysForm(Patient p) {
 		Session session = HibernateUtil.getSessionFactory().openSession();

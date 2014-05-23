@@ -2,22 +2,116 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Patient Details</title>
+<title>Signing In...</title>
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
+<link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
+<link rel="stylesheet" href="/css/pure-min.css"/> 
+<link rel="stylesheet" href="/css/home.css"/> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<style>
+div#content {
+	font-size: x-large;
+}
+
+div#content div#status {
+	font-family: monospace;
+}
+
+div#content div {
+	margin-bottom:10px;
+}
+</style>
 </head>
 <body>
 
 <div id="navbar"> 
+<h2>Welcome to Clinic on the Cloud</h2>
 </div> 
 <form id="form" method="GET" action="auth.do">
+	<div id="content">
+		<div>Welcome to Elevator's Clinic on the Cloud</div>
+		<div>Please wait while the cloud is initialized</div>
+		<div id="status"></div>
+	</div>
 </form>
 <script>
-
+var wantLoadingAnim = true;
+var dots = 0;
 document.addEventListener("DOMContentLoaded", function(event) {
 	
-	$("#form").submit();
+	initCloudSQL();
 	
 });
+
+function initCloudSQL(){
+	$("#status").html("Loading");
+	document.title = "Initialising...";
+	wantLoadingAnim = true;
+	setTimeout(updateStatusAnim(), 1000);
+	$.ajax('/auth.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"INIT"
+		},
+		success:function(response) {
+			$("#status").html("Initialised, authorising user");
+			dots = 0;
+			console.log(response);
+			authUser();
+		},
+		error:function(request, status, error) {
+			document.title="Error";
+			console.log(request);
+			console.log(status);
+			console.log(status.responseText);
+			console.log(error);
+			wantLoadingAnim = false;
+			$("#status").html("");
+			$("#status").html(error);
+			$("#status").append("<br><input type='button' value='Retry' onclick='initCloudSQL()'>");
+		}
+	});
+}
+
+function authUser(){
+	document.title = "Authorising...";
+	$.ajax('/auth.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"AUTHORISE"
+		},
+		success:function(response) {
+			console.log(response);
+			window.location = response;
+		},
+		error:function(request, status, error) {
+			document.title="Error";
+			console.log(request);
+			console.log(status);
+			console.log(error);
+			wantLoadingAnim = false;
+			$("#status").html("");
+			$("#status").html(error);
+		}
+	});
+}
+
+function updateStatusAnim(){
+	if(wantLoadingAnim){
+		if(dots > 5){
+			var cur = $("#status").html();
+			cur = cur.substring(0,cur.indexOf(".")+1);
+			dots = 1;
+			$("#status").html(cur);
+		}else{
+			$("#status").append(".");
+			dots++;
+		}
+		setTimeout(updateStatusAnim,1000);
+	}
+}
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

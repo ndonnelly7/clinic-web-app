@@ -20,12 +20,20 @@
 
 	<div id="open_message">Would you like to...</div>
 	
+	<div style="width:120px">
 	<a href="/patientform/personal_details.jsp">Add A Patient</a>
+	</div>
+	<div style="width:240px">
 	<a href="/admin/SeeAllPatients.jsp">View Your Stored Patients</a>
+	</div>
+	<div style="width:120px">
 	<a href="/admin/FindPatient.jsp">Find a Patient</a>
+	</div>
+	<div style="width:125px">
 	<a href="/admin/ChangeClinic.jsp">Change Clinic</a>
+	</div>
 	<input type="button" value="Review Patient" onclick="revealReviewDiv()">
-	<form class="hide_div pure-form pure-form-aligned" id="review" method="GET" action="/review.do">
+	<form class="hide_div pure-form pure-form-aligned small-form" id="review" method="GET" action="/review.do">
 		<div class="pure-control-group">
 			<label for="name">Patient Name:</label>
 			<input type="text" id="name">
@@ -34,13 +42,27 @@
 			<label for="dob">Patient DOB: </label>
 		<input name="dob" placeholder="dd/mm/yyyy" type="text" id="pickdate">
 		</div>
-		<div class="pure-control-group">
+		<div class="pure-control-group" id="button">
 			<input type="button" value="Submit" onclick="sendReview()">
 		</div>
 		<input type="hidden" id="id" name="id"/>
 		<input type="hidden" name="page" value="SETUP"/>
 	</form>
-	
+	<br>
+	<input type="button" value="Add New Clinic" onclick="revealClinic()" style="margin-top:8px">
+	<form class="hide_div pure-form pure-form-aligned small-form" id="clinic">
+		<div class="pure-control-group">
+			<label for="cname">Clinic Name:</label>
+			<input type="text" id="cname">
+		</div>
+		<div class="pure-control-group">
+			<label for="pass">Password for Clinic: </label>
+			<input id="pass" type="text">
+		</div>
+		<div class="pure-control-group" id="button">
+			<input type="button" value="Submit" onclick="addClinic()">
+		</div>
+	</form>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

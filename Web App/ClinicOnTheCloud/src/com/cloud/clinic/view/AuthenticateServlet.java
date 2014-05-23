@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +13,7 @@ import com.cloud.clinic.model.Clinic;
 import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
 import com.cloud.clinic.model.ClinicianDAO;
+import com.cloud.clinic.model.PatientDAO;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -26,28 +26,39 @@ public class AuthenticateServlet extends HttpServlet {
 		User user = service.getCurrentUser();
 		String destination = "";
 		
-		if(user == null)
-			destination = "/admin/Error.jsp";
-		else {
-			String id = user.getUserId();
-			ClinicianDAO cDao = new ClinicianDAO();
-			Clinician clinician = cDao.get(id);
-			if(clinician == null || cDao.getClinic(clinician) == null){
-				ClinicDAO clinicDAO = new ClinicDAO();
-				List<Clinic> clinics = clinicDAO.getAll();
-				if(clinics.size() == 0)
-					clinics.add(addClinic());
-				req.setAttribute("clinicsList", loadNames(clinics));
-				destination = "/admin/NewUser.jsp";
-				if(clinician != null)
-					req.setAttribute("name", clinician.getName());
-			} else {
-				destination = "/admin/home.jsp";
-			}
-		}
+		String type = req.getParameter("type");
+		if(type.equals("INIT")){
+			PatientDAO pDao = new PatientDAO();
+			pDao.init();
+			resp.setContentType("text/plain");
+			resp.getWriter().println("done");
+		} else if(type.equals("AUTHORISE")){
 			
-		RequestDispatcher view = req.getRequestDispatcher(destination);
-		view.forward(req, resp);
+			if(user == null)
+				destination = "/admin/Error.jsp";
+			else {
+				String id = user.getUserId();
+				ClinicianDAO cDao = new ClinicianDAO();
+				Clinician clinician = cDao.get(id);
+				if(clinician == null || cDao.getClinic(clinician) == null){
+					ClinicDAO clinicDAO = new ClinicDAO();
+					List<Clinic> clinics = clinicDAO.getAll();
+					if(clinics.size() == 0)
+						clinics.add(addClinic());
+					req.setAttribute("clinicsList", loadNames(clinics));
+					destination = "/admin/NewUser.jsp";
+					if(clinician != null)
+						req.setAttribute("name", clinician.getName());
+				} else {
+					destination = "/admin/home.jsp";
+				}
+			}
+			resp.setContentType("text/plain");
+			resp.getWriter().println(destination);	
+			/*RequestDispatcher view = req.getRequestDispatcher(destination);
+			view.forward(req, resp);*/
+		}
+		
 	}
 	
 	public List<String> loadNames(List<Clinic> cs){
