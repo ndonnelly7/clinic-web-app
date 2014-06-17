@@ -46,8 +46,12 @@ public class PatDetailsServlet extends HttpServlet {
 			details.setThird_check(req.getParameter("third_check").equals("on"));
 		details.setGender(req.getParameter("gender"));
 		String dateStr = req.getParameter("dob");
+		String assessment = req.getParameter("assessment");
+		Date ass = new Date();
 		try {
-			Date date = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH).parse(dateStr);
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH);
+			ass = sdf.parse(assessment);
+			Date date = sdf.parse(dateStr);
 			details.setDob(date);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -61,6 +65,9 @@ public class PatDetailsServlet extends HttpServlet {
 		if(pat != null){
 			Form f = dao.getTodaysForm(pat);
 			if(f.isNew()){
+				Calendar c = Calendar.getInstance();
+				c.setTime(ass);
+				f.setTimestamp(c);
 				pat.addForm(f);
 				if(f.getPersonalDetails() != null)
 					details.setDetailsID(f.getPersonalDetails().getDetailsID());
@@ -90,7 +97,7 @@ public class PatDetailsServlet extends HttpServlet {
 			Form f = new Form();
 			f.setPatient(pat);
 			Calendar c = Calendar.getInstance();
-			c.setTime(new Date());
+			c.setTime(ass);
 			f.setTimestamp(c);			
 
 			f.setPersonalDetails(details);
@@ -98,10 +105,16 @@ public class PatDetailsServlet extends HttpServlet {
 			pat.addForm(f);
 			dao.create(pat);
 		}
-		
+		String page = req.getParameter("linkedPage");
+		if(page == null || page.equals(" ")){
+			req.setAttribute("error", "Could not redirect to page!");
+			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
+			view.forward(req, resp);
+			return;
+		}
 		req.setAttribute("id", thePatientID);
 		req.setAttribute("patient", new JSONObject(pat));
-		RequestDispatcher view = req.getRequestDispatcher("/patientform/history.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("/patientform/"+page+".jsp");
 		view.forward(req, resp);		
 	}
 	

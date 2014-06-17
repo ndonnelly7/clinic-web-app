@@ -27,6 +27,28 @@ function spanClick(page){
 	$('#test_form').submit();
 };
 
+function linkClick(page){
+	$( "#dialog-confirm" ).dialog({
+        resizable: false,
+        width:360,
+        modal: true,
+        buttons: {
+          "Submit": function() {
+        	  $("#linkedPage").val(page);
+      		  submitPage();
+              $( this ).dialog( "close" );
+          },
+          "Do not Submit": function() {
+        	  spanClick(page);
+              $( this ).dialog( "close" );
+          },
+          Cancel: function() {
+        	  $( this ).dialog( "close" );
+          }
+        }
+     });
+}
+
 function printPForm(p){
 	console.log(p);
 }
@@ -104,4 +126,10 @@ function hideCollat() {
 	$(".collat_div").hide();
 	$(".collat_button").hide();
 
+}
+
+function homeFromForm() {
+	if(confirm('Are you sure you want to return to homepage? The form is incomplete')){
+		window.location.href = "/admin/home.jsp";
+	}
 }

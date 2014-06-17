@@ -178,3 +178,12 @@ ul.tabs a.xl.current { background-position: 0 -62px; }
 #concern .header {
 	margin-top: 36px;
 }
+
+#search_info_seeall {
+	margin-left: 3%;
+	margin-top: 24px;
+	font-weight: bold;
+}
+
+#search_seeall_btn {
+}

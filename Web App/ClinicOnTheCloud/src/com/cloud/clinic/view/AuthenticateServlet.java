@@ -17,6 +17,7 @@ import com.cloud.clinic.model.PatientDAO;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.google.gson.Gson;
 
 @SuppressWarnings("serial")
 public class AuthenticateServlet extends HttpServlet {
@@ -41,14 +42,7 @@ public class AuthenticateServlet extends HttpServlet {
 				ClinicianDAO cDao = new ClinicianDAO();
 				Clinician clinician = cDao.get(id);
 				if(clinician == null || cDao.getClinic(clinician) == null){
-					ClinicDAO clinicDAO = new ClinicDAO();
-					List<Clinic> clinics = clinicDAO.getAll();
-					if(clinics.size() == 0)
-						clinics.add(addClinic());
-					req.setAttribute("clinicsList", loadNames(clinics));
 					destination = "/admin/NewUser.jsp";
-					if(clinician != null)
-						req.setAttribute("name", clinician.getName());
 				} else {
 					destination = "/admin/home.jsp";
 				}
@@ -57,6 +51,15 @@ public class AuthenticateServlet extends HttpServlet {
 			resp.getWriter().println(destination);	
 			/*RequestDispatcher view = req.getRequestDispatcher(destination);
 			view.forward(req, resp);*/
+		}else if(type.equals("CLINIC_LIST")){
+			ClinicDAO clinicDAO = new ClinicDAO();
+			List<Clinic> clinics = clinicDAO.getAll();
+			if(clinics.size() == 0)
+				clinics.add(addClinic());
+			Gson gson = new Gson();
+			String list = gson.toJson(loadNames(clinics));
+			resp.setContentType("text/plain");
+			resp.getWriter().println(list);
 		}
 		
 	}
@@ -65,7 +68,7 @@ public class AuthenticateServlet extends HttpServlet {
 		List<String> names = new ArrayList<String>();
 		
 		for(int i = 0; i < cs.size(); i++){
-			names.add(cs.get(0).getClinicName());
+			names.add(cs.get(i).getClinicName());
 		}
 		
 		return names;

@@ -12,24 +12,30 @@
 </head>
 <body>
 <h2>Personal Details</h2>
+<span onclick="homeFromForm()" id="home_link_span">Return to Homepage</span>
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="nextPage('personal_details')" class="current_page">Patient Information</span>
-  <span onclick="nextPage('history')">Patient History</span>
-  <span onclick="nextPage('medical')">GP Information</span>
-  <span onclick="nextPage('concerns')">Patient Concerns</span>
-  <span onclick="nextPage('neuro')">Neuro History</span>
-  <span onclick="nextPage('events_activities')">Events and Activities</span>
-  <span onclick="nextPage('living')">Living Situation</span>
-  <span onclick="nextPage('lifestyle')">Patient Lifestyle</span>
-  <span onclick="nextPage('memory_test')">Test Battery</span>
-  <span onclick="nextPage('analysis')">Summary and Analysis</span> 
+  <span onclick="linkClick('personal_details')" class="current_page">Patient Information</span>
+  <span onclick="linkClick('history')">Patient History</span>
+  <span onclick="linkClick('medical')">GP Information</span>
+  <span onclick="linkClick('concerns')">Patient Concerns</span>
+  <span onclick="linkClick('neuro')">Neuro History</span>
+  <span onclick="linkClick('events_activities')">Events and Activities</span>
+  <span onclick="linkClick('living')">Living Situation</span>
+  <span onclick="linkClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="linkClick('memory_test')">Test Battery</span>
+  <span onclick="linkClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
 </form>
 <form id="personal_form" class="pure-form pure-form-aligned" method="POST" action="personal_details.do">
+	<div class="pure-control-group">
+		<label for="assessment">Date of Assessment</label>
+		<input name="assessment" placeholder="dd/mm/yyyy" type="text" class="suggest_form pickdate" id="assessment">
+	</div>
+	
 	<fieldset id="personal_field">
 		<legend>Personal</legend>
 		<div class="pure-control-group">
@@ -38,7 +44,7 @@
 		</div>
 		<div class="pure-control-group">
 		<label for="dob">Date of Birth </label>
-		<input name="dob" placeholder="dd/mm/yyyy" type="text" class="suggest_form" id="pickdate">
+		<input name="dob" placeholder="dd/mm/yyyy" type="text" class="suggest_form pickdate" id="pickdate">
 		</div>
 		<div class="pure-control-group">
 		<label for="age">Age </label>
@@ -218,9 +224,14 @@
 	</fieldset>
 	<br><br>
 	<input type="hidden" id="hiddenID" name="hiddenID"/>
+	<input type="hidden" id="linkedPage" name="linkedPage" value="history"/>
 </form>
 <div class="footer">
-	<span onclick="submitPage('history')">Next Page</span>
+	<span onclick="submitPage()">Submit and Continue</span>
+</div>
+
+<div id="dialog-confirm" title="Submit Page?" style="display:none">
+  <p><span class="ui-icon" style="float:left; margin:0 7px 20px 0;"></span>Do you want to submit this page? (If you leave, the page will need to be filled in again)</p>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -230,30 +241,6 @@
 <script src="/js/IDBForm.js"></script>
 <script>
 
-function GenerateValues(){
-	$("#name").val("Neil Donnelly");
-	$("#pickdate").val("30/01/1992");
-	$("#age").val(22);
-	$("#gender_m").prop("checked", true);
-	$("#address").val("4 Hilltown Road\nRivervalley\nSwords");
-	$("#county").val("dublin");
-	$("#home_number").val("3215640");
-	$("#mob_number").val("3215648970");
-	$("#email").val("n.donnellyv3.0@gmail.com");
-	$("#age_left").val(22);
-	$("#junior_check").prop("checked", true);
-	$("#senior_check").prop("checked", true);
-	$("#third_check").prop("checked", true);
-	$("#study_topic").val("Computing");
-	$("#occupation").val("Engineer");
-	$("#gp_name").val("N Moore");
-	$("#gp_address").val("Boroimhe Medical Center\nSwords");
-	$("#gp_county").val("dublin");
-	$("#collat_check").prop('checked', false);
-	
-	submitPage();
-};
-
 $(document).ready(function() {
 	$('#collat_check').prop("checked", checkCollateral());
 	$('#family_pres_div').show();
@@ -262,13 +249,15 @@ $(document).ready(function() {
 });
 
 $(function() {
-    $( "#pickdate" ).datepicker({
+    $( ".pickdate" ).datepicker({
       changeMonth: true,
       changeYear: true,
       yearRange: "1900:" + (new Date()).getFullYear(),
       dateFormat: "dd/MM/yy"
     });
-  });
+    $("#assessment").datepicker('setDate', new Date());
+    
+ });
   
 function collatChecked(elem, divID){
 	showHiddenDiv(elem, divID);
@@ -289,36 +278,32 @@ function printPForm(pf){
 }
 
 function nextPage(page) {
-	var name = $("#name").val();
-	var address = $("#address").val();
-	var home_number = $("#home_number").val();
-	var mob_number = $("#mob_number").val();
-	var email = $("#email").val();
-	var gp_name = $("#gp_name").val();
-	var gp_address = $("#gp_address").val();
-	var dob = $("#pickdate").val();
+// 	if(confirm("Do you want to submit this page? (If you leave, the page will need to be filled in again)")){
+// 		$("#linkedPage").val(page);
+// 		submitPage();
+// 	} else {
+// 		spanClick(page);
+// 	}
 	
-	var p_id = createPatientAndAddToDB(name, address, home_number, mob_number, email, gp_name, gp_address, dob);
-	console.log("Patient ID created: " + p_id);
-		
-	initPatientForm(p_id);
-	getPatientForm(p_id, printPForm);
-	
-	var gp_county = $("#gp_county").val();
-	var county = $("#county").val();
-	var collat = $("#collat_check").is(":checked") ? true : false;
-	var relation = collat ? $("#collat_present").val() : 'na';
-	
-	if(typeof(Storage) !== "undefined"){
-		sessionStorage.p_id = p_id;
-		sessionStorage.collat = collat;
-		sessionStorage.gender = $("input[name=gender]:checked").val();
-	}
-	
-	addPersonal(gp_county, county, collat, relation, p_id);	
-	
-	//Submit here instead of spanClick
-	spanClick(page);
+	$( "#dialog-confirm" ).dialog({
+        resizable: false,
+        width:360,
+        modal: true,
+        buttons: {
+          "Submit": function() {
+        	  $("#linkedPage").val(page);
+      		  submitPage();
+              $( this ).dialog( "close" );
+          },
+          "Do not Submit": function() {
+        	  spanClick(page);
+              $( this ).dialog( "close" );
+          },
+          Cancel: function() {
+        	  $( this ).dialog( "close" );
+          }
+        }
+     });
 }
 
 function submitPage() {

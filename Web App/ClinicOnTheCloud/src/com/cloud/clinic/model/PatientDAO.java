@@ -30,7 +30,7 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 
 	@Override
 	public Patient get(Integer id) {
-		if(id < 0)
+		if(id <= 0)
 			return null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();

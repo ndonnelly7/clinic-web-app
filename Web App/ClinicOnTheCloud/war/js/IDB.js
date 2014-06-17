@@ -146,12 +146,14 @@ function getPatientsByName(name, callback){
 		var store = db.transaction(["patients"], "readonly").objectStore("patients");
 		var keys = new Array();
 		var i = 0;
-		var index  = store.index(name);
-		index.openKeyCursor().onsuccess = function(event) {
+		var index  = store.index("name");
+		index.openCursor().onsuccess = function(event) {
 			var cursor = event.target.result;
 			if(cursor){
-				keys[i] = cursor.value;
-				i++;
+				if(cursor.key == name){
+					keys[i] = cursor.value;
+					i++;
+				}
 				cursor.continue();
 			} else {
 				callback(keys);

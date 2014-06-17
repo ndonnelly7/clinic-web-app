@@ -23,18 +23,18 @@
   
 </div>
 
-<h3>Patients Stored by You</h3>
+<h3 style="margin-left:3%">Patients Stored by You</h3>
 
 <div id="search_bar">
-	<form class="pure-form pure-form-aligned">
+	<form class="pure-form pure-form-stacked">
 		<div class="pure-control-group">
 			Search for Patient by Name:
 		</div>
 		<div class="pure-control-group">
 			<label for="search_name">Name:</label>
-			<input type="text" id="search_name" readonly>
+			<input type="text" id="search_name">
 		</div>
-		<input type="button" value="Search" onclick="searchPatient()">
+		<input type="button" value="Search" onclick="searchPatient()" id="search_seeall_btn">
 	</form>
 </div>
 
@@ -43,7 +43,7 @@
 </div>
 
 <div id="patient_entry" style="display:none">
-	<form class="pure-form pure-form-aligned" id="review" method="GET" action="/review.do">
+	<form class="pure-form pure-form-stacked" id="review" method="GET" action="/review.do">
 		<div class="pure-control-group">
 			<label for="name">Name:</label>
 			<input type="text" id="name" readonly>

@@ -92,6 +92,28 @@ h2 {
 	cursor:pointer; 
 } 
 
+#home_link_span {
+	margin-left: 3.05em;
+}
+
+#home_link_span:hover {
+	cursor:pointer;
+	background-color:#000;
+	color:#fff;
+}
+
+.ui-button-text {
+	font-size: 12px;
+}
+
+.ui-dialog-content {
+	font-size: 12px;
+}
+
+.ui-dialog-title {
+	font-size: 16px;
+}
+
 .plus_button {
 	box-shadow:inset 0px 0px 0px 0px #050505;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #545454), color-stop(1, #000000) );
