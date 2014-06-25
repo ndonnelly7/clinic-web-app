@@ -42,7 +42,8 @@
 				</div>
 				<div class="pure-u-1-3 homelife_select">
 					<select name="housemates">
-						<option value="alone"selected="selected">Alone</option>
+						<option value="unknown">Unknown</option>
+						<option value="alone">Alone</option>
 						<option value="spouse">Spouse</option>
 						<option value="children">Children</option>
 						<option value="family">Family</option>
@@ -62,6 +63,7 @@
 				</div>
 				<div class="pure-u-1-3 homelife_select">
 					<select name="house_type">
+						<option value="unknown">Unknown</option>
 						<option value="single">Single Storey House</option>
 						<option value="two_storey">Two Storey House</option>
 						<option value="apartment">Apartment</option>
@@ -79,6 +81,7 @@
 				</div>
 				<div class="pure-u-1-3 homelife_select">
 					<select name="house_location">
+						<option value="unknown">Unknown</option>
 						<option value="urban">Urban</option>
 						<option value="suburban">Suburban</option>
 						<option value="country">Countryside</option>
@@ -125,7 +128,8 @@
 						</div>
 						<div class="pure-u-1-3 homelife_select">
 							<select name="housemates_collat">
-								<option value="alone" selected="selected">Alone</option>
+						<option value="unknown">Unknown</option>
+								<option value="alone">Alone</option>
 								<option value="spouse">Spouse</option>
 								<option value="children">Children</option>
 								<option value="family">Family</option>
@@ -145,6 +149,7 @@
 						</div>
 						<div class="pure-u-1-3 homelife_select">
 							<select name="house_type_collat">
+								<option value="unknown">Unknown</option>
 								<option value="single">Single Storey House</option>
 								<option value="two_storey">Two Storey House</option>
 								<option value="apartment">Apartment</option>
@@ -162,6 +167,7 @@
 						</div>
 						<div class="pure-u-1-3 homelife_select">
 							<select name="house_location_collat">
+								<option value="unknown">Unknown</option>
 								<option value="urban">Urban</option>
 								<option value="suburban">Suburban</option>
 								<option value="country">Countryside</option>

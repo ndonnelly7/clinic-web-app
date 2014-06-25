@@ -493,7 +493,7 @@
 					<div id="activity_entry" style="min-width:800px">
 						<div class="pure-g-r">
 							<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-								<select name="activity">
+								<select name="activity" id="activ_entry" disabled>
 									<option value="dancing">Dancing</option>
 									<option value="reading">Reading</option>
 									<option value="tv">Television</option>
@@ -573,7 +573,7 @@
 						<div id="activity_entry" style="min-width:800px">
 							<div class="pure-g-r">
 								<div class="pure-u-1-5 select_box" style="max-width:150px; margin: 10px 7% 10px 2%;">
-									<select name="activity_collat">
+									<select name="activity_collat" id="collat_activ_entry" disabled>
 										<option value="dancing">Dancing</option>
 										<option value="reading">Reading</option>
 										<option value="tv">Television</option>

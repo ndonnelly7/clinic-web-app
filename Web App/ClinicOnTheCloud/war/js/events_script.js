@@ -46,6 +46,7 @@ function showHiddenRowEA(box, rowId) {
 
 function addNewActivity() {
 	var elem = $('#activity_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("select").prop('disabled', false);
 	$(elem).children(".pure-g-r").children("div").children("input").val("");
 	elem.appendTo($('#social_div'));
 };
@@ -120,16 +121,21 @@ function revealDepression(){
 function revealSocial(elem) {
 	if(elem.value === "yes"){
 		$('#social_reveal').slideDown(1000);
+		$("#activ_entry").prop("disabled", false);
 	} else {
 		$('#social_reveal').slideUp(1000);
+		$("#activ_entry").prop("disabled", true);
+		
 	}
 }
 
 function revealSocialCollat(elem) {
 	if(elem.value === "yes"){
 		$('#social_reveal_collat').slideDown(1000);
+		$("#collat_activ_entry").prop("disabled", false);
 	} else {
 		$('#social_reveal_collat').slideUp(1000);
+		$("#collat_activ_entry").prop("disabled", true);
 	}
 }
 

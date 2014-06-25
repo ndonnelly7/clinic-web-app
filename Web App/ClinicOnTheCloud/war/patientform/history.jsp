@@ -54,6 +54,7 @@
 								<option value="diabetes">Diabetes</option>
 								<option value="other_endocrine">Other Endocrine</option>
 								<option value="other_resolved">Other Resolved Illnesses</option>
+								<option value="other">Other Illness</option>
 							</select>
 						</div>
 						
@@ -98,6 +99,7 @@
 									<option value="diabetes">Diabetes</option>
 									<option value="other_endocrine">Other Endocrine</option>
 									<option value="other_resolved">Other Resolved Illnesses</option>
+									<option value="other">Other Illness</option>
 								</select>
 							</div>
 							

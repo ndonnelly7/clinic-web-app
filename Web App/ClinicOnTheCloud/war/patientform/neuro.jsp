@@ -63,6 +63,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="blackout_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -73,6 +74,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="blackout_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -82,6 +84,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="blackout_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -99,6 +102,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="blanks_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -109,6 +113,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="blanks_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -118,6 +123,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="blanks_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -134,7 +140,8 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
-						<select name="blurred_vision_time" class="time_frame" disabled>
+						<select name="blurred_vision_time" class="time_frame" disabled>	
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -145,6 +152,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="blurred_vision_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -154,6 +162,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="blurred_vision_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -171,6 +180,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="dexterity_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -181,6 +191,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="dexterity_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -190,6 +201,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="dexterity_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -207,6 +219,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="dizziness_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -217,6 +230,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="dizziness_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -226,6 +240,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="dizziness_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -243,6 +258,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="fainting_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -253,6 +269,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="fainting_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -262,6 +279,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="fainting_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -279,6 +297,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="headaches_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -289,6 +308,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="headaches_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -298,6 +318,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="headaches_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -315,6 +336,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="falling_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -325,6 +347,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="falling_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -334,6 +357,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="falling_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -351,6 +375,7 @@
 				<div class="pure-u-1-5 neuro_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="seizures_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -361,6 +386,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="seizures_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -370,6 +396,7 @@
 				</div>
 				<div class="pure-u-1-5 neuro_column" >
 					<select name="seizures_investigated" class="investigated" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -408,6 +435,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="blackout_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -418,6 +446,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="blackout_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -427,6 +456,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="blackout_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -444,6 +474,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="blanks_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -454,6 +485,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="blanks_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -463,6 +495,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="blanks_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -480,6 +513,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="blurred_vision_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -490,6 +524,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="blurred_vision_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -499,6 +534,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="blurred_vision_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -516,6 +552,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="dexterity_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -526,6 +563,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="dexterity_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -535,6 +573,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="dexterity_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -552,6 +591,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="dizziness_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -562,6 +602,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="dizziness_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -571,6 +612,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="dizziness_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -588,6 +630,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="fainting_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -598,6 +641,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="fainting_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -607,6 +651,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="fainting_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -624,6 +669,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="headaches_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -634,6 +680,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="headaches_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -643,6 +690,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="headaches_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -660,6 +708,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="falling_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -670,6 +719,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="falling_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -679,6 +729,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="falling_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>
@@ -696,6 +747,7 @@
 					<div class="pure-u-1-5 neuro_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="seizures_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -706,6 +758,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="seizures_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -715,6 +768,7 @@
 					</div>
 					<div class="pure-u-1-5 neuro_column" >
 						<select name="seizures_investigated_collat" class="investigated" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="yes">Yes</option>
 							<option value="no">No</option>
 						</select>

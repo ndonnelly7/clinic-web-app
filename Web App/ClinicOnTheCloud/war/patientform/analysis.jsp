@@ -95,6 +95,7 @@
 				<div class="pure-g-r" id="outcome_entry" style="margin-bottom:0.5em">
 					<div class="pure-u-1-3 outcome_col">
 						<select name="outcome" onchange="updateOutcome(this)" id="outcome">
+							<option value="unknown">Unknown</option>
 							<option value="counselling">Counselling</option>
 							<option value="leaflets">Leaflets</option>
 							<option value="gp_letter">Letter to GP</option>
@@ -110,6 +111,7 @@
 		<div class="follow_up_div">
 			<label for="follow_up" class="follow_label">Follow Up</label>
 			<select name="follow_up">
+				<option value="unknown">Unknown</option>
 				<option value="one_month">One Month</option>
 				<option value="four_month">Four Months</option>
 				<option value="six_month">Six Months</option>

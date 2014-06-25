@@ -44,16 +44,20 @@ function addCollatExercise(button) {
 function revealExercise(elem){
 	if(elem.value === 'yes'){
 		$("#does_exercise").slideDown(1000);
+		$("#ex_entry").prop("disabled", false);
 	} else {
 		$("#does_exercise").slideUp(1000);
+		$("#ex_entry").prop("disabled", true);
 	}
 }
 
 function revealExerciseCollat(elem){
 	if(elem.value === 'yes'){
 		$("#collat_does_exercise").slideDown(1000);
+		$("#collat_ex_entry").prop("disabled", false);
 	} else {
 		$("#collat_does_exercise").slideUp(1000);
+		$("#collat_ex_entry").prop("disabled", true);
 	}
 }
 
@@ -207,34 +211,34 @@ function updateThisUnit(text, name) {
 	console.log(val);
 	switch (name) {
 	case 'wine_glass_units':
-		units = 2.2*val;
+		units = 1*val;
 		break;
 	case 'spirit_units':
 		units = 1.3*val;
 		break;
 	case 'beer_bottle_units':
-		units = 1.6*val;
+		units = 1*val;
 		break;
 	case 'beer_pint_units':
-		units = 2.8*val;
+		units = 2.0*val;
 		break;
 	case 'pop_units':
-		units = 1.3*val;
+		units = 1.2*val;
 		break;
 	case 'wine_glass_units_collat':
-		units = 2.2*val;
+		units = 1*val;
 		break;
 	case 'spirit_units_collat':
 		units = 1.3*val;
 		break;
 	case 'beer_bottle_units_collat':
-		units = 1.6*val;
+		units = 1*val;
 		break;
 	case 'beer_pint_units_collat':
-		units = 2.8*val;
+		units = 2.0*val;
 		break;
 	case 'pop_units_collat':
-		units = 1.3*val;
+		units = 1.2*val;
 		break;
 	}
 	units = units.toFixed(1);

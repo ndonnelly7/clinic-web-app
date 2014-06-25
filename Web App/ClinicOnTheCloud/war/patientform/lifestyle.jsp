@@ -49,6 +49,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">Reason:</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="difficulty_reason">
+							<option value="unknown">Unknown</option>
 							<option value="diet">Diet</option>
 							<option value="anxiety">Anxiety</option>
 							<option value="physical">Physical</option>
@@ -63,6 +64,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">When did this start?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="difficulty_time">
+							<option value="unknown">Unknown</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -79,6 +81,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="difficulty_freq">
+							<option value="unknown">Unknown</option>
 							<option value="daily">Every Day</option>
 							<option value="freq">Frequently</option>
 							<option value="semi_rare">Every So Often</option>
@@ -106,6 +109,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">Reason:</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="night_waking_reason">
+							<option value="unknown">Unknown</option>
 							<option value="diet">Diet</option>
 							<option value="anxiety">Anxiety</option>
 							<option value="physical">Physical</option>
@@ -120,6 +124,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">When did this start?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="night_waking_time">
+							<option value="unknown">Unknown</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -136,6 +141,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="night_waking_freq">
+							<option value="unknown">Unknown</option>
 							<option value="daily">Every Day</option>
 							<option value="freq">Frequently</option>
 							<option value="semi_rare">Every So Often</option>
@@ -165,6 +171,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">Reason:</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="early_waking_reason">
+							<option value="unknown">Unknown</option>
 							<option value="diet">Diet</option>
 							<option value="anxiety">Anxiety</option>
 							<option value="physical">Physical</option>
@@ -179,6 +186,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">When did this start?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="early_waking_time">
+							<option value="unknown">Unknown</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -195,6 +203,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="early_waking_freq">
+							<option value="unknown">Unknown</option>
 							<option value="daily">Every Day</option>
 							<option value="freq">Frequently</option>
 							<option value="semi_rare">Every So Often</option>
@@ -213,6 +222,7 @@
 				<div class="lifestyle_title pure-u-1-3">How many hours do you usually sleep a night?</div>
 				<div class="lifestyle_select pure-u-1-3">
 					<select name="sleep_length" class="hours_life">
+						<option value="unknown">Unknown</option>
 						<option value="two">&lt; 2</option>
 						<option value="five">2 - 5</option>
 						<option value="eight">6 - 8</option>
@@ -255,6 +265,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">For how long?</div>
 					<div class="lifestyle_select pure-u-1-3">
 						<select name="nap_length" class="hours_life">
+							<option value="unknown">Unknown</option>
 							<option value="less_one">&gt; 1</option>
 							<option value="one_two">1 - 2</option>
 							<option value="two_plus">2+</option>
@@ -265,6 +276,7 @@
 					<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="nap_time">
+							<option value="unknown">Unknown</option>
 							<option value="daily">Every day</option>
 							<option value="regular">Few days a week</option>
 							<option value="semi_reg">Every so often</option>
@@ -297,6 +309,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">Reason:</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="difficulty_reason_collat">
+								<option value="unknown">Unknown</option>
 								<option value="diet">Diet</option>
 								<option value="anxiety">Anxiety</option>
 								<option value="physical">Physical</option>
@@ -311,6 +324,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">When did this start?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="difficulty_time_collat">
+								<option value="unknown">Unknown</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -327,6 +341,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="difficulty_freq_collat">
+								<option value="unknown">Unknown</option>
 								<option value="daily">Every Day</option>
 								<option value="freq">Frequently</option>
 								<option value="semi_rare">Every So Often</option>
@@ -354,6 +369,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">Reason:</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="night_waking_reason_collat">
+								<option value="unknown">Unknown</option>
 								<option value="diet">Diet</option>
 								<option value="anxiety">Anxiety</option>
 								<option value="physical">Physical</option>
@@ -368,6 +384,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">When did this start?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="night_waking_time_collat">
+								<option value="unknown">Unknown</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -384,6 +401,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="night_waking_freq_collat">
+								<option value="unknown">Unknown</option>
 								<option value="daily">Every Day</option>
 								<option value="freq">Frequently</option>
 								<option value="semi_rare">Every So Often</option>
@@ -413,6 +431,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">Reason:</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="early_waking_reason_collat">
+								<option value="unknown">Unknown</option>
 								<option value="diet">Diet</option>
 								<option value="anxiety">Anxiety</option>
 								<option value="physical">Physical</option>
@@ -427,6 +446,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">When did this start?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="early_waking_time_collat">
+								<option value="unknown">Unknown</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -443,6 +463,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="early_waking_freq_collat">
+								<option value="unknown">Unknown</option>
 								<option value="daily">Every Day</option>
 								<option value="freq">Frequently</option>
 								<option value="semi_rare">Every So Often</option>
@@ -461,6 +482,7 @@
 					<div class="lifestyle_title pure-u-1-3">How many hours do you usually sleep a night?</div>
 					<div class="lifestyle_select pure-u-1-3">
 						<select name="sleep_length_collat" class="hours_life">
+							<option value="unknown">Unknown</option>
 							<option value="two">&gt; 2</option>
 							<option value="five">2 - 5</option>
 							<option value="eight">6 - 8</option>
@@ -503,6 +525,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">For how long?</div>
 						<div class="lifestyle_select pure-u-1-3">
 							<select name="nap_length_collat" class="hours_life">
+								<option value="unknown">Unknown</option>
 								<option value="less_one">&gt; 1</option>
 								<option value="one_two">1 - 2</option>
 								<option value="two_plus">2+</option>
@@ -513,6 +536,7 @@
 						<div class="pure-u-1-3 lifestyle_subtitle">How often?</div>
 						<div class="pure-u-1-3 life_select_box">
 							<select name="nap_time_collat">
+								<option value="unknown">Unknown</option>
 								<option value="daily">Every day</option>
 								<option value="regular">Few days a week</option>
 								<option value="semi_reg">Every so often</option>
@@ -556,7 +580,7 @@
 						<div id="exercise_entry" style="min-width:800px;">
 							<div class="pure-g-r">
 								<div class="pure-u-1-5 select_box" style="max-width:100px; margin: 10px 5% 10px 2%;">
-									<select name="exercise">
+									<select name="exercise" id="ex_entry" disabled>
 										<option value="dancing">Dancing</option>
 										<option value="football">Football</option>
 										<option value="golf">Golf</option>
@@ -630,7 +654,7 @@
 							<div id="exercise_entry" style="min-width:800px;">
 								<div class="pure-g-r">
 									<div class="pure-u-1-5 select_box" style="max-width:100px; margin: 10px 5% 10px 2%;">
-										<select name="exercise_collat">
+										<select name="exercise_collat" id="collat_ex_entry" disabled>
 											<option value="dancing">Dancing</option>
 											<option value="football">Football</option>
 											<option value="golf">Golf</option>
@@ -825,6 +849,7 @@
 					<div class="pure-u-1-2 title">How much fruit and veg do you have?</div>
 					<div class="pure-u-1-2 life_select_box">
 						<select name="fruit_veg_amount">
+							<option value="unknown">Unknown</option>
 							<option value="five_plus">5+</option>
 							<option value="four">4</option>
 							<option value="three">3</option>
@@ -979,6 +1004,7 @@
 							<div class="pure-u-1-2 title">How much fruit and veg do they have?</div>
 							<div class="pure-u-1-2 life_select_box">
 								<select name="fruit_veg_amount_collat">
+									<option value="unknown">Unknown</option>
 									<option value="five_plus">5+</option>
 									<option value="three_four">3-4</option>
 									<option value="one_three">1-3</option>
@@ -1155,6 +1181,7 @@
 			<div class="lifestyle_vice_title pure-u-1-2">Do you smoke?</div>
 			<div class="select_box pure-u-1-2" style="margin-left:0px;">
 				<select name="smoking" onchange="revealSmoking(this)">
+					<option value="unknown">Unknown</option>
 					<option value="no">No</option>
 					<option value="yes">Yes</option>
 				</select>
@@ -1164,6 +1191,7 @@
 				<div class="pure-u-1-2 life_select_box" id="smoke_div">
 					<div style="display:inline-block">
 						<select name="packets" class="hours_life">
+							<option value="unknown">Unknown</option>
 							<option value="one_five">1-5</option>
 							<option value="five_ten">5-10</option>
 							<option value="ten_twenty">10-20</option>
@@ -1189,6 +1217,7 @@
 					<div class="lifestyle_vice_title pure-u-1-2">Do they smoke?</div>
 					<div class="select_box pure-u-1-2" style="margin-left:0px;">
 						<select name="smoking_collat_yn" onchange="revealSmokingCollat(this)">
+							<option value="unknown">Unknown</option>
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -1198,6 +1227,7 @@
 						<div class="pure-u-1-2 life_select_box" id="smoke_div">
 							<div style="display:inline-block">
 								<select name="packets_collat" class="hours_life">
+									<option value="unknown">Unknown</option>
 									<option value="one_five">1-5</option>
 									<option value="five_ten">5-10</option>
 									<option value="ten_twenty">10-20</option>

@@ -81,6 +81,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="rec_events_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -91,6 +92,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="rec_events_freq" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -100,6 +102,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="rec_events_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -114,6 +117,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="rec_events_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -132,6 +136,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="faces_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -142,6 +147,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="faces_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -151,6 +157,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="faces_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -165,6 +172,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="faces_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -183,6 +191,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="names_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -193,6 +202,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="names_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -202,6 +212,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="names_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -216,6 +227,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="names_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -234,6 +246,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="losing_things_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -244,6 +257,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="losing_things_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -253,6 +267,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="losing_things_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -267,6 +282,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="losing_things_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -285,6 +301,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="follow_conv_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -295,6 +312,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="follow_conv_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -304,6 +322,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="follow_conv_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -318,6 +337,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="follow_conv_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -336,6 +356,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="right_words_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -346,6 +367,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="right_words_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -355,6 +377,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="right_words_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -369,6 +392,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="right_words_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -387,6 +411,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="decisions_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -397,6 +422,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="decisions_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -406,6 +432,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="decisions_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -420,6 +447,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="decisions_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -438,6 +466,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="calculations_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -448,6 +477,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="calculations_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -457,6 +487,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="calculations_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -471,6 +502,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="calculations_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -489,6 +521,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="prospective_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -499,6 +532,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="prospective_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -508,6 +542,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="prospective_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -522,6 +557,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="prospective_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -540,6 +576,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="anxiety_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -559,6 +596,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="anxiety_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -573,6 +611,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="anxiety_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -591,6 +630,7 @@
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
 						<select name="comments_time" class="time_frame" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="three_mon">3 months</option>
 							<option value="six_mon">6 months</option>
 							<option value="one_yr">1 year</option>
@@ -601,6 +641,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="comments_freq" class="frequency" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="daily">Daily</option>
 						<option value="weekly">Weekly</option>
 						<option value="monthly">Monthly</option>
@@ -610,6 +651,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="comments_severity" class="severity" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="one">1 - Not Bad at all</option>
 						<option value="two">2</option>
 						<option value="three">3</option>
@@ -624,6 +666,7 @@
 				</div>
 				<div class="pure-u-1-5 concerns_column" >
 					<select name="comments_worsening" class="worse" disabled>
+						<option value="not_sure">Not Sure</option>
 						<option value="same">Stayed the same</option>
 						<option value="little_worse">Little worse</option>
 						<option value="Much worse">Much worse</option>
@@ -663,6 +706,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="rec_events_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -673,6 +717,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="rec_events_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -682,6 +727,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="rec_events_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -696,6 +742,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="rec_events_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -714,6 +761,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="faces_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -724,6 +772,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="faces_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -733,6 +782,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="faces_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -747,6 +797,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="faces_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -765,6 +816,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="names_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -775,6 +827,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="names_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -784,6 +837,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="names_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -798,6 +852,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="names_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -816,6 +871,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="losing_things_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -826,6 +882,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="losing_things_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -835,6 +892,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="losing_things_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -849,6 +907,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="losing_things_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -867,6 +926,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="follow_conv_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -877,6 +937,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="follow_conv_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -886,6 +947,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="follow_conv_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -900,6 +962,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="follow_conv_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -918,6 +981,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="right_words_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -928,6 +992,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="right_words_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -937,6 +1002,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="right_words_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -951,6 +1017,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="right_words_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -969,6 +1036,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="decisions_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -979,6 +1047,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="decisions_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -988,6 +1057,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="decisions_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -1002,6 +1072,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="decisions_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -1020,6 +1091,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="calculations_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -1030,6 +1102,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="calculations_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -1039,6 +1112,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="calculations_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -1053,6 +1127,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="calculations_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -1071,6 +1146,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="prospective_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -1081,6 +1157,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="prospective_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -1090,6 +1167,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="prospective_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -1104,6 +1182,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="prospective_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -1122,6 +1201,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="anxiety_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -1132,6 +1212,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="anxiety_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -1141,6 +1222,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="anxiety_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -1155,6 +1237,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="anxiety_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>
@@ -1173,6 +1256,7 @@
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
 							<select name="comments_time_collat" class="time_frame" disabled>
+								<option value="not_sure">Not Sure</option>
 								<option value="three_mon">3 months</option>
 								<option value="six_mon">6 months</option>
 								<option value="one_yr">1 year</option>
@@ -1183,6 +1267,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="comments_freq_collat" class="frequency" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="daily">Daily</option>
 							<option value="weekly">Weekly</option>
 							<option value="monthly">Monthly</option>
@@ -1192,6 +1277,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="comments_severity_collat" class="severity" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="one">1 - Not Bad at all</option>
 							<option value="two">2</option>
 							<option value="three">3</option>
@@ -1206,6 +1292,7 @@
 					</div>
 					<div class="pure-u-1-5 concerns_column" >
 						<select name="comments_worsening_collat" class="worse" disabled>
+							<option value="not_sure">Not Sure</option>
 							<option value="same">Stayed the same</option>
 							<option value="little_worse">Little worse</option>
 							<option value="Much worse">Much worse</option>

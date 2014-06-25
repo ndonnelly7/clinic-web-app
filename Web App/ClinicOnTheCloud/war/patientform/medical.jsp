@@ -37,14 +37,15 @@
 		<div id="gp_info" class="pure-g-u">
 			<div class="pure-u-1-2 title">Have you discussed any of this with your GP?</div>
 			<div class="pure-u-1-2 check" style="margin-top:18px;">
-				<input type="checkbox" name="gp_talked" onclick="showHiddenDiv(this, 'talked_with_gp')">
+				<input type="checkbox" name="gp_talked" onclick="revealGPDiscussion()">
 			</div>
 			<br>
 			<div id="talked_with_gp" class="hide_div">
 				<div style="width:80px;float:left;height:60px;"></div>
 				<div class="pure-u-1-2 subtitle">With what result?</div>
 				<div class="pure-u-1-2 select_box select_margin_change">
-					<select name="gp_results">
+					<select name="gp_results" id="gp_results">
+						<option value="NA">NA</option>
 						<option value="referral_to_us">Referral to Us</option>
 						<option value="referral_to_other">Referral to other</option>
 						<option value="socialize">Socialize More</option>
@@ -373,6 +374,8 @@
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
 <script type="text/javascript">
+	var gp_discuss_open = false;
+	
 	$(document).ready(function() {
 		if("${id}" != "")
 			$("#hiddenID").val("${id}");
@@ -436,6 +439,18 @@
 		addGPInfo(p_id, medical);
 		
 		$("#medical_form").submit();
+	}
+	
+	function revealGPDiscussion(){
+		if(gp_discuss_open){
+			$('#talked_with_gp').hide(500);
+			gp_discuss_open = false;
+			$("#gp_results").append("<option value='NA' selected='selected'>NA</option>");
+		} else {
+			$('#talked_with_gp').show(500);
+			gp_discuss_open = true;
+			$("#gp_results option[value='NA']").remove();
+		}
 	}
 	
 	function cholestChanged(){
