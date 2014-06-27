@@ -83,4 +83,11 @@ public class Clinician implements java.io.Serializable{
 		this.lastLogin = lastLogin;
 	}
 		
+	public List<Integer> getPatientIDs(){
+		ArrayList<Integer> ids = new ArrayList<Integer>();
+		for(int i = 0; i < patients.size(); i++){
+			ids.add(patients.get(i).getPatientID());
+		}
+		return ids;
+	}
 }

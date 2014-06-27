@@ -13,6 +13,12 @@ import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
 import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.Pair;
+import com.cloud.clinic.p2p.P2P;
+import com.cloud.clinic.p2p.P2PDAO;
+import com.cloud.clinic.p2p.Peer;
+import com.cloud.clinic.p2p.Superpeer;
+import com.google.appengine.api.channel.ChannelService;
+import com.google.appengine.api.channel.ChannelServiceFactory;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -43,6 +49,14 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 				RequestDispatcher view = req.getRequestDispatcher("admin/Error.jsp");
 				view.forward(req, resp);
 			}
+			break;
+		case "PEER_SIGN_IN":
+			String token = signPeerIn(req, user);
+			resp.setContentType("text/plain");
+			resp.getWriter().println(token);
+			break;
+		case "INIT_PEER":
+			
 			break;
 		default:
 			resp.setContentType("text/plain");
@@ -85,5 +99,25 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		}
 		
 		return result;
+	}
+	
+	public String signPeerIn(HttpServletRequest req, User user){
+		String token = "";
+		
+		ClinicianDAO cDAO = new ClinicianDAO();
+		Clinician c = cDAO.get(user.getUserId());
+		Clinic clinic = cDAO.getClinic(c);
+		
+		P2PDAO p2pdao = new P2PDAO();
+		P2P p2p = p2pdao.getP2P();
+		Superpeer sp = p2p.getSuperpeer(clinic.getClinicName());
+		Peer p = p2pdao.addPeer(c, sp, (String) req.getAttribute("p2p_token"));
+		
+		if(p != null) {
+			ChannelService channelService = ChannelServiceFactory.getChannelService();
+			token = channelService.createChannel(p.getChannelID());
+		}
+		
+		return token;
 	}
 }

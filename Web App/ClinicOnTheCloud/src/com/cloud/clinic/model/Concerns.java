@@ -305,6 +305,9 @@ public class Concerns {
 	@Column(columnDefinition="TEXT")
 	String comments_notes_collat;
 	
+	@Expose
+	String most_impactful_concern, most_impactful_concern_collat;
+	
 	public Concerns(){
 		
 	}
@@ -325,6 +328,23 @@ public class Concerns {
 		this.form = form;
 	}
 	
+	public String getMost_impactful_concern() {
+		return most_impactful_concern;
+	}
+
+	public void setMost_impactful_concern(String most_impactful_concern) {
+		this.most_impactful_concern = most_impactful_concern;
+	}
+
+	public String getMost_impactful_concern_collat() {
+		return most_impactful_concern_collat;
+	}
+
+	public void setMost_impactful_concern_collat(
+			String most_impactful_concern_collat) {
+		this.most_impactful_concern_collat = most_impactful_concern_collat;
+	}
+
 	public String getWants_memory_investigation() {
 		return wants_memory_investigation;
 	}

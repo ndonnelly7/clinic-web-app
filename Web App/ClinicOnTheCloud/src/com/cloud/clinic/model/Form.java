@@ -15,6 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 @Entity(name="Form")
 public class Form implements java.io.Serializable{
 
@@ -32,9 +34,13 @@ public class Form implements java.io.Serializable{
 	@Transient
 	protected Object[] jdoDetachedState;
 	
+	@Expose
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar timestamp;
 	
+	@Expose
+	String case_number;
+
 	@Transient
 	private boolean isNew;
 	
@@ -85,6 +91,14 @@ public class Form implements java.io.Serializable{
 
 	public void setTimestamp(Calendar timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	public String getCase_number() {
+		return case_number;
+	}
+
+	public void setCase_number(String case_number) {
+		this.case_number = case_number;
 	}
 
 	public PersonalDetails getPersonalDetails() {

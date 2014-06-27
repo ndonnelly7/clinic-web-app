@@ -69,6 +69,11 @@
 				<div id="impression_entry" class="pure-g-r" style="margin-bottom:0.5em">
 					<div class="pure-u-1-3 outcome_col">
 						<select name="impression" class="imp">
+							<option value="unknown">Unknown</option>
+							<option value="difficulty_functioning_in_one_or_more_areas">Evidence of difficulty with functioning in one or more areas</option>
+							<option value="decline_from_previous_norms">Evidence of decline from previous norms for that person</option>
+							<option value="deviation_from_noramtive_tests">Deviation from normative test scores</option>
+							<!-- 
 							<option value="norm_neg">Normal Negative Screen</option>
 							<option value="ab_neg">Abnormal Negative Screen</option>
 							<option value="dementia">Possible for Dementia</option>
@@ -78,6 +83,7 @@
 							<option value="bereavement">Bereavemnet</option>
 							<option value="reactive">Reactive Stress</option>
 							<option value="social">Social Adjustment</option>
+							-->
 						</select>
 					</div>
 					<div class="pure-u-1-3 notes_colum"><textarea form="analysis_form" name="impression_notes" rows="2" cols="32"></textarea></div>
@@ -100,6 +106,7 @@
 							<option value="leaflets">Leaflets</option>
 							<option value="gp_letter">Letter to GP</option>
 							<option value="has_diagnosis">Has Diagnosis</option>
+							<option value="coping_strategies">Coping Strategies</option>
 						</select>
 					</div>
 					<div class="pure-u-1-3 notes_colum"><textarea form="analysis_form" name="outcome_notes" rows="2" cols="32"></textarea></div>

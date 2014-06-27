@@ -234,7 +234,7 @@
 			</div>
 			
 			<div id="meds_sleep">
-				<div class="lifestyle_title pure-u-1-3">Do you ever take medication to help you sleep?</div>
+				<div class="lifestyle_title pure-u-1-3">Do you ever take medication or alcohol to help you sleep?</div>
 				<div class="pure-u-1-3 check">
 					<input type="checkbox" name="meds_check" onclick="showHiddenDiv(this, 'meds_sleep_qs')" id="sleep_meds_check">
 				</div>
@@ -242,7 +242,8 @@
 					<div class="pure-u-1-3 lifestyle_subtitle" id="subtitle_margin_change">What medication?</div>
 					<div class="pure-u-1-3 life_select_box">
 						<select name="sleep_meds" id="sleep_meds_s">
-							<option value="none">Sleep Medicine</option>
+							<option value="none_chosen">Unknown</option>
+							<option value="alcohol">Alcohol</option>
 							<option value="zimovane">Zimovane</option>
 							<option value="stilnoct">Stilnoct</option>
 							<option value="zopiclone">Zopiclone</option>

@@ -708,6 +708,7 @@
 			<select name="cook" onchange="cookingCheckChanged(this, 'does_cook')">
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
+				<option value="unknown">Unknown</option>
 			</select>
 			<br>
 			<div id="does_not_cook">
@@ -718,6 +719,7 @@
 						<option value="friend">Friend</option>
 						<option value="takeaway">Takeaway</option>
 						<option value="out">Go Out</option>
+						<option value="unknown">Unknown</option>
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="cook_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
@@ -1446,6 +1448,7 @@
 			<select name="shop" onchange="shoppingCheckChanged(this, 'does_shop')">
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
+				<option value="unknown">Unknown</option>
 			</select>
 			
 			<div id="does_not_shop">
@@ -1455,6 +1458,7 @@
 						<select name="shop_help" id="shop_help_select">
 							<option value="family">Family</option>
 							<option value="friend">Friend</option>
+							<option value="unknown">Unknown</option>
 						</select>
 					</div>
 					<div class="note_area"><textarea form="living_form" name="shop_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
@@ -1468,6 +1472,7 @@
 						<option value="one_yr">1 year</option>
 						<option value="two_yr">2 years</option>
 						<option value="threep_yr">3+ years</option>
+						<option value="unknown">Unknown</option>
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="shop_time_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
@@ -1541,6 +1546,7 @@
 				<select name="shopping_collat" onchange="shoppingCheckChangedCollat(this)">
 					<option value="no">No</option>
 					<option value="yes">Yes</option>
+					<option value="unknown">Unknown</option>
 				</select>
 				
 				<div id="does_not_shop_collat">
@@ -1641,6 +1647,7 @@
 						<option value="direct_debit">Direct Debit</option>
 						<option value="post_office">Post Office</option>
 						<option value="bank">Bank</option>
+						<option value="unknown">Unknown</option>
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="bill_method_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
@@ -1654,6 +1661,7 @@
 						<option value="family">Family Member</option>
 						<option value="friend">Friend</option>
 						<option value="home_help">Home Help</option>
+						<option value="unknown">Unknown</option>
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="bill_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
@@ -1666,6 +1674,7 @@
 						<option value="forgot_payment">Forgot to Pay</option>
 						<option value="income_issue">Not enough money</option>
 						<option value="other">Other</option>
+						<option value="unknown">Unknown</option>
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="bill_problem_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>

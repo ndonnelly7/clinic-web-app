@@ -47,6 +47,7 @@ public class PatDetailsServlet extends HttpServlet {
 		details.setGender(req.getParameter("gender"));
 		String dateStr = req.getParameter("dob");
 		String assessment = req.getParameter("assessment");
+		String case_number = req.getParameter("case_number");
 		Date ass = new Date();
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH);
@@ -68,6 +69,7 @@ public class PatDetailsServlet extends HttpServlet {
 				Calendar c = Calendar.getInstance();
 				c.setTime(ass);
 				f.setTimestamp(c);
+				f.setCase_number(case_number);
 				pat.addForm(f);
 				if(f.getPersonalDetails() != null)
 					details.setDetailsID(f.getPersonalDetails().getDetailsID());
@@ -98,6 +100,7 @@ public class PatDetailsServlet extends HttpServlet {
 			f.setPatient(pat);
 			Calendar c = Calendar.getInstance();
 			c.setTime(ass);
+			f.setCase_number(case_number);
 			f.setTimestamp(c);			
 
 			f.setPersonalDetails(details);

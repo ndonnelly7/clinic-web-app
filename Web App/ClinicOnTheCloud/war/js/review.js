@@ -347,6 +347,15 @@ function loadDetails(json, id){
 	console.log(details);
 	getPatient(id, function(patient) {
 		for(var key in patient){
+			if(key == 'testing_reason'){
+				if(patient[key] == 'want_reassurance')
+					$("#want_reassurance").val("True");
+				else if(patient[key] == 'want_assessment')
+					$("#want_assessment").val("True");
+				else if(patient[key] == 'want_information')
+					$("#want_information").val("True");
+			}
+			
 			if(patient.hasOwnProperty(key)){
 				var elem = document.getElementById(key);
 				if(elem != null)

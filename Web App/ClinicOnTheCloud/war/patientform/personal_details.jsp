@@ -35,7 +35,10 @@
 		<label for="assessment">Date of Assessment</label>
 		<input name="assessment" placeholder="dd/mm/yyyy" type="text" class="suggest_form pickdate" id="assessment">
 	</div>
-	
+	<div class="pure-control-group">
+		<label for="case_number">Case Reference Number:</label>
+		<input name="case_number" type="text" id="case_number">
+	</div>
 	<fieldset id="personal_field">
 		<legend>Personal</legend>
 		<div class="pure-control-group">
@@ -201,18 +204,31 @@
 	<fieldset id="family_pres_field">
 		<legend>Other questions</legend>
 		<div class="pure-control-group">
-			<label for="testing_reason">Why are you taking this test?</label>
-			<select id="testing_reason" name="testing_reason">
+			<div>Why are you taking this test?</div>
+			<!-- <select id="testing_reason" name="testing_reason">
 				<option value="reassurance">Reassurance</option>
 				<option value="assessment">Assessment</option>
 				<option value="information">Information</option>
-			</select> 
+			</select>  -->
 		</div>
+		<div class="pure-control-group">
+			<label for="reassurance_check">Reassurance</label>
+			<input type="checkbox" name="wants_reassurance">
+		</div>
+		<div class="pure-control-group">
+			<label for="assessment_check">Assessment</label>
+			<input type="checkbox" name="wants_assessment">
+		</div>
+		<div class="pure-control-group">
+			<label for="information_check">Information</label>
+			<input type="checkbox" name="wants_information">
+		</div>
+		<div style="height:24px;"></div>
 		<div class="pure-control-group">
 			<label for="family_present_check">Are any family or friends present?</label>
 			<input type="checkbox" name="family_present" id="collat_check" onclick="collatChecked(this, 'family_pres_div')">
 		</div>
-		<div class="pure-control-group hide_div" id="family_pres_div">
+		<div class="pure-control-group" id="family_pres_div" style="display:none">
 			<label for="who_present">Relation</label>
 			<select name="who_present" id="collat_present">
 				<option value="partner">Partner</option>
@@ -242,10 +258,7 @@
 <script>
 
 $(document).ready(function() {
-	$('#collat_check').prop("checked", checkCollateral());
-	$('#family_pres_div').show();
-	
-	
+	$('#collat_check').prop("checked", false);	
 });
 
 $(function() {

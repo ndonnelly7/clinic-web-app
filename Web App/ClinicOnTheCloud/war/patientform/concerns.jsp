@@ -76,7 +76,7 @@
 			<div id="events" class="concern">
 				<div class="pure-u-1-5 title">Recent Events</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="rec_events_check" onclick="showConcernRow(this, '#events')" id="rec_events">
+				<input type="checkbox" name="rec_events_check" onclick="showConcernRow(this, '#events')" id="rec_events" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -131,7 +131,7 @@
 			<div id="faces" class="concern">
 				<div class="pure-u-1-5 title">Faces</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="faces_check" onclick="showConcernRow(this,'#faces')" id="faces">
+				<input type="checkbox" name="faces_check" onclick="showConcernRow(this,'#faces')" id="faces" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -186,7 +186,7 @@
 			<div id="names" class="concern">
 				<div class="pure-u-1-5 title">Names</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="names_check" onclick="showConcernRow(this,'#names')" id="names">
+				<input type="checkbox" name="names_check" onclick="showConcernRow(this,'#names')" id="names" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -241,7 +241,7 @@
 			<div id="losing_things" class="concern">
 				<div class="pure-u-1-5 title">Losing Things</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="losing_things_check" onclick="showConcernRow(this,'#losing_things')" id="losing_things">
+				<input type="checkbox" name="losing_things_check" onclick="showConcernRow(this,'#losing_things')" id="losing_things" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -296,7 +296,7 @@
 			<div id="follow_conv" class="concern">
 				<div class="pure-u-1-5 title">Trouble Following Conversations</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="follow_conv_check" onclick="showConcernRow(this,'#follow_conv')" id="follow_conv">
+				<input type="checkbox" name="follow_conv_check" onclick="showConcernRow(this,'#follow_conv')" id="follow_conv" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -351,7 +351,7 @@
 			<div id="right_words" class="concern">
 				<div class="pure-u-1-5 title">Trouble Finding the Right Words</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="right_words_check" onclick="showConcernRow(this,'#right_words')" id="right_words">
+				<input type="checkbox" name="right_words_check" onclick="showConcernRow(this,'#right_words')" id="right_words" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -406,7 +406,7 @@
 			<div id="decisions" class="concern">
 				<div class="pure-u-1-5 title">Difficulty Making Decisions</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="decisions_check" onclick="showConcernRow(this,'#decisions')" id="decisions">
+				<input type="checkbox" name="decisions_check" onclick="showConcernRow(this,'#decisions')" id="decisions" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -461,7 +461,7 @@
 			<div id="calculatons" class="concern">
 				<div class="pure-u-1-5 title">Calculations</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="calculatons_check" onclick="showConcernRow(this,'#calculatons')" id="calculations">
+				<input type="checkbox" name="calculatons_check" onclick="showConcernRow(this,'#calculatons')" id="calculations" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -516,7 +516,7 @@
 			<div id="prospective" class="concern">
 				<div class="pure-u-1-5 title">Prospective Memory</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="prospective_check" onclick="showConcernRow(this,'#prospective')" id="prospective">
+				<input type="checkbox" name="prospective_check" onclick="showConcernRow(this,'#prospective')" id="prospective" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -571,7 +571,7 @@
 			<div id="anxiety" class="concern">
 				<div class="pure-u-1-5 title">Anxious or Depressed about Forgetfulness</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="anxiety_check" onclick="showConcernRow(this,'#anxiety')" id="anxiety">
+				<input type="checkbox" name="anxiety_check" onclick="showConcernRow(this,'#anxiety')" id="anxiety" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -625,7 +625,7 @@
 			<div id="comments" class="concern">
 				<div class="pure-u-1-5 title">Have others commented on your Memory</div>
 				<div class="pure-u-1-5 concerns_check">
-				<input type="checkbox" name="comments_check" onclick="showConcernRow(this,'#comments')" id="comments">
+				<input type="checkbox" name="comments_check" onclick="showConcernRow(this,'#comments')" id="comments" class="concern_check">
 				</div>
 				<div class="pure-u-1-5 concerns_column">
 					<div id="timeframe_1m_3pyr_dis">
@@ -677,7 +677,13 @@
 				</div>
 			</div>
 		</div>
-	
+		
+		<div id="concerns_reactive" class="reactive_div">
+			<div class="title" style="display:inline-block">What concern do you think has the biggest impact on your life?</div>
+			<select name="most_impactful_concern" id="most_impactful_concern" style="display:inline-block">
+			</select>
+		</div>
+		
 		<div class="collat_div">
 			<input type="button" onclick="addNewCollatOption()" class="pure-button" value="Add Concern from Collateral">
 			<div class="hide_div" id="collat_concerns_grid">
@@ -701,7 +707,7 @@
 				<div id="events_collat" class="concern">
 					<div class="pure-u-1-5 title" id="rec_events">Recent Events</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="rec_events_check_collat" onclick="showConcernRow(this, '#events_collat')">
+					<input type="checkbox" name="rec_events_check_collat" onclick="showConcernRow(this, '#events_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -756,7 +762,7 @@
 				<div id="faces_collat" class="concern">
 					<div class="pure-u-1-5 title" id="faces">Faces</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="faces_check_collat" onclick="showConcernRow(this,'#faces_collat')">
+					<input type="checkbox" name="faces_check_collat" onclick="showConcernRow(this,'#faces_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -811,7 +817,7 @@
 				<div id="names_collat" class="concern">
 					<div class="pure-u-1-5 title" id="names">Names</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="names_check_collat" onclick="showConcernRow(this,'#names_collat')">
+					<input type="checkbox" name="names_check_collat" onclick="showConcernRow(this,'#names_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -866,7 +872,7 @@
 				<div id="losing_things_collat" class="concern">
 					<div class="pure-u-1-5 title" id="losing_things">Losing Things</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="losing_things_check_collat" onclick="showConcernRow(this,'#losing_things_collat')">
+					<input type="checkbox" name="losing_things_check_collat" onclick="showConcernRow(this,'#losing_things_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -921,7 +927,7 @@
 				<div id="follow_conv_collat" class="concern">
 					<div class="pure-u-1-5 title" id="conversations">Trouble Following Conversations</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="follow_conv_check_collat" onclick="showConcernRow(this,'#follow_conv_collat')">
+					<input type="checkbox" name="follow_conv_check_collat" onclick="showConcernRow(this,'#follow_conv_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -976,7 +982,7 @@
 				<div id="right_words_collat" class="concern">
 					<div class="pure-u-1-5 title" id="right_words">Trouble Finding the Right Words</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="right_words_check_collat" onclick="showConcernRow(this,'#right_words_collat')">
+					<input type="checkbox" name="right_words_check_collat" onclick="showConcernRow(this,'#right_words_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -1031,7 +1037,7 @@
 				<div id="decisions_collat" class="concern">
 					<div class="pure-u-1-5 title" id="decisions">Difficulty Making Decisions</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="decisions_check_collat" onclick="showConcernRow(this,'#decisions_collat')">
+					<input type="checkbox" name="decisions_check_collat" onclick="showConcernRow(this,'#decisions_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -1086,7 +1092,7 @@
 				<div id="calculatons_collat" class="concern">
 					<div class="pure-u-1-5 title" id="calculations">Calculations</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="calculatons_check_collat" onclick="showConcernRow(this,'#calculatons_collat')">
+					<input type="checkbox" name="calculatons_check_collat" onclick="showConcernRow(this,'#calculatons_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -1141,7 +1147,7 @@
 				<div id="prospective_collat" class="concern">
 					<div class="pure-u-1-5 title" id="prospective">Prospective Memory</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="prospective_check_collat" onclick="showConcernRow(this,'#prospective_collat')">
+					<input type="checkbox" name="prospective_check_collat" onclick="showConcernRow(this,'#prospective_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -1196,7 +1202,7 @@
 				<div id="anxiety_collat" class="concern">
 					<div class="pure-u-1-5 title" id="forgetfulness">Anxious or Depressed about Forgetfulness</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="anxiety_check_collat" onclick="showConcernRow(this,'#anxiety_collat')">
+					<input type="checkbox" name="anxiety_check_collat" onclick="showConcernRow(this,'#anxiety_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -1251,7 +1257,7 @@
 				<div id="comments_collat" class="concern">
 					<div class="pure-u-1-5 title" id="comments">Have others commented on your Memory</div>
 					<div class="pure-u-1-5 concerns_check">
-					<input type="checkbox" name="comments_check_collat" onclick="showConcernRow(this,'#comments_collat')">
+					<input type="checkbox" name="comments_check_collat" onclick="showConcernRow(this,'#comments_collat')" class="concern_check_collat">
 					</div>
 					<div class="pure-u-1-5 concerns_column">
 						<div id="timeframe_1m_3pyr_dis">
@@ -1302,7 +1308,14 @@
 					<textarea name="comments_notes_collat" form="concerns_form"  rows="2" cols="24"></textarea> 
 					</div>
 				</div>
+			
+				<div id="collat_concerns_reactive" class="reactive_div">
+					<div class="title" style="display:inline-block">What concern do you think has the biggest impact on their life?</div>
+					<select name="most_impactful_concern_collat" id="most_impactful_concern_collat" style="display:inline-block">
+					</select>
+				</div>
 			</div>
+		
 		</div>
 	</fieldset>
 	<br><br>
@@ -1336,6 +1349,8 @@
 		if(typeof(Storage) !== "undefined")
 			if(!(sessionStorage.collat))
 				hideCollat();
+		
+		populateReactive();
 	});
 	
 	function addNewCollatOption(){
@@ -1357,12 +1372,35 @@
 		getPatientForm(p_id, printPForm);
 	}
 	
+	function populateReactive(rowID){
+		$("#most_impactful_concern").html("<option value='unknown'>Unknown</option>");
+		$("#most_impactful_concern_collat").html("<option value='unknown'>Unknown</option>");
+		
+		$(".concern_check").each(function() {
+			if($(this).prop("checked")){
+				var option_name = $(this).parent().parent().prop("id");
+				var option_val = ($(this).parent().parent().children(".title").html());
+				$("#most_impactful_concern").append('<option value='+option_name+'>'+option_val+'</option>');
+			}
+		});
+		
+		$(".concern_check_collat").each(function() {
+			if($(this).prop("checked")){
+				var option_name = $(this).parent().parent().prop("id");
+				var option_val = ($(this).parent().parent().children(".title").html());
+				$("#most_impactful_concern_collat").append('<option value='+option_name+'>'+option_val+'</option>');
+			}
+		});
+	}
+	
 	function showConcernRow(box, rowId){
 		if(box.checked){
 			$(rowId + " select").prop("disabled",false);
 		} else {
 			$(rowId + " select").prop("disabled",true);
 		}
+		
+		populateReactive(rowId);
 	}
 	
 	function nextPage(page){

@@ -52,6 +52,7 @@
 								<option value="breathing">Breathing Problems</option>
 								<option value="gastric">Gastric Problems</option>
 								<option value="diabetes">Diabetes</option>
+								<option value="surgery">Recent Surgery</option>
 								<option value="other_endocrine">Other Endocrine</option>
 								<option value="other_resolved">Other Resolved Illnesses</option>
 								<option value="other">Other Illness</option>
