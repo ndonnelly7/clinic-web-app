@@ -44,6 +44,14 @@ public class PatDetailsServlet extends HttpServlet {
 		BeanPopulate.populateBean(details, req);
 		if(req.getParameter("third_check") != null)
 			details.setThird_check(req.getParameter("third_check").equals("on"));
+		if(req.getParameter("wants_assessment") != null)
+			details.setWants_assessment(req.getParameter("wants_assessment").equalsIgnoreCase("true"));
+		if(req.getParameter("wants_reassurance") != null)
+			details.setWants_reassurance(req.getParameter("wants_reassurance").equalsIgnoreCase("true"));
+		if(req.getParameter("wants_information") != null)
+			details.setWants_information(req.getParameter("wants_information").equalsIgnoreCase("true"));
+		
+		
 		details.setGender(req.getParameter("gender"));
 		String dateStr = req.getParameter("dob");
 		String assessment = req.getParameter("assessment");
@@ -64,11 +72,12 @@ public class PatDetailsServlet extends HttpServlet {
 		
 		
 		if(pat != null){
+			Calendar cAss = Calendar.getInstance();
+			cAss.setTime(ass);
 			Form f = dao.getTodaysForm(pat);
 			if(f.isNew()){
-				Calendar c = Calendar.getInstance();
-				c.setTime(ass);
-				f.setTimestamp(c);
+				
+				f.setTimestamp(cAss);
 				f.setCase_number(case_number);
 				pat.addForm(f);
 				if(f.getPersonalDetails() != null)
@@ -108,6 +117,7 @@ public class PatDetailsServlet extends HttpServlet {
 			pat.addForm(f);
 			dao.create(pat);
 		}
+		
 		String page = req.getParameter("linkedPage");
 		if(page == null || page.equals(" ")){
 			req.setAttribute("error", "Could not redirect to page!");

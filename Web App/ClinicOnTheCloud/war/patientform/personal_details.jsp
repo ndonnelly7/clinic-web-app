@@ -213,15 +213,15 @@
 		</div>
 		<div class="pure-control-group">
 			<label for="reassurance_check">Reassurance</label>
-			<input type="checkbox" name="wants_reassurance">
+			<input type="checkbox" name="wants_reassurance" value="true">
 		</div>
 		<div class="pure-control-group">
 			<label for="assessment_check">Assessment</label>
-			<input type="checkbox" name="wants_assessment">
+			<input type="checkbox" name="wants_assessment" value="true">
 		</div>
 		<div class="pure-control-group">
 			<label for="information_check">Information</label>
-			<input type="checkbox" name="wants_information">
+			<input type="checkbox" name="wants_information" value="true">
 		</div>
 		<div style="height:24px;"></div>
 		<div class="pure-control-group">
@@ -231,6 +231,7 @@
 		<div class="pure-control-group" id="family_pres_div" style="display:none">
 			<label for="who_present">Relation</label>
 			<select name="who_present" id="collat_present">
+				<option value="unknown">Unknown</option>
 				<option value="partner">Partner</option>
 				<option value="child">Child</option>
 				<option value="sibling">Sibling</option>

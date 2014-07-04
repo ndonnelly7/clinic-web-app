@@ -37,9 +37,9 @@
 			<div class="concern_q">If we do find a problem with your memory, would you want to investigate it further at this point?</div>
 			<div class="concern_a">
 				<select id="wants_memory_investigation" name="wants_memory_investigation">
+					<option value="not_sure">Not sure</option>
 					<option value="yes">Yes</option>
 					<option value="no">No</option>
-					<option value="not_sure">Not sure</option>
 				</select> 
 			</div>
 		</div>

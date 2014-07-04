@@ -174,3 +174,11 @@ function enableRow(check) {
 		$(check).parent().parent().children('.grid_entry_select').children('select').prop('disabled', true);
 	}
 }
+
+function enableRowText(check) {
+	if($(check).val() != '') {
+		$(check).parent().parent().children('.grid_entry_select').children('select').prop('disabled', false);
+	} else {
+		$(check).parent().parent().children('.grid_entry_select').children('select').prop('disabled', true);
+	}
+}

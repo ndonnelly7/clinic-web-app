@@ -35,7 +35,7 @@ public class EvActServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		EventsActivities ea = new EventsActivities();
 		BeanPopulate.populateBean(ea, req);
 		ea.setActivities(loadActivitiesList(req, ea));

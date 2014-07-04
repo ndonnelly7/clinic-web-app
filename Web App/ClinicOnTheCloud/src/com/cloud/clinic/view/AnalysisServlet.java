@@ -36,7 +36,7 @@ public class AnalysisServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		
 		Analysis a = new Analysis();
 		BeanPopulate.populateBean(a, req);

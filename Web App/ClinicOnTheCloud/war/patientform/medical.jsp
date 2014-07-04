@@ -36,8 +36,15 @@
 		
 		<div id="gp_info" class="pure-g-u">
 			<div class="pure-u-1-2 title">Have you discussed any of this with your GP?</div>
-			<div class="pure-u-1-2 check" style="margin-top:18px;">
+			<!-- <div class="pure-u-1-2 checked" style="margin-top:18px;">
 				<input type="checkbox" name="gp_talked" onclick="revealGPDiscussion()">
+			</div> -->
+			<div class="pure-u-1-2 select_box">
+				<select name="discussed_with_gp" id="discussed_with_gp" onchange="revealGPDiscussion()">
+					<option value="unknown">Unknown</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
 			</div>
 			<br>
 			<div id="talked_with_gp" class="hide_div">
@@ -442,7 +449,7 @@
 	}
 	
 	function revealGPDiscussion(){
-		if(gp_discuss_open){
+		/*if(gp_discuss_open){
 			$('#talked_with_gp').hide(500);
 			gp_discuss_open = false;
 			$("#gp_results").append("<option value='NA' selected='selected'>NA</option>");
@@ -450,6 +457,13 @@
 			$('#talked_with_gp').show(500);
 			gp_discuss_open = true;
 			$("#gp_results option[value='NA']").remove();
+		}*/
+		if($("#discussed_with_gp").val() == "yes"){
+			$("#talked_with_gp").show(500);
+			$("#gp_results option[value='NA']").remove();
+		} else {
+			$("#talked_with_gp").hide(500);
+			$("#gp_results").append("<option value='NA' selected='selected'>NA</option>");
 		}
 	}
 	

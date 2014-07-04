@@ -33,7 +33,7 @@ public class GPServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		GP_Info info = new GP_Info();
 		BeanPopulate.populateBean(info, req);
 

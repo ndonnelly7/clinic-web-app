@@ -33,7 +33,7 @@ public class MemoryServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		TestBattery battery = new TestBattery();
 		BeanPopulate.populateBean(battery, req);
 		

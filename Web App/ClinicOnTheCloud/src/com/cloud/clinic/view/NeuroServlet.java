@@ -33,7 +33,7 @@ public class NeuroServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		NeuroHistory neuro = new NeuroHistory();
 		BeanPopulate.populateBean(neuro, req);
 		

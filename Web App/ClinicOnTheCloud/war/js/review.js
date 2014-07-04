@@ -582,6 +582,29 @@ function loadLiving(json){
 		$("collateral_bills").show();
 	}
 	
+	if(liv['driving_other_incident'] != ''){
+		$("#driving_other_subheader").html(liv['driving_other_incident']);
+	} else {
+		$("#driving_other_row").remove();
+	}
+	
+	if(liv['collat_driving_other_incident'] != ''){
+		$("#collat_driving_other_subheader").html(liv['collat_driving_other_incident']);
+	} else {
+		$("#collat_driving_other_row").remove();
+	}
+	
+	if(liv['cooking_other_incident'] != ''){
+		$("#cooking_other_subheader").html(liv['cooking_other_incident']);
+	} else {
+		$("#cooking_other_row").remove();
+	}
+	
+	if(liv['collat_cooking_other_incident'] != ''){
+		$("#collat_cooking_other_subheader").html(liv['collat_cooking_other_incident']);
+	} else {
+		$("#collat_cooking_other_row").remove();
+	}
 }
 
 function loadLifestyle(json){

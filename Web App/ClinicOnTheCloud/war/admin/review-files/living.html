@@ -40,9 +40,13 @@
 		</div>
 	</div>
 	<div id="carer_row" class="row">
-		<div class="carer">
+		<!-- <div class="carer">
 			<label for="carer">Is the patient a carer?</label>
 			<input type="text" id="carer" readonly>
+		</div> -->
+		<div class="carer">
+			<label for="is_carer">Is the patient a carer?</label>
+			<input type="text" id="is_carer" readonly>
 		</div>
 		<div class="location_notes">
 			<label for="carer_note">Notes:</label>
@@ -50,9 +54,13 @@
 		</div>
 	</div>
 	<div id="home_help_row" class="row">
-		<div class="home_help">
+		<!-- <div class="home_help">
 			<label for="home_help">Receiving Home Help?</label>
 			<input type="text" id="home_help" readonly>
+		</div> -->
+		<div class="home_help">
+			<label for="getting_homehelp">Receiving Home Help?</label>
+			<input type="text" id="getting_homehelp" readonly>
 		</div>
 		<div class="location_notes">
 			<label for="home_help_note">Notes:</label>
@@ -166,6 +174,21 @@
 			<div class="liv_notes">
 				<label for="tips_notes">Notes:</label>
 				<textarea rows="3" id="tips_notes" readonly></textarea>
+			</div>
+		</div>
+		<div id="driving_other_row" class="row">
+			<div class="subheader" id="driving_other_subheader"></div>
+			<div class="other_severity">
+				<label for="driving_other_severity">Severity:</label>
+				<input type="text" id="driving_other_severity" readonly>
+			</div>
+			<div class="other_freq">
+				<label for="driving_other_freq">Frequency:</label>
+				<input type="text" id="driving_other_freq" readonly>
+			</div>
+			<div class="other_notes">
+				<label for="driving_other_notes">Notes:</label>
+				<textarea rows="3" id="driving_other_notes" readonly></textarea>
 			</div>
 		</div>
 		
@@ -305,6 +328,21 @@
 				<div class="liv_notes_collat">
 					<label for="tips_notes_collat">Notes:</label>
 					<textarea rows="3" id="tips_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div id="collat_driving_other_row" class="row">
+				<div class="subheader" id="driving_other_subheader"></div>
+				<div class="other_severity">
+					<label for="collat_driving_other_severity">Severity:</label>
+					<input type="text" id="collat_driving_other_severity" readonly>
+				</div>
+				<div class="other_freq">
+					<label for="collat_driving_other_freq">Frequency:</label>
+					<input type="text" id="collat_driving_other_freq" readonly>
+				</div>
+				<div class="other_notes">
+					<label for="collat_driving_other_notes">Notes:</label>
+					<textarea rows="3" id="collat_driving_other_notes" readonly></textarea>
 				</div>
 			</div>
 			
@@ -475,6 +513,18 @@
 			</div>
 		</div>
 		
+		<div id="cooking_other_row" class="row">
+			<div class="subheader" id="cooking_other_subheader"></div>
+			<div class="other_freq">
+				<label for="cooking_other_freq">Frequency:</label>
+				<input type="text" id="cooking_other_freq" readonly>
+			</div>
+			<div class="other_notes">
+				<label for="cooking_other_notes">Notes:</label>
+				<textarea rows="3" id="cooking_other_notes" readonly></textarea>
+			</div>
+		</div>
+		
 		<div class="header">Coping Strategies</div>
 		<div id="timer_row" class="row">
 			<div class="subheader">Use a timer:</div>
@@ -626,6 +676,18 @@
 				<div class="liv_notes_collat">
 					<label for="undercooked_notes_collat">Notes:</label>
 					<textarea rows="3" id="undercooked_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			
+			<div id="collat_cooking_other_row" class="row">
+				<div class="subheader" id="collat_cooking_other_subheader"></div>
+				<div class="other_freq">
+					<label for="collat_cooking_other_freq">Frequency:</label>
+					<input type="text" id="collat_cooking_other_freq" readonly>
+				</div>
+				<div class="other_notes">
+					<label for="collat_cooking_other_notes">Notes:</label>
+					<textarea rows="3" id="collat_cooking_other_notes" readonly></textarea>
 				</div>
 			</div>
 			

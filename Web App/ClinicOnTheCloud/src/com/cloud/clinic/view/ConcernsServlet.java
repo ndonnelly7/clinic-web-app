@@ -33,7 +33,7 @@ public class ConcernsServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		Concerns cons = new Concerns();
 		BeanPopulate.populateBean(cons, req);
 		

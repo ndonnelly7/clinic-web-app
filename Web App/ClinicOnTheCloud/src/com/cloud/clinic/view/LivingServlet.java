@@ -33,7 +33,7 @@ public class LivingServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		LivingSit ls = new LivingSit();
 		BeanPopulate.populateBean(ls, req);
 		

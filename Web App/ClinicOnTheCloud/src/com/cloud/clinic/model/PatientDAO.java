@@ -169,6 +169,41 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 			return f;
 		}
 	}
+	
+	public Form getFormWithDate(Patient p, Calendar c){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		String hql = "from Form where patient = " + String.valueOf(p.getPatientID()) + " order by timestamp desc";
+		Query q = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Form> list = (List<Form>) q.list();
+		
+		if(list.size() == 0){
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;
+		} else {
+			for(int i = 0; i < list.size(); i++){
+				Form f = list.get(i);
+				if((f.getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+					&& (f.getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+					&& (f.getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
+					f.setNew(false);
+					session.close();
+					return f;
+				}
+			}
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;			
+		}
+	}
 
 	public PatientHistory loadHistory(Form f){
 		Session session = HibernateUtil.getSessionFactory().openSession();

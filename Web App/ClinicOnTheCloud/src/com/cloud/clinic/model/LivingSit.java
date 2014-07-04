@@ -36,6 +36,8 @@ public class LivingSit {
 	@Expose
 	boolean carer, home_help, carer_collat, home_help_collat; 
 	@Expose
+	String is_carer, collat_is_carer, collat_getting_homehelp, getting_homehelp;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String housemates_note;
 	@Expose
@@ -88,6 +90,16 @@ public class LivingSit {
 	String known_places_success, take_friend_success;
 	@Expose
 	String dry_run_success, map_success, take_phone_success;
+	@Expose
+	String driving_other_incident, driving_other_severity, driving_other_freq;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String driving_other_notes;
+	@Expose
+	String collat_driving_other_incident, collat_driving_other_severity, collat_driving_other_freq;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String collat_driving_other_notes;
 	@Expose
 	@Column(columnDefinition="TEXT")
 	String unknown_arrival_notes;
@@ -209,6 +221,16 @@ public class LivingSit {
 	@Expose
 	@Column(columnDefinition="TEXT")
 	String undercooked_notes;
+	@Expose
+	String cooking_other_incident, cooking_other_freq;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String cooking_other_notes;
+	@Expose
+	String collat_cooking_other_incident, collat_cooking_other_freq;
+	@Expose
+	@Column(columnDefinition="TEXT")
+	String collat_cooking_other_notes;
 	
 	//Coping Strategies
 	@Expose
@@ -380,6 +402,153 @@ public class LivingSit {
 
 	public void setForm(Form form) {
 		this.form = form;
+	}
+
+	public String getDriving_other_incident() {
+		return driving_other_incident;
+	}
+
+	public void setDriving_other_incident(String driving_other_incident) {
+		this.driving_other_incident = driving_other_incident;
+	}
+
+	public String getDriving_other_severity() {
+		return driving_other_severity;
+	}
+
+	public void setDriving_other_severity(String driving_other_severity) {
+		this.driving_other_severity = driving_other_severity;
+	}
+
+	public String getIs_carer() {
+		return is_carer;
+	}
+
+	public void setIs_carer(String is_carer) {
+		this.is_carer = is_carer;
+	}
+
+	public String getCollat_is_carer() {
+		return collat_is_carer;
+	}
+
+	public void setCollat_is_carer(String collat_is_carer) {
+		this.collat_is_carer = collat_is_carer;
+	}
+
+	public String getCollat_getting_homehelp() {
+		return collat_getting_homehelp;
+	}
+
+	public void setCollat_getting_homehelp(String collat_getting_homehelp) {
+		this.collat_getting_homehelp = collat_getting_homehelp;
+	}
+
+	public String getGetting_homehelp() {
+		return getting_homehelp;
+	}
+
+	public void setGetting_homehelp(String getting_homehelp) {
+		this.getting_homehelp = getting_homehelp;
+	}
+
+	public String getDriving_other_freq() {
+		return driving_other_freq;
+	}
+
+	public void setDriving_other_freq(String driving_other_freq) {
+		this.driving_other_freq = driving_other_freq;
+	}
+
+	public String getDriving_other_notes() {
+		return driving_other_notes;
+	}
+
+	public void setDriving_other_notes(String driving_other_notes) {
+		this.driving_other_notes = driving_other_notes;
+	}
+
+	public String getCollat_driving_other_incident() {
+		return collat_driving_other_incident;
+	}
+
+	public void setCollat_driving_other_incident(
+			String collat_driving_other_incident) {
+		this.collat_driving_other_incident = collat_driving_other_incident;
+	}
+
+	public String getCollat_driving_other_severity() {
+		return collat_driving_other_severity;
+	}
+
+	public void setCollat_driving_other_severity(
+			String collat_driving_other_severity) {
+		this.collat_driving_other_severity = collat_driving_other_severity;
+	}
+
+	public String getCollat_driving_other_freq() {
+		return collat_driving_other_freq;
+	}
+
+	public void setCollat_driving_other_freq(String collat_driving_other_freq) {
+		this.collat_driving_other_freq = collat_driving_other_freq;
+	}
+
+	public String getCollat_driving_other_notes() {
+		return collat_driving_other_notes;
+	}
+
+	public void setCollat_driving_other_notes(String collat_driving_other_notes) {
+		this.collat_driving_other_notes = collat_driving_other_notes;
+	}
+
+	public String getCooking_other_incident() {
+		return cooking_other_incident;
+	}
+
+	public void setCooking_other_incident(String cooking_other_incident) {
+		this.cooking_other_incident = cooking_other_incident;
+	}
+
+	public String getCooking_other_freq() {
+		return cooking_other_freq;
+	}
+
+	public void setCooking_other_freq(String cooking_other_freq) {
+		this.cooking_other_freq = cooking_other_freq;
+	}
+
+	public String getCooking_other_notes() {
+		return cooking_other_notes;
+	}
+
+	public void setCooking_other_notes(String cooking_other_notes) {
+		this.cooking_other_notes = cooking_other_notes;
+	}
+
+	public String getCollat_cooking_other_incident() {
+		return collat_cooking_other_incident;
+	}
+
+	public void setCollat_cooking_other_incident(
+			String collat_cooking_other_incident) {
+		this.collat_cooking_other_incident = collat_cooking_other_incident;
+	}
+
+	public String getCollat_cooking_other_freq() {
+		return collat_cooking_other_freq;
+	}
+
+	public void setCollat_cooking_other_freq(String collat_cooking_other_freq) {
+		this.collat_cooking_other_freq = collat_cooking_other_freq;
+	}
+
+	public String getCollat_cooking_other_notes() {
+		return collat_cooking_other_notes;
+	}
+
+	public void setCollat_cooking_other_notes(String collat_cooking_other_notes) {
+		this.collat_cooking_other_notes = collat_cooking_other_notes;
 	}
 
 	public String getCollat_homelife() {

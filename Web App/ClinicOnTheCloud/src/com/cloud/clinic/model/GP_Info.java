@@ -32,7 +32,7 @@ public class GP_Info {
 	@Expose
 	boolean gp_talked;
 	@Expose
-	String gp_results, gp_meds, gp_notes;
+	String gp_results, gp_meds, gp_notes, discussed_with_gp;
 	@Expose
 	float cholest_test, cholest_ldl, cholest_hdl, thyroid, weight_test;
 	@Expose
@@ -63,6 +63,14 @@ public class GP_Info {
 
 	public void setForm(Form form) {
 		this.form = form;
+	}
+
+	public String getDiscussed_with_gp() {
+		return discussed_with_gp;
+	}
+
+	public void setDiscussed_with_gp(String discussed_with_gp) {
+		this.discussed_with_gp = discussed_with_gp;
 	}
 
 	public String getCalc_time() {

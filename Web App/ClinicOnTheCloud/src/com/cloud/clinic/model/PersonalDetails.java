@@ -51,6 +51,9 @@ public class PersonalDetails {
 	@Expose
 	private boolean junior_check, senior_check, third_check;
 	
+	@Expose
+	private boolean wants_reassurance, wants_assessment, wants_information;
+	
 	public PersonalDetails(){
 		
 	}
@@ -190,4 +193,27 @@ public class PersonalDetails {
 		this.who_present = who_present;
 	}
 
+	public boolean isWants_reassurance() {
+		return wants_reassurance;
+	}
+
+	public void setWants_reassurance(boolean wants_reassurance) {
+		this.wants_reassurance = wants_reassurance;
+	}
+
+	public boolean isWants_assessment() {
+		return wants_assessment;
+	}
+
+	public void setWants_assessment(boolean wants_assessment) {
+		this.wants_assessment = wants_assessment;
+	}
+
+	public boolean isWants_information() {
+		return wants_information;
+	}
+
+	public void setWants_information(boolean wants_information) {
+		this.wants_information = wants_information;
+	}
 }

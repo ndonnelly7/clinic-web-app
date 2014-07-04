@@ -37,7 +37,7 @@ public class HistoryServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		PatientHistory pHistory = new PatientHistory();
 		BeanPopulate.populateBean(pHistory, req);
 		

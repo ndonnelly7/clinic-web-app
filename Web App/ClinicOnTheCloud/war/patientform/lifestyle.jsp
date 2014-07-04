@@ -563,6 +563,7 @@
 				<div class="pure-u-1-3 title">Do you do any exercise?</div>
 				<div class="pure-u-1-3 select_box">
 					<select name="exercise_yn" onchange="revealExercise(this)">
+						<option value="unknown">Unknown</option>
 						<option value="no">No</option>
 						<option value="yes">Yes</option>
 					</select>
@@ -1029,6 +1030,7 @@
 			<div class="lifestyle_vice_title pure-u-1-2">Do you drink any alcohol?</div>
 			<div class="select_box pure-u-1-2" style="margin-left:0px;">
 				<select name="alcohol" onchange="revealAlcohol(this)">
+					<option value="unknown">Unknown</option>
 					<option value="no">No</option>
 					<option value="yes">Yes</option>
 				</select>

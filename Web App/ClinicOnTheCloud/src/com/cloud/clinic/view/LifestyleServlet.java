@@ -35,7 +35,7 @@ public class LifestyleServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getTodaysForm(pat);
+		Form f = dao.getMostRecentForm(pat);
 		Lifestyle l = new Lifestyle();
 		BeanPopulate.populateBean(l, req);
 		l.setActivities(loadActivitiesList(req, l));
