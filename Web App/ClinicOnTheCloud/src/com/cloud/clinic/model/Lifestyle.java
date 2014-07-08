@@ -93,6 +93,19 @@ public class Lifestyle {
 	@Expose
 	String sleep_length, sleep_meds, nap_length, nap_time;
 	
+	@Expose
+	String sleep_difficulty, sleep_difficulty_collat, waking_during_night, waking_during_night_collat;
+	@Expose
+	String waking_early, waking_early_collat, taking_sleep_meds, taking_sleep_meds_collat;
+	@Expose
+	String takes_naps, takes_naps_collat, missing_meals, missing_meals_collat;
+	@Expose
+	String sweet_tooth, sweet_tooth_collat, fried_food, fried_food_collat;
+	@Expose
+	String takeaways, takeaways_collat, cakes_biscuits, cakes_biscuits_collat;
+	@Expose
+	String weight_suggestion, weight_suggestion_collat, illicit_substance, illicit_substance_collat;
+	
 	//Collateral Sleep
 	@Expose
 	boolean difficulty_sleep_collat, night_waking_collat, early_waking_collat, meds_check_collat, nap_check_collat;
@@ -213,6 +226,8 @@ public class Lifestyle {
 	String alcohol_notes_collat;
 	@Expose
 	boolean alcohol_reduce_interest, alcohol_reduce_interest_collat;
+	@Expose
+	String interested_in_reducing_alcohol, interested_in_reducing_aclohol_collat;
 	
 	//Smoking
 	@Expose
@@ -283,8 +298,242 @@ public class Lifestyle {
 		this.early_waking = early_waking;
 	}
 
+	public String getInterested_in_reducing_alcohol() {
+		return interested_in_reducing_alcohol;
+	}
+
+	public void setInterested_in_reducing_alcohol(
+			String interested_in_reducing_alcohol) {
+		this.interested_in_reducing_alcohol = interested_in_reducing_alcohol;
+	}
+
+	public String getInterested_in_reducing_aclohol_collat() {
+		return interested_in_reducing_aclohol_collat;
+	}
+
+	public void setInterested_in_reducing_aclohol_collat(
+			String interested_in_reducing_aclohol_collat) {
+		this.interested_in_reducing_aclohol_collat = interested_in_reducing_aclohol_collat;
+	}
+
 	public boolean isMeds_check() {
 		return meds_check;
+	}
+
+	public String getSleep_difficulty() {
+		return sleep_difficulty;
+	}
+
+	public void setSleep_difficulty(String sleep_difficulty) {
+		this.sleep_difficulty = sleep_difficulty;
+	}
+
+	public String getSleep_difficulty_collat() {
+		return sleep_difficulty_collat;
+	}
+
+	public void setSleep_difficulty_collat(String sleep_difficulty_collat) {
+		this.sleep_difficulty_collat = sleep_difficulty_collat;
+	}
+
+	public String getWaking_during_night() {
+		return waking_during_night;
+	}
+
+	public void setWaking_during_night(String waking_during_night) {
+		this.waking_during_night = waking_during_night;
+	}
+
+	public String getWaking_during_night_collat() {
+		return waking_during_night_collat;
+	}
+
+	public void setWaking_during_night_collat(String waking_during_night_collat) {
+		this.waking_during_night_collat = waking_during_night_collat;
+	}
+
+	public String getWaking_early() {
+		return waking_early;
+	}
+
+	public void setWaking_early(String waking_early) {
+		this.waking_early = waking_early;
+	}
+
+	public String getWaking_early_collat() {
+		return waking_early_collat;
+	}
+
+	public void setWaking_early_collat(String waking_early_collat) {
+		this.waking_early_collat = waking_early_collat;
+	}
+
+	public String getTaking_sleep_meds() {
+		return taking_sleep_meds;
+	}
+
+	public void setTaking_sleep_meds(String taking_sleep_meds) {
+		this.taking_sleep_meds = taking_sleep_meds;
+	}
+
+	public String getTaking_sleep_meds_collat() {
+		return taking_sleep_meds_collat;
+	}
+
+	public void setTaking_sleep_meds_collat(String taking_sleep_meds_collat) {
+		this.taking_sleep_meds_collat = taking_sleep_meds_collat;
+	}
+
+	public String getTakes_naps() {
+		return takes_naps;
+	}
+
+	public void setTakes_naps(String takes_naps) {
+		this.takes_naps = takes_naps;
+	}
+
+	public String getTakes_naps_collat() {
+		return takes_naps_collat;
+	}
+
+	public void setTakes_naps_collat(String takes_naps_collat) {
+		this.takes_naps_collat = takes_naps_collat;
+	}
+
+	public String getMissing_meals() {
+		return missing_meals;
+	}
+
+	public void setMissing_meals(String missing_meals) {
+		this.missing_meals = missing_meals;
+	}
+
+	public String getMissing_meals_collat() {
+		return missing_meals_collat;
+	}
+
+	public void setMissing_meals_collat(String missing_meals_collat) {
+		this.missing_meals_collat = missing_meals_collat;
+	}
+
+	public String getSweet_tooth() {
+		return sweet_tooth;
+	}
+
+	public void setSweet_tooth(String sweet_tooth) {
+		this.sweet_tooth = sweet_tooth;
+	}
+
+	public String getSweet_tooth_collat() {
+		return sweet_tooth_collat;
+	}
+
+	public void setSweet_tooth_collat(String sweet_tooth_collat) {
+		this.sweet_tooth_collat = sweet_tooth_collat;
+	}
+
+	public String getFried_food() {
+		return fried_food;
+	}
+
+	public void setFried_food(String fried_food) {
+		this.fried_food = fried_food;
+	}
+
+	public String getFried_food_collat() {
+		return fried_food_collat;
+	}
+
+	public void setFried_food_collat(String fried_food_collat) {
+		this.fried_food_collat = fried_food_collat;
+	}
+
+	public String getTakeaways() {
+		return takeaways;
+	}
+
+	public void setTakeaways(String takeaways) {
+		this.takeaways = takeaways;
+	}
+
+	public String getTakeaways_collat() {
+		return takeaways_collat;
+	}
+
+	public void setTakeaways_collat(String takeaways_collat) {
+		this.takeaways_collat = takeaways_collat;
+	}
+
+	public String getCakes_biscuits() {
+		return cakes_biscuits;
+	}
+
+	public void setCakes_biscuits(String cakes_biscuits) {
+		this.cakes_biscuits = cakes_biscuits;
+	}
+
+	public String getCakes_biscuits_collat() {
+		return cakes_biscuits_collat;
+	}
+
+	public void setCakes_biscuits_collat(String cakes_biscuits_collat) {
+		this.cakes_biscuits_collat = cakes_biscuits_collat;
+	}
+
+	public String getWeight_suggestion() {
+		return weight_suggestion;
+	}
+
+	public void setWeight_suggestion(String weight_suggestion) {
+		this.weight_suggestion = weight_suggestion;
+	}
+
+	public String getWeight_suggestion_collat() {
+		return weight_suggestion_collat;
+	}
+
+	public void setWeight_suggestion_collat(String weight_suggestion_collat) {
+		this.weight_suggestion_collat = weight_suggestion_collat;
+	}
+
+	public String getIllicit_substance() {
+		return illicit_substance;
+	}
+
+	public void setIllicit_substance(String illicit_substance) {
+		this.illicit_substance = illicit_substance;
+	}
+
+	public String getIllicit_substance_collat() {
+		return illicit_substance_collat;
+	}
+
+	public void setIllicit_substance_collat(String illicit_substance_collat) {
+		this.illicit_substance_collat = illicit_substance_collat;
+	}
+
+	public String getCollat_sleep() {
+		return collat_sleep;
+	}
+
+	public String getCollat_exercise() {
+		return collat_exercise;
+	}
+
+	public String getAlcohol_collat() {
+		return alcohol_collat;
+	}
+
+	public String getSmoking_collat() {
+		return smoking_collat;
+	}
+
+	public String getDrug_collat() {
+		return drug_collat;
+	}
+
+	public String getCollat_diet() {
+		return collat_diet;
 	}
 
 	public void setMeds_check(boolean meds_check) {

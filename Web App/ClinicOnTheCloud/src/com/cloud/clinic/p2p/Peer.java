@@ -24,7 +24,7 @@ public class Peer implements java.io.Serializable{
 	private String channelID;
 	private String p2pAddress;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Superpeer sp;
 	
 	@Id

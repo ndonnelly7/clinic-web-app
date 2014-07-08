@@ -692,6 +692,7 @@
 				</div>
 				<div class="pure-u-1-2"> 
 					<select name="depression_yn" onchange="revealDepression(this)" style="display:inline-block" id="feeling_down" class="dep_select">
+						<option value="unknown">Unknown</option>
 						<option value="no">No</option>
 						<option value="yes">Yes</option>
 					</select>
@@ -703,6 +704,7 @@
 				</div>
 				<div class="pure-u-1-2"> 
 					<select name="pleasure_yn" onchange="revealDepression(this)" style="display:inline-block" id="no_interest" class="dep_select">
+						<option value="unknown">Unknown</option>
 						<option value="no">No</option>
 						<option value="yes">Yes</option>
 					</select>
@@ -719,6 +721,7 @@
 					</div>
 					<div class="pure-u-1-2"> 
 						<select name="worthless_yn" onchange="revealDepression(this)" style="display:inline-block" id="worthless" class="dep_select">
+							<option value="unknown">Unknown</option>
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -730,6 +733,7 @@
 					</div>
 					<div class="pure-u-1-2"> 
 						<select name="concentration_yn" onchange="revealDepression(this)" style="display:inline-block" id="concentration" class="dep_select">
+							<option value="unknown">Unknown</option>
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -741,6 +745,7 @@
 					</div>
 					<div class="pure-u-1-2"> 
 						<select name="death_yn" onchange="revealDepression(this)" style="display:inline-block" id="death" class="dep_select">
+							<option value="unknown">Unknown</option>
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>

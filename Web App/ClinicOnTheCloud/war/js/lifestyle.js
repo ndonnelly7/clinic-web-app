@@ -299,6 +299,14 @@ function showOngoing(elem) {
 	$(elem).children('.reason_notes').children('.reason_input').prop('disabled', true);
 }
 
+function showSleepDiv(sel, divID) {
+	if($(sel).val() == 'yes'){
+		$("#"+divID).show(500);
+	} else {
+		$("#"+divID).hide(500);
+	}
+}
+
 function retrieveSleepInfo() {
 	console.log("Entered function");
 	var p_id = -1;

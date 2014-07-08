@@ -70,6 +70,7 @@ public class Superpeer {
 		boolean notfound = true;
 		for(int i = 0; i < peers.size() && notfound; i++){
 			if(peers.get(i).getClinicianID().equals(c)){
+				peers.get(i).setP2pAddress("");
 				peers.remove(i);
 				notfound = false;
 			}

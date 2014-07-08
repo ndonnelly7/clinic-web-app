@@ -51,12 +51,9 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			}
 			break;
 		case "PEER_SIGN_IN":
-			String token = signPeerIn(req, user);
+			String result = signPeerIn(req, user);
 			resp.setContentType("text/plain");
-			resp.getWriter().println(token);
-			break;
-		case "INIT_PEER":
-			
+			resp.getWriter().println(result);
 			break;
 		default:
 			resp.setContentType("text/plain");
@@ -102,7 +99,7 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 	}
 	
 	public String signPeerIn(HttpServletRequest req, User user){
-		String token = "";
+		String result = "token:";
 		
 		ClinicianDAO cDAO = new ClinicianDAO();
 		Clinician c = cDAO.get(user.getUserId());
@@ -111,13 +108,20 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		P2PDAO p2pdao = new P2PDAO();
 		P2P p2p = p2pdao.getP2P();
 		Superpeer sp = p2p.getSuperpeer(clinic.getClinicName());
+		String p2p_id = req.getParameter("p2p_id");
 		Peer p = p2pdao.addPeer(c, sp, (String) req.getAttribute("p2p_token"));
+		p.setP2pAddress(p2p_id);
+		p2pdao.updatePeer(p);
 		
+		String token = "";
 		if(p != null) {
 			ChannelService channelService = ChannelServiceFactory.getChannelService();
 			token = channelService.createChannel(p.getChannelID());
 		}
 		
-		return token;
+		result += token + ":peer:";
+		result += p2p_id;
+		
+		return result;
 	}
 }

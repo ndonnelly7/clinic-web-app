@@ -778,7 +778,7 @@
 			<div class="routine_q_check">Do you cook for yourself?</div>
 			<!-- <input type="checkbox" id="init_cooking_check" onchange="cookingCheckChanged(this, 'does_cook')"> -->
 			<select name="cook" onchange="cookingCheckChanged(this, 'does_cook')">
-				<option value="unknown">unknown</option>
+				<option value="unknown">Unknown</option>
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
 			</select>
@@ -1590,6 +1590,7 @@
 				<div class="subtitle_q">Have you been finding it tougher to cook recently?</div>
 				<div class="bills_select">
 					<select name="shopping_tougher" id="shop_tough_select">
+						<option value="unknown">Unknown</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>

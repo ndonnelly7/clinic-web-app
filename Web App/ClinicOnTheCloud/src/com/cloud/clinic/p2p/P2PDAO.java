@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import com.cloud.clinic.model.Clinic;
 import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
+import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.EMF;
 
 public class P2PDAO {
@@ -248,6 +249,31 @@ public class P2PDAO {
 		}
 		
 		return result;
+	}
+	
+	public boolean updatePeer(Peer p){
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		P2P pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			pd = em.find(P2P.class, p2pdao_key);
+			
+			if(pd != null) {
+				
+				if(removePeer(p, p.getSp())){
+					ClinicianDAO cDAO = new ClinicianDAO();
+					
+					return pd.signPeerIn(cDAO.get(p.getClinicianID()), p.getSp().getClinicID()) == null ? true : false;
+				} else return false;
+			}
+		} finally {
+			if(em != null)
+				em.close();
+		}
+		
+		return false;
 	}
 	
 	public boolean addPatientKeyToPeer(Peer p, Superpeer sp, int pID){

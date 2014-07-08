@@ -52,6 +52,9 @@ public class PersonalDetails {
 	private boolean junior_check, senior_check, third_check;
 	
 	@Expose
+	private String junior_cert_education, senior_cert_education, third_level_education;
+	
+	@Expose
 	private boolean wants_reassurance, wants_assessment, wants_information;
 	
 	public PersonalDetails(){
@@ -95,6 +98,30 @@ public class PersonalDetails {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getJunior_cert_education() {
+		return junior_cert_education;
+	}
+
+	public void setJunior_cert_education(String junior_cert_education) {
+		this.junior_cert_education = junior_cert_education;
+	}
+
+	public String getSenior_cert_education() {
+		return senior_cert_education;
+	}
+
+	public void setSenior_cert_education(String senior_cert_education) {
+		this.senior_cert_education = senior_cert_education;
+	}
+
+	public String getThird_level_education() {
+		return third_level_education;
+	}
+
+	public void setThird_level_education(String third_level_education) {
+		this.third_level_education = third_level_education;
 	}
 
 	public int getAge_left() {

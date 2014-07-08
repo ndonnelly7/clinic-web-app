@@ -37,8 +37,13 @@
 		
 		<div id="sleep_difficulty" class="pure-g-u">
 			<div class="pure-u-1-3 lifestyle_title">Do you generally find it difficult to fall asleep?</div>
-			<div class="pure-u-1-3 check">
-				<input type="checkbox" name="difficulty_sleep" onclick="showHiddenDiv(this, 'difficulty_sleep')">
+			<div class="pure-u-1-3 life_select_box">
+				<!-- <input type="checkbox" name="difficulty_sleep" onclick="showHiddenDiv(this, 'difficulty_sleep')"> -->
+				<select name="sleep_difficulty" id="sleep_difficulty" onchange="showSleepDiv(this, 'difficulty_sleep')">
+					<option value="unknown">Unknown</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
 			</div>
 			<div class="pure-u-1-3 notes_column">
 				<textarea name="difficulty_sleep_notes" form="lifestyle_form" rows="2"></textarea>
@@ -97,8 +102,13 @@
 		
 		<div id="night_waking" class="pure-g-u">
 			<div class="pure-u-1-3 lifestyle_title">Do you ever wake up during the night?</div>
-			<div class="pure-u-1-3 check">
-				<input type="checkbox" name="night_waking" onclick="showHiddenDiv(this, 'night_waking_qs')">
+			<div class="pure-u-1-3 life_select_box">
+				<!-- <input type="checkbox" name="night_waking" onclick="showHiddenDiv(this, 'night_waking_qs')"> -->
+				<select name="waking_during_night" id="waking_during_night" onchange="showSleepDiv(this, 'night_waking_qs')">
+					<option value="unknown">Unknown</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
 			</div>
 			<div class="pure-u-1-3 notes_column">
 				<textarea name="night_waking_notes" form="lifestyle_form" rows="2"></textarea>
@@ -159,8 +169,13 @@
 			<div class="pure-u-1-3 lifestyle_title">
 				<span>Do you wake up very early in the morning?</span>
 			</div>
-			<div class="pure-u-1-3 check">
-				<input type="checkbox" name="early_waking" onclick="showHiddenDiv(this, 'early_waking_qs')">
+			<div class="pure-u-1-3 life_select_box">
+				<!-- <input type="checkbox" name="early_waking" onclick="showHiddenDiv(this, 'early_waking_qs')"> -->
+				<select name="waking_early" id="waking_early" onchange="showSleepDiv(this, 'early_waking_qs')">
+					<option value="unknown">Unknown</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
 			</div>
 			<div class="pure-u-1-3 notes_column">
 				<textarea name="early_waking_notes" form="lifestyle_form" rows="2"></textarea>
@@ -235,8 +250,13 @@
 			
 			<div id="meds_sleep">
 				<div class="lifestyle_title pure-u-1-3">Do you ever take medication or alcohol to help you sleep?</div>
-				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="meds_check" onclick="showHiddenDiv(this, 'meds_sleep_qs')" id="sleep_meds_check">
+				<div class="pure-u-1-3 life_select_box">
+					<!-- <input type="checkbox" name="meds_check" onclick="showHiddenDiv(this, 'meds_sleep_qs')" id="sleep_meds_check"> -->
+					<select name="taking_sleep_meds" id="taking_sleep_meds" onchange="showSleepDiv(this, 'meds_sleep_qs')">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div id="meds_sleep_qs" class="hide_div">
 					<div class="pure-u-1-3 lifestyle_subtitle" id="subtitle_margin_change">What medication?</div>
@@ -259,8 +279,13 @@
 			
 			<div id="naps">
 				<div class="lifestyle_title pure-u-1-3">Do you ever take naps during the day?</div>
-				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="nap_check" onclick="showHiddenDiv(this, 'nap_qs')">
+				<div class="pure-u-1-3 life_select_box">
+					<!-- <input type="checkbox" name="nap_check" onclick="showHiddenDiv(this, 'nap_qs')"> -->
+					<select name="takes_naps" id="takes_naps" onchange="showSleepDiv(this, 'nap_qs')">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div id="nap_qs" class="hide_div">
 					<div class="pure-u-1-3 lifestyle_subtitle">For how long?</div>
@@ -298,8 +323,13 @@
 			<div id="sleep_collat" class="hide_div">
 			<div id="sleep_difficulty" class="pure-g-u">
 				<div class="pure-u-1-3 lifestyle_title">Do you generally find it difficult to fall asleep?</div>
-				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="difficulty_sleep_collat" onclick="showHiddenDiv(this, 'difficulty_sleep_collat')">
+				<div class="pure-u-1-3 life_select_box">
+					<!-- <input type="checkbox" name="difficulty_sleep_collat" onclick="showHiddenDiv(this, 'difficulty_sleep_collat')"> -->
+					<select name="sleep_difficulty_collat" id="sleep_difficulty_collat" onchange="showSleepDiv(this, 'difficulty_sleep_collat')">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div class="pure-u-1-3 notes_column">
 					<textarea name="difficulty_sleep_notes_collat" form="lifestyle_form" rows="2"></textarea>
@@ -358,8 +388,13 @@
 			
 			<div id="night_waking" class="pure-g-u">
 				<div class="pure-u-1-3 lifestyle_title">Do you ever wake up during the night?</div>
-				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="night_waking_collat" onclick="showHiddenDiv(this, 'night_waking_collat')">
+				<div class="pure-u-1-3 life_select_box">
+					<!-- <input type="checkbox" name="night_waking_collat" onclick="showHiddenDiv(this, 'night_waking_collat')"> -->
+					<select name="waking_during_night_collat" id="waking_during_night_collat" onchange="showSleepDiv(this, 'night_waking_collat')">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div class="pure-u-1-3 notes_column">
 					<textarea name="night_waking_notes_collat" form="lifestyle_form" rows="2"></textarea>
@@ -420,8 +455,13 @@
 				<div class="pure-u-1-3 lifestyle_title">
 					<span>Do you wake up very early in the morning?</span>
 				</div>
-				<div class="pure-u-1-3 check">
-					<input type="checkbox" name="early_waking_collat" onclick="showHiddenDiv(this, 'early_waking_collat')">
+				<div class="pure-u-1-3 life_select_box">
+					<!-- <input type="checkbox" name="early_waking_collat" onclick="showHiddenDiv(this, 'early_waking_collat')"> -->
+					<select name="waking_early_collat" id="waking_early_collat" onchange="showSleepDiv(this, 'early_waking_collat')">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div class="pure-u-1-3 notes_column">
 					<textarea name="early_waking_notes_collat" form="lifestyle_form" rows="2"></textarea>
@@ -496,8 +536,13 @@
 				
 				<div id="meds_sleep">
 					<div class="lifestyle_title pure-u-1-3">Do you ever take medication to help you sleep?</div>
-					<div class="pure-u-1-3 check">
-						<input type="checkbox" name="meds_check_collat" onclick="showHiddenDiv(this, 'meds_sleep_collat')">
+					<div class="pure-u-1-3 life_select_box">
+						<!-- <input type="checkbox" name="meds_check_collat" onclick="showHiddenDiv(this, 'meds_sleep_collat')"> -->
+						<select name="taking_sleep_meds_collat" id="taking_sleep_meds_collat" onchange="showSleepDiv(this, 'meds_sleep_collat')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="meds_sleep_collat" class="hide_div">
 						<div class="pure-u-1-3 lifestyle_subtitle" id="subtitle_margin_change">What medication?</div>
@@ -519,8 +564,13 @@
 				
 				<div id="naps">
 					<div class="lifestyle_title pure-u-1-3">Do you ever take naps during the day?</div>
-					<div class="pure-u-1-3 check">
-						<input type="checkbox" name="nap_check_collat" onclick="showHiddenDiv(this, 'nap_collat')">
+					<div class="pure-u-1-3 life_select_box">
+						<!-- <input type="checkbox" name="nap_check_collat" onclick="showHiddenDiv(this, 'nap_collat')"> -->
+						<select name="takes_naps_collat" id="takes_naps_collat" onchange="showSleepDiv(this, 'nap_collat')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="nap_collat" class="hide_div">
 						<div class="pure-u-1-3 lifestyle_subtitle">For how long?</div>
@@ -728,8 +778,13 @@
 			<div class="pure-g-u">
 				<div id="miss_meals">
 					<div class="pure-u-1-2 title">Do you ever miss meals?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="miss_meals" onclick="showHiddenDiv(this, 'miss_qs')">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="miss_meals" onclick="showHiddenDiv(this, 'miss_qs')"> -->
+						<select name="missing_meals" id="missing_meals" onchange="showSleepDiv(this, 'miss_qs')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="miss_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -746,8 +801,13 @@
 				</div>
 				<div id="sweets">
 					<div class="pure-u-1-2 title">Do you have a sweet tooth?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="sweets" onclick="showHiddenDiv(this, 'sweets_qs')">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="sweets" onclick="showHiddenDiv(this, 'sweets_qs')"> -->
+						<select name="sweet_tooth" id="sweet_tooth" onchange="showSleepDiv(this, 'sweets_qs')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="sweets_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_subtitle">How often do you have sweet things?</div>
@@ -766,8 +826,13 @@
 				
 				<div id="fried_food">
 					<div class="pure-u-1-2 title">Do you eat any fried food?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="fried" onclick="showHiddenDiv(this, 'fried_qs')">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="fried" onclick="showHiddenDiv(this, 'fried_qs')"> -->
+						<select name="fried_food" id="fried_food" onchange="showSleepDiv(this, 'fried_qs')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="fried_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -786,8 +851,13 @@
 				
 				<div id="takeaway">
 					<div class="pure-u-1-2 title">Do you ever have a takeaway?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="takeaway" onclick="showHiddenDiv(this, 'takeaway_qs')">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="takeaway" onclick="showHiddenDiv(this, 'takeaway_qs')"> -->
+						<select name="takeaways" id="takeaways" onchange="showSleepDiv(this, 'takeaway_qs')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="takeaway_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -805,8 +875,13 @@
 				
 				<div id="cakes_biscuits">
 					<div class="pure-u-1-2 title">Do you ever have cakes or biscuits?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="cakes" onclick="showHiddenDiv(this, 'cakes_qs')">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="cakes" onclick="showHiddenDiv(this, 'cakes_qs')"> -->
+						<select name="cakes_biscuits" id="cakes_biscuits" onchange="showSleepDiv(this, 'cakes_qs')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="cakes_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -825,8 +900,13 @@
 				
 				<div id="lose_weight">
 					<div class="pure-u-1-2 title">Has anyone suggested you could lose weight?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="weight" onclick="showHiddenDiv(this, 'weight_interest_qs')">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="weight" onclick="showHiddenDiv(this, 'weight_interest_qs')"> -->
+						<select name="weight_suggestion" id="weight_suggestion" onchange="showSleepDiv(this, 'weight_interest_qs')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 					<div id="weight_interest_qs" class="hide_div">
 						<div class="pure-u-1-2 lifestyle_subtitle">When was the last time someone mentioned it?</div>
@@ -884,7 +964,12 @@
 						<div id="miss_meals">
 							<div class="pure-u-1-2 title">Do they ever miss meals?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="miss_meals_collat" onclick="showHiddenDiv(this, 'miss_qs_collat')">
+								<!-- <input type="checkbox" name="miss_meals_collat" onclick="showHiddenDiv(this, 'miss_qs_collat')"> -->
+								<select name="missing_meals_collat" id="missing_meals_collat" onchange="showSleepDiv(this, 'miss_qs_collat')">
+									<option value="unknown">Unknown</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 							<div id="miss_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -902,7 +987,12 @@
 						<div id="sweets">
 							<div class="pure-u-1-2 title">Do they have a sweet tooth?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="sweets_collat" onclick="showHiddenDiv(this, 'sweets_qs_collat')">
+								<!-- <input type="checkbox" name="sweets_collat" onclick="showHiddenDiv(this, 'sweets_qs_collat')"> -->
+								<select name="sweet_tooth_collat" id="sweet_tooth_collat" onchange="showSleepDiv(this, 'sweets_qs_collat')">
+									<option value="unknown">Unknown</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 							<div id="sweets_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often do you have sweet things?</div>
@@ -922,7 +1012,12 @@
 						<div id="fried_food">
 							<div class="pure-u-1-2 title">Do they eat any fried food?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="fried_collat" onclick="showHiddenDiv(this, 'fried_qs_collat')">
+								<!-- <input type="checkbox" name="fried_collat" onclick="showHiddenDiv(this, 'fried_qs_collat')"> -->
+								<select name="fried_food_collat" id="fried_food_collat" onchange="showSleepDiv(this, 'fried_qs_collat')">
+									<option value="unknown">Unknown</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 							<div id="fried_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -942,7 +1037,12 @@
 						<div id="takeaway">
 							<div class="pure-u-1-2 title">Do they ever have a takeaway?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="takeaway_collat" onclick="showHiddenDiv(this, 'takeaway_qs_collat')">
+								<!-- <input type="checkbox" name="takeaway_collat" onclick="showHiddenDiv(this, 'takeaway_qs_collat')"> -->
+								<select name="takeaways_collat" id="takeaways_collat" onchange="showSleepDiv(this, 'takeaway_qs_collat')">
+									<option value="unknown">Unknown</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 							<div id="takeaway_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -961,7 +1061,12 @@
 						<div id="cakes_biscuits">
 							<div class="pure-u-1-2 title">Do they ever have cakes or biscuits?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="cakes_collat" onclick="showHiddenDiv(this, 'cakes_qs_collat')">
+								<!-- <input type="checkbox" name="cakes_collat" onclick="showHiddenDiv(this, 'cakes_qs_collat')"> -->
+								<select name="cakes_biscuits_collat" id="cakes_biscuits_collat" onchange="showSleepDiv(this, 'cakes_qs_collat')">
+									<option value="unknown">Unknown</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 							<div id="cakes_qs_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
@@ -981,7 +1086,12 @@
 						<div id="lose_weight">
 							<div class="pure-u-1-2 title">Has anyone suggested they could lose weight?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="weight_collat" onclick="showHiddenDiv(this, 'weight_interest_collat')">
+								<!-- <input type="checkbox" name="weight_collat" onclick="showHiddenDiv(this, 'weight_interest_collat')"> -->
+								<select name="weight_suggestion_collat" id="weight_suggestion_collat" onchange="showSleepDiv(this, 'weight_interest_collat')">
+									<option value="unknown">Unknown</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 							<div id="weight_interest_collat" class="hide_div">
 								<div class="pure-u-1-2 lifestyle_subtitle">When was the last time someone mentioned it?</div>
@@ -1092,8 +1202,13 @@
 				</div>
 				<div id="alcohol_help">
 					<div class="pure-u-1-2 subtitle">Would you be interested in reducing your alcohol intake?</div>
-					<div class="pure-u-1-2 check">
-						<input type="checkbox" name="alcohol_reduce_interest">
+					<div class="pure-u-1-2 life_select_box">
+						<!-- <input type="checkbox" name="alcohol_reduce_interest"> -->
+						<select name="interested_in_reducing_alcohol">
+							<option value="unknown">Unknown</option>
+							<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
 					</div>
 				</div>
 			</div>
@@ -1107,6 +1222,7 @@
 					<div class="lifestyle_vice_title pure-u-1-2">Do they drink any alcohol?</div>
 					<div class="select_box pure-u-1-2" style="margin-left:0px;">
 						<select name="alcohol_collat_yn" onchange="revealAlcoholCollat(this)">
+							<option value="unknown">Unknown</option>
 							<option value="no">No</option>
 							<option value="yes">Yes</option>
 						</select>
@@ -1170,7 +1286,12 @@
 						<div id="alcohol_help">
 							<div class="pure-u-1-2 subtitle">Would they be interested in reducing their alcohol intake?</div>
 							<div class="pure-u-1-2 check">
-								<input type="checkbox" name="alcohol_reduce_interest_collat">
+								<!-- <input type="checkbox" name="alcohol_reduce_interest_collat"> -->
+								<select name="interested_in_reducing_alcohol">
+									<option value="unknown">Unknown</option>
+									<option value="no">No</option>
+									<option value="yes">Yes</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -1254,7 +1375,14 @@
 		<legend>Drugs</legend>
 		<div id="drugs" class="pure-g-u">
 			<div class="lifestyle_vice_title pure-u-1-2">Any history of taking illicit substances?</div>
-			<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="drugs" value="drugs" onclick="showHiddenDiv(this, 'drugs_qs')"></div>
+			<div class="check pure-u-1-2" style="margin-left:0px;">
+				<!-- <input type="checkbox" name="drugs" value="drugs" onclick="showHiddenDiv(this, 'drugs_qs')"> -->
+				<select name="illicit_substance" id="illicit_substance" onchange="showSleepDiv(this, 'drugs_qs')">
+					<option value="unknown">Unknown</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			</div>
 			<div id="drugs_qs"></div>
 			<textarea form="lifestyle_form" name="drugs_notes" rows="3" cols="40" style="margin-left:1%;"></textarea>
 			
@@ -1264,8 +1392,15 @@
 			
 				<div id="collat_drugs" class="hide_div collat_life_div">
 					<div class="lifestyle_vice_title pure-u-1-2">Any history of taking illicit substances?</div>
-					<div class="check pure-u-1-2" style="margin-left:0px;"><input type="checkbox" name="drug_check_collat" value="drugs" onclick="showHiddenDiv(this, 'drugs_qs')"></div>
-					<div id="drugs_qs"></div>
+					<div class="check pure-u-1-2" style="margin-left:0px;">
+						<!-- <input type="checkbox" name="drug_check_collat" value="drugs" onclick="showHiddenDiv(this, 'drugs_qs')"> -->
+						<select name="illicit_substance_collat" id="illicit_substance_collat" onchange="showSleepDiv(this, 'drugs_qs_collat')">
+							<option value="unknown">Unknown</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+					<div id="drugs_qs_collat"></div>
 					<textarea form="lifestyle_form" name="drugs_notes_collat" rows="3" cols="40" style="margin-left:1%;"></textarea>
 				</div>
 			</div>

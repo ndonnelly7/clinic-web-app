@@ -377,25 +377,49 @@
 		<div id="ther_history">
 			<div id="ther_adds">
 				<div id="current_ther">
+					<!-- <label for="current_therapy_check" class="title">Are you currently going through any counselling or therapy?</label>
+					<input type="checkbox" name="current_therapy_check" /> -->
 					<label for="current_therapy_check" class="title">Are you currently going through any counselling or therapy?</label>
-					<input type="checkbox" name="current_therapy_check" />
+					<select name="current_therapy_check" id="current_therapy_check">
+						<option value="unknown">Unknown</option>
+						<option value="no">No</option>
+						<option value="yes">Yes</option>
+					</select>
 				</div>
 				<br>
 				<div id="past_ther">
+					<!-- <label for="past_therapy_check" class="title">Have you ever been to any counselling or therapy?</label>
+					<input type="checkbox" name="past_therapy_check" /> -->
 					<label for="past_therapy_check" class="title">Have you ever been to any counselling or therapy?</label>
-					<input type="checkbox" name="past_therapy_check" />
+					<select name="past_therapy_check" id="past_therapy_check">
+						<option value="unknown">Unknown</option>
+						<option value="no">No</option>
+						<option value="yes">Yes</option>
+					</select>
 				</div>
 				<div class="collat_div history_collat">
 					<input type="button" onclick="showCollatPsych()" class="pure-button history_button collat_button" value="Difference from Collateral">
 					<div class="hide_div" id="collat_psych">
 						<div id="current_ther">
-							<label for="collat_current_therapy_check" class="title">Are they currently going through any counselling or therapy?</label>
-							<input type="checkbox" name="collat_current_therapy_check"/>
+							<!-- <label for="collat_current_therapy_check" class="title">Are they currently going through any counselling or therapy?</label>
+							<input type="checkbox" name="collat_current_therapy_check"/> -->
+							<label for="current_therapy_check_collat" class="title">Are they currently going through any counselling or therapy?</label>
+							<select name="current_therapy_check_collat" id="current_therapy_check_collat">
+								<option value="unknown">Unknown</option>
+								<option value="no">No</option>
+								<option value="yes">Yes</option>
+							</select>
 						</div>
 						<br>
 						<div id="past_ther">
-							<label for="collat_past_therapy_check" class="title">Have they ever been to any counselling or therapy?</label>
-							<input type="checkbox" name="collat_past_therapy_check"/>
+							<!-- <label for="collat_past_therapy_check" class="title">Have they ever been to any counselling or therapy?</label>
+							<input type="checkbox" name="collat_past_therapy_check"/> -->
+							<label for="past_therapy_check_collat" class="title">Have they ever been to any counselling or therapy?</label>
+							<select name="past_therapy_check_collat" id="past_therapy_check_collat">
+								<option value="unknown">Unknown</option>
+								<option value="no">No</option>
+								<option value="yes">Yes</option>
+							</select>
 						</div>
 					</div>
 				</div>

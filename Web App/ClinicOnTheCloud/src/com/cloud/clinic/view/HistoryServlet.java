@@ -54,26 +54,10 @@ public class HistoryServlet extends HttpServlet {
 		String pTherCheck = req.getParameter("past_therapy_check");
 		String collat_cTherCheck = req.getParameter("collat_current_therapy_check");
 		String collat_pTherCheck = req.getParameter("collat_past_therapy_check");
-		if(cTherCheck != null && cTherCheck.equalsIgnoreCase("on")){
-			pHistory.setCurrent_therapy_check("true");
-		} else {
-			pHistory.setCurrent_therapy_check("false");
-		}
-		if(pTherCheck != null && pTherCheck.equalsIgnoreCase("on")){
-			pHistory.setPast_therapy_check("true");
-		} else {
-			pHistory.setPast_therapy_check("false");
-		}
-		if(collat_cTherCheck != null && collat_cTherCheck.equalsIgnoreCase("on")){
-			pHistory.setCollat_current_therapy_check("true");
-		} else {
-			pHistory.setCollat_current_therapy_check("false");
-		}
-		if(collat_pTherCheck != null && collat_pTherCheck.equalsIgnoreCase("on")){
-			pHistory.setCollat_past_therapy_check("true");
-		} else {
-			pHistory.setCollat_past_therapy_check("false");
-		}
+		pHistory.setCurrent_therapy_check(cTherCheck);
+		pHistory.setPast_therapy_check(pTherCheck);
+		pHistory.setCollat_current_therapy_check(collat_cTherCheck);
+		pHistory.setCollat_past_therapy_check(collat_pTherCheck);
 		
 		if(f.isNew()){
 			pHistory.setForm(f);

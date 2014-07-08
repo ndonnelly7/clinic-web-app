@@ -130,16 +130,34 @@
 		<label>Have you completed:</label>
 		</div>
 		<div class="pure-control-group">
-		<label for="junior_check">Junior Certificate</label>
-		<input type="checkbox" name="junior_check" id="junior_check">
+		<!-- <label for="junior_check">Junior Certificate</label>
+		<input type="checkbox" name="junior_check" id="junior_check"> -->
+			<label for="junior_cert_education">Junior Certificate</label>
+			<select name="junior_cert_education" id="junior_cert_education">
+				<option value="unknown">Unknown</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
 		</div>
 		<div id="junior_done" class="pure-control-group">
-		<label for="senior_check">Leaving Certificate</label>
-		<input type="checkbox" name="senior_check" id="senior_check"><br>
+		<!-- <label for="senior_check">Leaving Certificate</label>
+		<input type="checkbox" name="senior_check" id="senior_check"><br> -->
+			<label for="senior_cert_education">Senior Certificate</label>
+			<select name="senior_cert_education" id="senior_cert_education">
+				<option value="unknown">Unknown</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
 		</div>
 		<div id="leaving_done" class="pure-control-group">
-		<label for="third_check">Third Level (or Equivalent)</label>
-		<input type="checkbox" name="third_check" id="third_check" onclick="showHiddenDiv(this,'third_done')"><br>
+		<!-- <label for="third_check">Third Level (or Equivalent)</label>
+		<input type="checkbox" name="third_check" id="third_check" onclick="showHiddenDiv(this,'third_done')"><br> -->
+			<label for="third_level_education">Third Level (or Equivalent)</label>
+			<select name="third_level_education" id="third_level_education" onchange="showThirdLevel(this,'third_done')">
+				<option value="unknown">Unknown</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
 		</div>
 		<div id="third_done" class="hide_div pure-control-group">
 		<label for="study_topic">Area of Study</label>
@@ -289,6 +307,14 @@ function storeCollateral(elem) {
 
 function printPForm(pf){
 	console.log(pf);
+}
+
+function showThirdLevel(sel, div){
+	if($(sel).val() == 'yes'){
+		$("#"+div).show(500);
+	} else {
+		$("#"+div).hide(250);
+	}
 }
 
 function nextPage(page) {
