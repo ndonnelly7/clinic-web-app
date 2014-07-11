@@ -96,19 +96,19 @@ public class EvActServlet extends HttpServlet {
 				if(involvements[i].equalsIgnoreCase("no")){
 					
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;
 					}
@@ -116,7 +116,7 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("ongoing")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
@@ -126,26 +126,26 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("decrease")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
 						current_ind++;
 					}
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;		
 					}
@@ -180,19 +180,19 @@ public class EvActServlet extends HttpServlet {
 				if(involvements[i].equalsIgnoreCase("no")){
 					
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;
 					}
@@ -200,7 +200,7 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("ongoing")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
@@ -210,26 +210,26 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("decrease")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
 						current_ind++;
 					}
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;		
 					}

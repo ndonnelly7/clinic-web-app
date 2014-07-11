@@ -57,6 +57,10 @@ public class Peer implements java.io.Serializable{
 	public boolean addPatientID(Integer pID){
 		return this.patientIDs.add(pID);
 	}
+	
+	public boolean removePatientID(Integer pID){
+		return this.patientIDs.remove(new Integer(pID));
+	}
 
 	public Superpeer getSp() {
 		return sp;

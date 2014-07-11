@@ -23,7 +23,7 @@ public class Clinic implements java.io.Serializable{
 	
 	private String hashedPassword;
 	
-	@OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Clinician> clinicians;
 	
 	@OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

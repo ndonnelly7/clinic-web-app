@@ -129,6 +129,7 @@ function getPatient(p_id, callback){
 	var req = objectStore.get(p_id);
 	req.onerror = function(event){
 		console.error("Couldn't find patient with id: " + p_id);
+		callback("ERROR:Couldn't find patient with id: " + p_id);
 	}
 	
 	req.onsuccess = function(event) {
@@ -157,6 +158,24 @@ function getPatientsByName(name, callback){
 				cursor.continue();
 			} else {
 				callback(keys);
+			}
+		}
+	}
+}
+
+function getAllPatients(callback){
+	if(db){
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
+		var patients = new Array();
+		var i = 0;
+		store.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				patients.push(cursor.value);
+				cursor.continue();
+			}
+			else {
+				callback(patients);
 			}
 		}
 	}

@@ -25,7 +25,7 @@ public class P2PDAO {
 			em = emf.createEntityManager();
 			p2p = em.find(P2P.class, p2pdao_key);
 			
-			if(p2p == null){
+			if(!p2p.initialised){
 				
 				p2p = new P2P(p2pdao_key);
 				ClinicDAO cDAO = new ClinicDAO();
@@ -34,6 +34,7 @@ public class P2PDAO {
 					Superpeer sp = new Superpeer(clinics.get(i));
 					p2p.addSuperpeer(sp);
 				}
+				p2p.setInitialised(true);
 				em.persist(p2p);
 			}
 			
@@ -152,7 +153,8 @@ public class P2PDAO {
 			
 			if(p2p != null) {
 				result = p2p.signPeerIn(c, sp.getClinicID());
-				result.setP2pAddress(p2pToken);
+				//System.out.println("Number of peers:" + p2p.getSuperpeer(sp.getClinicID()).getPeers().size());
+				//result.setP2pAddress(p2pToken);
 				txn.commit();
 			}
 			
@@ -229,6 +231,28 @@ public class P2PDAO {
 		return result;
 	}
 	
+	public Peer findPeerWithP2PID(String peerID) {
+		Peer result = null;
+		
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		P2P pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			pd = em.find(P2P.class, p2pdao_key);
+			
+			if(pd != null) {
+				result = pd.findPeerWithP2PID(peerID);
+			}
+		} finally {
+			if(em != null)
+				em.close();
+		}
+		
+		return result;
+	}
+	
 	public Peer getPeer(String id, String clinicID){
 		Peer result = null;
 		
@@ -252,28 +276,64 @@ public class P2PDAO {
 	}
 	
 	public boolean updatePeer(Peer p){
+		boolean result = false;
 		EntityManagerFactory emf = EMF.get();
 		EntityManager em = null;
+		EntityTransaction txn = null;
 		P2P pd = null;
 		
 		try {
 			em = emf.createEntityManager();
 			pd = em.find(P2P.class, p2pdao_key);
-			
+			txn = em.getTransaction();
+			txn.begin();
 			if(pd != null) {
+				if(pd.removePeer(p, p.getSp())){
+					result = pd.addPeer(p, p.getSp());
+				} else result = false;
 				
-				if(removePeer(p, p.getSp())){
-					ClinicianDAO cDAO = new ClinicianDAO();
-					
-					return pd.signPeerIn(cDAO.get(p.getClinicianID()), p.getSp().getClinicID()) == null ? true : false;
-				} else return false;
+				txn.commit();
 			}
 		} finally {
+			if(txn != null) {
+				if(txn.isActive()) {
+					txn.rollback();
+				}
+			}
 			if(em != null)
 				em.close();
 		}
 		
-		return false;
+		return result;
+	}
+	
+	public boolean setP2PAddress(String peerName, String clinicName, String p2pAddress){
+		boolean result = false;
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		EntityTransaction txn = null;
+		P2P pd = null;
+		
+		try {
+			em = emf.createEntityManager();
+			pd = em.find(P2P.class, p2pdao_key);
+			txn = em.getTransaction();
+			txn.begin();
+			if(pd != null) {
+				pd.getPeer(peerName, pd.getSuperpeer(clinicName)).setP2pAddress(p2pAddress);;
+				txn.commit();
+			}
+		} finally {
+			if(txn != null) {
+				if(txn.isActive()) {
+					txn.rollback();
+				}
+			}
+			if(em != null)
+				em.close();
+		}
+		
+		return result;
 	}
 	
 	public boolean addPatientKeyToPeer(Peer p, Superpeer sp, int pID){

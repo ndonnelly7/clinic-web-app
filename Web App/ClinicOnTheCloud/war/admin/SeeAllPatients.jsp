@@ -25,6 +25,7 @@
 
 <h3 style="margin-left:3%">Patients Stored by You</h3>
 
+<div id="see_all_div">
 <div id="search_bar">
 	<form class="pure-form pure-form-stacked">
 		<div class="pure-control-group">
@@ -58,6 +59,7 @@
 		<input type="hidden" id="id" name="id"/>
 		<input type="hidden" name="page" value="SETUP"/>			
 	</form>
+</div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

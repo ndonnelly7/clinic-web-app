@@ -85,8 +85,7 @@ public class ClinicianDAO implements DAOInterface<Clinician, String> {
 	public List<Clinician> getAll() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
-		List<Clinician
-		> list = session.createCriteria(Clinician.class).list();
+		List<Clinician> list = session.createCriteria(Clinician.class).list();
 		
 		session.close();
 		return list;

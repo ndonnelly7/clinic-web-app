@@ -21,9 +21,20 @@ public class P2P {
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private ArrayList<Superpeer> sps;
 	
+	boolean initialised;
+	
 	public P2P(String id){
 		sps = new ArrayList<Superpeer>();
 		this.id = id;
+		initialised = false;
+	}
+
+	public boolean isInitialised() {
+		return initialised;
+	}
+
+	public void setInitialised(boolean initialised) {
+		this.initialised = initialised;
 	}
 
 	public String getId() {
@@ -43,6 +54,13 @@ public class P2P {
 	}
 	
 	public boolean addSuperpeer(Superpeer sp){
+		Iterator<Superpeer> it = sps.iterator();
+		while(it.hasNext()){
+			Superpeer spc = it.next();
+			if(spc.getClinicID().equals(sp.getClinicID())){
+				return false;
+			}
+		}
 		return sps.add(sp);
 	}
 	
@@ -65,7 +83,32 @@ public class P2P {
 		Superpeer sp = getSuperpeer(spName);
 		if(sp == null)
 			return null;
+		sp.signOutPeer(c.getClinicianID());
+		
 		return sp.signInPeer(c);
+	}
+	
+	public boolean addPeer(Peer p, Superpeer sp){
+		ArrayList<Peer> peers = sp.getPeers();
+		if(!peers.contains(p))
+			peers.add(p);
+		else return false;
+		sp.setPeers(peers);
+		for(int i = 0; i < sps.size(); i++){
+			if(sps.get(i).getClinicID().equals(sp.getClinicID()))
+				sps.set(i, sp);
+		}
+		return true;
+	}
+	
+	public boolean removePeer(Peer p, Superpeer sp){
+		ArrayList<Peer> peers = sp.getPeers();
+		boolean result = false;
+		if(peers.contains(p))
+			result = peers.remove(p);
+		else return false;
+		sp.setPeers(peers);
+		return result;
 	}
 	
 	public boolean signPeerOut(String pName, String spName){
@@ -92,6 +135,21 @@ public class P2P {
 			p = getPeer(clinicianID, sps.get(index));
 			index++;
 		}
+		return p;
+	}
+	
+	public Peer findPeerWithP2PID(String peerID){
+		Peer p = null;
+		
+		for(int i = 0; i < sps.size(); i++){
+			ArrayList<Peer> peers = sps.get(i).getPeers();
+			for(int j = 0; j < peers.size(); j++){
+				if(peers.get(j).getP2pAddress().equals(peerID)){
+					return peers.get(j);
+				}
+			}
+		}
+		
 		return p;
 	}
 	

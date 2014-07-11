@@ -2,6 +2,7 @@ package com.cloud.clinic.p2p;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Superpeer {
 	
 	private String clinicID;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "sp", cascade = CascadeType.ALL)
 	private ArrayList<Peer> peers;
 	
 	int totalNumberOfPeers;
@@ -62,12 +63,16 @@ public class Superpeer {
 	
 	public Peer signInPeer(Clinician c){
 		Peer p = new Peer(c, this);
+		if(peers == null)
+			peers = new ArrayList<Peer>();
 		peers.add(p);
 		return p;
 	}
 	
 	public boolean signOutPeer(String c){
 		boolean notfound = true;
+		if(peers == null)
+			return true;
 		for(int i = 0; i < peers.size() && notfound; i++){
 			if(peers.get(i).getClinicianID().equals(c)){
 				peers.get(i).setP2pAddress("");

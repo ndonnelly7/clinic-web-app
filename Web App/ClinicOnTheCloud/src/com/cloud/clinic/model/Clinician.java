@@ -15,6 +15,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class Clinician implements java.io.Serializable{
 
@@ -23,10 +26,11 @@ public class Clinician implements java.io.Serializable{
 
 	private String name;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Clinic clinic;
 	
-	@OneToMany(mappedBy = "clinician", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "clinician", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	List<Patient> patients;
 	
 	@Temporal(TemporalType.TIMESTAMP)
