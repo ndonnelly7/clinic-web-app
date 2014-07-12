@@ -20,6 +20,7 @@ public class Job  implements java.io.Serializable{
 	@Transient
 	private static final long serialVersionUID = 1L;
 	
+	int job_id;
 	String requestorName;
 	String job;
 	long timestamp;
@@ -32,12 +33,13 @@ public class Job  implements java.io.Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Key id;
 	
-	public Job(String requestor, String job){
+	public Job(String requestor, String job, int job_id){
 		this.requestorName = requestor;
 		this.job = job;
 		Calendar c = new GregorianCalendar();
 		timestamp = c.getTimeInMillis();
 		requestedPeers = new ArrayList<String>();
+		this.job_id = job_id;
 	}
 
 	public String getRequestorName() {
@@ -46,6 +48,30 @@ public class Job  implements java.io.Serializable{
 
 	public void setRequestorName(String requestorName) {
 		this.requestorName = requestorName;
+	}
+
+	public int getJob_id() {
+		return job_id;
+	}
+
+	public void setJob_id(int job_id) {
+		this.job_id = job_id;
+	}
+
+	public JobQueue getJobqueue() {
+		return jobqueue;
+	}
+
+	public void setJobqueue(JobQueue jobqueue) {
+		this.jobqueue = jobqueue;
+	}
+
+	public Key getId() {
+		return id;
+	}
+
+	public void setId(Key id) {
+		this.id = id;
 	}
 
 	public String getJob() {

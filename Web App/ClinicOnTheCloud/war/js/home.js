@@ -30,7 +30,9 @@ $(function() {
 		 $("#see_all_div").hide(500);
 		 viewingSeeAll = false;
 		 $(div).val("See All Stored Patients");
+		 clearGrid();
 	 } else {
+		 loadPatients();
 		 $("#see_all_div").show(500);
 		 viewingSeeAll = true;
 		 $(div).val("Hide All Stored Patients");

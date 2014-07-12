@@ -92,10 +92,15 @@ function addPatientToDB(p){
 		}
 		
 		var store = transaction.objectStore("patients");
-		var request = store.add(p);
-		request.onsuccess = function(e){
-			console.log("Successfully added a patient: " + e.target.result);
-		}
+		getPatient(p.p_id, function(pat){
+			if(pat == null){
+				var request = store.add(p);
+				request.onsuccess = function(e){
+					console.log("Successfully added a patient: " + e.target.result);
+				}
+			}
+		});
+		
 	}
 }
 

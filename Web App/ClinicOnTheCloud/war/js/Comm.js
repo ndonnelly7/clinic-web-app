@@ -1,6 +1,7 @@
 var p2p_id, peer, token;
 var activeConnections = {};
 var showThisPatient;
+var supports_p2p;
 
 function CommInit(){
 	if(typeof(Storage) !== 'undefined'){
@@ -16,8 +17,17 @@ function CommInit(){
 				console.log("P2P ID: " + p2p_id);
 				$("#infotext").append("<div>My Peer ID: "+p2p_id+"</div>");
 				syncMe();
+				sessionStorage.setItem("p2p", true);
 				//Send p2p_id to server
 			});	
+			
+			peer.on('error', function(err){
+				if(err.type = 'browser-incompatible'){
+					sessionStorage.setItem("p2p", false);
+					p2p_id = "na";
+					syncMe();
+				}
+			});
 			
 			peer.on('connection', receiveJSON);
 	}
@@ -80,11 +90,11 @@ function channelComm(message){
 		break;
 	case 'SEND_PATIENT':
 		$("#infotext").append("<div>In SEND_PATIENT section</div>");
-		sendPatient(instruction[4], instruction[2]);
+		sendPatient(instruction[4], instruction[2], instruction[6]);
 		break;
 	case 'UPDATE_PEER':
 		$("#infotext").append("<div>In UPDATE_PEER section</div>");
-		updatePeer(instruction[2]);
+		updatePeer(instruction[2], instruction[4]);
 		break;
 	case 'REMOVE_PATIENT':
 		$("#infotext").append("<div>In REMOVE_PATIENT section</div>");
@@ -94,18 +104,73 @@ function channelComm(message){
 		$("#infotext").append("<div>In RECEIVE_PATIENT section</div>");
 		receiveJSON(instruction[2]);
 		break;
+	case 'JOB_POST':
+		$("#infotext").append("<div>In JOB_POST section</div>");
+		claimJob(instruction[2], instruction[4], instruction[6], instruction[8]);
+		break;
 	default:
 		
 	}
 }
 
+function claimJob(patientID, jobID, mode, type){
+	if(type=="REQUEST"){
+		getPatient(patientID, function(patient){
+			if(patient == null){
+				$("#infotext").append("<div>Patient is null: "+patient+"</div>");
+				//TODO: Tell server you don't have it
+				return;
+			}
+			
+			if(mode == 'p2p' && !(sessionStorage.p2p)){
+				return;
+			}
+			
+			$.ajax('/cliniconthecloud.do', {
+				method:'GET',
+				dataType:'text',
+				data: {
+					type:"CLAIM_JOB",
+					JobID:jobID
+				},
+				success:function(response) {
+					$("#infotext").append("<div>"+response+"</div>");
+				}
+			});
+		});
+	} else if(type=="UPDATE"){
+		if(mode == 'p2p' && !(sessionStorage.p2p)){
+			return;
+		}
+		
+		$.ajax('/cliniconthecloud.do', {
+			method:'GET',
+			dataType:'text',
+			data: {
+				type:"CLAIM_JOB",
+				JobID:jobID
+			},
+			success:function(response) {
+				$("#infotext").append("<div>"+response+"</div>");
+			}
+		});
+	}
+}
+
 function sendPatientRequest(patient_id){
+	var mode = "NA";
+	if(sessionStorage.p2p){
+		mode = "P2P";
+	} else if(!sessionStorage.p2p){
+		mode = "CHANNEL";
+	}
 	$.ajax('/cliniconthecloud.do', {
 		method:'GET',
 		dataType:'text',
 		data: {
 			type:"REQUEST_PATIENT",
-			pid:patient_id
+			pid:patient_id,
+			mode:mode
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
@@ -114,11 +179,18 @@ function sendPatientRequest(patient_id){
 }
 
 function sendUpdateRequest(){
+	var mode = "NA";
+	if(sessionStorage.p2p){
+		mode = "P2P";
+	} else if(!sessionStorage.p2p){
+		mode = "CHANNEL";
+	}
 	$.ajax('/cliniconthecloud.do', {
 		method:'GET',
 		dataType:'text',
 		data: {
-			type:"REQUEST_UPDATE"
+			type:"REQUEST_UPDATE",
+			mode:mode
 		},
 		success:function(response) {
 			$("#infotext").append("<div>"+response+"</div>");
@@ -180,7 +252,7 @@ function parsePatientJSON(json){
 	}
 }
 
-function sendPatient(peer_address, patient_id){
+function sendPatient(peer_address, patient_id, mode){
 	getPatient(patient_id, function(patient){
 		$("#infotext").append("<div>Finished getPatientFunction: "+patient+"</div>");
 		if(patient == null){
@@ -190,34 +262,50 @@ function sendPatient(peer_address, patient_id){
 		}
 		var tosend = "["+JSON.stringify(patient)+"]";
 		$("#infotext").append("<div>Retrieved patient and sending: "+tosend+"</div>");
-		try {
-			var conn = peer.connect(peer_address, {
-				label : "patient",
-				serialization: 'none',
-				reliable: "false",
-				metadata: {patients:tosend}
-			})
-			
-			conn.on("open", function() {
-				activeConnections[conn.peer] = conn;
-				conn.send(tosend);
-				conn.on('data', function(mess){
-					$("#infotext").append("<div>Message from Receiving Peer: "+mess+"</div>");
+		if(mode == "P2P"){
+			try {
+				var conn = peer.connect(peer_address, {
+					label : "patient",
+					serialization: 'none',
+					reliable: "false",
+					metadata: {patients:tosend}
+				})
+				
+				conn.on("open", function() {
+					activeConnections[conn.peer] = conn;
+					conn.send(tosend);
+					conn.on('data', function(mess){
+						$("#infotext").append("<div>Message from Receiving Peer: "+mess+"</div>");
+					});
+					conn.on('close', function() {
+						delete activeConnections[conn.peer];
+					});
+					conn.on('error', function() {
+						throw "connection failed";
+					})
 				});
-				conn.on('close', function() {
-					delete activeConnections[conn.peer];
-				});
+				
 				conn.on('error', function() {
 					throw "connection failed";
-				})
-			});
-			
-			conn.on('error', function() {
-				throw "connection failed";
-			});
-			
-		} catch(error) {
-			$("#infotext").append("<div>Error: "+error+". Attempting to send via Server</div>");
+				});
+				
+			} catch(error) {
+				$("#infotext").append("<div>Error: "+error+". Attempting to send via Server</div>");
+				$.ajax('/cliniconthecloud.do', {
+					method:'GET',
+					dataType:'text',
+					data: {
+						type:"SEND_PATIENT_TO_PEER",
+						patients:tosend,
+						client:username,
+						peerID:peer_address
+					},
+					success:function(response) {
+						$("#infotext").append("<div>"+response+"</div>");
+					}
+				});
+			}
+		} else if(mode == "CHANNEL"){
 			$.ajax('/cliniconthecloud.do', {
 				method:'GET',
 				dataType:'text',
@@ -248,39 +336,54 @@ function signMeOut(){
 	});
 }
 
-function updatePeer(peer_address){
+function updatePeer(peer_address, mode){
 	getAllPatients(function(patients){
 		var tosend = JSON.stringify(patients);
 		console.log(tosend);
-		
-		try {
-			var conn = peer.connect(peer_address, {
-				label : "patient",
-				serialization: 'none',
-				reliable: "false",
-				metadata: {patients:tosend}
-			});
-			
-			conn.on("open", function() {
-				activeConnections[conn.peer] = conn;
-				conn.send(tosend);
-				conn.on('data', function(mess){
-					$("#infotext").append("<div>Message from Receiving Peer: "+mess+"</div>");
+		if(mode == "P2P"){
+			try {
+				var conn = peer.connect(peer_address, {
+					label : "patient",
+					serialization: 'none',
+					reliable: "false",
+					metadata: {patients:tosend}
 				});
-				conn.on('close', function() {
-					delete activeConnections[conn.peer];
+				
+				conn.on("open", function() {
+					activeConnections[conn.peer] = conn;
+					conn.send(tosend);
+					conn.on('data', function(mess){
+						$("#infotext").append("<div>Message from Receiving Peer: "+mess+"</div>");
+					});
+					conn.on('close', function() {
+						delete activeConnections[conn.peer];
+					});
+					conn.on('error', function() {
+						throw "connection failed";
+					})
 				});
+				
 				conn.on('error', function() {
 					throw "connection failed";
-				})
-			});
-			
-			conn.on('error', function() {
-				throw "connection failed";
-			});
-			
-		} catch (error) {
-			$("#infotext").append("<div>Error: "+error+". Attempting to send via Server</div>");
+				});
+				
+			} catch (error) {
+				$("#infotext").append("<div>Error: "+error+". Attempting to send via Server</div>");
+				$.ajax('/cliniconthecloud.do', {
+					method:'GET',
+					dataType:'text',
+					data: {
+						type:"SEND_PATIENT_TO_PEER",
+						patients:tosend,
+						client:username,
+						peerID:peer_address
+					},
+					success:function(response) {
+						$("#infotext").append("<div>"+response+"</div>");
+					}
+				});
+			}
+		} else if(mode == "CHANNEL"){
 			$.ajax('/cliniconthecloud.do', {
 				method:'GET',
 				dataType:'text',

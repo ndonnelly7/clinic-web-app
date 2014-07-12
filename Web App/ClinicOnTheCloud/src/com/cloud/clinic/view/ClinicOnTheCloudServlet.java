@@ -14,6 +14,7 @@ import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
 import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.Pair;
+import com.cloud.clinic.p2p.Job;
 import com.cloud.clinic.p2p.P2P;
 import com.cloud.clinic.p2p.P2PDAO;
 import com.cloud.clinic.p2p.Peer;
@@ -71,12 +72,14 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			break;
 		case "REQUEST_PATIENT":
 			String pid = req.getParameter("pid");
-			String reqResponse = requestPatient(user, pid);
+			String mode = req.getParameter("mode");
+			String reqResponse = requestPatient(user, pid, mode);
 			resp.setContentType("text/plain");
 			resp.getWriter().println(reqResponse);
 			break;
 		case "REQUEST_UPDATE":
-			String updateResponse = requestUpdate(user);
+			String Updatemode = req.getParameter("mode");
+			String updateResponse = requestUpdate(user, Updatemode);
 			resp.setContentType("text/plain");
 			resp.getWriter().println(updateResponse);
 			break;
@@ -91,6 +94,12 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			String removeResponse = removePatient(user, rPID);
 			resp.setContentType("text/plain");
 			resp.getWriter().println(removeResponse);
+			break;
+		case "CLAIM_JOB":
+			String jobID = req.getParameter("JobID");
+			String claimResponse = claimJob(user, jobID);
+			resp.setContentType("text/plain");
+			resp.getWriter().println(claimResponse);
 			break;
 		default:
 			resp.setContentType("text/plain");
@@ -107,6 +116,22 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 				return "Peer successfully removed";
 		}
 		return "Peer doesn't exist";
+	}
+	
+	private String claimJob(User user, String jobID){
+		P2PDAO dao = new P2PDAO();
+		Peer p = dao.findPeer(user.getUserId());
+		if(p == null)
+			return null;
+		
+		Job j = dao.claimJob(Integer.parseInt(jobID));
+		if(j == null)
+			return "Missed job";
+		
+		ChannelService service = ChannelServiceFactory.getChannelService();
+		service.sendMessage(new ChannelMessage(p.getChannelID(), j.getJob()));
+		
+		return "Successfully Claimed Job";
 	}
 
 	public String addPatient(User user, String patientID){
@@ -139,51 +164,55 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		return result;
 	}
 	
-	public String requestPatient(User user, String patientID){
+	public String requestPatient(User user, String patientID, String transportMode){
 		
 		P2PDAO dao = new P2PDAO();
 		P2P p2p = dao.getP2P();
 		ArrayList<Superpeer> sps = p2p.getSps();
+		Peer requestor = dao.findPeer(user.getUserId());
+		String jobString = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getP2pAddress()+":MODE:" + transportMode + ":TYPE:REQUEST:";
+		Job job = new Job(requestor.getClinicianID(), jobString, p2p.getJob_tick());
+		dao.addJob(job);
+		String toSend = "JOB_POST:JOBID:"+job.getJob_id()+"PID:"+patientID+":MODE:"+transportMode+":";
 		for(int i = 0; i < sps.size(); i++){
 			Superpeer sp = sps.get(i);
 			for(int j = 0; j < sp.getPeers().size(); j++){
 				Peer p = sp.getPeers().get(j);
 				if(p.getPatientIDs().contains(Integer.parseInt(patientID))){
 					//Send patient request via Channel
-					Peer requestor = dao.findPeer(user.getUserId());
 					ChannelService service = ChannelServiceFactory.getChannelService();
-					String toSend = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getP2pAddress()+":";
 					service.sendMessage(new ChannelMessage(p.getChannelID(), toSend));
-					return "Send Request";
 				}
 			}
 		}
 		return "Failed to find a peer with that patientID";
 	}
 	
-	public String requestUpdate(User user){
+	public String requestUpdate(User user, String transportMode){
 		String result = "";
 		
 		P2PDAO dao = new P2PDAO();
+		P2P p2p = dao.getP2P();
 		Peer p = dao.findPeer(user.getUserId());
 		if(p == null){
 			return "Peer not found";
 		}
 		Superpeer sp = p.getSp();
-		Peer host = null;
-		for(int i = 0; i < sp.getPeers().size() && host == null; i++){
+		String jobString = "UPDATE_PEER:PID:"+p.getP2pAddress()+":MODE:" + transportMode + ":";		
+		Job job = new Job(p.getClinicianID(), jobString, p2p.getJob_tick());
+		dao.addJob(job);
+		String toSend = "JOB_POST:PID:NA:JOBID:"+job.getJob_id()+":MODE:"+transportMode+":TYPE:UPDATE:";
+		for(int i = 0; i < sp.getPeers().size(); i++){
 			if(!(p.getId().equals(sp.getPeers().get(i).getId()))){
-				host = sp.getPeers().get(i);
+				Peer host = sp.getPeers().get(i);
+				if(host != null){
+					ChannelService service = ChannelServiceFactory.getChannelService();
+					service.sendMessage(new ChannelMessage(host.getChannelID(),toSend));
+				}
 			}
 		}
 		
-		if(host == null){
-			return "No suitable peer found";
-		}
-		ChannelService service = ChannelServiceFactory.getChannelService();
-		String toSend = "UPDATE_PEER:PID:"+p.getP2pAddress()+":";
-		service.sendMessage(new ChannelMessage(host.getChannelID(),toSend));
-		result = "Request for update sent to: " + host.getClinicianID();
+		result = "Request for update sent to peers";
 		return result;
 	}
 	

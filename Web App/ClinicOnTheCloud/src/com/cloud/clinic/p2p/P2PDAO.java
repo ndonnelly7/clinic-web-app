@@ -370,4 +370,70 @@ public class P2PDAO {
 		
 		return result;
 	}
+	
+	public void addJob(Job j){
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		EntityTransaction txn = null;
+		P2P p2p = null;
+		
+		try {
+			em = emf.createEntityManager();
+			txn = em.getTransaction();
+			txn.begin();
+			p2p = em.find(P2P.class, p2pdao_key);
+			
+			if(p2p != null) {
+				p2p.getJobQueue().addJob(j);
+				txn.commit();
+			}
+			
+		} finally {
+			if(txn != null) {
+				if(txn.isActive()) {
+					txn.rollback();
+				}
+			}
+			
+			if(em != null)
+				em.close();
+		}
+	}
+	
+	public Job claimJob(int id){
+		Job result = null;
+		
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		EntityTransaction txn = null;
+		P2P p2p = null;
+		
+		try {
+			em = emf.createEntityManager();
+			txn = em.getTransaction();
+			txn.begin();
+			p2p = em.find(P2P.class, p2pdao_key);
+			
+			if(p2p != null) {
+				
+				JobQueue jQueue = p2p.getJobQueue();
+				result = jQueue.claimJob(id);
+				jQueue.cleanQueue();
+				
+				txn.commit();
+			}
+			
+		} finally {
+			if(txn != null) {
+				if(txn.isActive()) {
+					txn.rollback();
+				}
+			}
+			
+			if(em != null)
+				em.close();
+		}
+		
+		return result;
+	}
 }

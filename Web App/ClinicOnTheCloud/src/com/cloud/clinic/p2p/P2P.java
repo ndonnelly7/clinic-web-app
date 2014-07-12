@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.cloud.clinic.model.Clinician;
 
@@ -21,12 +22,19 @@ public class P2P {
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private ArrayList<Superpeer> sps;
 	
+	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	private JobQueue jobQueue;
+	
+	private int job_tick;
+	
 	boolean initialised;
 	
 	public P2P(String id){
 		sps = new ArrayList<Superpeer>();
 		this.id = id;
 		initialised = false;
+		jobQueue = new JobQueue();
+		job_tick = 0;
 	}
 
 	public boolean isInitialised() {
@@ -43,6 +51,24 @@ public class P2P {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public int getJob_tick() {
+		return job_tick++;
+	}
+
+	public void setJob_tick(int job_tick) {
+		this.job_tick = job_tick;
+	}
+
+	public JobQueue getJobQueue() {
+		if(jobQueue == null)
+			jobQueue = new JobQueue();
+		return jobQueue;
+	}
+
+	public void setJobQueue(JobQueue jobQueue) {
+		this.jobQueue = jobQueue;
 	}
 
 	public ArrayList<Superpeer> getSps() {
