@@ -61,10 +61,10 @@ form.small-form div#button {
 
 #hiddenButton {
 	background: #000000;
-	width:15%;
+	width:3%;
 	color: #000000;
 	float: right;
-	height: 80px;
+	height: 20px;
 	position:fixed;
 	top:0px;
 	right:0px;

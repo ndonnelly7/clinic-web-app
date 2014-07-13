@@ -11,6 +11,23 @@ $(function() {
     });
     
 	CommInit();
+	
+	if(typeof(Storage) !== 'undefined'){
+		if(sessionStorage.newpatient && sessionStorage.newpatient != "na"){
+			$.ajax('/cliniconthecloud.do', {
+				method:'GET',
+				dataType:'text',
+				data: {
+					type:"ADDED_PATIENT",
+					PatientID:sessionStorage.newpatient
+				},
+				success:function(response) {
+					$("#infotext").append("<div>"+response+"</div>");
+					sessionStorage.newpatient = "na";
+				}
+			});
+		}
+	}
   });
   
   function revealReviewDiv(div){

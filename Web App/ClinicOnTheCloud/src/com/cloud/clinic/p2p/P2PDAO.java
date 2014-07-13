@@ -25,7 +25,7 @@ public class P2PDAO {
 			em = emf.createEntityManager();
 			p2p = em.find(P2P.class, p2pdao_key);
 			
-			if(!p2p.initialised){
+			if(p2p == null || !p2p.initialised){
 				
 				p2p = new P2P(p2pdao_key);
 				ClinicDAO cDAO = new ClinicDAO();

@@ -141,6 +141,7 @@
 			<input type="button" value="Submit" onclick="addClinic()">
 		</div>
 	</form>
+	<input type="button" value="Request Update" onclick="sendUpdateRequest()" class="home_button">
 	
 </div>
 <div id="hiddenButton" onclick="showInfoText()"></div>
