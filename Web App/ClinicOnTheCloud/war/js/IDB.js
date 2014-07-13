@@ -36,7 +36,7 @@ function IDBInit() {
 		return;
 	}
 	
-	openRequest = indexedDB.open("clinic_cloud",1);
+	openRequest = indexedDB.open("clinic_cloud",2);
 	
 	openRequest.onupgradeneeded = function(e){
 		db = e.target.result;
@@ -44,6 +44,7 @@ function IDBInit() {
 		if(!db.objectStoreNames.contains("patients")) {
 			var store = db.createObjectStore("patients", {keyPath: "p_id"});
 			store.createIndex("name", "name", {unique:false});
+			store.createIndex("email", "email", {unique:true});
 			console.log("Created Object Store: Patients");
 		}
 		
@@ -92,15 +93,10 @@ function addPatientToDB(p){
 		}
 		
 		var store = transaction.objectStore("patients");
-		getPatient(p.p_id, function(pat){
-			if(pat == null){
-				var request = store.add(p);
-				request.onsuccess = function(e){
-					console.log("Successfully added a patient: " + e.target.result);
-				}
-			}
-		});
-		
+		var request = store.add(p);
+		request.onsuccess = function(e){
+			console.log("Successfully added a patient: " + e.target.result);
+		}		
 	}
 }
 

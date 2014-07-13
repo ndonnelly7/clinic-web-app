@@ -170,7 +170,11 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		P2P p2p = dao.getP2P();
 		ArrayList<Superpeer> sps = p2p.getSps();
 		Peer requestor = dao.findPeer(user.getUserId());
-		String jobString = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getP2pAddress()+":MODE:" + transportMode + ":TYPE:REQUEST:";
+		String jobString = "";
+		if(transportMode.equals("P2P"))
+			jobString = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getP2pAddress()+":MODE:" + transportMode + ":TYPE:REQUEST:";
+		else
+			jobString = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getChannelID()+":MODE:" + transportMode + ":TYPE:REQUEST:";
 		Job job = new Job(requestor.getClinicianID(), jobString, p2p.getJob_tick());
 		dao.addJob(job);
 		String toSend = "JOB_POST:JOBID:"+job.getJob_id()+"PID:"+patientID+":MODE:"+transportMode+":";
@@ -198,7 +202,11 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			return "Peer not found";
 		}
 		Superpeer sp = p.getSp();
-		String jobString = "UPDATE_PEER:PID:"+p.getP2pAddress()+":MODE:" + transportMode + ":";		
+		String jobString = "";
+		if(transportMode.equals("P2P"))
+			jobString = "UPDATE_PEER:PID:"+p.getP2pAddress()+":MODE:" + transportMode + ":";		
+		else
+			jobString = "UPDATE_PEER:PID:"+p.getChannelID()+":MODE:" + transportMode + ":";
 		Job job = new Job(p.getClinicianID(), jobString, p2p.getJob_tick());
 		dao.addJob(job);
 		String toSend = "JOB_POST:PID:NA:JOBID:"+job.getJob_id()+":MODE:"+transportMode+":TYPE:UPDATE:";
@@ -216,17 +224,12 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		return result;
 	}
 	
-	public String sendPatient(String patients, String peer){
+	public String sendPatient(String patients, String peerChannel){
 		ChannelService service = ChannelServiceFactory.getChannelService();
 		P2PDAO dao = new P2PDAO();
-		Peer p = dao.findPeerWithP2PID(peer);
-		if(p != null){
-			String sendString = "RECEIVE_PATIENTS:patients:" + "patients";
-			service.sendMessage(new ChannelMessage(p.getChannelID(), sendString));
-			return "Patients String send successfully to " + p.getClinicianID();
-		}
-		
-		return "Failed to find peer with id " + peer;
+		String sendString = "RECEIVE_PATIENTS:patients:" + patients;
+		service.sendMessage(new ChannelMessage(peerChannel, sendString));
+		return "Patients String send successfully";
 	}
 	
 	public void newClinic(HttpServletRequest req){

@@ -102,7 +102,11 @@ function channelComm(message){
 		break;
 	case 'RECEIVE_PATIENTS':
 		$("#infotext").append("<div>In RECEIVE_PATIENT section</div>");
-		receiveJSON(instruction[2]);
+		var parseString = instruction[2];
+		for(var i = 3; i < instruction.length; i++){
+			parseString += ":" + instruction[i];
+		}
+		receiveJSONChannel(parseString);
 		break;
 	case 'JOB_POST':
 		$("#infotext").append("<div>In JOB_POST section</div>");
@@ -159,9 +163,9 @@ function claimJob(patientID, jobID, mode, type){
 
 function sendPatientRequest(patient_id){
 	var mode = "NA";
-	if(sessionStorage.p2p){
+	if(sessionStorage.p2p == 'true'){
 		mode = "P2P";
-	} else if(!sessionStorage.p2p){
+	} else if(sessionStorage.p2p == 'false'){
 		mode = "CHANNEL";
 	}
 	$.ajax('/cliniconthecloud.do', {
@@ -180,9 +184,9 @@ function sendPatientRequest(patient_id){
 
 function sendUpdateRequest(){
 	var mode = "NA";
-	if(sessionStorage.p2p){
+	if(sessionStorage.p2p == 'true'){
 		mode = "P2P";
-	} else if(!sessionStorage.p2p){
+	} else if(sessionStorage.p2p == 'false'){
 		mode = "CHANNEL";
 	}
 	$.ajax('/cliniconthecloud.do', {
@@ -238,6 +242,18 @@ function receiveJSON(connection){
 		connection.on('close', function() {
 			delete activeConnections[connection.peer];
 		});
+	}
+}
+
+function receiveJSONChannel(patientJSON){
+	$("#infotext").append("<div>Channel json"+patientJSON+"</div>");
+	if(patientJSON != null){
+		var arr = $.parseJSON(patientJSON);
+		$("#infotext").append("<div>Info under \"patients\""+arr+"</div>");
+		for(var i = 0; i < arr.length; i++){
+			//TODO: When this works, then add the patient
+			addPatientToDB(arr[i]);			
+		}			
 	}
 }
 
@@ -297,7 +313,6 @@ function sendPatient(peer_address, patient_id, mode){
 					data: {
 						type:"SEND_PATIENT_TO_PEER",
 						patients:tosend,
-						client:username,
 						peerID:peer_address
 					},
 					success:function(response) {
@@ -312,7 +327,6 @@ function sendPatient(peer_address, patient_id, mode){
 				data: {
 					type:"SEND_PATIENT_TO_PEER",
 					patients:tosend,
-					client:username,
 					peerID:peer_address
 				},
 				success:function(response) {
@@ -375,7 +389,6 @@ function updatePeer(peer_address, mode){
 					data: {
 						type:"SEND_PATIENT_TO_PEER",
 						patients:tosend,
-						client:username,
 						peerID:peer_address
 					},
 					success:function(response) {
@@ -390,7 +403,6 @@ function updatePeer(peer_address, mode){
 				data: {
 					type:"SEND_PATIENT_TO_PEER",
 					patients:tosend,
-					client:username,
 					peerID:peer_address
 				},
 				success:function(response) {

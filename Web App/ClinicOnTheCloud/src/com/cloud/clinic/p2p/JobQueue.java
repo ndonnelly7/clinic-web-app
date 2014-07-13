@@ -28,6 +28,8 @@ public class JobQueue {
 	
 	public void addJob(Job j){
 		if(j != null){
+			if(jobs == null)
+				jobs = new ArrayList<Job>();
 			jobs.add(j);
 		}
 	}
