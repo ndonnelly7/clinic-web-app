@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+
+import com.google.gson.annotations.Expose;
 /*
  * Used for medical history of any medication taken
  */
@@ -30,12 +32,20 @@ public class DrugHistory implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	PatientHistory pHistory;
 	
-	String drug;
-	String time;
-	String notes;
-	String sleep_med;
-	String benzo_med;
+	@Expose
+	String drug, time, notes, sleep_med, benzo_med;
 	
+	@Expose
+	boolean collat;
+	
+	public boolean isCollat() {
+		return collat;
+	}
+
+	public void setCollat(boolean collat) {
+		this.collat = collat;
+	}
+
 	public DrugHistory(){
 		
 	}

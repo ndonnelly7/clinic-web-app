@@ -98,4 +98,92 @@ ul.tabs a.xl.current { background-position: 0 -62px; }
 	margin-bottom: 0.75em;
 }
 
+.pure-control-group input{
+	text-transform:capitalize;
+}
 
+.pure-control-group input.nocap{
+	text-transform:none;
+}
+
+.row {
+	margin-bottom: 10px;
+}
+
+.row div {
+	display: inline;
+}
+
+.row div label {
+	width: 6em;
+	text-align: right;
+	margin: 0 0.75em 0 0;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.row .sl_sel label {
+	width: 12em;
+}
+
+.row div input{
+	text-transform:capitalize;
+	width: 8%;
+}
+
+#imp_row div input{
+	text-transform:capitalize;
+	width: 10%;
+}
+
+#out_row div input{
+	text-transform:capitalize;
+	width: 10%;
+}
+
+.row div textarea{
+	text-transform:capitalize;
+}
+
+.row div input.bool{
+	text-transform:capitalize;
+	width: 5%;
+}
+
+.row div input.num{
+	text-transform:capitalize;
+	width: 3%;
+}
+
+.header {
+	font-weight: bold;
+	font-size: 12pt;
+	margin-bottom: 12px;
+}
+
+.subheader {
+	font-weight: bold;
+	font-size: 10pt;
+	margin-bottom: 4px;
+}
+
+.row .subheader {
+	display: block;
+}
+
+.row_div {
+	margin-bottom: 32px;
+}
+
+#concern .header {
+	margin-top: 36px;
+}
+
+#search_info_seeall {
+	margin-left: 3%;
+	margin-top: 24px;
+	font-weight: bold;
+}
+
+#search_seeall_btn {
+}

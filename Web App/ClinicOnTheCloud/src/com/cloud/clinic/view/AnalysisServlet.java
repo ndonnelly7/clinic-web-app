@@ -28,7 +28,15 @@ public class AnalysisServlet extends HttpServlet {
 		Integer pID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(pID);
 		
-		Form f = dao.getLatestForm(pat);
+		if(pat == null){
+			req.setAttribute("error", "There was no patient associated with the form");
+			req.setAttribute("error_message", "Patient was potentially created incorrectly, please ensure the Personal Details form is submitted correctly before proceeding with the test");
+			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
+			view.forward(req, resp);
+			return;
+		}
+		
+		Form f = dao.getMostRecentForm(pat);
 		
 		Analysis a = new Analysis();
 		BeanPopulate.populateBean(a, req);
@@ -41,9 +49,10 @@ public class AnalysisServlet extends HttpServlet {
 			pat.addForm(f);
 		} else {
 			if(f.getAnalysis() != null) {
+				a.setAnalysisID(f.getAnalysis().getAnalysisID());
 				dao.runQuery("delete from Outcome where Analysis= " + String.valueOf(a.getAnalysisID()));
 				dao.runQuery("delete from Impression where Analysis= " + String.valueOf(a.getAnalysisID()));
-				a.setAnalysisID(f.getAnalysis().getAnalysisID());
+				
 				a.setForm(f);
 				f.setAnalysis(a);
 			} else {

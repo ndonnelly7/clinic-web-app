@@ -28,7 +28,16 @@ public class HistoryServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		
+		if(pat == null){
+			req.setAttribute("error", "There was no patient associated with the form");
+			req.setAttribute("error_message", "Patient was potentially created incorrectly, please ensure the Personal Details form is submitted correctly before proceeding with the test");
+			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
+			view.forward(req, resp);
+			return;
+		}
+		
+		Form f = dao.getMostRecentForm(pat);
 		PatientHistory pHistory = new PatientHistory();
 		BeanPopulate.populateBean(pHistory, req);
 		
@@ -41,16 +50,26 @@ public class HistoryServlet extends HttpServlet {
 		pHistory.setPsych_histories(loadPsychList(req, pHistory));
 		pHistory.setPsych_collat_histories(loadPsychCollatList(req, pHistory));
 		
+		String cTherCheck = req.getParameter("current_therapy_check");
+		String pTherCheck = req.getParameter("past_therapy_check");
+		String collat_cTherCheck = req.getParameter("collat_current_therapy_check");
+		String collat_pTherCheck = req.getParameter("collat_past_therapy_check");
+		pHistory.setCurrent_therapy_check(cTherCheck);
+		pHistory.setPast_therapy_check(pTherCheck);
+		pHistory.setCollat_current_therapy_check(collat_cTherCheck);
+		pHistory.setCollat_past_therapy_check(collat_pTherCheck);
+		
 		if(f.isNew()){
 			pHistory.setForm(f);
 			f.setPatientHistory(pHistory);
 			pat.addForm(f);
 		} else {
 			if(f.getPatientHistory() != null){
+				pHistory.setHistoryID(f.getPatientHistory().getHistoryID());
 				dao.runQuery("delete from MedHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
 				dao.runQuery("delete from DrugHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
 				dao.runQuery("delete from PsychHistory where pHistory= " + String.valueOf(pHistory.getHistoryID()));
-				pHistory.setHistoryID(f.getPatientHistory().getHistoryID());
+				
 			}
 			pHistory.setForm(f);
 			f.setPatientHistory(pHistory);
@@ -85,6 +104,7 @@ public class HistoryServlet extends HttpServlet {
 				med.setTime(times[i]);
 				med.setNotes(notes[i]);
 				med.setpHistory(pH);
+				med.setCollat(false);
 				meds.add(med);
 			}
 		}
@@ -107,6 +127,7 @@ public class HistoryServlet extends HttpServlet {
 				DrugHistory drug = new DrugHistory();
 				drug.setDrug(names[i]);
 				drug.setTime(time[i]);
+				drug.setCollat(false);
 				drug.setNotes(notes[i]);
 				if(drug.getDrug().equalsIgnoreCase("sleeping")){
 					drug.setSleep_med(sleeping_drugs[sleepIndex]);
@@ -134,6 +155,7 @@ public class HistoryServlet extends HttpServlet {
 				psych.setPsych(names[i]);
 				psych.setTime(times[i]);
 				psych.setNotes(notes[i]);
+				psych.setCollat(false);
 				psych.setpHistory(pH);
 				psychs.add(psych);
 			}
@@ -153,6 +175,7 @@ public class HistoryServlet extends HttpServlet {
 				med.setTime(times[i]);
 				med.setNotes(notes[i]);
 				med.setpHistory(pH);
+				med.setCollat(true);
 				meds.add(med);
 			}
 		}
@@ -175,6 +198,7 @@ public class HistoryServlet extends HttpServlet {
 				DrugHistory drug = new DrugHistory();
 				drug.setDrug(names[i]);
 				drug.setTime(time[i]);
+				drug.setCollat(true);
 				drug.setNotes(notes[i]);
 				if(drug.getDrug().equalsIgnoreCase("sleeping")){
 					drug.setSleep_med(sleeping_drugs[sleepIndex]);
@@ -201,6 +225,7 @@ public class HistoryServlet extends HttpServlet {
 				PsychHistory psych = new PsychHistory();
 				psych.setPsych(names[i]);
 				psych.setTime(times[i]);
+				psych.setCollat(true);
 				psych.setNotes(notes[i]);
 				psych.setpHistory(pH);
 				psychs.add(psych);

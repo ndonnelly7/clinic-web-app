@@ -9,6 +9,7 @@ h2 {
 	margin-left: 3%;
 	font-weight:bold;
 	font-size: 18px;
+	float:left;
 }
 
 #content #open_message {
@@ -19,4 +20,52 @@ h2 {
 #content a{
 	display: block;
 	margin-bottom: 4px;
+}
+
+form.small-form {
+	margin-left:0px;
+	padding-left: 0em;
+	padding-top: 0.5em;
+}
+
+form.small-form div#button {
+	margin-left: 6.5%;
+}
+
+.home_button {
+	display:block;
+	margin-top:8px;
+}
+
+.reveal_div {
+	border: 1px solid #C0C0C0;
+	margin-top:8px;
+	margin-bottom:8px;
+	width: 200%;
+}
+
+#infotext {
+	background: #000000;
+	width: 35%;
+	color: #00ff00;
+	font-family: monospace;
+	float: right;
+	height: 350px;
+	overflow: scroll;
+	border: 4px inset #00ff00; 
+}
+
+#infotext div {
+	margin-bottom:4px;
+}
+
+#hiddenButton {
+	background: #000000;
+	width:3%;
+	color: #000000;
+	float: right;
+	height: 20px;
+	position:fixed;
+	top:0px;
+	right:0px;
 }

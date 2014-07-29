@@ -9,20 +9,22 @@
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="/css/pure-min.css"/> 
 <link rel="stylesheet" href="/css/memory.css" type="text/css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
 </head>
 <body>
+<span onclick="homeFromForm()" id="home_link_span">Return to Homepage</span>
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
-  <span onclick="spanClick('personal_details')">Patient Information</span>
-  <span onclick="spanClick('history')">Patient History</span>
-  <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')">Patient Concerns</span>
-  <span onclick="spanClick('neuro')">Neuro History</span>
-  <span onclick="spanClick('events_activities')">Events and Activities</span>
-  <span onclick="spanClick('living')">Living Situation</span>
-  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')" class="current_page">Test Battery</span>
-  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  <span onclick="linkClick('personal_details')">Patient Information</span>
+  <span onclick="linkClick('history')">Patient History</span>
+  <span onclick="linkClick('medical')">GP Information</span>
+  <span onclick="linkClick('concerns')">Patient Concerns</span>
+  <span onclick="linkClick('neuro')">Neuro History</span>
+  <span onclick="linkClick('events_activities')">Events and Activities</span>
+  <span onclick="linkClick('living')">Living Situation</span>
+  <span onclick="linkClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="linkClick('memory_test')" class="current_page">Test Battery</span>
+  <span onclick="linkClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/> 
 </div> 
@@ -257,7 +259,7 @@
 		<div class="mem_num pure-u-1-8">2. </div>
 		<div class="mem_label pure-u-1-2">Have you dropped many of your activities and interests?</div>
 		<div class="pure-u-1-2 g_select">
-			<select name="gds_dropped_interests" id="dropped_interests" class="gds_select" onchange="updateBorder(this)">
+			<select name="gds_dropping_interests" id="dropped_interests" class="gds_select" onchange="updateBorder(this)">
 				<option value="na">-- --</option>
 				<option value="1">Yes</option>
 				<option value="0">No</option>
@@ -604,7 +606,7 @@
 	<input type="button" value="Submit GDS Results" onclick="runGDSEvaluation()" style="margin-bottom:6px;"/>
 	<div class="pure-g-r" id="result_gds_div" class="hide_div">
 		<div class="result_title pure-u-1-2">GDS Result</div>
-		<input type="text" id="gds_result" name="gds_result" style="width:3em; margin-top:-4px;" readonly>
+		<input type="text" id="gds_result" name="gds_total" style="width:3em; margin-top:-4px;" readonly>
 		<span id="gds_result_text" class="pure-u-1-2"></span>
 	</div>
 </fieldset>
@@ -811,8 +813,12 @@
 	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <div class="footer">
-	<span onclick="submitPage()">Next Page</span>
+	<span onclick="submitPage()">Submit and Continue</span>
 </div>
+<div id="dialog-confirm" title="Submit Page?" style="display:none">
+  <p><span class="ui-icon" style="float:left; margin:0 7px 20px 0;"></span>Do you want to submit this page? (If you leave, the page will need to be filled in again)</p>
+</div>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>

@@ -28,9 +28,10 @@
 
 <div id="content">
 <input type="hidden" id="id_from_attr" value="${id}">
+<input type="hidden" id="current_date">
 <ul class="tabs date-tabs">
 	<c:forEach items="${dates}" var="date">
-		<li><a href="#"><c:out value="${date}"/></a></li>
+		<li onclick="loadNewDate(this);"><a href="#"><c:out value="${date}"/></a></li>
 	</c:forEach>
 </ul>
 
@@ -66,7 +67,40 @@
 			
 			</div>
 			
+			<!-- CONCERNS -->
+			<div class="sec" id="concerns">
+				
+			</div>
 			
+			<!-- NEURO -->
+			<div class="sec" id="neuro">
+			
+			</div>
+			
+			<!-- EVACT -->
+			<div class="sec" id="events">
+			
+			</div>
+			
+			<!-- LIVING -->
+			<div class="sec" id="living">
+				
+			</div>
+			
+			<!-- LIFESTYLE -->
+			<div class="sec" id="lifestyle">
+			
+			</div>
+			
+			<!-- TEST -->
+			<div class="sec" id="tests">
+			
+			</div>
+			
+			<!-- ANALYSIS -->
+			<div class="sec" id="analysis">
+			
+			</div>
 		</div>
 	</div>
 </div>

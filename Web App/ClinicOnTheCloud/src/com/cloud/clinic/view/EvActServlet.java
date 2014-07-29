@@ -26,7 +26,16 @@ public class EvActServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		
+		if(pat == null){
+			req.setAttribute("error", "There was no patient associated with the form");
+			req.setAttribute("error_message", "Patient was potentially created incorrectly, please ensure the Personal Details form is submitted correctly before proceeding with the test");
+			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
+			view.forward(req, resp);
+			return;
+		}
+		
+		Form f = dao.getMostRecentForm(pat);
 		EventsActivities ea = new EventsActivities();
 		BeanPopulate.populateBean(ea, req);
 		ea.setActivities(loadActivitiesList(req, ea));
@@ -38,8 +47,8 @@ public class EvActServlet extends HttpServlet {
 			pat.addForm(f);
 		} else {
 			if(f.getEventsActivities() != null){
-				dao.runQuery("delete from Activity where Lifestyle= " + String.valueOf(ea.getEventsActivitiesID()));
 				ea.setEventsActivitiesID(f.getEventsActivities().getEventsActivitiesID());
+				dao.runQuery("delete from Activity where Lifestyle= " + String.valueOf(ea.getEventsActivitiesID()));
 				ea.setForm(f);
 				f.setEventsActivities(ea);
 			} else {
@@ -81,24 +90,25 @@ public class EvActServlet extends HttpServlet {
 		for(int i =0; i < types.length; i++){
 			Activity a = new Activity();
 			a.setType(types[i]);
+			a.setCollat(false);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
 				if(involvements[i].equalsIgnoreCase("no")){
 					
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;
 					}
@@ -106,7 +116,7 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("ongoing")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
@@ -116,26 +126,26 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("decrease")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
 						current_ind++;
 					}
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;		
 					}
@@ -164,24 +174,25 @@ public class EvActServlet extends HttpServlet {
 		for(int i =0; i < types.length; i++){
 			Activity a = new Activity();
 			a.setType(types[i]);
+			a.setCollat(true);
 			if(involvements != null) {
 				a.setInvolvement(involvements[i]);
 				if(involvements[i].equalsIgnoreCase("no")){
 					
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;
 					}
@@ -189,7 +200,7 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("ongoing")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
@@ -199,26 +210,26 @@ public class EvActServlet extends HttpServlet {
 				} else if(involvements[i].equalsIgnoreCase("decrease")) {
 					
 					if(currents != null){
-						if(currents[current_ind] != "")
+						if(current_ind < currents.length && currents[current_ind] != "")
 							a.setCurrent_hours(Integer.parseInt(currents[current_ind]));
 						else
 							a.setCurrent_hours(0);
 						current_ind++;
 					}
 					if(previous != null) {
-						if(previous[previous_ind] != "")
+						if(previous_ind < previous.length && previous[previous_ind] != "")
 							a.setPrev_hours(Integer.parseInt(previous[previous_ind]));
 						else
 							a.setPrev_hours(0);
 						previous_ind++;
 					}
 					
-					if(notes != null) {
+					if(notes != null && notes_ind < notes.length) {
 						a.setNotes(notes[notes_ind]);
 						notes_ind++;
 					}
 					
-					if(times != null) {
+					if(times != null && times_ind < times.length) {
 						a.setTime_changed(times[times_ind]);
 						times_ind++;		
 					}

@@ -42,10 +42,25 @@ public class PatDetailsServlet extends HttpServlet {
 		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
 		PersonalDetails details = new PersonalDetails();
 		BeanPopulate.populateBean(details, req);
+		if(req.getParameter("third_check") != null)
+			details.setThird_check(req.getParameter("third_check").equals("on"));
+		if(req.getParameter("wants_assessment") != null)
+			details.setWants_assessment(req.getParameter("wants_assessment").equalsIgnoreCase("true"));
+		if(req.getParameter("wants_reassurance") != null)
+			details.setWants_reassurance(req.getParameter("wants_reassurance").equalsIgnoreCase("true"));
+		if(req.getParameter("wants_information") != null)
+			details.setWants_information(req.getParameter("wants_information").equalsIgnoreCase("true"));
+		
+		
 		details.setGender(req.getParameter("gender"));
 		String dateStr = req.getParameter("dob");
+		String assessment = req.getParameter("assessment");
+		String case_number = req.getParameter("case_number");
+		Date ass = new Date();
 		try {
-			Date date = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH).parse(dateStr);
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH);
+			ass = sdf.parse(assessment);
+			Date date = sdf.parse(dateStr);
 			details.setDob(date);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -57,17 +72,27 @@ public class PatDetailsServlet extends HttpServlet {
 		
 		
 		if(pat != null){
-			Form f = dao.getLatestForm(pat);
+			Calendar cAss = Calendar.getInstance();
+			cAss.setTime(ass);
+			Form f = dao.getTodaysForm(pat);
 			if(f.isNew()){
+				
+				f.setTimestamp(cAss);
+				f.setCase_number(case_number);
 				pat.addForm(f);
 				if(f.getPersonalDetails() != null)
 					details.setDetailsID(f.getPersonalDetails().getDetailsID());
 			}
-			f.setPersonalDetails(details);
 			details.setForm(f);
+			if(f.getPersonalDetails() != null)
+				details.setDetailsID(f.getPersonalDetails().getDetailsID());
+			f.setPersonalDetails(details);
 			List<Form> fList =  pat.getForms();
 			for(int i = 0; i < fList.size(); i++){
-				if(fList.get(i).getFormID() == f.getFormID())
+				Calendar c = fList.get(i).getTimestamp();
+				if(c.get(Calendar.YEAR) == f.getTimestamp().get(Calendar.YEAR)
+						&& c.get(Calendar.MONTH) == f.getTimestamp().get(Calendar.MONTH)
+						&& c.get(Calendar.DAY_OF_MONTH) == f.getTimestamp().get(Calendar.DAY_OF_MONTH))
 				{
 					fList.set(i, f);
 					break;
@@ -83,7 +108,8 @@ public class PatDetailsServlet extends HttpServlet {
 			Form f = new Form();
 			f.setPatient(pat);
 			Calendar c = Calendar.getInstance();
-			c.setTime(new Date());
+			c.setTime(ass);
+			f.setCase_number(case_number);
 			f.setTimestamp(c);			
 
 			f.setPersonalDetails(details);
@@ -92,9 +118,16 @@ public class PatDetailsServlet extends HttpServlet {
 			dao.create(pat);
 		}
 		
+		String page = req.getParameter("linkedPage");
+		if(page == null || page.equals(" ")){
+			req.setAttribute("error", "Could not redirect to page!");
+			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
+			view.forward(req, resp);
+			return;
+		}
 		req.setAttribute("id", thePatientID);
 		req.setAttribute("patient", new JSONObject(pat));
-		RequestDispatcher view = req.getRequestDispatcher("/patientform/history.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("/patientform/"+page+".jsp");
 		view.forward(req, resp);		
 	}
 	

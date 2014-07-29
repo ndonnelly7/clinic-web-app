@@ -64,6 +64,10 @@
 var patient;
 $(document).ready(function () {
 	window.setTimeout(function(){getPatient('${id}', printpForm);}, 500);
+	
+	if(typeof(Storage)){
+		sessionStorage.newpatient = "${id}";
+	}
 });
 
 function printpForm(p) {

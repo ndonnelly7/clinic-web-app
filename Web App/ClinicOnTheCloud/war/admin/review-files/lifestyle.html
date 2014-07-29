@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="lifestyle_form" class="form_entry pure-form pure-form-aligned">
+
+<div id="sleep" class="row_div">
+	<div class="header">Sleep</div>
+	<div id="diff">
+		<div class="subheader">Difficulty Falling Asleep</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<label for="sleep_difficulty">Does the patient generally find it difficult to sleep?</label>
+				<!-- <input type="text" id="difficulty_sleep" readonly> -->
+				<input type="text" id="sleep_difficulty" readonly>
+				</div>
+				<div class="sl_note">
+				<label for="difficulty_sleep_notes">Notes:</label>
+				<textarea rows="3"  id="difficulty_sleep_notes" readonly></textarea>
+				</div>
+			</div>
+			<div class="sleep_div" id="diff_">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="difficulty_reason">Reason:</label>
+					<input type="text" id="difficulty_reason" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="difficulty_reason_notes">Reason Notes:</label>
+					<textarea rows="3"  id="difficulty_reason_notes" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="difficulty_time">Time:</label>
+					<input type="text" id="difficulty_time" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="difficulty_time_notes">Time Notes:</label>
+					<textarea rows="3"  id="difficulty_time_notes" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="difficulty_freq">Frequency:</label>
+					<input type="text" id="difficulty_freq" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="difficulty_freq_notes">Frequency Notes:</label>
+					<textarea rows="3"  id="difficulty_freq_notes" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="n_wak">
+		<div class="subheader">Waking in Night</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="night_waking">Do they ever wake up during the night?</label>
+				<input type="text" id="night_waking" readonly> -->
+				<label for="waking_during_night">Do they ever wake up during the night?</label>
+				<input type="text" id="waking_during_night" readonly>
+				</div>
+				<div class="sl_note">
+				<label for="night_waking_notes">Notes:</label>
+				<textarea rows="3"  id="night_waking_notes" readonly></textarea>
+				</div>
+			</div>
+			<div class="sleep_div" id="night_">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="night_waking_reason">Reason:</label>
+					<input type="text" id="night_waking_reason" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="night_waking_sleep_reason_notes">Reason Notes:</label>
+					<textarea rows="3"  id="night_waking_sleep_reason_notes" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="night_waking_time">Time:</label>
+					<input type="text" id="night_waking_time" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="night_waking_time_notes">Time Notes:</label>
+					<textarea rows="3"  id="night_waking_time_notes" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="night_waking_freq">Frequency:</label>
+					<input type="text" id="night_waking_freq" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="night_waking_freq_notes">Frequency Notes:</label>
+					<textarea rows="3"  id="night_waking_freq_notes" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="e_wak">
+		<div class="subheader">Waking Early</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="early_waking">Do they ever wake up early in the morning?</label>
+				<input type="text" id="early_waking" readonly> -->
+				<label for="waking_early">Do they ever wake up early in the morning?</label>
+				<input type="text" id="waking_early" readonly>
+				</div>
+				<div class="sl_note">
+				<label for="early_waking_notes">Notes:</label>
+				<textarea rows="3"  id="early_waking_notes" readonly></textarea>
+				</div>
+			</div>
+			<div class="sleep_div" id="early_">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="early_waking_reason">Reason:</label>
+					<input type="text" id="early_waking_reason" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="early_waking_reason_notes">Reason Notes:</label>
+					<textarea rows="3"  id="early_waking_reason_notes" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="early_waking_time">Time:</label>
+					<input type="text" id="early_waking_time" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="early_waking_time_notes">Time Notes:</label>
+					<textarea rows="3"  id="early_waking_time_notes" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="early_waking_freq">Frequency:</label>
+					<input type="text" id="early_waking_freq" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="early_waking_freq_notes">Frequency Notes:</label>
+					<textarea rows="3"  id="early_waking_freq_notes" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="subheader">Sleeping Hours</div>
+	<div class="pure-control-group">
+		<label for="sleep_length">Hours of sleep per night:</label>
+		<input id="sleep_length" type="text" readonly>
+	</div>
+	
+	<div id="med">
+		<div class="subheader">Sleeping Medication</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="meds_check">Do they ever take medication to help with sleep?</label>
+				<input type="text" id="meds_check" readonly> -->
+				<label for="taking_sleep_meds">Do they ever take medication to help with sleep?</label>
+				<input type="text" id="taking_sleep_meds" readonly>
+				</div>
+			</div>
+			<div class="sleep_div" id="med_">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="sleep_meds">Medicine:</label>
+					<input type="text" id="sleep_meds" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="sleep_med_notes">Medicine Notes:</label>
+					<textarea rows="3"  id="sleep_med_notes" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="naps">
+		<div class="subheader">Sleeping Medication</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="nap_check">Do they ever take naps?</label>
+				<input type="text" id="nap_check" readonly> -->
+				<label for="taking_naps">Do they ever take naps?</label>
+				<input type="text" id="taking_naps" readonly>
+				</div>
+			</div>
+			<div class="sleep_div" id="nap_">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="nap_length">For how long?</label>
+					<input type="text" id="nap_length" readonly>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="nap_time">Nap length:</label>
+					<input type="text" id="nap_time" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="nap_notes">Nap Notes:</label>
+					<textarea rows="3"  id="nap_notes" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- COLLATERAL -->
+	<div id="collat_sleep">
+	<div class="header">Collateral Sleep</div>
+	<div id="diff">
+		<div class="subheader">Difficulty Falling Asleep</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="difficulty_sleep_collat">Does the patient generally find it difficult to sleep?</label>
+				<input type="text" id="difficulty_sleep_collat" readonly> -->
+				<label for="sleep_difficulty_collat">Does the patient generally find it difficult to sleep?</label>
+				<input type="text" id="sleep_difficulty_collat" readonly>
+				</div>
+				<div class="sl_note">
+				<label for="difficulty_sleep_notes_collat">Notes:</label>
+				<textarea rows="3"  id="difficulty_sleep_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div class="sleep_div" id="diff_c">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="difficulty_reason_collat">Reason:</label>
+					<input type="text" id="difficulty_reason_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="difficulty_reason_notes_collat">Reason Notes:</label>
+					<textarea rows="3"  id="difficulty_reason_notes_collat" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="difficulty_time_collat">Time:</label>
+					<input type="text" id="difficulty_time_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="difficulty_time_notes_collat">Time Notes:</label>
+					<textarea rows="3"  id="difficulty_time_notes_collat" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="difficulty_freq_collat">Frequency:</label>
+					<input type="text" id="difficulty_freq_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="difficulty_freq_notes_collat">Frequency Notes:</label>
+					<textarea rows="3"  id="difficulty_freq_notes_collat" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="n_wak">
+		<div class="subheader">Waking in Night</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="night_waking_collat">Do they ever wake up during the night?</label>
+				<input type="text" id="night_waking_collat" readonly> -->
+				<label for="waking_during_night_collat">Do they ever wake up during the night?</label>
+				<input type="text" id="waking_during_night_collat" readonly>
+				</div>
+				<div class="sl_note">
+				<label for="night_waking_notes_collat">Notes:</label>
+				<textarea rows="3"  id="night_waking_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div class="sleep_div" id="night_c">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="night_waking_reason_collat">Reason:</label>
+					<input type="text" id="night_waking_reason_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="night_waking_sleep_reason_notes_collat">Reason Notes:</label>
+					<textarea rows="3"  id="night_waking_sleep_reason_notes_collat" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="night_waking_time_collat">Time:</label>
+					<input type="text" id="night_waking_time_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="night_waking_time_notes_collat">Time Notes:</label>
+					<textarea rows="3"  id="night_waking_time_notes_collat" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="night_waking_freq_collat">Frequency:</label>
+					<input type="text" id="night_waking_freq_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="night_waking_freq_notes_collat">Frequency Notes:</label>
+					<textarea rows="3"  id="night_waking_freq_notes_collat" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="e_wak">
+		<div class="subheader">Waking Early</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="early_waking_collat">Do they ever wake up early in the morning?</label>
+				<input type="text" id="early_waking_collat" readonly> -->
+				<label for="waking_early_collat">Do they ever wake up early in the morning?</label>
+				<input type="text" id="waking_early_collat" readonly>
+				</div>
+				<div class="sl_note">
+				<label for="early_waking_notes_collat">Notes:</label>
+				<textarea rows="3"  id="early_waking_notes_collat" readonly></textarea>
+				</div>
+			</div>
+			<div class="sleep_div" id="early_c">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="early_waking_reason_collat">Reason:</label>
+					<input type="text" id="early_waking_reason_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="early_waking_reason_note_collat">Reason Notes:</label>
+					<textarea rows="3"  id="early_waking_reason_notes_collat" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="early_waking_time_collat">Time:</label>
+					<input type="text" id="early_waking_time_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="early_waking_time_notes_collat">Time Notes:</label>
+					<textarea rows="3"  id="early_waking_time_notes_collat" readonly></textarea>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="early_waking_freq_collat">Frequency:</label>
+					<input type="text" id="early_waking_freq_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="early_waking_freq_notes_collat">Frequency Notes:</label>
+					<textarea rows="3"  id="early_waking_freq_notes_collat" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="pure-control-group">
+		<label for="sleep_length_collat">Hours of sleep per night:</label>
+		<input id="sleep_length_collat" type="text" readonly>
+	</div>
+	
+	<div id="med">
+		<div class="subheader">Sleeping Medication</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="meds_check_collat">Do they ever take medication to help with sleep?</label>
+				<input type="text" id="meds_check_collat" readonly> -->
+				<label for="taking_sleep_meds_collat">Do they ever take medication to help with sleep?</label>
+				<input type="text" id="taking_sleep_meds_collat" readonly>
+				</div>
+			</div>
+			<div class="sleep_div" id="med_c">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="sleep_meds_collat">Medicine:</label>
+					<input type="text" id="sleep_meds_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="sleep_med_notes_collat">Medicine Notes:</label>
+					<textarea rows="3"  id="sleep_med_notes_collat" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="naps">
+		<div class="subheader">Sleeping Medication</div>
+		<div id="diff_div">
+			<div id="sl_row" class="row">
+				<div class="sl_sel">
+				<!-- <label for="nap_check_collat">Do they ever take naps?</label>
+				<input type="text" id="nap_check_collat" readonly> -->
+				<label for="takes_naps_collat">Do they ever take naps?</label>
+				<input type="text" id="takes_naps_collat" readonly>
+				</div>
+			</div>
+			<div class="sleep_div" id="nap_c">
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="nap_length_collat">For how long?</label>
+					<input type="text" id="nap_length_collat" readonly>
+					</div>
+				</div>
+				<div id="sl_row" class="row">
+					<div class="sl_sel">
+					<label for="nap_time_collat">Nap length:</label>
+					<input type="text" id="nap_time_collat" readonly>
+					</div>
+					<div class="sl_note">
+					<label for="nap_notes_collat">Nap Notes:</label>
+					<textarea rows="3"  id="nap_notes_collat" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div id="exercise" class="row_div">
+	<div class="header">Exercise</div>
+	
+	<div class="pure-control-group">
+		<label for="exercise_yn">Does the patient exercise:</label>
+		<input id="exercise_yn" type="text" readonly>
+	</div>
+	<div class="pure-control-group">
+		<label for="exercise_notes">Notes:</label>
+		<input id="exercise_notes" type="text" readonly>
+	</div>
+	
+	<div id="collat_exercise">
+		<div class="header">Collateral Exercise</div>
+	
+		<div class="pure-control-group">
+			<label for="exercise_yn_collat">Does the patient exercise:</label>
+			<input id="exercise_yn_collat" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="exercise_notes_collat">Notes:</label>
+			<input id="exercise_notes_collat" type="text" readonly>
+		</div>
+	</div>
+	
+	<div id="exer_grid">
+		<div class="header">Exercises</div>
+		<div id="exe_row" class="row">
+			<div class="act_col">
+				<label for="type">Activity:</label>
+				<input type="text" id="type" readonly>
+			</div>
+			<div class="inv_col" hidden="true">
+				<label for="involvement">Involvement:</label>
+				<input type="text" id="involvement" readonly>
+			</div>
+			<div class="cur_col" hidden="true">
+				<label for="current_hours">Current Hours:</label>
+				<input type="text" id="current_hours" class="num" readonly>
+			</div>
+			<div class="pre_col">
+				<label for="prev_hours">Previous Hours:</label>
+				<input type="text" id="prev_hours" class="num" readonly>
+			</div>
+			<div class="tim_col">
+				<label for="time_changed">When Changed:</label>
+				<input type="text" id="time_changed" readonly>
+			</div>
+			<div class="collat_col">
+				<label for="collat">From Collateral:</label>
+				<input type="text" id="collat" class="bool" readonly>
+			</div>
+			<div class="notes_col">
+				<label for="notes">Notes:</label>
+				<textarea rows="3" id="notes" readonly></textarea>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<div id="diet" class="row_div">
+	<div class="header">Diet</div>
+	
+	<div class="pure-control-group">
+		<label for="breakfast">Typical Breakfast:</label>
+		<textarea rows="3" id="breakfast" type="text" readonly></textarea>
+	</div>
+	<div class="pure-control-group">
+		<label for="lunch">Typical Lunch:</label>
+		<textarea rows="3" id="lunch" type="text" readonly></textarea>
+	</div>
+	<div class="pure-control-group">
+		<label for="dinner">Typical Dinner:</label>
+		<textarea rows="3" id="dinner" type="text" readonly></textarea>
+	</div>
+	
+	<div class="pure-control-group">
+		<!-- <label for="miss_meals">Do they ever miss meals:</label>
+		<input id="miss_meals" type="text" readonly> -->
+		<label for="missing_meals">Do they ever miss meals:</label>
+		<input id="missing_meals" type="text" readonly>
+	</div>
+	<div id="miss_meals_t" class="pure-control-group">
+		<label for="miss_meals_freq">How often:</label>
+		<input id="miss_meals_freq" type="text" readonly>
+	</div>
+	<br>
+	<div class="pure-control-group">
+		<!-- <label for="sweets">Have a sweet tooth:</label>
+		<input id="sweets" type="text" readonly> -->
+		<label for="sweet_tooth">Have a sweet tooth:</label>
+		<input id="sweet_tooth" type="text" readonly>
+	</div>
+	<div id="sweets_t" class="pure-control-group">
+		<label for="sweets_freq">How often:</label>
+		<input id="sweets_freq" type="text" readonly>
+	</div>
+	<br>
+	<div class="pure-control-group">
+		<!-- <label for="fried">Eat fried food:</label>
+		<input id="fried" type="text" readonly> -->
+		<label for="fried_food">Eat fried food:</label>
+		<input id="fried_food" type="text" readonly>
+	</div>
+	<div id="fried_t" class="pure-control-group">
+		<label for="fried_freq">How often:</label>
+		<input id="fried_freq" type="text" readonly>
+	</div>
+	<br>
+	
+	<div class="pure-control-group">
+		<!-- <label for="takeaway">Eat takeaways:</label>
+		<input id="takeaway" type="text" readonly> -->
+		<label for="takeaways">Eat takeaways:</label>
+		<input id="takeaways" type="text" readonly>
+	</div>
+	<div id="takeaway_t" class="pure-control-group">
+		<label for="takeaway_freq">How often:</label>
+		<input id="takeaway_freq" type="text" readonly>
+	</div>
+	<br>
+	
+	<div class="pure-control-group">
+		<!-- <label for="cakes">Have cakes and biscuits:</label>
+		<input id="cakes" type="text" readonly> -->
+		<label for="cakes_biscuits">Have cakes and biscuits:</label>
+		<input id="cakes_biscuits" type="text" readonly>
+	</div>
+	<div id="cakes_t" class="pure-control-group">
+		<label for="cakes_freq">How often:</label>
+		<input id="cakes_freq" type="text" readonly>
+	</div>
+	<br>
+	
+	<div class="pure-control-group">
+		<!-- <label for="weight">Has anyone suggested they lose weight:</label>
+		<input id="weight" type="text" readonly> -->
+		<label for="weight_suggestion">Has anyone suggested they lose weight:</label>
+		<input id="weight_suggestion" type="text" readonly>
+	</div>
+	<div id="weight_t">
+		<div class="pure-control-group">
+			<label for="weight_time">When:</label>
+			<input id="weight_time" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="weight_interest">Interested in losing weight:</label>
+			<input id="weight_interest" type="text" readonly>
+		</div>
+	</div>
+	<br>
+	
+	<div id="collat_diet">
+		<div class="header">Collateral Diet</div>
+		
+		<div class="pure-control-group">
+			<label for="breakfast_collat">Typical Breakfast:</label>
+			<textarea rows="3" id="breakfast_collat" type="text" readonly></textarea>
+		</div>
+		<div class="pure-control-group">
+			<label for="lunch_collat">Typical Lunch:</label>
+			<textarea rows="3" id="lunch_collat" type="text" readonly></textarea>
+		</div>
+		<div class="pure-control-group">
+			<label for="dinner_collat">Typical Dinner:</label>
+			<textarea rows="3" id="dinner_collat" type="text" readonly></textarea>
+		</div>
+		
+		<div class="pure-control-group">
+			<!-- <label for="miss_meals_collat">Do they ever miss meals:</label>
+			<input id="miss_meals_collat" type="text" readonly> -->
+			<label for="missing_meals_collat">Do they ever miss meals:</label>
+			<input id="missing_meals_collat" type="text" readonly>
+		</div>
+		<div id="miss_meals_t_collat" class="pure-control-group">
+			<label for="miss_meals_freq_collat">How often:</label>
+			<input id="miss_meals_freq_collat" type="text" readonly>
+		</div>
+		<br>
+		<div class="pure-control-group">
+			<!-- <label for="sweets_collat">Have a sweet tooth:</label>
+			<input id="sweets_collat" type="text" readonly> -->
+			<label for="sweet_tooth_collat">Have a sweet tooth:</label>
+			<input id="sweet_tooth_collat" type="text" readonly>
+		</div>
+		<div id="sweets_t_collat" class="pure-control-group">
+			<label for="sweets_freq_collat">How often:</label>
+			<input id="sweets_freq_collat" type="text" readonly>
+		</div>
+		<br>
+		<div class="pure-control-group">
+			<!-- <label for="fried_collat">Eat fried food:</label>
+			<input id="fried_collat" type="text" readonly> -->
+			<label for="fried_food_collat">Eat fried food:</label>
+			<input id="fried_food_collat" type="text" readonly>
+		</div>
+		<div id="fried_t_collat" class="pure-control-group">
+			<label for="fried_freq_collat">How often:</label>
+			<input id="fried_freq_collat" type="text" readonly>
+		</div>
+		<br>
+		
+		<div class="pure-control-group">
+			<!-- <label for="takeaway_collat">Eat takeaways:</label>
+			<input id="takeaway_collat" type="text" readonly> -->
+			<label for="takeaways_collat">Eat takeaways:</label>
+			<input id="takeaways_collat" type="text" readonly>
+		</div>
+		<div id="takeaway_t_collat" class="pure-control-group">
+			<label for="takeaway_freq_collat">How often:</label>
+			<input id="takeaway_freq_collat" type="text" readonly>
+		</div>
+		<br>
+		
+		<div class="pure-control-group">
+			<!-- <label for="cakes_collat">Have cakes and biscuits:</label>
+			<input id="cakes_collat" type="text" readonly> -->
+			<label for="cakes_biscuits_collat">Have cakes and biscuits:</label>
+			<input id="cakes_biscuits_collat" type="text" readonly>
+		</div>
+		<div id="cakes_t_collat" class="pure-control-group">
+			<label for="cakes_freq_collat">How often:</label>
+			<input id="cakes_freq_collat" type="text" readonly>
+		</div>
+		<br>
+		
+		<div class="pure-control-group">
+			<!-- <label for="weight_collat">Has anyone suggested they lose weight:</label>
+			<input id="weight_collat" type="text" readonly> -->
+			<label for="weight_suggestion_collat">Has anyone suggested they lose weight:</label>
+			<input id="weight_suggestion_collat" type="text" readonly>
+		</div>
+		<div id="weight_t_collat">
+			<div class="pure-control-group">
+				<label for="weight_time_collat">When:</label>
+				<input id="weight_time_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="weight_interest_collat">Interested in losing weight:</label>
+				<input id="weight_interest_collat" type="text" readonly>
+			</div>
+		</div>
+		<br>
+	</div>
+</div>
+
+<div id="alcohol_D" class="row_div">
+	<div class="header">Alcohol</div>
+	
+	<div class="pure-control-group">
+		<label for="alcohol">Do they drink:</label>
+		<input id="alcohol" type="text" readonly>
+	</div>
+	<div class="pure-control-group">
+		<label for="alcohol_notes">Notes:</label>
+		<input id="alcohol_notes" type="text" readonly>
+	</div>
+	
+	<div id="alcohol_grid">
+		<div class="pure-control-group">
+			<label for="beer_pint_units">Units in pints of beer:</label>
+			<input id="beer_pint_units" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="beer_bottle_units">Units in bottles of beer:</label>
+			<input id="beer_bottle_units" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="spirits_units">Units in spirits:</label>
+			<input id="spirits_units" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="wine_glass_units">Units in glasses of wine:</label>
+			<input id="wine_glass_units" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="pop_units">Units in alcopops:</label>
+			<input id="pop_units" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="total_units">Total units of alcohol:</label>
+			<input id="total_units" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="interested_in_reducing_alcohol">Were they interested in reducing intake:</label>
+			<input id="interested_in_reducing_alcohol" type="text" readonly>
+		</div>
+	</div>
+	
+	<div id="collat_alcohol">
+		<div class="header">Collateral Alcohol</div>
+		<div class="pure-control-group">
+			<label for="alcohol_collat_yn">Do they drink:</label>
+			<input id="alcohol_collat_yn" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="alcohol_notes_collat">Notes:</label>
+			<input id="alcohol_notes_collat" type="text" readonly>
+		</div>
+		
+		<div id="alcohol_grid_collat">
+			<div class="pure-control-group">
+				<label for="beer_pint_units_collat">Units in pints of beer:</label>
+				<input id="beer_pint_units_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="beer_bottle_units_collat">Units in bottles of beer:</label>
+				<input id="beer_bottle_units_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="spirits_units_collat">Units in spirits:</label>
+				<input id="spirits_units_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="wine_glass_units_collat">Units in glasses of wine:</label>
+				<input id="wine_glass_units_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="pop_units_collat">Units in alcopops:</label>
+				<input id="pop_units_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="total_units_collat">Total units_collat of alcohol:</label>
+				<input id="total_units_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="interested_in_reducing_alcohol_collat">Were they interested in reducing intake:</label>
+				<input id="interested_in_reducing_alcohol_collat" type="text" readonly>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="smoking_d" class="row_div">
+	<div class="header">Smoking</div>
+	
+	<div class="pure-control-group">
+		<label for="smoking">Do they smoke:</label>
+		<input id="smoking" type="text" readonly>
+	</div>
+	<div class="pure-control-group">
+		<label for="smoking_notes">Notes:</label>
+		<input id="smoking_notes" type="text" readonly>
+	</div>
+	
+	<div id="smoking_grid">
+		<div class="pure-control-group">
+			<label for="packets">Packets per week:</label>
+			<input id="packets" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="smoking_reduce_interest">Interested in quitting:</label>
+			<input id="smoking_reduce_interest" type="text" readonly>
+		</div>
+	</div>
+	
+	<div id="collat_smoking">
+		<div class="header">Collateral Smoking</div>
+		<div class="pure-control-group">
+			<label for="smoking_collat_yn">Do they smoke:</label>
+			<input id="smoking_collat_yn" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="smoking_notes_collat">Notes:</label>
+			<input id="smoking_notes_collat" type="text" readonly>
+		</div>
+		
+		<div id="smoking_grid">
+			<div class="pure-control-group">
+				<label for="packets_collat">Packets per week:</label>
+				<input id="packets_collat" type="text" readonly>
+			</div>
+			<div class="pure-control-group">
+				<label for="smoking_reduce_interest_collat">Interested in quitting:</label>
+				<input id="smoking_reduce_interest_collat" type="text" readonly>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="drugs_d" class="row_div">
+	<div class="header">Drugs</div>
+	
+	<div class="pure-control-group">
+		<!-- <label for="drugs">Have they ever taken an illicit substance:</label>
+		<input id="drugs" type="text" readonly> -->
+		<label for="illicit_substance">Have they ever taken an illicit substance:</label>
+		<input id="illicit_substance" type="text" readonly>
+	</div>
+	<div class="pure-control-group">
+		<label for="drugs_notes">Notes:</label>
+		<input id="drugs_notes" type="text" readonly>
+	</div>
+	
+	<div id="collat_drugs">
+		<div class="header">Collateral Drugs</div>
+		<div class="pure-control-group">
+			<!-- <label for="drugs_collat">Have they ever taken an illicit substance:</label>
+			<input id="drugs_collat" type="text" readonly> -->
+			<label for="illicit_substance_collat">Have they ever taken an illicit substance:</label>
+			<input id="illicit_substance_collat" type="text" readonly>
+		</div>
+		<div class="pure-control-group">
+			<label for="drugs_notes_collat">Notes:</label>
+			<input id="drugs_notes_collat" type="text" readonly>
+		</div>
+	</div>
+</div>
+
+</form>
+
+</body>
+</html>

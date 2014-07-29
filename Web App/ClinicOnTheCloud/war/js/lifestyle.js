@@ -10,33 +10,33 @@ var collatDrugs = false;
 
 $(document).ready(function() {
 	console.log("Working");
-	setTimeout(retrieveSleepInfo, 100);
+	setTimeout(function() {retrieveSleepInfo();}, 150);
 });
 
 function addCollatSleep(button) {
 	if(!collatSleep){
-		$('#collat_sleep').slideDown(500);
+		$('#sleep_collat').slideDown(500);
 		collatSleep = true;
-		$('#sleep_collat').val("shown");
+		$('#collat_sleep').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_sleep').slideUp(500);
+		$('#sleep_collat').slideUp(500);
 		collatSleep = false;
-		$('#sleep_collat').val("hidden");
+		$('#collat_sleep').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 };
 
 function addCollatExercise(button) {
 	if(!collatExercise){
-		$('#collat_exercise').slideDown(500);
+		$('#exercise_collat').slideDown(500);
 		collatExercise = true;
-		$('#exercise_collat').val("shown");
+		$('#collat_exercise').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_exercise').slideUp(500);
+		$('#exercise_collat').slideUp(500);
 		collatExercise = false;
-		$('#exercise_collat').val("hidden");
+		$('#collat_exercise').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 };
@@ -44,16 +44,20 @@ function addCollatExercise(button) {
 function revealExercise(elem){
 	if(elem.value === 'yes'){
 		$("#does_exercise").slideDown(1000);
+		$("#ex_entry").prop("disabled", false);
 	} else {
 		$("#does_exercise").slideUp(1000);
+		$("#ex_entry").prop("disabled", true);
 	}
 }
 
 function revealExerciseCollat(elem){
 	if(elem.value === 'yes'){
 		$("#collat_does_exercise").slideDown(1000);
+		$("#collat_ex_entry").prop("disabled", false);
 	} else {
 		$("#collat_does_exercise").slideUp(1000);
+		$("#collat_ex_entry").prop("disabled", true);
 	}
 }
 
@@ -91,14 +95,14 @@ function revealSmokingCollat(elem){
 
 function addCollatDiet(button) {
 	if(!collatDiet){
-		$('#collat_diet').slideDown(500);
+		$('#diet_collat').slideDown(500);
 		collatDiet = true;
-		$('#diet_collat').val("shown");
+		$('#collat_diet').val("shown");
 		$(button).val("Remove Information from Collateral");
 	} else {
-		$('#collat_diet').slideUp(500);
+		$('#diet_collat').slideUp(500);
 		collatDiet = false;
-		$('#diet_collat').val("hidden");
+		$('#collat_diet').val("hidden");
 		$(button).val("Add Information from Collateral");
 	}
 };
@@ -157,6 +161,7 @@ function updateUnits() {
 			totalUnits += temp;
 		}
 	});
+	totalUnits = totalUnits.toFixed(1);
 	document.getElementsByName("total_units")[0].value=totalUnits;
 	
 	if(typeof(Storage) !== "undefined"){
@@ -176,12 +181,13 @@ function updateUnits() {
 
 function updateUnitsCollat() {
 	var totalUnits = 0;
-	$('.units_box').each(function () {
+	$('.units_box_collat').each(function () {
 		var temp = parseFloat($(this).val());
 		if(temp > 0 ){
 			totalUnits += temp;
 		}
 	});
+	totalUnits = totalUnits.toFixed(1);
 	document.getElementsByName("total_units_collat")[0].value=totalUnits;
 	
 	if(typeof(Storage) !== "undefined"){
@@ -205,19 +211,34 @@ function updateThisUnit(text, name) {
 	console.log(val);
 	switch (name) {
 	case 'wine_glass_units':
-		units = 2.2*val;
+		units = 1*val;
 		break;
 	case 'spirit_units':
 		units = 1.3*val;
 		break;
 	case 'beer_bottle_units':
-		units = 1.6*val;
+		units = 1*val;
 		break;
 	case 'beer_pint_units':
-		units = 2.8*val;
+		units = 2.0*val;
 		break;
 	case 'pop_units':
+		units = 1.2*val;
+		break;
+	case 'wine_glass_units_collat':
+		units = 1*val;
+		break;
+	case 'spirit_units_collat':
 		units = 1.3*val;
+		break;
+	case 'beer_bottle_units_collat':
+		units = 1*val;
+		break;
+	case 'beer_pint_units_collat':
+		units = 2.0*val;
+		break;
+	case 'pop_units_collat':
+		units = 1.2*val;
 		break;
 	}
 	units = units.toFixed(1);
@@ -230,11 +251,15 @@ function updateThisUnit(text, name) {
 }
 
 function addNewExercise() {
-	$('#exercise_entry').clone().appendTo($('#exercise_grid'));
+	var elem = $('#exercise_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("input").val("");
+	elem.appendTo($('#exercise_grid'));
 };
 
 function addNewCollatExercise() {
-	$('#exercise_entry').clone().appendTo($('#collat_exercise_grid'));
+	var elem = $('#exercise_entry').clone();
+	$(elem).children(".pure-g-r").children("div").children("input").val("");
+	elem.appendTo($('#collat_exercise_grid'));
 }
 
 function changeExercise(elem) {
@@ -274,6 +299,14 @@ function showOngoing(elem) {
 	$(elem).children('.reason_notes').children('.reason_input').prop('disabled', true);
 }
 
+function showSleepDiv(sel, divID) {
+	if($(sel).val() == 'yes'){
+		$("#"+divID).show(500);
+	} else {
+		$("#"+divID).hide(500);
+	}
+}
+
 function retrieveSleepInfo() {
 	console.log("Entered function");
 	var p_id = -1;
@@ -286,13 +319,26 @@ function retrieveSleepInfo() {
 }
 
 function updatePageWithLocal(pF) {
-	console.log("Entered getpForm function");
-	console.log(pF);
 	var drugs = pF['history']['drugs'];
-	console.log(drugs[0]['drug']);
-	if(drugs[0]['drug']=='sleeping'){
-		$("#sleep_meds_check").prop("checked", "true");
-		showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
-		$("#sleep_meds_s").val(drugs[0]['sleep_med']);
+	var nosleep = true;
+	for(var i = 0; i < drugs.length && nosleep; i++){
+		if(drugs[i]['drug']=='sleeping'){
+			$("#sleep_meds_check").prop("checked", "true");
+			showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
+			$("#sleep_meds_s").val(drugs[0]['sleep_med']);
+			nosleep = false;
+		}
+	}
+	
+	if(nosleep){
+		var drugs_c = pF['history']['DrugsCollat'];
+		for(var i = 0; i < drugs_c.length && nosleep; i++){
+			if(drugs_c[i]['drug']=='sleeping'){
+				$("#sleep_meds_check").prop("checked", "true");
+				showHiddenDiv($("#sleep_meds_check").get(0), 'meds_sleep_qs');
+				$("#sleep_meds_s").val(drugs_c[0]['sleep_med']);
+				nosleep = false;
+			}
+		}
 	}
 }

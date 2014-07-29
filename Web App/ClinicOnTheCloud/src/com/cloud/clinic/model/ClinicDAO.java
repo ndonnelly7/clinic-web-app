@@ -102,6 +102,10 @@ public class ClinicDAO implements DAOInterface<Clinic, String> {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void initClinicians() {
+		
+	}
 
 	public String hashPassword(String pw) {
 		return String.valueOf((pw.concat(salt)).hashCode());

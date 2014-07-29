@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
+import com.cloud.clinic.model.PatientHistory;
 import com.cloud.clinic.model.PersonalDetails;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -81,7 +82,7 @@ public class ReviewServlet extends HttpServlet {
 		} 
 		
 		if(f == null){
-			f = dao.getLatestForm(patient);
+			f = dao.getMostRecentForm(patient);
 		}
 		
 		if(f == null){
@@ -99,7 +100,8 @@ public class ReviewServlet extends HttpServlet {
 			resp.getWriter().write(details);
 			break;
 		case "HISTORY":
-			String history = gson.toJson(dao.loadHistory(f));
+			PatientHistory h = dao.loadHistory(f);
+			String history = gson.toJson(h);
 			resp.setContentType("application/json");
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(history);

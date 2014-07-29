@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,17 +12,14 @@
 <div id="navbar">
 <h2>Sign Up</h2>
 </div>
-<form id="personal_form" class="pure-form pure-form-aligned" method="GET" action="cliniconthecloud.do">
+<form id="user_form" class="pure-form pure-form-aligned" method="GET" action="/cliniconthecloud.do">
 	<div class="pure-control-group">
 		<label for="name">Name</label>
 		<input name="name" type="text" id="name" value="${name}">
 	</div>
 	<div class="pure-control-group">
-		<label for="clinics">Name</label>
+		<label for="clinics">Clinic</label>
 		<select name="clinic" type="text" id="clinics">
-			<c:forEach items="${clinicsList}" var="clinic">
-				<option value="${clinic}"><c:out value="${clinic }" /></option>
-			</c:forEach>
 		</select>
 	</div>
 	<div class="pure-control-group">
@@ -40,23 +35,28 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
-	function submitNewUser(){
-		var name = $("#name").val();
-		var clinic = $("#clinics").val();
-		var pass = $("#pass").val();
-		$.ajax('cliniconthecloud.do', {
+	$(document).ready(function() {
+		$.ajax('/auth.do', {
 			method:'GET',
 			dataType:'text',
 			data: {
-				type:"NEW_CLINICIAN",
-				name:name,
-				clinic:clinic,
-				pass:pass
+				type:"CLINIC_LIST"
 			},
 			success:function(response) {
-				console.log(response);
+				parseJSON(response);
 			}
 		});
+	});
+	
+	function parseJSON(json) {
+		var clinics = JSON.parse(json);
+		for(var k in  clinics){
+			$("#clinics").append($('<option>', {
+				value:clinics[k],
+				text: clinics[k]
+			}));
+		}
 	}
+
 </script>
 </html>

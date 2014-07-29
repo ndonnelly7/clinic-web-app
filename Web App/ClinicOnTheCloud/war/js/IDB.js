@@ -36,7 +36,7 @@ function IDBInit() {
 		return;
 	}
 	
-	openRequest = indexedDB.open("clinic_cloud",1);
+	openRequest = indexedDB.open("clinic_cloud",2);
 	
 	openRequest.onupgradeneeded = function(e){
 		db = e.target.result;
@@ -44,6 +44,7 @@ function IDBInit() {
 		if(!db.objectStoreNames.contains("patients")) {
 			var store = db.createObjectStore("patients", {keyPath: "p_id"});
 			store.createIndex("name", "name", {unique:false});
+			store.createIndex("email", "email", {unique:true});
 			console.log("Created Object Store: Patients");
 		}
 		
@@ -88,13 +89,14 @@ function addPatientToDB(p){
 		transaction.onerror = function(e){
 			console.log("Error with transaction: ");
 			console.log(e.target.error);
+			updatePatient(p.p_id, p);
 		}
 		
 		var store = transaction.objectStore("patients");
 		var request = store.add(p);
 		request.onsuccess = function(e){
 			console.log("Successfully added a patient: " + e.target.result);
-		}
+		}		
 	}
 }
 
@@ -128,6 +130,7 @@ function getPatient(p_id, callback){
 	var req = objectStore.get(p_id);
 	req.onerror = function(event){
 		console.error("Couldn't find patient with id: " + p_id);
+		callback("ERROR:Couldn't find patient with id: " + p_id);
 	}
 	
 	req.onsuccess = function(event) {
@@ -138,6 +141,71 @@ function getPatient(p_id, callback){
 
 function showPatient(p){
 	console.log(p);
+}
+
+function getPatientsByName(name, callback){
+	if(db){
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
+		var keys = new Array();
+		var i = 0;
+		var index  = store.index("name");
+		index.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				if(cursor.key == name){
+					keys[i] = cursor.value;
+					i++;
+				}
+				cursor.continue();
+			} else {
+				callback(keys);
+			}
+		}
+	}
+}
+
+function getAllPatients(callback){
+	if(db){
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
+		var patients = new Array();
+		var i = 0;
+		store.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				patients.push(cursor.value);
+				cursor.continue();
+			}
+			else {
+				callback(patients);
+			}
+		}
+	}
+}
+
+function getArrayAsJSONString(arr) {
+	var arrString = "";
+	for(var i = 0; i < arr.length; i++){
+		arrString+= arr[i] + ":";
+	}
+	return JSON.stringify(arrString);
+}
+
+function getPatientKeys(callback){
+	if(db){
+		var store = db.transaction(["patients"], "readonly").objectStore("patients");
+		var keys = new Array();
+		var i = 0;
+		store.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if(cursor){
+				keys[i] = cursor.value;
+				i++;
+				cursor.continue();
+			} else {
+				callback(keys);
+			}
+		}
+	}
 }
 
 function removePatient(p_id){
@@ -153,28 +221,3 @@ function removePatient(p_id){
 	}
 }
 
-function getPatientKeys(){
-	if(db){
-		var store = db.transaction(["patients"], "readonly").objectStore("patients");
-		var keys = new Array();
-		var i = 0;
-		store.openCursor().onsuccess = function(event) {
-			var cursor = event.target.result;
-			if(cursor){
-				keys[i] = cursor;
-				i++;
-				cursor.continue();
-			} else {
-				return keys;
-			}
-		}
-	}
-}
-
-function getArrayAsJSONString(arr) {
-	var arrString = "";
-	for(var i = 0; i < arr.length; i++){
-		arrString+= arr[i] + ":";
-	}
-	return JSON.stringify(arrString);
-}

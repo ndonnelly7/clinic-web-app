@@ -20,10 +20,6 @@ function initAnalysis(){
 		collat = sessionStorage.collat;
 	}
 	
-	if(typeof p_id == 'undefined'){
-		p_id = 631355661;
-	}
-	
 	getPatient(p_id, function(p){
 		pat = p;
 	});
@@ -63,7 +59,7 @@ function fillAnalysis(p){
 		$("#mem_results_field").hide();
 	}
 	
-	createLetter(p, pat);
+	//createLetter(p, pat);
 }
 
 function createLetter(pForm, patient){
@@ -283,6 +279,31 @@ function createLetter(pForm, patient){
 	
 	//Impression
 	letterString += "\n\nImpression:\n";
+	letterString += "Based on the memory test results above and the problems the patient has presented with, I believe the patient ";
+	
+	var impMap = {
+		norm_neg:"has a normal negative screen for dementia",
+		ab_neg:"has a slightly abnormal negative screen for dementia",
+		dementia:"is possible for dementia",
+		stress:"is possible for stress",
+		mood:"has a possible mood problem",
+		acopia:"has acopia",
+		bereavement:"is suffering from a bereavement",
+		reactive:"is suffering from reactive stress",
+		social:"is adjusting socially"
+	}
+	var impsize = $(".imp").size();
+	for(var i = 0; i < impsize; i++){
+		var str = $(".imp").eq(i).val();
+		letterString += impMap[str];
+		if (i == (impsize-2)){
+			letterString += " and ";
+		}else if(i == (impsize-1)) {
+			letterString += ".";
+		} else if(i < impsize){
+			letterString += ", ";
+		} 
+	}
 	
 	//Outcome
 	letterString += "\n\nOutcome:\n";
@@ -292,6 +313,18 @@ function createLetter(pForm, patient){
 	letterString += "Yours sincerely,\n";
 	
 	$("#letter").val(letterString);
+}
+
+function updateOutcome(elem){
+	if(elem.value == "gp_letter"){
+		var p_id;
+		if(typeof(Storage) !== "undefined"){
+			p_id = sessionStorage.p_id;
+		}
+		getPatientForm(p_id, function(p){
+			createLetter(p, pat);
+		});
+	}
 }
 
 function submitPage(){

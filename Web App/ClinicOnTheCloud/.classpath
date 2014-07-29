@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ApacheCommons"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Apache Commons"/>
 	<classpathentry kind="lib" path="C:/Users/Neil/Documents/GitHub/clinic-web-app/Web App/ClinicOnTheCloud/war/WEB-INF/lib/gson-2.2.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+>>>>>>> fb3119b3bce5c45792325f5a34ebdf65b8acf327
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -7,6 +7,7 @@
 <title>Clinic on the Cloud - Error</title>
 </head>
 <body>
-<h3>"${error}"</h3>
+<h3>${error}</h3>
+<p>${error_message}</p>
 </body>
 </html>

@@ -12,24 +12,33 @@
 </head>
 <body>
 <h2>Personal Details</h2>
+<span onclick="homeFromForm()" id="home_link_span">Return to Homepage</span>
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="nextPage('personal_details')" class="current_page">Patient Information</span>
-  <span onclick="nextPage('history')">Patient History</span>
-  <span onclick="nextPage('medical')">GP Information</span>
-  <span onclick="nextPage('concerns')">Patient Concerns</span>
-  <span onclick="nextPage('neuro')">Neuro History</span>
-  <span onclick="nextPage('events_activities')">Events and Activities</span>
-  <span onclick="nextPage('living')">Living Situation</span>
-  <span onclick="nextPage('lifestyle')">Patient Lifestyle</span>
-  <span onclick="nextPage('memory_test')">Test Battery</span>
-  <span onclick="nextPage('analysis')">Summary and Analysis</span> 
+  <span onclick="linkClick('personal_details')" class="current_page">Patient Information</span>
+  <span onclick="linkClick('history')">Patient History</span>
+  <span onclick="linkClick('medical')">GP Information</span>
+  <span onclick="linkClick('concerns')">Patient Concerns</span>
+  <span onclick="linkClick('neuro')">Neuro History</span>
+  <span onclick="linkClick('events_activities')">Events and Activities</span>
+  <span onclick="linkClick('living')">Living Situation</span>
+  <span onclick="linkClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="linkClick('memory_test')">Test Battery</span>
+  <span onclick="linkClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
 </form>
 <form id="personal_form" class="pure-form pure-form-aligned" method="POST" action="personal_details.do">
+	<div class="pure-control-group">
+		<label for="assessment">Date of Assessment</label>
+		<input name="assessment" placeholder="dd/mm/yyyy" type="text" class="suggest_form pickdate" id="assessment">
+	</div>
+	<div class="pure-control-group">
+		<label for="case_number">Case Reference Number:</label>
+		<input name="case_number" type="text" id="case_number">
+	</div>
 	<fieldset id="personal_field">
 		<legend>Personal</legend>
 		<div class="pure-control-group">
@@ -38,7 +47,7 @@
 		</div>
 		<div class="pure-control-group">
 		<label for="dob">Date of Birth </label>
-		<input name="dob" placeholder="dd/mm/yyyy" type="text" class="suggest_form" id="pickdate">
+		<input name="dob" placeholder="dd/mm/yyyy" type="text" class="suggest_form pickdate" id="pickdate">
 		</div>
 		<div class="pure-control-group">
 		<label for="age">Age </label>
@@ -121,16 +130,34 @@
 		<label>Have you completed:</label>
 		</div>
 		<div class="pure-control-group">
-		<label for="junior_check">Junior Certificate</label>
-		<input type="checkbox" name="junior_check" id="junior_check">
+		<!-- <label for="junior_check">Junior Certificate</label>
+		<input type="checkbox" name="junior_check" id="junior_check"> -->
+			<label for="junior_cert_education">Junior Certificate</label>
+			<select name="junior_cert_education" id="junior_cert_education">
+				<option value="unknown">Unknown</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
 		</div>
 		<div id="junior_done" class="pure-control-group">
-		<label for="senior_check">Leaving Certificate</label>
-		<input type="checkbox" name="senior_check" id="senior_check"><br>
+		<!-- <label for="senior_check">Leaving Certificate</label>
+		<input type="checkbox" name="senior_check" id="senior_check"><br> -->
+			<label for="senior_cert_education">Senior Certificate</label>
+			<select name="senior_cert_education" id="senior_cert_education">
+				<option value="unknown">Unknown</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
 		</div>
 		<div id="leaving_done" class="pure-control-group">
-		<label for="third_check">Third Level (or Equivalent)</label>
-		<input type="checkbox" name="third_check" id="third_check" onclick="showHiddenDiv(this,'third_done')"><br>
+		<!-- <label for="third_check">Third Level (or Equivalent)</label>
+		<input type="checkbox" name="third_check" id="third_check" onclick="showHiddenDiv(this,'third_done')"><br> -->
+			<label for="third_level_education">Third Level (or Equivalent)</label>
+			<select name="third_level_education" id="third_level_education" onchange="showThirdLevel(this,'third_done')">
+				<option value="unknown">Unknown</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
 		</div>
 		<div id="third_done" class="hide_div pure-control-group">
 		<label for="study_topic">Area of Study</label>
@@ -195,20 +222,34 @@
 	<fieldset id="family_pres_field">
 		<legend>Other questions</legend>
 		<div class="pure-control-group">
-			<label for="testing_reason">Why are you taking this test?</label>
-			<select id="testing_reason" name="testing_reason">
+			<div>Why are you taking this test?</div>
+			<!-- <select id="testing_reason" name="testing_reason">
 				<option value="reassurance">Reassurance</option>
 				<option value="assessment">Assessment</option>
 				<option value="information">Information</option>
-			</select> 
+			</select>  -->
 		</div>
+		<div class="pure-control-group">
+			<label for="reassurance_check">Reassurance</label>
+			<input type="checkbox" name="wants_reassurance" value="true">
+		</div>
+		<div class="pure-control-group">
+			<label for="assessment_check">Assessment</label>
+			<input type="checkbox" name="wants_assessment" value="true">
+		</div>
+		<div class="pure-control-group">
+			<label for="information_check">Information</label>
+			<input type="checkbox" name="wants_information" value="true">
+		</div>
+		<div style="height:24px;"></div>
 		<div class="pure-control-group">
 			<label for="family_present_check">Are any family or friends present?</label>
 			<input type="checkbox" name="family_present" id="collat_check" onclick="collatChecked(this, 'family_pres_div')">
 		</div>
-		<div class="pure-control-group hide_div" id="family_pres_div">
+		<div class="pure-control-group" id="family_pres_div" style="display:none">
 			<label for="who_present">Relation</label>
 			<select name="who_present" id="collat_present">
+				<option value="unknown">Unknown</option>
 				<option value="partner">Partner</option>
 				<option value="child">Child</option>
 				<option value="sibling">Sibling</option>
@@ -218,9 +259,14 @@
 	</fieldset>
 	<br><br>
 	<input type="hidden" id="hiddenID" name="hiddenID"/>
+	<input type="hidden" id="linkedPage" name="linkedPage" value="history"/>
 </form>
 <div class="footer">
-	<span onclick="submitPage('history')">Next Page</span>
+	<span onclick="submitPage()">Submit and Continue</span>
+</div>
+
+<div id="dialog-confirm" title="Submit Page?" style="display:none">
+  <p><span class="ui-icon" style="float:left; margin:0 7px 20px 0;"></span>Do you want to submit this page? (If you leave, the page will need to be filled in again)</p>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -230,45 +276,20 @@
 <script src="/js/IDBForm.js"></script>
 <script>
 
-function GenerateValues(){
-	$("#name").val("Neil Donnelly");
-	$("#pickdate").val("30/01/1992");
-	$("#age").val(22);
-	$("#gender_m").prop("checked", true);
-	$("#address").val("4 Hilltown Road\nRivervalley\nSwords");
-	$("#county").val("dublin");
-	$("#home_number").val("3215640");
-	$("#mob_number").val("3215648970");
-	$("#email").val("n.donnellyv3.0@gmail.com");
-	$("#age_left").val(22);
-	$("#junior_check").prop("checked", true);
-	$("#senior_check").prop("checked", true);
-	$("#third_check").prop("checked", true);
-	$("#study_topic").val("Computing");
-	$("#occupation").val("Engineer");
-	$("#gp_name").val("N Moore");
-	$("#gp_address").val("Boroimhe Medical Center\nSwords");
-	$("#gp_county").val("dublin");
-	$("#collat_check").prop('checked', false);
-	
-	submitPage();
-};
-
 $(document).ready(function() {
-	$('#collat_check').prop("checked", checkCollateral());
-	$('#family_pres_div').show();
-	
-	
+	$('#collat_check').prop("checked", false);	
 });
 
 $(function() {
-    $( "#pickdate" ).datepicker({
+    $( ".pickdate" ).datepicker({
       changeMonth: true,
       changeYear: true,
       yearRange: "1900:" + (new Date()).getFullYear(),
       dateFormat: "dd/MM/yy"
     });
-  });
+    $("#assessment").datepicker('setDate', new Date());
+    
+ });
   
 function collatChecked(elem, divID){
 	showHiddenDiv(elem, divID);
@@ -288,37 +309,41 @@ function printPForm(pf){
 	console.log(pf);
 }
 
-function nextPage(page) {
-	var name = $("#name").val();
-	var address = $("#address").val();
-	var home_number = $("#home_number").val();
-	var mob_number = $("#mob_number").val();
-	var email = $("#email").val();
-	var gp_name = $("#gp_name").val();
-	var gp_address = $("#gp_address").val();
-	var dob = $("#pickdate").val();
-	
-	var p_id = createPatientAndAddToDB(name, address, home_number, mob_number, email, gp_name, gp_address, dob);
-	console.log("Patient ID created: " + p_id);
-		
-	initPatientForm(p_id);
-	getPatientForm(p_id, printPForm);
-	
-	var gp_county = $("#gp_county").val();
-	var county = $("#county").val();
-	var collat = $("#collat_check").is(":checked") ? true : false;
-	var relation = collat ? $("#collat_present").val() : 'na';
-	
-	if(typeof(Storage) !== "undefined"){
-		sessionStorage.p_id = p_id;
-		sessionStorage.collat = collat;
-		sessionStorage.gender = $("input[name=gender]:checked").val();
+function showThirdLevel(sel, div){
+	if($(sel).val() == 'yes'){
+		$("#"+div).show(500);
+	} else {
+		$("#"+div).hide(250);
 	}
+}
+
+function nextPage(page) {
+// 	if(confirm("Do you want to submit this page? (If you leave, the page will need to be filled in again)")){
+// 		$("#linkedPage").val(page);
+// 		submitPage();
+// 	} else {
+// 		spanClick(page);
+// 	}
 	
-	addPersonal(gp_county, county, collat, relation, p_id);	
-	
-	//Submit here instead of spanClick
-	spanClick(page);
+	$( "#dialog-confirm" ).dialog({
+        resizable: false,
+        width:360,
+        modal: true,
+        buttons: {
+          "Submit": function() {
+        	  $("#linkedPage").val(page);
+      		  submitPage();
+              $( this ).dialog( "close" );
+          },
+          "Do not Submit": function() {
+        	  spanClick(page);
+              $( this ).dialog( "close" );
+          },
+          Cancel: function() {
+        	  $( this ).dialog( "close" );
+          }
+        }
+     });
 }
 
 function submitPage() {

@@ -9,22 +9,24 @@
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="/css/history.css" type="text/css"/>  
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
 </head>
 <body>
 <h2>Patient History</h2>
+<span onclick="homeFromForm()" id="home_link_span">Return to Homepage</span>
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="spanClick('personal_details')">Patient Information</span>
-  <span onclick="spanClick('history')" class="current_page">Patient History</span>
-  <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')">Patient Concerns</span>
-  <span onclick="spanClick('neuro')">Neuro History</span>
-  <span onclick="spanClick('events_activities')">Events and Activities</span>
-  <span onclick="spanClick('living')">Living Situation</span>
-  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Test Battery</span>
-  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  <span onclick="linkClick('personal_details')">Patient Information</span>
+  <span onclick="linkClick('history')" class="current_page">Patient History</span>
+  <span onclick="linkClick('medical')">GP Information</span>
+  <span onclick="linkClick('concerns')">Patient Concerns</span>
+  <span onclick="linkClick('neuro')">Neuro History</span>
+  <span onclick="linkClick('events_activities')">Events and Activities</span>
+  <span onclick="linkClick('living')">Living Situation</span>
+  <span onclick="linkClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="linkClick('memory_test')">Test Battery</span>
+  <span onclick="linkClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
@@ -50,8 +52,10 @@
 								<option value="breathing">Breathing Problems</option>
 								<option value="gastric">Gastric Problems</option>
 								<option value="diabetes">Diabetes</option>
+								<option value="surgery">Recent Surgery</option>
 								<option value="other_endocrine">Other Endocrine</option>
 								<option value="other_resolved">Other Resolved Illnesses</option>
+								<option value="other">Other Illness</option>
 							</select>
 						</div>
 						
@@ -96,6 +100,7 @@
 									<option value="diabetes">Diabetes</option>
 									<option value="other_endocrine">Other Endocrine</option>
 									<option value="other_resolved">Other Resolved Illnesses</option>
+									<option value="other">Other Illness</option>
 								</select>
 							</div>
 							
@@ -372,25 +377,49 @@
 		<div id="ther_history">
 			<div id="ther_adds">
 				<div id="current_ther">
+					<!-- <label for="current_therapy_check" class="title">Are you currently going through any counselling or therapy?</label>
+					<input type="checkbox" name="current_therapy_check" /> -->
 					<label for="current_therapy_check" class="title">Are you currently going through any counselling or therapy?</label>
-					<input type="checkbox" name="current_therapy_check" value="current_therapy_check" />
+					<select name="current_therapy_check" id="current_therapy_check">
+						<option value="unknown">Unknown</option>
+						<option value="no">No</option>
+						<option value="yes">Yes</option>
+					</select>
 				</div>
 				<br>
 				<div id="past_ther">
+					<!-- <label for="past_therapy_check" class="title">Have you ever been to any counselling or therapy?</label>
+					<input type="checkbox" name="past_therapy_check" /> -->
 					<label for="past_therapy_check" class="title">Have you ever been to any counselling or therapy?</label>
-					<input type="checkbox" name="past_therapy_check" value="past_therapy_check" />
+					<select name="past_therapy_check" id="past_therapy_check">
+						<option value="unknown">Unknown</option>
+						<option value="no">No</option>
+						<option value="yes">Yes</option>
+					</select>
 				</div>
 				<div class="collat_div history_collat">
 					<input type="button" onclick="showCollatPsych()" class="pure-button history_button collat_button" value="Difference from Collateral">
 					<div class="hide_div" id="collat_psych">
 						<div id="current_ther">
-							<label for="collat_current_therapy_check" class="title">Are they currently going through any counselling or therapy?</label>
-							<input type="checkbox" name="collat_current_therapy_check" value="collat_current_therapy_check" />
+							<!-- <label for="collat_current_therapy_check" class="title">Are they currently going through any counselling or therapy?</label>
+							<input type="checkbox" name="collat_current_therapy_check"/> -->
+							<label for="current_therapy_check_collat" class="title">Are they currently going through any counselling or therapy?</label>
+							<select name="current_therapy_check_collat" id="current_therapy_check_collat">
+								<option value="unknown">Unknown</option>
+								<option value="no">No</option>
+								<option value="yes">Yes</option>
+							</select>
 						</div>
 						<br>
 						<div id="past_ther">
-							<label for="collat_past_therapy_check" class="title">Have they ever been to any counselling or therapy?</label>
-							<input type="checkbox" name="collat_past_therapy_check" value="collat_past_therapy_check" />
+							<!-- <label for="collat_past_therapy_check" class="title">Have they ever been to any counselling or therapy?</label>
+							<input type="checkbox" name="collat_past_therapy_check"/> -->
+							<label for="past_therapy_check_collat" class="title">Have they ever been to any counselling or therapy?</label>
+							<select name="past_therapy_check_collat" id="past_therapy_check_collat">
+								<option value="unknown">Unknown</option>
+								<option value="no">No</option>
+								<option value="yes">Yes</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -404,8 +433,12 @@
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="submitPage('medical')">Next Page</span>
+	<span onclick="submitPage('medical')">Submit and Continue</span>
 </div>
+<div id="dialog-confirm" title="Submit Page?" style="display:none">
+  <p><span class="ui-icon" style="float:left; margin:0 7px 20px 0;"></span>Do you want to submit this page? (If you leave, the page will need to be filled in again)</p>
+</div>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>

@@ -8,22 +8,24 @@
 <link rel="stylesheet" href="/css/page-style.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"/>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
 </head>
 <body>
 <h2>Medical Details</h2>
+<span onclick="homeFromForm()" id="home_link_span">Return to Homepage</span>
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="spanClick('personal_details')">Patient Information</span>
-  <span onclick="spanClick('history')">Patient History</span>
-  <span onclick="spanClick('medical')" class="current_page">GP Information</span>
-  <span onclick="spanClick('concerns')">Patient Concerns</span>
-  <span onclick="spanClick('neuro')">Neuro History</span>
-  <span onclick="spanClick('events_activities')">Events and Activities</span>
-  <span onclick="spanClick('living')">Living Situation</span>
-  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Test Battery</span>
-  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  <span onclick="linkClick('personal_details')">Patient Information</span>
+  <span onclick="linkClick('history')">Patient History</span>
+  <span onclick="linkClick('medical')" class="current_page">GP Information</span>
+  <span onclick="linkClick('concerns')">Patient Concerns</span>
+  <span onclick="linkClick('neuro')">Neuro History</span>
+  <span onclick="linkClick('events_activities')">Events and Activities</span>
+  <span onclick="linkClick('living')">Living Situation</span>
+  <span onclick="linkClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="linkClick('memory_test')">Test Battery</span>
+  <span onclick="linkClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
@@ -34,17 +36,25 @@
 		
 		<div id="gp_info" class="pure-g-u">
 			<div class="pure-u-1-2 title">Have you discussed any of this with your GP?</div>
-			<div class="pure-u-1-2 check" style="margin-top:18px;">
-				<input type="checkbox" name="gp_talked" onclick="showHiddenDiv(this, 'talked_with_gp')">
+			<!-- <div class="pure-u-1-2 checked" style="margin-top:18px;">
+				<input type="checkbox" name="gp_talked" onclick="revealGPDiscussion()">
+			</div> -->
+			<div class="pure-u-1-2 select_box">
+				<select name="discussed_with_gp" id="discussed_with_gp" onchange="revealGPDiscussion()">
+					<option value="unknown">Unknown</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
 			</div>
 			<br>
 			<div id="talked_with_gp" class="hide_div">
 				<div style="width:80px;float:left;height:60px;"></div>
 				<div class="pure-u-1-2 subtitle">With what result?</div>
 				<div class="pure-u-1-2 select_box select_margin_change">
-					<select name="gp_results">
-						<option value="referral_us">Referral to Us</option>
-						<option value="referral_other">Referral to other</option>
+					<select name="gp_results" id="gp_results">
+						<option value="NA">NA</option>
+						<option value="referral_to_us">Referral to Us</option>
+						<option value="referral_to_other">Referral to other</option>
 						<option value="socialize">Socialize More</option>
 						<option value="test">Tests</option>
 						<option value="blood_test">Blood Tests</option>
@@ -57,9 +67,9 @@
 						<option value="unsure">Not Sure</option>
 						<option value="anxiolytic">Anxiolytic</option>
 						<option value="antidepressant">Antidepressant</option>
-						<option value="nmda">NMDA Receptors</option>
-						<option value="blood_test">Acetylcholinesterase Inhibitor</option>
-						<option value="medication">Other</option>			
+						<option value="nmda_receptors">NMDA Receptors</option>
+						<option value="acetyl_inhibitor">Acetylcholinesterase Inhibitor</option>
+						<option value="other">Other</option>			
 					</select>
 				</div>
 				<br>
@@ -86,11 +96,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="cholest_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -109,11 +119,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="ldl_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -132,11 +142,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="hdl_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -155,11 +165,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="systolic_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -178,11 +188,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="diastolic_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -193,7 +203,7 @@
 			<div>
 			<div class="pure-u-1-4 subtitle">Thyroid</div>
 			<div class="pure-u-1-4 select_box select_margin_change">
-				<input type="text" name="thyroid_test" size="4" id="thyroid" onchange="thyroidChanged()">
+				<input type="text" name="thyroid" size="4" id="thyroid" onchange="thyroidChanged()">
 				<div style="font-size:small">pg/mL</div>
 			</div>
 			<div id="thyroid_qs" style="display:inline;">
@@ -201,11 +211,11 @@
 				<div class="pure-u-1-4 select_box" style="">
 					<select name="thyroid_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -224,11 +234,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="b12_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -247,11 +257,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="iron_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -270,11 +280,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="calc_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -293,11 +303,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="sodium_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -315,11 +325,11 @@
 				<div class="pure-u-1-4 select_box">
 					<select name="weight_time">
 						<option value="unknown">Unknown</option>
-						<option value="three_mon">1 month</option>
+						<option value="one_mon">1 month</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="two_plus_yrs">2+ years</option>
 					</select>
 				</div>
 			</div>
@@ -344,11 +354,11 @@
 			<div class="pure-u-1-2 select_box">
 				<select name="response_time">
 						<option value="unknown">Unknown</option>
-					<option value="three_mon">1 month</option>
-					<option value="three_mon">3 months</option>
-					<option value="six_mon">6 months</option>
-					<option value="one_yr">1 year</option>
-						<option value="two_plus">2+ years</option>
+						<option value="one_mon">1 month</option>
+						<option value="three_mon">3 months</option>
+						<option value="six_mon">6 months</option>
+						<option value="one_yr">1 year</option>
+						<option value="two_plus_yrs">2+ years</option>
 				</select>
 			</div>
 		</div>
@@ -359,14 +369,20 @@
 </form>
 <br><br>
 <div class="footer">
-	<span onclick="submitPage()">Next Page</span>
+	<span onclick="submitPage()">Submit and Continue</span>
 </div>
+<div id="dialog-confirm" title="Submit Page?" style="display:none">
+  <p><span class="ui-icon" style="float:left; margin:0 7px 20px 0;"></span>Do you want to submit this page? (If you leave, the page will need to be filled in again)</p>
+</div>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/IDB.js"></script>
 <script src="/js/IDBForm.js"></script>
 <script type="text/javascript">
+	var gp_discuss_open = false;
+	
 	$(document).ready(function() {
 		if("${id}" != "")
 			$("#hiddenID").val("${id}");
@@ -432,6 +448,25 @@
 		$("#medical_form").submit();
 	}
 	
+	function revealGPDiscussion(){
+		/*if(gp_discuss_open){
+			$('#talked_with_gp').hide(500);
+			gp_discuss_open = false;
+			$("#gp_results").append("<option value='NA' selected='selected'>NA</option>");
+		} else {
+			$('#talked_with_gp').show(500);
+			gp_discuss_open = true;
+			$("#gp_results option[value='NA']").remove();
+		}*/
+		if($("#discussed_with_gp").val() == "yes"){
+			$("#talked_with_gp").show(500);
+			$("#gp_results option[value='NA']").remove();
+		} else {
+			$("#talked_with_gp").hide(500);
+			$("#gp_results").append("<option value='NA' selected='selected'>NA</option>");
+		}
+	}
+	
 	function cholestChanged(){
 		var c = parseFloat($("#cholesterol").val());
 		if(c > 5){
@@ -467,7 +502,7 @@
 	
 	function systolicChanged(){
 		var l = parseInt($('#systolic').val());
-		if(l < 140){
+		if(l > 140){
 			addWarning($('#systolic'));
 			sessionStorage.systolic = true;
 		} else {
@@ -478,7 +513,7 @@
 	
 	function diastolicChanged(){
 		var l = parseInt($('#diastolic').val());
-		if(l < 90){
+		if(l > 90){
 			addWarning($('#diastolic'));
 			sessionStorage.diastolic = true;
 		} else {

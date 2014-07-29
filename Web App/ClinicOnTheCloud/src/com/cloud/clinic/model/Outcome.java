@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class Outcome implements Serializable{
 
@@ -27,8 +29,10 @@ public class Outcome implements Serializable{
 	
 	@Transient
 	protected Object[] jdoDetachedState;
-	
+
+	@Expose
 	String outcome;
+	@Expose
 	@Column(columnDefinition="TEXT")
 	String outcome_notes;
 	

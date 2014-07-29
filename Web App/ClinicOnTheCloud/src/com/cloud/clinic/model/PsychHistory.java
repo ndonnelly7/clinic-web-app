@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Used to represent PsychHistory's
  * 
@@ -34,9 +36,11 @@ public class PsychHistory implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	PatientHistory pHistory;
 	
-	String psych;
-	String time;
-	String notes;
+	@Expose
+	String psych, time, notes;
+	
+	@Expose
+	boolean collat;
 	
 	public PsychHistory() {
 		
@@ -64,6 +68,14 @@ public class PsychHistory implements Serializable {
 
 	public void setPsych(String psych) {
 		this.psych = psych;
+	}
+
+	public boolean isCollat() {
+		return collat;
+	}
+
+	public void setCollat(boolean collat) {
+		this.collat = collat;
 	}
 
 	public String getTime() {

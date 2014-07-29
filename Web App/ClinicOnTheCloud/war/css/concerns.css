@@ -53,3 +53,7 @@ form .concern_a {
 	width: 25%;
 	display: inline-block;
 }
+
+.reactive_div {
+	margin-top: 16px;
+}

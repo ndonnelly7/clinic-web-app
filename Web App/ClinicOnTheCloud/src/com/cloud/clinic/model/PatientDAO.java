@@ -30,7 +30,7 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 
 	@Override
 	public Patient get(Integer id) {
-		if(id < 0)
+		if(id <= 0)
 			return null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
@@ -107,8 +107,14 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 		session.close();
 		
 	}
+	
+	public void init(){
+		Session s = HibernateUtil.getSessionFactory().openSession();
+		
+		s.close();
+	}
 
-	public Form getLatestForm(Patient p) {
+	public Form getTodaysForm(Patient p) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		Calendar c = Calendar.getInstance();
@@ -140,17 +146,77 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 			return f;
 		}
 	}
+	
+	public Form getMostRecentForm(Patient p){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		String hql = "from Form where patient = " + String.valueOf(p.getPatientID()) + " order by timestamp desc";
+		Query q = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Form> list = (List<Form>) q.list();
+		if(list.size() == 0){
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;
+		} else {
+			Form f = list.get(0);
+			session.close();
+			return f;
+		}
+	}
+	
+	public Form getFormWithDate(Patient p, Calendar c){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		String hql = "from Form where patient = " + String.valueOf(p.getPatientID()) + " order by timestamp desc";
+		Query q = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Form> list = (List<Form>) q.list();
+		
+		if(list.size() == 0){
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;
+		} else {
+			for(int i = 0; i < list.size(); i++){
+				Form f = list.get(i);
+				if((f.getTimestamp().get(Calendar.MONTH) == c.get(Calendar.MONTH))
+					&& (f.getTimestamp().get(Calendar.YEAR) == c.get(Calendar.YEAR))
+					&& (f.getTimestamp().get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH))){
+					f.setNew(false);
+					session.close();
+					return f;
+				}
+			}
+			Form f = new Form();
+			f.setPatient(p);
+			f.setTimestamp(c);
+			f.setNew(true);
+			session.close();
+			return f;			
+		}
+	}
 
 	public PatientHistory loadHistory(Form f){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		PatientHistory history = f.getPatientHistory();
+		Form f2 = (Form) session.get(Form.class, f.getFormID());
+		PatientHistory history = f2.getPatientHistory();
 		Hibernate.initialize(history.med_histories);
 		Hibernate.initialize(history.med_collat_histories);
 		Hibernate.initialize(history.drug_histories);
 		Hibernate.initialize(history.drug_collat_histories);
 		Hibernate.initialize(history.psych_histories);
 		Hibernate.initialize(history.psych_collat_histories);
+		
 		
 		session.close();
 		return history;
@@ -159,7 +225,8 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 	public EventsActivities loadEventsActivities(Form f){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		EventsActivities ea = f.getEventsActivities();
+		Form f2 = (Form) session.get(Form.class, f.getFormID());
+		EventsActivities ea = f2.getEventsActivities();
 		Hibernate.initialize(ea.getActivities());
 		Hibernate.initialize(ea.getCollat_activities());
 		
@@ -170,7 +237,8 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 	public Lifestyle loadLifestyle(Form f){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		Lifestyle l = f.getLifestyle();
+		Form f2 = (Form) session.get(Form.class, f.getFormID());
+		Lifestyle l = f2.getLifestyle();
 		Hibernate.initialize(l.getActivities());
 		Hibernate.initialize(l.getCollatActivities());
 		
@@ -181,7 +249,8 @@ public class PatientDAO implements DAOInterface<Patient, Integer> {
 	public Analysis loadAnalysis(Form f){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		Analysis a = f.getAnalysis();
+		Form f2 = (Form) session.get(Form.class, f.getFormID());
+		Analysis a = f2.getAnalysis();
 		Hibernate.initialize(a.getOutcomes());
 		Hibernate.initialize(a.getImpressions());
 		

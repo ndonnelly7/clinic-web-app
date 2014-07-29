@@ -6,12 +6,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import com.google.gson.annotations.Expose;
 
 @Entity(name="Form")
 public class Form implements java.io.Serializable{
@@ -20,6 +24,7 @@ public class Form implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="FormID", unique=true, nullable=false)
 	private int formID;
 	
@@ -29,9 +34,13 @@ public class Form implements java.io.Serializable{
 	@Transient
 	protected Object[] jdoDetachedState;
 	
+	@Expose
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar timestamp;
 	
+	@Expose
+	String case_number;
+
 	@Transient
 	private boolean isNew;
 	
@@ -82,6 +91,14 @@ public class Form implements java.io.Serializable{
 
 	public void setTimestamp(Calendar timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	public String getCase_number() {
+		return case_number;
+	}
+
+	public void setCase_number(String case_number) {
+		this.case_number = case_number;
 	}
 
 	public PersonalDetails getPersonalDetails() {

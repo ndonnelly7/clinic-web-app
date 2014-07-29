@@ -24,7 +24,16 @@ public class NeuroServlet extends HttpServlet {
 		PatientDAO dao = new PatientDAO();
 		Integer patientID = Integer.parseInt(req.getParameter("hiddenID"));
 		Patient pat = dao.get(patientID);
-		Form f = dao.getLatestForm(pat);
+		
+		if(pat == null){
+			req.setAttribute("error", "There was no patient associated with the form");
+			req.setAttribute("error_message", "Patient was potentially created incorrectly, please ensure the Personal Details form is submitted correctly before proceeding with the test");
+			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
+			view.forward(req, resp);
+			return;
+		}
+		
+		Form f = dao.getMostRecentForm(pat);
 		NeuroHistory neuro = new NeuroHistory();
 		BeanPopulate.populateBean(neuro, req);
 		
@@ -34,6 +43,8 @@ public class NeuroServlet extends HttpServlet {
 				neuro.setNeuroHistoryID(f.getNeuroHistory().getNeuroHistoryID());
 		}
 		neuro.setForm(f);
+		if(f.getNeuroHistory() != null)
+			neuro.setNeuroHistoryID(f.getNeuroHistory().getNeuroHistoryID());
 		f.setNeuroHistory(neuro);
 		List<Form> fList =  pat.getForms();
 		for(int i = 0; i < fList.size(); i++){

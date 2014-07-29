@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Used to represent the Patient's Medical history, including Drug History, Medical History and Psych History
  */
@@ -31,14 +33,19 @@ public class PatientHistory {
 	@OneToOne(fetch = FetchType.LAZY)
 	private Form form;
 	
+	@Expose
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<MedHistory> med_histories, med_collat_histories;
+	@Expose
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<DrugHistory> drug_histories, drug_collat_histories;
+	@Expose
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<PsychHistory> psych_histories, psych_collat_histories;
 	
+	@Expose
 	String current_therapy_check, past_therapy_check;
+	@Expose
 	String collat_current_therapy_check, collat_past_therapy_check;
 	
 	public PatientHistory(){

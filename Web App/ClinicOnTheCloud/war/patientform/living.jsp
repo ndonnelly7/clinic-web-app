@@ -9,22 +9,24 @@
 <link rel="stylesheet" href="/css/pure_grid.css" type="text/css"/>  
 <link rel="stylesheet" href="/css/living.css" type="text/css"/>
 <link rel="stylesheet" href="/css/pure-min.css"/> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
 </head>
 <body>
 <h2>Living Circumstances</h2>
+<span onclick="homeFromForm()" id="home_link_span">Return to Homepage</span>
 <form id="test_form" action="form.do" method="GET">
 <div id="navbar"> 
     
-  <span onclick="spanClick('personal_details')">Patient Information</span>
-  <span onclick="spanClick('history')">Patient History</span>
-  <span onclick="spanClick('medical')">GP Information</span>
-  <span onclick="spanClick('concerns')">Patient Concerns</span>
-  <span onclick="spanClick('neuro')">Neuro History</span>
-  <span onclick="spanClick('events_activities')">Events and Activities</span>
-  <span onclick="spanClick('living')" class="current_page">Living Situation</span>
-  <span onclick="spanClick('lifestyle')">Patient Lifestyle</span>
-  <span onclick="spanClick('memory_test')">Test Battery</span>
-  <span onclick="spanClick('analysis')">Summary and Analysis</span> 
+  <span onclick="linkClick('personal_details')">Patient Information</span>
+  <span onclick="linkClick('history')">Patient History</span>
+  <span onclick="linkClick('medical')">GP Information</span>
+  <span onclick="linkClick('concerns')">Patient Concerns</span>
+  <span onclick="linkClick('neuro')">Neuro History</span>
+  <span onclick="linkClick('events_activities')">Events and Activities</span>
+  <span onclick="linkClick('living')" class="current_page">Living Situation</span>
+  <span onclick="linkClick('lifestyle')">Patient Lifestyle</span>
+  <span onclick="linkClick('memory_test')">Test Battery</span>
+  <span onclick="linkClick('analysis')">Summary and Analysis</span> 
   
   <input type="hidden" id="text_form" name="page"/>
 </div> 
@@ -40,7 +42,8 @@
 				</div>
 				<div class="pure-u-1-3 homelife_select">
 					<select name="housemates">
-						<option value="alone"selected="selected">Alone</option>
+						<option value="unknown">Unknown</option>
+						<option value="alone">Alone</option>
 						<option value="spouse">Spouse</option>
 						<option value="children">Children</option>
 						<option value="family">Family</option>
@@ -60,6 +63,7 @@
 				</div>
 				<div class="pure-u-1-3 homelife_select">
 					<select name="house_type">
+						<option value="unknown">Unknown</option>
 						<option value="single">Single Storey House</option>
 						<option value="two_storey">Two Storey House</option>
 						<option value="apartment">Apartment</option>
@@ -77,6 +81,7 @@
 				</div>
 				<div class="pure-u-1-3 homelife_select">
 					<select name="house_location">
+						<option value="unknown">Unknown</option>
 						<option value="urban">Urban</option>
 						<option value="suburban">Suburban</option>
 						<option value="country">Countryside</option>
@@ -91,8 +96,13 @@
 				<div class="pure-u-1-3 title" style="margin-top:2px;">
 					<span>Are you currently caring for a loved one or someone incapacitated?</span>
 				</div>
-				<div class="pure-u-1-3 check homelife_check">
-					<input type="checkbox" name="carer">
+				<div class="pure-u-1-3 check homelife_select">
+					<!-- <input type="checkbox" name="carer"> -->
+					<select name="is_carer" id="is_carer">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div class="pure-u-1-3 notes_column">
 					<textarea name="carer_note" form="living_form"></textarea>
@@ -104,7 +114,12 @@
 					<span>Are you receiving Home Help?</span>
 				</div>
 				<div class="pure-u-1-3 check homelife_check">
-					<input type="checkbox" name="home_help" onchange="homeHelpChanged(this)">
+					<!-- <input type="checkbox" name="home_help" onchange="homeHelpChanged(this)"> -->
+					<select name="is_carer" id="getting_homehelp">
+						<option value="unknown">Unknown</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
 				</div>
 				<div class="pure-u-1-3 notes_column">
 					<textarea name="home_help_note" form="living_form"></textarea>
@@ -123,7 +138,8 @@
 						</div>
 						<div class="pure-u-1-3 homelife_select">
 							<select name="housemates_collat">
-								<option value="alone" selected="selected">Alone</option>
+						<option value="unknown">Unknown</option>
+								<option value="alone">Alone</option>
 								<option value="spouse">Spouse</option>
 								<option value="children">Children</option>
 								<option value="family">Family</option>
@@ -143,6 +159,7 @@
 						</div>
 						<div class="pure-u-1-3 homelife_select">
 							<select name="house_type_collat">
+								<option value="unknown">Unknown</option>
 								<option value="single">Single Storey House</option>
 								<option value="two_storey">Two Storey House</option>
 								<option value="apartment">Apartment</option>
@@ -160,6 +177,7 @@
 						</div>
 						<div class="pure-u-1-3 homelife_select">
 							<select name="house_location_collat">
+								<option value="unknown">Unknown</option>
 								<option value="urban">Urban</option>
 								<option value="suburban">Suburban</option>
 								<option value="country">Countryside</option>
@@ -175,7 +193,12 @@
 							<span>Are they currently caring for a loved one or someone incapacitated?</span>
 						</div>
 						<div class="pure-u-1-3 check homelife_check">
-							<input type="checkbox" name="carer_collat">
+							<!-- <input type="checkbox" name="carer_collat"> -->
+							<select name="collat_is_carer" id="collat_is_carer">
+								<option value="unknown">Unknown</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
 						</div>
 						<div class="pure-u-1-3 notes_column">
 							<textarea name="carer_collat" form="living_form"></textarea>
@@ -187,7 +210,12 @@
 							<span>Are they receiving Home Help?</span>
 						</div>
 						<div class="pure-u-1-3 check homelife_check">
-							<input type="checkbox" name="home_help_collat" onchange="homeHelpChanged(this)">
+							<!-- <input type="checkbox" name="home_help_collat" onchange="homeHelpChanged(this)"> -->
+							<select name="collat_getting_homehelp" id="collat_getting_homehelp">
+								<option value="unknown">Unknown</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
 						</div>
 						<div class="pure-u-1-3 notes_column">
 							<textarea name="home_help_note_collat" form="living_form"></textarea>
@@ -207,6 +235,7 @@
 			<div class="routine_q_check">Do you drive?</div>
 			<!-- <input type="checkbox" id="init_driving_check" name="driving_check" onchange="revealDrive()"> -->
 			<select name="drive" onchange="revealDrive(this)">
+				<option value="unknown">unknown</option>
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
 			</select>
@@ -295,6 +324,32 @@
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
 								<textarea form="living_form" class="reason_input" name="tips_notes" rows="2" cols="24"></textarea>
+							</div>
+						</div>
+						
+						<div id="other_incidents" class="pure-g-r">
+							<div class="pure-u-1-5 grid_entry grid_entry_type">Other</div>
+							<div class="pure-u-1-5 grid_entry grid_other_text">
+								<input type="text" name="driving_other_incident" onchange="enableRowText(this)">
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<select name="driving_other_severity" class="hide_select">
+									<option value="minor">Minor</option>
+									<option value="moderate">Moderate</option>
+									<option value="badly">Badly</option>
+								</select>
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<select name="driving_other_freq" class="hide_select">
+									<option value="frequently">Frequently</option>
+									<option value="semi_freq">Every So Often</option>
+									<option value="rarely">Rarely</option>
+									<option value="once">Once</option>
+									<option value="never" selected="selected">Never</option>
+								</select>
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<textarea form="living_form" class="reason_input" name="driving_other_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 					</div> <!-- Driving Grid -->
@@ -403,7 +458,7 @@
 						<div id="use_map" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Use a map</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="use_map" class="grid_check" onclick="enableRow(this)">
+								<input type="checkbox" name="map" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
 								<select name="use_map_success" class="hide_select">
@@ -414,14 +469,14 @@
 								</select>
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
-								<textarea form="living_form" class="reason_input" name="use_map_notes" rows="2" cols="24"></textarea>
+								<textarea form="living_form" class="reason_input" name="map_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 						<!-- Phone for Help -->
 						<div id="take_phone" class="pure-g-r">
 							<div class="pure-u-1-5 grid_entry grid_entry_type">Take a phone and call if you need help</div>
 							<div class="pure-u-1-5 grid_entry grid_check_div">
-								<input type="checkbox" name="take_phone_check" class="grid_check" onclick="enableRow(this)">
+								<input type="checkbox" name="take_phone" class="grid_check" onclick="enableRow(this)">
 							</div>
 							<div class="pure-u-1-5 grid_entry grid_entry_select">
 								<select name="take_phone_success" class="hide_select">
@@ -444,6 +499,7 @@
 			</div>
 			
 			<div class="collat_div">
+				<input type="hidden" value="hidden" id="collat_drive" name="collat_drive">
 				<input type="button" onclick="addNewCollatDriving(this)" class="pure-button living-button" value="Add Information from Collateral">
 				<div id="collat_driving" class="hide_div">
 					<div class="routine_q_check">Do they drive?</div>
@@ -510,13 +566,13 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<textarea form="living_form" class="reason_input" name="activity_notes" rows="2" cols="24"></textarea>
+									<textarea form="living_form" class="reason_input" name="lost_notes" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 							<div id="tips_scrapes" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Involved in tips and scrapes</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="tips" class="grid_check" onclick="enableRow(this)">
+									<input type="checkbox" name="tips_collat" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="tips_severity_collat" class="hide_select">
@@ -536,6 +592,31 @@
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<textarea form="living_form" class="reason_input" name="tips_notes_collat" rows="2" cols="24"></textarea>
+								</div>
+							</div>
+							<div id="other_incidents" class="pure-g-r">
+								<div class="pure-u-1-5 grid_entry grid_entry_type">Other</div>
+								<div class="pure-u-1-5 grid_entry grid_other_text">
+									<input type="text" name="collat_driving_other_incident" onchange="enableRowText(this)">
+								</div>
+								<div class="pure-u-1-5 grid_entry grid_entry_select">
+									<select name="colalt_driving_other_severity" class="hide_select">
+										<option value="minor">Minor</option>
+										<option value="moderate">Moderate</option>
+										<option value="badly">Badly</option>
+									</select>
+								</div>
+								<div class="pure-u-1-5 grid_entry grid_entry_select">
+									<select name="collat_driving_other_freq" class="hide_select">
+										<option value="frequently">Frequently</option>
+										<option value="semi_freq">Every So Often</option>
+										<option value="rarely">Rarely</option>
+										<option value="once">Once</option>
+										<option value="never" selected="selected">Never</option>
+									</select>
+								</div>
+								<div class="pure-u-1-5 grid_entry grid_entry_select">
+									<textarea form="living_form" class="reason_input" name="collat_driving_other_notes" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 						</div> <!-- Driving Grid -->
@@ -644,7 +725,7 @@
 							<div id="use_map" class="pure-g-r">
 								<div class="pure-u-1-5 grid_entry grid_entry_type">Use a map</div>
 								<div class="pure-u-1-5 grid_entry grid_check_div">
-									<input type="checkbox" name="use_map_collat" class="grid_check" onclick="enableRow(this)">
+									<input type="checkbox" name="map_collat" class="grid_check" onclick="enableRow(this)">
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
 									<select name="use_map_success_collat" class="hide_select">
@@ -655,7 +736,7 @@
 									</select>
 								</div>
 								<div class="pure-u-1-5 grid_entry grid_entry_select">
-									<textarea form="living_form" class="reason_input" name="use_map_notes_collat" rows="2" cols="24"></textarea>
+									<textarea form="living_form" class="reason_input" name="map_notes_collat" rows="2" cols="24"></textarea>
 								</div>
 							</div>
 							<!-- Phone for Help -->
@@ -697,6 +778,7 @@
 			<div class="routine_q_check">Do you cook for yourself?</div>
 			<!-- <input type="checkbox" id="init_cooking_check" onchange="cookingCheckChanged(this, 'does_cook')"> -->
 			<select name="cook" onchange="cookingCheckChanged(this, 'does_cook')">
+				<option value="unknown">Unknown</option>
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
 			</select>
@@ -705,6 +787,7 @@
 				<div class="subtitle_q">Who cooks for you?</div>
 				<div class="bills_select">
 					<select name="cook_help" id="cook_help_select">
+						<option value="unknown">Unknown</option>
 						<option value="family">Family</option>
 						<option value="friend">Friend</option>
 						<option value="takeaway">Takeaway</option>
@@ -712,7 +795,6 @@
 					</select>
 				</div>
 				<div class="note_area"><textarea form="living_form" name="cook_help_notes" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
-				<div><textarea form="living_form" name="cooking_notes" rows="3" cols="40" style="margin-top: 2px;margin-left:2%;"></textarea></div>
 			</div>
 			
 			<div id="does_cook" class="hide_div">
@@ -814,6 +896,24 @@
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
 								<textarea form="living_form" class="reason_input" name="undercooked_notes" rows="2" cols="24"></textarea>
+							</div>
+						</div>
+						
+						<div id="other_incidents" class="pure-g-r">
+							<div class="pure-u-1-5 grid_entry grid_entry_type">Other</div>
+							<div class="pure-u-1-5 grid_entry grid_other_text">
+								<input type="text" name="cooking_other_incident" onchange="enableRowText(this)">
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<select name="cooking_other_freq" class="hide_select">
+									<option value="frequently">Quite Often</option>
+									<option value="semi_freq">Few Times</option>
+									<option value="rarely">Rarely</option>
+									<option value="once">Once Off</option>
+								</select>
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<textarea form="living_form" class="reason_input" name="cooking_other_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 					</div> <!-- Cooking Grid -->
@@ -943,13 +1043,14 @@
 					</div> <!-- Coping Grid -->
 				</div><!-- Coping Strategies for Cooking -->
 			</div>
+			<div><textarea form="living_form" name="cooking_notes" rows="3" cols="40" style="margin-top: 2px;margin-left:2%;"></textarea></div>
 		</div>
 		
 		<input type="button" onclick="addNewCollatCooking(this)" class="pure-button living-button collat_button" value="Add Information from Collateral">
 		<div id="collat_cooking_div" class="hide_div">
 			<div class="routine_q_check">Do they cook for themselves?</div>
 			<!-- <input type="checkbox" id="init_cooking_check" onchange="cookingCheckChanged(this, 'does_cook')"> -->
-			<select name="cook_collat" onchange="cookingCheckChangedCollat(this)">
+			<select name="cooking_collat" onchange="cookingCheckChangedCollat(this)">
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
 			</select>
@@ -1067,6 +1168,24 @@
 							</div>
 							<div class="pure-u-1-4 grid_entry grid_entry_select">
 								<textarea form="living_form" class="reason_input" name="undercooked_notes" rows="2" cols="24"></textarea>
+							</div>
+						</div>
+						
+						<div id="other_incidents" class="pure-g-r">
+							<div class="pure-u-1-5 grid_entry grid_entry_type">Other</div>
+							<div class="pure-u-1-5 grid_entry grid_other_text">
+								<input type="text" name="collat_cooking_other_incident" onchange="enableRowText(this)">
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<select name="collat_cooking_other_freq" class="hide_select">
+									<option value="frequently">Quite Often</option>
+									<option value="semi_freq">Few Times</option>
+									<option value="rarely">Rarely</option>
+									<option value="once">Once Off</option>
+								</select>
+							</div>
+							<div class="pure-u-1-5 grid_entry grid_entry_select">
+								<textarea form="living_form" class="reason_input" name="collat_cooking_other_notes" rows="2" cols="24"></textarea>
 							</div>
 						</div>
 					</div> <!-- Cooking Grid -->
@@ -1196,6 +1315,7 @@
 					</div> <!-- Coping Grid -->
 				</div><!-- Coping Strategies for Cooking -->
 					<div id="collat_cooking" class="hide_div">
+						<input type="hidden" value="hidden" id="collat_cook" name="collat_cook">
 						<div id="cooking_problems">
 							<div class="routine_q">Do you ever have the following problems with cooking?</div>
 							<div  class="living_grid">
@@ -1434,6 +1554,7 @@
 			<!-- <input type="checkbox" id="init_shopping_check" onchange="shoppingCheckChanged(this, 'does_shop')"> -->
 			
 			<select name="shop" onchange="shoppingCheckChanged(this, 'does_shop')">
+				<option value="unknown">Unknown</option>
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
 			</select>
@@ -1443,6 +1564,7 @@
 					<div class="subtitle_q">Who helps you with your shopping?</div>
 					<div class="bills_select">
 						<select name="shop_help" id="shop_help_select">
+							<option value="unknown">Unknown</option>
 							<option value="family">Family</option>
 							<option value="friend">Friend</option>
 						</select>
@@ -1453,6 +1575,7 @@
 				<div class="subtitle_q">How long have you had help?</div>
 				<div class="bills_select">
 					<select name="shop_help_time" id="shop_help_time_select">
+						<option value="unknown">Unknown</option>
 						<option value="three_mon">3 months</option>
 						<option value="six_mon">6 months</option>
 						<option value="one_yr">1 year</option>
@@ -1467,6 +1590,7 @@
 				<div class="subtitle_q">Have you been finding it tougher to cook recently?</div>
 				<div class="bills_select">
 					<select name="shopping_tougher" id="shop_tough_select">
+						<option value="unknown">Unknown</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select>
@@ -1522,12 +1646,14 @@
 		</div>
 		
 		<div class="collat_div">
+			<input type="hidden" value="hidden" id="collat_shop" name="collat_shop">
 			<input type="hidden" id="shopping_not_collat" name="shopping_not_collat" value="hidden">
 			<input type="button" onclick="addCollatShopping(this)" class="pure-button living-button" value="Add Information from Collateral">
 					
 			<div id="shopping_collat_grid" class="hide_div">
 				<div class="routine_q_check">Do they shop for themselves?</div>
-				<select name="shopping_yn" onchange="shoppingCheckChangedCollat(this)">
+				<select name="shopping_collat" onchange="shoppingCheckChangedCollat(this)">
+					<option value="unknown">Unknown</option>
 					<option value="no">No</option>
 					<option value="yes">Yes</option>
 				</select>
@@ -1627,6 +1753,7 @@
 				<div class="subtitle_q">How do you pay your bills?</div>
 				<div class="bills_select">
 					<select name="bills_method">
+						<option value="unknown">Unknown</option>
 						<option value="direct_debit">Direct Debit</option>
 						<option value="post_office">Post Office</option>
 						<option value="bank">Bank</option>
@@ -1639,6 +1766,7 @@
 				<div class="subtitle_q">Does anybody help you?</div>
 				<div class="bills_select">
 					<select name="bills_help">
+						<option value="unknown">Unknown</option>
 						<option value="nobody">No</option>
 						<option value="family">Family Member</option>
 						<option value="friend">Friend</option>
@@ -1651,7 +1779,8 @@
 			<div id="bills_problem">
 				<div class="subtitle_q">Have you ever had trouble with bills?</div>
 				<div class="bills_select">
-					<select name="bill_problem">
+					<select name="bill_problems">
+						<option value="unknown">Unknown</option>
 						<option value="forgot_payment">Forgot to Pay</option>
 						<option value="income_issue">Not enough money</option>
 						<option value="other">Other</option>
@@ -1662,10 +1791,11 @@
 		</div>
 		
 		<div class="collat_div">
+			<input type="hidden" value="hidden" id="collat_bills" name="collat_bills">
 			<input type="hidden" id="bills_collat" name="bills_collat" value="hidden">
 			<input type="button" onclick="addNewCollatBills(this)" class="pure-button living-button" value="Add Information from Collateral">
 			
-			<div id="collat_bills" class="hide_div">
+			<div id="collat_bill" class="hide_div">
 				<div id="paying_bills init_grid" class="pure-form-aligned">
 					<div id="bills_method">
 						<div class="subtitle_q">How do you pay your bills?</div>
@@ -1677,7 +1807,7 @@
 								<option value="bank">Bank</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_method_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bills_method_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 					
 					<div id="bills_help">
@@ -1690,20 +1820,20 @@
 								<option value="home_help">Home Help</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bills_help_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 					
 					<div id="bills_problem">
 						<div class="subtitle_q">Have you ever had trouble with bills?</div>
 						<div class="bills_select">
-							<select name="bills_problem_collat">
+							<select name="bill_problems_collat">
 								<option value="no_problems">No Problems</option>
 								<option value="forgot_payment">Forgot to Pay</option>
 								<option value="income_issue">Not enough money</option>
 								<option value="other">Other</option>
 							</select>
 						</div>
-						<div class="note_area"><textarea form="living_form" name="bill_problem_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
+						<div class="note_area"><textarea form="living_form" name="bill_problems_notes_collat" rows="2" cols="24" style="margin-top: 2px;"></textarea></div>
 					</div>
 				</div>
 			</div>
@@ -1712,8 +1842,12 @@
 	<input type="hidden" id="hiddenID" name="hiddenID"/>
 </form>
 <div class="footer">
-	<span onclick="submitPage()">Next Page</span>
+	<span onclick="submitPage()">Submit and Continue</span>
 </div>
+<div id="dialog-confirm" title="Submit Page?" style="display:none">
+  <p><span class="ui-icon" style="float:left; margin:0 7px 20px 0;"></span>Do you want to submit this page? (If you leave, the page will need to be filled in again)</p>
+</div>
+
 <script src="/js/living.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
