@@ -470,11 +470,16 @@
 		<div id="exe_row" name="exe_row" class="row">
 			<div class="act_col">
 				<label for="type">Activity:</label>
-				<input type="text" id="type" name="type">
+				<input type="text" id="type" name="exercise">
 			</div>
 			<div class="inv_col" hidden="true">
 				<label for="involvement">Involvement:</label>
-				<input type="text" id="involvement" name="involvement">
+				<select id="involvement" name="still_active" onchange="changeInvolvement(this)">
+					<option value="involvement">Involvement</option>
+					<option value='no'>No Longer</option>
+					<option value='ongoing'>Ongoing</option>
+					<option value='decrease'>Decrease</option>
+				</select>
 			</div>
 			<div class="cur_col" hidden="true">
 				<label for="current_hours">Current Hours:</label>
@@ -482,11 +487,11 @@
 			</div>
 			<div class="pre_col">
 				<label for="prev_hours">Previous Hours:</label>
-				<input type="text" id="prev_hours" name="prev_hours" class="num">
+				<input type="text" id="prev_hours" name="previous_hours" class="num">
 			</div>
 			<div class="tim_col">
 				<label for="time_changed">When Changed:</label>
-				<input type="text" id="time_changed" name="time_changed">
+				<input type="text" id="time_changed" name="exercise_time">
 			</div>
 			<div class="collat_col">
 				<label for="collat">From Collateral:</label>
@@ -494,7 +499,7 @@
 			</div>
 			<div class="notes_col">
 				<label for="notes">Notes:</label>
-				<textarea rows="3" id="notes" name="notes"></textarea>
+				<textarea rows="3" id="notes" name="exercise_act_notes"></textarea>
 			</div>
 		</div>
 	</div>

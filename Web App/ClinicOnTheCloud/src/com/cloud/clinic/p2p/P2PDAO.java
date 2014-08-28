@@ -9,7 +9,6 @@ import javax.persistence.EntityTransaction;
 import com.cloud.clinic.model.Clinic;
 import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
-import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.EMF;
 
 public class P2PDAO {

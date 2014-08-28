@@ -906,6 +906,8 @@ function loadLifestyle(json){
 					elem.value = activities[i][k];
 			}
 		}
+		
+		changeInvolvementOld($("#exe_row .inv_col #involvement").get(0));
 	}
 	
 	if((life['sleep_difficulty']).toUpperCase() == "NO") $("#diff_").hide();
