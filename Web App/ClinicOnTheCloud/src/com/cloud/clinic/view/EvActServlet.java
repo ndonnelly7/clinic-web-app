@@ -48,7 +48,7 @@ public class EvActServlet extends HttpServlet {
 		} else {
 			if(f.getEventsActivities() != null){
 				ea.setEventsActivitiesID(f.getEventsActivities().getEventsActivitiesID());
-				dao.runQuery("delete from Activity where Lifestyle= " + String.valueOf(ea.getEventsActivitiesID()));
+				dao.runQuery("delete from Activity where eventActivity= " + String.valueOf(ea.getEventsActivitiesID()));
 				ea.setForm(f);
 				f.setEventsActivities(ea);
 			} else {

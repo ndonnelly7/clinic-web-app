@@ -5,371 +5,431 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="neuro_form" class="form_entry pure-form pure-form-aligned">
+<form id="neuro_form" class="form_entry pure-form pure-form-aligned"  method="POST" action="/patientform/neural.do">
 
-<div id="neuro" class="row_div">
+<div id="neuro" class="row_div" name="neuro" class="row_div">
 	<div class="header">Neurological Issues</div>
-	<div id="blackout_row" class="row">
+	<div id="blackout_row" class="row" name="blackout_row" class="row">
 		<div class="subheader">Blackouts</div>
+		<input type="checkbox" name="blackout_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="blackout_time">Time Since First Occurence:</label>
-			<input type="text" id="blackout_time" readonly>
+			<input type="text" id="blackout_time" name="blackout_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="blackout_freq">Frequency:</label>
-			<input type="text" id="blackout_freq" readonly>
+			<input type="text" id="blackout_freq" name="blackout_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="blackout_investigated">Investigated:</label>
-			<input type="text" id="blackout_investigated" readonly>
+			<input type="text" id="blackout_investigated" name="blackout_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="blackout_notes">Notes:</label>
-			<textarea rows="3" id="blackout_notes" readonly></textarea>
+			<textarea rows="3" id="blackout_notes" name="blackout_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="blanks_row" class="row">
+	<div id="blanks_row" class="row" name="blanks_row" class="row">
 		<div class="subheader">Blanks</div>
+		<input type="checkbox" name="blanks_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="blanks_time">Time Since First Occurence:</label>
-			<input type="text" id="blanks_time" readonly>
+			<input type="text" id="blanks_time" name="blanks_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="blanks_freq">Frequency:</label>
-			<input type="text" id="blanks_freq" readonly>
+			<input type="text" id="blanks_freq" name="blanks_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="blanks_investigated">Investigated:</label>
-			<input type="text" id="blanks_investigated" readonly>
+			<input type="text" id="blanks_investigated" name="blanks_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="blanks_notes">Notes:</label>
-			<textarea rows="3" id="blanks_notes" readonly></textarea>
+			<textarea rows="3" id="blanks_notes" name="blanks_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="blurred_vision_row" class="row">
+	<div id="blurred_vision_row" class="row" name="blurred_vision_row" class="row">
 		<div class="subheader">Blurred Vision</div>
+		<input type="checkbox" name="blurred_vision_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="blurred_vision_time">Time Since First Occurence:</label>
-			<input type="text" id="blurred_vision_time" readonly>
+			<input type="text" id="blurred_vision_time" name="blurred_vision_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="blurred_vision_freq">Frequency:</label>
-			<input type="text" id="blurred_vision_freq" readonly>
+			<input type="text" id="blurred_vision_freq" name="blurred_vision_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="blurred_vision_investigated">Investigated:</label>
-			<input type="text" id="blurred_vision_investigated" readonly>
+			<input type="text" id="blurred_vision_investigated" name="blurred_vision_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="blurred_vision_notes">Notes:</label>
-			<textarea rows="3" id="blurred_vision_notes" readonly></textarea>
+			<textarea rows="3" id="blurred_vision_notes" name="blurred_vision_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="dexterity_row" class="row">
-		<div class="subheader">Blurred Vision</div>
+	<div id="dexterity_row" class="row" name="dexterity_row" class="row">
+		<div class="subheader">Dexterity</div>
+		<input type="checkbox" name="dexterity_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="dexterity_time">Time Since First Occurence:</label>
-			<input type="text" id="dexterity_time" readonly>
+			<input type="text" id="dexterity_time" name="dexterity_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="dexterity_freq">Frequency:</label>
-			<input type="text" id="dexterity_freq" readonly>
+			<input type="text" id="dexterity_freq" name="dexterity_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="dexterity_investigated">Investigated:</label>
-			<input type="text" id="dexterity_investigated" readonly>
+			<input type="text" id="dexterity_investigated" name="dexterity_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="dexterity_notes">Notes:</label>
-			<textarea rows="3" id="dexterity_notes" readonly></textarea>
+			<textarea rows="3" id="dexterity_notes" name="dexterity_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="dizziness_row" class="row">
+	<div id="dizziness_row" class="row" name="dizziness_row" class="row">
 		<div class="subheader">Dizziness</div>
+		<input type="checkbox" name="dizziness_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="dizziness_time">Time Since First Occurence:</label>
-			<input type="text" id="dizziness_time" readonly>
+			<input type="text" id="dizziness_time" name="dizziness_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="dizziness_freq">Frequency:</label>
-			<input type="text" id="dizziness_freq" readonly>
+			<input type="text" id="dizziness_freq" name="dizziness_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="dizziness_investigated">Investigated:</label>
-			<input type="text" id="dizziness_investigated" readonly>
+			<input type="text" id="dizziness_investigated" name="dizziness_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="dizziness_notes">Notes:</label>
-			<textarea rows="3" id="dizziness_notes" readonly></textarea>
+			<textarea rows="3" id="dizziness_notes" name="dizziness_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="fainting_row" class="row">
+	<div id="fainting_row" class="row" name="fainting_row" class="row">
 		<div class="subheader">Fainting</div>
+		<input type="checkbox" name="fainting_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="fainting_time">Time Since First Occurence:</label>
-			<input type="text" id="fainting_time" readonly>
+			<input type="text" id="fainting_time" name="fainting_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="fainting_freq">Frequency:</label>
-			<input type="text" id="fainting_freq" readonly>
+			<input type="text" id="fainting_freq" name="fainting_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="fainting_investigated">Investigated:</label>
-			<input type="text" id="fainting_investigated" readonly>
+			<input type="text" id="fainting_investigated" name="fainting_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="fainting_notes">Notes:</label>
-			<textarea rows="3" id="fainting_notes" readonly></textarea>
+			<textarea rows="3" id="fainting_notes" name="fainting_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="headaches_row" class="row">
+	<div id="headaches_row" class="row" name="headaches_row" class="row">
 		<div class="subheader">Making Headaches</div>
+		<input type="checkbox" name="headaches_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="headaches_time">Time Since First Occurence:</label>
-			<input type="text" id="headaches_time" readonly>
+			<input type="text" id="headaches_time" name="headaches_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="headaches_freq">Frequency:</label>
-			<input type="text" id="headaches_freq" readonly>
+			<input type="text" id="headaches_freq" name="headaches_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="headaches_investigated">Investigated:</label>
-			<input type="text" id="headaches_investigated" readonly>
+			<input type="text" id="headaches_investigated" name="headaches_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="headaches_notes">Notes:</label>
-			<textarea rows="3" id="headaches_notes" readonly></textarea>
+			<textarea rows="3" id="headaches_notes" name="headaches_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="falling_row" class="row">
+	<div id="falling_row" class="row" name="falling_row" class="row">
 		<div class="subheader">Loss of Balance or Falling</div>
+		<input type="checkbox" name="falling_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="falling_time">Time Since First Occurence:</label>
-			<input type="text" id="falling_time" readonly>
+			<input type="text" id="falling_time" name="falling_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="falling_freq">Frequency:</label>
-			<input type="text" id="falling_freq" readonly>
+			<input type="text" id="falling_freq" name="falling_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="falling_investigated">Investigated:</label>
-			<input type="text" id="falling_investigated" readonly>
+			<input type="text" id="falling_investigated" name="falling_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="falling_notes">Notes:</label>
-			<textarea rows="3" id="falling_notes" readonly></textarea>
+			<textarea rows="3" id="falling_notes" name="falling_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="seizures_row" class="row">
+	<div id="seizures_row" class="row" name="seizures_row" class="row">
 		<div class="subheader">Seizures</div>
+		<input type="checkbox" name="seizures_check" checked="checked" class="neuro_check">
 		<div class="neu_time">
 			<label for="seizures_time">Time Since First Occurence:</label>
-			<input type="text" id="seizures_time" readonly>
+			<input type="text" id="seizures_time" name="seizures_time" >
 		</div>
 		<div class="neu_freq">
 			<label for="seizures_freq">Frequency:</label>
-			<input type="text" id="seizures_freq" readonly>
+			<input type="text" id="seizures_freq" name="seizures_freq" >
 		</div>
 		<div class="neu_inv">
 			<label for="seizures_investigated">Investigated:</label>
-			<input type="text" id="seizures_investigated" readonly>
+			<input type="text" id="seizures_investigated" name="seizures_investigated" >
 		</div>
 		<div class="neu_notes">
 			<label for="seizures_notes">Notes:</label>
-			<textarea rows="3" id="seizures_notes" readonly></textarea>
+			<textarea rows="3" id="seizures_notes" name="seizures_notes" ></textarea>
 		</div>
+	</div>
+	
+	<div class="pure-control-group" style="margin-top:8px;">
+		<label for="new_neuro">Add New Neurological Issue:</label>
+		<select id="new_neuro">
+			<option value="na"> Issue </option>
+			<option value="blackout">Blackouts</option>
+			<option value="blanks">Blanks</option>
+			<option value="blurred_vision">Blurred Vision</option>
+			<option value="dexterity">Dexterity</option>
+			<option value="dizziness">Dizziness</option>
+			<option value="fainting">Fainting</option>
+			<option value="headaches">Headaches</option>
+			<option value="falling">Loss of Balance</option>
+			<option value="seizures">Seizures</option>
+		</select>
+		<input type="button" id="neuroButton" value="Add Issue" onclick="addNeuroRow()"/>
 	</div>
 	
 	<!-- COLLAT -->
 	<div class="header">Neurological Issues Raised by Collateral</div>
-	<div id="blackout_row_collat" class="row">
+	<div id="blackout_row_collat" class="row" name="blackout_row_collat" class="row">
 		<div class="subheader">Blackouts</div>
+		<input type="checkbox" name="blackout_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="blackout_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="blackout_time_collat" readonly>
+			<input type="text" id="blackout_time_collat" name="blackout_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="blackout_freq_collat">Frequency:</label>
-			<input type="text" id="blackout_freq_collat" readonly>
+			<input type="text" id="blackout_freq_collat" name="blackout_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="blackout_investigated_collat">Investigated:</label>
-			<input type="text" id="blackout_investigated_collat" readonly>
+			<input type="text" id="blackout_investigated_collat" name="blackout_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="blackout_notes_collat">Notes:</label>
-			<textarea rows="3" id="blackout_notes_collat" readonly></textarea>
+			<textarea rows="3" id="blackout_notes_collat" name="blackout_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="blanks_row_collat" class="row">
+	<div id="blanks_row_collat" class="row" name="blanks_row_collat" class="row">
 		<div class="subheader">Blanks</div>
+		<input type="checkbox" name="blanks_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="blanks_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="blanks_time_collat" readonly>
+			<input type="text" id="blanks_time_collat" name="blanks_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="blanks_freq_collat">Frequency:</label>
-			<input type="text" id="blanks_freq_collat" readonly>
+			<input type="text" id="blanks_freq_collat" name="blanks_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="blanks_investigated_collat">Investigated:</label>
-			<input type="text" id="blanks_investigated_collat" readonly>
+			<input type="text" id="blanks_investigated_collat" name="blanks_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="blanks_notes_collat">Notes:</label>
-			<textarea rows="3" id="blanks_notes_collat" readonly></textarea>
+			<textarea rows="3" id="blanks_notes_collat" name="blanks_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="blurred_vision_row_collat" class="row">
+	<div id="blurred_vision_row_collat" class="row" name="blurred_vision_row_collat" class="row">
 		<div class="subheader">Blurred Vision</div>
+		<input type="checkbox" name="blurred_vision_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="blurred_vision_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="blurred_vision_time_collat" readonly>
+			<input type="text" id="blurred_vision_time_collat" name="blurred_vision_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="blurred_vision_freq_collat">Frequency:</label>
-			<input type="text" id="blurred_vision_freq_collat" readonly>
+			<input type="text" id="blurred_vision_freq_collat" name="blurred_vision_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="blurred_vision_investigated_collat">Investigated:</label>
-			<input type="text" id="blurred_vision_investigated_collat" readonly>
+			<input type="text" id="blurred_vision_investigated_collat" name="blurred_vision_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="blurred_vision_notes_collat">Notes:</label>
-			<textarea rows="3" id="blurred_vision_notes_collat" readonly></textarea>
+			<textarea rows="3" id="blurred_vision_notes_collat" name="blurred_vision_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="dexterity_row_collat" class="row">
-		<div class="subheader">Blurred Vision</div>
+	<div id="dexterity_row_collat" class="row" name="dexterity_row_collat" class="row">
+		<div class="subheader">Dexterity</div>
+		<input type="checkbox" name="dexterity_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="dexterity_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="dexterity_time_collat" readonly>
+			<input type="text" id="dexterity_time_collat" name="dexterity_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="dexterity_freq_collat">Frequency:</label>
-			<input type="text" id="dexterity_freq_collat" readonly>
+			<input type="text" id="dexterity_freq_collat" name="dexterity_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="dexterity_investigated_collat">Investigated:</label>
-			<input type="text" id="dexterity_investigated_collat" readonly>
+			<input type="text" id="dexterity_investigated_collat" name="dexterity_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="dexterity_notes_collat">Notes:</label>
-			<textarea rows="3" id="dexterity_notes_collat" readonly></textarea>
+			<textarea rows="3" id="dexterity_notes_collat" name="dexterity_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="dizziness_row_collat" class="row">
+	<div id="dizziness_row_collat" class="row" name="dizziness_row_collat" class="row">
 		<div class="subheader">Dizziness</div>
+		<input type="checkbox" name="dizziness_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="dizziness_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="dizziness_time_collat" readonly>
+			<input type="text" id="dizziness_time_collat" name="dizziness_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="dizziness_freq_collat">Frequency:</label>
-			<input type="text" id="dizziness_freq_collat" readonly>
+			<input type="text" id="dizziness_freq_collat" name="dizziness_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="dizziness_investigated_collat">Investigated:</label>
-			<input type="text" id="dizziness_investigated_collat" readonly>
+			<input type="text" id="dizziness_investigated_collat" name="dizziness_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="dizziness_notes_collat">Notes:</label>
-			<textarea rows="3" id="dizziness_notes_collat" readonly></textarea>
+			<textarea rows="3" id="dizziness_notes_collat" name="dizziness_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="fainting_row_collat" class="row">
+	<div id="fainting_row_collat" class="row" name="fainting_row_collat" class="row">
 		<div class="subheader">Fainting</div>
+		<input type="checkbox" name="fainting_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="fainting_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="fainting_time_collat" readonly>
+			<input type="text" id="fainting_time_collat" name="fainting_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="fainting_freq_collat">Frequency:</label>
-			<input type="text" id="fainting_freq_collat" readonly>
+			<input type="text" id="fainting_freq_collat" name="fainting_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="fainting_investigated_collat">Investigated:</label>
-			<input type="text" id="fainting_investigated_collat" readonly>
+			<input type="text" id="fainting_investigated_collat" name="fainting_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="fainting_notes_collat">Notes:</label>
-			<textarea rows="3" id="fainting_notes_collat" readonly></textarea>
+			<textarea rows="3" id="fainting_notes_collat" name="fainting_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="headaches_row_collat" class="row">
+	<div id="headaches_row_collat" class="row" name="headaches_row_collat" class="row">
 		<div class="subheader">Headaches</div>
+		<input type="checkbox" name="headaches_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="headaches_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="headaches_time_collat" readonly>
+			<input type="text" id="headaches_time_collat" name="headaches_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="headaches_freq_collat">Frequency:</label>
-			<input type="text" id="headaches_freq_collat" readonly>
+			<input type="text" id="headaches_freq_collat" name="headaches_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="headaches_investigated_collat">Investigated:</label>
-			<input type="text" id="headaches_investigated_collat" readonly>
+			<input type="text" id="headaches_investigated_collat" name="headaches_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="headaches_notes_collat">Notes:</label>
-			<textarea rows="3" id="headaches_notes_collat" readonly></textarea>
+			<textarea rows="3" id="headaches_notes_collat" name="headaches_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="falling_row_collat" class="row">
+	<div id="falling_row_collat" class="row" name="falling_row_collat" class="row">
 		<div class="subheader">Loss of Balance or Falling</div>
+		<input type="checkbox" name="falling_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="falling_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="falling_time_collat" readonly>
+			<input type="text" id="falling_time_collat" name="falling_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="falling_freq_collat">Frequency:</label>
-			<input type="text" id="falling_freq_collat" readonly>
+			<input type="text" id="falling_freq_collat" name="falling_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="falling_investigated_collat">Investigated:</label>
-			<input type="text" id="falling_investigated_collat" readonly>
+			<input type="text" id="falling_investigated_collat" name="falling_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="falling_notes_collat">Notes:</label>
-			<textarea rows="3" id="falling_notes_collat" readonly></textarea>
+			<textarea rows="3" id="falling_notes_collat" name="falling_notes_collat" ></textarea>
 		</div>
 	</div>
 	
-	<div id="seizures_row_collat" class="row">
+	<div id="seizures_row_collat" class="row" name="seizures_row_collat" class="row">
 		<div class="subheader">Seizures</div>
+		<input type="checkbox" name="seizures_check_collat" checked="checked" class="neuro_check">
 		<div class="neu_time_collat">
 			<label for="seizures_time_collat">Time Since First Occurence:</label>
-			<input type="text" id="seizures_time_collat" readonly>
+			<input type="text" id="seizures_time_collat" name="seizures_time_collat" >
 		</div>
 		<div class="neu_freq_collat">
 			<label for="seizures_freq_collat">Frequency:</label>
-			<input type="text" id="seizures_freq_collat" readonly>
+			<input type="text" id="seizures_freq_collat" name="seizures_freq_collat" >
 		</div>
 		<div class="neu_inv">
 			<label for="seizures_investigated_collat">Investigated:</label>
-			<input type="text" id="seizures_investigated_collat" readonly>
+			<input type="text" id="seizures_investigated_collat" name="seizures_investigated_collat" >
 		</div>
 		<div class="neu_notes_collat">
 			<label for="seizures_notes_collat">Notes:</label>
-			<textarea rows="3" id="seizures_notes_collat" readonly></textarea>
+			<textarea rows="3" id="seizures_notes_collat" name="seizures_notes_collat" ></textarea>
 		</div>
 	</div>
+	
+	<div class="pure-control-group" style="margin-top:8px;">
+		<label for="new_neuro_collat">Add New Collateral Neurological Issue:</label>
+		<select id="new_neuro_collat">
+			<option value="na"> Issue </option>
+			<option value="blackout">Blackouts</option>
+			<option value="blanks">Blanks</option>
+			<option value="blurred_vision">Blurred Vision</option>
+			<option value="dexterity">Dexterity</option>
+			<option value="dizziness">Dizziness</option>
+			<option value="fainting">Fainting</option>
+			<option value="headaches">Headaches</option>
+			<option value="falling">Loss of Balance</option>
+			<option value="seizures">Seizures</option>
+		</select>
+		<input type="button" id="neuroButton" value="Add Issue" onclick="addNeuroRowCollat()"/>
+	</div>
+	
+	<input type="hidden" id="linkedPage" name="linkedPage"/>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
+	<input type="hidden" id="assessment" name="assessment"/>
+	
+	<div  class="pure-control-group">
+	<input type="button" id="submitNeuro" onclick="updateNeuro()" value="Update Patient Neurological Issues" name="submitNeuro">
+	<span id="neuro_message"></span>
 </div>
 
 </form>

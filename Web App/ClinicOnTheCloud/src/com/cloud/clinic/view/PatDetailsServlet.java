@@ -42,6 +42,7 @@ public class PatDetailsServlet extends HttpServlet {
 		Integer thePatientID = Integer.parseInt(req.getParameter("hiddenID"));
 		PersonalDetails details = new PersonalDetails();
 		BeanPopulate.populateBean(details, req);
+		details.setSenior_cert_education(req.getParameter("senior_cert_education"));
 		if(req.getParameter("third_check") != null)
 			details.setThird_check(req.getParameter("third_check").equals("on"));
 		if(req.getParameter("wants_assessment") != null)
@@ -78,11 +79,11 @@ public class PatDetailsServlet extends HttpServlet {
 			if(f.isNew()){
 				
 				f.setTimestamp(cAss);
-				f.setCase_number(case_number);
 				pat.addForm(f);
 				if(f.getPersonalDetails() != null)
 					details.setDetailsID(f.getPersonalDetails().getDetailsID());
 			}
+			f.setCase_number(case_number);
 			details.setForm(f);
 			if(f.getPersonalDetails() != null)
 				details.setDetailsID(f.getPersonalDetails().getDetailsID());
@@ -123,6 +124,8 @@ public class PatDetailsServlet extends HttpServlet {
 			req.setAttribute("error", "Could not redirect to page!");
 			RequestDispatcher view = req.getRequestDispatcher("/admin/Error.jsp");
 			view.forward(req, resp);
+			return;
+		} else if(page.equals("update")){
 			return;
 		}
 		req.setAttribute("id", thePatientID);

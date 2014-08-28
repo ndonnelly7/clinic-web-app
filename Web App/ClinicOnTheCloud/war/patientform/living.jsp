@@ -115,7 +115,7 @@
 				</div>
 				<div class="pure-u-1-3 check homelife_check">
 					<!-- <input type="checkbox" name="home_help" onchange="homeHelpChanged(this)"> -->
-					<select name="is_carer" id="getting_homehelp">
+					<select name="getting_homehelp" id="getting_homehelp">
 						<option value="unknown">Unknown</option>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
@@ -1506,7 +1506,7 @@
 								<div id="go_out" class="pure-g-r">
 									<div class="pure-u-1-5 grid_entry grid_entry_type">Go out for food</div>
 									<div class="pure-u-1-5 grid_entry grid_check_div">
-										<input type="checkbox" name="go_out__collat" class="grid_check" onchange="enableRow(this)">
+										<input type="checkbox" name="go_out_collat" class="grid_check" onchange="enableRow(this)">
 									</div>
 									<div class="pure-u-1-5 grid_entry grid_entry_select">
 										<select name="go_out_success_collat" class="hide_select">

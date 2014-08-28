@@ -36,7 +36,7 @@ function IDBInit() {
 		return;
 	}
 	
-	openRequest = indexedDB.open("clinic_cloud",2);
+	openRequest = indexedDB.open("clinic_cloud",3);
 	
 	openRequest.onupgradeneeded = function(e){
 		db = e.target.result;
@@ -44,7 +44,6 @@ function IDBInit() {
 		if(!db.objectStoreNames.contains("patients")) {
 			var store = db.createObjectStore("patients", {keyPath: "p_id"});
 			store.createIndex("name", "name", {unique:false});
-			store.createIndex("email", "email", {unique:true});
 			console.log("Created Object Store: Patients");
 		}
 		

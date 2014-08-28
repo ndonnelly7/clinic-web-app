@@ -72,7 +72,7 @@
 							<option value="unknown">Unknown</option>
 							<option value="difficulty_functioning_in_one_or_more_areas">Evidence of difficulty with functioning in one or more areas</option>
 							<option value="decline_from_previous_norms">Evidence of decline from previous norms for that person</option>
-							<option value="deviation_from_noramtive_tests">Deviation from normative test scores</option>
+							<option value="deviation_from_normative_tests">Deviation from normative test scores</option>
 							<!-- 
 							<option value="norm_neg">Normal Negative Screen</option>
 							<option value="ab_neg">Abnormal Negative Screen</option>
@@ -117,7 +117,7 @@
 		
 		<div class="follow_up_div">
 			<label for="follow_up" class="follow_label">Follow Up</label>
-			<select name="follow_up">
+			<select name="follow_up" onchange="updateOutcome(this)">
 				<option value="unknown">Unknown</option>
 				<option value="one_month">One Month</option>
 				<option value="four_month">Four Months</option>

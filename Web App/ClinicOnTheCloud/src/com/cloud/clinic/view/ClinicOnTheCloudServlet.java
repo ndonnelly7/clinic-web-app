@@ -2,6 +2,8 @@ package com.cloud.clinic.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
 import com.cloud.clinic.model.ClinicianDAO;
 import com.cloud.clinic.model.Pair;
+import com.cloud.clinic.model.PatientDAO;
 import com.cloud.clinic.p2p.Job;
 import com.cloud.clinic.p2p.P2P;
 import com.cloud.clinic.p2p.P2PDAO;
@@ -28,12 +31,15 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 @SuppressWarnings("serial")
 public class ClinicOnTheCloudServlet extends HttpServlet {
+	private static final Logger log = Logger.getLogger(ClinicOnTheCloudServlet.class.getName());
+	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 		UserService service = UserServiceFactory.getUserService();
 		User user = service.getCurrentUser();
 		String type = req.getParameter("type");
 		
+		log.log(Level.WARNING, "Entered Servlet with type: " + type);
 		switch(type) {
 		case "NEW_CLINIC":
 			newClinic(req);
@@ -101,16 +107,34 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			resp.setContentType("text/plain");
 			resp.getWriter().println(claimResponse);
 			break;
+		case "DELETE":
+			String delID = req.getParameter("DeleteID");
+			String delResponse = deletePatient(user, delID);
+			resp.setContentType("text/plain");
+			resp.getWriter().println(delResponse);
 		default:
 			resp.setContentType("text/plain");
 			resp.getWriter().println("Hello, world");
 		}
 	}
 	
+	private String deletePatient(User u, String deleteID) {
+		PatientDAO dao = new PatientDAO();
+		if(deleteID != ""){
+			int id = Integer.parseInt(deleteID);
+			dao.removeWithID(id);
+			if(dao.get(id) == null)
+				return "REMOVED";
+			else return "Error: Patient Not Removed for Some Reason";
+			
+		} else {
+			return "Error: Empty ID";
+		}
+	}
+	
 	private String signPeerOut(HttpServletRequest req, User user) {
 		P2PDAO dao = new P2PDAO();
 		Peer p = dao.findPeer(user.getUserId());
-		P2P p2p = dao.getP2P();
 		if(p != null){
 			if(dao.removePeer(p, p.getSp()))
 				return "Peer successfully removed";
@@ -128,6 +152,8 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		if(j == null)
 			return "Missed job";
 		
+		log.log(Level.WARNING, "Claimed Job: " + j.getJob());
+		log.log(Level.WARNING, "Sending job to: " + p.getClinicianID());
 		ChannelService service = ChannelServiceFactory.getChannelService();
 		service.sendMessage(new ChannelMessage(p.getChannelID(), j.getJob()));
 		
@@ -170,6 +196,8 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		P2P p2p = dao.getP2P();
 		ArrayList<Superpeer> sps = p2p.getSps();
 		Peer requestor = dao.findPeer(user.getUserId());
+		if(requestor == null)
+			return "Failed to find a peer with that patientID";
 		String jobString = "";
 		if(transportMode.equals("P2P"))
 			jobString = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getP2pAddress()+":MODE:" + transportMode + ":TYPE:REQUEST:";
@@ -189,31 +217,40 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 				}
 			}
 		}
-		return "Failed to find a peer with that patientID";
+		return "Failed to find a patient with that patientID";
 	}
 	
 	public String requestUpdate(User user, String transportMode){
+		log.log(Level.WARNING, "Entered Request Update function");
 		String result = "";
 		
+		log.log(Level.WARNING, "Request from: " + user.getUserId());
 		P2PDAO dao = new P2PDAO();
 		P2P p2p = dao.getP2P();
 		Peer p = dao.findPeer(user.getUserId());
 		if(p == null){
 			return "Peer not found";
 		}
+		log.log(Level.WARNING, "Got peer: " + p.getClinicianID());
 		Superpeer sp = p.getSp();
+		log.log(Level.WARNING, "Got Superpeer: " + sp.getClinicID());
 		String jobString = "";
 		if(transportMode.equals("P2P"))
 			jobString = "UPDATE_PEER:PID:"+p.getP2pAddress()+":MODE:" + transportMode + ":";		
 		else
 			jobString = "UPDATE_PEER:PID:"+p.getChannelID()+":MODE:" + transportMode + ":";
 		Job job = new Job(p.getClinicianID(), jobString, p2p.getJob_tick());
+		log.log(Level.WARNING, "Created JOB with ID: " + job.getJob_id());
 		dao.addJob(job);
 		String toSend = "JOB_POST:PID:NA:JOBID:"+job.getJob_id()+":MODE:"+transportMode+":TYPE:UPDATE:";
+		log.log(Level.WARNING, "Job String: " + toSend);
+		log.log(Level.WARNING, "Peers list size: " + sp.getPeers().size());
 		for(int i = 0; i < sp.getPeers().size(); i++){
+			log.log(Level.WARNING, "Potential host: " + sp.getPeers().get(i).getClinicianID());
 			if(!(p.getId().equals(sp.getPeers().get(i).getId()))){
 				Peer host = sp.getPeers().get(i);
 				if(host != null){
+					log.log(Level.WARNING, "Sending request to: " + host.getClinicianID());
 					ChannelService service = ChannelServiceFactory.getChannelService();
 					service.sendMessage(new ChannelMessage(host.getChannelID(),toSend));
 				}
@@ -226,7 +263,6 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 	
 	public String sendPatient(String patients, String peerChannel){
 		ChannelService service = ChannelServiceFactory.getChannelService();
-		P2PDAO dao = new P2PDAO();
 		String sendString = "RECEIVE_PATIENTS:patients:" + patients;
 		service.sendMessage(new ChannelMessage(peerChannel, sendString));
 		return "Patients String send successfully";
@@ -274,8 +310,9 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		
 		ClinicianDAO cDAO = new ClinicianDAO();
 		Clinician c = cDAO.get(user.getUserId());
+		log.log(Level.WARNING, "Clinician found: " + c.getName());
 		Clinic clinic = cDAO.getClinic(c);
-		
+		log.log(Level.WARNING, "Clinic found: " + clinic.getClinicName());
 		P2PDAO p2pdao = new P2PDAO();
 		P2P p2p = p2pdao.getP2P();
 		if(p2p == null){
@@ -290,6 +327,7 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		String p2p_id = req.getParameter("P2PID");
 		Peer p = p2pdao.addPeer(c, sp, p2p_id);
 		p2pdao.setP2PAddress(p.getClinicianID(), clinic.getClinicName(), p2p_id);
+		log.log(Level.WARNING, "Peer: " + p.getClinicianID());
 		
 		String token = "";
 		if(p != null) {

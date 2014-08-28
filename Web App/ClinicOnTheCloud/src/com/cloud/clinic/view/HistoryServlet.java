@@ -1,8 +1,13 @@
 package com.cloud.clinic.view;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +42,25 @@ public class HistoryServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getMostRecentForm(pat);
+		//Get the form corresponding to the assessment date
+		String assessment = req.getParameter("assessment");
+		Date ass = new Date();
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH);
+			ass = sdf.parse(assessment);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Form f;
+		if(assessment != null){
+			Calendar cAss = Calendar.getInstance();
+			cAss.setTime(ass);
+			f = dao.getFormWithDate(pat, cAss);
+		} else {
+			f = dao.getMostRecentForm(pat);
+		}
+		
 		PatientHistory pHistory = new PatientHistory();
 		BeanPopulate.populateBean(pHistory, req);
 		
@@ -95,6 +118,8 @@ public class HistoryServlet extends HttpServlet {
 	public ArrayList<MedHistory> loadMedsList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<MedHistory> meds = new ArrayList<MedHistory>();
 		String[] names = req.getParameterValues("med_histories");
+		if(names == null)
+			return meds;
 		String[] times = req.getParameterValues("med_time");
 		String[] notes = req.getParameterValues("medical_notes");
 		for(int i = 0; i < names.length; i++){
@@ -115,6 +140,8 @@ public class HistoryServlet extends HttpServlet {
 	public ArrayList<DrugHistory> loadDrugsList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<DrugHistory> drugs = new ArrayList<DrugHistory>();
 		String[] names = req.getParameterValues("drug_histories");
+		if(names == null)
+			return drugs;
 		String[] time = req.getParameterValues("drug_time");
 		String[] notes = req.getParameterValues("drug_notes");
 		String[] sleeping_drugs = req.getParameterValues("sleeping_drug");
@@ -146,6 +173,8 @@ public class HistoryServlet extends HttpServlet {
 	public ArrayList<PsychHistory> loadPsychList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<PsychHistory> psychs = new ArrayList<PsychHistory>();
 		String[] names = req.getParameterValues("psych_histories");
+		if(names == null)
+			return psychs;
 		String[] times = req.getParameterValues("psych_time");
 		String[] notes = req.getParameterValues("psych_notes");
 		
@@ -166,6 +195,8 @@ public class HistoryServlet extends HttpServlet {
 	public ArrayList<MedHistory> loadMedsCollatList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<MedHistory> meds = new ArrayList<MedHistory>();
 		String[] names = req.getParameterValues("med_collat_histories");
+		if(names == null)
+			return meds;
 		String[] times = req.getParameterValues("med_collat_time");
 		String[] notes = req.getParameterValues("medical_collat_notes");
 		for(int i = 0; i < names.length; i++){
@@ -186,6 +217,8 @@ public class HistoryServlet extends HttpServlet {
 	public ArrayList<DrugHistory> loadDrugsCollatList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<DrugHistory> drugs = new ArrayList<DrugHistory>();
 		String[] names = req.getParameterValues("drug_collat_histories");
+		if(names == null)
+			return drugs;
 		String[] time = req.getParameterValues("drug_collat_time");
 		String[] notes = req.getParameterValues("drug_collat_notes");
 		String[] sleeping_drugs = req.getParameterValues("sleeping_collat_drug");
@@ -217,6 +250,8 @@ public class HistoryServlet extends HttpServlet {
 	public ArrayList<PsychHistory> loadPsychCollatList(HttpServletRequest req, PatientHistory pH){
 		ArrayList<PsychHistory> psychs = new ArrayList<PsychHistory>();
 		String[] names = req.getParameterValues("psych_collat_histories");
+		if(names == null)
+			return psychs;
 		String[] times = req.getParameterValues("psych_collat_time");
 		String[] notes = req.getParameterValues("psych_collat_notes");
 		

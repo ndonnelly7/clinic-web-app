@@ -50,8 +50,8 @@ public class AnalysisServlet extends HttpServlet {
 		} else {
 			if(f.getAnalysis() != null) {
 				a.setAnalysisID(f.getAnalysis().getAnalysisID());
-				dao.runQuery("delete from Outcome where Analysis= " + String.valueOf(a.getAnalysisID()));
-				dao.runQuery("delete from Impression where Analysis= " + String.valueOf(a.getAnalysisID()));
+				dao.runQuery("delete from Outcome where analysis= " + String.valueOf(a.getAnalysisID()));
+				dao.runQuery("delete from Impression where analysis= " + String.valueOf(a.getAnalysisID()));
 				
 				a.setForm(f);
 				f.setAnalysis(a);

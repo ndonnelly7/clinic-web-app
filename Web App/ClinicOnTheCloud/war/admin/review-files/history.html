@@ -5,101 +5,116 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="history_form" class="form_entry pure-form pure-form-aligned">
+<form id="history_form" class="form_entry pure-form pure-form-aligned"  method="POST" action="/patientform/patient_history.do">
 
 <div id="med_history" class="row_div">
 	<div class="header">Medical History</div>
 	<div id="med_row" class="row">
 		<div class="cod_col">
 			<label for="condition">Condition:</label>
-			<input type="text" id="condition" readonly>
+			<input type="text" id="condition" name="med_histories">
 		</div>
 		<div class="time_col">
 			<label for="time">Diagnosis Time:</label>
-			<input type="text" id="time" readonly>
+			<input type="text" id="time" name="med_time">
 		</div>
 		<div class="collat_col">
 			<label for="collat">From Collateral:</label>
-			<input type="text" id="collat" class="bool" readonly>
+			<input type="text" id="collat" class="bool" name="med_collat" >
 		</div>
 		<div class="notes_col">
 			<label for="notes">Notes:</label>
-			<textarea rows="3" id="notes" readonly></textarea>
+			<textarea rows="3" id="notes" name="medical_notes" form="history_form"></textarea>
 		</div>
 	</div>
 </div>
+<input type="button" value="Add Medical History" onclick="addMedHistory()" class="row_btn"/>
+<input type="button" value="Remove Latest Medical History" onclick="removeMedHistory()" class="row_btn"/>
 
 <div id="drug_history" class="row_div">
 	<div class="header">Medicinal History</div>
 	<div id="drug_row" class="row">
 		<div class="drug_col">
 			<label for="drug">Drug:</label>
-			<input type="text" id="drug" readonly>
+			<input type="text" id="drug" name="drug_histories">
 		</div>
 		<div class="sleep_col" hidden="true">
 			<label for="sleep_med">Sleep Med:</label>
-			<input type="text" id="sleep_med" readonly>
+			<input type="text" id="sleep_med" name="sleeping_drug">
 		</div>
 		<div class="benzo_col" hidden="true">
 			<label for="benzo_med">Benzo Med:</label>
-			<input type="text" id="benzo_med" readonly>
+			<input type="text" id="benzo_med" name="benzo_drug">
 		</div>
 		<div class="time_col">
 			<label for="time">Prescription Time:</label>
-			<input type="text" id="time" readonly>
+			<input type="text" id="time" name="drug_time">
 		</div>
 		<div class="collat_col">
 			<label for="collat">From Collateral:</label>
-			<input type="text" id="collat" class="bool" readonly>
+			<input type="text" id="collat" class="bool" name="drug_collat">
 		</div>
 		<div class="notes_col">
 			<label for="notes">Notes:</label>
-			<textarea rows="3" id="notes" readonly></textarea>
+			<textarea rows="3" id="notes" form="history_form" name="drug_notes"></textarea>
 		</div>
 	</div>
 </div>
+<input type="button" value="Add Drug History" onclick="addDrugHistory()" class="row_btn"/>
+<input type="button" value="Remove Latest Drug History" onclick="removeDrugHistory()" class="row_btn"/>
 
 <div id="psych_history" class="row_div">
 	<div class="header">Psychiatric History</div>
 	<div id="psych_row" class="row">
-		<div class="drug_col">
+		<div class="psych_col">
 			<label for="psych">Psychiatric Condition:</label>
-			<input type="text" id="psych" readonly>
+			<input type="text" id="psych" name="psych_histories">
 		</div>
 		<div class="time_col">
 			<label for="time">Prescription Time:</label>
-			<input type="text" id="time" readonly>
+			<input type="text" id="time" name="psych_time">
 		</div>
 		<div class="collat_col">
 			<label for="collat">From Collateral:</label>
-			<input type="text" id="collat" class="bool" readonly>
+			<input type="text" id="collat" class="bool" name="psych_collat">
 		</div>
 		<div class="notes_col">
 			<label for="notes">Notes:</label>
-			<textarea rows="3" id="notes" readonly></textarea>
+			<textarea rows="3" id="notes" name="psych_notes" form="history_form"></textarea>
 		</div>
 	</div>
 </div>
+<input type="button" value="Add Psychiatric History" onclick="addPsychHistory()" class="row_btn"/>
+<input type="button" value="Remove Latest Psychiatric History" onclick="removePsychHistory()" class="row_btn"/>
 
 <div class="header" class="row_div">Therapy/Counselling</div>
 <div  class="pure-control-group">
 	<label for="current_therapy_check">Attending Therapy: </label>
-	<input type="text" id="current_therapy_check" readonly>
+	<input type="text" id="current_therapy_check" name="current_therapy_check">
 </div>
 
 <div  class="pure-control-group">
 	<label for="past_therapy_check">Attended Therapy in the Past: </label>
-	<input type="text" id="past_therapy_check" readonly>
+	<input type="text" id="past_therapy_check" name="past_therapy_check">
 </div>
 
 <div  class="pure-control-group">
 	<label for="collat_current_therapy_check">Collateral Attending Therapy: </label>
-	<input type="text" id="collat_current_therapy_check" readonly>
+	<input type="text" id="collat_current_therapy_check" name="collat_current_therapy_check">
 </div>
 
 <div  class="pure-control-group">
 	<label for="collat_past_therapy_check">Collateral Attended Therapy in the past: </label>
-	<input type="text" id="collat_past_therapy_check" readonly>
+	<input type="text" id="collat_past_therapy_check" name="collat_past_therapy_check">
+</div>
+
+<input type="hidden" id="linkedPage" name="linkedPage"/>
+<input type="hidden" id="hiddenID" name="hiddenID"/>
+<input type="hidden" id="assessment" name="assessment"/>
+
+<div  class="pure-control-group">
+<input type="button" id="submitHistory" onclick="updateHistory()" value="Update Patient History" name="submitDetails">
+<span id="history_message"></span>
 </div>
 
 </form>

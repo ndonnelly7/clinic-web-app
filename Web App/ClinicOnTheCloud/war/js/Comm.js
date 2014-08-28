@@ -353,9 +353,10 @@ function signMeOut(){
 function updatePeer(peer_address, mode){
 	getAllPatients(function(patients){
 		var tosend = JSON.stringify(patients);
-		console.log(tosend);
+		$("#infotext").append("<div>PAtients to be sent: " + tosend + "</div>");
 		if(mode == "P2P"){
 			try {
+				$("#infotext").append("<div>Trying to send via P2P</div>");
 				var conn = peer.connect(peer_address, {
 					label : "patient",
 					serialization: 'none',

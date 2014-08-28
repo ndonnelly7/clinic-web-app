@@ -5,978 +5,1174 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="living_form" class="form_entry pure-form pure-form-aligned">
+<form id="living_form" class="form_entry pure-form pure-form-aligned" method="POST" action="/patientform/living.do">
 
-<div id="homelife" class="row_div">
+<div id="homelife" class="row_div" name="homelife" class="row_div">
 	<div class="header">Home Life</div>
-	<div id="housemates_row" class="row">
+	<div id="housemates_row" class="row" name="housemates_row" class="row">
 		<div class="housemates">
 			<label for="housemates">Any housemates?</label>
-			<input type="text" id="housemates" readonly>
+			<input type="text" id="housemates" name="housemates" >
 		</div>
 		<div class="eve_notes">
 			<label for="housemates_note">Notes:</label>
-			<textarea rows="3" id="housemates_note" readonly></textarea>
+			<textarea rows="3" id="housemates_note" name="housemates_note" ></textarea>
 		</div>
 	</div>
-	<div id="hometype_row" class="row">
+	<div id="hometype_row" class="row" name="hometype_row" class="row">
 		<div class="hometype">
 			<label for="house_type">Type of House?</label>
-			<input type="text" id="house_type" readonly>
+			<input type="text" id="house_type" name="house_type" >
 		</div>
 		<div class="type_notes">
 			<label for="house_type_note">Notes:</label>
-			<textarea rows="3" id="house_type_note" readonly></textarea>
+			<textarea rows="3" id="house_type_note" name="house_type_note" ></textarea>
 		</div>
 	</div>
-	<div id="homeloc_row" class="row">
+	<div id="homeloc_row" class="row" name="homeloc_row" class="row">
 		<div class="homeloc">
 			<label for="house_location">Location of House?</label>
-			<input type="text" id="house_location" readonly>
+			<input type="text" id="house_location" name="house_location" >
 		</div>
 		<div class="location_notes">
 			<label for="house_location_note">Notes:</label>
-			<textarea rows="3" id="house_location_note" readonly></textarea>
+			<textarea rows="3" id="house_location_note" name="house_location_note" ></textarea>
 		</div>
 	</div>
-	<div id="carer_row" class="row">
+	<div id="carer_row" class="row" name="carer_row" class="row">
 		<!-- <div class="carer">
 			<label for="carer">Is the patient a carer?</label>
-			<input type="text" id="carer" readonly>
+			<input type="text" id="carer" name="carer" >
 		</div> -->
 		<div class="carer">
 			<label for="is_carer">Is the patient a carer?</label>
-			<input type="text" id="is_carer" readonly>
+			<input type="text" id="is_carer" name="is_carer" >
 		</div>
 		<div class="location_notes">
 			<label for="carer_note">Notes:</label>
-			<textarea rows="3" id="carer_note" readonly></textarea>
+			<textarea rows="3" id="carer_note" name="carer_note" ></textarea>
 		</div>
 	</div>
-	<div id="home_help_row" class="row">
+	<div id="home_help_row" class="row" name="home_help_row" class="row">
 		<!-- <div class="home_help">
 			<label for="home_help">Receiving Home Help?</label>
-			<input type="text" id="home_help" readonly>
+			<input type="text" id="home_help" name="home_help" >
 		</div> -->
 		<div class="home_help">
 			<label for="getting_homehelp">Receiving Home Help?</label>
-			<input type="text" id="getting_homehelp" readonly>
+			<input type="text" id="getting_homehelp" name="getting_homehelp" >
 		</div>
 		<div class="location_notes">
 			<label for="home_help_note">Notes:</label>
-			<textarea rows="3" id="home_help_note" readonly></textarea>
+			<textarea rows="3" id="home_help_note" name="home_help_note" ></textarea>
 		</div>
 	</div>
 	
-	<div id="homelife_collat" class="row_div" style="display:none;">
+	<div id="homelife_collat" class="row_div" style="display:none;" name="homelife_collat" class="row_div" style="display:none;">
 		<div class="header">Collateral Home Life</div>
-		<div id="housemates_row" class="row">
+		<div id="housemates_row" class="row" name="housemates_row" class="row">
 			<div class="housemates">
 				<label for="housemates_collat">Any housemates?</label>
-				<input type="text" id="housemates_collat" readonly>
+				<input type="text" id="housemates_collat" name="housemates_collat" >
 			</div>
 			<div class="eve_notes">
 				<label for="housemates_note_collat">Notes:</label>
-				<textarea rows="3" id="housemates_note_collat" readonly></textarea>
+				<textarea rows="3" id="housemates_note_collat" name="housemates_note_collat" ></textarea>
 			</div>
 		</div>
-		<div id="hometype_row" class="row">
+		<div id="hometype_row" class="row" name="hometype_row" class="row">
 			<div class="hometype">
 				<label for="house_type_collat">Type of House?</label>
-				<input type="text" id="house_type_collat" readonly>
+				<input type="text" id="house_type_collat" name="house_type_collat" >
 			</div>
 			<div class="type_notes">
 				<label for="house_type_note_collat">Notes:</label>
-				<textarea rows="3" id="house_type_note_collat" readonly></textarea>
+				<textarea rows="3" id="house_type_note_collat" name="house_type_note_collat" ></textarea>
 			</div>
 		</div>
-		<div id="homeloc_row" class="row">
+		<div id="homeloc_row" class="row" name="homeloc_row" class="row">
 			<div class="homeloc">
 				<label for="house_location_collat">Location of House?</label>
-				<input type="text" id="house_location_collat" readonly>
+				<input type="text" id="house_location_collat" name="house_location_collat" >
 			</div>
 			<div class="location_notes">
 				<label for="house_location_note_collat">Notes:</label>
-				<textarea rows="3" id="house_location_note_collat" readonly></textarea>
+				<textarea rows="3" id="house_location_note_collat" name="house_location_note_collat" ></textarea>
 			</div>
 		</div>
-		<div id="carer_row" class="row">
+		<div id="carer_row" class="row" name="carer_row" class="row">
 			<div class="carer">
 				<label for="carer_collat">Is the patient a carer?</label>
-				<input type="text" id="carer_collat" readonly>
+				<input type="text" id="carer_collat" name="carer_collat" >
 			</div>
 			<div class="location_notes">
 				<label for="carer_note_collat">Notes:</label>
-				<textarea rows="3" id="carer_note_collat" readonly></textarea>
+				<textarea rows="3" id="carer_note_collat" name="carer_note_collat" ></textarea>
 			</div>
 		</div>
-		<div id="home_help_row" class="row">
+		<div id="home_help_row" class="row" name="home_help_row" class="row">
 			<div class="home_help">
 				<label for="home_help_collat">Receiving Home Help?</label>
-				<input type="text" id="home_help_collat" readonly>
+				<input type="text" id="home_help_collat" name="home_help_collat" >
 			</div>
 			<div class="location_notes">
 				<label for="home_help_note_collat">Notes:</label>
-				<textarea rows="3" id="home_help_note_collat" readonly></textarea>
+				<textarea rows="3" id="home_help_note_collat" name="home_help_note_collat" ></textarea>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="driving" class="row_div">
-	<div class="header">Driving</div>
+<div id="driving" class="row_div" name="driving" style="margin-top:12px;">
+	<div class="header living_header">Driving</div>
 	<div class="pure-control-group">
 		<label for="drive">Does the patient drive:</label>
-		<input type="text" id="drive" readonly>
+		<input type="text" id="drive" name="drive" onchange="changeDriveBool()">
 	</div>
-	<div id="do_drive">
+	<div id="do_drive" name="do_drive">
 		<div class="header">Incidents</div>
-		<div id="unknown_arrival_row" class="row">
+		<div id="unknown_arrival_row" class="row" name="unknown_arrival_row" class="row">
 			<div class="subheader">Not knowing how they arrived somewhere</div>
+			<input type="checkbox" name="unknown_arrival" checked="checked" class="living_check">
 			<div class="liv_severity">
 				<label for="unknown_arrival_severity">Severity:</label>
-				<input type="text" id="unknown_arrival_severity" readonly>
+				<input type="text" id="unknown_arrival_severity" name="unknown_arrival_severity" >
 			</div>
 			<div class="liv_freq">
 				<label for="unknown_arrival_freq">Frequency:</label>
-				<input type="text" id="unknown_arrival_freq" readonly>
+				<input type="text" id="unknown_arrival_freq" name="unknown_arrival_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="unknown_arrival_notes">Notes:</label>
-				<textarea rows="3" id="unknown_arrival_notes" readonly></textarea>
+				<textarea rows="3" id="unknown_arrival_notes" name="unknown_arrival_notes" ></textarea>
 			</div>
 		</div>
-		<div id="lost_row" class="row">
+		<div id="lost_row" class="row" name="lost_row" class="row">
 			<div class="subheader">Getting lost</div>
+			<input type="checkbox" name="lost" checked="checked" class="living_check">
 			<div class="liv_severity">
 				<label for="lost_severity">Severity:</label>
-				<input type="text" id="lost_severity" readonly>
+				<input type="text" id="lost_severity" name="lost_severity" >
 			</div>
 			<div class="liv_freq">
 				<label for="lost_freq">Frequency:</label>
-				<input type="text" id="lost_freq" readonly>
+				<input type="text" id="lost_freq" name="lost_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="lost_notes">Notes:</label>
-				<textarea rows="3" id="lost_notes" readonly></textarea>
+				<textarea rows="3" id="lost_notes" name="lost_notes" ></textarea>
 			</div>
 		</div>
-		<div id="tips_row" class="row">
+		<div id="tips_row" class="row" name="tips_row" class="row">
 			<div class="subheader">Involved in tips and scrapes</div>
+			<input type="checkbox" name="tips" checked="checked" class="living_check">
 			<div class="liv_severity">
 				<label for="tips_severity">Severity:</label>
-				<input type="text" id="tips_severity" readonly>
+				<input type="text" id="tips_severity" name="tips_severity" >
 			</div>
 			<div class="liv_freq">
 				<label for="tips_freq">Frequency:</label>
-				<input type="text" id="tips_freq" readonly>
+				<input type="text" id="tips_freq" name="tips_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="tips_notes">Notes:</label>
-				<textarea rows="3" id="tips_notes" readonly></textarea>
+				<textarea rows="3" id="tips_notes" name="tips_notes" ></textarea>
 			</div>
 		</div>
-		<div id="driving_other_row" class="row">
-			<div class="subheader" id="driving_other_subheader"></div>
+		<div id="driving_other_row" class="row" name="driving_other_row" class="row">
+			<div class="subheader" id="driving_other_subheader" name="driving_other_subheader">Other</div>
+			<div class="other_text">
+				<input type="text" id="driving_other_incident" name="driving_other_incident" >
+			</div>
 			<div class="other_severity">
 				<label for="driving_other_severity">Severity:</label>
-				<input type="text" id="driving_other_severity" readonly>
+				<input type="text" id="driving_other_severity" name="driving_other_severity" >
 			</div>
 			<div class="other_freq">
 				<label for="driving_other_freq">Frequency:</label>
-				<input type="text" id="driving_other_freq" readonly>
+				<input type="text" id="driving_other_freq" name="driving_other_freq" >
 			</div>
 			<div class="other_notes">
 				<label for="driving_other_notes">Notes:</label>
-				<textarea rows="3" id="driving_other_notes" readonly></textarea>
+				<textarea rows="3" id="driving_other_notes" name="driving_other_notes" ></textarea>
 			</div>
 		</div>
 		
+		<div class="pure-control-group" style="margin-top:8px;">
+			<label for="new_incident">Add New Incident:</label>
+			<select id="new_incident">
+				<option value="na"> Incident </option>
+				<option value="unknown_arrival">Unknown Arrival</option>
+				<option value="lost">Getting Lost</option>
+				<option value="tips">Involved in Scrapes</option>
+				<option value="driving_other">Other</option>
+			</select>
+			<input type="button" id="drivingIncidentButton" value="Add Driving Incident" onclick="addDrivingIncident()" class="drive_button"/>
+		</div>
+		
+		<!-- STRATEGIES -->
 		<div class="header">Strategies</div>		
-		<div id="park_big_row" class="row">
+		<div id="park_big_row" class="row" name="park_big_row" class="row">
 			<div class="subheader">Only park in big spaces</div>
+			<input type="checkbox" name="park_big" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="park_big_success">Success:</label>
-				<input type="text" id="park_big_success" readonly>
+				<input type="text" id="park_big_success" name="park_big_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="park_big_notes">Notes:</label>
-				<textarea rows="3" id="park_big_notes" readonly></textarea>
+				<textarea rows="3" id="park_big_notes" name="park_big_notes" ></textarea>
 			</div>
 		</div>
-		<div id="day_drive_row" class="row">
+		<div id="day_drive_row" class="row" name="day_drive_row" class="row">
 			<div class="subheader">Only drive during the day</div>
+			<input type="checkbox" name="day_drive" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="day_drive_success">Success:</label>
-				<input type="text" id="day_drive_success" readonly>
+				<input type="text" id="day_drive_success" name="day_drive_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="day_drive_notes">Notes:</label>
-				<textarea rows="3" id="day_drive_notes" readonly></textarea>
+				<textarea rows="3" id="day_drive_notes" name="day_drive_notes" ></textarea>
 			</div>
 		</div>
-		<div id="known_places_row" class="row">
+		<div id="known_places_row" class="row" name="known_places_row" class="row">
 			<div class="subheader">Only drive to known places</div>
+			<input type="checkbox" name="known_places" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="known_places_success">Success:</label>
-				<input type="text" id="known_places_success" readonly>
+				<input type="text" id="known_places_success" name="known_places_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="known_places_notes">Notes:</label>
-				<textarea rows="3" id="known_places_notes" readonly></textarea>
+				<textarea rows="3" id="known_places_notes" name="known_places_notes" ></textarea>
 			</div>
 		</div>
-		<div id="take_friend_row" class="row">
+		<div id="take_friend_row" class="row" name="take_friend_row" class="row">
 			<div class="subheader">Takes friends on drives</div>
+			<input type="checkbox" name="take_friend" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="take_friend_success">Success:</label>
-				<input type="text" id="take_friend_success" readonly>
+				<input type="text" id="take_friend_success" name="take_friend_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="take_friend_notes">Notes:</label>
-				<textarea rows="3" id="take_friend_notes" readonly></textarea>
+				<textarea rows="3" id="take_friend_notes" name="take_friend_notes" ></textarea>
 			</div>
 		</div>
-		<div id="dry_run_row" class="row">
+		<div id="dry_run_row" class="row" name="dry_run_row" class="row">
 			<div class="subheader">Uses dry runs</div>
+			<input type="checkbox" name="dry_run" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="dry_run_success">Success:</label>
-				<input type="text" id="dry_run_success" readonly>
+				<input type="text" id="dry_run_success" name="dry_run_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="dry_run_notes">Notes:</label>
-				<textarea rows="3" id="dry_run_notes" readonly></textarea>
+				<textarea rows="3" id="dry_run_notes" name="dry_run_notes" ></textarea>
 			</div>
 		</div>
-		<div id="use_map_row" class="row">
+		<div id="use_map_row" class="row" name="use_map_row" class="row">
 			<div class="subheader">Uses maps</div>
+			<input type="checkbox" name="use_map" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="use_map_success">Success:</label>
-				<input type="text" id="use_map_success" readonly>
+				<input type="text" id="use_map_success" name="use_map_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="use_map_notes">Notes:</label>
-				<textarea rows="3" id="use_map_notes" readonly></textarea>
+				<textarea rows="3" id="use_map_notes" name="use_map_notes" ></textarea>
 			</div>
 		</div>
-		<div id="take_phone_row" class="row">
+		<div id="take_phone_row" class="row" name="take_phone_row" class="row">
 			<div class="subheader">Takes a phone</div>
+			<input type="checkbox" name="take_phone" checked="checked" class="living_check">
 			<div class="liv_suc">
 				<label for="take_phone_success">Success:</label>
-				<input type="text" id="take_phone_success" readonly>
+				<input type="text" id="take_phone_success" name="take_phone_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="take_phone_notes">Notes:</label>
-				<textarea rows="3" id="take_phone_notes" readonly></textarea>
+				<textarea rows="3" id="take_phone_notes" name="take_phone_notes" ></textarea>
 			</div>
 		</div>
+		
+		<div class="pure-control-group" style="margin-top:8px;">
+			<label for="new_strat">Add New Strategy:</label>
+			<select id="new_strat">
+				<option value="na"> Strategy </option>
+				<option value="park_big">Park in Big Spaces</option>
+				<option value="day_drive">Drive during day</option>
+				<option value="known_places">Drive to Known Places</option>
+				<option value="take_friend">Take a Friend</option>
+				<option value="dry_run">Dry Runs</option>
+				<option value="use_map">Use a Map</option>
+				<option value="take_phone">Take a Phone</option>
+			</select>
+			<input type="button" id="drivingStratButton" value="Add Driving Strategy" onclick="addDrivingStrat()" class="drive_button"/>
+		</div>
 	</div>
+	
 	<div class="pure-control-group">
 		<label for="driving_notes">Notes on driving:</label>
-		<textarea rows="3" id="driving_notes" readonly></textarea>
+		<textarea rows="3" id="driving_notes" name="driving_notes" ></textarea>
 	</div>
 	
 	<!-- COLLAT DRIVING -->
-	<div id="collateral_driving" style="display:none">
+	<div id="collateral_driving" style="display:none" name="collateral_driving" style="display:none">
 		<div class="header">Collateral Driving</div>
 		<div class="pure-control-group">
 			<label for="drive_collat">Drive:</label>
-			<input type="text" id="drive_collat" readonly>
+			<input type="text" id="drive_collat" name="drive_collat" >
 		</div>
-		<div id="do_drive">
+		<div id="do_drive_collat" name="do_drive">
 			<div class="header">Incidents</div>
-			<div id="unknown_arrival_row" class="row">
+			<div id="unknown_arrival_row" class="row" name="unknown_arrival_row" class="row">
 				<div class="subheader">Not knowing how they arrived somewhere</div>
+			<input type="checkbox" name="unknown_arrival_collat" checked="checked" class="living_check">
 				<div class="liv_severity">
 					<label for="unknown_arrival_severity_collat">Severity:</label>
-					<input type="text" id="unknown_arrival_severity_collat" readonly>
+					<input type="text" id="unknown_arrival_severity_collat" name="unknown_arrival_severity_collat" >
 				</div>
 				<div class="liv_freq_collat">
 					<label for="unknown_arrival_freq_collat">Frequency:</label>
-					<input type="text" id="unknown_arrival_freq_collat" readonly>
+					<input type="text" id="unknown_arrival_freq_collat" name="unknown_arrival_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="unknown_arrival_notes_collat">Notes:</label>
-					<textarea rows="3" id="unknown_arrival_notes_collat" readonly></textarea>
+					<textarea rows="3" id="unknown_arrival_notes_collat" name="unknown_arrival_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="lost_row" class="row">
+			<div id="lost_row" class="row" name="lost_row" class="row">
 				<div class="subheader">Getting lost</div>
+			<input type="checkbox" name="lost_collat" checked="checked" class="living_check">
 				<div class="liv_time">
 					<label for="lost_severity_collat">Severity:</label>
-					<input type="text" id="lost_severity_collat" readonly>
+					<input type="text" id="lost_severity_collat" name="lost_severity_collat" >
 				</div>
 				<div class="liv_freq_collat">
 					<label for="lost_freq_collat">Frequency:</label>
-					<input type="text" id="lost_freq_collat" readonly>
+					<input type="text" id="lost_freq_collat" name="lost_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="lost_notes_collat">Notes:</label>
-					<textarea rows="3" id="lost_notes_collat" readonly></textarea>
+					<textarea rows="3" id="lost_notes_collat" name="lost_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="tips_row" class="row">
+			<div id="tips_row" class="row" name="tips_row" class="row">
 				<div class="subheader">Involved in tips and scrapes</div>
+			<input type="checkbox" name="tips_collat" checked="checked" class="living_check">
 				<div class="liv_time">
 					<label for="tips_severity_collat">Severity:</label>
-					<input type="text" id="tips_severity_collat" readonly>
+					<input type="text" id="tips_severity_collat" name="tips_severity_collat" >
 				</div>
 				<div class="liv_freq_collat">
 					<label for="tips_freq_collat">Frequency:</label>
-					<input type="text" id="tips_freq_collat" readonly>
+					<input type="text" id="tips_freq_collat" name="tips_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="tips_notes_collat">Notes:</label>
-					<textarea rows="3" id="tips_notes_collat" readonly></textarea>
+					<textarea rows="3" id="tips_notes_collat" name="tips_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="collat_driving_other_row" class="row">
-				<div class="subheader" id="driving_other_subheader"></div>
+			<div id="driving_other_row_collat" class="row" name="driving_other_row_collat" class="row">
+				<div class="subheader" id="driving_other_subheader" name="driving_other_subheader"></div>
+				<div class="other_text">
+					<input type="text" id="collat_driving_other_incident" name="collat_driving_other_incident" >
+				</div>
 				<div class="other_severity">
 					<label for="collat_driving_other_severity">Severity:</label>
-					<input type="text" id="collat_driving_other_severity" readonly>
+					<input type="text" id="collat_driving_other_severity" name="collat_driving_other_severity" >
 				</div>
 				<div class="other_freq">
 					<label for="collat_driving_other_freq">Frequency:</label>
-					<input type="text" id="collat_driving_other_freq" readonly>
+					<input type="text" id="collat_driving_other_freq" name="collat_driving_other_freq" >
 				</div>
 				<div class="other_notes">
 					<label for="collat_driving_other_notes">Notes:</label>
-					<textarea rows="3" id="collat_driving_other_notes" readonly></textarea>
+					<textarea rows="3" id="collat_driving_other_notes" name="collat_driving_other_notes" ></textarea>
 				</div>
+			</div>
+			
+			<div class="pure-control-group" style="margin-top:8px;">
+				<label for="new_incident_collat">Add New Collateral Incident:</label>
+				<select id="new_incident_collat">
+					<option value="na"> Incident </option>
+					<option value="unknown_arrival">Unknown Arrival</option>
+					<option value="lost">Getting Lost</option>
+					<option value="tips">Involved in Scrapes</option>
+					<option value="driving_other">Other</option>
+				</select>
+				<input type="button" id="drivingIncidentButton" value="Add Driving Incident" onclick="addDrivingIncidentCollat()" class="drive_button"/>
 			</div>
 			
 			<div class="header">Strategies</div>		
-			<div id="park_big_row" class="row">
+			<div id="park_big_row" class="row" name="park_big_row" class="row">
 				<div class="subheader">Only park in big spaces</div>
+				<input type="checkbox" name="park_big_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="park_big_success_collat">Success:</label>
-					<input type="text" id="park_big_success_collat" readonly>
+					<input type="text" id="park_big_success_collat" name="park_big_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="park_big_notes_collat">Notes:</label>
-					<textarea rows="3" id="park_big_notes_collat" readonly></textarea>
+					<textarea rows="3" id="park_big_notes_collat" name="park_big_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="day_drive_row" class="row">
+			<div id="day_drive_row" class="row" name="day_drive_row" class="row">
 				<div class="subheader">Only drive during the day</div>
+				<input type="checkbox" name="day_drive_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="day_drive_success_collat">Success:</label>
-					<input type="text" id="day_drive_success_collat" readonly>
+					<input type="text" id="day_drive_success_collat" name="day_drive_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="day_drive_notes_collat">Notes:</label>
-					<textarea rows="3" id="day_drive_notes_collat" readonly></textarea>
+					<textarea rows="3" id="day_drive_notes_collat" name="day_drive_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="known_places_row" class="row">
+			<div id="known_places_row" class="row" name="known_places_row" class="row">
 				<div class="subheader">Only drive to known places</div>
+				<input type="checkbox" name="known_places_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="known_places_success_collat">Success:</label>
-					<input type="text" id="known_places_success_collat" readonly>
+					<input type="text" id="known_places_success_collat" name="known_places_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="known_places_notes_collat">Notes:</label>
-					<textarea rows="3" id="known_places_notes_collat" readonly></textarea>
+					<textarea rows="3" id="known_places_notes_collat" name="known_places_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="take_friend_row" class="row">
+			<div id="take_friend_row" class="row" name="take_friend_row" class="row">
 				<div class="subheader">Takes friends on drives</div>
+				<input type="checkbox" name="take_friend_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="take_friend_success_collat">Success:</label>
-					<input type="text" id="take_friend_success_collat" readonly>
+					<input type="text" id="take_friend_success_collat" name="take_friend_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="take_friend_notes_collat">Notes:</label>
-					<textarea rows="3" id="take_friend_notes_collat" readonly></textarea>
+					<textarea rows="3" id="take_friend_notes_collat" name="take_friend_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="dry_run_row" class="row">
+			<div id="dry_run_row" class="row" name="dry_run_row" class="row">
 				<div class="subheader">Uses dry runs</div>
+				<input type="checkbox" name="dry_run_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="dry_run_success_collat">Success:</label>
-					<input type="text" id="dry_run_success_collat" readonly>
+					<input type="text" id="dry_run_success_collat" name="dry_run_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="dry_run_notes_collat">Notes:</label>
-					<textarea rows="3" id="dry_run_notes_collat" readonly></textarea>
+					<textarea rows="3" id="dry_run_notes_collat" name="dry_run_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="use_map_row" class="row">
+			<div id="use_map_row" class="row" name="use_map_row" class="row">
 				<div class="subheader">Uses maps</div>
+				<input type="checkbox" name="use_map_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="use_map_success_collat">Success:</label>
-					<input type="text" id="use_map_success_collat" readonly>
+					<input type="text" id="use_map_success_collat" name="use_map_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="use_map_notes_collat">Notes:</label>
-					<textarea rows="3" id="use_map_notes_collat" readonly></textarea>
+					<textarea rows="3" id="use_map_notes_collat" name="use_map_notes_collat" ></textarea>
 				</div>
 			</div>
-			<div id="take_phone_row" class="row">
+			<div id="take_phone_row" class="row" name="take_phone_row" class="row">
 				<div class="subheader">Takes a phone</div>
+				<input type="checkbox" name="take_phone_collat" checked="checked" class="living_check">
 				<div class="liv_suc">
 					<label for="take_phone_success_collat">Success:</label>
-					<input type="text" id="take_phone_success_collat" readonly>
+					<input type="text" id="take_phone_success_collat" name="take_phone_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="take_phone_notes_collat">Notes:</label>
-					<textarea rows="3" id="take_phone_notes_collat" readonly></textarea>
+					<textarea rows="3" id="take_phone_notes_collat" name="take_phone_notes_collat" ></textarea>
 				</div>
 			</div>
+			
+			<div class="pure-control-group" style="margin-top:8px;">
+				<label for="new_strat_collat">Add New Collateral Strategy:</label>
+				<select id="new_strat_collat">
+					<option value="na"> Strategy </option>
+					<option value="park_big">Park in Big Spaces</option>
+					<option value="day_drive">Drive during day</option>
+					<option value="known_places">Drive to Known Places</option>
+					<option value="take_friend">Take a Friend</option>
+					<option value="dry_run">Dry Runs</option>
+					<option value="use_map">Use a Map</option>
+					<option value="take_phone">Take a Phone</option>
+				</select>
+				<input type="button" id="drivingStratButton" value="Add Driving Strategy" onclick="addDrivingStratCollat()" class="drive_button"/>
+			</div>
+			
 		</div>
 		<div class="pure-control-group">
 			<label for="driving_notes_collat">Notes on driving:</label>
-			<textarea rows="3" id="driving_notes_collat" readonly></textarea>
+			<textarea rows="3" id="driving_notes_collat" name="driving_notes_collat" ></textarea>
 		</div>
 	</div>
 </div>
 
-<div id="cooking" class="row_div">
+<div id="cooking" class="row_div" name="cooking" class="row_div">
 
-	<div class="header">Cooking</div>
+	<div class="header living_header">Cooking</div>
 	<div class="pure-control-group">
 		<label for="cook">Does the patient cook:</label>
-		<input type="text" id="cook" readonly>
+		<input type="text" id="cook" name="cook" onchange="changeCookBool()">
 	</div>
 	
-	<div id="do_not_cook">
+	<div id="do_not_cook" name="do_not_cook">
 		<div class="liv_suc pure-control-group">
 			<label for="cook_help">Who cooks for the Patient:</label>
-			<input type="text" id="cook_help" readonly>
+			<input type="text" id="cook_help" name="cook_help" >
 		</div>
 		<div class="liv_notes pure-control-group">
 			<label for="cook_help_notes">Notes:</label>
-			<textarea rows="3" id="cook_help_notes" readonly></textarea>
+			<textarea rows="3" id="cook_help_notes" name="cook_help_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="do_cook">
+	<div id="do_cook" name="do_cook">
 		<div class="header">Incidents</div>
-		<div id="forgot_cooking_row" class="row">
+		<div id="forgot_cooking_row" class="row" name="forgot_cooking_row" class="row">
 			<div class="subheader">Forgotten about something cooking:</div>
+				<input type="checkbox" name="forgot_cooking" checked="checked" class="living_check">
 			<div class="liv_freq">
 				<label for="forgot_cooking_freq">Frequency:</label>
-				<input type="text" id="forgot_cooking_freq" readonly>
+				<input type="text" id="forgot_cooking_freq" name="forgot_cooking_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="forgot_cooking_notes">Notes:</label>
-				<textarea rows="3" id="forgot_cooking_notes" readonly></textarea>
+				<textarea rows="3" id="forgot_cooking_notes" name="forgot_cooking_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="burnt_food_row" class="row">
+		<div id="burnt_food_row" class="row" name="burnt_food_row" class="row">
 			<div class="subheader">Burnt something:</div>
+				<input type="checkbox" name="burnt_food" checked="checked" class="living_check">
 			<div class="liv_freq">
 				<label for="burnt_food_freq">Frequency:</label>
-				<input type="text" id="burnt_food_freq" readonly>
+				<input type="text" id="burnt_food_freq" name="burnt_food_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="burnt_food_notes">Notes:</label>
-				<textarea rows="3" id="burnt_food_notes" readonly></textarea>
+				<textarea rows="3" id="burnt_food_notes" name="burnt_food_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="started_fire_row" class="row">
+		<div id="started_fire_row" class="row" name="started_fire_row" class="row">
 			<div class="subheader">Set something on fire:</div>
+				<input type="checkbox" name="started_fire" checked="checked" class="living_check">
 			<div class="liv_freq">
 				<label for="started_fire_freq">Frequency:</label>
-				<input type="text" id="started_fire_freq" readonly>
+				<input type="text" id="started_fire_freq" name="started_fire_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="started_fire_notes">Notes:</label>
-				<textarea rows="3" id="started_fire_notes" readonly></textarea>
+				<textarea rows="3" id="started_fire_notes" name="started_fire_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="smoke_alarm_row" class="row">
+		<div id="smoke_alarm_row" class="row" name="smoke_alarm_row" class="row">
 			<div class="subheader">Set off smoke alarm:</div>
+				<input type="checkbox" name="smoke_alarm" checked="checked" class="living_check">
 			<div class="liv_freq">
 				<label for="smoke_alarm_freq">Frequency:</label>
-				<input type="text" id="smoke_alarm_freq" readonly>
+				<input type="text" id="smoke_alarm_freq" name="smoke_alarm_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="smoke_alarm_notes">Notes:</label>
-				<textarea rows="3" id="smoke_alarm_notes" readonly></textarea>
+				<textarea rows="3" id="smoke_alarm_notes" name="smoke_alarm_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="undercooked_row" class="row">
+		<div id="undercooked_row" class="row" name="undercooked_row" class="row">
 			<div class="subheader">Undercooked food:</div>
+				<input type="checkbox" name="undercooked" checked="checked" class="living_check">
 			<div class="liv_freq">
 				<label for="undercooked_freq">Frequency:</label>
-				<input type="text" id="undercooked_freq" readonly>
+				<input type="text" id="undercooked_freq" name="undercooked_freq" >
 			</div>
 			<div class="liv_notes">
 				<label for="undercooked_notes">Notes:</label>
-				<textarea rows="3" id="undercooked_notes" readonly></textarea>
+				<textarea rows="3" id="undercooked_notes" name="undercooked_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="cooking_other_row" class="row">
-			<div class="subheader" id="cooking_other_subheader"></div>
+		<div id="cooking_other_row" class="row" name="cooking_other_row" class="row">
+			<div class="subheader" id="cooking_other_subheader" name="cooking_other_subheader"></div>
+			<div class="pure-u-1-5 grid_entry grid_other_text">
+				<input type="text" name="cooking_other_incident">
+			</div>
 			<div class="other_freq">
 				<label for="cooking_other_freq">Frequency:</label>
-				<input type="text" id="cooking_other_freq" readonly>
+				<input type="text" id="cooking_other_freq" name="cooking_other_freq" >
 			</div>
 			<div class="other_notes">
 				<label for="cooking_other_notes">Notes:</label>
-				<textarea rows="3" id="cooking_other_notes" readonly></textarea>
-			</div>
+				<textarea rows="3" id="cooking_other_notes" name="cooking_other_notes" ></textarea>
+			</div> 
 		</div>
 		
+		<div class="pure-control-group" style="margin-top:8px;">
+			<label for="cook_incident">Add New Incident:</label>
+			<select id="cook_incident">
+				<option value="na"> Incident </option>
+				<option value="forgot_cooking">Forgot About Cooking</option>
+				<option value="burnt_food">Burnt Food</option>
+				<option value="started_fire">Set Food on Fire</option>
+				<option value="smoke_alarm">Smoke Alarm</option>
+				<option value="undercooked">Undercooked Food</option>
+				<option value="cooking_other">Other</option>
+			</select>
+			<input type="button" id="cookingIncidentButton" value="Add Cooking Incident" onclick="addCookingIncidentCollat()" class="cooking_button"/>
+		</div>
+		
+		<!-- STRATEGIES -->
 		<div class="header">Coping Strategies</div>
-		<div id="timer_row" class="row">
+		<div id="timer_row" class="row" name="timer_row" class="row">
 			<div class="subheader">Use a timer:</div>
+				<input type="checkbox" name="timer" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="timer_success">Success:</label>
-				<input type="text" id="timer_success" readonly>
+				<input type="text" id="timer_success" name="timer_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="timer_notes">Notes:</label>
-				<textarea rows="3" id="timer_notes" readonly></textarea>
+				<textarea rows="3" id="timer_notes" name="timer_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="reminders_row" class="row">
+		<div id="reminders_row" class="row" name="reminders_row" class="row">
 			<div class="subheader">Have someone remind you:</div>
+				<input type="checkbox" name="reminders" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="reminders_success">Success:</label>
-				<input type="text" id="reminders_success" readonly>
+				<input type="text" id="reminders_success" name="reminders_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="reminders_notes">Notes:</label>
-				<textarea rows="3" id="reminders_notes" readonly></textarea>
+				<textarea rows="3" id="reminders_notes" name="reminders_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="simple_cooking_row" class="row">
+		<div id="simple_cooking_row" class="row" name="simple_cooking_row" class="row">
 			<div class="subheader">Keep cooking simple:</div>
+				<input type="checkbox" name="simple_cooking" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="simple_cooking_success">Success:</label>
-				<input type="text" id="simple_cooking_success" readonly>
+				<input type="text" id="simple_cooking_success" name="simple_cooking_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="simple_cooking_notes">Notes:</label>
-				<textarea rows="3" id="simple_cooking_notes" readonly></textarea>
+				<textarea rows="3" id="simple_cooking_notes" name="simple_cooking_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="salad_row" class="row">
+		<div id="salad_row" class="row" name="salad_row" class="row">
 			<div class="subheader">Only eat food that does not require cooking:</div>
+				<input type="checkbox" name="salad" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="salad_success">Success:</label>
-				<input type="text" id="salad_success" readonly>
+				<input type="text" id="salad_success" name="salad_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="salad_notes">Notes:</label>
-				<textarea rows="3" id="salad_notes" readonly></textarea>
+				<textarea rows="3" id="salad_notes" name="salad_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="go_out_row" class="row">
+		<div id="go_out_row" class="row" name="go_out_row" class="row">
 			<div class="subheader">Go out for food:</div>
+				<input type="checkbox" name="go_out" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="go_out_success">Success:</label>
-				<input type="text" id="go_out_success" readonly>
+				<input type="text" id="go_out_success" name="go_out_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="go_out_notes">Notes:</label>
-				<textarea rows="3" id="go_out_notes" readonly></textarea>
+				<textarea rows="3" id="go_out_notes" name="go_out_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="get_help_row" class="row">
+		<div id="get_help_row" class="row" name="get_help_row" class="row">
 			<div class="subheader">Have someone help you:</div>
+				<input type="checkbox" name="get_help" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="get_help_success">Success:</label>
-				<input type="text" id="get_help_success" readonly>
+				<input type="text" id="get_help_success" name="get_help_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="get_help_notes">Notes:</label>
-				<textarea rows="3" id="get_help_notes" readonly></textarea>
+				<textarea rows="3" id="get_help_notes" name="get_help_notes" ></textarea>
 			</div>
+		</div>
+		<div class="pure-control-group" style="margin-top:8px;">
+			<label for="cook_strategy">Add New Strategy:</label>
+			<select id="cook_strategy">
+				<option value="na"> Strategy </option>
+				<option value="timer">Use a Timer</option>
+				<option value="reminders">Have Someone Remind You</option>
+				<option value="simple_cooking">Keep Cooking Simple</option>
+				<option value="salad">Only Eat Food that does not Require Cooking</option>
+				<option value="go_out">Go Out For Food</option>
+				<option value="get_help">Have Someone Help</option>
+			</select>
+			<input type="button" id="cookingStratButton" value="Add Cooking Strategy" onclick="addCookingStratCollat()" class="cooking_button"/>
 		</div>
 	</div>
 
-	<div id="collateral_cooking" style="display:none">
+	<div id="collateral_cooking" style="display:none" name="collateral_cooking" style="display:none">
 		<div class="header">Collateral Cooking</div>
 		<div class="pure-control-group">
 			<label for="cooking_collat">Does the patient cook:</label>
-			<input type="text" id="cooking_collat" readonly>
+			<input type="text" id="cooking_collat" name="cooking_collat"  onchange="changeCookBoolCollat()">
 		</div>
 		
-		<div id="do_not_cook">
+		<div id="do_not_cook_collat" name="do_not_cook">
 			<div class="liv_suc pure-control-group">
 				<label for="cook_help_collat">Who cooks for the Patient:</label>
-				<input type="text" id="cook_help_collat" readonly>
+				<input type="text" id="cook_help_collat" name="cook_help_collat" >
 			</div>
 			<div class="liv_notes pure-control-group">
 				<label for="cook_help_notes_collat">Notes:</label>
-				<textarea rows="3" id="cook_help_notes_collat" readonly></textarea>
+				<textarea rows="3" id="cook_help_notes_collat" name="cook_help_notes_collat" ></textarea>
 			</div>
 		</div>
 		
-		<div id="do_cook">
+		<div id="do_cook_collat" name="do_cook">
 			<div class="header">Incidents</div>
-			<div id="forgot_cooking_row_collat" class="row">
+			<div id="forgot_cooking_row_collat" class="row" name="forgot_cooking_row_collat" class="row">
 				<div class="subheader">Forgotten about something cooking:</div>
+				<input type="checkbox" name="forgot_cooking_collat" checked="checked" class="living_check">
 				<div class="liv_freq">
-					<label for="forgot_cooking_freq">Frequency:</label>
-					<input type="text" id="forgot_cooking_freq" readonly>
+					<label for="forgot_cooking_freq_collat">Frequency:</label>
+					<input type="text" id="forgot_cooking_freq_collat" name="forgot_cooking_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="forgot_cooking_notes_collat">Notes:</label>
-					<textarea rows="3" id="forgot_cooking_notes_collat" readonly></textarea>
+					<textarea rows="3" id="forgot_cooking_notes_collat" name="forgot_cooking_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="burnt_food_row_collat" class="row">
+			<div id="burnt_food_row_collat" class="row" name="burnt_food_row_collat" class="row">
 				<div class="subheader">Burnt something:</div>
+				<input type="checkbox" name="burnt_food_collat" checked="checked" class="living_check">
 				<div class="liv_freq">
-					<label for="burnt_food_freq">Frequency:</label>
-					<input type="text" id="burnt_food_freq" readonly>
+					<label for="burnt_food_freq_collat">Frequency:</label>
+					<input type="text" id="burnt_food_freq_collat" name="burnt_food_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="burnt_food_notes_collat">Notes:</label>
-					<textarea rows="3" id="burnt_food_notes_collat" readonly></textarea>
+					<textarea rows="3" id="burnt_food_notes_collat" name="burnt_food_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="started_fire_row_collat" class="row">
+			<div id="started_fire_row_collat" class="row" name="started_fire_row_collat" class="row">
 				<div class="subheader">Set something on fire:</div>
+				<input type="checkbox" name="started_fire_collat" checked="checked" class="living_check">
 				<div class="liv_freq">
-					<label for="started_fire_freq">Frequency:</label>
-					<input type="text" id="started_fire_freq" readonly>
+					<label for="started_fire_freq_collat">Frequency:</label>
+					<input type="text" id="started_fire_freq_collat" name="started_fire_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="started_fire_notes_collat">Notes:</label>
-					<textarea rows="3" id="started_fire_notes_collat" readonly></textarea>
+					<textarea rows="3" id="started_fire_notes_collat" name="started_fire_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="smoke_alarm_row_collat" class="row">
+			<div id="smoke_alarm_row_collat" class="row" name="smoke_alarm_row_collat" class="row">
 				<div class="subheader">Set off smoke alarm:</div>
+				<input type="checkbox" name="smoke_alarm_collat" checked="checked" class="living_check">
 				<div class="liv_freq">
-					<label for="smoke_alarm_freq">Frequency:</label>
-					<input type="text" id="smoke_alarm_freq" readonly>
+					<label for="smoke_alarm_freq_collat">Frequency:</label>
+					<input type="text" id="smoke_alarm_freq_collat" name="smoke_alarm_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="smoke_alarm_notes_collat">Notes:</label>
-					<textarea rows="3" id="smoke_alarm_notes_collat" readonly></textarea>
+					<textarea rows="3" id="smoke_alarm_notes_collat" name="smoke_alarm_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="undercooked_row_collat" class="row">
+			<div id="undercooked_row_collat" class="row" name="undercooked_row_collat" class="row">
 				<div class="subheader">Undercooked food:</div>
+				<input type="checkbox" name="undercooked_collat" checked="checked" class="living_check">
 				<div class="liv_freq">
-					<label for="undercooked_freq">Frequency:</label>
-					<input type="text" id="undercooked_freq" readonly>
+					<label for="undercooked_freq_collat">Frequency:</label>
+					<input type="text" id="undercooked_freq_collat" name="undercooked_freq_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="undercooked_notes_collat">Notes:</label>
-					<textarea rows="3" id="undercooked_notes_collat" readonly></textarea>
+					<textarea rows="3" id="undercooked_notes_collat" name="undercooked_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="collat_cooking_other_row" class="row">
-				<div class="subheader" id="collat_cooking_other_subheader"></div>
+			<div id="collat_cooking_other_row" class="row" name="collat_cooking_other_row" class="row">
+				<div class="subheader" id="collat_cooking_other_subheader" name="collat_cooking_other_subheader"></div>
 				<div class="other_freq">
 					<label for="collat_cooking_other_freq">Frequency:</label>
-					<input type="text" id="collat_cooking_other_freq" readonly>
+					<input type="text" id="collat_cooking_other_freq" name="collat_cooking_other_freq" >
 				</div>
 				<div class="other_notes">
 					<label for="collat_cooking_other_notes">Notes:</label>
-					<textarea rows="3" id="collat_cooking_other_notes" readonly></textarea>
+					<textarea rows="3" id="collat_cooking_other_notes" name="collat_cooking_other_notes" ></textarea>
 				</div>
 			</div>
 			
+			<div class="pure-control-group" style="margin-top:8px;">
+				<label for="cook_incident_collat">Add New Incident:</label>
+				<select id="cook_incident_collat">
+					<option value="na"> Incident </option>
+					<option value="forgot_cooking">Forgot About Cooking</option>
+					<option value="burnt_food">Burnt Food</option>
+					<option value="started_fire">Set Food on Fire</option>
+					<option value="smoke_alarm">Smoke Alarm</option>
+					<option value="undercooked">Undercooked Food</option>
+					<option value="cooking_other">Other</option>
+				</select>
+				<input type="button" id="cookingIncidentButton" value="Add Cooking Incident" onclick="addCookingIncident()" class="cooking_button"/>
+			</div>
+			
+			<!-- COPING STRATEGIES COLLAT SHOPPING -->
 			<div class="header">Coping Strategies</div>
-			<div id="timer_row_collat" class="row">
+			<div id="timer_row_collat" class="row" name="timer_row_collat" class="row">
 				<div class="subheader">Use a timer:</div>
+				<input type="checkbox" name="timer_collat" checked="checked" class="living_check">
 				<div class="liv_success_collat">
 					<label for="timer_success_collat">Success:</label>
-					<input type="text" id="timer_success_collat" readonly>
+					<input type="text" id="timer_success_collat" name="timer_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="timer_notes_collat">Notes:</label>
-					<textarea rows="3" id="timer_notes_collat" readonly></textarea>
+					<textarea rows="3" id="timer_notes_collat" name="timer_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="reminders_row_collat" class="row">
+			<div id="reminders_row_collat" class="row" name="reminders_row_collat" class="row">
 				<div class="subheader">Have someone remind you:</div>
+				<input type="checkbox" name="reminders_collat" checked="checked" class="living_check">
 				<div class="liv_success_collat">
 					<label for="reminders_success_collat">Success:</label>
-					<input type="text" id="reminders_success_collat" readonly>
+					<input type="text" id="reminders_success_collat" name="reminders_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="reminders_notes_collat">Notes:</label>
-					<textarea rows="3" id="reminders_notes_collat" readonly></textarea>
+					<textarea rows="3" id="reminders_notes_collat" name="reminders_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="simple_cooking_row_collat" class="row">
+			<div id="simple_cooking_row_collat" class="row" name="simple_cooking_row_collat" class="row">
 				<div class="subheader">Keep cooking simple:</div>
+				<input type="checkbox" name="simple_cooking_collat" checked="checked" class="living_check">
 				<div class="liv_success_collat">
 					<label for="simple_cooking_success_collat">Success:</label>
-					<input type="text" id="simple_cooking_success_collat" readonly>
+					<input type="text" id="simple_cooking_success_collat" name="simple_cooking_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="simple_cooking_notes_collat">Notes:</label>
-					<textarea rows="3" id="simple_cooking_notes_collat" readonly></textarea>
+					<textarea rows="3" id="simple_cooking_notes_collat" name="simple_cooking_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="salad_row_collat" class="row">
+			<div id="salad_row_collat" class="row" name="salad_row_collat" class="row">
 				<div class="subheader">Only eat food that does not require cooking:</div>
+				<input type="checkbox" name="salad_collat" checked="checked" class="living_check">
 				<div class="liv_success_collat">
 					<label for="salad_success_collat">Success:</label>
-					<input type="text" id="salad_success_collat" readonly>
+					<input type="text" id="salad_success_collat" name="salad_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="salad_notes_collat">Notes:</label>
-					<textarea rows="3" id="salad_notes_collat" readonly></textarea>
+					<textarea rows="3" id="salad_notes_collat" name="salad_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="go_out_row_collat" class="row">
+			<div id="go_out_row_collat" class="row" name="go_out_row_collat" class="row">
 				<div class="subheader">Go out for food:</div>
+				<input type="checkbox" name="go_out_collat" checked="checked" class="living_check">
 				<div class="liv_success_collat">
 					<label for="go_out_success_collat">Success:</label>
-					<input type="text" id="go_out_success_collat" readonly>
+					<input type="text" id="go_out_success_collat" name="go_out_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="go_out_notes_collat">Notes:</label>
-					<textarea rows="3" id="go_out_notes_collat" readonly></textarea>
+					<textarea rows="3" id="go_out_notes_collat" name="go_out_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="get_help_row_collat" class="row">
+			<div id="get_help_row_collat" class="row" name="get_help_row_collat" class="row">
 				<div class="subheader">Have someone help you:</div>
+				<input type="checkbox" name="get_help_collat" checked="checked" class="living_check">
 				<div class="liv_success_collat">
 					<label for="get_help_success_collat">Success:</label>
-					<input type="text" id="get_help_success_collat" readonly>
+					<input type="text" id="get_help_success_collat" name="get_help_success_collat" >
 				</div>
 				<div class="liv_notes_collat">
 					<label for="get_help_notes_collat">Notes:</label>
-					<textarea rows="3" id="get_help_notes_collat" readonly></textarea>
+					<textarea rows="3" id="get_help_notes_collat" name="get_help_notes_collat" ></textarea>
 				</div>
+			</div>
+			
+			<div class="pure-control-group" style="margin-top:8px;">
+				<label for="cook_strategy_collat">Add New Strategy:</label>
+				<select id="cook_strategy_collat">
+					<option value="na"> Strategy </option>
+					<option value="timer">Use a Timer</option>
+					<option value="reminders">Have Someone Remind You</option>
+					<option value="simple_cooking">Keep Cooking Simple</option>
+					<option value="salad">Only Eat Food that does not Require Cooking</option>
+					<option value="go_out">Go Out For Food</option>
+					<option value="get_help">Have Someone Help</option>
+				</select>
+				<input type="button" id="cookingStratButton" value="Add Cooking Strategy" onclick="addCookingStrat()" class="cooking_button"/>
 			</div>
 		</div>
 		
 	</div>
 </div>
 
-<div id="shopping" class="row_div">
+<div id="shopping" class="row_div" name="shopping" class="row_div">
 
-	<div class="header">Shopping</div>
+	<div class="header living_header">Shopping</div>
 	<div class="pure-control-group">
 		<label for="shop">Does the patient shop for themselves:</label>
-		<input type="text" id="shop" readonly>
+		<input type="text" id="shop" name="shop"  onchange="changeShopBool()">
 	</div>
 
-	<div id="do_not_shop">
+	<div id="do_not_shop" name="do_not_shop">
 		<div class="liv_suc pure-control-group">
 			<label for="shop_help">Who helps with shopping:</label>
-			<input type="text" id="shop_help" readonly>
+			<input type="text" id="shop_help" name="shop_help" >
 		</div>
 		<div class="liv_notes pure-control-group">
 			<label for="shop_help_notes">Notes on shopping help:</label>
-			<textarea rows="3" id="shop_help_notes" readonly></textarea>
+			<textarea rows="3" id="shop_help_notes" name="shop_help_notes" ></textarea>
 		</div>
 		
 		<div class="liv_suc pure-control-group">
 			<label for="shop_help_time">How long have they had help:</label>
-			<input type="text" id="shop_help_time" readonly>
+			<input type="text" id="shop_help_time" name="shop_help_time" >
 		</div>
 		<div class="liv_notes pure-control-group">
 			<label for="shop_time_notes">Notes:</label>
-			<textarea rows="3" id="shop_time_notes" readonly></textarea>
+			<textarea rows="3" id="shop_time_notes" name="shop_time_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="do_shop">
+	<div id="do_shop" name="do_shop">
 		<div class="liv_suc pure-control-group">
 			<label for="shopping_tougher">Has shopping been tougher recently:</label>
-			<input type="text" id="shopping_tougher" readonly>
+			<input type="text" id="shopping_tougher" name="shopping_tougher" >
 		</div>
 		<div class="liv_notes pure-control-group">
 			<label for="shop_tough_notes">Notes:</label>
-			<textarea rows="3" id="shop_tough_notes" readonly></textarea>
+			<textarea rows="3" id="shop_tough_notes" name="shop_tough_notes" ></textarea>
 		</div>
 		
 		<div class="header">Coping Strategies</div>
-		<div id="list_row" class="row">
+		<div id="list_row" class="row" name="list_row" class="row">
 			<div class="subheader">Uses a list:</div>
+				<input type="checkbox" name="list" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="list_success">Success:</label>
-				<input type="text" id="list_success" readonly>
+				<input type="text" id="list_success" name="list_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="list_notes">Notes:</label>
-				<textarea rows="3" id="list_notes" readonly></textarea>
+				<textarea rows="3" id="list_notes" name="list_notes" ></textarea>
 			</div>
 		</div>
 		
-		<div id="small_shop_row" class="row">
+		<div id="small_shop_row" class="row" name="small_shop_row" class="row">
 			<div class="subheader">Uses a small_shop:</div>
+				<input type="checkbox" name="small_shop" checked="checked" class="living_check">
 			<div class="liv_success">
 				<label for="small_shop_success">Success:</label>
-				<input type="text" id="small_shop_success" readonly>
+				<input type="text" id="small_shop_success" name="small_shop_success" >
 			</div>
 			<div class="liv_notes">
 				<label for="small_shop_notes">Notes:</label>
-				<textarea rows="3" id="small_shop_notes" readonly></textarea>
+				<textarea rows="3" id="small_shop_notes" name="small_shop_notes" ></textarea>
 			</div>
 		</div>
 		
+		<div class="pure-control-group" style="margin-top:8px;">
+			<label for="shop_strategy">Add New Strategy:</label>
+			<select id="shop_strategy">
+				<option value="na"> Strategy </option>
+				<option value="list">Use a Shopping List</option>
+				<option value="small_shop">Small Shop</option>
+			</select>
+			<input type="button" id="shoppingStratButton" value="Add Shopping Strategy" onclick="addShoppingStrat()" class="shopping_button"/>
+		</div>
 	</div>
 	
 	
 	<!--  COLLATERAL -->
-	<div id="collateral_shopping" style="display:none">
+	<div id="collateral_shopping" style="display:none" name="collateral_shopping" style="display:none">
 		<div class="header">Collateral Shopping</div>
 		<div class="pure-control-group">
-			<label for="shop">Does the patient shop for themselves:</label>
-			<input type="text" id="shop" readonly>
+			<label for="shopping_collat">Does the patient shop for themselves:</label>
+			<input type="text" id="shopping_collat" name="shopping_collat"  onchange="changeShopBoolCollat()">
 		</div>
 	
-		<div id="do_not_shop">
+		<div id="do_not_shop" name="do_not_shop">
 			<div class="liv_suc pure-control-group">
 				<label for="shop_help_collat">Who helps with shopping:</label>
-				<input type="text" id="shop_help_collat" readonly>
+				<input type="text" id="shop_help_collat" name="shop_help_collat" >
 			</div>
 			<div class="liv_notes pure-control-group">
 				<label for="shop_help_notes_collat">Notes on shopping help:</label>
-				<textarea rows="3" id="shop_help_notes_collat" readonly></textarea>
+				<textarea rows="3" id="shop_help_notes_collat" name="shop_help_notes_collat" ></textarea>
 			</div>
 			<div class="liv_suc pure-control-group">
 				<label for="shop_help_time_collat">How long have they had help:</label>
-				<input type="text" id="shop_help_time_collat" readonly>
+				<input type="text" id="shop_help_time_collat" name="shop_help_time_collat" >
 			</div>
 			<div class="liv_notes pure-control-group">
 				<label for="shop_time_notes_collat">Notes:</label>
-				<textarea rows="3" id="shop_time_notes_collat" readonly></textarea>
+				<textarea rows="3" id="shop_time_notes_collat" name="shop_time_notes_collat" ></textarea>
 			</div>
 		</div>
 		
-		<div id="do_shop">
+		<div id="do_shop" name="do_shop">
 			<div class="liv_suc pure-control-group">
 				<label for="shopping_tougher_collat">Has shopping been tougher recently:</label>
-				<input type="text" id="shopping_tougher_collat" readonly>
+				<input type="text" id="shopping_tougher_collat" name="shopping_tougher_collat" >
 			</div>
 			<div class="liv_notes pure-control-group">
 				<label for="shop_tough_notes_collat">Notes:</label>
-				<textarea rows="3" id="shop_tough_notes_collat" readonly></textarea>
+				<textarea rows="3" id="shop_tough_notes_collat" name="shop_tough_notes_collat" ></textarea>
 			</div>
 			
 			<div class="header">Coping Strategies</div>
-			<div id="list_row_collat" class="row">
+			<div id="list_row_collat" class="row" name="list_row_collat" class="row">
 				<div class="subheader">Uses a list:</div>
+				<input type="checkbox" name="list_collat" checked="checked" class="living_check">
 				<div class="liv_success">
 					<label for="list_success_collat">Success:</label>
-					<input type="text" id="list_success_collat" readonly>
+					<input type="text" id="list_success_collat" name="list_success_collat" >
 				</div>
 				<div class="liv_notes">
 					<label for="list_notes_collat">Notes:</label>
-					<textarea rows="3" id="list_notes_collat" readonly></textarea>
+					<textarea rows="3" id="list_notes_collat" name="list_notes_collat" ></textarea>
 				</div>
 			</div>
 			
-			<div id="small_shop_row_collat" class="row">
+			<div id="small_shop_row_collat" class="row" name="small_shop_row_collat" class="row">
 				<div class="subheader">Uses a small_shop:</div>
+				<input type="checkbox" name="small_shop_collat" checked="checked" class="living_check">
 				<div class="liv_success">
 					<label for="small_shop_success_collat">Success:</label>
-					<input type="text" id="small_shop_success_collat" readonly>
+					<input type="text" id="small_shop_success_collat" name="small_shop_success_collat" >
 				</div>
 				<div class="liv_notes">
 					<label for="small_shop_notes_collat">Notes:</label>
-					<textarea rows="3" id="small_shop_notes_collat" readonly></textarea>
+					<textarea rows="3" id="small_shop_notes_collat" name="small_shop_notes_collat" ></textarea>
 				</div>
+			</div>
+			
+			<div class="pure-control-group" style="margin-top:8px;">
+				<label for="shop_strategy_collat">Add New Strategy:</label>
+				<select id="shop_strategy_collat">
+					<option value="na"> Strategy </option>
+					<option value="list">Use a Shopping List</option>
+					<option value="small_shop">Small Shop</option>
+				</select>
+				<input type="button" id="shoppingStratButton" value="Add Shopping Strategy" onclick="addShoppingStratCollat()" class="shopping_button"/>
 			</div>
 			
 		</div>
 	</div>
 </div>
 
-<div id="bills" class="row_div">
+<div id="bills" class="row_div" name="bills" class="row_div">
 
-	<div class="header">Paying Bills</div>
-	<div id="liv_row" class="row">
+	<div class="header living_header">Paying Bills</div>
+	<div id="liv_row" class="row" name="liv_row" class="row">
 		<div class="subheader">How do they pay their bills</div>
 		<div class="act_col">
 			<label for="bills_method">Method:</label>
-			<input type="text" id="bills_method" readonly>
+			<input type="text" id="bills_method" name="bills_method" >
 		</div>
 		<div class="notes_col">
 			<label for="bill_method_notes">Notes:</label>
-			<textarea rows="3" id="bill_method_notes" readonly></textarea>
+			<textarea rows="3" id="bill_method_notes" name="bill_method_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="liv_row" class="row">
+	<div id="liv_row" class="row" name="liv_row" class="row">
 		<div class="subheader">Do they need any help?</div>
 		<div class="act_col">
 			<label for="bills_help">Help:</label>
-			<input type="text" id="bills_help" readonly>
+			<input type="text" id="bills_help" name="bills_help" >
 		</div>
 		<div class="notes_col">
 			<label for="bill_help_notes">Notes:</label>
-			<textarea rows="3" id="bill_help_notes" readonly></textarea>
+			<textarea rows="3" id="bill_help_notes" name="bill_help_notes" ></textarea>
 		</div>
 	</div>
 	
-	<div id="liv_row" class="row">
+	<div id="liv_row" class="row" name="liv_row" class="row">
 		<div class="subheader">Any problems with paying bills</div>
 		<div class="act_col">
 			<label for="bill_problems">Problem:</label>
-			<input type="text" id="bill_problems" readonly>
+			<input type="text" id="bill_problems" name="bill_problems" >
 		</div>
 		<div class="notes_col">
 			<label for="bill_problem_notes">Notes:</label>
-			<textarea rows="3" id="bill_problem_notes" readonly></textarea>
+			<textarea rows="3" id="bill_problem_notes" name="bill_problem_notes" ></textarea>
 		</div>
 	</div>
 
-	<div id="collateral_bills" style="display:none">
+	<div id="collateral_bills" style="display:none" name="collateral_bills" style="display:none">
 		<div class="header">Collateral Bills</div>
-		<div id="liv_row" class="row">
+		<div id="liv_row" class="row" name="liv_row" class="row">
 			<div class="subheader">How do they pay their bills</div>
 			<div class="act_col">
 				<label for="bills_method_collat">Method:</label>
-				<input type="text" id="bills_method_collat" readonly>
+				<input type="text" id="bills_method_collat" name="bills_method_collat" >
 			</div>
 			<div class="notes_col">
 				<label for="bill_method_notes_collat">Notes:</label>
-				<textarea rows="3" id="bill_method_notes_collat" readonly></textarea>
+				<textarea rows="3" id="bill_method_notes_collat" name="bill_method_notes_collat" ></textarea>
 			</div>
 		</div>
 		
-		<div id="liv_row" class="row">
+		<div id="liv_row" class="row" name="liv_row" class="row">
 			<div class="subheader">Do they need any help?</div>
 			<div class="act_col">
 				<label for="bills_help_collat">Help:</label>
-				<input type="text" id="bills_help_collat" readonly>
+				<input type="text" id="bills_help_collat" name="bills_help_collat" >
 			</div>
 			<div class="notes_col">
 				<label for="bill_help_notes_collat">Notes:</label>
-				<textarea rows="3" id="bill_help_notes_collat" readonly></textarea>
+				<textarea rows="3" id="bill_help_notes_collat" name="bill_help_notes_collat" ></textarea>
 			</div>
 		</div>
 		
-		<div id="liv_row" class="row">
+		<div id="liv_row" class="row" name="liv_row" class="row">
 			<div class="subheader">Any problems with paying bills</div>
 			<div class="act_col">
 				<label for="bill_problems_collat">Problem:</label>
-				<input type="text" id="bill_problems_collat" readonly>
+				<input type="text" id="bill_problems_collat" name="bill_problems_collat" >
 			</div>
 			<div class="notes_col">
 				<label for="bill_problems_notes_collat">Notes:</label>
-				<textarea rows="3" id="bill_problems_notes_collat" readonly></textarea>
+				<textarea rows="3" id="bill_problems_notes_collat" name="bill_problems_notes_collat" ></textarea>
 			</div>
 		</div>
 	</div>
+
+<input type="hidden" id="linkedPage" name="linkedPage"/>
+<input type="hidden" id="hiddenID" name="hiddenID"/>
+<input type="hidden" id="assessment" name="assessment"/>
+
+<div  class="pure-control-group">
+<input type="button" id="submitEvents" onclick="updateLiving()" value="Update Patient Living Situation" name="submitLiving">
+<span id="living_message"></span>
 
 </div>
 </form>

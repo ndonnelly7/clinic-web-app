@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
@@ -16,7 +17,7 @@ import com.cloud.clinic.model.Clinician;
 import com.google.appengine.api.datastore.Key;
 
 @Entity
-public class Superpeer {
+public class Superpeer implements java.io.Serializable{
 	@Transient
 	private static final long serialVersionUID = 1L;
 	
@@ -26,6 +27,9 @@ public class Superpeer {
 	private ArrayList<Peer> peers;
 	
 	int totalNumberOfPeers;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private P2P p2p;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,6 +50,8 @@ public class Superpeer {
 	}
 
 	public ArrayList<Peer> getPeers() {
+		if(peers == null)
+			peers = new ArrayList<Peer>();
 		return peers;
 	}
 
@@ -61,6 +67,22 @@ public class Superpeer {
 		this.id = id;
 	}
 	
+	public int getTotalNumberOfPeers() {
+		return totalNumberOfPeers;
+	}
+
+	public void setTotalNumberOfPeers(int totalNumberOfPeers) {
+		this.totalNumberOfPeers = totalNumberOfPeers;
+	}
+
+	public P2P getP2p() {
+		return p2p;
+	}
+
+	public void setP2p(P2P p2p) {
+		this.p2p = p2p;
+	}
+
 	public Peer signInPeer(Clinician c){
 		Peer p = new Peer(c, this);
 		if(peers == null)

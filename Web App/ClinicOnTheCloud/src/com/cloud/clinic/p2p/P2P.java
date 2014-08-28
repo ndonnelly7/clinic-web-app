@@ -19,7 +19,7 @@ public class P2P {
 	@Id
 	private String id;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(fetch=FetchType.EAGER, mappedBy = "p2p", cascade = CascadeType.ALL)
 	private ArrayList<Superpeer> sps;
 	
 	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
@@ -95,6 +95,10 @@ public class P2P {
 	}
 	
 	public Superpeer getSuperpeer(String name){
+		if(sps == null){
+			sps = new ArrayList<Superpeer>();
+			return null;
+		}
 		Iterator<Superpeer> it = sps.iterator();
 		while(it.hasNext()){
 			Superpeer sp = it.next();

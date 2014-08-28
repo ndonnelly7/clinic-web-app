@@ -5,252 +5,262 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="concerns_form" class="form_entry pure-form pure-form-aligned">
+<form id="concerns_form" class="form_entry pure-form pure-form-aligned" method="POST" action="/patientform/concerns.do">
 
-<div id="concern" class="row_div">
+<div id="concern" class="row_div" name="concern" class="row_div">
 	<label for="wants_memory_investigation">Wanted Memory Concerns Investigated: </label>
-	<input type="text" id="wants_memory_investigation" style="text-transform:capitalize" readonly>
+	<input type="text" id="wants_memory_investigation" style="text-transform:capitalize" name="wants_memory_investigation" style="text-transform:capitalize">
 </div>
 
 <div id="concern" class="row_div">
 	<div class="header">Patient Concerns</div>
-	<div id="rec_events_row" class="row">
+	<div id="rec_events_row" class="row" name="rec_events_row">
 		<div class="subheader">Recent Events</div>
+		<input type="checkbox" name="rec_events_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="rec_events_time">Time Since Began:</label>
-			<input type="text" id="rec_events_time" readonly>
+			<input type="text" id="rec_events_time" name="rec_events_time">
 		</div>
 		<div class="con_freq">
 			<label for="rec_events_freq">Frequency:</label>
-			<input type="text" id="rec_events_freq" readonly>
+			<input type="text" id="rec_events_freq" name="rec_events_freq">
 		</div>
 		<div class="con_sev">
 			<label for="rec_events_severity">Severity:</label>
-			<input type="text" id="rec_events_severity" readonly>
+			<input type="text" id="rec_events_severity" name="rec_events_severity">
 		</div>
 		<div class="con_wor">
 			<label for="rec_events_worsening">Worsening:</label>
-			<input type="text" id="rec_events_worsening" readonly>
+			<input type="text" id="rec_events_worsening" name="rec_events_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="rec_events_notes">Notes:</label>
-			<textarea rows="3" id="rec_events_notes" readonly></textarea>
+			<textarea rows="3" id="rec_events_notes" name="rec_events_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="faces_row" class="row">
 		<div class="subheader">Faces</div>
+		<input type="checkbox" name="faces_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="faces_time">Time Since Began:</label>
-			<input type="text" id="faces_time" readonly>
+			<input type="text" id="faces_time" name="faces_time">
 		</div>
 		<div class="con_freq">
 			<label for="faces_freq">Frequency:</label>
-			<input type="text" id="faces_freq" readonly>
+			<input type="text" id="faces_freq" name="faces_freq">
 		</div>
 		<div class="con_sev">
 			<label for="faces_severity">Severity:</label>
-			<input type="text" id="faces_severity" readonly>
+			<input type="text" id="faces_severity" name="faces_severity">
 		</div>
 		<div class="con_wor">
 			<label for="faces_worsening">Worsening:</label>
-			<input type="text" id="faces_worsening" readonly>
+			<input type="text" id="faces_worsening" name="faces_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="faces_notes">Notes:</label>
-			<textarea rows="3" id="faces_notes" readonly></textarea>
+			<textarea rows="3" id="faces_notes" name="faces_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="names_row" class="row">
 		<div class="subheader">Names</div>
+		<input type="checkbox" name="names_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="names_time">Time Since Began:</label>
-			<input type="text" id="names_time" readonly>
+			<input type="text" id="names_time" name="names_time">
 		</div>
 		<div class="con_freq">
 			<label for="names_freq">Frequency:</label>
-			<input type="text" id="names_freq" readonly>
+			<input type="text" id="names_freq" name="names_freq">
 		</div>
 		<div class="con_sev">
 			<label for="names_severity">Severity:</label>
-			<input type="text" id="names_severity" readonly>
+			<input type="text" id="names_severity" name="names_severity">
 		</div>
 		<div class="con_wor">
 			<label for="names_worsening">Worsening:</label>
-			<input type="text" id="names_worsening" readonly>
+			<input type="text" id="names_worsening" name="names_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="names_notes">Notes:</label>
-			<textarea rows="3" id="names_notes" readonly></textarea>
+			<textarea rows="3" id="names_notes" name="names_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="losing_things_row" class="row">
 		<div class="subheader">Losing Things</div>
+		<input type="checkbox" name="losing_things_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="losing_things_time">Time Since Began:</label>
-			<input type="text" id="losing_things_time" readonly>
+			<input type="text" id="losing_things_time" name="losing_things_time">
 		</div>
 		<div class="con_freq">
 			<label for="losing_things_freq">Frequency:</label>
-			<input type="text" id="losing_things_freq" readonly>
+			<input type="text" id="losing_things_freq" name="losing_things_freq">
 		</div>
 		<div class="con_sev">
 			<label for="losing_things_severity">Severity:</label>
-			<input type="text" id="losing_things_severity" readonly>
+			<input type="text" id="losing_things_severity" name="losing_things_severity">
 		</div>
 		<div class="con_wor">
 			<label for="losing_things_worsening">Worsening:</label>
-			<input type="text" id="losing_things_worsening" readonly>
+			<input type="text" id="losing_things_worsening" name="losing_things_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="losing_things_notes">Notes:</label>
-			<textarea rows="3" id="losing_things_notes" readonly></textarea>
+			<textarea rows="3" id="losing_things_notes" name="losing_things_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="follow_conv_row" class="row">
 		<div class="subheader">Following Conversations</div>
+		<input type="checkbox" name="follow_conv_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="follow_conv_time">Time Since Began:</label>
-			<input type="text" id="follow_conv_time" readonly>
+			<input type="text" id="follow_conv_time" name="follow_conv_time">
 		</div>
 		<div class="con_freq">
 			<label for="follow_conv_freq">Frequency:</label>
-			<input type="text" id="follow_conv_freq" readonly>
+			<input type="text" id="follow_conv_freq" name="follow_conv_freq">
 		</div>
 		<div class="con_sev">
 			<label for="follow_conv_severity">Severity:</label>
-			<input type="text" id="follow_conv_severity" readonly>
+			<input type="text" id="follow_conv_severity" name="follow_conv_severity">
 		</div>
 		<div class="con_wor">
 			<label for="follow_conv_worsening">Worsening:</label>
-			<input type="text" id="follow_conv_worsening" readonly>
+			<input type="text" id="follow_conv_worsening" name="follow_conv_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="follow_conv_notes">Notes:</label>
-			<textarea rows="3" id="follow_conv_notes" readonly></textarea>
+			<textarea rows="3" id="follow_conv_notes" name="follow_conv_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="right_words_row" class="row">
 		<div class="subheader">Thinking of the Right Words</div>
+		<input type="checkbox" name="right_words_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="right_words_time">Time Since Began:</label>
-			<input type="text" id="right_words_time" readonly>
+			<input type="text" id="right_words_time" name="right_words_time">
 		</div>
 		<div class="con_freq">
 			<label for="right_words_freq">Frequency:</label>
-			<input type="text" id="right_words_freq" readonly>
+			<input type="text" id="right_words_freq" name="right_words_freq">
 		</div>
 		<div class="con_sev">
 			<label for="right_words_severity">Severity:</label>
-			<input type="text" id="right_words_severity" readonly>
+			<input type="text" id="right_words_severity" name="right_words_severity">
 		</div>
 		<div class="con_wor">
 			<label for="right_words_worsening">Worsening:</label>
-			<input type="text" id="right_words_worsening" readonly>
+			<input type="text" id="right_words_worsening" name="right_words_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="right_words_notes">Notes:</label>
-			<textarea rows="3" id="right_words_notes" readonly></textarea>
+			<textarea rows="3" id="right_words_notes" name="right_words_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="decisions_row" class="row">
 		<div class="subheader">Making Decisions</div>
+		<input type="checkbox" name="decisions_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="decisions_time">Time Since Began:</label>
-			<input type="text" id="decisions_time" readonly>
+			<input type="text" id="decisions_time" name="decisions_time">
 		</div>
 		<div class="con_freq">
 			<label for="decisions_freq">Frequency:</label>
-			<input type="text" id="decisions_freq" readonly>
+			<input type="text" id="decisions_freq" name="decisions_freq">
 		</div>
 		<div class="con_sev">
 			<label for="decisions_severity">Severity:</label>
-			<input type="text" id="decisions_severity" readonly>
+			<input type="text" id="decisions_severity" name="decisions_severity">
 		</div>
 		<div class="con_wor">
 			<label for="decisions_worsening">Worsening:</label>
-			<input type="text" id="decisions_worsening" readonly>
+			<input type="text" id="decisions_worsening" name="decisions_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="decisions_notes">Notes:</label>
-			<textarea rows="3" id="decisions_notes" readonly></textarea>
+			<textarea rows="3" id="decisions_notes" name="decisions_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="calculations_row" class="row">
 		<div class="subheader">Calculations</div>
+		<input type="checkbox" name="calculations_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="calculations_time">Time Since Began:</label>
-			<input type="text" id="calculations_time" readonly>
+			<input type="text" id="calculations_time" name="calculations_time">
 		</div>
 		<div class="con_freq">
 			<label for="calculations_freq">Frequency:</label>
-			<input type="text" id="calculations_freq" readonly>
+			<input type="text" id="calculations_freq" name="calculations_freq">
 		</div>
 		<div class="con_sev">
 			<label for="calculations_severity">Severity:</label>
-			<input type="text" id="calculations_severity" readonly>
+			<input type="text" id="calculations_severity" name="calculations_severity">
 		</div>
 		<div class="con_wor">
 			<label for="calculations_worsening">Worsening:</label>
-			<input type="text" id="calculations_worsening" readonly>
+			<input type="text" id="calculations_worsening" name="calculations_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="calculations_notes">Notes:</label>
-			<textarea rows="3" id="calculations_notes" readonly></textarea>
+			<textarea rows="3" id="calculations_notes" name="calculations_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="prospective_row" class="row">
 		<div class="subheader">Prospective Memory</div>
+		<input type="checkbox" name="prospective_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="prospective_time">Time Since Began:</label>
-			<input type="text" id="prospective_time" readonly>
+			<input type="text" id="prospective_time" name="prospective_time">
 		</div>
 		<div class="con_freq">
 			<label for="prospective_freq">Frequency:</label>
-			<input type="text" id="prospective_freq" readonly>
+			<input type="text" id="prospective_freq" name="prospective_freq">
 		</div>
 		<div class="con_sev">
 			<label for="prospective_severity">Severity:</label>
-			<input type="text" id="prospective_severity" readonly>
+			<input type="text" id="prospective_severity" name="prospective_severity">
 		</div>
 		<div class="con_wor">
 			<label for="prospective_worsening">Worsening:</label>
-			<input type="text" id="prospective_worsening" readonly>
+			<input type="text" id="prospective_worsening" name="prospective_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="prospective_notes">Notes:</label>
-			<textarea rows="3" id="prospective_notes" readonly></textarea>
+			<textarea rows="3" id="prospective_notes" name="prospective_notes"></textarea>
 		</div>
 	</div>
 	
 	<div id="anxiety_row" class="row">
 		<div class="subheader">Anxious about Memory</div>
+		<input type="checkbox" name="anxiety_check" checked="checked" class="concerns_check">
 		<div class="con_time">
 			<label for="anxiety_time">Time Since Began:</label>
-			<input type="text" id="anxiety_time" readonly>
+			<input type="text" id="anxiety_time" name="anxiety_time">
 		</div>
 		<div class="con_freq">
 			<label for="anxiety_freq">Frequency:</label>
-			<input type="text" id="anxiety_freq" readonly>
+			<input type="text" id="anxiety_freq" name="anxiety_freq">
 		</div>
 		<div class="con_sev">
 			<label for="anxiety_severity">Severity:</label>
-			<input type="text" id="anxiety_severity" readonly>
+			<input type="text" id="anxiety_severity" name="anxiety_severity">
 		</div>
 		<div class="con_wor">
 			<label for="anxiety_worsening">Worsening:</label>
-			<input type="text" id="anxiety_worsening" readonly>
+			<input type="text" id="anxiety_worsening" name="anxiety_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="anxiety_notes">Notes:</label>
-			<textarea rows="3" id="anxiety_notes" readonly></textarea>
+			<textarea rows="3" id="anxiety_notes" name="anxiety_notes"></textarea>
 		</div>
 	</div>
 	
@@ -258,270 +268,299 @@
 		<div class="subheader">Comments on Memory</div>
 		<div class="con_time">
 			<label for="comments_time">Time Since Began:</label>
-			<input type="text" id="comments_time" readonly>
+			<input type="text" id="comments_time" name="comments_time">
 		</div>
 		<div class="con_freq">
 			<label for="comments_freq">Frequency:</label>
-			<input type="text" id="comments_freq" readonly>
+			<input type="text" id="comments_freq" name="comments_freq">
 		</div>
 		<div class="con_sev">
 			<label for="comments_severity">Severity:</label>
-			<input type="text" id="comments_severity" readonly>
+			<input type="text" id="comments_severity" name="comments_severity">
 		</div>
 		<div class="con_wor">
 			<label for="comments_worsening">Worsening:</label>
-			<input type="text" id="comments_worsening" readonly>
+			<input type="text" id="comments_worsening" name="comments_worsening">
 		</div>
 		<div class="con_notes">
 			<label for="comments_notes">Notes:</label>
-			<textarea rows="3" id="comments_notes" readonly></textarea>
+			<textarea rows="3" id="comments_notes" name="comments_notes"></textarea>
 		</div>
 	</div>
 	
 	<div class="concern_impact">
 		<label for="most_impactful_concern">Concern With Most Impact:</label>
-		<input type="text" id="most_impactful_concern" readonly>
+		<input type="text" id="most_impactful_concern" name="most_impactful_concern">
+	</div>
+	
+	<div class="pure-control-group" style="margin-top:8px;">
+		<label for="new_concern">Add New Concern:</label>
+		<select id="new_concern">
+			<option value="na"> Concern </option>
+			<option value="rec_events">Recent Event</option>
+			<option value="faces">Faces</option>
+			<option value="names">Names</option>
+			<option value="losing_things">Losing Things</option>
+			<option value="follow_conv">Following Conversations</option>
+			<option value="right_words">Right Words</option>
+			<option value="decisions">Decisions</option>
+			<option value="calculations">Calculations</option>
+			<option value="prospective">Prospective</option>
+			<option value="anxiety">Anxiety</option>
+			<option value="comments">Comments</option>
+		</select>
+		<input type="button" id="concernButton" value="Add Concern" onclick="addConcernRow()"/>
 	</div>
 	
 	<!-- COLLAT -->
 	<div class="header">Collateral Patient Concerns</div>
 	<div id="rec_events_row_collat" class="row">
-		<div class="subheader">Recent Events</div>
+		<div class="subheader">Recent Events</div>		
+		<input type="checkbox" name="rec_events_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="rec_events_time_collat">Time Since Began:</label>
-			<input type="text" id="rec_events_time_collat" readonly>
+			<input type="text" id="rec_events_time_collat" name="rec_events_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="rec_events_freq_collat">Frequency:</label>
-			<input type="text" id="rec_events_freq_collat" readonly>
+			<input type="text" id="rec_events_freq_collat" name="rec_events_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="rec_events_severity_collat">Severity:</label>
-			<input type="text" id="rec_events_severity_collat" readonly>
+			<input type="text" id="rec_events_severity_collat" name="rec_events_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="rec_events_worsening_collat">Worsening:</label>
-			<input type="text" id="rec_events_worsening_collat" readonly>
+			<input type="text" id="rec_events_worsening_collat" name="rec_events_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="rec_events_notes_collat">Notes:</label>
-			<textarea rows="3" id="rec_events_notes_collat" readonly></textarea>
+			<textarea rows="3" id="rec_events_notes_collat" name="rec_events_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="faces_row_collat" class="row">
-		<div class="subheader">Faces</div>
+		<div class="subheader">Faces</div>		
+		<input type="checkbox" name="faces_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="faces_time_collat">Time Since Began:</label>
-			<input type="text" id="faces_time_collat" readonly>
+			<input type="text" id="faces_time_collat" name="faces_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="faces_freq_collat">Frequency:</label>
-			<input type="text" id="faces_freq_collat" readonly>
+			<input type="text" id="faces_freq_collat" name="faces_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="faces_severity_collat">Severity:</label>
-			<input type="text" id="faces_severity_collat" readonly>
+			<input type="text" id="faces_severity_collat" name="faces_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="faces_worsening_collat">Worsening:</label>
-			<input type="text" id="faces_worsening_collat" readonly>
+			<input type="text" id="faces_worsening_collat" name="faces_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="faces_notes_collat">Notes:</label>
-			<textarea rows="3" id="faces_notes_collat" readonly></textarea>
+			<textarea rows="3" id="faces_notes_collat" name="faces_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="names_row_collat" class="row">
-		<div class="subheader">Names</div>
+		<div class="subheader">Names</div>		
+		<input type="checkbox" name="concerns_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="names_time_collat">Time Since Began:</label>
-			<input type="text" id="names_time_collat" readonly>
+			<input type="text" id="names_time_collat" name="names_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="names_freq_collat">Frequency:</label>
-			<input type="text" id="names_freq_collat" readonly>
+			<input type="text" id="names_freq_collat" name="names_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="names_severity_collat">Severity:</label>
-			<input type="text" id="names_severity_collat" readonly>
+			<input type="text" id="names_severity_collat" name="names_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="names_worsening_collat">Worsening:</label>
-			<input type="text" id="names_worsening_collat" readonly>
+			<input type="text" id="names_worsening_collat" name="names_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="names_notes_collat">Notes:</label>
-			<textarea rows="3" id="names_notes_collat" readonly></textarea>
+			<textarea rows="3" id="names_notes_collat" name="names_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="losing_things_row_collat" class="row">
-		<div class="subheader">Losing Things</div>
+		<div class="subheader">Losing Things</div>		
+		<input type="checkbox" name="losing_things_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="losing_things_time_collat">Time Since Began:</label>
-			<input type="text" id="losing_things_time_collat" readonly>
+			<input type="text" id="losing_things_time_collat" name="losing_things_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="losing_things_freq_collat">Frequency:</label>
-			<input type="text" id="losing_things_freq_collat" readonly>
+			<input type="text" id="losing_things_freq_collat" name="losing_things_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="losing_things_severity_collat">Severity:</label>
-			<input type="text" id="losing_things_severity_collat" readonly>
+			<input type="text" id="losing_things_severity_collat" name="losing_things_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="losing_things_worsening_collat">Worsening:</label>
-			<input type="text" id="losing_things_worsening_collat" readonly>
+			<input type="text" id="losing_things_worsening_collat" name="losing_things_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="losing_things_notes_collat">Notes:</label>
-			<textarea rows="3" id="losing_things_notes_collat" readonly></textarea>
+			<textarea rows="3" id="losing_things_notes_collat" name="losing_things_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="follow_conv_row_collat" class="row">
-		<div class="subheader">Following Conversations</div>
+		<div class="subheader">Following Conversations</div>		
+		<input type="checkbox" name="follow_conv_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="follow_conv_time_collat">Time Since Began:</label>
-			<input type="text" id="follow_conv_time_collat" readonly>
+			<input type="text" id="follow_conv_time_collat" name="follow_conv_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="follow_conv_freq_collat">Frequency:</label>
-			<input type="text" id="follow_conv_freq_collat" readonly>
+			<input type="text" id="follow_conv_freq_collat" name="follow_conv_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="follow_conv_severity_collat">Severity:</label>
-			<input type="text" id="follow_conv_severity_collat" readonly>
+			<input type="text" id="follow_conv_severity_collat" name="follow_conv_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="follow_conv_worsening_collat">Worsening:</label>
-			<input type="text" id="follow_conv_worsening_collat" readonly>
+			<input type="text" id="follow_conv_worsening_collat" name="follow_conv_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="follow_conv_notes_collat">Notes:</label>
-			<textarea rows="3" id="follow_conv_notes_collat" readonly></textarea>
+			<textarea rows="3" id="follow_conv_notes_collat" name="follow_conv_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="right_words_row_collat" class="row">
-		<div class="subheader">Thinking of the Right Words</div>
+		<div class="subheader">Thinking of the Right Words</div>		
+		<input type="checkbox" name="right_words_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="right_words_time_collat">Time Since Began:</label>
-			<input type="text" id="right_words_time_collat" readonly>
+			<input type="text" id="right_words_time_collat" name="right_words_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="right_words_freq_collat">Frequency:</label>
-			<input type="text" id="right_words_freq_collat" readonly>
+			<input type="text" id="right_words_freq_collat" name="right_words_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="right_words_severity_collat">Severity:</label>
-			<input type="text" id="right_words_severity_collat" readonly>
+			<input type="text" id="right_words_severity_collat" name="right_words_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="right_words_worsening_collat">Worsening:</label>
-			<input type="text" id="right_words_worsening_collat" readonly>
+			<input type="text" id="right_words_worsening_collat" name="right_words_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="right_words_notes_collat">Notes:</label>
-			<textarea rows="3" id="right_words_notes_collat" readonly></textarea>
+			<textarea rows="3" id="right_words_notes_collat" name="right_words_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="decisions_row_collat" class="row">
-		<div class="subheader">Decisions</div>
+		<div class="subheader">Decisions</div>		
+		<input type="checkbox" name="decision_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="decisions_time_collat">Time Since Began:</label>
-			<input type="text" id="decisions_time_collat" readonly>
+			<input type="text" id="decisions_time_collat" name="decisions_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="decisions_freq_collat">Frequency:</label>
-			<input type="text" id="decisions_freq_collat" readonly>
+			<input type="text" id="decisions_freq_collat" name="decisions_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="decisions_severity_collat">Severity:</label>
-			<input type="text" id="decisions_severity_collat" readonly>
+			<input type="text" id="decisions_severity_collat" name="decisions_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="decisions_worsening_collat">Worsening:</label>
-			<input type="text" id="decisions_worsening_collat" readonly>
+			<input type="text" id="decisions_worsening_collat" name="decisions_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="decisions_notes_collat">Notes:</label>
-			<textarea rows="3" id="decisions_notes_collat" readonly></textarea>
+			<textarea rows="3" id="decisions_notes_collat" name="decisions_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="calculations_row_collat" class="row">
-		<div class="subheader">Calculations</div>
+		<div class="subheader">Calculations</div>		
+		<input type="checkbox" name="calculations_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="calculations_time_collat">Time Since Began:</label>
-			<input type="text" id="calculations_time_collat" readonly>
+			<input type="text" id="calculations_time_collat" name="calculations_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="calculations_freq_collat">Frequency:</label>
-			<input type="text" id="calculations_freq_collat" readonly>
+			<input type="text" id="calculations_freq_collat" name="calculations_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="calculations_severity_collat">Severity:</label>
-			<input type="text" id="calculations_severity_collat" readonly>
+			<input type="text" id="calculations_severity_collat" name="calculations_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="calculations_worsening_collat">Worsening:</label>
-			<input type="text" id="calculations_worsening_collat" readonly>
+			<input type="text" id="calculations_worsening_collat" name="calculations_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="calculations_notes_collat">Notes:</label>
-			<textarea rows="3" id="calculations_notes_collat" readonly></textarea>
+			<textarea rows="3" id="calculations_notes_collat" name="calculations_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="prospective_row_collat" class="row">
-		<div class="subheader">Prospective Memory</div>
+		<div class="subheader">Prospective Memory</div>		
+		<input type="checkbox" name="prospective_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="prospective_time_collat">Time Since Began:</label>
-			<input type="text" id="prospective_time_collat" readonly>
+			<input type="text" id="prospective_time_collat" name="prospective_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="prospective_freq_collat">Frequency:</label>
-			<input type="text" id="prospective_freq_collat" readonly>
+			<input type="text" id="prospective_freq_collat" name="prospective_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="prospective_severity_collat">Severity:</label>
-			<input type="text" id="prospective_severity_collat" readonly>
+			<input type="text" id="prospective_severity_collat" name="prospective_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="prospective_worsening_collat">Worsening:</label>
-			<input type="text" id="prospective_worsening_collat" readonly>
+			<input type="text" id="prospective_worsening_collat" name="prospective_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="prospective_notes_collat">Notes:</label>
-			<textarea rows="3" id="prospective_notes_collat" readonly></textarea>
+			<textarea rows="3" id="prospective_notes_collat" name="prospective_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div id="anxiety_row_collat" class="row">
-		<div class="subheader">Anxious about Memory</div>
+		<div class="subheader">Anxious about Memory</div>		
+		<input type="checkbox" name="anxiety_check_collat" checked="checked" class="concerns_check">
 		<div class="con_time_collat">
 			<label for="anxiety_time_collat">Time Since Began:</label>
-			<input type="text" id="anxiety_time_collat" readonly>
+			<input type="text" id="anxiety_time_collat" name="anxiety_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="anxiety_freq_collat">Frequency:</label>
-			<input type="text" id="anxiety_freq_collat" readonly>
+			<input type="text" id="anxiety_freq_collat" name="anxiety_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="anxiety_severity_collat">Severity:</label>
-			<input type="text" id="anxiety_severity_collat" readonly>
+			<input type="text" id="anxiety_severity_collat" name="anxiety_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="anxiety_worsening_collat">Worsening:</label>
-			<input type="text" id="anxiety_worsening_collat" readonly>
+			<input type="text" id="anxiety_worsening_collat" name="anxiety_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="anxiety_notes_collat">Notes:</label>
-			<textarea rows="3" id="anxiety_notes_collat" readonly></textarea>
+			<textarea rows="3" id="anxiety_notes_collat" name="anxiety_notes_collat"></textarea>
 		</div>
 	</div>
 	
@@ -529,31 +568,57 @@
 		<div class="subheader">Comments on Memory</div>
 		<div class="con_time_collat">
 			<label for="comments_time_collat">Time Since Began:</label>
-			<input type="text" id="comments_time_collat" readonly>
+			<input type="text" id="comments_time_collat" name="comments_time_collat">
 		</div>
 		<div class="con_freq_collat">
 			<label for="comments_freq_collat">Frequency:</label>
-			<input type="text" id="comments_freq_collat" readonly>
+			<input type="text" id="comments_freq_collat" name="comments_freq_collat">
 		</div>
 		<div class="con_sev">
 			<label for="comments_severity_collat">Severity:</label>
-			<input type="text" id="comments_severity_collat" readonly>
+			<input type="text" id="comments_severity_collat" name="comments_severity_collat">
 		</div>
 		<div class="con_wor">
 			<label for="comments_worsening_collat">Worsening:</label>
-			<input type="text" id="comments_worsening_collat" readonly>
+			<input type="text" id="comments_worsening_collat" name="comments_worsening_collat">
 		</div>
 		<div class="con_notes_collat">
 			<label for="comments_notes_collat">Notes:</label>
-			<textarea rows="3" id="comments_notes_collat" readonly></textarea>
+			<textarea rows="3" id="comments_notes_collat" name="comments_notes_collat"></textarea>
 		</div>
 	</div>
 	
 	<div class="concern_impact">
 		<label for="most_impactful_concern_collat">Concern With Most Impact:</label>
-		<input type="text" id="most_impactful_concern_collat" readonly>
+		<input type="text" id="most_impactful_concern_collat" name="most_impactful_concern_collat">
 	</div>
 	
+	<div class="pure-control-group" style="margin-top:8px;">
+		<label for="new_concern_collat">Add New Collateral Concern:</label>
+		<select id="new_concern_collat">
+			<option value="na"> Concern </option>
+			<option value="rec_events">Recent Event</option>
+			<option value="faces">Faces</option>
+			<option value="names">Names</option>
+			<option value="losing_things">Losing Things</option>
+			<option value="follow_conv">Following Conversations</option>
+			<option value="right_words">Right Words</option>
+			<option value="decisions">Decisions</option>
+			<option value="calculations">Calculations</option>
+			<option value="prospective">Prospective</option>
+			<option value="anxiety">Anxiety</option>
+			<option value="comments">Comments</option>
+		</select>
+		<input type="button" id="concernButton" value="Add Concern" onclick="addConcernRowCollat()"/>
+	</div>
+	
+	<input type="hidden" id="linkedPage" name="linkedPage"/>
+	<input type="hidden" id="hiddenID" name="hiddenID"/>
+	<input type="hidden" id="assessment" name="assessment"/>
+	
+	<div  class="pure-control-group">
+	<input type="button" id="submitConcern" onclick="updateConcern()" value="Update Patient Concerns" name="submitConcerns">
+	<span id="concerns_message"></span>
 </div>
 
 </form>

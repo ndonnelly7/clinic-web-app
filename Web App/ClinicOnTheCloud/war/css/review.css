@@ -172,7 +172,7 @@ ul.tabs a.xl.current { background-position: 0 -62px; }
 }
 
 .row_div {
-	margin-bottom: 32px;
+	margin-bottom: 12px;
 }
 
 #concern .header {
@@ -186,4 +186,12 @@ ul.tabs a.xl.current { background-position: 0 -62px; }
 }
 
 #search_seeall_btn {
+}
+
+.row_btn {
+	margin-bottom: 40px;
+}
+
+.living_header {
+	margin-top: 36px;
 }

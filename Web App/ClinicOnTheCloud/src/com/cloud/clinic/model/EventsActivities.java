@@ -209,6 +209,22 @@ public class EventsActivities implements Serializable {
 		this.form = form;
 	}
 
+	public String getSocial_notes() {
+		return social_notes;
+	}
+
+	public void setSocial_notes(String social_notes) {
+		this.social_notes = social_notes;
+	}
+
+	public String getSocial_notes_collat() {
+		return social_notes_collat;
+	}
+
+	public void setSocial_notes_collat(String social_notes_collat) {
+		this.social_notes_collat = social_notes_collat;
+	}
+
 	public boolean isDivorce_check() {
 		return divorce_check;
 	}

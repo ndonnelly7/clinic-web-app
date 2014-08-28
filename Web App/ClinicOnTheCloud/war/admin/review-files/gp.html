@@ -5,29 +5,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="gp_form" class="form_entry pure-form pure-form-aligned">
+<form id="gp_form" class="form_entry pure-form pure-form-aligned" method="POST" action="/patientform/medical.do">
 
 <div id="gp_info" class="row_div">
 	<div class="header">GP Information</div>
 	<div class="pure-control-group">
-		<label for="gp_talked">Discussed with GP:</label>
-		<input type="text" id="gp_talked" readonly>
-	</div>
-	<div class="pure-control-group">
 		<label for="discussed_with_gp">Discussed with GP:</label>
-		<input type="text" id="discussed_with_gp" readonly>
+		<input type="text" id="discussed_with_gp" name="discussed_with_gp">
 	</div>
 	<div class="pure-control-group">
 		<label for="gp_results">Result:</label>
-		<input type="text" id="gp_results" readonly>
+		<input type="text" id="gp_results" name="gp_results">
 	</div>
 	<div class="pure-control-group">
 		<label for="gp_meds">Prescribed Meds:</label>
-		<input type="text" id="gp_meds" readonly>
+		<input type="text" id="gp_meds" name="gp_meds">
 	</div>
 	<div class="pure-control-group">
 		<label for="gp_notes">Discussed with GP:</label>
-		<textarea name="gp_notes" rows="4" id="gp_notes" readonly></textarea>
+		<textarea name="gp_notes" rows="4" id="gp_notes" form="gp_form"></textarea>
 	</div>
 </div>
 
@@ -35,44 +31,44 @@
 <div id="total" class="row_div">
 	<div class="pure-control-group">
 		<label for="cholest_test">Cholesterol:</label>
-		<input type="text" id="cholest_test" readonly>
+		<input type="text" id="cholest_test" name="cholest_test">
 	</div>
 	<div class="pure-control-group">
 		<label for="cholest_time">Time since Test:</label>
-		<input type="text" id="cholest_time" readonly>
+		<input type="text" id="cholest_time" name="cholest_time">
 	</div>
 </div>
 
 <div id="ldl" class="row_div">
 	<div class="pure-control-group">
 		<label for="cholest_ldl">LDL Cholesterol:</label>
-		<input type="text" id="cholest_ldl" readonly>
+		<input type="text" id="cholest_ldl" name="cholest_ldl">
 	</div>
 	<div class="pure-control-group">
 		<label for="ldl_time">Time since Test:</label>
-		<input type="text" id="ldl_time" readonly>
+		<input type="text" id="ldl_time" name="cholest_ldl">
 	</div>
 </div>
 
 <div id="hdl" class="row_div">
 	<div class="pure-control-group">
 		<label for="cholest_hdl">HDL Cholesterol:</label>
-		<input type="text" id="cholest_hdl" readonly>
+		<input type="text" id="cholest_hdl" name="cholest_hdl">
 	</div>
 	<div class="pure-control-group">
 		<label for="hdl_time">Time since Test:</label>
-		<input type="text" id="hdl_time" readonly>
+		<input type="text" id="hdl_time" name="hdl_time">
 	</div>
 </div>
 
 <div id="syst" class="row_div">
 	<div class="pure-control-group">
 		<label for="systolic">Systolic BP:</label>
-		<input type="text" id="systolic" readonly>
+		<input type="text" id="systolic" name="systolic">
 	</div>
 	<div class="pure-control-group">
 		<label for="systolic_time">Time since Test:</label>
-		<input type="text" id="systolic_time" readonly>
+		<input type="text" id="systolic_time" name="systolic_time">
 	</div>
 </div>
 
@@ -80,11 +76,11 @@
 <div id="diast" class="row_div">
 	<div class="pure-control-group">
 		<label for="diastolic">Diastolic BP:</label>
-		<input type="text" id="diastolic" readonly>
+		<input type="text" id="diastolic" name="diastolic">
 	</div>
 	<div class="pure-control-group">
 		<label for="diastolic_time">Time since Test:</label>
-		<input type="text" id="diastolic_time" readonly>
+		<input type="text" id="diastolic_time" name="diastolic_time">
 	</div>
 </div>
 
@@ -92,11 +88,11 @@
 <div id="thy" class="row_div">
 	<div class="pure-control-group">
 		<label for="thyroid">Thyroid:</label>
-		<input type="text" id="thyroid" readonly>
+		<input type="text" id="thyroid" name="thyroid">
 	</div>
 	<div class="pure-control-group">
 		<label for="thyroid_time">Time since Test:</label>
-		<input type="text" id="thyroid_time" readonly>
+		<input type="text" id="thyroid_time" name="thyroid_time">
 	</div>
 </div>
 
@@ -104,78 +100,87 @@
 <div id="b12" class="row_div">
 	<div class="pure-control-group">
 		<label for="b12_test">B12:</label>
-		<input type="text" id="b12_test" readonly>
+		<input type="text" id="b12_test" name="b12_test">
 	</div>
 	<div class="pure-control-group">
 		<label for="b12_time">Time since Test:</label>
-		<input type="text" id="b12_time" readonly>
+		<input type="text" id="b12_time" name="b12_time">
 	</div>
 </div>
 
 <div id="iron" class="row_div">
 	<div class="pure-control-group">
 		<label for="iron_test">Iron:</label>
-		<input type="text" id="iron_test" readonly>
+		<input type="text" id="iron_test" name="iron_test">
 	</div>
 	<div class="pure-control-group">
 		<label for="iron_time">Time since Test:</label>
-		<input type="text" id="iron_time" readonly>
+		<input type="text" id="iron_time" name="iron_time">
 	</div>
 </div>
 
 <div id="calc" class="row_div">
 	<div class="pure-control-group">
 		<label for="calc_test">Calcium:</label>
-		<input type="text" id="calc_test" readonly>
+		<input type="text" id="calc_test" name="calc_test">
 	</div>
 	<div class="pure-control-group">
 		<label for="calc_time">Time since Test:</label>
-		<input type="text" id="calc_time" readonly>
+		<input type="text" id="calc_time" name="calc_time">
 	</div>
 </div>
 
 <div id="sodium" class="row_div">
 	<div class="pure-control-group">
 		<label for="sodium_test">Sodium:</label>
-		<input type="text" id="sodium_test" readonly>
+		<input type="text" id="sodium_test" name="sodium_test">
 	</div>
 	<div class="pure-control-group">
 		<label for="sodium_time">Time since Test:</label>
-		<input type="text" id="sodium_time" readonly>
+		<input type="text" id="sodium_time" name="sodium_time">
 	</div>
 </div>
 
 <div id="weight" class="row_div">
 	<div class="pure-control-group">
 		<label for="weight_test">Weight:</label>
-		<input type="text" id="weight_test" readonly>
+		<input type="text" id="weight_test"  name="weight_test">
 	</div>
 	<div class="pure-control-group">
 		<label for="weight_time">Time since Test:</label>
-		<input type="text" id="weight_time" readonly>
+		<input type="text" id="weight_time" name="weight_time">
 	</div>
 </div>
 
 <div class="pure-control-group">
 	<label for="med_test_notes">Test Notes:</label>
-	<textarea rows="4" id="med_test_notes" readonly></textarea>
+	<textarea rows="4" id="med_test_notes" name="med_test_notes" form="gp_form"></textarea>
 </div>
 
 <div class="header">Family Reaction</div>
 
 <div  class="pure-control-group">
 <label for="kin_response">Response of Family: </label>
-<input type="text" id="kin_response" readonly>
+<input type="text" id="kin_response" name="kin_response">
 </div>
 
 <div  class="pure-control-group">
 <label for="response_time">Time Spent with Reaction: </label>
-<input type="text" id="response_time" readonly>
+<input type="text" id="response_time" name="response_time">
 </div>
 
 <div class="pure-control-group">
 	<label for="kin_notes">Reaction notes:</label>
-	<textarea rows="4" id="kin_notes" readonly></textarea>
+	<textarea rows="4" id="kin_notes" name="kin_notes" form="gp_form"></textarea>
+</div>
+
+<input type="hidden" id="linkedPage" name="linkedPage"/>
+<input type="hidden" id="hiddenID" name="hiddenID"/>
+<input type="hidden" id="assessment" name="assessment"/>
+
+<div  class="pure-control-group">
+<input type="button" id="submitGP" onclick="updateGPInfo()" value="Update GP Information" name="submitGP">
+<span id="gp_message"></span>
 </div>
 
 </form>

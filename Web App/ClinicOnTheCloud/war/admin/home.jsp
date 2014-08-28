@@ -54,6 +54,8 @@
 				</div>
 				<div class="pure-control-group">
 					<input type="Submit" value="Get More Info">
+					<input type="button" value="Delete" onclick="deleteThisPatient(this)">
+					<span id="message"></span>
 				</div>
 				<input type="hidden" id="id" name="id"/>
 				<input type="hidden" name="page" value="SETUP"/>			
@@ -61,18 +63,19 @@
 		</div>
 	</div>
 	<input type="button" value="Find Patient" onclick="revealFindPatientDiv(this)" class="home_button">
-	<div id="find_patient_div"  style="display:none">
-		<form class="pure-form pure-form-stacked" id="find_patient">
+	<div id="find_patient_div">
+		<form class="hide_div pure-form pure-form-aligned small-form" id="find_patient">
 			<div class="pure-control-group">
 				<label for="name">Name:</label>
 				<input type="text" id="name">
 			</div>
 			<div class="pure-control-group">
-				<label for="dob">Date of Birth:</label>
-				<input type="text" id="dob" placeholder="dd/mm/yyyy" id="pickdate">
+				<label for="dob_find">Date of Birth:</label>
+				<input type="text" id="dob_find" placeholder="dd/mm/yyyy" class="pickdate" name="dob">
 			</div>
 			<div class="pure-control-group">
 				<input type="button" value="Search" onclick="makePatientRequest()">
+				<span id="search_status"></span>
 			</div>			
 		</form>
 		<form class="pure-form pure-form-stacked" id="find_patient_result" style="display:none" method="GET" action="/review.do">
@@ -119,7 +122,7 @@
 		</div>
 		<div class="pure-control-group">
 			<label for="dob">Patient DOB: </label>
-		<input name="dob" placeholder="dd/mm/yyyy" type="text" id="pickdate">
+		<input name="dob" placeholder="dd/mm/yyyy" type="text" class="pickdate">
 		</div>
 		<div class="pure-control-group" id="button">
 			<input type="button" value="Submit" onclick="sendReview()">
@@ -142,6 +145,16 @@
 		</div>
 	</form>
 	<input type="button" value="Request Update" onclick="sendUpdateRequest()" class="home_button">
+	<input type="button" value="Manually Get Patients" onclick="getPatientsManually()" class="home_button">
+	<div id="manual_get_patients" style="margin-top:16px;display:none">
+		<textarea id="get_patients_area" rows="8" cols="40"></textarea>
+	</div>
+	<input type="button" value="Manually Store Patients" onclick="openPatientsManually()" class="home_button">
+	<div id="manual_store_patients" style="margin-top:16px;display:none">
+		<textarea id="store_patients_area" rows="8" cols="40"></textarea>
+		<input type="button" value="Store Patients" onclick="writePatientsManually()" class="home_button">
+		<div id="manual_add_status"></div>
+	</div>
 	
 </div>
 <div id="hiddenButton" onclick="showInfoText()"></div>

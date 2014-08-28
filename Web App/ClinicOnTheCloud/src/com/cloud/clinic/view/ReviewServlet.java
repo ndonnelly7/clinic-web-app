@@ -48,7 +48,7 @@ public class ReviewServlet extends HttpServlet {
 		builder.excludeFieldsWithModifiers();
 		builder.excludeFieldsWithoutExposeAnnotation();
 		Gson gson = builder.create();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy");
 		
 		//Directs to review.jsp and builds date and sends Patient Details
 		if(page.equalsIgnoreCase("SETUP")){
@@ -94,7 +94,10 @@ public class ReviewServlet extends HttpServlet {
 		switch(page) {
 		case "DETAILS":
 			PersonalDetails det = f.getPersonalDetails();
+			String case_num = f.getCase_number();
+			String case_str = "\"case_number\":\""+case_num+"\"";
 			String details = gson.toJson(det);
+			details = details.replaceFirst("\"gender\"", case_str + ",\"gender\"");
 			resp.setContentType("application/json");
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(details);

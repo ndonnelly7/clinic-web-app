@@ -912,11 +912,11 @@
 						<div class="pure-u-1-2 lifestyle_subtitle">When was the last time someone mentioned it?</div>
 						<div class="pure-u-1-2 select_box">
 							<select name="weight_time">
-								<option value="three_plus">3+ Years Ago</option>
-								<option value="one_two">1-2 Years Ago</option>
-								<option value="six_months">Within Last Six Months</option>
-								<option value="few_week">Within Last Few Weeks</option>
-								<option value="few_days">Within Last Few Days</option>
+								<option value="three_plus_years_ago">3+ Years Ago</option>
+								<option value="one_two_years_ago">1-2 Years Ago</option>
+								<option value="within_six_months">Within Last Six Months</option>
+								<option value="within_last_few_week">Within Last Few Weeks</option>
+								<option value="within_last_few_days">Within Last Few Days</option>
 							</select>
 						</div>
 						<div></div>
@@ -1023,7 +1023,7 @@
 								<div class="pure-u-1-2 lifestyle_subtitle">How often?</div>
 								<div class="pure-u-1-2 life_select_box">
 								<select name="fried_freq_collat">
-									<option value="few_day">More than once a day</option>
+									<option value="few_a_day">More than once a day</option>
 									<option value="daily">Once a day</option>
 									<option value="few">Few times a week</option>
 									<option value="weekly">Once a week</option>
@@ -1097,11 +1097,11 @@
 								<div class="pure-u-1-2 lifestyle_subtitle">When was the last time someone mentioned it?</div>
 								<div class="pure-u-1-2 select_box">
 									<select name="weight_time_collat">
-										<option value="three_plus">3+ Years Ago</option>
-										<option value="one_two">1-2 Years Ago</option>
-										<option value="six_months">Within Last Six Months</option>
-										<option value="few_week">Within Last Few Weeks</option>
-										<option value="few_days">Within Last Few Days</option>
+										<option value="three_plus_years_ago">3+ Years Ago</option>
+										<option value="one_two_years_ago">1-2 Years Ago</option>
+										<option value="within_six_months">Within Last Six Months</option>
+										<option value="within_last_few_week">Within Last Few Weeks</option>
+										<option value="within_last_few_days">Within Last Few Days</option>
 									</select>
 								</div>
 								<div></div>
@@ -1118,10 +1118,11 @@
 								<select name="fruit_veg_amount_collat">
 									<option value="unknown">Unknown</option>
 									<option value="five_plus">5+</option>
-									<option value="three_four">3-4</option>
-									<option value="one_three">1-3</option>
-									<option value="few_week">Few a week</option>
-									<option value="very_few_week">Very few a week</option>
+									<option value="four">4</option>
+									<option value="three">3</option>
+									<option value="two">2</option>
+									<option value="one">1</option>
+									<option value="week">Few a week</option>
 								</select>
 							</div>
 						</div>
@@ -1171,7 +1172,7 @@
 						<input type="text" name="spirit_glasses" onchange="updateThisUnit(this, 'spirit_units')"> Glasses
 					</div>
 					<div class="pure-u-1-3 life_select_box">
-						<input type="text" name="spirit_units" placeholder="0" class="units_box" onchange="updateUnits()"> Units
+						<input type="text" name="spirits_units" placeholder="0" class="units_box" onchange="updateUnits()"> Units
 					</div>
 				</div>
 				<div id="wine">
@@ -1253,7 +1254,7 @@
 								<input type="text" name="spirit_glasses" onchange="updateThisUnit(this, 'spirit_units_collat')"> Glasses
 							</div>
 							<div class="pure-u-1-3 life_select_box">
-								<input type="text" name="spirit_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
+								<input type="text" name="spirits_units_collat" placeholder="0" class="units_box_collat" onchange="updateUnits()"> Units
 							</div>
 						</div>
 						<div id="wine">

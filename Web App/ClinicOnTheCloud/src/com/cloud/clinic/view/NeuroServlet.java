@@ -1,7 +1,12 @@
 package com.cloud.clinic.view;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,7 +38,24 @@ public class NeuroServlet extends HttpServlet {
 			return;
 		}
 		
-		Form f = dao.getMostRecentForm(pat);
+		//Get the form corresponding to the assessment date
+		String assessment = req.getParameter("assessment");
+		Date ass = new Date();
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH);
+			ass = sdf.parse(assessment);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Form f;
+		if(assessment != null){
+			Calendar cAss = Calendar.getInstance();
+			cAss.setTime(ass);
+			f = dao.getFormWithDate(pat, cAss);
+		} else {
+			f = dao.getMostRecentForm(pat);
+		}
 		NeuroHistory neuro = new NeuroHistory();
 		BeanPopulate.populateBean(neuro, req);
 		

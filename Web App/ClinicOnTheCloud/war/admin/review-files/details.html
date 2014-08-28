@@ -5,115 +5,130 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="det_form" class="form_entry pure-form pure-form-aligned">
+<form id="det_form" class="form_entry pure-form pure-form-aligned"  method="POST" action="/patientform/personal_details.do">
+<div class="pure-control-group">
+<label for="case_number">Case Reference Number:</label>
+<input name="case_number" type="text" id="case_number">
+</div>
+
 <div class="pure-control-group">
 <label for="name">Name:</label>
-<input type="text" id="name" readonly>
+<input type="text" id="name" name="name" readonly>
 </div>
 
 <div class="pure-control-group">
 <label for="dob">Date of Birth:</label>
-<input id="dob" type="text" readonly>
+<input id="dob" type="text" name="dob" type="text" readonly>
+</div>
+
+<div class="pure-control-group">
+<label for="age">Age:</label>
+<input id="age" type="text" name="age" readonly>
 </div>
 
 <div class="pure-control-group">
 <label for="gender">Gender:</label>
-<input id="gender" type="text" readonly>
+<input id="gender" type="text" name="gender">
 </div>
 
 <div  class="pure-control-group">
 <label for="address">Address: </label>
-<textarea rows="4" id="address" readonly></textarea>
+<textarea rows="4" id="address" name="address"></textarea>
 </div>
 
 <div  class="pure-control-group">
 <label for="county">County: </label>
-<input type="text" id="county" readonly>
+<input type="text" id="county" name="county">
 </div>
 
 <div  class="pure-control-group">
 <label for="home_tel">Home Telephone Number: </label>
-<input type="text" id="home_number" readonly>
+<input type="text" id="home_number" name="home_number">
 </div>
 
 <div  class="pure-control-group">
 <label for="mob_number">Mobile Phone Number: </label>
-<input type="text" id="mob_number" readonly>
+<input type="text" id="mob_number" name="mob_number">
 </div>
 
 <div  class="pure-control-group">
 <label for="email">Email: </label>
-<input type="email" id="email" class="nocap" readonly>
+<input type="email" id="email" class="nocap" name="email">
 </div>
 
 <div  class="pure-control-group">
 <label for="age_left">Age Left Education: </label>
-<input type="number" size="1" id="age_left" readonly>
+<input type="number" size="1" id="age_left" name="age_left">
 </div>
 
 <div  class="pure-control-group">
 <label for="junior_cert_education">Junior Certificate: </label>
-<input type="text" id="junior_cert_education" readonly>
+<input type="text" id="junior_cert_education" name="junior_cert_education">
 </div>
 
 <div  class="pure-control-group">
 <label for="senior_cert_education">Leaving Certificate: </label>
-<input type="text" id="senior_cert_education" readonly>
+<input type="text" id="senior_cert_education" name="senior_cert_education">
 </div>
 
 <div  class="pure-control-group">
 <label for="third_level_education">Third Level (or Equivalent): </label>
-<input type="text" id="third_level_education" readonly>
+<input type="text" id="third_level_education" name="third_level_education">
 </div>
 
 <div  class="pure-control-group">
 <label for="study_topic">Area of Study: </label>
-<input type="text" id="study_topic" readonly>
+<input type="text" id="study_topic" name="study_topic">
 </div>
 
 <div  class="pure-control-group">
 <label for="occupation">Occupation: </label>
-<input name="occupation" type="text" id="occupation" readonly>
+<input name="occupation" type="text" id="occupation" name="occupation">
 </div>
 
 <div  class="pure-control-group">
 <label for="gp_name">GP Name: </label>
-<input type="text" name="gp_name" id="gp_name" readonly>
+<input type="text" name="gp_name" id="gp_name" name="gp_name">
 </div>
 
 <div  class="pure-control-group">
 <label for="gp_address">GP Address: </label>
-<textarea name="gp_address" rows="4" id="gp_address" readonly></textarea>
+<textarea name="gp_address" rows="4" id="gp_address" name="gp_address"></textarea>
 </div>
 
 <div  class="pure-control-group">
 <label for="gp_county">GP County: </label>
-<input type="text" id="gp_county" readonly>
-</div>
-
-<!-- <div  class="pure-control-group">
-<label for="testing_reason">Reason for Test:</label>
-<input type="text" id="testing_reason" readonly>
-</div> -->
-
-<div  class="pure-control-group">
-<label for="want_reassurance">Wants Reassurance</label>
-<input type="text" id="want_reassurance" readonly>
+<input type="text" id="gp_county" name="gp_county">
 </div>
 
 <div  class="pure-control-group">
-<label for="want_assessment">Wants Assessment</label>
-<input type="text" id="want_assessment" readonly>
+<label for="wants_reassurance">Wants Reassurance</label>
+<input type="text" id="wants_reassurance" name="wants_reassurance">
 </div>
 
 <div  class="pure-control-group">
-<label for="want_information">Wants Information</label>
-<input type="text" id="want_information" readonly>
+<label for="wants_assessment">Wants Assessment</label>
+<input type="text" id="wants_assessment" name="wants_assessment">
+</div>
+
+<div  class="pure-control-group">
+<label for="wants_information">Wants Information</label>
+<input type="text" id="wants_information" name="wants_information">
 </div>
 
 <div  class="pure-control-group">
 <label for="who_present">Collateral (if present)</label>
-<input type="text" id="who_present" readonly>
+<input type="text" id="who_present" name="who_present">
+</div>
+
+<input type="hidden" id="hiddenID" name="hiddenID"/>
+<input type="hidden" id="assessment" name="assessment"/>
+<input type="hidden" id="family_present" name="family_present"/>
+<input type="hidden" id="linkedPage" name="linkedPage"/>
+
+<div  class="pure-control-group">
+<input type="button" id="submitDetails" onclick="updateDetails()" value="Update Patient Details" name="submitDetails">
+<span id="det_message"></span>
 </div>
 </form>
 </body>
