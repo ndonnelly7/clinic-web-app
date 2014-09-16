@@ -2,6 +2,8 @@ package com.cloud.clinic.p2p;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -94,8 +96,10 @@ public class P2P {
 		return sps.remove(sp);
 	}
 	
-	public Superpeer getSuperpeer(String name){
+	public Superpeer getSuperpeer(String name, Logger log){
 		if(sps == null){
+			if(log != null)
+				log.log(Level.WARNING, "P2P102 - List of Super-peers Empty");
 			sps = new ArrayList<Superpeer>();
 			return null;
 		}
@@ -103,16 +107,20 @@ public class P2P {
 		while(it.hasNext()){
 			Superpeer sp = it.next();
 			if(sp.getClinicID().equals(name)){
+				if(log != null)
+					log.log(Level.WARNING, "P2P111 - Found Super-peer: " + sp.getClinicID());
 				return sp;
 			}
 		}
 		return null;
 	}
 	
-	public Peer signPeerIn(Clinician c, String spName){
-		Superpeer sp = getSuperpeer(spName);
-		if(sp == null)
+	public Peer signPeerIn(Clinician c, String spName, Logger log){
+		Superpeer sp = getSuperpeer(spName, log);
+		if(sp == null){
+			log.log(Level.WARNING, "P2P121 - Super-peer is null for some reason - " + spName);
 			return null;
+		}
 		sp.signOutPeer(c.getClinicianID());
 		
 		return sp.signInPeer(c);
@@ -142,7 +150,7 @@ public class P2P {
 	}
 	
 	public boolean signPeerOut(String pName, String spName){
-		Superpeer sp = getSuperpeer(spName);
+		Superpeer sp = getSuperpeer(spName, null);
 		if(sp == null)
 			return false;
 		return sp.signOutPeer(pName);

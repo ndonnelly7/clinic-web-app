@@ -3,6 +3,14 @@
  */
 var viewingSeeAll = false, findPatient = false;
 var statusTick = 0, patientBeingSearched = null;
+
+function JobTime(id, start) {
+	this.id = id;
+	this.start = start;
+}
+
+var jobsInProgress = [];
+
 $(function() {
     $( ".pickdate" ).datepicker({
       changeMonth: true,
@@ -156,6 +164,32 @@ $(function() {
 	 statusTick = 15;
 	 patientBeingSearched = id;
 	 setTimeout(statusTicker, 2000);
+ }
+ 
+ function testMultiple() {
+	 var start = new Date();
+	 $("#infotext").append("<div>Send request for multiple patients: "+start.toTimeString()+"</div>");
+	 $.ajax('/cliniconthecloud.do', {
+		method:'GET',
+		dataType:'text',
+		data: {
+			type:"MULTIPLE_TEST"
+		},
+		success:function(response) {
+			var end = new Date();
+			 $("#infotext").append("<div>Received multiple patients: "+end.toTimeString()+"</div>");
+			 $("#infotext").append("<div>time for Retrieval: "+(end.getTime() - start.getTime())+"ms</div>");
+			fullMultiDiv(response);
+		}
+	});
+ }
+ 
+ function fullMultiDiv(response){
+	 $("#multiple_data").html("");
+	 var patients = $.parseJSON(response);
+	 for(var i = 0; i < patients.length; i++){
+		 $("#multiple_data").append("<div>" + i + ": " + patients[i]['patient_id'] + "</div>");
+	 }
  }
  
  function statusTicker(){

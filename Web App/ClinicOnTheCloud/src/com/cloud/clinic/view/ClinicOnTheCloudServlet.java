@@ -2,6 +2,7 @@ package com.cloud.clinic.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +16,9 @@ import com.cloud.clinic.model.Clinic;
 import com.cloud.clinic.model.ClinicDAO;
 import com.cloud.clinic.model.Clinician;
 import com.cloud.clinic.model.ClinicianDAO;
+import com.cloud.clinic.model.Form;
 import com.cloud.clinic.model.Pair;
+import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
 import com.cloud.clinic.p2p.Job;
 import com.cloud.clinic.p2p.P2P;
@@ -28,6 +31,8 @@ import com.google.appengine.api.channel.ChannelServiceFactory;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @SuppressWarnings("serial")
 public class ClinicOnTheCloudServlet extends HttpServlet {
@@ -112,10 +117,80 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			String delResponse = deletePatient(user, delID);
 			resp.setContentType("text/plain");
 			resp.getWriter().println(delResponse);
+			break;
+		case "MULTIPLE_TEST":
+			String mResponse = getMultiplePatients();
+			resp.setContentType("text/plain");
+			resp.getWriter().println(mResponse);
+			break;
+		case "MULTIPLE_P2P":
+			String mpResponse = requestMultiplePatients(user);
+			resp.setContentType("text/plain");
+			resp.getWriter().println(mpResponse);
+			break;
 		default:
 			resp.setContentType("text/plain");
 			resp.getWriter().println("Hello, world");
 		}
+	}
+	
+	//Strictly just for an experiment, can be removed
+	private String requestMultiplePatients(User user){
+		boolean sentJob = false;
+		P2PDAO dao = new P2PDAO();
+		P2P p2p = dao.getP2P();
+		ArrayList<Superpeer> sps = p2p.getSps();
+		Peer requestor = dao.findPeer(user.getUserId());
+		log.log(Level.WARNING, "SPS Length: " + sps.size());
+		if(requestor == null)
+			return "Failed to find a peer with that patientID";
+		String jobString = "SEND_MULTI:PEER:"+requestor.getP2pAddress()+":";
+		Job job = new Job(requestor.getClinicianID(), jobString, p2p.getJob_tick());
+		dao.addJob(job);
+		String toSend = "JOB_POST:PID:NA:JOBID:"+job.getJob_id()+":MODE:P2P:TYPE:MULTI:";
+		log.log(Level.WARNING, "Job String: " + toSend);
+		for(int i = 0; i < sps.size(); i++){
+			Superpeer sp = sps.get(i);
+			log.log(Level.WARNING, "Peer Length on Super-peer: " + sp.getPeers().size());
+			for(int j = 0; j < sp.getPeers().size(); j++){
+				Peer p = sp.getPeers().get(j);
+				if(!(p.getP2pAddress().equalsIgnoreCase(requestor.getP2pAddress())))
+				{
+					log.log(Level.WARNING, "Peer Found: " + p.getP2pAddress());
+					//if(p.getPatientIDs().contains(Integer.parseInt(patientID))){
+					//Send patient request via Channel
+					ChannelService service = ChannelServiceFactory.getChannelService();
+					service.sendMessage(new ChannelMessage(p.getChannelID(), toSend));
+					sentJob = true;
+				}
+			}
+		}
+		if(sentJob)
+			return "Posted a job for multiple patients";
+		else return "Failed to find a Clinician to send Job";
+	}
+	
+	//Strictly just for an experiment, can be removed
+	private String getMultiplePatients() {
+		String result = "[";
+		GsonBuilder builder = new GsonBuilder();
+		builder.excludeFieldsWithModifiers();
+		builder.excludeFieldsWithoutExposeAnnotation();
+		Gson gson = builder.create();
+		
+		PatientDAO dao = new PatientDAO();
+		List<Patient> patients = dao.getAll();
+		for(int i = 0; i < 100; i++){
+			Form f = patients.get(i).getForms().get(0);
+			String json = gson.toJson(f.getPersonalDetails());
+			json = json.replace("{", "{\"patient_id\":\"" + patients.get(i).getPatientID() + "\",");
+			if(i < 99)
+				result+= json + ",";
+			else
+				result += json;
+		}
+		result += "]";
+		return result;
 	}
 	
 	private String deletePatient(User u, String deleteID) {
@@ -192,10 +267,12 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 	
 	public String requestPatient(User user, String patientID, String transportMode){
 		
+		boolean sentJob = false;
 		P2PDAO dao = new P2PDAO();
 		P2P p2p = dao.getP2P();
 		ArrayList<Superpeer> sps = p2p.getSps();
 		Peer requestor = dao.findPeer(user.getUserId());
+		log.log(Level.WARNING, "SPS Length: " + sps.size());
 		if(requestor == null)
 			return "Failed to find a peer with that patientID";
 		String jobString = "";
@@ -205,19 +282,25 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 			jobString = "SEND_PATIENT:PID:"+patientID+":PEER:"+requestor.getChannelID()+":MODE:" + transportMode + ":TYPE:REQUEST:";
 		Job job = new Job(requestor.getClinicianID(), jobString, p2p.getJob_tick());
 		dao.addJob(job);
-		String toSend = "JOB_POST:JOBID:"+job.getJob_id()+"PID:"+patientID+":MODE:"+transportMode+":";
+		String toSend = "JOB_POST:PID:"+patientID+":JOBID:"+job.getJob_id()+":MODE:"+transportMode+":TYPE:REQUEST:";
+		log.log(Level.WARNING, "Job String: " + toSend);
 		for(int i = 0; i < sps.size(); i++){
 			Superpeer sp = sps.get(i);
+			log.log(Level.WARNING, "Peer Length on Super-peer: " + sp.getPeers().size());
 			for(int j = 0; j < sp.getPeers().size(); j++){
 				Peer p = sp.getPeers().get(j);
-				if(p.getPatientIDs().contains(Integer.parseInt(patientID))){
+				log.log(Level.WARNING, "Peer Found: " + p.getP2pAddress());
+				//if(p.getPatientIDs().contains(Integer.parseInt(patientID))){
 					//Send patient request via Channel
 					ChannelService service = ChannelServiceFactory.getChannelService();
 					service.sendMessage(new ChannelMessage(p.getChannelID(), toSend));
-				}
+					sentJob = true;
+				//}
 			}
 		}
-		return "Failed to find a patient with that patientID";
+		if(sentJob)
+			return "Posted a job for patient: " + patientID;
+		else return "Failed to find a Clinician to send Job";
 	}
 	
 	public String requestUpdate(User user, String transportMode){
@@ -310,24 +393,38 @@ public class ClinicOnTheCloudServlet extends HttpServlet {
 		
 		ClinicianDAO cDAO = new ClinicianDAO();
 		Clinician c = cDAO.get(user.getUserId());
+		if(c == null)
+			return "Error: Clinician Not Found";
 		log.log(Level.WARNING, "Clinician found: " + c.getName());
 		Clinic clinic = cDAO.getClinic(c);
+		if(clinic == null)
+			return "Error:Clinic not found";
 		log.log(Level.WARNING, "Clinic found: " + clinic.getClinicName());
 		P2PDAO p2pdao = new P2PDAO();
 		P2P p2p = p2pdao.getP2P();
-		if(p2p == null){
-			p2pdao.init();
-			p2p = p2pdao.getP2P();
+		if(p2p == null || p2p.getSps() == null || p2p.getSps().isEmpty()){
+			log.log(Level.WARNING, "Reinitialising p2p");
+			ClinicDAO clDAO = new ClinicDAO();
+			ArrayList<Clinic> clinics = (ArrayList<Clinic>) clDAO.getAll();
+			for(int i = 0; i < clinics.size(); i++){
+				Superpeer sp = new Superpeer(clinics.get(i));
+				p2p.addSuperpeer(sp);
+			}
+			p2pdao.setP2P(p2p);
+			if(p2pdao.getP2P().getSps().isEmpty())
+				log.log(Level.WARNING, "Not flipping setting the P2P Object correctly!!!");
 			if(p2p == null)
 				return "Error:P2P returning null";
 		}
-		Superpeer sp = p2p.getSuperpeer(clinic.getClinicName());
+		Superpeer sp = p2p.getSuperpeer(clinic.getClinicName(), log);
 		if(sp == null)
-			return "Error:Clinic does not exist";
+			return "Error:Super-peer could not be retrieved. Servlet Line Error-334";
 		String p2p_id = req.getParameter("P2PID");
-		Peer p = p2pdao.addPeer(c, sp, p2p_id);
-		p2pdao.setP2PAddress(p.getClinicianID(), clinic.getClinicName(), p2p_id);
+		Peer p = p2pdao.addPeer(c, sp, p2p_id, log);
+		if(p == null)
+			return "Error: Peer not created successfully";
 		log.log(Level.WARNING, "Peer: " + p.getClinicianID());
+		p2pdao.setP2PAddress(p.getClinicianID(), clinic.getClinicName(), p2p_id);
 		
 		String token = "";
 		if(p != null) {

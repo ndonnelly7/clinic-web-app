@@ -2,6 +2,7 @@
  * 
  */
 var concernHeight, neuroHeight, livingHeight, lifeHeight;
+
 $(function () {
 	$("ul.form-tabs").tabs($("div.sections > div"));
 	
@@ -88,6 +89,8 @@ function loadDetailsForm(){
 	});
 	var id = $("#id_from_attr").val();
 	var date = $("#current_date").val();
+	var start = new Date();
+	console.log("Requesting cloud data at: " + start.toTimeString());
 	$.ajax('/review.do', {
 		method:'GET',
 		dataType:'text',
@@ -104,6 +107,9 @@ function loadDetailsForm(){
 				printNullForm();
 			else {
 				loadDetails(response, id);
+				var now = new Date();
+				console.log("Cloud Data Arrived at: " + now.toTimeString());
+				console.log("Total Request Time: " + (now.getTime() - start.getTime()) + "ms")
 			}
 		}
 	});
@@ -530,7 +536,7 @@ function loadConcerns(json){
 				jx.find('input, textarea').prop('disabled', true);
 				concernHeight = jx.height();
 				jx.height(0)
-				x.style.margin= "0px 0px 0px 0px";
+				jx.style.margin= "0px 0px 0px 0px";
 			}
 		}
 		var elem = document.getElementById(key);

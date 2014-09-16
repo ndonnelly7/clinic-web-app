@@ -155,6 +155,9 @@
 		<input type="button" value="Store Patients" onclick="writePatientsManually()" class="home_button">
 		<div id="manual_add_status"></div>
 	</div>
+	<input type="button" value="Multiple Test" onclick="testMultiple()" class="home_button">
+	<input type="button" value="Multiple P2P" onclick="requestMultiplePatients()" class="home_button">
+	<div id="multiple_data"></div>
 	
 </div>
 <div id="hiddenButton" onclick="showInfoText()"></div>

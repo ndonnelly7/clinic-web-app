@@ -1,6 +1,8 @@
 package com.cloud.clinic.p2p;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -58,6 +60,32 @@ public class P2PDAO {
 		}
 		
 		return p2p;
+	}
+	
+	public void setP2P(P2P newP2p){
+		EntityManagerFactory emf = EMF.get();
+		EntityManager em = null;
+		EntityTransaction txn = null;
+		P2P p2p = null;
+		try {
+			em = emf.createEntityManager();
+			txn = em.getTransaction();
+			p2p = em.find(P2P.class, p2pdao_key);
+			txn.begin();
+			
+			p2p.setSps(newP2p.getSps());
+			txn.commit();
+			
+		} finally {
+			if(txn != null){
+				if(txn.isActive()){
+					txn.rollback();
+				}
+			}
+			
+			if(em!=null)
+				em.close();
+		}
 	}
 	
 	public boolean addSuperpeer(Superpeer sp){
@@ -132,7 +160,7 @@ public class P2PDAO {
 		return result;
 	}
 	
-	public Peer addPeer(Clinician c, Superpeer sp, String p2pToken){
+	public Peer addPeer(Clinician c, Superpeer sp, String p2pToken, Logger log){
 		Peer result = null;
 		
 		if(c == null || c.getClinicianID() == null)
@@ -151,7 +179,12 @@ public class P2PDAO {
 			p2p = em.find(P2P.class, p2pdao_key);
 			
 			if(p2p != null) {
-				result = p2p.signPeerIn(c, sp.getClinicID());
+				log.log(Level.WARNING, "P2PDAO156 - p2p is not null");
+				result = p2p.signPeerIn(c, sp.getClinicID(), log);
+				if(result != null)
+					log.log(Level.WARNING, "P2PDAO159 - Signed in peer - result = " + result.getClinicianID());
+				else
+					log.log(Level.WARNING, "P2PDAO161 - Peer is NULL - " + c.getClinicianID());
 				//System.out.println("Number of peers:" + p2p.getSuperpeer(sp.getClinicID()).getPeers().size());
 				//result.setP2pAddress(p2pToken);
 				txn.commit();
@@ -264,7 +297,7 @@ public class P2PDAO {
 			pd = em.find(P2P.class, p2pdao_key);
 			
 			if(pd != null) {
-				result = pd.getPeer(id, pd.getSuperpeer(clinicID));
+				result = pd.getPeer(id, pd.getSuperpeer(clinicID, null));
 			}
 		} finally {
 			if(em != null)
@@ -319,7 +352,7 @@ public class P2PDAO {
 			txn = em.getTransaction();
 			txn.begin();
 			if(pd != null) {
-				pd.getPeer(peerName, pd.getSuperpeer(clinicName)).setP2pAddress(p2pAddress);;
+				pd.getPeer(peerName, pd.getSuperpeer(clinicName, null)).setP2pAddress(p2pAddress);;
 				txn.commit();
 			}
 		} finally {

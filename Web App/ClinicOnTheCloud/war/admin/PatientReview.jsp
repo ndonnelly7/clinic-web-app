@@ -113,5 +113,6 @@
 <script src="/js/IDBForm.js"></script>
 <script src="/js/review.js"></script>
 <script src="/js/review_submission.js"></script>
+<script src="/js/Comm.js"></script>
 </body>
 </html>
