@@ -13,6 +13,11 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * 
+ * Bean for lifestyle activity
+ * 
+ */
 
 @Entity
 public class LifestyleActivity implements Serializable{
@@ -35,6 +40,8 @@ public class LifestyleActivity implements Serializable{
 	String type, involvement, time_changed, notes;
 	@Expose
 	int current_hours, prev_hours;
+	
+	//Used to denote whether an activity is collateral on the database
 	@Expose
 	boolean collat;
 	

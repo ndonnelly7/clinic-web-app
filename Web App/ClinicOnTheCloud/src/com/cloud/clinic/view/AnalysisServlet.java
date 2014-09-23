@@ -78,9 +78,11 @@ public class AnalysisServlet extends HttpServlet {
 		view.forward(req, resp);
 	}
 	
+	//Creates the list of outcomes from the http request
 	private ArrayList<Outcome> getOutcomeList(HttpServletRequest req, Analysis a){
 		ArrayList<Outcome> outs = new ArrayList<Outcome>();
 		
+		//Outcome information comes in form of array of values with id of 'outcome' and 'outcome_notes'
 		String[] outcomes = req.getParameterValues("outcome");
 		String[] outcome_notes = req.getParameterValues("outcome_notes");
 		for(int i = 0; i < outcomes.length; i++){
@@ -91,12 +93,15 @@ public class AnalysisServlet extends HttpServlet {
 			outs.add(o);
 		}
 		
+		//Returns list of outcome objects
 		return outs;
 	}
 	
+	//Creates the list of impressions from the http request
 	private ArrayList<Impression> getImpressionList(HttpServletRequest req, Analysis a){
 		ArrayList<Impression> imps = new ArrayList<Impression>();
 		
+		//Impression information comes in form of array of values with id of 'impression' and 'impression_notes'
 		String[] impressions = req.getParameterValues("impression");
 		String[] impression_notes = req.getParameterValues("impression_notes");
 		for(int i = 0; i < impressions.length; i++){
@@ -107,6 +112,7 @@ public class AnalysisServlet extends HttpServlet {
 			imps.add(impression);
 		}
 		
+		//Returns list of impression objects
 		return imps;
 	}
 }

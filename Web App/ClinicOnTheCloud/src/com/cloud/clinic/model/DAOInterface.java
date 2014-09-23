@@ -2,6 +2,12 @@ package com.cloud.clinic.model;
 
 import java.util.List;
 
+/*
+ * 
+ * Interface for DAO classes, used for Clinics, Clinicians, Patients
+ * 
+ */
+
 public interface DAOInterface <T, PK> {
 
 	PK create(T t);

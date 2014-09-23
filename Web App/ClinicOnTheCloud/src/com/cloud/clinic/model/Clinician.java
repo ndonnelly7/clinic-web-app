@@ -18,6 +18,8 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+
+
 @Entity
 public class Clinician implements java.io.Serializable{
 

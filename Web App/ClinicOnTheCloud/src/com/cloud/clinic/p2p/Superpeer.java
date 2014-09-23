@@ -16,6 +16,13 @@ import com.cloud.clinic.model.Clinic;
 import com.cloud.clinic.model.Clinician;
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * 
+ * Represents the clinic on the peer network
+ * Mostly getters and setters
+ * 
+ */
+
 @Entity
 public class Superpeer implements java.io.Serializable{
 	@Transient
@@ -26,6 +33,7 @@ public class Superpeer implements java.io.Serializable{
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "sp", cascade = CascadeType.ALL)
 	private ArrayList<Peer> peers;
 	
+	//The total number of peers signed into a super-peer
 	int totalNumberOfPeers;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -83,6 +91,7 @@ public class Superpeer implements java.io.Serializable{
 		this.p2p = p2p;
 	}
 
+	//Add peer to super-peers list of peers
 	public Peer signInPeer(Clinician c){
 		Peer p = new Peer(c, this);
 		if(peers == null)
@@ -91,6 +100,7 @@ public class Superpeer implements java.io.Serializable{
 		return p;
 	}
 	
+	//Removes peer from list
 	public boolean signOutPeer(String c){
 		boolean notfound = true;
 		if(peers == null)
@@ -105,6 +115,7 @@ public class Superpeer implements java.io.Serializable{
 		
 		return !notfound;
 	}
+	
 	
 	public void updateClinic(Peer origin, String patientID){
 		for(int i = 0; i < peers.size(); i++){

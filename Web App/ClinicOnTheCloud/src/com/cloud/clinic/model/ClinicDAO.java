@@ -8,10 +8,19 @@ import com.cloud.clinic.model.Clinic;
 import com.cloud.clinic.model.DAOInterface;
 import com.cloud.clinic.model.HibernateUtil;
 
+/*
+ * 
+ * Forms interface between Servlets and the Clinic, implements the DAO Interface
+ * 
+ * Uses Google Datastore
+ * 
+ */
 
 public class ClinicDAO implements DAOInterface<Clinic, String> {
 
+	//Salt string to hash passwords
 	private String salt = "{64!r<cgNcU^vP4u";
+	
 	
 	@Override
 	public String create(Clinic t) {
@@ -21,6 +30,7 @@ public class ClinicDAO implements DAOInterface<Clinic, String> {
 		Transaction tx = session.beginTransaction();
 		String returnID = "";
 		
+		//Save Or Update should either update the clinic or create a new one
 		session.saveOrUpdate(t);
 		session.flush();
 		returnID = t.getClinicName();
@@ -30,6 +40,7 @@ public class ClinicDAO implements DAOInterface<Clinic, String> {
 		return returnID;
 	}
 
+	
 	@Override
 	public Clinic get(String id) {
 		if(id.equals(""))
@@ -90,6 +101,8 @@ public class ClinicDAO implements DAOInterface<Clinic, String> {
 	@Override
 	public List<Clinic> getAll() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		//Creates a list of all clinics on the system
 		@SuppressWarnings("unchecked")
 		List<Clinic> list = session.createCriteria(Clinic.class).list();
 		
@@ -107,10 +120,13 @@ public class ClinicDAO implements DAOInterface<Clinic, String> {
 		
 	}
 
+	//Accepts plaintext password, combines it with the salt and hashes it together
 	public String hashPassword(String pw) {
 		return String.valueOf((pw.concat(salt)).hashCode());
 	}
 	
+	//Used to make sure the password given matches the clinic by accepting the clinic's name and password
+	//Returns a pair of clinic and string, if the clinic is null the string has the error message of what went wrong
 	public Pair<Clinic, String> validateClinic(String name, String pw){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		

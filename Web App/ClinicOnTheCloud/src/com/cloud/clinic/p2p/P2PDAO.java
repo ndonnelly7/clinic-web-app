@@ -15,8 +15,12 @@ import com.cloud.clinic.model.EMF;
 
 public class P2PDAO {
 
+	//Needs to be used to get same P2P from datastore
 	private String p2pdao_key = "p2pdao_key";
 	
+	//This is the bane of my existence for P2P on the cloud. It persists for a while but when it's stored by the cloud
+	//while the server is stopped, it forgets a bunch of the stuff it should know. Including the list of super-peers
+	//in the P2P object. So the super-peer list has to be constantly re-initialised and refilled
 	public void init(){
 		EntityManagerFactory emf = EMF.get();
 		EntityManager em = null;
@@ -29,10 +33,13 @@ public class P2PDAO {
 			if(p2p == null || !p2p.initialised){
 				
 				p2p = new P2P(p2pdao_key);
+				
+				//Gets all the clinics and creates super-peers for each
 				ClinicDAO cDAO = new ClinicDAO();
 				ArrayList<Clinic> clinics = (ArrayList<Clinic>) cDAO.getAll();
 				for(int i = 0; i < clinics.size(); i++){
 					Superpeer sp = new Superpeer(clinics.get(i));
+					//Add each super-peer to P2P's sps list
 					p2p.addSuperpeer(sp);
 				}
 				p2p.setInitialised(true);
@@ -45,6 +52,7 @@ public class P2PDAO {
 		}
 	}
 	
+	//Get the P2P
 	public P2P getP2P(){
 		EntityManagerFactory emf = EMF.get();
 		EntityManager em = null;
@@ -62,6 +70,7 @@ public class P2PDAO {
 		return p2p;
 	}
 	
+	//Update the P2P
 	public void setP2P(P2P newP2p){
 		EntityManagerFactory emf = EMF.get();
 		EntityManager em = null;
@@ -73,6 +82,7 @@ public class P2PDAO {
 			p2p = em.find(P2P.class, p2pdao_key);
 			txn.begin();
 			
+			//Set the new set of super-peers
 			p2p.setSps(newP2p.getSps());
 			txn.commit();
 			
@@ -88,9 +98,11 @@ public class P2PDAO {
 		}
 	}
 	
+	//Adds super-peer
 	public boolean addSuperpeer(Superpeer sp){
 		boolean result = false;
 		
+		//Make sure the super-peer is not null or incomplete
 		if(sp == null || sp.getClinicID() == null || sp.getId() == null){
 			return false;
 		}
@@ -124,9 +136,11 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Removes super-peer
 	public boolean removeSuperpeer(Superpeer sp){
 		boolean result = false;
-		
+
+		//Make sure the super-peer is not null or incomplete
 		if(sp == null || sp.getClinicID() == null || sp.getId() == null){
 			return false;
 		}
@@ -160,6 +174,8 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Adds a peer using the clinician object, the super-peer it should be a part of and the log for debugging
+	//The P2PToken is there but it's legacy for resetting the P2PAddress
 	public Peer addPeer(Clinician c, Superpeer sp, String p2pToken, Logger log){
 		Peer result = null;
 		
@@ -179,13 +195,11 @@ public class P2PDAO {
 			p2p = em.find(P2P.class, p2pdao_key);
 			
 			if(p2p != null) {
-				log.log(Level.WARNING, "P2PDAO156 - p2p is not null");
-				result = p2p.signPeerIn(c, sp.getClinicID(), log);
+				result = p2p.signPeerIn(c, sp.getClinicID(), log); //Attempts to sign peer in
 				if(result != null)
-					log.log(Level.WARNING, "P2PDAO159 - Signed in peer - result = " + result.getClinicianID());
+					log.log(Level.WARNING, "P2PDAO200 - Signed in peer - result = " + result.getClinicianID());
 				else
-					log.log(Level.WARNING, "P2PDAO161 - Peer is NULL - " + c.getClinicianID());
-				//System.out.println("Number of peers:" + p2p.getSuperpeer(sp.getClinicID()).getPeers().size());
+					log.log(Level.WARNING, "P2PDAO202 - Peer is NULL - " + c.getClinicianID());
 				//result.setP2pAddress(p2pToken);
 				txn.commit();
 			}
@@ -204,6 +218,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Removes peer from network
 	public boolean removePeer(Peer p, Superpeer sp) {
 		boolean result = false;
 		
@@ -241,6 +256,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Find a peer from the network with name
 	public Peer findPeer(String id) {
 		Peer result = null;
 		
@@ -263,6 +279,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Find a peer with a certain ID
 	public Peer findPeerWithP2PID(String peerID) {
 		Peer result = null;
 		
@@ -285,6 +302,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Find a peer with a certain name and from a certain clinic
 	public Peer getPeer(String id, String clinicID){
 		Peer result = null;
 		
@@ -307,6 +325,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Finds the old instance of the peer and updates it on the datastore
 	public boolean updatePeer(Peer p){
 		boolean result = false;
 		EntityManagerFactory emf = EMF.get();
@@ -320,9 +339,11 @@ public class P2PDAO {
 			txn = em.getTransaction();
 			txn.begin();
 			if(pd != null) {
+				//Remove old peer
 				if(pd.removePeer(p, p.getSp())){
+					//If it was removed, then add the new version
 					result = pd.addPeer(p, p.getSp());
-				} else result = false;
+				} else result = false; //No peer found so can't be updated
 				
 				txn.commit();
 			}
@@ -339,6 +360,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Sets the P2P Address on a peer for WebRTC communications
 	public boolean setP2PAddress(String peerName, String clinicName, String p2pAddress){
 		boolean result = false;
 		EntityManagerFactory emf = EMF.get();
@@ -352,6 +374,7 @@ public class P2PDAO {
 			txn = em.getTransaction();
 			txn.begin();
 			if(pd != null) {
+				//Finds the peer from a certain clinic and sets the P2P address
 				pd.getPeer(peerName, pd.getSuperpeer(clinicName, null)).setP2pAddress(p2pAddress);;
 				txn.commit();
 			}
@@ -368,6 +391,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Adds patient id to a peer
 	public boolean addPatientKeyToPeer(Peer p, Superpeer sp, int pID){
 		boolean result = false;
 		
@@ -403,6 +427,7 @@ public class P2PDAO {
 		return result;
 	}
 	
+	//Adds a job to the job queue
 	public void addJob(Job j){
 		EntityManagerFactory emf = EMF.get();
 		EntityManager em = null;
@@ -432,6 +457,8 @@ public class P2PDAO {
 		}
 	}
 	
+	//Makes a claim for the job.
+	//If the job is there, remove and return it. Otherwise return null
 	public Job claimJob(int id){
 		Job result = null;
 		

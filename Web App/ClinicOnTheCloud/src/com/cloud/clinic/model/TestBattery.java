@@ -15,6 +15,12 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * 
+ * Test battery bean
+ * 
+ */
+
 @Entity
 public class TestBattery {
 

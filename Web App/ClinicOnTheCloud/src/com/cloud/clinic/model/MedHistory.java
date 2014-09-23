@@ -35,6 +35,7 @@ public class MedHistory {
 	@Expose
 	String time, notes;
 	
+	//denotes whether a Medical History row is collateral on the DB
 	@Expose
 	boolean collat;
 	

@@ -1,5 +1,11 @@
 package com.cloud.clinic.model;
 
+/*
+ * 
+ * Just a helper class for Pair
+ * 
+ */
+
 public class Pair<A, B> {
 	private A a;
 	private B b;

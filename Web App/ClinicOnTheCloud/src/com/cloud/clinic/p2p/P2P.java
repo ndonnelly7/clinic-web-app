@@ -14,6 +14,12 @@ import javax.persistence.OneToOne;
 
 import com.cloud.clinic.model.Clinician;
 
+/*
+ * 
+ * Manages all the P2P relations between the clinicians (peers) and clinics (Super-peer)
+ * Contains the JobQueue and super peers
+ * 
+ */
 
 @Entity
 public class P2P {
@@ -27,8 +33,12 @@ public class P2P {
 	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private JobQueue jobQueue;
 	
+	//Count of all the current jobs
 	private int job_tick;
 	
+	//Supposed to tell whether the P2P object is fully initialised
+	//DOESN'T WORK - Remains for legacy reasons and a testament to 
+	//the silliness of the Google Datastore
 	boolean initialised;
 	
 	public P2P(String id){
@@ -85,6 +95,7 @@ public class P2P {
 		Iterator<Superpeer> it = sps.iterator();
 		while(it.hasNext()){
 			Superpeer spc = it.next();
+			//Checks to make sure the clinic is not already stored
 			if(spc.getClinicID().equals(sp.getClinicID())){
 				return false;
 			}
@@ -96,41 +107,53 @@ public class P2P {
 		return sps.remove(sp);
 	}
 	
+	//Gets the super-peer with the name and the console log is included for debugging  on App Engine console
 	public Superpeer getSuperpeer(String name, Logger log){
+		//Make sure the lists of super-peers isn't empty
+		//Which it almost always is 
 		if(sps == null){
 			if(log != null)
-				log.log(Level.WARNING, "P2P102 - List of Super-peers Empty");
+				log.log(Level.WARNING, "P2P116 - List of Super-peers Empty"); //Log it on
 			sps = new ArrayList<Superpeer>();
 			return null;
 		}
+		
+		//Iterate over all the super-peers to find the right one
 		Iterator<Superpeer> it = sps.iterator();
 		while(it.hasNext()){
 			Superpeer sp = it.next();
 			if(sp.getClinicID().equals(name)){
 				if(log != null)
-					log.log(Level.WARNING, "P2P111 - Found Super-peer: " + sp.getClinicID());
+					log.log(Level.WARNING, "P2P127 - Found Super-peer: " + sp.getClinicID());
 				return sp;
 			}
 		}
 		return null;
 	}
 	
+	//Adds peer to network with clinician object and name for the super-peer it should be a part of
+	//Also includes the log for debugging on App Engine console
 	public Peer signPeerIn(Clinician c, String spName, Logger log){
 		Superpeer sp = getSuperpeer(spName, log);
 		if(sp == null){
-			log.log(Level.WARNING, "P2P121 - Super-peer is null for some reason - " + spName);
+			log.log(Level.WARNING, "P2P139 - Super-peer is null for some reason - " + spName);
 			return null;
 		}
+		//Remove peer if it's already there
 		sp.signOutPeer(c.getClinicianID());
-		
+		//Returns whether the peer was successfully added
 		return sp.signInPeer(c);
 	}
 	
+	//Adds peer to the super-peer
 	public boolean addPeer(Peer p, Superpeer sp){
 		ArrayList<Peer> peers = sp.getPeers();
+		//Makes sure it's not already there
 		if(!peers.contains(p))
 			peers.add(p);
 		else return false;
+		
+		//Update the super-peer in the list
 		sp.setPeers(peers);
 		for(int i = 0; i < sps.size(); i++){
 			if(sps.get(i).getClinicID().equals(sp.getClinicID()))
@@ -139,16 +162,19 @@ public class P2P {
 		return true;
 	}
 	
+	//Removes peer from super-peer
 	public boolean removePeer(Peer p, Superpeer sp){
 		ArrayList<Peer> peers = sp.getPeers();
 		boolean result = false;
 		if(peers.contains(p))
 			result = peers.remove(p);
 		else return false;
+		//Updates list for super-peer
 		sp.setPeers(peers);
 		return result;
 	}
 	
+	//Remove peer from network using id for cliniciand and clinic
 	public boolean signPeerOut(String pName, String spName){
 		Superpeer sp = getSuperpeer(spName, null);
 		if(sp == null)
@@ -156,6 +182,7 @@ public class P2P {
 		return sp.signOutPeer(pName);
 	}
 	
+	//Find peer that has a certain clinician id that is part of a particular super-peer
 	public Peer getPeer(String clinicianID, Superpeer sp){
 		ArrayList<Peer> peers = sp.getPeers();
 		for(int i = 0; i < peers.size(); i++){
@@ -166,6 +193,7 @@ public class P2P {
 		return null;
 	}
 	
+	//Find peer with a certain clinician id on entire network
 	public Peer findPeer(String clinicianID){
 		Peer p = null;
 		int index = 0;
@@ -176,6 +204,8 @@ public class P2P {
 		return p;
 	}
 	
+	//Find a peer on the network with a certain P2P address (webRTC address)
+	//balloons performance for large network so should probably be deprecated on full scale implementation
 	public Peer findPeerWithP2PID(String peerID){
 		Peer p = null;
 		
@@ -191,6 +221,7 @@ public class P2P {
 		return p;
 	}
 	
+	//Adds a patient id to a peer
 	public boolean addPatientKey(Peer p, Superpeer sp, int id){
 		Peer peer = getPeer(p.getClinicianID(), sp);
 		if(peer == null || id <= 0)

@@ -19,6 +19,12 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * Bean for Events and Activities object to be stored on DB
+ * Has children tables for activities and collateral activities
+ * 
+ */
+
 @Entity
 public class EventsActivities implements Serializable {
 

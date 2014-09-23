@@ -5,6 +5,12 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+/*
+ * 
+ * Builds sessions for Hibernate
+ * 
+ */
+
 public class HibernateUtil {
 
 	private static final SessionFactory sessionFactory = buildSessionFactory();

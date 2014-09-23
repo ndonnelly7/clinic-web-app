@@ -12,6 +12,12 @@ import javax.persistence.OneToMany;
 
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * 
+ * Queue for jobs to be stored on Datastore
+ * 
+ */
+
 @Entity
 public class JobQueue {
 	
@@ -26,6 +32,7 @@ public class JobQueue {
 		jobs = new ArrayList<Job>();
 	}
 	
+	//Adds job to queue
 	public void addJob(Job j){
 		if(j != null){
 			if(jobs == null)
@@ -34,6 +41,7 @@ public class JobQueue {
 		}
 	}
 	
+	//removes all jobs that have missed their deadlines
 	public void cleanQueue(){
 		for(int i = jobs.size()-1; i >= 0; i--){
 			if(jobs.get(i).checkDeadline()){
@@ -42,6 +50,7 @@ public class JobQueue {
 		}
 	}
 	
+	//Gets the job with the matching id and then remove it and return the job
 	public Job claimJob(int jobID){
 		for(int i = jobs.size()-1; i >= 0; i--){
 			if(jobs.get(i).getJob_id() == jobID){

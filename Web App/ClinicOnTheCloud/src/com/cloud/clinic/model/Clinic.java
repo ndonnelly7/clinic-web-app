@@ -11,6 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+/*
+ * 
+ * Represents a clinic
+ * 
+ * Getters and setters mostly
+ * 
+ */
+
 @Entity
 public class Clinic implements java.io.Serializable{
 

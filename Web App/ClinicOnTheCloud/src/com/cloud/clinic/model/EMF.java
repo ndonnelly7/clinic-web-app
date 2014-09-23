@@ -4,6 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 /*
  * EntityManagerFactory Singleton as only one should be used
+ * Used for managing persistence objects
  */
 public final class EMF {
 	private static final EntityManagerFactory emfInstance =

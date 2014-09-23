@@ -13,6 +13,13 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * 
+ * Bean for Impression object
+ * Parent is the Analysis
+ * 
+ */
+
 @Entity
 public class Impression implements Serializable{
 

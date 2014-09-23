@@ -14,16 +14,28 @@ import javax.persistence.Transient;
 
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * 
+ * Job object used to contain information for P2P sharing tasks
+ * stored on google datastore
+ * 
+ */
+
 @Entity
 public class Job  implements java.io.Serializable{
 
 	@Transient
 	private static final long serialVersionUID = 1L;
 	
+	//unique id for the job
 	int job_id;
+	//Peer ID for who's requesting the data
 	String requestorName;
+	//String with job details to be sent to user
 	String job;
+	//Timestamp for when job was created
 	long timestamp;
+	//IDs of all the peers that were contacted with job
 	ArrayList<String> requestedPeers;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -98,6 +110,7 @@ public class Job  implements java.io.Serializable{
 		this.requestedPeers = requestedPeers;
 	}
 	
+	//Inspects the deadline for the job. If the job exists for more than three seconds then return true
 	public boolean checkDeadline(){
 		Calendar c = new GregorianCalendar();
 		long newTime = c.getTimeInMillis();

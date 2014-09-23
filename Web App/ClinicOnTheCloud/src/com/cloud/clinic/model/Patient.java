@@ -29,12 +29,15 @@ public class Patient implements java.io.Serializable{
 	@Column(name = "patientID", unique = true, nullable = false)
 	private int patientID;	
 	
+	//Supposed to hold a reference to the clinician that created it
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Clinician clinician;
 	
+	//Holds a reference to the original clinic
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Clinic clinic;
 	
+	//Mapping to all the forms correspond to the patient
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Form> forms;

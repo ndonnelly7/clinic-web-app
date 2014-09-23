@@ -35,6 +35,7 @@ public class DrugHistory implements Serializable {
 	@Expose
 	String drug, time, notes, sleep_med, benzo_med;
 	
+	//Used to define Collateral Drug History on DB
 	@Expose
 	boolean collat;
 	

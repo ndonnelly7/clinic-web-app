@@ -13,15 +13,25 @@ import javax.persistence.Transient;
 import com.cloud.clinic.model.Clinician;
 import com.google.appengine.api.datastore.Key;
 
+/*
+ * 
+ * Representation of Peer for the cloud. Mainly just getters and setters
+ * 
+ */
+
 @Entity
 public class Peer implements java.io.Serializable{
 	
 	@Transient
 	private static final long serialVersionUID = 1L;
 	
+	//reference to the clinicians
 	private String clinicianID;
+	//All the patient IDs the peer should have
 	private List<Integer> patientIDs;
+	//the Google Channel address that can be used to communicate with it
 	private String channelID;
+	//The P2P address for other peers to communicate with it
 	private String p2pAddress;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

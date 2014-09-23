@@ -13,6 +13,12 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * 
+ * Outcome bean for Analysis
+ * 
+ */
+
 @Entity
 public class Outcome implements Serializable{
 

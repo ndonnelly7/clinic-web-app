@@ -33,6 +33,8 @@ public class PatientHistory {
 	@OneToOne(fetch = FetchType.LAZY)
 	private Form form;
 	
+	
+	//Children tables
 	@Expose
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pHistory")
 	List<MedHistory> med_histories, med_collat_histories;

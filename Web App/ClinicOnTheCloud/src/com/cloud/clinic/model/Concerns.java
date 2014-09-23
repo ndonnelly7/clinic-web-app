@@ -12,7 +12,7 @@ import javax.persistence.Transient;
 import com.google.gson.annotations.Expose;
 
 /*
- * Concerns Class for the Concerns page of the form
+ * Concerns Bean for the Concerns page of the form
  */
 @Entity
 public class Concerns {

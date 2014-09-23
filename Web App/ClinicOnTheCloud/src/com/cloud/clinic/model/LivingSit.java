@@ -14,6 +14,12 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * 
+ * Bean for Living Situation object
+ * 
+ */
+
 @Entity
 public class LivingSit {
 

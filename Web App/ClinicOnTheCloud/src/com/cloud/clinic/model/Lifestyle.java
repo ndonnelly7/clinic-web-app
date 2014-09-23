@@ -17,6 +17,7 @@ import com.google.gson.annotations.Expose;
 
 /*
  * Lifestyle Class for corresponding page
+ * Parent for exercise activities and collateral exercise activities: LifestyleActivity
  */
 
 @Entity

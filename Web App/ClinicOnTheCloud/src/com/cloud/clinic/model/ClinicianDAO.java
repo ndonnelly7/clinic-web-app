@@ -5,6 +5,12 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+/*
+ * 
+ * Interface between servlet and clinician data. Implements DAO Interface
+ * 
+ */
+
 public class ClinicianDAO implements DAOInterface<Clinician, String> {
 
 	@Override
@@ -91,6 +97,7 @@ public class ClinicianDAO implements DAOInterface<Clinician, String> {
 		return list;
 	}
 
+	//Not really necessary for Google Datastore objects
 	@Override
 	public void runQuery(String sql) {
 		// TODO Auto-generated method stub

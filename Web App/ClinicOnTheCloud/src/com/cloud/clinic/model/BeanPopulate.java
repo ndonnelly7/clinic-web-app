@@ -9,6 +9,11 @@ import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
 
+/*
+ * 
+ * Attempts to populate a Java Bean from a Http Request
+ * 
+ */
 
 public class BeanPopulate {
 	public static void populateBean(Object formBean,

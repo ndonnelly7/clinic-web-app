@@ -17,6 +17,15 @@ import javax.persistence.Transient;
 
 import com.google.gson.annotations.Expose;
 
+/*
+ * 
+ * Form object
+ * Multiple held by each patient
+ * Contains timestamp of when the questionnaire was administered
+ * Contains every page of the questionnaire and a case number
+ * 
+ */
+
 @Entity(name="Form")
 public class Form implements java.io.Serializable{
 
@@ -41,6 +50,7 @@ public class Form implements java.io.Serializable{
 	@Expose
 	String case_number;
 
+	//Just used to denote whether a form was just created and needs to be initialised by the servlets
 	@Transient
 	private boolean isNew;
 	
