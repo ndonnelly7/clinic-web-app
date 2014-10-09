@@ -43,12 +43,14 @@ public class AnalysisServlet extends HttpServlet {
 		a.setOutcomes(getOutcomeList(req, a));
 		a.setImpressions(getImpressionList(req, a));
 		
+		//See concerns servlet for explanation of most of this
 		if(f.isNew()){
 			a.setForm(f);
 			f.setAnalysis(a);
 			pat.addForm(f);
 		} else {
 			if(f.getAnalysis() != null) {
+				//Remove all outcomes and impressions from the database connected to the old analysis page
 				a.setAnalysisID(f.getAnalysis().getAnalysisID());
 				dao.runQuery("delete from Outcome where analysis= " + String.valueOf(a.getAnalysisID()));
 				dao.runQuery("delete from Impression where analysis= " + String.valueOf(a.getAnalysisID()));

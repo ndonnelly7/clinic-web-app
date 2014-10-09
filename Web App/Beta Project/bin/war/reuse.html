@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="counties_select">
+<label for="county">County </label>
+<select name="county" class="county">
+	<option value="antrim">Antrim</option>
+	<option value="armagh">Armagh</option>
+	<option value="carlow">Carlow</option>
+	<option value="cavan">Cavan</option>
+	<option value="clare">Clare</option>
+	<option value="cork">Cork</option>
+	<option value="derry">Derry</option>
+	<option value="donegal">Donegal</option>
+	<option value="down">Down</option>
+	<option value="dublin">Dublin</option>
+	<option value="fermanagh">Fermanagh</option>
+	<option value="galway">Galway</option>
+	<option value="kerry">Kerry</option>
+	<option value="kildare">Kildare</option>
+	<option value="kilkenny">Kilkenny</option>
+	<option value="laois">Laois</option>
+	<option value="leitrim">Leitrim</option>
+	<option value="limerick">Limerick</option>
+	<option value="longford">Longford</option>
+	<option value="louth">Louth</option>
+	<option value="mayo">Mayo</option>
+	<option value="meath">Meath</option>
+	<option value="monaghan">Monaghan</option>
+	<option value="offaly">Offaly</option>
+	<option value="roscommon">Roscommon</option>
+	<option value="sligo">Sligo</option>
+	<option value="tipperary">Tipperary</option>
+	<option value="tyrone">Tyrone</option>
+	<option value="waterford">Wateford</option>
+	<option value="westmeath">Westmeath</option>
+	<option value="wexford">Wexford</option>
+	<option value="wicklow">Wicklow</option>
+</select>
+</div>
+<div id="timeframe_1m_3pyr">
+	<select name="time_frame" class="time_frame">
+		<option value="three_mon">3 months</option>
+		<option value="six_mon">6 months</option>
+		<option value="one_yr">1 year</option>
+		<option value="two_yr">2 years</option>
+		<option value="threep_yr">3+ years</option>
+	</select>
+</div>
+<div id="frequency_daily_yearly">
+	<select name="frequency" class="frequency">
+		<option value="daily">Daily</option>
+		<option value="weekly">Weekly</option>
+		<option value="monthly">Monthly</option>
+		<option value="yearly">Yearly</option>
+		<option value="once">One off</option>
+	</select>
+</div>
+<div id="timeframe_1m_3pyr_dis">
+	<select name="time_frame" class="time_frame" disabled>
+		<option value="three_mon">3 months</option>
+		<option value="six_mon">6 months</option>
+		<option value="one_yr">1 year</option>
+		<option value="two_yr">2 years</option>
+		<option value="threep_yr">3+ years</option>
+	</select>
+</div>
+<div id="frequency_daily_yearly_dis">
+	<select name="frequency" class="frequency" disabled>
+		<option value="daily">Daily</option>
+		<option value="weekly">Weekly</option>
+		<option value="monthly">Monthly</option>
+		<option value="yearly">Yearly</option>
+		<option value="once">One off</option>
+	</select>
+</div>
+<div id="informal_frequency">
+	<select name="freq_fail" class="freq_fail">
+		<option value="frequently">Frequently</option>
+		<option value="semi_freq">Every So Often</option>
+		<option value="rarely">Rarely</option>
+		<option value="once">Once Off</option>
+		<option value="never" selected="selected">Never</option>
+	</select>
+</div>
+
+<div id="lifestyle_qs">
+	<div id="difficulty_reason">
+		<div class="pure-u-1-3 subtitle">
+			<span>Reason:</span>
+		</div>
+		<div class="pure-u-1-3 select_box select_margin_change">
+			<select name="reason">
+				<option value="diet">Diet</option>
+				<option value="anxiety">Anxiety</option>
+				<option value="other">Other...</option>
+			</select>
+		</div>
+		<div class="pure-u-1-3 notes_column">
+			<textarea name="difficulty_reason_notes" form="lifestyle_form" rows="2"></textarea>
+		</div>
+	</div>
+	<div id="difficulty_start">
+		<div class="pure-u-1-3 subtitle">
+			<span>When did this start?</span>
+		</div>
+		<div class="pure-u-1-3 select_box select_margin_change">
+			<select name="time_frame">
+				<option value="three_mon">3 months</option>
+				<option value="six_mon">6 months</option>
+				<option value="one_yr">1 year</option>
+				<option value="two_yr">2 years</option>
+				<option value="threep_yr">3+ years</option>
+			</select>
+		</div>
+		<div class="pure-u-1-3 notes_column">
+			<textarea name="difficulty_start_notes" form="lifestyle_form" rows="2"></textarea>
+		</div>
+	</div>
+	
+	<div id="difficulty_often">
+		<div class="pure-u-1-3 subtitle">
+			<span>How often?</span>
+		</div>
+		<div class="pure-u-1-3 select_box select_margin_change">
+			<select name="frequency">
+				<option value="daily">Every Day</option>
+				<option value="freq">Frequently</option>
+				<option value="semi_rare">Every So Often</option>
+				<option value="rare">Rarely</option>
+			</select>
+		</div>
+		<div class="pure-u-1-3 notes_column">
+			<textarea name="difficulty_often_notes" form="lifestyle_form" rows="2"></textarea>
+		</div>
+	</div>
+	<br><br>
+</div>
+
+</body>
+</html>
