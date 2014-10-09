@@ -49,6 +49,8 @@ public class ConcernsServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		Form f;
+		//If assessment is not null then find form from that date
+		//otherwise, just get the latest form
 		if(assessment != null){
 			Calendar cAss = Calendar.getInstance();
 			cAss.setTime(ass);
@@ -61,12 +63,15 @@ public class ConcernsServlet extends HttpServlet {
 		
 		if(f.isNew()){
 			pat.addForm(f);
+			//Set the concerns object with id of old concerns, if old concerns object is not null
 			if(f.getConcerns() != null)
 				cons.setConcernsID(f.getConcerns().getConcernsID());
 		} 
 		cons.setForm(f);
+		//Set the concerns object with id of old concerns, if old concerns object is not null
 		if(f.getConcerns() != null)
 			cons.setConcernsID(f.getConcerns().getConcernsID());
+		//Update the list of forms
 		f.setConcerns(cons);
 		List<Form> fList =  pat.getForms();
 		for(int i = 0; i < fList.size(); i++){
@@ -76,6 +81,7 @@ public class ConcernsServlet extends HttpServlet {
 				break;
 			}
 		}
+		//Update patient with updated list
 		pat.setForms(fList);
 		dao.update(pat);
 		

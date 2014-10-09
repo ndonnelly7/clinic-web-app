@@ -19,6 +19,12 @@ import com.cloud.clinic.model.PersonalDetails;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/*
+ * 
+ * Retrieves the different pages of the form and returns it in JSON
+ * 
+ */
+
 @SuppressWarnings("serial")
 public class ReviewServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -44,6 +50,7 @@ public class ReviewServlet extends HttpServlet {
 			resp.getWriter().println("null_patient");
 			return;
 		}
+		//Builds the object to create JSON objcts
 		GsonBuilder builder = new GsonBuilder();
 		builder.excludeFieldsWithModifiers();
 		builder.excludeFieldsWithoutExposeAnnotation();
@@ -93,9 +100,12 @@ public class ReviewServlet extends HttpServlet {
 		
 		switch(page) {
 		case "DETAILS":
+			//Gets the object
 			PersonalDetails det = f.getPersonalDetails();
+			//Specifically define the case number
 			String case_num = f.getCase_number();
 			String case_str = "\"case_number\":\""+case_num+"\"";
+			//Convert the details obejct to JSON
 			String details = gson.toJson(det);
 			details = details.replaceFirst("\"gender\"", case_str + ",\"gender\"");
 			resp.setContentType("application/json");

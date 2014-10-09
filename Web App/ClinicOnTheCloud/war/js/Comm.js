@@ -7,6 +7,7 @@ var multistart;
 
 function CommInit(){
 	if(typeof(Storage) !== 'undefined'){
+		//Create the peer object using the dev key provided by PeerJS and the urls to an ICE and TURN servers
 			peer = new Peer({key: '52wkj9kt0t9ms4i',
 				debug:3,
 				config: {'iceServers': [
@@ -14,15 +15,19 @@ function CommInit(){
 			    { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
 			]}});
 			
+			//If successful, then record the P2PID
 			peer.on('open', function(id){
 				p2p_id = id;
 				console.log("P2P ID: " + p2p_id);
 				$("#infotext").append("<div>My Peer ID: "+p2p_id+"</div>");
+				//Inform the cloud of your entry into the peer network
 				syncMe();
+				//Store a flag to let the program know it has WebRTC capabilities
 				sessionStorage.setItem("p2p", true);
-				//Send p2p_id to server
 			});	
 			
+			//If it doesn't work, set the P2P flag to false, set P2PID to na and sync with the cloud.
+			//Will now be using Google Channel for communications
 			peer.on('error', function(err){
 				if(err.type = 'browser-incompatible'){
 					sessionStorage.setItem("p2p", false);
@@ -31,17 +36,21 @@ function CommInit(){
 				}
 			});
 			
+			//Sets the callback function for when the client receives a WebRTC request
 			peer.on('connection', receiveJSON);
 	}
 	
+	//Stop the browser from leaving before we can leave the network correctly
 	window.onbeforeunload = function(){
 		signMeOut();
+		//Make sure the user wants to do it and also buys time to successfully sign out
 		var response = "Are you sure?";
 		console.log(response);
 		return response;
 	}
 }
 
+//Sends an AJAX call to the cloud to sign in with P2PID
 function syncMe() {
 	$.ajax('/cliniconthecloud.do', {
 		method:'GET',
@@ -51,6 +60,7 @@ function syncMe() {
 			P2PID:p2p_id
 		},
 		success:function(response) {
+			//If the index of Error is less than zero then the peer is successfully signed in
 			if(response.indexOf("Error:") < 0){
 				$("#infotext").append("<div>Response From Initialisation: "+response+"</div>");
 				var arr = response.split(":");
@@ -84,27 +94,37 @@ function channelComm(message){
 	//Splits the data in the channel message into the parameters
 	var instruction = message.data.split(":");
 
+	//The first portion of the message is always the type of operation
 	$("#infotext").append("<div>Instruction:"+instruction[0]+"</div>");
 	switch(instruction[0]){
 	case 'PING':
+		//The PING command is used to test whether the Peer is still active
 		$("#infotext").append("<div>In PING section</div>");
 		sendPingResponse(instruction[1]);
 		break;
 	case 'SEND_PATIENT':
+		//Sends the patient over AJAX to be sent to the other peer with Google Channel
 		$("#infotext").append("<div>In SEND_PATIENT section</div>");
 		sendPatient(instruction[4], instruction[2], instruction[6]);
 		break;
 	case 'UPDATE_PEER':
+		//Sends all patient data over AJAX to be sent to the other peer with Google Channel
 		$("#infotext").append("<div>In UPDATE_PEER section</div>");
 		updatePeer(instruction[2], instruction[4]);
 		break;
 	case 'REMOVE_PATIENT':
+		//Removes a patient from the local database (doesn't exist on the cloud anymore)
 		$("#infotext").append("<div>In REMOVE_PATIENT section</div>");
 		removePatientInst(instruction[2]);
 		break;
 	case 'RECEIVE_PATIENTS':
+		//The cloud has sent patients from another peer over Google Channel so either theis client
+		//or the other has no WebRTC
 		$("#infotext").append("<div>In RECEIVE_PATIENT section</div>");
+		//The JSON with the patients is at index 2 so take and reformat for parsing
 		var parseString = instruction[2];
+		//Goes through rest of instruction and adds it to a parseString and divides them with colons to be parsed
+		//by the receiveJSONChannel function
 		for(var i = 3; i < instruction.length; i++){
 			parseString += ":" + instruction[i];
 		}
@@ -115,6 +135,7 @@ function channelComm(message){
 		sendMultiplePatients(instruction[2]);
 		break;
 	case 'JOB_POST':
+		//Cloud is informing the client of a job, so immediately try and claim it
 		$("#infotext").append("<div>In JOB_POST section</div>");
 		claimJob(instruction[2], instruction[4], instruction[6], instruction[8]);
 		break;
@@ -123,6 +144,7 @@ function channelComm(message){
 	}
 }
 
+//Claims a job on the cloud
 function claimJob(patientID, jobID, mode, type){
 	if(type=="REQUEST"){
 		getPatient(patientID, function(patient){

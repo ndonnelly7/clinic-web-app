@@ -21,6 +21,7 @@ import com.cloud.clinic.model.Patient;
 import com.cloud.clinic.model.PatientDAO;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
+//Please see Concerns Servlets for general notes
 @SuppressWarnings("serial")
 public class GPServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)

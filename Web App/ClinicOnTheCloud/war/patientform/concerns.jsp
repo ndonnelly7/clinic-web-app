@@ -32,12 +32,13 @@
 </div> 
 </form>
 <form id="concerns_form" class="pure-form pure-form-stacked" method="POST" action="concerns.do">
+<!-- Check to see if the patient wants their memory problems to be investigated -->
 	<fieldset id="invest_field">
 		<div>
 			<div class="concern_q">If we do find a problem with your memory, would you want to investigate it further at this point?</div>
 			<div class="concern_a">
 				<select id="wants_memory_investigation" name="wants_memory_investigation">
-					<option value="not_sure">Not sure</option>
+					<option value="not_sure">Not sure</option> <!-- Not sure is set to default in case the nurse does not know -->
 					<option value="yes">Yes</option>
 					<option value="no">No</option>
 				</select> 
@@ -45,10 +46,13 @@
 		</div>
 	</fieldset>
 	
-	
+	<!-- the memory concerns of the patient -->
 	<fieldset id="med_field">
 		<legend style="margin-bottom:-0.65em">What are the patient's concerns about their memory?</legend>
 		
+		<!-- Any new concerns should be added to this grid -->
+		<!-- Every concern has a title which has the name of the concern (rec_events etc.), a check box that ends with _check, the time that it began ending in _time -->
+		<!-- The frequency with which the concern arises ends with _freq and the severity ends with _severity, Whether the concern is worsening ends with _worsening -->
 		<div id="concerns_grid">
 			<div id="header_row">
 				<div class="pure-u-1-5 title">
@@ -73,6 +77,7 @@
 				</div>
 			</div>
 		
+		<!-- Recent Events concerns -->
 			<div id="events" class="concern">
 				<div class="pure-u-1-5 title">Recent Events</div>
 				<div class="pure-u-1-5 concerns_check">
@@ -678,15 +683,20 @@
 			</div>
 		</div>
 		
+		<!-- This is filled dynamically based on the check boxes for the concerns so the most worrying concern can be chosen -->
 		<div id="concerns_reactive" class="reactive_div">
 			<div class="title" style="display:inline-block">What concern do you think has the biggest impact on your life?</div>
 			<select name="most_impactful_concern" id="most_impactful_concern" style="display:inline-block">
 			</select>
 		</div>
 		
+		<!-- Same as above but for collateral operations -->
 		<div class="collat_div">
 			<input type="button" onclick="addNewCollatOption()" class="pure-button" value="Add Concern from Collateral">
 			<div class="hide_div" id="collat_concerns_grid">
+				<!-- Any new concerns should be added to this grid -->
+				<!-- Every concern has a title which has the name of the concern (rec_events etc.), a check box that ends with _check_collat, the time that it began ending in _time_collat -->
+				<!-- The frequency with which the concern arises ends with _freq_collat and the severity ends with _severity_collat, Whether the concern is worsening ends with _worsening_collat -->
 				<div id="header_row">
 					<div class="pure-u-1-5 title">
 						<h3>Concern</h3>
@@ -1337,6 +1347,7 @@
 <script>
 	var showingCollat = false;
 	$(document).ready(function() {
+		//Sets the hiddenID for submission
 		if("${id}" != "")
 			$("#hiddenID").val("${id}");
 		else if(typeof(Storage) !== "undefined"){
@@ -1346,6 +1357,7 @@
 		} else {
 			$("#hiddenID").val("0");
 		}
+		//Figures out if the collateral is needed to be shown using the SessionStorage
 		if(typeof(Storage) !== "undefined")
 			if(!(sessionStorage.collat))
 				hideCollat();
@@ -1353,6 +1365,7 @@
 		populateReactive();
 	});
 	
+	//Reveals or hides the collateral grid
 	function addNewCollatOption(){
 		if(!showingCollat){
 			$('#collat_concerns_grid').slideDown(500);
@@ -1372,6 +1385,7 @@
 		getPatientForm(p_id, printPForm);
 	}
 	
+	//Populates the drop down box suing the check boxes
 	function populateReactive(rowID){
 		$("#most_impactful_concern").html("<option value='unknown'>Unknown</option>");
 		$("#most_impactful_concern_collat").html("<option value='unknown'>Unknown</option>");
@@ -1393,6 +1407,8 @@
 		});
 	}
 	
+	//Either disables or re-enables the row of concerns based on if a checkbox was clicked
+	//The box is the checkbox itself, and the rowId is the identifier of the row that should be enabled
 	function showConcernRow(box, rowId){
 		if(box.checked){
 			$(rowId + " select").prop("disabled",false);
@@ -1403,6 +1419,7 @@
 		populateReactive(rowId);
 	}
 	
+	//Stores stuff locally before moving to another page
 	function nextPage(page){
 		
 		var p_id = -1;
@@ -1449,6 +1466,7 @@
 		spanClick(page)
 	}
 	
+	//Stores values locally and then submits the page to the servlet
 	function submitPage() {
 		var p_id = -1;
 		var collat = false;

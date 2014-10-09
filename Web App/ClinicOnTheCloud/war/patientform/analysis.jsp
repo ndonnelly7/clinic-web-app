@@ -34,6 +34,7 @@
 <form id="analysis_form" class="pure-form pure-form-aligned" method="POST" action="analysis.do">
 	<input type="hidden" value="${hiddenid}">
 	<fieldset id="mem_results_field">
+	<!-- All the test results from the Test BAttery on the previous page -->
 		<legend>Test Results</legend>
 		
 		<div id="test_results">
@@ -60,7 +61,9 @@
 	<fieldset id="form_results">
 		<legend>Analysis</legend>
 		
+		<!-- the impression stuff -->
 		<div class="pure-control-group" id="outcome_div">
+			<!-- the new impressions get added to this 'grid' -->
 			<div id="impression_grid">
 				<div id="header_row" class="pure-g-r">
 					<div class="pure-u-1-3 outcome_col">Impression</div>
@@ -73,7 +76,7 @@
 							<option value="difficulty_functioning_in_one_or_more_areas">Evidence of difficulty with functioning in one or more areas</option>
 							<option value="decline_from_previous_norms">Evidence of decline from previous norms for that person</option>
 							<option value="deviation_from_normative_tests">Deviation from normative test scores</option>
-							<!-- 
+							<!-- These are the old impressions for the original set of impressions
 							<option value="norm_neg">Normal Negative Screen</option>
 							<option value="ab_neg">Abnormal Negative Screen</option>
 							<option value="dementia">Possible for Dementia</option>
@@ -92,6 +95,7 @@
 			<input type="button" onclick="addNewImpression()" class="pure-button" value="Add Impression">
 		</div>
 		
+		<!-- Outcomes for the patient -->
 		<div class="pure-control-group" id="outcome_div">
 			<div id="outcome_grid">
 				<div id="header_row" class="pure-g-r">
@@ -169,6 +173,7 @@
 <script src="/js/IDBForm.js"></script>
 <script src="/js/analysis.js"></script>
 <script>
+//Sets the hiddenID on the page that is needed for submission to the servlet
 $(document).ready(function() {
 	if("${id}" != "")
 		$("#hiddenID").val("${id}");
